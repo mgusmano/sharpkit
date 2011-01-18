@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="html-4.01.cs" />
     <Compile Include="javascript-1.5.cs" />
+    <Compile Include="plugins\aspnetajax-3.5.cs" />
     <Compile Include="plugins\jquery-1.4.4.cs" />
     <Compile Include="plugins\jquery-ui-1.7.2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
