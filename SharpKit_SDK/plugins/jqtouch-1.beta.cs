@@ -6,7 +6,7 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.jQuery.jQTouch
 {
-    [JsType(JsMode.Prototype, Name = "$.jQTouch")]
+    [JsType(JsMode.Prototype, Name = "$.jQTouch", Export=false)]
     public class jQTouch
     {
         public jQTouch(jQTouchSettings settings)
