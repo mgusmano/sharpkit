@@ -109,6 +109,7 @@
   <ItemGroup>
     <Content Include="samples\C_jQuery_Samples\03_Ajax\MyHandler.ashx" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="plugins\jqtouch-1.beta.cs" />
   </ItemGroup>

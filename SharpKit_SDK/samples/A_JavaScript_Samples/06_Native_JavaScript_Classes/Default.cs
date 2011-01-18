@@ -14,8 +14,9 @@ namespace SharpKitSamples
 
         static void btn_onclick()
         {
-            JsNumber num1 = parseInt(document.getElementById("textbox1").As<HtmlInput>().value);
+            int num1 = parseInt(document.getElementById("textbox1").As<HtmlInput>().value);
             JsNumber num2 = parseInt(document.getElementById("textbox2").As<HtmlInput>().value);
+
 
             if (isNaN(num1) || isNaN(num2))
             {

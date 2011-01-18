@@ -5,7 +5,7 @@ using System.Diagnostics;
 using Sys.Net;
 namespace SharpKit.AspNetAjax3_5
 {
-    [JsType(JsMode.Global)]
+    [JsType(JsMode.Global, Export=false)]
     public partial class AspNetAjaxContext : HtmlContext
     {
     }

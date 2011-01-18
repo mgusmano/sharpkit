@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>
-        jQuery Events</h1>
+        jQuery Selectors</h1>
     <p>
         This sample demonstrates how to use jQuery selectors from C#.</p>
     <div class="MyExpander">

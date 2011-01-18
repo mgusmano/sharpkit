@@ -11,7 +11,7 @@
         Inline JS Code
     </h1>
     <p>
-        SharpKit enables you to write native JavaScript code as string directly in a C# method. </p>
+        The JsMethod attribute enables you to write native JavaScript code as string wrapped within a C# method signature. </p>
     <button onclick="btn_onclick();">
         Invoke inline JS code</button>
 </body>

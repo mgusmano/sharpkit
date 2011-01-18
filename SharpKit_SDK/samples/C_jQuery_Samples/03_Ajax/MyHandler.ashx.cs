@@ -19,7 +19,7 @@ namespace SharpKitSamples.jQuerySamples.AjaxSample
             var prm = context.Request["prm"];
 
             //Create a Json for result
-            var res = new MyResult { OriginalValue = "Hello World, prm=" + prm };
+            var res = new MyResult { OriginalValue = prm };
             res.NewValue = prm.ToUpper();
 
             //Serialize the result

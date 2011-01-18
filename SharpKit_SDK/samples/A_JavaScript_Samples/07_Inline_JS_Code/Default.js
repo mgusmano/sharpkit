@@ -2,5 +2,5 @@
 var SharpKitSamples = {};
 function btn_onclick()
 {
-	alert('This is native JS code!')
+	alert('This is native JS code!');return false;
 }

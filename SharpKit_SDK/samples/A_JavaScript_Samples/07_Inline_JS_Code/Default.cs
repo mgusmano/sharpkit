@@ -11,9 +11,12 @@ class InlineJSCodeSample : HtmlContext
 
     }
 
-    [JsMethod(Code = "alert('This is native JS code!')")]
-    static void btn_onclick()
+    [JsMethod(Code = "alert('This is native JS code!');return false;")]
+    static JsBoolean btn_onclick()
     {
+        //The following code is ignored because JsMethod.Code is defined
+        //The actual function code will be copied from the JsMethod.Code property
+        throw new System.NotImplementedException();
     }
 }
 
