@@ -19,8 +19,8 @@ namespace Ext
         public Action(object config) { throw new Exception(); }
         public void disable() { throw new Exception(); }
         public void each() { throw new Exception(); }
-        public void each(Action fn) { throw new Exception(); }
-        public void each(Action fn, object scope) { throw new Exception(); }
+        public void each(JsAction fn) { throw new Exception(); }
+        public void each(JsAction fn, object scope) { throw new Exception(); }
         public void enable() { throw new Exception(); }
         public void execute() { throw new Exception(); }
         public void execute(params object[] args) { throw new Exception(); }
@@ -32,8 +32,8 @@ namespace Ext
         public void setDisabled() { throw new Exception(); }
         public void setDisabled(bool disabled) { throw new Exception(); }
         public void setHandler() { throw new Exception(); }
-        public void setHandler(Action fn) { throw new Exception(); }
-        public void setHandler(Action fn, object scope) { throw new Exception(); }
+        public void setHandler(JsAction fn) { throw new Exception(); }
+        public void setHandler(JsAction fn, object scope) { throw new Exception(); }
         public void setHidden() { throw new Exception(); }
         public void setHidden(bool hidden) { throw new Exception(); }
         public void setIconClass() { throw new Exception(); }
@@ -46,7 +46,7 @@ namespace Ext
         [JsProperty(NativeField = true)]
         public bool disabled { get; set; }
         [JsProperty(NativeField = true)]
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         [JsProperty(NativeField = true)]
         public bool hidden { get; set; }
         [JsProperty(NativeField = true)]
@@ -54,7 +54,7 @@ namespace Ext
         [JsProperty(NativeField = true)]
         public string itemId { get; set; }
         [JsProperty(NativeField = true)]
-        public static Action prototype { get; set; }
+        public static JsAction prototype { get; set; }
         [JsProperty(NativeField = true)]
         public object scope { get; set; }
         [JsProperty(NativeField = true)]
@@ -69,7 +69,7 @@ namespace Ext
 
         // Properties
         public bool disabled { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public bool hidden { get; set; }
         public string iconCls { get; set; }
         public string itemId { get; set; }
@@ -326,8 +326,8 @@ namespace Ext
         public bool hasVisibleMenu() { throw new Exception(); }
         public void hideMenu() { throw new Exception(); }
         public Button setHandler() { throw new Exception(); }
-        public Button setHandler(Action handler) { throw new Exception(); }
-        public Button setHandler(Action handler, object scope) { throw new Exception(); }
+        public Button setHandler(JsAction handler) { throw new Exception(); }
+        public Button setHandler(JsAction handler, object scope) { throw new Exception(); }
         public Button setIcon() { throw new Exception(); }
         public Button setIcon(string icon) { throw new Exception(); }
         public Button setIconClass() { throw new Exception(); }
@@ -390,7 +390,7 @@ namespace Ext
         [JsProperty(NativeField = true)]
         public string text { get; set; }
         [JsProperty(NativeField = true)]
-        public Action toggleHandler { get; set; }
+        public JsAction toggleHandler { get; set; }
         [JsProperty(NativeField = true)]
         public string tooltipType { get; set; }
         [JsProperty(NativeField = true)]
@@ -432,7 +432,7 @@ namespace Ext
         public bool enableToggle { get; set; }
         public string fieldLabel { get; set; }
         public bool handleMouseEvents { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public double height { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
@@ -473,7 +473,7 @@ namespace Ext
         public Template template { get; set; }
         public string text { get; set; }
         public string toggleGroup { get; set; }
-        public Action toggleHandler { get; set; }
+        public JsAction toggleHandler { get; set; }
         public object tooltip { get; set; }
         public string tooltipType { get; set; }
         public object tpl { get; set; }
@@ -674,7 +674,7 @@ namespace Ext
         [JsProperty(NativeField = true)]
         public Array colors { get; set; }
         [JsProperty(NativeField = true)]
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         [JsProperty(NativeField = true)]
         public string itemCls { get; set; }
         [JsProperty(NativeField = true)]
@@ -711,7 +711,7 @@ namespace Ext
         public bool disabled { get; set; }
         public string disabledClass { get; set; }
         public string fieldLabel { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
         public string hideMode { get; set; }
@@ -769,7 +769,7 @@ namespace Ext
         public Component disable() { throw new Exception(); }
         public Component enable() { throw new Exception(); }
         public Container findParentBy() { throw new Exception(); }
-        public Container findParentBy(Action fn) { throw new Exception(); }
+        public Container findParentBy(JsAction fn) { throw new Exception(); }
         public Container findParentByType() { throw new Exception(); }
         public Container findParentByType(object xtype) { throw new Exception(); }
         public Container findParentByType(string xtype) { throw new Exception(); }
@@ -791,14 +791,14 @@ namespace Ext
         public void mon() { throw new Exception(); }
         public void mon(object item) { throw new Exception(); }
         public void mon(object item, object ename) { throw new Exception(); }
-        public void mon(object item, object ename, Action fn) { throw new Exception(); }
-        public void mon(object item, object ename, Action fn, object scope) { throw new Exception(); }
-        public void mon(object item, object ename, Action fn, object scope, object opt) { throw new Exception(); }
+        public void mon(object item, object ename, JsAction fn) { throw new Exception(); }
+        public void mon(object item, object ename, JsAction fn, object scope) { throw new Exception(); }
+        public void mon(object item, object ename, JsAction fn, object scope, object opt) { throw new Exception(); }
         public void mun() { throw new Exception(); }
         public void mun(object item) { throw new Exception(); }
         public void mun(object item, object ename) { throw new Exception(); }
-        public void mun(object item, object ename, Action fn) { throw new Exception(); }
-        public void mun(object item, object ename, Action fn, object scope) { throw new Exception(); }
+        public void mun(object item, object ename, JsAction fn) { throw new Exception(); }
+        public void mun(object item, object ename, JsAction fn, object scope) { throw new Exception(); }
         public Component nextSibling() { throw new Exception(); }
         public Component previousSibling() { throw new Exception(); }
         public Component removeClass() { throw new Exception(); }
@@ -821,7 +821,7 @@ namespace Ext
         public void update() { throw new Exception(); }
         public void update(object htmlOrData) { throw new Exception(); }
         public void update(object htmlOrData, bool loadScripts) { throw new Exception(); }
-        public void update(object htmlOrData, bool loadScripts, Action callback) { throw new Exception(); }
+        public void update(object htmlOrData, bool loadScripts, JsAction callback) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -1010,26 +1010,26 @@ namespace Ext
         public ComponentMgr() { throw new Exception(); }
         public static Component create() { throw new Exception(); }
         public static Component create(object config) { throw new Exception(); }
-        public static Component create(object config, Action defaultType) { throw new Exception(); }
+        public static Component create(object config, JsAction defaultType) { throw new Exception(); }
         public static Component createPlugin() { throw new Exception(); }
         public static Component createPlugin(object config) { throw new Exception(); }
-        public static Component createPlugin(object config, Action defaultType) { throw new Exception(); }
+        public static Component createPlugin(object config, JsAction defaultType) { throw new Exception(); }
         public static Component get() { throw new Exception(); }
         public static Component get(string id) { throw new Exception(); }
         public static bool isRegistered() { throw new Exception(); }
         public static bool isRegistered(Component xtype) { throw new Exception(); }
         public static void onAvailable() { throw new Exception(); }
         public static void onAvailable(string id) { throw new Exception(); }
-        public static void onAvailable(string id, Action fn) { throw new Exception(); }
-        public static void onAvailable(string id, Action fn, object scope) { throw new Exception(); }
+        public static void onAvailable(string id, JsAction fn) { throw new Exception(); }
+        public static void onAvailable(string id, JsAction fn, object scope) { throw new Exception(); }
         public static void register() { throw new Exception(); }
         public static void register(Component c) { throw new Exception(); }
         public static void registerPlugin() { throw new Exception(); }
         public static void registerPlugin(string ptype) { throw new Exception(); }
-        public static void registerPlugin(string ptype, Action cls) { throw new Exception(); }
+        public static void registerPlugin(string ptype, JsAction cls) { throw new Exception(); }
         public static void registerType() { throw new Exception(); }
         public static void registerType(string xtype) { throw new Exception(); }
-        public static void registerType(string xtype, Action cls) { throw new Exception(); }
+        public static void registerType(string xtype, JsAction cls) { throw new Exception(); }
         public static void unregister() { throw new Exception(); }
         public static void unregister(Component c) { throw new Exception(); }
 
@@ -1077,21 +1077,21 @@ namespace Ext
         public KeyMap addKeyListener(int key) { throw new Exception(); }
         public KeyMap addKeyListener(object key) { throw new Exception(); }
         public KeyMap addKeyListener(string key) { throw new Exception(); }
-        public KeyMap addKeyListener(Array key, Action fn) { throw new Exception(); }
-        public KeyMap addKeyListener(int key, Action fn) { throw new Exception(); }
-        public KeyMap addKeyListener(object key, Action fn) { throw new Exception(); }
-        public KeyMap addKeyListener(string key, Action fn) { throw new Exception(); }
-        public KeyMap addKeyListener(Array key, Action fn, object scope) { throw new Exception(); }
-        public KeyMap addKeyListener(int key, Action fn, object scope) { throw new Exception(); }
-        public KeyMap addKeyListener(object key, Action fn, object scope) { throw new Exception(); }
-        public KeyMap addKeyListener(string key, Action fn, object scope) { throw new Exception(); }
+        public KeyMap addKeyListener(Array key, JsAction fn) { throw new Exception(); }
+        public KeyMap addKeyListener(int key, JsAction fn) { throw new Exception(); }
+        public KeyMap addKeyListener(object key, JsAction fn) { throw new Exception(); }
+        public KeyMap addKeyListener(string key, JsAction fn) { throw new Exception(); }
+        public KeyMap addKeyListener(Array key, JsAction fn, object scope) { throw new Exception(); }
+        public KeyMap addKeyListener(int key, JsAction fn, object scope) { throw new Exception(); }
+        public KeyMap addKeyListener(object key, JsAction fn, object scope) { throw new Exception(); }
+        public KeyMap addKeyListener(string key, JsAction fn, object scope) { throw new Exception(); }
         public KeyMap addKeyMap() { throw new Exception(); }
         public KeyMap addKeyMap(object config) { throw new Exception(); }
         public void addListener() { throw new Exception(); }
         public void addListener(string eventName) { throw new Exception(); }
-        public void addListener(string eventName, Action fn) { throw new Exception(); }
-        public void addListener(string eventName, Action fn, object scope) { throw new Exception(); }
-        public void addListener(string eventName, Action fn, object scope, object options) { throw new Exception(); }
+        public void addListener(string eventName, JsAction fn) { throw new Exception(); }
+        public void addListener(string eventName, JsAction fn, object scope) { throw new Exception(); }
+        public void addListener(string eventName, JsAction fn, object scope, object options) { throw new Exception(); }
         public Element alignTo() { throw new Exception(); }
         public Element alignTo(object element) { throw new Exception(); }
         public Element alignTo(object element, string position) { throw new Exception(); }
@@ -1341,9 +1341,9 @@ namespace Ext
         public object next(string selector, bool returnDom) { throw new Exception(); }
         public void on() { throw new Exception(); }
         public void on(string eventName) { throw new Exception(); }
-        public void on(string eventName, Action fn) { throw new Exception(); }
-        public void on(string eventName, Action fn, object scope) { throw new Exception(); }
-        public void on(string eventName, Action fn, object scope, object options) { throw new Exception(); }
+        public void on(string eventName, JsAction fn) { throw new Exception(); }
+        public void on(string eventName, JsAction fn, object scope) { throw new Exception(); }
+        public void on(string eventName, JsAction fn, object scope, object options) { throw new Exception(); }
         public Element pause(int seconds) { throw new Exception(); }
         public void position() { throw new Exception(); }
         public void position(string pos) { throw new Exception(); }
@@ -1366,7 +1366,7 @@ namespace Ext
         public Element removeClass(string className) { throw new Exception(); }
         public Element removeListener() { throw new Exception(); }
         public Element removeListener(string eventName) { throw new Exception(); }
-        public Element removeListener(string eventName, Action fn) { throw new Exception(); }
+        public Element removeListener(string eventName, JsAction fn) { throw new Exception(); }
         public Element repaint() { throw new Exception(); }
         public Element replace() { throw new Exception(); }
         public Element replace(object el) { throw new Exception(); }
@@ -1496,7 +1496,7 @@ namespace Ext
         public object translatePoints(int x, int y) { throw new Exception(); }
         public Element un() { throw new Exception(); }
         public Element un(string eventName) { throw new Exception(); }
-        public Element un(string eventName, Action fn) { throw new Exception(); }
+        public Element un(string eventName, JsAction fn) { throw new Exception(); }
         public Element unclip() { throw new Exception(); }
         public void unmask() { throw new Exception(); }
         public Element unselectable() { throw new Exception(); }
@@ -1535,12 +1535,12 @@ namespace Ext
         public CompositeElement add(object els) { throw new Exception(); }
         public void clear() { throw new Exception(); }
         public CompositeElement each() { throw new Exception(); }
-        public CompositeElement each(Action fn) { throw new Exception(); }
-        public CompositeElement each(Action fn, object scope) { throw new Exception(); }
+        public CompositeElement each(JsAction fn) { throw new Exception(); }
+        public CompositeElement each(JsAction fn, object scope) { throw new Exception(); }
         public CompositeElement fill() { throw new Exception(); }
         public CompositeElement fill(object els) { throw new Exception(); }
         public CompositeElement filter() { throw new Exception(); }
-        public CompositeElement filter(Action selector) { throw new Exception(); }
+        public CompositeElement filter(JsAction selector) { throw new Exception(); }
         public CompositeElement filter(string selector) { throw new Exception(); }
         public double getCount() { throw new Exception(); }
         public double indexOf() { throw new Exception(); }
@@ -1583,14 +1583,14 @@ namespace Ext
         public Component add(Array component, object Optional, object Optional2) { throw new Exception(); }
         public Component add(object component, object Optional, object Optional2) { throw new Exception(); }
         public Container bubble() { throw new Exception(); }
-        public Container bubble(Action fn) { throw new Exception(); }
-        public Container bubble(Action fn, object scope) { throw new Exception(); }
-        public Container bubble(Action fn, object scope, Array args) { throw new Exception(); }
+        public Container bubble(JsAction fn) { throw new Exception(); }
+        public Container bubble(JsAction fn, object scope) { throw new Exception(); }
+        public Container bubble(JsAction fn, object scope, Array args) { throw new Exception(); }
         public void canLayout() { throw new Exception(); }
         public Container cascade() { throw new Exception(); }
-        public Container cascade(Action fn) { throw new Exception(); }
-        public Container cascade(Action fn, object scope) { throw new Exception(); }
-        public Container cascade(Action fn, object scope, Array args) { throw new Exception(); }
+        public Container cascade(JsAction fn) { throw new Exception(); }
+        public Container cascade(JsAction fn, object scope) { throw new Exception(); }
+        public Container cascade(JsAction fn, object scope, Array args) { throw new Exception(); }
         public Container doLayout() { throw new Exception(); }
         public Container doLayout(bool shallow) { throw new Exception(); }
         public Container doLayout(bool shallow, bool force) { throw new Exception(); }
@@ -1598,8 +1598,8 @@ namespace Ext
         public Array find(string prop) { throw new Exception(); }
         public Array find(string prop, string value) { throw new Exception(); }
         public Array findBy() { throw new Exception(); }
-        public Array findBy(Action fn) { throw new Exception(); }
-        public Array findBy(Action fn, object scope) { throw new Exception(); }
+        public Array findBy(JsAction fn) { throw new Exception(); }
+        public Array findBy(JsAction fn, object scope) { throw new Exception(); }
         public Component findById() { throw new Exception(); }
         public Component findById(string id) { throw new Exception(); }
         public Array findByType() { throw new Exception(); }
@@ -1760,7 +1760,7 @@ namespace Ext
 
         // Properties
         [JsProperty(NativeField = true)]
-        public Action changeHandler { get; set; }
+        public JsAction changeHandler { get; set; }
         [JsProperty(NativeField = true)]
         public string forceIcon { get; set; }
         [JsProperty(NativeField = true)]
@@ -1791,7 +1791,7 @@ namespace Ext
         public string anchor { get; set; }
         public object applyTo { get; set; }
         public string arrowAlign { get; set; }
-        public Action arrowHandler { get; set; }
+        public JsAction arrowHandler { get; set; }
         public string arrowTooltip { get; set; }
         public object autoEl { get; set; }
         public bool autoHeight { get; set; }
@@ -1803,7 +1803,7 @@ namespace Ext
         public double boxMinHeight { get; set; }
         public double boxMinWidth { get; set; }
         public string buttonSelector { get; set; }
-        public Action changeHandler { get; set; }
+        public JsAction changeHandler { get; set; }
         public string clearCls { get; set; }
         public string clickEvent { get; set; }
         public string cls { get; set; }
@@ -1816,7 +1816,7 @@ namespace Ext
         public string fieldLabel { get; set; }
         public string forceIcon { get; set; }
         public bool handleMouseEvents { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public double height { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
@@ -1860,7 +1860,7 @@ namespace Ext
         public Template template { get; set; }
         public string text { get; set; }
         public string toggleGroup { get; set; }
-        public Action toggleHandler { get; set; }
+        public JsAction toggleHandler { get; set; }
         public object tooltip { get; set; }
         public string tooltipType { get; set; }
         public object tpl { get; set; }
@@ -2135,7 +2135,7 @@ namespace Ext
         [JsProperty(NativeField = true)]
         public string format { get; set; }
         [JsProperty(NativeField = true)]
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         [JsProperty(NativeField = true)]
         public DateTime maxDate { get; set; }
         [JsProperty(NativeField = true)]
@@ -2198,7 +2198,7 @@ namespace Ext
         public string disabledDaysText { get; set; }
         public string fieldLabel { get; set; }
         public string format { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
         public string hideMode { get; set; }
@@ -2327,10 +2327,10 @@ namespace Ext
         public static void applyStyles() { throw new Exception(); }
         public static void applyStyles(HtmlElement el) { throw new Exception(); }
         public static void applyStyles(string el) { throw new Exception(); }
-        public static void applyStyles(HtmlElement el, Action styles) { throw new Exception(); }
+        public static void applyStyles(HtmlElement el, JsAction styles) { throw new Exception(); }
         public static void applyStyles(HtmlElement el, object styles) { throw new Exception(); }
         public static void applyStyles(HtmlElement el, string styles) { throw new Exception(); }
-        public static void applyStyles(string el, Action styles) { throw new Exception(); }
+        public static void applyStyles(string el, JsAction styles) { throw new Exception(); }
         public static void applyStyles(string el, object styles) { throw new Exception(); }
         public static void applyStyles(string el, string styles) { throw new Exception(); }
         public static object insertAfter() { throw new Exception(); }
@@ -2379,9 +2379,9 @@ namespace Ext
     {
         // Methods
         public DomQuery() { throw new Exception(); }
-        public static Action compile() { throw new Exception(); }
-        public static Action compile(string selector) { throw new Exception(); }
-        public static Action compile(string selector, string type) { throw new Exception(); }
+        public static JsAction compile() { throw new Exception(); }
+        public static JsAction compile(string selector) { throw new Exception(); }
+        public static JsAction compile(string selector, string type) { throw new Exception(); }
         public static Array filter() { throw new Exception(); }
         public static Array filter(Array el) { throw new Exception(); }
         public static Array filter(Array el, string selector) { throw new Exception(); }
@@ -2614,9 +2614,9 @@ namespace Ext
         public object next(string selector, bool returnDom) { throw new Exception(); }
         public void on() { throw new Exception(); }
         public void on(string eventName) { throw new Exception(); }
-        public void on(string eventName, Action fn) { throw new Exception(); }
-        public void on(string eventName, Action fn, object scope) { throw new Exception(); }
-        public void on(string eventName, Action fn, object scope, object options) { throw new Exception(); }
+        public void on(string eventName, JsAction fn) { throw new Exception(); }
+        public void on(string eventName, JsAction fn, object scope) { throw new Exception(); }
+        public void on(string eventName, JsAction fn, object scope, object options) { throw new Exception(); }
         public object parent() { throw new Exception(); }
         public object parent(string selector) { throw new Exception(); }
         public object parent(string selector, bool returnDom) { throw new Exception(); }
@@ -2639,7 +2639,7 @@ namespace Ext
         public Element syncFx() { throw new Exception(); }
         public Element un() { throw new Exception(); }
         public Element un(string eventName) { throw new Exception(); }
-        public Element un(string eventName, Action fn) { throw new Exception(); }
+        public Element un(string eventName, JsAction fn) { throw new Exception(); }
         public Element up() { throw new Exception(); }
         public Element up(string selector) { throw new Exception(); }
         public Element up(string selector, double maxDepth) { throw new Exception(); }
@@ -2690,16 +2690,16 @@ namespace Ext
         public static void addListener(string el) { throw new Exception(); }
         public static void addListener(HtmlElement el, string eventName) { throw new Exception(); }
         public static void addListener(string el, string eventName) { throw new Exception(); }
-        public static void addListener(HtmlElement el, string eventName, Action handler) { throw new Exception(); }
-        public static void addListener(string el, string eventName, Action handler) { throw new Exception(); }
-        public static void addListener(HtmlElement el, string eventName, Action handler, object scope) { throw new Exception(); }
-        public static void addListener(string el, string eventName, Action handler, object scope) { throw new Exception(); }
-        public static void addListener(HtmlElement el, string eventName, Action handler, object scope, object options) { throw new Exception(); }
-        public static void addListener(string el, string eventName, Action handler, object scope, object options) { throw new Exception(); }
+        public static void addListener(HtmlElement el, string eventName, JsAction handler) { throw new Exception(); }
+        public static void addListener(string el, string eventName, JsAction handler) { throw new Exception(); }
+        public static void addListener(HtmlElement el, string eventName, JsAction handler, object scope) { throw new Exception(); }
+        public static void addListener(string el, string eventName, JsAction handler, object scope) { throw new Exception(); }
+        public static void addListener(HtmlElement el, string eventName, JsAction handler, object scope, object options) { throw new Exception(); }
+        public static void addListener(string el, string eventName, JsAction handler, object scope, object options) { throw new Exception(); }
         public static void onDocumentReady() { throw new Exception(); }
-        public static void onDocumentReady(Action fn) { throw new Exception(); }
-        public static void onDocumentReady(Action fn, object scope) { throw new Exception(); }
-        public static void onDocumentReady(Action fn, object scope, bool options) { throw new Exception(); }
+        public static void onDocumentReady(JsAction fn) { throw new Exception(); }
+        public static void onDocumentReady(JsAction fn, object scope) { throw new Exception(); }
+        public static void onDocumentReady(JsAction fn, object scope, bool options) { throw new Exception(); }
         public static void removeAll() { throw new Exception(); }
         public static void removeAll(HtmlElement el) { throw new Exception(); }
         public static void removeAll(string el) { throw new Exception(); }
@@ -2708,10 +2708,10 @@ namespace Ext
         public static void removeListener(string el) { throw new Exception(); }
         public static void removeListener(HtmlElement el, string eventName) { throw new Exception(); }
         public static void removeListener(string el, string eventName) { throw new Exception(); }
-        public static void removeListener(HtmlElement el, string eventName, Action fn) { throw new Exception(); }
-        public static void removeListener(string el, string eventName, Action fn) { throw new Exception(); }
-        public static void removeListener(HtmlElement el, string eventName, Action fn, object scope) { throw new Exception(); }
-        public static void removeListener(string el, string eventName, Action fn, object scope) { throw new Exception(); }
+        public static void removeListener(HtmlElement el, string eventName, JsAction fn) { throw new Exception(); }
+        public static void removeListener(string el, string eventName, JsAction fn) { throw new Exception(); }
+        public static void removeListener(HtmlElement el, string eventName, JsAction fn, object scope) { throw new Exception(); }
+        public static void removeListener(string el, string eventName, JsAction fn, object scope) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -2775,13 +2775,13 @@ namespace Ext
         public static object each() { throw new Exception(); }
         public static object each(Array array) { throw new Exception(); }
         public static object each(object array) { throw new Exception(); }
-        public static object each(Array array, Action fn) { throw new Exception(); }
-        public static object each(object array, Action fn) { throw new Exception(); }
-        public static object each(Array array, Action fn, object scope) { throw new Exception(); }
-        public static object each(object array, Action fn, object scope) { throw new Exception(); }
-        public static Action extend() { throw new Exception(); }
-        public static Action extend(Action superclass) { throw new Exception(); }
-        public static Action extend(Action superclass, object overrides) { throw new Exception(); }
+        public static object each(Array array, JsAction fn) { throw new Exception(); }
+        public static object each(object array, JsAction fn) { throw new Exception(); }
+        public static object each(Array array, JsAction fn, object scope) { throw new Exception(); }
+        public static object each(object array, JsAction fn, object scope) { throw new Exception(); }
+        public static JsAction extend() { throw new Exception(); }
+        public static JsAction extend(JsAction superclass) { throw new Exception(); }
+        public static JsAction extend(JsAction superclass, object overrides) { throw new Exception(); }
         public static Element fly(HtmlElement el) { throw new Exception(); }
         public static Element fly(string el) { throw new Exception(); }
         public static Element fly(HtmlElement el, string named) { throw new Exception(); }
@@ -2821,17 +2821,17 @@ namespace Ext
         public static void iterate() { throw new Exception(); }
         public static void iterate(Array obj) { throw new Exception(); }
         public static void iterate(object obj) { throw new Exception(); }
-        public static void iterate(Array obj, Action fn) { throw new Exception(); }
-        public static void iterate(object obj, Action fn) { throw new Exception(); }
-        public static void iterate(Array obj, Action fn, object scope) { throw new Exception(); }
-        public static void iterate(object obj, Action fn, object scope) { throw new Exception(); }
+        public static void iterate(Array obj, JsAction fn) { throw new Exception(); }
+        public static void iterate(object obj, JsAction fn) { throw new Exception(); }
+        public static void iterate(Array obj, JsAction fn, object scope) { throw new Exception(); }
+        public static void iterate(object obj, JsAction fn, object scope) { throw new Exception(); }
         public static object namespace_() { throw new Exception(); }
         public static object namespace_(params string[] args) { throw new Exception(); }
         public static object ns() { throw new Exception(); }
         public static object ns(params string[] args) { throw new Exception(); }
-        public static void onReady(Action fn) { throw new Exception(); }
-        public static void onReady(Action fn, object scope) { throw new Exception(); }
-        public static void onReady(Action fn, object scope, bool options) { throw new Exception(); }
+        public static void onReady(JsAction fn) { throw new Exception(); }
+        public static void onReady(JsAction fn, object scope) { throw new Exception(); }
+        public static void onReady(JsAction fn, object scope, bool options) { throw new Exception(); }
         public static void override_() { throw new Exception(); }
         public static void override_(object origclass) { throw new Exception(); }
         public static void override_(object origclass, object overrides) { throw new Exception(); }
@@ -3187,12 +3187,12 @@ namespace Ext
         public void on(Array key) { throw new Exception(); }
         public void on(double key) { throw new Exception(); }
         public void on(object key) { throw new Exception(); }
-        public void on(Array key, Action fn) { throw new Exception(); }
-        public void on(double key, Action fn) { throw new Exception(); }
-        public void on(object key, Action fn) { throw new Exception(); }
-        public void on(Array key, Action fn, object scope) { throw new Exception(); }
-        public void on(double key, Action fn, object scope) { throw new Exception(); }
-        public void on(object key, Action fn, object scope) { throw new Exception(); }
+        public void on(Array key, JsAction fn) { throw new Exception(); }
+        public void on(double key, JsAction fn) { throw new Exception(); }
+        public void on(object key, JsAction fn) { throw new Exception(); }
+        public void on(Array key, JsAction fn, object scope) { throw new Exception(); }
+        public void on(double key, JsAction fn, object scope) { throw new Exception(); }
+        public void on(object key, JsAction fn, object scope) { throw new Exception(); }
         public void setDisabled() { throw new Exception(); }
         public void setDisabled(bool disabled) { throw new Exception(); }
 
@@ -3332,13 +3332,13 @@ namespace Ext
         public static MessageBox alert() { throw new Exception(); }
         public static MessageBox alert(string title) { throw new Exception(); }
         public static MessageBox alert(string title, string msg) { throw new Exception(); }
-        public static MessageBox alert(string title, string msg, Action fn) { throw new Exception(); }
-        public static MessageBox alert(string title, string msg, Action fn, object scope) { throw new Exception(); }
+        public static MessageBox alert(string title, string msg, JsAction fn) { throw new Exception(); }
+        public static MessageBox alert(string title, string msg, JsAction fn, object scope) { throw new Exception(); }
         public static MessageBox confirm() { throw new Exception(); }
         public static MessageBox confirm(string title) { throw new Exception(); }
         public static MessageBox confirm(string title, string msg) { throw new Exception(); }
-        public static MessageBox confirm(string title, string msg, Action fn) { throw new Exception(); }
-        public static MessageBox confirm(string title, string msg, Action fn, object scope) { throw new Exception(); }
+        public static MessageBox confirm(string title, string msg, JsAction fn) { throw new Exception(); }
+        public static MessageBox confirm(string title, string msg, JsAction fn, object scope) { throw new Exception(); }
         public static Window getDialog() { throw new Exception(); }
         public static MessageBox hide() { throw new Exception(); }
         public static bool isVisible() { throw new Exception(); }
@@ -3349,12 +3349,12 @@ namespace Ext
         public static MessageBox prompt() { throw new Exception(); }
         public static MessageBox prompt(string title) { throw new Exception(); }
         public static MessageBox prompt(string title, string msg) { throw new Exception(); }
-        public static MessageBox prompt(string title, string msg, Action fn) { throw new Exception(); }
-        public static MessageBox prompt(string title, string msg, Action fn, object scope) { throw new Exception(); }
-        public static MessageBox prompt(string title, string msg, Action fn, object scope, bool multiline) { throw new Exception(); }
-        public static MessageBox prompt(string title, string msg, Action fn, object scope, double multiline) { throw new Exception(); }
-        public static MessageBox prompt(string title, string msg, Action fn, object scope, bool multiline, string value) { throw new Exception(); }
-        public static MessageBox prompt(string title, string msg, Action fn, object scope, double multiline, string value) { throw new Exception(); }
+        public static MessageBox prompt(string title, string msg, JsAction fn) { throw new Exception(); }
+        public static MessageBox prompt(string title, string msg, JsAction fn, object scope) { throw new Exception(); }
+        public static MessageBox prompt(string title, string msg, JsAction fn, object scope, bool multiline) { throw new Exception(); }
+        public static MessageBox prompt(string title, string msg, JsAction fn, object scope, double multiline) { throw new Exception(); }
+        public static MessageBox prompt(string title, string msg, JsAction fn, object scope, bool multiline, string value) { throw new Exception(); }
+        public static MessageBox prompt(string title, string msg, JsAction fn, object scope, double multiline, string value) { throw new Exception(); }
         public static MessageBox setIcon() { throw new Exception(); }
         public static MessageBox setIcon(string icon) { throw new Exception(); }
         public static MessageBox show() { throw new Exception(); }
@@ -3583,10 +3583,10 @@ namespace Ext
         public Button addButton() { throw new Exception(); }
         public Button addButton(object config) { throw new Exception(); }
         public Button addButton(string config) { throw new Exception(); }
-        public Button addButton(object config, Action handler) { throw new Exception(); }
-        public Button addButton(string config, Action handler) { throw new Exception(); }
-        public Button addButton(object config, Action handler, object scope) { throw new Exception(); }
-        public Button addButton(string config, Action handler, object scope) { throw new Exception(); }
+        public Button addButton(object config, JsAction handler) { throw new Exception(); }
+        public Button addButton(string config, JsAction handler) { throw new Exception(); }
+        public Button addButton(object config, JsAction handler, object scope) { throw new Exception(); }
+        public Button addButton(string config, JsAction handler, object scope) { throw new Exception(); }
         public Panel collapse() { throw new Exception(); }
         public Panel collapse(bool animate) { throw new Exception(); }
         public Panel expand() { throw new Exception(); }
@@ -3601,7 +3601,7 @@ namespace Ext
         public Toolbar getTopToolbar() { throw new Exception(); }
         public Updater getUpdater() { throw new Exception(); }
         public Panel load() { throw new Exception(); }
-        public Panel load(Action config) { throw new Exception(); }
+        public Panel load(JsAction config) { throw new Exception(); }
         public Panel load(object config) { throw new Exception(); }
         public Panel load(string config) { throw new Exception(); }
         public void setIconClass() { throw new Exception(); }
@@ -4639,7 +4639,7 @@ namespace Ext
             public void setElementSize() { throw new Exception(); }
             public void setElementSize(SplitBar s) { throw new Exception(); }
             public void setElementSize(SplitBar s, double newSize) { throw new Exception(); }
-            public void setElementSize(SplitBar s, double newSize, Action onComplete) { throw new Exception(); }
+            public void setElementSize(SplitBar s, double newSize, JsAction onComplete) { throw new Exception(); }
 
             // Properties
             [JsProperty(NativeField = true)]
@@ -4688,8 +4688,8 @@ namespace Ext
         public SplitButton(object config) { throw new Exception(); }
         public SplitButton(string config) { throw new Exception(); }
         public void setArrowHandler() { throw new Exception(); }
-        public void setArrowHandler(Action handler) { throw new Exception(); }
-        public void setArrowHandler(Action handler, object scope) { throw new Exception(); }
+        public void setArrowHandler(JsAction handler) { throw new Exception(); }
+        public void setArrowHandler(JsAction handler, object scope) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -4712,7 +4712,7 @@ namespace Ext
         public string anchor { get; set; }
         public object applyTo { get; set; }
         public string arrowAlign { get; set; }
-        public Action arrowHandler { get; set; }
+        public JsAction arrowHandler { get; set; }
         public string arrowTooltip { get; set; }
         public object autoEl { get; set; }
         public bool autoHeight { get; set; }
@@ -4735,7 +4735,7 @@ namespace Ext
         public bool enableToggle { get; set; }
         public string fieldLabel { get; set; }
         public bool handleMouseEvents { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public double height { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
@@ -4776,7 +4776,7 @@ namespace Ext
         public Template template { get; set; }
         public string text { get; set; }
         public string toggleGroup { get; set; }
-        public Action toggleHandler { get; set; }
+        public JsAction toggleHandler { get; set; }
         public object tooltip { get; set; }
         public string tooltipType { get; set; }
         public object tpl { get; set; }
@@ -4804,7 +4804,7 @@ namespace Ext
         public StoreMgr() { throw new Exception(); }
         public StoreMgr(StoreMgrConfig config) { throw new Exception(); }
         public StoreMgr(bool allowFunctions) { throw new Exception(); }
-        public StoreMgr(bool allowFunctions, Action keyFn) { throw new Exception(); }
+        public StoreMgr(bool allowFunctions, JsAction keyFn) { throw new Exception(); }
         public static Store lookup() { throw new Exception(); }
         public static Store lookup(object id) { throw new Exception(); }
         public static Store lookup(string id) { throw new Exception(); }
@@ -6033,8 +6033,8 @@ namespace Ext
         public void formUpdate(string form, string url) { throw new Exception(); }
         public void formUpdate(HtmlElement form, string url, bool reset) { throw new Exception(); }
         public void formUpdate(string form, string url, bool reset) { throw new Exception(); }
-        public void formUpdate(HtmlElement form, string url, bool reset, Action callback) { throw new Exception(); }
-        public void formUpdate(string form, string url, bool reset, Action callback) { throw new Exception(); }
+        public void formUpdate(HtmlElement form, string url, bool reset, JsAction callback) { throw new Exception(); }
+        public void formUpdate(string form, string url, bool reset, JsAction callback) { throw new Exception(); }
         public void formUpdateDelegate() { throw new Exception(); }
         public void getDefaultRenderer() { throw new Exception(); }
         public Element getEl() { throw new Exception(); }
@@ -6042,36 +6042,36 @@ namespace Ext
         public void isAutoRefreshing() { throw new Exception(); }
         public bool isUpdating() { throw new Exception(); }
         public void refresh() { throw new Exception(); }
-        public void refresh(Action callback) { throw new Exception(); }
+        public void refresh(JsAction callback) { throw new Exception(); }
         public void setDefaultUrl() { throw new Exception(); }
-        public void setDefaultUrl(Action defaultUrl) { throw new Exception(); }
+        public void setDefaultUrl(JsAction defaultUrl) { throw new Exception(); }
         public void setDefaultUrl(string defaultUrl) { throw new Exception(); }
         public void setRenderer() { throw new Exception(); }
         public void setRenderer(object renderer) { throw new Exception(); }
         public void showLoading() { throw new Exception(); }
         public void startAutoRefresh() { throw new Exception(); }
         public void startAutoRefresh(double interval) { throw new Exception(); }
-        public void startAutoRefresh(double interval, Action url) { throw new Exception(); }
+        public void startAutoRefresh(double interval, JsAction url) { throw new Exception(); }
         public void startAutoRefresh(double interval, object url) { throw new Exception(); }
         public void startAutoRefresh(double interval, string url) { throw new Exception(); }
-        public void startAutoRefresh(double interval, Action url, object prms) { throw new Exception(); }
-        public void startAutoRefresh(double interval, Action url, string prms) { throw new Exception(); }
+        public void startAutoRefresh(double interval, JsAction url, object prms) { throw new Exception(); }
+        public void startAutoRefresh(double interval, JsAction url, string prms) { throw new Exception(); }
         public void startAutoRefresh(double interval, object url, object prms) { throw new Exception(); }
         public void startAutoRefresh(double interval, object url, string prms) { throw new Exception(); }
         public void startAutoRefresh(double interval, string url, object prms) { throw new Exception(); }
         public void startAutoRefresh(double interval, string url, string prms) { throw new Exception(); }
-        public void startAutoRefresh(double interval, Action url, object prms, Action callback) { throw new Exception(); }
-        public void startAutoRefresh(double interval, Action url, string prms, Action callback) { throw new Exception(); }
-        public void startAutoRefresh(double interval, object url, object prms, Action callback) { throw new Exception(); }
-        public void startAutoRefresh(double interval, object url, string prms, Action callback) { throw new Exception(); }
-        public void startAutoRefresh(double interval, string url, object prms, Action callback) { throw new Exception(); }
-        public void startAutoRefresh(double interval, string url, string prms, Action callback) { throw new Exception(); }
-        public void startAutoRefresh(double interval, Action url, object prms, Action callback, bool refreshNow) { throw new Exception(); }
-        public void startAutoRefresh(double interval, Action url, string prms, Action callback, bool refreshNow) { throw new Exception(); }
-        public void startAutoRefresh(double interval, object url, object prms, Action callback, bool refreshNow) { throw new Exception(); }
-        public void startAutoRefresh(double interval, object url, string prms, Action callback, bool refreshNow) { throw new Exception(); }
-        public void startAutoRefresh(double interval, string url, object prms, Action callback, bool refreshNow) { throw new Exception(); }
-        public void startAutoRefresh(double interval, string url, string prms, Action callback, bool refreshNow) { throw new Exception(); }
+        public void startAutoRefresh(double interval, JsAction url, object prms, JsAction callback) { throw new Exception(); }
+        public void startAutoRefresh(double interval, JsAction url, string prms, JsAction callback) { throw new Exception(); }
+        public void startAutoRefresh(double interval, object url, object prms, JsAction callback) { throw new Exception(); }
+        public void startAutoRefresh(double interval, object url, string prms, JsAction callback) { throw new Exception(); }
+        public void startAutoRefresh(double interval, string url, object prms, JsAction callback) { throw new Exception(); }
+        public void startAutoRefresh(double interval, string url, string prms, JsAction callback) { throw new Exception(); }
+        public void startAutoRefresh(double interval, JsAction url, object prms, JsAction callback, bool refreshNow) { throw new Exception(); }
+        public void startAutoRefresh(double interval, JsAction url, string prms, JsAction callback, bool refreshNow) { throw new Exception(); }
+        public void startAutoRefresh(double interval, object url, object prms, JsAction callback, bool refreshNow) { throw new Exception(); }
+        public void startAutoRefresh(double interval, object url, string prms, JsAction callback, bool refreshNow) { throw new Exception(); }
+        public void startAutoRefresh(double interval, string url, object prms, JsAction callback, bool refreshNow) { throw new Exception(); }
+        public void startAutoRefresh(double interval, string url, string prms, JsAction callback, bool refreshNow) { throw new Exception(); }
         public void stopAutoRefresh() { throw new Exception(); }
         public void update() { throw new Exception(); }
         public void update(object options) { throw new Exception(); }
@@ -6090,7 +6090,7 @@ namespace Ext
         [JsProperty(NativeField = true)]
         public static Updater prototype { get; set; }
         [JsProperty(NativeField = true)]
-        public Action refreshDelegate { get; set; }
+        public JsAction refreshDelegate { get; set; }
         [JsProperty(NativeField = true)]
         public object renderer { get; set; }
         [JsProperty(NativeField = true)]
@@ -6104,7 +6104,7 @@ namespace Ext
         [JsProperty(NativeField = true)]
         public object transaction { get; set; }
         [JsProperty(NativeField = true)]
-        public Action updateDelegate { get; set; }
+        public JsAction updateDelegate { get; set; }
 
         // Nested Types
         [JsType(JsMode.Prototype, Export = false)]
@@ -6116,7 +6116,7 @@ namespace Ext
             public void render(Element el) { throw new Exception(); }
             public void render(Element el, object xhr) { throw new Exception(); }
             public void render(Element el, object xhr, Updater updateManager) { throw new Exception(); }
-            public void render(Element el, object xhr, Updater updateManager, Action callback) { throw new Exception(); }
+            public void render(Element el, object xhr, Updater updateManager, JsAction callback) { throw new Exception(); }
 
             // Properties
             [JsProperty(NativeField = true)]
@@ -6296,10 +6296,10 @@ namespace Ext
         public Window hide() { throw new Exception(); }
         public Window hide(Element animateTarget) { throw new Exception(); }
         public Window hide(string animateTarget) { throw new Exception(); }
-        public Window hide(Element animateTarget, Action callback) { throw new Exception(); }
-        public Window hide(string animateTarget, Action callback) { throw new Exception(); }
-        public Window hide(Element animateTarget, Action callback, object scope) { throw new Exception(); }
-        public Window hide(string animateTarget, Action callback, object scope) { throw new Exception(); }
+        public Window hide(Element animateTarget, JsAction callback) { throw new Exception(); }
+        public Window hide(string animateTarget, JsAction callback) { throw new Exception(); }
+        public Window hide(Element animateTarget, JsAction callback, object scope) { throw new Exception(); }
+        public Window hide(string animateTarget, JsAction callback, object scope) { throw new Exception(); }
         public Window maximize() { throw new Exception(); }
         public Window minimize() { throw new Exception(); }
         public Window restore() { throw new Exception(); }
@@ -6311,10 +6311,10 @@ namespace Ext
         public Window show() { throw new Exception(); }
         public Window show(Element animateTarget) { throw new Exception(); }
         public Window show(string animateTarget) { throw new Exception(); }
-        public Window show(Element animateTarget, Action callback) { throw new Exception(); }
-        public Window show(string animateTarget, Action callback) { throw new Exception(); }
-        public Window show(Element animateTarget, Action callback, object scope) { throw new Exception(); }
-        public Window show(string animateTarget, Action callback, object scope) { throw new Exception(); }
+        public Window show(Element animateTarget, JsAction callback) { throw new Exception(); }
+        public Window show(string animateTarget, JsAction callback) { throw new Exception(); }
+        public Window show(Element animateTarget, JsAction callback, object scope) { throw new Exception(); }
+        public Window show(string animateTarget, JsAction callback, object scope) { throw new Exception(); }
         public Window toBack() { throw new Exception(); }
         public Window toFront() { throw new Exception(); }
         public Window toFront(bool e) { throw new Exception(); }
@@ -6364,7 +6364,7 @@ namespace Ext
         [JsProperty(NativeField = true)]
         public object monitorResize { get; set; }
         [JsProperty(NativeField = true)]
-        public Action onEsc { get; set; }
+        public JsAction onEsc { get; set; }
         [JsProperty(NativeField = true)]
         public object onHide { get; set; }
         [JsProperty(NativeField = true)]
@@ -6481,7 +6481,7 @@ namespace Ext
         public double minWidth { get; set; }
         public bool modal { get; set; }
         public bool monitorResize { get; set; }
-        public Action onEsc { get; set; }
+        public JsAction onEsc { get; set; }
         public string overCls { get; set; }
         public object padding { get; set; }
         public double pageX { get; set; }
@@ -6543,15 +6543,15 @@ namespace Ext
         public bool bringToFront(object win) { throw new Exception(); }
         public bool bringToFront(string win) { throw new Exception(); }
         public void each() { throw new Exception(); }
-        public void each(Action fn) { throw new Exception(); }
-        public void each(Action fn, object scope) { throw new Exception(); }
+        public void each(JsAction fn) { throw new Exception(); }
+        public void each(JsAction fn, object scope) { throw new Exception(); }
         public Window get() { throw new Exception(); }
         public Window get(object id) { throw new Exception(); }
         public Window get(string id) { throw new Exception(); }
         public Window getActive() { throw new Exception(); }
         public Array getBy() { throw new Exception(); }
-        public Array getBy(Action fn) { throw new Exception(); }
-        public Array getBy(Action fn, object scope) { throw new Exception(); }
+        public Array getBy(JsAction fn) { throw new Exception(); }
+        public Array getBy(JsAction fn, object scope) { throw new Exception(); }
         public void hideAll() { throw new Exception(); }
         public void register() { throw new Exception(); }
         public void register(Window win) { throw new Exception(); }
@@ -6612,7 +6612,7 @@ namespace Ext
         public XTemplate(object config) { throw new Exception(); }
         public string applyTemplate() { throw new Exception(); }
         public string applyTemplate(object values) { throw new Exception(); }
-        public Action compile() { throw new Exception(); }
+        public JsAction compile() { throw new Exception(); }
         public static Template from() { throw new Exception(); }
         public static Template from(HtmlElement el) { throw new Exception(); }
         public static Template from(string el) { throw new Exception(); }
@@ -7849,15 +7849,15 @@ namespace Ext.data
         public void request(string action, Record rs) { throw new Exception(); }
         public void request(string action, Record rs, object prms) { throw new Exception(); }
         public void request(string action, Record rs, object prms, DataReader reader) { throw new Exception(); }
-        public void request(string action, Record rs, object prms, DataReader reader, Action callback) { throw new Exception(); }
-        public void request(string action, Record rs, object prms, DataReader reader, Action callback, object scope) { throw new Exception(); }
-        public void request(string action, Record rs, object prms, DataReader reader, Action callback, object scope, object options) { throw new Exception(); }
+        public void request(string action, Record rs, object prms, DataReader reader, JsAction callback) { throw new Exception(); }
+        public void request(string action, Record rs, object prms, DataReader reader, JsAction callback, object scope) { throw new Exception(); }
+        public void request(string action, Record rs, object prms, DataReader reader, JsAction callback, object scope, object options) { throw new Exception(); }
         public void setApi() { throw new Exception(); }
         public void setApi(object api) { throw new Exception(); }
         public void setApi(string api) { throw new Exception(); }
-        public void setApi(object api, Action url) { throw new Exception(); }
+        public void setApi(object api, JsAction url) { throw new Exception(); }
         public void setApi(object api, string url) { throw new Exception(); }
-        public void setApi(string api, Action url) { throw new Exception(); }
+        public void setApi(string api, JsAction url) { throw new Exception(); }
         public void setApi(string api, string url) { throw new Exception(); }
 
         // Properties
@@ -7866,9 +7866,9 @@ namespace Ext.data
         [JsProperty(NativeField = true)]
         public object load { get; set; }
         [JsProperty(NativeField = true)]
-        public Action onRead { get; set; }
+        public JsAction onRead { get; set; }
         [JsProperty(NativeField = true)]
-        public Action onWrite { get; set; }
+        public JsAction onWrite { get; set; }
         [JsProperty(NativeField = true)]
         public static DataProxy prototype { get; set; }
         [JsProperty(NativeField = true)]
@@ -7910,9 +7910,9 @@ namespace Ext.data
 
         // Properties
         public object api { get; set; }
-        public Action doRequest { get; set; }
-        public Action onRead { get; set; }
-        public Action onWrite { get; set; }
+        public JsAction doRequest { get; set; }
+        public JsAction onRead { get; set; }
+        public JsAction onWrite { get; set; }
         public bool restful { get; set; }
     }
 
@@ -7998,9 +7998,9 @@ namespace Ext.data
 
         // Properties
         [JsProperty(NativeField = true)]
-        public Action createRecord { get; set; }
+        public JsAction createRecord { get; set; }
         [JsProperty(NativeField = true)]
-        public Action destroyRecord { get; set; }
+        public JsAction destroyRecord { get; set; }
         [JsProperty(NativeField = true)]
         public bool listful { get; set; }
         [JsProperty(NativeField = true)]
@@ -8008,7 +8008,7 @@ namespace Ext.data
         [JsProperty(NativeField = true)]
         public object render { get; set; }
         [JsProperty(NativeField = true)]
-        public Action updateRecord { get; set; }
+        public JsAction updateRecord { get; set; }
         [JsProperty(NativeField = true)]
         public bool writeAllFields { get; set; }
     }
@@ -8020,10 +8020,10 @@ namespace Ext.data
         public DataWriterConfig() { throw new Exception(); }
 
         // Properties
-        public Action createRecord { get; set; }
-        public Action destroyRecord { get; set; }
+        public JsAction createRecord { get; set; }
+        public JsAction destroyRecord { get; set; }
         public bool listful { get; set; }
-        public Action updateRecord { get; set; }
+        public JsAction updateRecord { get; set; }
         public bool writeAllFields { get; set; }
     }
 
@@ -8038,9 +8038,9 @@ namespace Ext.data
         public void doRequest(string action, Record rs) { throw new Exception(); }
         public void doRequest(string action, Record rs, object prms) { throw new Exception(); }
         public void doRequest(string action, Record rs, object prms, DataReader reader) { throw new Exception(); }
-        public void doRequest(string action, Record rs, object prms, DataReader reader, Action callback) { throw new Exception(); }
-        public void doRequest(string action, Record rs, object prms, DataReader reader, Action callback, object scope) { throw new Exception(); }
-        public void doRequest(string action, Record rs, object prms, DataReader reader, Action callback, object scope, object arg) { throw new Exception(); }
+        public void doRequest(string action, Record rs, object prms, DataReader reader, JsAction callback) { throw new Exception(); }
+        public void doRequest(string action, Record rs, object prms, DataReader reader, JsAction callback, object scope) { throw new Exception(); }
+        public void doRequest(string action, Record rs, object prms, DataReader reader, JsAction callback, object scope, object arg) { throw new Exception(); }
         public void onRead() { throw new Exception(); }
         public void onRead(string action) { throw new Exception(); }
         public void onRead(string action, object trans) { throw new Exception(); }
@@ -8055,7 +8055,7 @@ namespace Ext.data
 
         // Properties
         [JsProperty(NativeField = true)]
-        public Action directFn { get; set; }
+        public JsAction directFn { get; set; }
         [JsProperty(NativeField = true)]
         public object paramOrder { get; set; }
         [JsProperty(NativeField = true)]
@@ -8074,10 +8074,10 @@ namespace Ext.data
 
         // Properties
         public object api { get; set; }
-        public Action directFn { get; set; }
-        public Action doRequest { get; set; }
-        public Action onRead { get; set; }
-        public Action onWrite { get; set; }
+        public JsAction directFn { get; set; }
+        public JsAction doRequest { get; set; }
+        public JsAction onRead { get; set; }
+        public JsAction onWrite { get; set; }
         public object paramOrder { get; set; }
         public bool paramsAsHash { get; set; }
         public bool restful { get; set; }
@@ -8135,7 +8135,7 @@ namespace Ext.data
         [JsProperty(NativeField = true)]
         public bool allowBlank { get; set; }
         [JsProperty(NativeField = true)]
-        public Action convert { get; set; }
+        public JsAction convert { get; set; }
         [JsProperty(NativeField = true)]
         public string dateFormat { get; set; }
         [JsProperty(NativeField = true)]
@@ -8149,7 +8149,7 @@ namespace Ext.data
         [JsProperty(NativeField = true)]
         public string sortDir { get; set; }
         [JsProperty(NativeField = true)]
-        public Action sortType { get; set; }
+        public JsAction sortType { get; set; }
         [JsProperty(NativeField = true)]
         public string type { get; set; }
     }
@@ -8162,13 +8162,13 @@ namespace Ext.data
 
         // Properties
         public bool allowBlank { get; set; }
-        public Action convert { get; set; }
+        public JsAction convert { get; set; }
         public string dateFormat { get; set; }
         public object defaultValue { get; set; }
         public object mapping { get; set; }
         public string name { get; set; }
         public string sortDir { get; set; }
-        public Action sortType { get; set; }
+        public JsAction sortType { get; set; }
         public string type { get; set; }
     }
 
@@ -8238,9 +8238,9 @@ namespace Ext.data
         public void doRequest(string action, Record rs) { throw new Exception(); }
         public void doRequest(string action, Record rs, object prms) { throw new Exception(); }
         public void doRequest(string action, Record rs, object prms, DataReader reader) { throw new Exception(); }
-        public void doRequest(string action, Record rs, object prms, DataReader reader, Action callback) { throw new Exception(); }
-        public void doRequest(string action, Record rs, object prms, DataReader reader, Action callback, object scope) { throw new Exception(); }
-        public void doRequest(string action, Record rs, object prms, DataReader reader, Action callback, object scope, object arg) { throw new Exception(); }
+        public void doRequest(string action, Record rs, object prms, DataReader reader, JsAction callback) { throw new Exception(); }
+        public void doRequest(string action, Record rs, object prms, DataReader reader, JsAction callback, object scope) { throw new Exception(); }
+        public void doRequest(string action, Record rs, object prms, DataReader reader, JsAction callback, object scope, object arg) { throw new Exception(); }
         public Connection getConnection() { throw new Exception(); }
         public void onRead() { throw new Exception(); }
         public void onRead(string action) { throw new Exception(); }
@@ -8271,9 +8271,9 @@ namespace Ext.data
 
         // Properties
         public object api { get; set; }
-        public Action doRequest { get; set; }
-        public Action onRead { get; set; }
-        public Action onWrite { get; set; }
+        public JsAction doRequest { get; set; }
+        public JsAction onRead { get; set; }
+        public JsAction onWrite { get; set; }
         public bool restful { get; set; }
     }
 
@@ -8426,12 +8426,12 @@ namespace Ext.data
         public JsonWriterConfig() { throw new Exception(); }
 
         // Properties
-        public Action createRecord { get; set; }
-        public Action destroyRecord { get; set; }
+        public JsAction createRecord { get; set; }
+        public JsAction destroyRecord { get; set; }
         public bool encode { get; set; }
         public bool listful { get; set; }
         public bool returnJson { get; set; }
-        public Action updateRecord { get; set; }
+        public JsAction updateRecord { get; set; }
         public bool writeAllFields { get; set; }
     }
 
@@ -8447,9 +8447,9 @@ namespace Ext.data
         public void doRequest(string action, Record rs) { throw new Exception(); }
         public void doRequest(string action, Record rs, object prms) { throw new Exception(); }
         public void doRequest(string action, Record rs, object prms, DataReader reader) { throw new Exception(); }
-        public void doRequest(string action, Record rs, object prms, DataReader reader, Action callback) { throw new Exception(); }
-        public void doRequest(string action, Record rs, object prms, DataReader reader, Action callback, object scope) { throw new Exception(); }
-        public void doRequest(string action, Record rs, object prms, DataReader reader, Action callback, object scope, object arg) { throw new Exception(); }
+        public void doRequest(string action, Record rs, object prms, DataReader reader, JsAction callback) { throw new Exception(); }
+        public void doRequest(string action, Record rs, object prms, DataReader reader, JsAction callback, object scope) { throw new Exception(); }
+        public void doRequest(string action, Record rs, object prms, DataReader reader, JsAction callback, object scope, object arg) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -8466,9 +8466,9 @@ namespace Ext.data
 
         // Properties
         public object api { get; set; }
-        public Action doRequest { get; set; }
-        public Action onRead { get; set; }
-        public Action onWrite { get; set; }
+        public JsAction doRequest { get; set; }
+        public JsAction onRead { get; set; }
+        public JsAction onWrite { get; set; }
         public bool restful { get; set; }
     }
 
@@ -8494,26 +8494,26 @@ namespace Ext.data
         public Node appendChild(Node node) { throw new Exception(); }
         public Node appendChild(Array node) { throw new Exception(); }
         public void bubble() { throw new Exception(); }
-        public void bubble(Action fn) { throw new Exception(); }
-        public void bubble(Action fn, object scope) { throw new Exception(); }
-        public void bubble(Action fn, object scope, Array args) { throw new Exception(); }
+        public void bubble(JsAction fn) { throw new Exception(); }
+        public void bubble(JsAction fn, object scope) { throw new Exception(); }
+        public void bubble(JsAction fn, object scope, Array args) { throw new Exception(); }
         public void cascade() { throw new Exception(); }
-        public void cascade(Action fn) { throw new Exception(); }
-        public void cascade(Action fn, object scope) { throw new Exception(); }
-        public void cascade(Action fn, object scope, Array args) { throw new Exception(); }
+        public void cascade(JsAction fn) { throw new Exception(); }
+        public void cascade(JsAction fn, object scope) { throw new Exception(); }
+        public void cascade(JsAction fn, object scope, Array args) { throw new Exception(); }
         public bool contains() { throw new Exception(); }
         public bool contains(Node node) { throw new Exception(); }
         public void destroy() { throw new Exception(); }
         public void eachChild() { throw new Exception(); }
-        public void eachChild(Action fn) { throw new Exception(); }
-        public void eachChild(Action fn, object scope) { throw new Exception(); }
-        public void eachChild(Action fn, object scope, Array args) { throw new Exception(); }
+        public void eachChild(JsAction fn) { throw new Exception(); }
+        public void eachChild(JsAction fn, object scope) { throw new Exception(); }
+        public void eachChild(JsAction fn, object scope, Array args) { throw new Exception(); }
         public Node findChild() { throw new Exception(); }
         public Node findChild(string attribute) { throw new Exception(); }
         public Node findChild(string attribute, object value) { throw new Exception(); }
         public Node findChildBy() { throw new Exception(); }
-        public Node findChildBy(Action fn) { throw new Exception(); }
-        public Node findChildBy(Action fn, object scope) { throw new Exception(); }
+        public Node findChildBy(JsAction fn) { throw new Exception(); }
+        public Node findChildBy(JsAction fn, object scope) { throw new Exception(); }
         public double getDepth() { throw new Exception(); }
         public Tree getOwnerTree() { throw new Exception(); }
         public string getPath() { throw new Exception(); }
@@ -8543,8 +8543,8 @@ namespace Ext.data
         public void setId() { throw new Exception(); }
         public void setId(string id) { throw new Exception(); }
         public void sort() { throw new Exception(); }
-        public void sort(Action fn) { throw new Exception(); }
-        public void sort(Action fn, object scope) { throw new Exception(); }
+        public void sort(JsAction fn) { throw new Exception(); }
+        public void sort(JsAction fn, object scope) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -8625,8 +8625,8 @@ namespace Ext.data
         public void commit(bool silent) { throw new Exception(); }
         public Record copy() { throw new Exception(); }
         public Record copy(string id) { throw new Exception(); }
-        public static Action create() { throw new Exception(); }
-        public static Action create(Array o) { throw new Exception(); }
+        public static JsAction create() { throw new Exception(); }
+        public static JsAction create(Array o) { throw new Exception(); }
         public void endEdit() { throw new Exception(); }
         public object get() { throw new Exception(); }
         public object get(string name) { throw new Exception(); }
@@ -8684,7 +8684,7 @@ namespace Ext.data
         [JsProperty(NativeField = true)]
         public string action { get; set; }
         [JsProperty(NativeField = true)]
-        public Action callback { get; set; }
+        public JsAction callback { get; set; }
         [JsProperty(NativeField = true)]
         public object params_ { get; set; }
         [JsProperty(NativeField = true)]
@@ -8705,7 +8705,7 @@ namespace Ext.data
 
         // Properties
         public string action { get; set; }
-        public Action callback { get; set; }
+        public JsAction callback { get; set; }
         public object @params { get; set; }
         public DataReader reader { get; set; }
         public object rs { get; set; }
@@ -8764,9 +8764,9 @@ namespace Ext.data
         public void doRequest(string action, Record rs) { throw new Exception(); }
         public void doRequest(string action, Record rs, object prms) { throw new Exception(); }
         public void doRequest(string action, Record rs, object prms, DataReader reader) { throw new Exception(); }
-        public void doRequest(string action, Record rs, object prms, DataReader reader, Action callback) { throw new Exception(); }
-        public void doRequest(string action, Record rs, object prms, DataReader reader, Action callback, object scope) { throw new Exception(); }
-        public void doRequest(string action, Record rs, object prms, DataReader reader, Action callback, object scope, object arg) { throw new Exception(); }
+        public void doRequest(string action, Record rs, object prms, DataReader reader, JsAction callback) { throw new Exception(); }
+        public void doRequest(string action, Record rs, object prms, DataReader reader, JsAction callback, object scope) { throw new Exception(); }
+        public void doRequest(string action, Record rs, object prms, DataReader reader, JsAction callback, object scope, object arg) { throw new Exception(); }
         public void onRead() { throw new Exception(); }
         public void onRead(string action) { throw new Exception(); }
         public void onRead(string action, object trans) { throw new Exception(); }
@@ -8800,10 +8800,10 @@ namespace Ext.data
         // Properties
         public object api { get; set; }
         public string callbackParam { get; set; }
-        public Action doRequest { get; set; }
+        public JsAction doRequest { get; set; }
         public bool nocache { get; set; }
-        public Action onRead { get; set; }
-        public Action onWrite { get; set; }
+        public JsAction onRead { get; set; }
+        public JsAction onWrite { get; set; }
         public bool restful { get; set; }
         public double timeout { get; set; }
         public string url { get; set; }
@@ -8872,8 +8872,8 @@ namespace Ext.data
         public void commitChanges() { throw new Exception(); }
         public void destroy() { throw new Exception(); }
         public void each() { throw new Exception(); }
-        public void each(Action fn) { throw new Exception(); }
-        public void each(Action fn, object scope) { throw new Exception(); }
+        public void each(JsAction fn) { throw new Exception(); }
+        public void each(JsAction fn, object scope) { throw new Exception(); }
         public void filter() { throw new Exception(); }
         public void filter(string field) { throw new Exception(); }
         public void filter(string field, object value) { throw new Exception(); }
@@ -8883,15 +8883,15 @@ namespace Ext.data
         public void filter(string field, object value, bool anyMatch, bool caseSensitive) { throw new Exception(); }
         public void filter(string field, string value, bool anyMatch, bool caseSensitive) { throw new Exception(); }
         public void filterBy() { throw new Exception(); }
-        public void filterBy(Action fn) { throw new Exception(); }
-        public void filterBy(Action fn, object scope) { throw new Exception(); }
+        public void filterBy(JsAction fn) { throw new Exception(); }
+        public void filterBy(JsAction fn, object scope) { throw new Exception(); }
         public MixedCollection find() { throw new Exception(); }
-        public MixedCollection find(Action fn) { throw new Exception(); }
-        public MixedCollection find(Action fn, object scope) { throw new Exception(); }
+        public MixedCollection find(JsAction fn) { throw new Exception(); }
+        public MixedCollection find(JsAction fn, object scope) { throw new Exception(); }
         public double findBy() { throw new Exception(); }
-        public double findBy(Action fn) { throw new Exception(); }
-        public double findBy(Action fn, object scope) { throw new Exception(); }
-        public double findBy(Action fn, object scope, double startIndex) { throw new Exception(); }
+        public double findBy(JsAction fn) { throw new Exception(); }
+        public double findBy(JsAction fn, object scope) { throw new Exception(); }
+        public double findBy(JsAction fn, object scope, double startIndex) { throw new Exception(); }
         public double findExact() { throw new Exception(); }
         public double findExact(string fieldName) { throw new Exception(); }
         public double findExact(string fieldName, object value) { throw new Exception(); }
@@ -8979,7 +8979,7 @@ namespace Ext.data
         [JsProperty(NativeField = true)]
         public DataReader reader { get; set; }
         [JsProperty(NativeField = true)]
-        public Action recordType { get; set; }
+        public JsAction recordType { get; set; }
         [JsProperty(NativeField = true)]
         public bool remoteSort { get; set; }
         [JsProperty(NativeField = true)]
@@ -9287,14 +9287,14 @@ namespace Ext.data
         public XmlWriterConfig() { throw new Exception(); }
 
         // Properties
-        public Action createRecord { get; set; }
-        public Action destroyRecord { get; set; }
+        public JsAction createRecord { get; set; }
+        public JsAction destroyRecord { get; set; }
         public string documentRoot { get; set; }
         public bool forceDocumentRoot { get; set; }
         public bool listful { get; set; }
         public string root { get; set; }
         public object tpl { get; set; }
-        public Action updateRecord { get; set; }
+        public JsAction updateRecord { get; set; }
         public bool writeAllFields { get; set; }
         public string xmlEncoding { get; set; }
         public string xmlVersion { get; set; }
@@ -10096,8 +10096,8 @@ namespace Ext.dd
         public void hide(bool clear) { throw new Exception(); }
         public void repair() { throw new Exception(); }
         public void repair(Array xy) { throw new Exception(); }
-        public void repair(Array xy, Action callback) { throw new Exception(); }
-        public void repair(Array xy, Action callback, object scope) { throw new Exception(); }
+        public void repair(Array xy, JsAction callback) { throw new Exception(); }
+        public void repair(Array xy, JsAction callback, object scope) { throw new Exception(); }
         public void reset() { throw new Exception(); }
         public void reset(bool clearGhost) { throw new Exception(); }
         public void setStatus() { throw new Exception(); }
@@ -10700,7 +10700,7 @@ namespace Ext.form
         [JsProperty(NativeField = true)]
         public string focusClass { get; set; }
         [JsProperty(NativeField = true)]
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         [JsProperty(NativeField = true)]
         public string inputValue { get; set; }
         [JsProperty(NativeField = true)]
@@ -10745,7 +10745,7 @@ namespace Ext.form
         public string fieldClass { get; set; }
         public string fieldLabel { get; set; }
         public string focusClass { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public double height { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
@@ -12586,7 +12586,7 @@ namespace Ext.form
         public string fieldClass { get; set; }
         public string fieldLabel { get; set; }
         public string focusClass { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public double height { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
@@ -13631,7 +13631,7 @@ namespace Ext.grid
         public bool @fixed { get; set; }
         public bool groupable { get; set; }
         public string groupName { get; set; }
-        public Action groupRenderer { get; set; }
+        public JsAction groupRenderer { get; set; }
         public string header { get; set; }
         public bool hidden { get; set; }
         public bool hideable { get; set; }
@@ -13764,7 +13764,7 @@ namespace Ext.grid
         [JsProperty(NativeField = true)]
         public string groupName { get; set; }
         [JsProperty(NativeField = true)]
-        public Action groupRenderer { get; set; }
+        public JsAction groupRenderer { get; set; }
         [JsProperty(NativeField = true)]
         public string header { get; set; }
         [JsProperty(NativeField = true)]
@@ -13809,7 +13809,7 @@ namespace Ext.grid
         public bool @fixed { get; set; }
         public bool groupable { get; set; }
         public string groupName { get; set; }
-        public Action groupRenderer { get; set; }
+        public JsAction groupRenderer { get; set; }
         public string header { get; set; }
         public bool hidden { get; set; }
         public bool hideable { get; set; }
@@ -13847,8 +13847,8 @@ namespace Ext.grid
         public string getColumnId() { throw new Exception(); }
         public string getColumnId(double index) { throw new Exception(); }
         public Array getColumnsBy() { throw new Exception(); }
-        public Array getColumnsBy(Action fn) { throw new Exception(); }
-        public Array getColumnsBy(Action fn, object scope) { throw new Exception(); }
+        public Array getColumnsBy(JsAction fn) { throw new Exception(); }
+        public Array getColumnsBy(JsAction fn, object scope) { throw new Exception(); }
         public string getColumnTooltip() { throw new Exception(); }
         public string getColumnTooltip(double col) { throw new Exception(); }
         public double getColumnWidth() { throw new Exception(); }
@@ -13857,8 +13857,8 @@ namespace Ext.grid
         public string getDataIndex(double col) { throw new Exception(); }
         public double getIndexById() { throw new Exception(); }
         public double getIndexById(string id) { throw new Exception(); }
-        public Action getRenderer() { throw new Exception(); }
-        public Action getRenderer(double col) { throw new Exception(); }
+        public JsAction getRenderer() { throw new Exception(); }
+        public JsAction getRenderer(double col) { throw new Exception(); }
         public double getTotalWidth() { throw new Exception(); }
         public double getTotalWidth(bool includeHidden) { throw new Exception(); }
         public bool isCellEditable() { throw new Exception(); }
@@ -13903,7 +13903,7 @@ namespace Ext.grid
         public void setHidden(double colIndex, bool hidden) { throw new Exception(); }
         public void setRenderer() { throw new Exception(); }
         public void setRenderer(double col) { throw new Exception(); }
-        public void setRenderer(double col, Action fn) { throw new Exception(); }
+        public void setRenderer(double col, JsAction fn) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -13991,7 +13991,7 @@ namespace Ext.grid
         public string format { get; set; }
         public bool groupable { get; set; }
         public string groupName { get; set; }
-        public Action groupRenderer { get; set; }
+        public JsAction groupRenderer { get; set; }
         public string header { get; set; }
         public bool hidden { get; set; }
         public bool hideable { get; set; }
@@ -14774,7 +14774,7 @@ namespace Ext.grid
         [JsProperty(NativeField = true)]
         public string groupMode { get; set; }
         [JsProperty(NativeField = true)]
-        public Action groupRenderer { get; set; }
+        public JsAction groupRenderer { get; set; }
         [JsProperty(NativeField = true)]
         public string groupTextTpl { get; set; }
         [JsProperty(NativeField = true)]
@@ -14814,7 +14814,7 @@ namespace Ext.grid
         public bool forceFit { get; set; }
         public string groupByText { get; set; }
         public string groupMode { get; set; }
-        public Action groupRenderer { get; set; }
+        public JsAction groupRenderer { get; set; }
         public string groupTextTpl { get; set; }
         public bool headersDisabled { get; set; }
         public bool hideGroupedColumn { get; set; }
@@ -14866,7 +14866,7 @@ namespace Ext.grid
         public string format { get; set; }
         public bool groupable { get; set; }
         public string groupName { get; set; }
-        public Action groupRenderer { get; set; }
+        public JsAction groupRenderer { get; set; }
         public string header { get; set; }
         public bool hidden { get; set; }
         public bool hideable { get; set; }
@@ -15182,8 +15182,8 @@ namespace Ext.grid
         public void deselectRow(double row) { throw new Exception(); }
         public void deselectRow(double row, bool preventViewNotify) { throw new Exception(); }
         public bool each() { throw new Exception(); }
-        public bool each(Action fn) { throw new Exception(); }
-        public bool each(Action fn, object scope) { throw new Exception(); }
+        public bool each(JsAction fn) { throw new Exception(); }
+        public bool each(JsAction fn, object scope) { throw new Exception(); }
         public double getCount() { throw new Exception(); }
         public Record getSelected() { throw new Exception(); }
         public Array getSelections() { throw new Exception(); }
@@ -15291,7 +15291,7 @@ namespace Ext.grid
         public bool @fixed { get; set; }
         public bool groupable { get; set; }
         public string groupName { get; set; }
-        public Action groupRenderer { get; set; }
+        public JsAction groupRenderer { get; set; }
         public string header { get; set; }
         public bool hidden { get; set; }
         public bool hideable { get; set; }
@@ -16235,8 +16235,8 @@ namespace Ext.menu
         public BaseItem(object config) { throw new Exception(); }
         public BaseItem(string config) { throw new Exception(); }
         public void setHandler() { throw new Exception(); }
-        public void setHandler(Action handler) { throw new Exception(); }
-        public void setHandler(Action handler, object scope) { throw new Exception(); }
+        public void setHandler(JsAction handler) { throw new Exception(); }
+        public void setHandler(JsAction handler, object scope) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -16246,7 +16246,7 @@ namespace Ext.menu
         [JsProperty(NativeField = true)]
         public double clickHideDelay { get; set; }
         [JsProperty(NativeField = true)]
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         [JsProperty(NativeField = true)]
         public bool hideOnClick { get; set; }
         [JsProperty(NativeField = true)]
@@ -16288,7 +16288,7 @@ namespace Ext.menu
         public bool disabled { get; set; }
         public string disabledClass { get; set; }
         public string fieldLabel { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
         public string hideMode { get; set; }
@@ -16389,7 +16389,7 @@ namespace Ext.menu
         public string fieldLabel { get; set; }
         public string group { get; set; }
         public string groupClass { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
         public string hideMode { get; set; }
@@ -16445,7 +16445,7 @@ namespace Ext.menu
 
         // Properties
         [JsProperty(NativeField = true)]
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         [JsProperty(NativeField = true)]
         public bool hideOnClick { get; set; }
         [JsProperty(NativeField = true)]
@@ -16497,7 +16497,7 @@ namespace Ext.menu
         public bool enableScrolling { get; set; }
         public string fieldLabel { get; set; }
         public bool floating { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public double height { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
@@ -16569,7 +16569,7 @@ namespace Ext.menu
 
         // Properties
         [JsProperty(NativeField = true)]
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         [JsProperty(NativeField = true)]
         public bool hideOnClick { get; set; }
         [JsProperty(NativeField = true)]
@@ -16621,7 +16621,7 @@ namespace Ext.menu
         public bool enableScrolling { get; set; }
         public string fieldLabel { get; set; }
         public bool floating { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public double height { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
@@ -16743,7 +16743,7 @@ namespace Ext.menu
         public bool disabled { get; set; }
         public string disabledClass { get; set; }
         public string fieldLabel { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
         public string hideMode { get; set; }
@@ -17012,7 +17012,7 @@ namespace Ext.menu
         public bool disabled { get; set; }
         public string disabledClass { get; set; }
         public string fieldLabel { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
         public string hideMode { get; set; }
@@ -17085,7 +17085,7 @@ namespace Ext.menu
         public bool disabled { get; set; }
         public string disabledClass { get; set; }
         public string fieldLabel { get; set; }
-        public Action handler { get; set; }
+        public JsAction handler { get; set; }
         public bool hidden { get; set; }
         public bool hideLabel { get; set; }
         public string hideMode { get; set; }
@@ -17230,8 +17230,8 @@ namespace Ext.tree
         public bool isLoaded() { throw new Exception(); }
         public bool isLoading() { throw new Exception(); }
         public void reload() { throw new Exception(); }
-        public void reload(Action callback) { throw new Exception(); }
-        public void reload(Action callback, object scope) { throw new Exception(); }
+        public void reload(JsAction callback) { throw new Exception(); }
+        public void reload(JsAction callback, object scope) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -17274,7 +17274,7 @@ namespace Ext.tree
         public string qtipCfg { get; set; }
         public bool singleClickExpand { get; set; }
         public string text { get; set; }
-        public Action uiProvider { get; set; }
+        public JsAction uiProvider { get; set; }
     }
 
     public class AsyncTreeNodeEvents
@@ -17603,8 +17603,8 @@ namespace Ext.tree
         public void filter(object value, string attr, TreeNode startNode) { throw new Exception(); }
         public void filter(string value, string attr, TreeNode startNode) { throw new Exception(); }
         public void filterBy() { throw new Exception(); }
-        public void filterBy(Action fn) { throw new Exception(); }
-        public void filterBy(Action fn, object scope) { throw new Exception(); }
+        public void filterBy(JsAction fn) { throw new Exception(); }
+        public void filterBy(JsAction fn, object scope) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -17629,8 +17629,8 @@ namespace Ext.tree
         public void createNode(object attr) { throw new Exception(); }
         public void load() { throw new Exception(); }
         public void load(TreeNode node) { throw new Exception(); }
-        public void load(TreeNode node, Action callback) { throw new Exception(); }
-        public void load(TreeNode node, Action callback, object Object) { throw new Exception(); }
+        public void load(TreeNode node, JsAction callback) { throw new Exception(); }
+        public void load(TreeNode node, JsAction callback, object Object) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -17642,7 +17642,7 @@ namespace Ext.tree
         [JsProperty(NativeField = true)]
         public string dataUrl { get; set; }
         [JsProperty(NativeField = true)]
-        public Action directFn { get; set; }
+        public JsAction directFn { get; set; }
         [JsProperty(NativeField = true)]
         public string nodeParameter { get; set; }
         [JsProperty(NativeField = true)]
@@ -17676,7 +17676,7 @@ namespace Ext.tree
         public object baseParams { get; set; }
         public bool clearOnLoad { get; set; }
         public string dataUrl { get; set; }
-        public Action directFn { get; set; }
+        public JsAction directFn { get; set; }
         public string nodeParameter { get; set; }
         public object paramOrder { get; set; }
         public bool paramsAsHash { get; set; }
@@ -17712,20 +17712,20 @@ namespace Ext.tree
         public void collapse() { throw new Exception(); }
         public void collapse(bool deep) { throw new Exception(); }
         public void collapse(bool deep, bool anim) { throw new Exception(); }
-        public void collapse(bool deep, bool anim, Action callback) { throw new Exception(); }
-        public void collapse(bool deep, bool anim, Action callback, object scope) { throw new Exception(); }
+        public void collapse(bool deep, bool anim, JsAction callback) { throw new Exception(); }
+        public void collapse(bool deep, bool anim, JsAction callback, object scope) { throw new Exception(); }
         public void collapseChildNodes() { throw new Exception(); }
         public void collapseChildNodes(bool deep) { throw new Exception(); }
         public void disable() { throw new Exception(); }
         public void enable() { throw new Exception(); }
         public void ensureVisible() { throw new Exception(); }
-        public void ensureVisible(Action callback) { throw new Exception(); }
-        public void ensureVisible(Action callback, object scope) { throw new Exception(); }
+        public void ensureVisible(JsAction callback) { throw new Exception(); }
+        public void ensureVisible(JsAction callback, object scope) { throw new Exception(); }
         public void expand() { throw new Exception(); }
         public void expand(bool deep) { throw new Exception(); }
         public void expand(bool deep, bool anim) { throw new Exception(); }
-        public void expand(bool deep, bool anim, Action callback) { throw new Exception(); }
-        public void expand(bool deep, bool anim, Action callback, object scope) { throw new Exception(); }
+        public void expand(bool deep, bool anim, JsAction callback) { throw new Exception(); }
+        public void expand(bool deep, bool anim, JsAction callback, object scope) { throw new Exception(); }
         public void expandChildNodes() { throw new Exception(); }
         public void expandChildNodes(bool deep) { throw new Exception(); }
         public TreeNodeUI getUI() { throw new Exception(); }
@@ -17798,7 +17798,7 @@ namespace Ext.tree
         public string qtipCfg { get; set; }
         public bool singleClickExpand { get; set; }
         public string text { get; set; }
-        public Action uiProvider { get; set; }
+        public JsAction uiProvider { get; set; }
     }
 
     public delegate void TreeNodeContextmenuDelegate(Node objthis, EventObject e);
@@ -17884,7 +17884,7 @@ namespace Ext.tree
         public void expandPath() { throw new Exception(); }
         public void expandPath(string path) { throw new Exception(); }
         public void expandPath(string path, string attr) { throw new Exception(); }
-        public void expandPath(string path, string attr, Action callback) { throw new Exception(); }
+        public void expandPath(string path, string attr, JsAction callback) { throw new Exception(); }
         public void find() { throw new Exception(); }
         public void findBy() { throw new Exception(); }
         public void findById() { throw new Exception(); }
@@ -17908,7 +17908,7 @@ namespace Ext.tree
         public void selectPath() { throw new Exception(); }
         public void selectPath(string path) { throw new Exception(); }
         public void selectPath(string path, string attr) { throw new Exception(); }
-        public void selectPath(string path, string attr, Action callback) { throw new Exception(); }
+        public void selectPath(string path, string attr, JsAction callback) { throw new Exception(); }
         public void setDisabled() { throw new Exception(); }
         public Node setRootNode() { throw new Exception(); }
         public Node setRootNode(Node node) { throw new Exception(); }
@@ -18190,7 +18190,7 @@ namespace Ext.tree
         [JsProperty(NativeField = true)]
         public static TreeSorter prototype { get; set; }
         [JsProperty(NativeField = true)]
-        public Action sortType { get; set; }
+        public JsAction sortType { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -18205,7 +18205,7 @@ namespace Ext.tree
         public bool folderSort { get; set; }
         public string leafAttr { get; set; }
         public string property { get; set; }
-        public Action sortType { get; set; }
+        public JsAction sortType { get; set; }
     }
 }
 
@@ -18340,15 +18340,15 @@ namespace Ext.util
     {
         // Methods
         public DelayedTask() { throw new Exception(); }
-        public DelayedTask(Action fn) { throw new Exception(); }
-        public DelayedTask(Action fn, object scope) { throw new Exception(); }
-        public DelayedTask(Action fn, object scope, Array args) { throw new Exception(); }
+        public DelayedTask(JsAction fn) { throw new Exception(); }
+        public DelayedTask(JsAction fn, object scope) { throw new Exception(); }
+        public DelayedTask(JsAction fn, object scope, Array args) { throw new Exception(); }
         public void cancel() { throw new Exception(); }
         public void delay() { throw new Exception(); }
         public void delay(double delay) { throw new Exception(); }
-        public void delay(double delay, Action newFn) { throw new Exception(); }
-        public void delay(double delay, Action newFn, object newScope) { throw new Exception(); }
-        public void delay(double delay, Action newFn, object newScope, Array newArgs) { throw new Exception(); }
+        public void delay(double delay, JsAction newFn) { throw new Exception(); }
+        public void delay(double delay, JsAction newFn, object newScope) { throw new Exception(); }
+        public void delay(double delay, JsAction newFn, object newScope, Array newArgs) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -18374,8 +18374,8 @@ namespace Ext.util
         public static string date(string value) { throw new Exception(); }
         public static string date(DateTime value, string format) { throw new Exception(); }
         public static string date(string value, string format) { throw new Exception(); }
-        public static Action dateRenderer() { throw new Exception(); }
-        public static Action dateRenderer(string format) { throw new Exception(); }
+        public static JsAction dateRenderer() { throw new Exception(); }
+        public static JsAction dateRenderer(string format) { throw new Exception(); }
         public static string defaultValue() { throw new Exception(); }
         public static string defaultValue(object value) { throw new Exception(); }
         public static string defaultValue(object value, string defaultValue) { throw new Exception(); }
@@ -18392,14 +18392,14 @@ namespace Ext.util
         public static string htmlEncode(string value) { throw new Exception(); }
         public static string lowercase() { throw new Exception(); }
         public static string lowercase(string value) { throw new Exception(); }
-        public static Action math() { throw new Exception(); }
+        public static JsAction math() { throw new Exception(); }
         public static string nl2br() { throw new Exception(); }
         public static string nl2br(string The) { throw new Exception(); }
         public static string number() { throw new Exception(); }
         public static string number(double v) { throw new Exception(); }
         public static string number(double v, string format) { throw new Exception(); }
-        public static Action numberRenderer() { throw new Exception(); }
-        public static Action numberRenderer(string format) { throw new Exception(); }
+        public static JsAction numberRenderer() { throw new Exception(); }
+        public static JsAction numberRenderer(string format) { throw new Exception(); }
         public static void plural() { throw new Exception(); }
         public static void plural(double value) { throw new Exception(); }
         public static void plural(double value, string singular) { throw new Exception(); }
@@ -18468,7 +18468,7 @@ namespace Ext.util
         public MixedCollection() { throw new Exception(); }
         public MixedCollection(MixedCollectionConfig config) { throw new Exception(); }
         public MixedCollection(bool allowFunctions) { throw new Exception(); }
-        public MixedCollection(bool allowFunctions, Action keyFn) { throw new Exception(); }
+        public MixedCollection(bool allowFunctions, JsAction keyFn) { throw new Exception(); }
         public object add() { throw new Exception(); }
         public object add(string key) { throw new Exception(); }
         public object add(string key, object o) { throw new Exception(); }
@@ -18482,11 +18482,11 @@ namespace Ext.util
         public bool containsKey() { throw new Exception(); }
         public bool containsKey(string key) { throw new Exception(); }
         public void each() { throw new Exception(); }
-        public void each(Action fn) { throw new Exception(); }
-        public void each(Action fn, object scope) { throw new Exception(); }
+        public void each(JsAction fn) { throw new Exception(); }
+        public void each(JsAction fn, object scope) { throw new Exception(); }
         public void eachKey() { throw new Exception(); }
-        public void eachKey(Action fn) { throw new Exception(); }
-        public void eachKey(Action fn, object scope) { throw new Exception(); }
+        public void eachKey(JsAction fn) { throw new Exception(); }
+        public void eachKey(JsAction fn, object scope) { throw new Exception(); }
         public MixedCollection filter() { throw new Exception(); }
         public MixedCollection filter(string property) { throw new Exception(); }
         public MixedCollection filter(string property, object value) { throw new Exception(); }
@@ -18496,11 +18496,11 @@ namespace Ext.util
         public MixedCollection filter(string property, object value, bool anyMatch, bool caseSensitive) { throw new Exception(); }
         public MixedCollection filter(string property, string value, bool anyMatch, bool caseSensitive) { throw new Exception(); }
         public MixedCollection filterBy() { throw new Exception(); }
-        public MixedCollection filterBy(Action fn) { throw new Exception(); }
-        public MixedCollection filterBy(Action fn, object scope) { throw new Exception(); }
+        public MixedCollection filterBy(JsAction fn) { throw new Exception(); }
+        public MixedCollection filterBy(JsAction fn, object scope) { throw new Exception(); }
         public object find() { throw new Exception(); }
-        public object find(Action fn) { throw new Exception(); }
-        public object find(Action fn, object scope) { throw new Exception(); }
+        public object find(JsAction fn) { throw new Exception(); }
+        public object find(JsAction fn, object scope) { throw new Exception(); }
         public double findIndex() { throw new Exception(); }
         public double findIndex(string property) { throw new Exception(); }
         public double findIndex(string property, object value) { throw new Exception(); }
@@ -18512,9 +18512,9 @@ namespace Ext.util
         public double findIndex(string property, object value, double start, bool anyMatch, bool caseSensitive) { throw new Exception(); }
         public double findIndex(string property, string value, double start, bool anyMatch, bool caseSensitive) { throw new Exception(); }
         public double findIndexBy() { throw new Exception(); }
-        public double findIndexBy(Action fn) { throw new Exception(); }
-        public double findIndexBy(Action fn, object scope) { throw new Exception(); }
-        public double findIndexBy(Action fn, object scope, double start) { throw new Exception(); }
+        public double findIndexBy(JsAction fn) { throw new Exception(); }
+        public double findIndexBy(JsAction fn, object scope) { throw new Exception(); }
+        public double findIndexBy(JsAction fn, object scope, double start) { throw new Exception(); }
         public object first() { throw new Exception(); }
         public object get() { throw new Exception(); }
         public object get(double key) { throw new Exception(); }
@@ -18543,7 +18543,7 @@ namespace Ext.util
         public object key(string key) { throw new Exception(); }
         public void keySort() { throw new Exception(); }
         public void keySort(string direction) { throw new Exception(); }
-        public void keySort(string direction, Action fn) { throw new Exception(); }
+        public void keySort(string direction, JsAction fn) { throw new Exception(); }
         public object last() { throw new Exception(); }
         public object remove() { throw new Exception(); }
         public object remove(object o) { throw new Exception(); }
@@ -18556,7 +18556,7 @@ namespace Ext.util
         public object replace(string key, object o) { throw new Exception(); }
         public void sort() { throw new Exception(); }
         public void sort(string direction) { throw new Exception(); }
-        public void sort(string direction, Action fn) { throw new Exception(); }
+        public void sort(string direction, JsAction fn) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -18608,9 +18608,9 @@ namespace Ext.util
         public void addEvents(object o, string Optional) { throw new Exception(); }
         public void addListener() { throw new Exception(); }
         public void addListener(string eventName) { throw new Exception(); }
-        public void addListener(string eventName, Action handler) { throw new Exception(); }
-        public void addListener(string eventName, Action handler, object scope) { throw new Exception(); }
-        public void addListener(string eventName, Action handler, object scope, object options) { throw new Exception(); }
+        public void addListener(string eventName, JsAction handler) { throw new Exception(); }
+        public void addListener(string eventName, JsAction handler, object scope) { throw new Exception(); }
+        public void addListener(string eventName, JsAction handler, object scope, object options) { throw new Exception(); }
         public bool fireEvent() { throw new Exception(); }
         public bool fireEvent(string eventName) { throw new Exception(); }
         public bool fireEvent(string eventName, params object[] args) { throw new Exception(); }
@@ -18618,23 +18618,23 @@ namespace Ext.util
         public bool hasListener(string eventName) { throw new Exception(); }
         public void on() { throw new Exception(); }
         public void on(string eventName) { throw new Exception(); }
-        public void on(string eventName, Action handler) { throw new Exception(); }
-        public void on(string eventName, Action handler, object scope) { throw new Exception(); }
-        public void on(string eventName, Action handler, object scope, object options) { throw new Exception(); }
+        public void on(string eventName, JsAction handler) { throw new Exception(); }
+        public void on(string eventName, JsAction handler, object scope) { throw new Exception(); }
+        public void on(string eventName, JsAction handler, object scope, object options) { throw new Exception(); }
         public void purgeListeners() { throw new Exception(); }
         public static void releaseCapture() { throw new Exception(); }
         public static void releaseCapture(Observable o) { throw new Exception(); }
         public void removeListener() { throw new Exception(); }
         public void removeListener(string eventName) { throw new Exception(); }
-        public void removeListener(string eventName, Action handler) { throw new Exception(); }
-        public void removeListener(string eventName, Action handler, object scope) { throw new Exception(); }
+        public void removeListener(string eventName, JsAction handler) { throw new Exception(); }
+        public void removeListener(string eventName, JsAction handler, object scope) { throw new Exception(); }
         public void resumeEvents() { throw new Exception(); }
         public void suspendEvents() { throw new Exception(); }
         public void suspendEvents(bool queueSuspended) { throw new Exception(); }
         public void un() { throw new Exception(); }
         public void un(string eventName) { throw new Exception(); }
-        public void un(string eventName, Action handler) { throw new Exception(); }
-        public void un(string eventName, Action handler, object scope) { throw new Exception(); }
+        public void un(string eventName, JsAction handler) { throw new Exception(); }
+        public void un(string eventName, JsAction handler, object scope) { throw new Exception(); }
 
         // Properties
         [JsProperty(NativeField = true)]
@@ -18907,7 +18907,7 @@ namespace Ext.ux
             public bool validateOnBlur { get; set; }
             public double validationDelay { get; set; }
             public object validationEvent { get; set; }
-            public Action validator { get; set; }
+            public JsAction validator { get; set; }
             public object value { get; set; }
             public string valueField { get; set; }
             public string valueNotFoundText { get; set; }
@@ -18939,15 +18939,15 @@ namespace Ext.ux
         public Button addButton() { throw new Exception(); }
         public Button addButton(object config) { throw new Exception(); }
         public Button addButton(string config) { throw new Exception(); }
-        public Button addButton(object config, Action handler) { throw new Exception(); }
-        public Button addButton(string config, Action handler) { throw new Exception(); }
-        public Button addButton(object config, Action handler, object scope) { throw new Exception(); }
-        public Button addButton(string config, Action handler, object scope) { throw new Exception(); }
+        public Button addButton(object config, JsAction handler) { throw new Exception(); }
+        public Button addButton(string config, JsAction handler) { throw new Exception(); }
+        public Button addButton(object config, JsAction handler, object scope) { throw new Exception(); }
+        public Button addButton(string config, JsAction handler, object scope) { throw new Exception(); }
         public void afterHide() { throw new Exception(); }
         public void afterShow() { throw new Exception(); }
         public void animate() { throw new Exception(); }
-        public void animate(Action fx) { throw new Exception(); }
-        public void animate(Action fx, object options) { throw new Exception(); }
+        public void animate(JsAction fx) { throw new Exception(); }
+        public void animate(JsAction fx, object options) { throw new Exception(); }
         public void beforeHide() { throw new Exception(); }
         public void beforeShow() { throw new Exception(); }
         public void destroy() { throw new Exception(); }
@@ -18956,7 +18956,7 @@ namespace Ext.ux
         public void getButtonConfig() { throw new Exception(); }
         public void hide() { throw new Exception(); }
         public void isMotionFx() { throw new Exception(); }
-        public void isMotionFx(Action fn) { throw new Exception(); }
+        public void isMotionFx(JsAction fn) { throw new Exception(); }
         public void registerButton() { throw new Exception(); }
         public void setDefaultButton() { throw new Exception(); }
         public void setDefaultButton(Button btn) { throw new Exception(); }
@@ -18973,7 +18973,7 @@ namespace Ext.ux
         [JsProperty(NativeField = true)]
         public string hideEasing { get; set; }
         [JsProperty(NativeField = true)]
-        public Action hideFx { get; set; }
+        public JsAction hideFx { get; set; }
         [JsProperty(NativeField = true)]
         public object onBeforeHide { get; set; }
         [JsProperty(NativeField = true)]
@@ -18987,7 +18987,7 @@ namespace Ext.ux
         [JsProperty(NativeField = true)]
         public string showEasing { get; set; }
         [JsProperty(NativeField = true)]
-        public Action showFx { get; set; }
+        public JsAction showFx { get; set; }
         [JsProperty(NativeField = true)]
         public static Observable superclass { get; set; }
     }
@@ -19007,12 +19007,12 @@ namespace Ext.ux
         public string buttonAlign { get; set; }
         public double fxDuration { get; set; }
         public string hideEasing { get; set; }
-        public Action hideFx { get; set; }
+        public JsAction hideFx { get; set; }
         public double minButtonWidth { get; set; }
         public object shadow { get; set; }
         public double shadowOffset { get; set; }
         public string showEasing { get; set; }
-        public Action showFx { get; set; }
+        public JsAction showFx { get; set; }
         public string text { get; set; }
     }
 
