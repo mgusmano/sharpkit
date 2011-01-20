@@ -632,11 +632,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Retrieve the DOM elements matched by the jQuery object.
         /// </summary>
-        public object get() { return null; }
+        public JsArray<HtmlElement> get() { return null; }
         /// <summary>
         /// Retrieve the DOM elements matched by the jQuery object.
         /// </summary>
-        public object get(JsNumber index) { return null; }
+        public HtmlElement get(JsNumber index) { return null; }
         /// <summary>
         /// Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.
         /// </summary>
