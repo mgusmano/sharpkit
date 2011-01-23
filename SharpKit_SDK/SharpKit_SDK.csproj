@@ -60,6 +60,8 @@
     <Content Include="samples\A_JavaScript_Samples\06_Native_JavaScript_Classes\Default.js" />
     <Content Include="samples\A_JavaScript_Samples\07_Inline_JS_Code\Default.aspx" />
     <Content Include="samples\A_JavaScript_Samples\07_Inline_JS_Code\Default.js" />
+    <Content Include="samples\A_JavaScript_Samples\08_Enums\Default.aspx" />
+    <Content Include="samples\A_JavaScript_Samples\08_Enums\Default.js" />
     <Content Include="samples\B_Html_Samples\01_Dynamic_HTML\Default.aspx" />
     <Content Include="samples\B_Html_Samples\01_Dynamic_HTML\Default.js" />
     <Content Include="samples\C_jQuery_Samples\01_Events\Default.aspx" />
@@ -95,6 +97,7 @@
     <Compile Include="samples\A_JavaScript_Samples\05_Type_Casting\Default.cs" />
     <Compile Include="samples\A_JavaScript_Samples\06_Native_JavaScript_Classes\Default.cs" />
     <Compile Include="samples\A_JavaScript_Samples\07_Inline_JS_Code\Default.cs" />
+    <Compile Include="samples\A_JavaScript_Samples\08_Enums\Default.cs" />
     <Compile Include="samples\B_Html_Samples\01_Dynamic_HTML\Default.cs" />
     <Compile Include="samples\C_jQuery_Samples\01_Events\Default.cs" />
     <Compile Include="samples\C_jQuery_Samples\02_Selectors\Default.cs" />
