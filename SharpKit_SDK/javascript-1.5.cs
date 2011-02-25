@@ -882,6 +882,12 @@ namespace SharpKit.JavaScript
         /// </summary>
         public JsFunction caller { get; set; }
 
+        ///<summary>
+        ///Returns a reference to the prototype for a class of objects.
+        ///</summary>
+        public JsObject prototype;
+
+
     }
     #endregion
     #region JsMath
@@ -1204,10 +1210,6 @@ namespace SharpKit.JavaScript
         ///<param name="prop">The name of a property of the object.</param>
         [SupportedBrowsers(BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4)]
         public virtual void unwatch(JsString prop) { }
-        ///<summary>
-        ///Returns a reference to the prototype for a class of objects.
-        ///</summary>
-        public JsObject prototype;
         ///<summary>
         ///Returns the primitive value of the specified object.
         ///The required object reference is any intrinsic JScript object.
