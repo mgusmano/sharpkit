@@ -157,7 +157,7 @@ namespace Sys
         }
     }
     #endregion
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void ApplicationLoadEventHandler(object sender, ApplicationLoadEventArgs e);
     #region Browser
@@ -230,7 +230,7 @@ namespace Sys
         public bool cancel { get; set; }
     }
     #endregion
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void cancelEventHandler(object sender, CancelEventArgs e);
     #region Component
@@ -462,7 +462,7 @@ namespace Sys
     ///</summary>
     ///<param name="sender">The object that raised the event.</param>
     ///<param name="e">The <see cref="T:Sys.EventArgs" /> object that contains the event data.</param>
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void EventHandler(object sender, EventArgs e);
     #region EventHandlerList
@@ -516,7 +516,7 @@ namespace Sys
         }
     }
     #endregion
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void HistoryEventHandler(object sender, HistoryEventArgs e);
     #region IContainer
@@ -582,7 +582,7 @@ namespace Sys
     ///</summary>
     ///<param name="sender">The object that raised the event.</param>
     ///<param name="e">The <see cref="T:Sys.PropertyChangedEventArgs" /> object that contains the event data.</param>
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void PropertyChangedEventHandler(object sender, PropertyChangedEventArgs e);
     #region StringBuilder
@@ -659,7 +659,7 @@ namespace Sys.Net
     ///</summary>
     ///<param name="sender">The <see cref="T:Sys.Net.WebRequestManager" /> instance that raised the event.</param>
     ///<param name="e">The <see cref="T:Sys.Net.NetworkRequestEventArgs" /> object that contains the event data.</param>
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void NetworkRequestEventHandler(object sender, NetworkRequestEventArgs e);
     #region WebRequest
@@ -729,7 +729,7 @@ namespace Sys.Net
     ///Delegate for handling the completed event raised by the WebRequest class.
     ///</summary>
     ///<param name="executor">The executor instance associated with the completed request.</param>
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void WebRequestCompletedCallback(WebRequestExecutor executor);
     #region WebRequestExecutor
@@ -888,7 +888,7 @@ namespace Sys.Net
     ///<param name="error">A <see cref="T:Sys.Net.WebServiceError" /> object that contains details of the error.</param>
     ///<param name="userContext">Any user-specific information. userContext can be any JavaScript primitive type, array, or object.</param>
     ///<param name="methodName">The name of the Web service method that was invoked.</param>
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void WebServiceFailureCallback(WebServiceError error, object userContext, JsString methodName);
     #region WebServiceProxy
@@ -962,7 +962,7 @@ namespace Sys.Net
     ///<param name="result">The result of the Web service call: either JSON, XML, or text.</param>
     ///<param name="userContext">Any user-specific information. userContext can be any JavaScript primitive type, array, or object.</param>
     ///<param name="methodName">The name of the Web service method that was invoked.</param>
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void WebServiceSuccessCallback(object result, object userContext, string methodName);
     #region XMLHttpExecutor
@@ -1149,7 +1149,7 @@ namespace Sys.Services
     ///<param name="validCredentials">Returns true if the user was authenticated.</param>
     ///<param name="userContext">Any user-specific information. userContext can be any JavaScript primitive type, array, or object.</param>
     ///<param name="methodName">The name of the Web service method that was invoked.</param>
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void AuthenticationServiceLoginCallback(bool validCredentials, object userContext, string methodName);
     #region ProfileGroup
@@ -1232,7 +1232,7 @@ namespace Sys.Services
     ///<param name="propertyCount">Indicates the number of properties returned by the profile service.</param>
     ///<param name="userContext">Any user-specific information. userContext can be any JavaScript primitive type, array, or object.</param>
     ///<param name="methodName">The name of the Web service method that was invoked.</param>
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void ProfileServiceCompletedCallback(JsNumber propertyCount, object userContext, string methodName);
 }
@@ -1643,7 +1643,7 @@ namespace Sys.UI
     ///Event handler for DOM events.
     ///</summary>
     ///<param name="e">The <see cref="T:Sys.UI.DomEvent" /> object that contains the event data.</param>
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void DomEventHandler(DomEvent e);
     ///<summary>
@@ -1696,7 +1696,7 @@ namespace Sys.WebForms
         }
     }
     #endregion
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void BeginRequestEventHandler(object sender, BeginRequestEventArgs e);
     #region EndRequestEventArgs
@@ -1718,7 +1718,7 @@ namespace Sys.WebForms
         }
     }
     #endregion
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void EndRequestEventHandler(object sender, EndRequestEventArgs e);
     #region InitializeRequestEventArgs
@@ -1735,7 +1735,7 @@ namespace Sys.WebForms
         }
     }
     #endregion
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void InitializeRequestEventHandler(object sender, InitializeRequestEventArgs e);
     #region PageLoadedEventArgs
@@ -1756,7 +1756,7 @@ namespace Sys.WebForms
         }
     }
     #endregion
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void PageLoadedEventHandler(object sender, PageLoadedEventArgs e);
     #region PageLoadingEventArgs
@@ -1777,7 +1777,7 @@ namespace Sys.WebForms
         }
     }
     #endregion
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate(NativeDelegates = true, NativeFunction=true)]
     [JsType(Export = false, Name = "System.MulticastDelegate")]
     public delegate void PageLoadingEventHandler(object sender, PageLoadingEventArgs e);
     #region PageRequestManager

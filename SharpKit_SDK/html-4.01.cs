@@ -4196,12 +4196,12 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
         ///<returns>Returns the td element object if successful, or null otherwise.</returns>		
         [SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
         public HtmlTableCell insertCell(JsNumber index) { return null; }
-        ///<summary>
-        ///Creates a new cell in the table row (tr), and adds the cell to the cells collection. 
-        ///</summary>
-        ///<returns>Returns the td element object if successful, or null otherwise.</returns>
-        [SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
-        public HtmlTableCell insertCell() { return null; }
+        /////<summary>
+        /////Creates a new cell in the table row (tr), and adds the cell to the cells collection. 
+        /////</summary>
+        /////<returns>Returns the td element object if successful, or null otherwise.</returns>
+        //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
+        //public HtmlTableCell insertCell() { return null; }
         ///<summary>
         ///String that specifies or receives one of the following values.
         ///</summary>

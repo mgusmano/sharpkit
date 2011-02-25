@@ -46,6 +46,8 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
     <Content Include="samples\A_JavaScript_Samples\01_Global_Code\Default.aspx" />
     <Content Include="samples\A_JavaScript_Samples\01_Global_Code\Default.js" />
     <Content Include="samples\A_JavaScript_Samples\02_Prototype_Code\Default.aspx" />
@@ -87,6 +89,7 @@
     <Compile Include="plugins\extjs-3.1.0.cs" />
     <Compile Include="plugins\jquery-1.4.4.cs" />
     <Compile Include="plugins\jquery-ui-1.7.2.cs" />
+    <Compile Include="plugins\jquery.validate-1.7.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="samples\A_JavaScript_Samples\01_Global_Code\Default.cs" />
     <Compile Include="samples\A_JavaScript_Samples\02_Prototype_Code\Default.cs">

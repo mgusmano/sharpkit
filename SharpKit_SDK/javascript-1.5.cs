@@ -272,6 +272,8 @@ namespace SharpKit.JavaScript
         public static object undefined { get; set; }
         public static JsString @typeof(object obj) { return default(JsString); }
         public static object @this;
+        public static object @return(object obj) { return null; }
+        public static object @return() { return null; }
         ///<summary>
         ///Evaluates JScript code and executes it.
         ///</summary>
