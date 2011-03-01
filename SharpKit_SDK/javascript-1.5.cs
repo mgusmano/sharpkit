@@ -1709,12 +1709,19 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///Controls the interoperability and convertion of a .NET type into JavaScript.
     ///</summary>
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Struct | AttributeTargets.Delegate)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Struct | AttributeTargets.Delegate | AttributeTargets.Assembly, AllowMultiple = true)]
     public partial class JsTypeAttribute : Attribute
     {
         public JsTypeAttribute() { }
         public JsTypeAttribute(JsMode mode) { }
         public JsTypeAttribute(JsMode mode, string filename) { }
+
+        /// <summary>
+        /// When used as assembly attribute, indicates the type for which to apply this attribute on.
+        /// This feature should be used when trying to describe classes on external assemblies that has no SharpKit support
+        /// </summary>
+        public Type TargetType { get; set; }
+
         ///<summary>
         ///Indicates that all delegate parameters in all members are native javascript functions
         ///</summary>
