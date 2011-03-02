@@ -584,7 +584,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Reduce the set of matched elements to those that match the selector or pass the function's test.
         /// </summary>
-        public jQuery filter(JsAction<HtmlDomEventArgs> function) { return null; }
+        public jQuery filter(JsFunc<int, bool> function) { return null; }
         /// <summary>
         /// Reduce the set of matched elements to those that match the selector or pass the function's test.
         /// </summary>
