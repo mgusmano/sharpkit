@@ -1537,6 +1537,19 @@ namespace SharpKit.JavaScript
         ///<returns>The method has no effect on non-alphabetic characters.</returns>
         [JsMethod(NativeOverloads = true)]
         public JsString toUpperCase() { return default(JsString); }
+
+        /// <summary>
+        /// Executes a search on a string using a regular expression pattern, and returns an array containing the results of that search.
+        /// </summary>
+        /// <param name="rgExp">Required. An instance of a Regular Expression object containing the regular expression pattern and applicable flags. </param>
+        /// <returns></returns>
+        public JsRegExpResult match(JsRegExp rgExp) {return null;}
+        /// <summary>
+        /// Executes a search on a string using a regular expression pattern, and returns an array containing the results of that search.
+        /// </summary>
+        /// <param name="rgExp">Required. A string literal containing the regular expression pattern and flags. </param>
+        /// <returns></returns>
+        public JsRegExpResult match(JsString rgExp) { return null; }
     }
     #endregion
 
