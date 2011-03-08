@@ -70,11 +70,11 @@ namespace SharpKit.JavaScript.Private
 			}
 		}
 
-		//TODO: Remove this
-		public void Add(object item)
-		{
-			this._list.push(item);
-		}
+        ////TODO: Remove this
+        //public void Add(object item)
+        //{
+        //    this._list.push(item);
+        //}
 		public void Add(T item)
 		{
 			this._list.push(item);

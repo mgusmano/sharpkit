@@ -257,14 +257,10 @@ Class("System.Collections.Generic.List$1", "System.Object",
 		while ($it2.MoveNext())
 		{
 			var item = $it2.get_Current();
-			this.Add$$T(item);
+			this.Add(item);
 		}
 	},
-	Add$$Object:function System$Collections$Generic$List$Add(item)
-	{
-		this._list.push(item);
-	},
-	Add$$T:function System$Collections$Generic$List$Add(item)
+	Add:function System$Collections$Generic$List$Add(item)
 	{
 		this._list.push(item);
 	},

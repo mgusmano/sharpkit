@@ -152,7 +152,7 @@ namespace SharpKit.JavaScript
     {
         public static implicit operator T[](JsArray<T> x) { return default(T[]); }
         public static implicit operator JsArray<T>(T[] array) { return default(JsArray<T>); }
-        [JsMethod(IgnoreGenericArguments=true)]
+        [JsMethod(IgnoreGenericArguments = true)]
         public JsArray() { }
         [JsMethod(IgnoreGenericArguments = true)]
         public JsArray(JsArray<T> array) { }
@@ -1271,7 +1271,7 @@ namespace SharpKit.JavaScript
     }
     #endregion
     #region JsObject<K, T>
-    
+
     [JsType(JsMode.Prototype, Export = false, Name = "Object", IgnoreGenericTypeArguments = true)]
     public class JsObject<K, T> : JsObject
     {
@@ -1543,7 +1543,7 @@ namespace SharpKit.JavaScript
         /// </summary>
         /// <param name="rgExp">Required. An instance of a Regular Expression object containing the regular expression pattern and applicable flags. </param>
         /// <returns></returns>
-        public JsRegExpResult match(JsRegExp rgExp) {return null;}
+        public JsRegExpResult match(JsRegExp rgExp) { return null; }
         /// <summary>
         /// Executes a search on a string using a regular expression pattern, and returns an array containing the results of that search.
         /// </summary>
@@ -1730,6 +1730,20 @@ namespace SharpKit.JavaScript
         public JsTypeAttribute(JsMode mode, string filename) { }
 
         /// <summary>
+        /// Js code that will be written before exporting the type
+        /// </summary>
+        public string PreCode { get; set; }
+        /// <summary>
+        /// Js code that will be written after exporting the type
+        /// </summary>
+        public string PostCode { get; set; }
+
+        /// <summary>
+        /// Precendece between JsTypes in the same file, negative values will put the type before other types, and positive value will put it after other types
+        /// </summary>
+        public int OrderInFile { get; set; }
+
+        /// <summary>
         /// When used as assembly attribute, indicates the type for which to apply this attribute on.
         /// This feature should be used when trying to describe classes on external assemblies that has no SharpKit support
         /// </summary>
@@ -1859,7 +1873,7 @@ namespace SharpKit.JavaScript
     }
 
     #endregion
- 
+
     #endregion
 
     #endregion
