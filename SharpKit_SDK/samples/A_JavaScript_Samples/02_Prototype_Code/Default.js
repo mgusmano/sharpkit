@@ -4,12 +4,12 @@ PrototypeCodeSample = function()
 	this.InstanceProperty = "some default value";
 }
 
-PrototypeCodeSample.prototype.InstanceFunction=function PrototypeCodeSample$InstanceFunction(value)
+PrototypeCodeSample.prototype.InstanceFunction=function(value)
 {
 	this.InstanceProperty = value;
 }
 
-PrototypeCodeSample.StaticFunction=function PrototypeCodeSample$StaticFunction(value)
+PrototypeCodeSample.StaticFunction=function(value)
 {
 	PrototypeCodeSample.StaticProperty = value;
 }

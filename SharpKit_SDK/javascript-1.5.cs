@@ -1,3 +1,6 @@
+//JavaScript v1.5 
+//SharpKit v4.02.8000
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
