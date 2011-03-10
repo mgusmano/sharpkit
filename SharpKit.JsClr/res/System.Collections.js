@@ -30,7 +30,7 @@ Class("System.Collections.Generic.Dictionary$2", "System.Object",
 	}
 	,
 	Keys$$:"System.Collections.Generic.ICollection`1",
-	get_Keys:function System$Collections$Generic$Dictionary$get_Keys()
+	get_Keys:function()
 	{
 		var keys = new Array();
 		for(var p in this._keys)
@@ -40,7 +40,7 @@ Class("System.Collections.Generic.Dictionary$2", "System.Object",
 		return keys;
 	},
 	Values$$:"System.Collections.Generic.ICollection`1",
-	get_Values:function System$Collections$Generic$Dictionary$get_Values()
+	get_Values:function()
 	{
 		var values = new Array();
 		for(var p in this._table)
@@ -50,44 +50,44 @@ Class("System.Collections.Generic.Dictionary$2", "System.Object",
 		return values;
 	},
 	Count$$:"System.Int32",
-	get_Count:function System$Collections$Generic$Dictionary$get_Count()
+	get_Count:function()
 	{
 		throw new System.NotImplementedException.ctor();
 	},
 	IsReadOnly$$:"System.Boolean",
-	get_IsReadOnly:function System$Collections$Generic$Dictionary$get_IsReadOnly()
+	get_IsReadOnly:function()
 	{
 		throw new System.NotImplementedException.ctor();
 	},
 	Item$$:"TValue",
-	get_Item:function System$Collections$Generic$Dictionary$get_Item(key)
+	get_Item:function(key)
 	{
 		var hashKey = this.GetHashKey(key);
 		return this._table[hashKey];
 	},
-	set_Item:function System$Collections$Generic$Dictionary$set_Item(key, value)
+	set_Item:function(key, value)
 	{
 		var hashKey = this.GetHashKey(key);
 		this._table[hashKey] = value;
 		this._keys[hashKey] = key;
 		this._version++;
 	},
-	GetHashKey:function System$Collections$Generic$Dictionary$GetHashKey(key)
+	GetHashKey:function(key)
 	{
 		return SharpKit.JavaScript.Utils.Js.GetHashKey(key);
 	},
-	Add$$TKey$$TValue:function System$Collections$Generic$Dictionary$Add(key, value)
+	Add$$TKey$$TValue:function(key, value)
 	{
 		var hashKey = this.GetHashKey(key);
 		this._table[hashKey] = value;
 		this._keys[hashKey] = key;
 		this._version++;
 	},
-	Add$$KeyValuePair$2:function System$Collections$Generic$Dictionary$Add(item)
+	Add$$KeyValuePair$2:function(item)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Remove$$TKey:function System$Collections$Generic$Dictionary$Remove(key)
+	Remove$$TKey:function(key)
 	{
 		var hashKey = this.GetHashKey(key);
 		delete(this._table[hashKey]);
@@ -95,16 +95,16 @@ Class("System.Collections.Generic.Dictionary$2", "System.Object",
 		this._version++;
 		return true;
 	},
-	Remove$$KeyValuePair$2:function System$Collections$Generic$Dictionary$Remove(item)
+	Remove$$KeyValuePair$2:function(item)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	ContainsKey:function System$Collections$Generic$Dictionary$ContainsKey(key)
+	ContainsKey:function(key)
 	{
 		var hashKey = this.GetHashKey(key);
 		return typeof(this._table[hashKey]) != "undefined";
 	},
-	GetEnumerator:function System$Collections$Generic$Dictionary$GetEnumerator()
+	GetEnumerator:function()
 	{
 		var array = new Array();
 		for(var hashKey in this._table)
@@ -113,7 +113,7 @@ Class("System.Collections.Generic.Dictionary$2", "System.Object",
 		}
 		return array.GetEnumerator();
 	},
-	Clear:function System$Collections$Generic$Dictionary$Clear()
+	Clear:function()
 	{
 		for(var hashKey in this._table)
 		{
@@ -123,15 +123,15 @@ Class("System.Collections.Generic.Dictionary$2", "System.Object",
 			return;
 		}
 	},
-	TryGetValue:function System$Collections$Generic$Dictionary$TryGetValue(key, value)
+	TryGetValue:function(key, value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Contains:function System$Collections$Generic$Dictionary$Contains(item)
+	Contains:function(item)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	CopyTo:function System$Collections$Generic$Dictionary$CopyTo(array, arrayIndex)
+	CopyTo:function(array, arrayIndex)
 	{
 		throw new System.NotImplementedException.ctor();
 	}
@@ -155,33 +155,33 @@ Class("System.Collections.Generic.Stack$1", "System.Object",
 	}
 	,
 	Count$$:"System.Int32",
-	get_Count:function System$Collections$Generic$Stack$get_Count()
+	get_Count:function()
 	{
 		return this._list.length;
 	},
-	Clear:function System$Collections$Generic$Stack$Clear()
+	Clear:function()
 	{
 		this._list.Clear();
 	},
-	GetEnumerator:function System$Collections$Generic$Stack$GetEnumerator()
+	GetEnumerator:function()
 	{
 		return this._list.GetEnumerator();
 	},
-	ToArray:function System$Collections$Generic$Stack$ToArray()
+	ToArray:function()
 	{
 		return this._list.Clone();
 	},
-	Push:function System$Collections$Generic$Stack$Push(item)
+	Push:function(item)
 	{
 		this._list.push(item);
 	},
-	Pop:function System$Collections$Generic$Stack$Pop()
+	Pop:function()
 	{
 		if (this._list.length == 0)
 			throw new Error("Cannot pop from stack - stack is empty");
 		return this._list.pop();
 	},
-	Contains:function System$Collections$Generic$Stack$Contains(item)
+	Contains:function(item)
 	{
 		return this._list.contains(item);
 	}
@@ -213,58 +213,58 @@ Class("System.Collections.Generic.List$1", "System.Object",
 	}
 	,
 	Count$$:"System.Int32",
-	get_Count:function System$Collections$Generic$List$get_Count()
+	get_Count:function()
 	{
 		return this._list.length;
 	},
 	IsReadOnly$$:"System.Boolean",
-	get_IsReadOnly:function System$Collections$Generic$List$get_IsReadOnly()
+	get_IsReadOnly:function()
 	{
 		throw new System.NotImplementedException.ctor$$String("JsImplList$T");
 	},
 	Item$$:"T",
-	get_Item:function System$Collections$Generic$List$get_Item(index)
+	get_Item:function(index)
 	{
 		if (index >= this._list.length || index < 0)
 			throw new System.ArgumentOutOfRangeException.ctor$$String("index");
 		return this._list[index];
 	},
-	set_Item:function System$Collections$Generic$List$set_Item(index, value)
+	set_Item:function(index, value)
 	{
 		if (index >= this._list.length || index < 0)
 			throw new System.ArgumentOutOfRangeException.ctor$$String("index");
 		this._list[index] = value;
 	},
-	RemoveRange:function System$Collections$Generic$List$RemoveRange(index, count)
+	RemoveRange:function(index, count)
 	{
 		this._list.splice(index, count);
 	},
-	Clear:function System$Collections$Generic$List$Clear()
+	Clear:function()
 	{
 		this._list.Clear();
 	},
-	GetEnumerator:function System$Collections$Generic$List$GetEnumerator()
+	GetEnumerator:function()
 	{
 		return new System.Collections.IListEnumerator$1.ctor(this.T, this);
 	},
-	ToArray:function System$Collections$Generic$List$ToArray()
+	ToArray:function()
 	{
 		return this._list.Clone();
 	},
-	AddRange:function System$Collections$Generic$List$AddRange(items)
+	AddRange:function(items)
 	{
-		var $it2 = items.GetEnumerator();
-		while ($it2.MoveNext())
+		var $it1 = items.GetEnumerator();
+		while ($it1.MoveNext())
 		{
-			var item = $it2.get_Current();
+			var item = $it1.get_Current();
 			this.Add(item);
 		}
 	},
-	Add:function System$Collections$Generic$List$Add(item)
+	Add:function(item)
 	{
 		this._list.push(item);
 	},
-	Remove:function System$Collections$Generic$List$Remove(item)
+	Remove:function(item)
 	{
 		var index = this._list.indexOf(item);
 		if (index == -1)
@@ -272,37 +272,37 @@ Class("System.Collections.Generic.List$1", "System.Object",
 		this._list.RemoveAt(index);
 		return true;
 	},
-	Contains:function System$Collections$Generic$List$Contains(item)
+	Contains:function(item)
 	{
 		return this._list.contains(item);
 	},
-	SetItems:function System$Collections$Generic$List$SetItems(items)
+	SetItems:function(items)
 	{
 		this.Clear();
 		if (items != null)
 			this.AddRange(items);
 	},
-	IndexOf:function System$Collections$Generic$List$IndexOf(item)
+	IndexOf:function(item)
 	{
 		return this._list.indexOf(item);
 	},
-	Insert:function System$Collections$Generic$List$Insert(index, item)
+	Insert:function(index, item)
 	{
 		this._list.insert(index, item);
 	},
-	RemoveAt:function System$Collections$Generic$List$RemoveAt(index)
+	RemoveAt:function(index)
 	{
 		this._list.RemoveAt(index);
 	},
-	TryRemove:function System$Collections$Generic$List$TryRemove(item)
+	TryRemove:function(item)
 	{
 		throw new System.NotImplementedException.ctor$$String("TryRemove");
 	},
-	CopyTo:function System$Collections$Generic$List$CopyTo(array, arrayIndex)
+	CopyTo:function(array, arrayIndex)
 	{
 		throw new System.NotImplementedException.ctor$$String("JsImplList$T");
 	},
-	Sort:function System$Collections$Generic$List$Sort(comparison)
+	Sort:function(comparison)
 	{
 		this._list.sort(SharpKit.JavaScript.Utils.Js.ToJsFunction(comparison));
 	}
@@ -330,20 +330,20 @@ Class("System.Collections.IListEnumerator$1", "System.Object",
 	}
 	,
 	Current$$:"T",
-	get_Current:function System$Collections$IListEnumerator$get_Current()
+	get_Current:function()
 	{
 		return this.List.get_Item(this.Index);
 	},
-	Dispose:function System$Collections$IListEnumerator$Dispose()
+	Dispose:function()
 	{
 		this.List = null;
 	},
-	MoveNext:function System$Collections$IListEnumerator$MoveNext()
+	MoveNext:function()
 	{
 		this.Index++;
 		return this.Index < this.ListCount;
 	},
-	Reset:function System$Collections$IListEnumerator$Reset()
+	Reset:function()
 	{
 		this.Index = -1;
 	}

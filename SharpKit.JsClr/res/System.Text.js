@@ -18,28 +18,28 @@ Class("System.Text.StringBuilder", "System.Object",
 	}
 	,
 	Length$$:"System.Int32",
-	get_Length:function System$Text$StringBuilder$get_Length()
+	get_Length:function()
 	{
 		return this.length;
 	},
-	set_Length:function System$Text$StringBuilder$set_Length(value)
+	set_Length:function(value)
 	{
 		if (value != 0)
 			throw new System.Exception.ctor$$String("Not Implemented");
 		this.array.Clear();
 		this.length = value;
 	},
-	Append$$Char:function System$Text$StringBuilder$Append(s)
+	Append$$Char:function(s)
 	{
 		this.array.push(s);
 		this.length += 1;
 	},
-	Append$$String:function System$Text$StringBuilder$Append(s)
+	Append$$String:function(s)
 	{
 		this.array.push(s);
 		this.length += s.get_Length();
 	},
-	Append$$Object:function System$Text$StringBuilder$Append(obj)
+	Append$$Object:function(obj)
 	{
 		if (obj != null)
 		{
@@ -48,29 +48,29 @@ Class("System.Text.StringBuilder", "System.Object",
 			this.length += s.get_Length();
 		}
 	},
-	AppendFormat$$String$$Object:function System$Text$StringBuilder$AppendFormat(s, arg0)
+	AppendFormat$$String$$Object:function(s, arg0)
 	{
 		var ss = System.String.Format(s, arg0);
 		this.array.push(ss);
 		this.length += ss.get_Length();
 	},
-	AppendFormat$$String$$Object$$Object:function System$Text$StringBuilder$AppendFormat(s, arg0, arg1)
+	AppendFormat$$String$$Object$$Object:function(s, arg0, arg1)
 	{
 		var ss = System.String.Format(s, arg0, arg1);
 		this.array.push(ss);
 		this.length += ss.get_Length();
 	},
-	AppendFormat$$String$$Object$$Object$$Object:function System$Text$StringBuilder$AppendFormat(s, arg0, arg1, arg2)
+	AppendFormat$$String$$Object$$Object$$Object:function(s, arg0, arg1, arg2)
 	{
 		var ss = System.String.Format(s, arg0, arg1, arg2);
 		this.array.push(ss);
 		this.length += ss.get_Length();
 	},
-	ToString:function System$Text$StringBuilder$ToString()
+	ToString:function()
 	{
 		return this.array.join("");
 	},
-	Remove:function System$Text$StringBuilder$Remove(start, count)
+	Remove:function(start, count)
 	{
 		var s = this.array.join("");
 		s = s.Remove$$Int32$$Int32(start, count);

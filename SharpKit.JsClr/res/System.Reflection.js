@@ -29,24 +29,24 @@ Class("System.Reflection.MemberInfo", "System.Object",
 	}
 	,
 	Name$$:"System.String",
-	get_Name:function System$Reflection$MemberInfo$get_Name()
+	get_Name:function()
 	{
 		return this._Name;
 	},
 	DeclaringType$$:"SharpKit.JavaScript.Private.JsImplType",
-	get_DeclaringType:function System$Reflection$MemberInfo$get_DeclaringType()
+	get_DeclaringType:function()
 	{
 		return this._DeclaringType;
 	},
-	VerifyCustomAttributes:function System$Reflection$MemberInfo$VerifyCustomAttributes()
+	VerifyCustomAttributes:function()
 	{
 		this.get_DeclaringType().VerifyCustomAttributesOnTypeAndMembers();
 	},
-	GetBaseMember:function System$Reflection$MemberInfo$GetBaseMember()
+	GetBaseMember:function()
 	{
 		return null;
 	},
-	AddCustomAttributes:function System$Reflection$MemberInfo$AddCustomAttributes(list, attributeType, inherit)
+	AddCustomAttributes:function(list, attributeType, inherit)
 	{
 		this.VerifyCustomAttributes();
 		if (this._CustomAttributes != null)
@@ -65,13 +65,13 @@ Class("System.Reflection.MemberInfo", "System.Object",
 				bm.AddCustomAttributes(list, attributeType, inherit);
 		}
 	},
-	GetCustomAttributes$$Type$$Boolean:function System$Reflection$MemberInfo$GetCustomAttributes(attributeType, inherit)
+	GetCustomAttributes$$Type$$Boolean:function(attributeType, inherit)
 	{
 		var list = new System.Collections.Generic.List$1.ctor(System.Object);
 		this.AddCustomAttributes(list, attributeType, inherit);
 		return list.ToArray();
 	},
-	GetCustomAttributes$$Boolean:function System$Reflection$MemberInfo$GetCustomAttributes(inherit)
+	GetCustomAttributes$$Boolean:function(inherit)
 	{
 		if (inherit)
 			throw new System.NotImplementedException.ctor$$String("GetCustomAttributes with inherit=true is not implemented");
@@ -115,7 +115,7 @@ Class("System.Reflection.MethodInfo", "System.Reflection.MethodBase",
 		System.Reflection.MethodBase.ctor.call(this);
 	}
 	,
-	Invoke:function System$Reflection$MethodInfo$Invoke(obj, parameters)
+	Invoke:function(obj, parameters)
 	{
 		var func;
 		if (this._IsStatic)
@@ -152,27 +152,27 @@ Class("System.Reflection.PropertyInfo", "System.Reflection.MemberInfo",
 	}
 	,
 	Name$$:"System.String",
-	get_Name:function System$Reflection$PropertyInfo$get_Name()
+	get_Name:function()
 	{
 		return this._Name;
 	},
 	PropertyType$$:"SharpKit.JavaScript.Private.JsImplType",
-	get_PropertyType:function System$Reflection$PropertyInfo$get_PropertyType()
+	get_PropertyType:function()
 	{
 		return this._PropertyType;
 	},
-	GetBaseMember:function System$Reflection$PropertyInfo$GetBaseMember()
+	GetBaseMember:function()
 	{
 		return null;
 	},
-	GetValue:function System$Reflection$PropertyInfo$GetValue(obj, indexes)
+	GetValue:function(obj, indexes)
 	{
 		if (this._Getter == null)
 			throw new System.Exception.ctor$$String("Property " + this._Name + " doesn't have a getter");
 		var value = this._Getter.apply(obj, (indexes!=null ? indexes : new Array()));
 		return value;
 	},
-	SetValue:function System$Reflection$PropertyInfo$SetValue(obj, value, indexes)
+	SetValue:function(obj, value, indexes)
 	{
 		if (this._Setter == null)
 			throw new System.Exception.ctor$$String("Property " + this._Name + " doesn't have a setter");
@@ -211,37 +211,37 @@ Class("System.Type", "System.Reflection.MemberInfo",
 	}
 	,
 	IsEnum$$:"System.Boolean",
-	get_IsEnum:function System$Type$get_IsEnum()
+	get_IsEnum:function()
 	{
 		return this._JsType.isEnum;
 	},
 	BaseType$$:"SharpKit.JavaScript.Private.JsImplType",
-	get_BaseType:function System$Type$get_BaseType()
+	get_BaseType:function()
 	{
 		if (this._JsType.baseType == null)
 			return null;
 		return System.Type._TypeOf(this._JsType.baseType);
 	},
 	Name$$:"System.String",
-	get_Name:function System$Type$get_Name()
+	get_Name:function()
 	{
 		return this._JsType.get_Name();
 	},
 	FullName$$:"System.String",
-	get_FullName:function System$Type$get_FullName()
+	get_FullName:function()
 	{
 		return this._JsType.get_FullName();
 	},
 	AssemblyQualifiedName$$:"System.String",
-	get_AssemblyQualifiedName:function System$Type$get_AssemblyQualifiedName()
+	get_AssemblyQualifiedName:function()
 	{
 		return this._JsType.get_AssemblyQualifiedName();
 	},
-	GetBaseMember:function System$Type$GetBaseMember()
+	GetBaseMember:function()
 	{
 		return this.get_BaseType();
 	},
-	FillProperties:function System$Type$FillProperties(def)
+	FillProperties:function(def)
 	{
 		for(var funcName in def)
 		{
@@ -251,7 +251,7 @@ Class("System.Type", "System.Reflection.MemberInfo",
 				this.FillProperty(def, funcName, isSetter);
 		}
 	},
-	FillProperty:function System$Type$FillProperty(def, funcName, isSetter)
+	FillProperty:function(def, funcName, isSetter)
 	{
 		var member = def[funcName];
 		var func = member;
@@ -277,7 +277,7 @@ Class("System.Type", "System.Reflection.MemberInfo",
 		else
 			prop._Getter = func;
 	},
-	TryFillProperty:function System$Type$TryFillProperty(def, name)
+	TryFillProperty:function(def, name)
 	{
 		if (def == null)
 			return false;
@@ -289,12 +289,12 @@ Class("System.Type", "System.Reflection.MemberInfo",
 			this.FillProperty(def, setterName, true);
 		return this._PropertiesByName[name] != null;
 	},
-	GetProperty:function System$Type$GetProperty(name)
+	GetProperty:function(name)
 	{
 		this.VerifyProperty(name);
 		return this._PropertiesByName[name];
 	},
-	VerifyProperty:function System$Type$VerifyProperty(name)
+	VerifyProperty:function(name)
 	{
 		if (this._PropertiesByName == null)
 		{
@@ -317,7 +317,7 @@ Class("System.Type", "System.Reflection.MemberInfo",
 		}
 		this._PropertiesByName[name] = null;
 	},
-	VerifyProperties:function System$Type$VerifyProperties()
+	VerifyProperties:function()
 	{
 		if (!this.allPropertiesVerified)
 		{
@@ -332,10 +332,10 @@ Class("System.Type", "System.Reflection.MemberInfo",
 			var baseType = this.get_BaseType();
 			if (baseType != null)
 			{
-				var $it9 = baseType.GetProperties().GetEnumerator();
-				while ($it9.MoveNext())
+				var $it8 = baseType.GetProperties().GetEnumerator();
+				while ($it8.MoveNext())
 				{
-					var pe = $it9.get_Current();
+					var pe = $it8.get_Current();
 					if (!this._PropertiesByName.hasOwnProperty(pe._Name))
 					{
 						this._PropertiesByName[pe._Name] = pe;
@@ -345,12 +345,12 @@ Class("System.Type", "System.Reflection.MemberInfo",
 			}
 		}
 	},
-	GetProperties:function System$Type$GetProperties()
+	GetProperties:function()
 	{
 		this.VerifyProperties();
 		return this._Properties;
 	},
-	FillMethods:function System$Type$FillMethods(def)
+	FillMethods:function(def)
 	{
 		var isStatic = def == this._JsType.staticDefinition;
 		for(var funcName in def)
@@ -377,7 +377,7 @@ Class("System.Type", "System.Reflection.MemberInfo",
 			method._IsStatic = this._JsType.staticDefinition != null && this._JsType.staticDefinition[funcName] == func;
 		}
 	},
-	GetMethod:function System$Type$GetMethod(name)
+	GetMethod:function(name)
 	{
 		this.VerifyMethods();
 		var methods = this._MethodsByName[name];
@@ -385,7 +385,7 @@ Class("System.Type", "System.Reflection.MemberInfo",
 			return null;
 		return methods[0];
 	},
-	VerifyMethods:function System$Type$VerifyMethods()
+	VerifyMethods:function()
 	{
 		if (this._MethodsByName == null)
 		{
@@ -396,10 +396,10 @@ Class("System.Type", "System.Reflection.MemberInfo",
 			var baseType = this.get_BaseType();
 			if (baseType != null)
 			{
-				var $it10 = baseType.GetMethods().GetEnumerator();
-				while ($it10.MoveNext())
+				var $it9 = baseType.GetMethods().GetEnumerator();
+				while ($it9.MoveNext())
 				{
-					var pe = $it10.get_Current();
+					var pe = $it9.get_Current();
 					if (this._MethodsByName[pe._Name] == null)
 					{
 						this._MethodsByName[pe._Name] = pe;
@@ -409,7 +409,7 @@ Class("System.Type", "System.Reflection.MemberInfo",
 			}
 		}
 	},
-	GetMethods:function System$Type$GetMethods()
+	GetMethods:function()
 	{
 		this.VerifyMethods();
 		var arr = new Array();
@@ -419,20 +419,20 @@ Class("System.Type", "System.Reflection.MemberInfo",
 		}
 		return arr;
 	},
-	GetMethods$$String:function System$Type$GetMethods(name)
+	GetMethods$$String:function(name)
 	{
 		this.VerifyMethods();
 		return this._MethodsByName[name];
 	},
-	GetMethods$$BindingFlags:function System$Type$GetMethods(bindingFlags)
+	GetMethods$$BindingFlags:function(bindingFlags)
 	{
 		return this.GetMethods();
 	},
-	VerifyCustomAttributes:function System$Type$VerifyCustomAttributes()
+	VerifyCustomAttributes:function()
 	{
 		this.VerifyCustomAttributesOnTypeAndMembers();
 	},
-	VerifyCustomAttributesOnTypeAndMembers:function System$Type$VerifyCustomAttributesOnTypeAndMembers()
+	VerifyCustomAttributesOnTypeAndMembers:function()
 	{
 		if (this.verifiedCustomAttributesOnTypeAndMembers)
 			return;
@@ -461,17 +461,17 @@ Class("System.Type", "System.Reflection.MemberInfo",
 			target._CustomAttributes.push(att);
 		}
 	},
-	GetAttributeTarget:function System$Type$GetAttributeTarget(memberType, memberName)
+	GetAttributeTarget:function(memberType, memberName)
 	{
 		if (memberType == "type")
 			return this;
 		else if (memberType == "method")
 		{
 			var methodName = SharpKit.JavaScript.JsNamingHelper.JsFunctionNameToClrMethodName(memberName);
-			var $it11 = this.GetMethods$$String(methodName).GetEnumerator();
-			while ($it11.MoveNext())
+			var $it10 = this.GetMethods$$String(methodName).GetEnumerator();
+			while ($it10.MoveNext())
 			{
-				var method = $it11.get_Current();
+				var method = $it10.get_Current();
 				if (method.JsName == memberName)
 					return method;
 			}
@@ -484,19 +484,19 @@ Class("System.Type", "System.Reflection.MemberInfo",
 		else
 			throw new System.NotImplementedException.ctor$$String("GetAttributeTarget not supported yet for memberType: " + memberType);
 	},
-	IsAssignableFrom:function System$Type$IsAssignableFrom(type)
+	IsAssignableFrom:function(type)
 	{
 		return TypeIs(type._JsType, this._JsType);
 	},
-	IsInstanceOfType:function System$Type$IsInstanceOfType(obj)
+	IsInstanceOfType:function(obj)
 	{
 		return Is(obj, this._JsType);
 	},
-	ToString:function System$Type$ToString()
+	ToString:function()
 	{
 		return System.String.Format("{Name = " + this.get_Name() + " FullName = " + this.get_FullName() + "}");
 	},
-	MakeGenericType:function System$Type$MakeGenericType(typeArguments)
+	MakeGenericType:function(typeArguments)
 	{
 		
 var x = []; 
@@ -504,17 +504,17 @@ for(var i=0;i<arguments.length;i++)
 	x.push(arguments[i]|| null);
 return this._MakeGenericType(x);
 	},
-	GetGenericTypeDefinition:function System$Type$GetGenericTypeDefinition()
+	GetGenericTypeDefinition:function()
 	{
 		return this._GenericTypeDefinition;
 	},
-	GetGenericArguments:function System$Type$GetGenericArguments()
+	GetGenericArguments:function()
 	{
 		if (this._TypeArguments == null)
 			return System.Type.EmptyTypes;
 		return this._TypeArguments;
 	},
-	_MakeGenericType:function System$Type$_MakeGenericType(typeArguments)
+	_MakeGenericType:function(typeArguments)
 	{
 		if (this._MakeGenericTypeCache == null)
 			this._MakeGenericTypeCache = new Object();
@@ -543,7 +543,7 @@ return this._MakeGenericType(x);
 	}
 },
 { //Static members
-	_TypeOf:function System$Type$_TypeOf(jsType)
+	_TypeOf:function(jsType)
 	{
 		if (jsType == null)
 			throw new System.Exception.ctor$$String("Cannot resovle type");
@@ -551,11 +551,11 @@ return this._MakeGenericType(x);
 			jsType._ClrType = new System.Type.ctor(jsType);
 		return jsType._ClrType;
 	},
-	GetType$$String:function System$Type$GetType(name)
+	GetType$$String:function(name)
 	{
 		return System.Type.GetType$$String$$Boolean(name, false);
 	},
-	GetType$$String$$Boolean:function System$Type$GetType(name, throwOnError)
+	GetType$$String$$Boolean:function(name, throwOnError)
 	{
 		if (JsType._HasTypeArguments(name))
 		{
@@ -580,7 +580,7 @@ return this._MakeGenericType(x);
 		}
 		return System.Type._TypeOf(jsType);
 	},
-	GetType$$String$$Boolean$$Boolean:function System$Type$GetType(name, throwOnError, ignoreCase)
+	GetType$$String$$Boolean$$Boolean:function(name, throwOnError, ignoreCase)
 	{
 		if (ignoreCase)
 			throw new System.NotImplementedException.ctor();

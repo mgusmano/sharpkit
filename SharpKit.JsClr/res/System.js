@@ -754,7 +754,7 @@ JsType.prototype.isDelegate = false;
 
 JsType.prototype.isValueType = false;
 
-JsType.GetAllTypesByFullName=function JsType$GetAllTypesByFullName()
+JsType.GetAllTypesByFullName=function()
 {
 	return Types;
 }
@@ -763,7 +763,7 @@ JsType.prototype.isPartial = false;
 
 
 
-JsType.MapType=function JsType$MapType(existingTypeName, nonExistingTypeName)
+JsType.MapType=function(existingTypeName, nonExistingTypeName)
 {
 	var type = JsType.GetType(existingTypeName, true);
 	var nonExistingType = JsType.GetType(nonExistingTypeName);
@@ -773,7 +773,7 @@ JsType.MapType=function JsType$MapType(existingTypeName, nonExistingTypeName)
 	eval(nonExistingTypeName + "=" + existingTypeName + ";");
 }
 
-JsType.GetTypeIgnoreNamespace=function JsType$GetTypeIgnoreNamespace(name, throwIfNotFound)
+JsType.GetTypeIgnoreNamespace=function(name, throwIfNotFound)
 {
 	var type;
 	var cache = JsType.GetTypeIgnoreNamespaceCache;
@@ -814,12 +814,12 @@ JsType.GetTypeIgnoreNamespace=function JsType$GetTypeIgnoreNamespace(name, throw
 
 JsType.GetTypeIgnoreNamespaceCache = null;
 
-JsType._HasTypeArguments=function JsType$_HasTypeArguments(typeName)
+JsType._HasTypeArguments=function(typeName)
 {
 	return typeName.indexOf("[") > -1;
 }
 
-JsType._GetTypeWithArguments=function JsType$_GetTypeWithArguments(typeName, throwIfNotFound)
+JsType._GetTypeWithArguments=function(typeName, throwIfNotFound)
 {
 	var name = typeName;
 	var gti = name.indexOf("`");
@@ -845,7 +845,7 @@ JsType._GetTypeWithArguments=function JsType$_GetTypeWithArguments(typeName, thr
 	return null;
 }
 
-JsType._ParseTypeNameArgs=function JsType$_ParseTypeNameArgs(name)
+JsType._ParseTypeNameArgs=function(name)
 {
 		var code = name.replace(/, [a-zA-Z0-9, =.]+\]/g, ']'); //remove all the ', mscorlib, Version=1.0.0.0, publicKeyToken=xxxxxxxxx
 	code = code.replace(/`([0-9])/g, '$$$1,'); //remove the `2 and replace to $2, (the comma is for array to compile)
@@ -854,7 +854,7 @@ JsType._ParseTypeNameArgs=function JsType$_ParseTypeNameArgs(name)
 	return args;
 }
 
-JsType.GetType=function JsType$GetType(typeOrName, throwIfNotFound)
+JsType.GetType=function(typeOrName, throwIfNotFound)
 {
 	if (typeof(typeOrName) != "string")
 	{
@@ -878,7 +878,7 @@ JsType.GetType=function JsType$GetType(typeOrName, throwIfNotFound)
 	return type;
 }
 
-JsType.FindType=function JsType$FindType(name, throwIfNotFound)
+JsType.FindType=function(name, throwIfNotFound)
 {
 	var type = JsType.GetType(name, false);
 	if (type == null)
@@ -886,13 +886,13 @@ JsType.FindType=function JsType$FindType(name, throwIfNotFound)
 	return type;
 }
 
-JsType.prototype.get_FullName=function JsType$get_FullName()
+JsType.prototype.get_FullName=function()
 {
 	return this.fullname;
 }
 
 
-JsType.prototype.get_AssemblyQualifiedName=function JsType$get_AssemblyQualifiedName()
+JsType.prototype.get_AssemblyQualifiedName=function()
 {
 	if (this._AssemblyQualifiedName == null)
 	{
@@ -904,7 +904,7 @@ JsType.prototype.get_AssemblyQualifiedName=function JsType$get_AssemblyQualified
 	return this._AssemblyQualifiedName;
 }
 
-JsType.prototype.get_Name=function JsType$get_Name()
+JsType.prototype.get_Name=function()
 {
 	return this.name;
 }
@@ -912,7 +912,7 @@ typeHelper = function()
 {
 }
 
-typeHelper.getTypeName=function typeHelper$getTypeName(value)
+typeHelper.getTypeName=function(value)
 {
 	  var typeName = typeof(value);
   if(typeName!='object')
@@ -930,7 +930,7 @@ Class("System.Activator", "System.Object",
 	
 },
 { //Static members
-	CreateInstance:function System$Activator$CreateInstance(type)
+	CreateInstance:function(type)
 	{
 		return new type._JsType.ctor();
 	}
@@ -1060,11 +1060,11 @@ Class("System.ComponentModel.CancelEventArgs", "System.EventArgs",
 	}
 	,
 	Cancel$$:"System.Boolean",
-	get_Cancel:function System$ComponentModel$CancelEventArgs$get_Cancel()
+	get_Cancel:function()
 	{
 		return this._Cancel;
 	},
-	set_Cancel:function System$ComponentModel$CancelEventArgs$set_Cancel(value)
+	set_Cancel:function(value)
 	{
 		this._Cancel = value;
 	}
@@ -1108,7 +1108,7 @@ Class("System.ComponentModel.PropertyChangedEventArgs", "System.EventArgs",
 	}
 	,
 	PropertyName$$:"System.String",
-	get_PropertyName:function System$ComponentModel$PropertyChangedEventArgs$get_PropertyName()
+	get_PropertyName:function()
 	{
 		return this._PropertyName;
 	}
@@ -1172,91 +1172,91 @@ this.date = System.DateTime.MinValue.date;
 	}
 	,
 	Year$$:"System.Int32",
-	get_Year:function System$DateTime$get_Year()
+	get_Year:function()
 	{
 		return this.date.getFullYear();
 	},
-	set_Year:function System$DateTime$set_Year(value)
+	set_Year:function(value)
 	{
 		this.date.setFullYear(value);
 	},
 	Month$$:"System.Int32",
-	get_Month:function System$DateTime$get_Month()
+	get_Month:function()
 	{
 		return this.date.getMonth() + 1;
 	},
-	set_Month:function System$DateTime$set_Month(value)
+	set_Month:function(value)
 	{
 		this.date.setMonth(value - 1);
 	},
 	Day$$:"System.Int32",
-	get_Day:function System$DateTime$get_Day()
+	get_Day:function()
 	{
 		return this.date.getDate();
 	},
-	set_Day:function System$DateTime$set_Day(value)
+	set_Day:function(value)
 	{
 		this.date.setDate(value);
 	},
 	Hour$$:"System.Int32",
-	get_Hour:function System$DateTime$get_Hour()
+	get_Hour:function()
 	{
 		return this.date.getHours();
 	},
-	set_Hour:function System$DateTime$set_Hour(value)
+	set_Hour:function(value)
 	{
 		this.date.setHours(value);
 	},
 	Minute$$:"System.Int32",
-	get_Minute:function System$DateTime$get_Minute()
+	get_Minute:function()
 	{
 		return this.date.getMinutes();
 	},
-	set_Minute:function System$DateTime$set_Minute(value)
+	set_Minute:function(value)
 	{
 		this.date.setMinutes(value);
 	},
 	Second$$:"System.Int32",
-	get_Second:function System$DateTime$get_Second()
+	get_Second:function()
 	{
 		return this.date.getSeconds();
 	},
-	set_Second:function System$DateTime$set_Second(value)
+	set_Second:function(value)
 	{
 		this.date.setSeconds(value);
 	},
 	Millisecond$$:"System.Int32",
-	get_Millisecond:function System$DateTime$get_Millisecond()
+	get_Millisecond:function()
 	{
 		return this.date.getMilliseconds();
 	},
-	set_Millisecond:function System$DateTime$set_Millisecond(value)
+	set_Millisecond:function(value)
 	{
 		this.date.setMilliseconds(value);
 	},
 	DayOfWeek$$:"System.Int32",
-	get_DayOfWeek:function System$DateTime$get_DayOfWeek()
+	get_DayOfWeek:function()
 	{
 		return this.date.getDay();
 	},
 	Today$$:"SharpKit.JavaScript.Private.JsImplDateTime",
-	get_Today:function System$DateTime$get_Today()
+	get_Today:function()
 	{
 		return new System.DateTime.ctor$$Date(new Date().removeTime());
 	},
-	ToJsDate:function System$DateTime$ToJsDate()
+	ToJsDate:function()
 	{
 		return this.date;
 	},
-	CompareTo:function System$DateTime$CompareTo(value)
+	CompareTo:function(value)
 	{
 		return this.date.valueOf() - value.date.valueOf();
 	},
-	ToString:function System$DateTime$ToString()
+	ToString:function()
 	{
 		return this.date.toString();
 	},
-	ToString$$String:function System$DateTime$ToString(format)
+	ToString$$String:function(format)
 	{
 		format = format.Replace$$String$$String("yyyy", this.get_Year().ToString$$String("0000"));
 		format = format.Replace$$String$$String("yyyy", this.get_Year().ToString$$String("00"));
@@ -1273,26 +1273,26 @@ this.date = System.DateTime.MinValue.date;
 		format = format.Replace$$String$$String("s", this.get_Second().ToString());
 		return format;
 	},
-	AddDays:function System$DateTime$AddDays(days)
+	AddDays:function(days)
 	{
 		return new System.DateTime.ctor$$Date(this.date.addDays(days));
 	},
-	AddMonths:function System$DateTime$AddMonths(months)
+	AddMonths:function(months)
 	{
 		return new System.DateTime.ctor$$Date(this.date.addMonths(months));
 	}
 },
 { //Static members
 	Now$$:"SharpKit.JavaScript.Private.JsImplDateTime",
-	get_Now:function System$DateTime$get_Now()
+	get_Now:function()
 	{
 		return new System.DateTime.ctor$$Date(new Date());
 	},
-	DaysInMonth:function System$DateTime$DaysInMonth(year, month)
+	DaysInMonth:function(year, month)
 	{
 		return 32 - new Date(year, month-1, 32).getDate();
 	},
-	Compare:function System$DateTime$Compare(t1, t2)
+	Compare:function(t1, t2)
 	{
 		return t1.date.valueOf() - t2.date.valueOf();
 	}
@@ -1310,13 +1310,13 @@ Class("System.Delegate", "System.Object",
 		System.Object.ctor.call(this);
 	}
 	,
-	DynamicInvoke:function System$Delegate$DynamicInvoke(args)
+	DynamicInvoke:function(args)
 	{
 		throw new System.Exception.ctor$$String("DynamicInvoke is available only on MulticastDelegates");
 	}
 },
 { //Static members
-	Combine$$Delegate$$Delegate:function System$Delegate$Combine(delegate1, delegate2)
+	Combine$$Delegate$$Delegate:function(delegate1, delegate2)
 	{
 		if (delegate1 == null)
 			return delegate2;
@@ -1325,11 +1325,11 @@ Class("System.Delegate", "System.Object",
 		delegate1._Add(delegate2);
 		return delegate1;
 	},
-	Combine$$Object:function System$Delegate$Combine(obj)
+	Combine$$Object:function(obj)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Remove:function System$Delegate$Remove(delegate1, delegate2)
+	Remove:function(delegate1, delegate2)
 	{
 		if (delegate1 == null)
 			return null;
@@ -1359,7 +1359,7 @@ Class("System.MulticastDelegate", "System.Delegate",
 		this.func = func2;
 	}
 	,
-	_ToJsFunction:function System$MulticastDelegate$_ToJsFunction()
+	_ToJsFunction:function()
 	{
 		if (this.delegates != null)
 			throw new System.Exception.ctor$$String("Not Implemented");
@@ -1369,13 +1369,13 @@ Class("System.MulticastDelegate", "System.Delegate",
 		}
 		return this._jsFunc;
 	},
-	GetInvocationList:function System$MulticastDelegate$GetInvocationList()
+	GetInvocationList:function()
 	{
 		var ar = this.delegates.Clone();
 		ar.insert(0, new System.MulticastDelegate.ctor(this.obj, this.func));
 		return ar;
 	},
-	Clone:function System$MulticastDelegate$Clone()
+	Clone:function()
 	{
 		
 var x = new this.constructor(this.obj, this.func);
@@ -1384,17 +1384,17 @@ if(this.delegates!=null)
 return x;
 
 	},
-	GetHashCode:function System$MulticastDelegate$GetHashCode()
+	GetHashCode:function()
 	{
 		return System.Object.commonPrototype.GetHashCode.call(this);
 	},
-	Equals$$Object:function System$MulticastDelegate$Equals(obj)
+	Equals$$Object:function(obj)
 	{
 		if (Is(obj, System.MulticastDelegate))
 			return this.Equals$$MulticastDelegate(obj);
 		return false;
 	},
-	Equals$$MulticastDelegate:function System$MulticastDelegate$Equals(del)
+	Equals$$MulticastDelegate:function(del)
 	{
 		if (del == null)
 			return false;
@@ -1417,7 +1417,7 @@ return x;
 		}
 		return false;
 	},
-	_Add:function System$MulticastDelegate$_Add(del)
+	_Add:function(del)
 	{
 		if (this._jsFunc != null)
 			throw new System.Exception.ctor$$String("Cannot change delegate - jsfunc already created");
@@ -1425,7 +1425,7 @@ return x;
 			this.delegates = new Array();
 		this.delegates.push(del);
 	},
-	_Remove:function System$MulticastDelegate$_Remove(del)
+	_Remove:function(del)
 	{
 		if (this.delegates != null)
 		{
@@ -1440,7 +1440,7 @@ return x;
 			}
 		}
 	},
-	Invoke:function System$MulticastDelegate$Invoke(varargs)
+	Invoke:function(varargs)
 	{
 		
 			var restoreIsSealed = false;
@@ -1466,7 +1466,7 @@ return x;
 				this._IsSealed = false;
 			return res;
 	},
-	DynamicInvoke:function System$MulticastDelegate$DynamicInvoke(args)
+	DynamicInvoke:function(args)
 	{
 		return this.Invoke.apply(this, arguments);
 	}
@@ -1584,7 +1584,7 @@ Class("System.Enum", "System.Object",
 	
 },
 { //Static members
-	GetNames:function System$Enum$GetNames(type)
+	GetNames:function(type)
 	{
 		var jsType = type._JsType;
 		var array = new Array();
@@ -1594,7 +1594,7 @@ Class("System.Enum", "System.Object",
 		}
 		return array;
 	},
-	GetValues:function System$Enum$GetValues(type)
+	GetValues:function(type)
 	{
 		var jsType = type._JsType;
 		var array = new Array();
@@ -1620,7 +1620,7 @@ Class("System.Environment", "System.Object",
 	
 },
 { //Static members
-	GetResourceString:function System$Environment$GetResourceString(p)
+	GetResourceString:function(p)
 	{
 		return p;
 	}
@@ -1669,23 +1669,23 @@ Class("System.Exception", "System.Object",
 	}
 	,
 	InnerException$$:"System.Exception",
-	get_InnerException:function System$Exception$get_InnerException()
+	get_InnerException:function()
 	{
 		return this._InnerException;
 	},
 	Message$$:"System.String",
-	get_Message:function System$Exception$get_Message()
+	get_Message:function()
 	{
 		return this._Message;
 	},
-	ToString:function System$Exception$ToString()
+	ToString:function()
 	{
 		var ie = this.get_InnerException();
 		if (ie == null)
 			return this.get_Message();
 		return this.get_Message() + ", " + this.get_InnerException();
 	},
-	SetErrorCode:function System$Exception$SetErrorCode(hr)
+	SetErrorCode:function(hr)
 	{
 	}
 },
@@ -1784,7 +1784,7 @@ Class("System.ArgumentException", "System.SystemException",
 	}
 	,
 	ParamName$$:"System.String",
-	get_ParamName:function System$ArgumentException$get_ParamName()
+	get_ParamName:function()
 	{
 		return this.m_paramName;
 	}
@@ -1881,12 +1881,12 @@ Class("System.ArgumentOutOfRangeException", "System.ArgumentException",
 	}
 	,
 	ActualValue$$:"System.Object",
-	get_ActualValue:function System$ArgumentOutOfRangeException$get_ActualValue()
+	get_ActualValue:function()
 	{
 		return this.m_actualValue;
 	},
 	RangeMessage$$:"System.String",
-	get_RangeMessage:function System$ArgumentOutOfRangeException$get_RangeMessage()
+	get_RangeMessage:function()
 	{
 		if (System.ArgumentOutOfRangeException._rangeMessage == null)
 		{
@@ -1923,12 +1923,12 @@ Class("System.Nullable$1", "System.Object",
 	}
 	,
 	HasValue$$:"System.Boolean",
-	get_HasValue:function System$Nullable$get_HasValue()
+	get_HasValue:function()
 	{
 		return this.hasValue;
 	},
 	Value$$:"T",
-	get_Value:function System$Nullable$get_Value()
+	get_Value:function()
 	{
 		if (!this.get_HasValue())
 		{
@@ -1936,11 +1936,11 @@ Class("System.Nullable$1", "System.Object",
 		}
 		return this.value;
 	},
-	GetValueOrDefault:function System$Nullable$GetValueOrDefault()
+	GetValueOrDefault:function()
 	{
 		return this.value;
 	},
-	GetValueOrDefault$$T:function System$Nullable$GetValueOrDefault(defaultValue)
+	GetValueOrDefault$$T:function(defaultValue)
 	{
 		if (!this.get_HasValue())
 		{
@@ -1948,7 +1948,7 @@ Class("System.Nullable$1", "System.Object",
 		}
 		return this.value;
 	},
-	Equals$$Object:function System$Nullable$Equals(other)
+	Equals$$Object:function(other)
 	{
 		if (!this.get_HasValue())
 		{
@@ -1960,7 +1960,7 @@ Class("System.Nullable$1", "System.Object",
 		}
 		return this.value.Equals$$Object(other);
 	},
-	GetHashCode:function System$Nullable$GetHashCode()
+	GetHashCode:function()
 	{
 		if (!this.get_HasValue())
 		{
@@ -1968,7 +1968,7 @@ Class("System.Nullable$1", "System.Object",
 		}
 		return this.value.GetHashCode();
 	},
-	ToString:function System$Nullable$ToString()
+	ToString:function()
 	{
 		if (!this.get_HasValue())
 		{
@@ -1999,11 +1999,11 @@ Class("System.Char", "System.Object",
 	
 },
 { //Static members
-	IsWhiteSpace:function System$Char$IsWhiteSpace(c)
+	IsWhiteSpace:function(c)
 	{
 		return /\s/.test(c);
 	},
-	IsUpper:function System$Char$IsUpper(c)
+	IsUpper:function(c)
 	{
 		return c.toUpperCase() == c;
 	}
@@ -2026,7 +2026,7 @@ Class("System.CharEnumerator", "System.Object",
 	}
 	,
 	Current$$:"System.Char",
-	get_Current:function System$CharEnumerator$get_Current()
+	get_Current:function()
 	{
 		if (this.index == -1)
 		{
@@ -2038,7 +2038,7 @@ Class("System.CharEnumerator", "System.Object",
 		}
 		return this.currentElement;
 	},
-	MoveNext:function System$CharEnumerator$MoveNext()
+	MoveNext:function()
 	{
 		if (this.index < (this.str.length - 1))
 		{
@@ -2049,7 +2049,7 @@ Class("System.CharEnumerator", "System.Object",
 		this.index = this.str.length;
 		return false;
 	},
-	Reset:function System$CharEnumerator$Reset()
+	Reset:function()
 	{
 		this.currentElement = '\0';
 		this.index = -1;
@@ -2081,11 +2081,11 @@ Class("System.Uri", "System.Object",
 	}
 	,
 	OriginalString$$:"System.String",
-	get_OriginalString:function System$Uri$get_OriginalString()
+	get_OriginalString:function()
 	{
 		return this._OriginalString;
 	},
-	ToString:function System$Uri$ToString()
+	ToString:function()
 	{
 		return this._OriginalString;
 	}
@@ -2120,7 +2120,7 @@ JsRuntime = function()
 {
 }
 
-JsRuntime.Start=function JsRuntime$Start()
+JsRuntime.Start=function()
 {
 	Compile();
 }

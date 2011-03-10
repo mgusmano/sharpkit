@@ -8,7 +8,7 @@ Class("System.Diagnostics.Debugger", "System.Object",
 	
 },
 { //Static members
-	Break:function System$Diagnostics$Debugger$Break()
+	Break:function()
 	{
 		debugger;
 	}
@@ -29,7 +29,7 @@ Class("System.Diagnostics.Trace", "System.Object",
 	
 },
 { //Static members
-	TraceWarning$$String:function System$Diagnostics$Trace$TraceWarning(msg)
+	TraceWarning$$String:function(msg)
 	{
 		if (!System.Diagnostics.Trace.Enabled)
 			return;
@@ -37,7 +37,7 @@ Class("System.Diagnostics.Trace", "System.Object",
 			System.Diagnostics.Trace.Warnings = new System.Collections.Generic.List$1.ctor(System.String);
 		System.Diagnostics.Trace.Warnings.Add(msg);
 	},
-	TraceWarning$$String$$Object$Array:function System$Diagnostics$Trace$TraceWarning(format, args)
+	TraceWarning$$String$$Object$Array:function(format, args)
 	{
 		if (!System.Diagnostics.Trace.Enabled)
 			return;

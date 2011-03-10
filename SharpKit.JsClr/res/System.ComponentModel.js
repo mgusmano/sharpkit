@@ -12,275 +12,275 @@ Class("System.Math", "System.Object",
 	
 },
 { //Static members
-	Abs$$Number:function System$Math$Abs(value)
+	Abs$$Number:function(value)
 	{
 		return Math.abs(value);
 	},
-	Abs$$Double:function System$Math$Abs(value)
+	Abs$$Double:function(value)
 	{
 		return Math.abs(value);
 	},
-	Abs$$Int32:function System$Math$Abs(value)
+	Abs$$Int32:function(value)
 	{
 		return Math.abs(value);
 	},
-	Abs$$Int64:function System$Math$Abs(value)
+	Abs$$Int64:function(value)
 	{
 		return Math.abs(Cast(value, "System.Decimal"));
 	},
-	Abs$$Float:function System$Math$Abs(value)
+	Abs$$Float:function(value)
 	{
 		return Math.abs(value);
 	},
-	AbsHelper$$Short:function System$Math$AbsHelper(value)
+	AbsHelper$$Short:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	AbsHelper$$Int32:function System$Math$AbsHelper(value)
+	AbsHelper$$Int32:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	AbsHelper$$Int64:function System$Math$AbsHelper(value)
+	AbsHelper$$Int64:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	AbsHelper$$SByte:function System$Math$AbsHelper(value)
+	AbsHelper$$SByte:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Acos:function System$Math$Acos(d)
+	Acos:function(d)
 	{
 		return Math.acos(d);
 	},
-	Asin:function System$Math$Asin(d)
+	Asin:function(d)
 	{
 		return Math.asin(d);
 	},
-	Atan:function System$Math$Atan(d)
+	Atan:function(d)
 	{
 		return Math.atan(d);
 	},
-	Atan2:function System$Math$Atan2(y, x)
+	Atan2:function(y, x)
 	{
 		return Math.atan2(y, x);
 	},
-	BigMul:function System$Math$BigMul(a, b)
+	BigMul:function(a, b)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Ceiling$$Decimal:function System$Math$Ceiling(d)
+	Ceiling$$Decimal:function(d)
 	{
 		return Math.ceil(d);
 	},
-	Ceiling$$Double:function System$Math$Ceiling(a)
+	Ceiling$$Double:function(a)
 	{
 		return Math.ceil(a);
 	},
-	Cos:function System$Math$Cos(d)
+	Cos:function(d)
 	{
 		return Math.cos(d);
 	},
-	Cosh:function System$Math$Cosh(value)
+	Cosh:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	DivRem$$Int32$$Int32$$Int32:function System$Math$DivRem(a, b, result)
+	DivRem$$Int32$$Int32$$Int32:function(a, b, result)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	DivRem$$Int64$$Int64$$Int64:function System$Math$DivRem(a, b, result)
+	DivRem$$Int64$$Int64$$Int64:function(a, b, result)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Exp:function System$Math$Exp(d)
+	Exp:function(d)
 	{
 		return Math.exp(d);
 	},
-	Floor$$Decimal:function System$Math$Floor(d)
+	Floor$$Decimal:function(d)
 	{
 		return Math.floor(d);
 	},
-	Floor$$Double:function System$Math$Floor(d)
+	Floor$$Double:function(d)
 	{
 		return Math.floor(d);
 	},
-	IEEERemainder:function System$Math$IEEERemainder(x, y)
+	IEEERemainder:function(x, y)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	InternalRound:function System$Math$InternalRound(value, digits, mode)
+	InternalRound:function(value, digits, mode)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	InternalTruncate:function System$Math$InternalTruncate(d)
+	InternalTruncate:function(d)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Log$$Double:function System$Math$Log(d)
+	Log$$Double:function(d)
 	{
 		return Math.log(d);
 	},
-	Log$$Double$$Double:function System$Math$Log(a, newBase)
+	Log$$Double$$Double:function(a, newBase)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Log10:function System$Math$Log10(d)
+	Log10:function(d)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Max$$Decimal$$Decimal:function System$Math$Max(val1, val2)
+	Max$$Decimal$$Decimal:function(val1, val2)
 	{
 		return Math.max(val1, val2);
 	},
-	Max$$Double$$Double:function System$Math$Max(val1, val2)
+	Max$$Double$$Double:function(val1, val2)
 	{
 		return Math.max(val1, val2);
 	},
-	Max$$Int32$$Int32:function System$Math$Max(val1, val2)
+	Max$$Int32$$Int32:function(val1, val2)
 	{
 		return Math.max(val1, val2);
 	},
-	Max$$Int64$$Int64:function System$Math$Max(val1, val2)
+	Max$$Int64$$Int64:function(val1, val2)
 	{
 		return Math.max(Cast(val1, "System.Decimal"), Cast(val2, "System.Decimal"));
 	},
-	Max$$SByte$$SByte:function System$Math$Max(val1, val2)
+	Max$$SByte$$SByte:function(val1, val2)
 	{
 		return Math.max(val1, val2);
 	},
-	Max$$Float$$Float:function System$Math$Max(val1, val2)
+	Max$$Float$$Float:function(val1, val2)
 	{
 		return Math.max(val1, val2);
 	},
-	Max$$UInt32$$UInt32:function System$Math$Max(val1, val2)
+	Max$$UInt32$$UInt32:function(val1, val2)
 	{
 		return Math.max(Cast(val1, "System.Decimal"), Cast(val2, "System.Decimal"));
 	},
-	Max$$UInt64$$UInt64:function System$Math$Max(val1, val2)
+	Max$$UInt64$$UInt64:function(val1, val2)
 	{
 		return Math.max(Cast(val1, "System.Decimal"), Cast(val2, "System.Decimal"));
 	},
-	Min$$Decimal$$Decimal:function System$Math$Min(val1, val2)
+	Min$$Decimal$$Decimal:function(val1, val2)
 	{
 		return Math.min(val1, val2);
 	},
-	Min$$Double$$Double:function System$Math$Min(val1, val2)
+	Min$$Double$$Double:function(val1, val2)
 	{
 		return Math.min(val1, val2);
 	},
-	Min$$Int32$$Int32:function System$Math$Min(val1, val2)
+	Min$$Int32$$Int32:function(val1, val2)
 	{
 		return Math.min(val1, val2);
 	},
-	Min$$Int64$$Int64:function System$Math$Min(val1, val2)
+	Min$$Int64$$Int64:function(val1, val2)
 	{
 		return Math.min(Cast(val1, "System.Decimal"), Cast(val2, "System.Decimal"));
 	},
-	Min$$SByte$$SByte:function System$Math$Min(val1, val2)
+	Min$$SByte$$SByte:function(val1, val2)
 	{
 		return Math.min(val1, val2);
 	},
-	Min$$Float$$Float:function System$Math$Min(val1, val2)
+	Min$$Float$$Float:function(val1, val2)
 	{
 		return Math.min(val1, val2);
 	},
-	Min$$UInt32$$UInt32:function System$Math$Min(val1, val2)
+	Min$$UInt32$$UInt32:function(val1, val2)
 	{
 		return Math.min(Cast(val1, "System.Decimal"), Cast(val2, "System.Decimal"));
 	},
-	Min$$UInt64$$UInt64:function System$Math$Min(val1, val2)
+	Min$$UInt64$$UInt64:function(val1, val2)
 	{
 		return Math.min(Cast(val1, "System.Decimal"), Cast(val2, "System.Decimal"));
 	},
-	Pow:function System$Math$Pow(x, y)
+	Pow:function(x, y)
 	{
 		return Math.pow(x, y);
 	},
-	Round$$Decimal:function System$Math$Round(d)
+	Round$$Decimal:function(d)
 	{
 		return Math.round(d);
 	},
-	Round$$Double:function System$Math$Round(a)
+	Round$$Double:function(a)
 	{
 		return Math.round(a);
 	},
-	Round$$Decimal$$Int32:function System$Math$Round(d, decimals)
+	Round$$Decimal$$Int32:function(d, decimals)
 	{
 		return Math.round(d);
 	},
-	Round$$Decimal$$MidpointRounding:function System$Math$Round(d, mode)
+	Round$$Decimal$$MidpointRounding:function(d, mode)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Round$$Double$$Int32:function System$Math$Round(value, digits)
+	Round$$Double$$Int32:function(value, digits)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Round$$Double$$MidpointRounding:function System$Math$Round(value, mode)
+	Round$$Double$$MidpointRounding:function(value, mode)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Round$$Decimal$$Int32$$MidpointRounding:function System$Math$Round(d, decimals, mode)
+	Round$$Decimal$$Int32$$MidpointRounding:function(d, decimals, mode)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Round$$Double$$Int32$$MidpointRounding:function System$Math$Round(value, digits, mode)
+	Round$$Double$$Int32$$MidpointRounding:function(value, digits, mode)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Sign$$Decimal:function System$Math$Sign(value)
+	Sign$$Decimal:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Sign$$Double:function System$Math$Sign(value)
+	Sign$$Double:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Sign$$Short:function System$Math$Sign(value)
+	Sign$$Short:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Sign$$Int32:function System$Math$Sign(value)
+	Sign$$Int32:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Sign$$Int64:function System$Math$Sign(value)
+	Sign$$Int64:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Sign$$SByte:function System$Math$Sign(value)
+	Sign$$SByte:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Sign$$Float:function System$Math$Sign(value)
+	Sign$$Float:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Sin:function System$Math$Sin(a)
+	Sin:function(a)
 	{
 		return Math.sin(a);
 	},
-	Sinh:function System$Math$Sinh(value)
+	Sinh:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Sqrt:function System$Math$Sqrt(d)
+	Sqrt:function(d)
 	{
 		return Math.sqrt(d);
 	},
-	Tan:function System$Math$Tan(a)
+	Tan:function(a)
 	{
 		return Math.tan(a);
 	},
-	Tanh:function System$Math$Tanh(value)
+	Tanh:function(value)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Truncate$$Decimal:function System$Math$Truncate(d)
+	Truncate$$Decimal:function(d)
 	{
 		throw new System.NotImplementedException.ctor();
 	},
-	Truncate$$Double:function System$Math$Truncate(d)
+	Truncate$$Double:function(d)
 	{
 		throw new System.NotImplementedException.ctor();
 	}

@@ -8,7 +8,7 @@ Class("System.Linq.Enumerable", "System.Object",
 	
 },
 { //Static members
-	First$$IEnumerable$1:function System$Linq$Enumerable$First(TSource, source)
+	First$$IEnumerable$1:function(TSource, source)
 	{
 		if (source == null)
 		{
@@ -39,7 +39,59 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		throw System.Linq.Error.NoElements();
 	},
-	First$$IEnumerable$1$$Func$2:function System$Linq$Enumerable$First(TSource, source, predicate)
+	First$$IEnumerable$1$$Func$2:function(TSource, source, predicate)
+	{
+		if (source == null)
+		{
+			throw System.Linq.Error.ArgumentNull("source");
+		}
+		if (predicate == null)
+		{
+			throw System.Linq.Error.ArgumentNull("predicate");
+		}
+		var $it2 = source.GetEnumerator();
+		while ($it2.MoveNext())
+		{
+			var local = $it2.get_Current();
+			if (predicate.Invoke(local))
+			{
+				return local;
+			}
+		}
+		throw System.Linq.Error.NoMatch();
+	},
+	FirstOrDefault$$IEnumerable$1:function(TSource, source)
+	{
+		if (source == null)
+		{
+			throw System.Linq.Error.ArgumentNull("source");
+		}
+		var list = As(source, System.Collections.Generic.IList$1);
+		if (list != null)
+		{
+			if (list.get_Count() > 0)
+			{
+				return list.get_Item(0);
+			}
+		}
+		else
+		{
+			var enumerator = source.GetEnumerator();
+			try
+			{
+				if (enumerator.MoveNext())
+				{
+					return enumerator.get_Current();
+				}
+			}
+			finally
+			{
+				enumerator.Dispose();
+			}
+		}
+		return Default(TSource);
+	},
+	FirstOrDefault$$IEnumerable$1$$Func$2:function(TSource, source, predicate)
 	{
 		if (source == null)
 		{
@@ -58,61 +110,9 @@ Class("System.Linq.Enumerable", "System.Object",
 				return local;
 			}
 		}
-		throw System.Linq.Error.NoMatch();
-	},
-	FirstOrDefault$$IEnumerable$1:function System$Linq$Enumerable$FirstOrDefault(TSource, source)
-	{
-		if (source == null)
-		{
-			throw System.Linq.Error.ArgumentNull("source");
-		}
-		var list = As(source, System.Collections.Generic.IList$1);
-		if (list != null)
-		{
-			if (list.get_Count() > 0)
-			{
-				return list.get_Item(0);
-			}
-		}
-		else
-		{
-			var enumerator = source.GetEnumerator();
-			try
-			{
-				if (enumerator.MoveNext())
-				{
-					return enumerator.get_Current();
-				}
-			}
-			finally
-			{
-				enumerator.Dispose();
-			}
-		}
 		return Default(TSource);
 	},
-	FirstOrDefault$$IEnumerable$1$$Func$2:function System$Linq$Enumerable$FirstOrDefault(TSource, source, predicate)
-	{
-		if (source == null)
-		{
-			throw System.Linq.Error.ArgumentNull("source");
-		}
-		if (predicate == null)
-		{
-			throw System.Linq.Error.ArgumentNull("predicate");
-		}
-		var $it4 = source.GetEnumerator();
-		while ($it4.MoveNext())
-		{
-			var local = $it4.get_Current();
-			if (predicate.Invoke(local))
-			{
-				return local;
-			}
-		}
-		return Default(TSource);
-	},
-	Last$$IEnumerable$1:function System$Linq$Enumerable$Last(TSource, source)
+	Last$$IEnumerable$1:function(TSource, source)
 	{
 		if (source == null)
 		{
@@ -150,7 +150,7 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		throw System.Linq.Error.NoElements();
 	},
-	Last$$IEnumerable$1$$Func$2:function System$Linq$Enumerable$Last(TSource, source, predicate)
+	Last$$IEnumerable$1$$Func$2:function(TSource, source, predicate)
 	{
 		if (source == null)
 		{
@@ -162,10 +162,10 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		var local = Default(TSource);
 		var flag = false;
-		var $it5 = source.GetEnumerator();
-		while ($it5.MoveNext())
+		var $it4 = source.GetEnumerator();
+		while ($it4.MoveNext())
 		{
-			var local2 = $it5.get_Current();
+			var local2 = $it4.get_Current();
 			if (predicate.Invoke(local2))
 			{
 				local = local2;
@@ -178,7 +178,7 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		return local;
 	},
-	LastOrDefault$$IEnumerable$1:function System$Linq$Enumerable$LastOrDefault(TSource, source)
+	LastOrDefault$$IEnumerable$1:function(TSource, source)
 	{
 		if (source == null)
 		{
@@ -216,7 +216,7 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		return Default(TSource);
 	},
-	LastOrDefault$$IEnumerable$1$$Func$2:function System$Linq$Enumerable$LastOrDefault(TSource, source, predicate)
+	LastOrDefault$$IEnumerable$1$$Func$2:function(TSource, source, predicate)
 	{
 		if (source == null)
 		{
@@ -227,10 +227,10 @@ Class("System.Linq.Enumerable", "System.Object",
 			throw System.Linq.Error.ArgumentNull("predicate");
 		}
 		var local = Default(TSource);
-		var $it6 = source.GetEnumerator();
-		while ($it6.MoveNext())
+		var $it5 = source.GetEnumerator();
+		while ($it5.MoveNext())
 		{
-			var local2 = $it6.get_Current();
+			var local2 = $it5.get_Current();
 			if (predicate.Invoke(local2))
 			{
 				local = local2;
@@ -238,7 +238,7 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		return local;
 	},
-	Where$$IEnumerable$1$$Func$2:function System$Linq$Enumerable$Where(TSource, source, predicate)
+	Where$$IEnumerable$1$$Func$2:function(TSource, source, predicate)
 	{
 		if (source == null)
 		{
@@ -250,7 +250,7 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		return new System.Linq.WhereIterator$1.ctor(TSource, source, predicate);
 	},
-	Where$$IEnumerable$1$$Func$3:function System$Linq$Enumerable$Where(TSource, source, predicate)
+	Where$$IEnumerable$1$$Func$3:function(TSource, source, predicate)
 	{
 		if (source == null)
 		{
@@ -262,7 +262,7 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		throw new System.NotImplementedException.ctor();
 	},
-	Contains$$IEnumerable$1$$TSource:function System$Linq$Enumerable$Contains(TSource, source, value)
+	Contains$$IEnumerable$1$$TSource:function(TSource, source, value)
 	{
 		var is2 = As(source, System.Collections.Generic.ICollection$1);
 		if (is2 != null)
@@ -271,7 +271,7 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		return System.Linq.Enumerable.Contains$$IEnumerable$1$$TSource$$IEqualityComparer$1(TSource, source, value, null);
 	},
-	Contains$$IEnumerable$1$$TSource$$IEqualityComparer$1:function System$Linq$Enumerable$Contains(TSource, source, value, comparer)
+	Contains$$IEnumerable$1$$TSource$$IEqualityComparer$1:function(TSource, source, value, comparer)
 	{
 		if (comparer == null)
 		{
@@ -281,10 +281,10 @@ Class("System.Linq.Enumerable", "System.Object",
 		{
 			throw System.Linq.Error.ArgumentNull("source");
 		}
-		var $it7 = source.GetEnumerator();
-		while ($it7.MoveNext())
+		var $it6 = source.GetEnumerator();
+		while ($it6.MoveNext())
 		{
-			var local = $it7.get_Current();
+			var local = $it6.get_Current();
 			if (comparer.Equals$$T$$T(local, value))
 			{
 				return true;
@@ -292,7 +292,7 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		return false;
 	},
-	Count:function System$Linq$Enumerable$Count(TSource, source)
+	Count:function(TSource, source)
 	{
 		if (source == null)
 		{
@@ -318,7 +318,7 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		return num;
 	},
-	OfType:function System$Linq$Enumerable$OfType(TResult, source)
+	OfType:function(TResult, source)
 	{
 		if (source == null)
 		{
@@ -326,7 +326,7 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		return new System.Linq.OfTypeIterator$1.ctor(TResult, source);
 	},
-	Select:function System$Linq$Enumerable$Select(TSource, TResult, source, selector)
+	Select:function(TSource, TResult, source, selector)
 	{
 		if (source == null)
 		{
@@ -338,7 +338,7 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		return new System.Linq.SelectIterator$2.ctor(TSource, TResult, source, selector);
 	},
-	Take:function System$Linq$Enumerable$Take(TSource, source, count)
+	Take:function(TSource, source, count)
 	{
 		if (source == null)
 		{
@@ -346,29 +346,29 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		return System.Linq.Enumerable.TakeIterator(TSource, source, count);
 	},
-	TakeIterator:function System$Linq$Enumerable$TakeIterator(TSource, source, count)
+	TakeIterator:function(TSource, source, count)
 	{
 		var d__ = new SharpKit.JavaScript.Private.JsImplTakeIterator$1.ctor(TSource, -2);
 		d__._Source = source;
 		d__._Count = count;
 		return d__;
 	},
-	ToArray:function System$Linq$Enumerable$ToArray(TSource, source)
+	ToArray:function(TSource, source)
 	{
 		if (source == null)
 		{
 			throw System.Linq.Error.ArgumentNull("source");
 		}
 		var arr = new Array();
-		var $it8 = source.GetEnumerator();
-		while ($it8.MoveNext())
+		var $it7 = source.GetEnumerator();
+		while ($it7.MoveNext())
 		{
-			var obj = $it8.get_Current();
+			var obj = $it7.get_Current();
 			arr.push(obj);
 		}
 		return arr;
 	},
-	ToList:function System$Linq$Enumerable$ToList(TSource, source)
+	ToList:function(TSource, source)
 	{
 		if (source == null)
 		{
@@ -392,15 +392,15 @@ Class("System.Linq.Error", "System.Object",
 	
 },
 { //Static members
-	ArgumentNull:function System$Linq$Error$ArgumentNull(p)
+	ArgumentNull:function(p)
 	{
 		return new System.Exception.ctor$$String("ArgumentNull " + p);
 	},
-	NoElements:function System$Linq$Error$NoElements()
+	NoElements:function()
 	{
 		return new System.Exception.ctor$$String("NoElements");
 	},
-	NoMatch:function System$Linq$Error$NoMatch()
+	NoMatch:function()
 	{
 		return new System.Exception.ctor$$String("NoMatch");
 	}
@@ -422,16 +422,16 @@ Class("System.Linq.WhereIterator$1", "System.Object",
 	}
 	,
 	Current$$:"T",
-	get_Current:function System$Linq$WhereIterator$get_Current()
+	get_Current:function()
 	{
 		return this.SourceEnumerator.get_Current();
 	},
-	Reset:function System$Linq$WhereIterator$Reset()
+	Reset:function()
 	{
 		if (this.SourceEnumerator != null)
 			this.SourceEnumerator.Reset();
 	},
-	MoveNext:function System$Linq$WhereIterator$MoveNext()
+	MoveNext:function()
 	{
 		if (this.SourceEnumerator == null)
 			this.SourceEnumerator = this.Source.GetEnumerator();
@@ -444,13 +444,13 @@ Class("System.Linq.WhereIterator$1", "System.Object",
 				return true;
 		}
 	},
-	Dispose:function System$Linq$WhereIterator$Dispose()
+	Dispose:function()
 	{
 		this.Source = null;
 		this.Predicate = null;
 		this.SourceEnumerator = null;
 	},
-	GetEnumerator:function System$Linq$WhereIterator$GetEnumerator()
+	GetEnumerator:function()
 	{
 		return this;
 	}
@@ -474,16 +474,16 @@ Class("System.Linq.OfTypeIterator$1", "System.Object",
 	}
 	,
 	Current$$:"T",
-	get_Current:function System$Linq$OfTypeIterator$get_Current()
+	get_Current:function()
 	{
 		return this.SourceEnumerator.get_Current();
 	},
-	Reset:function System$Linq$OfTypeIterator$Reset()
+	Reset:function()
 	{
 		if (this.SourceEnumerator != null)
 			this.SourceEnumerator.Reset();
 	},
-	MoveNext:function System$Linq$OfTypeIterator$MoveNext()
+	MoveNext:function()
 	{
 		if (this.SourceEnumerator == null)
 			this.SourceEnumerator = this.Source.GetEnumerator();
@@ -496,12 +496,12 @@ Class("System.Linq.OfTypeIterator$1", "System.Object",
 				return true;
 		}
 	},
-	Dispose:function System$Linq$OfTypeIterator$Dispose()
+	Dispose:function()
 	{
 		this.Source = null;
 		this.SourceEnumerator = null;
 	},
-	GetEnumerator:function System$Linq$OfTypeIterator$GetEnumerator()
+	GetEnumerator:function()
 	{
 		return this;
 	}
@@ -527,16 +527,16 @@ Class("System.Linq.SelectIterator$2", "System.Object",
 	}
 	,
 	Current$$:"TResult",
-	get_Current:function System$Linq$SelectIterator$get_Current()
+	get_Current:function()
 	{
 		return this.Selector.Invoke(this.SourceEnumerator.get_Current());
 	},
-	Reset:function System$Linq$SelectIterator$Reset()
+	Reset:function()
 	{
 		if (this.SourceEnumerator != null)
 			this.SourceEnumerator.Reset();
 	},
-	MoveNext:function System$Linq$SelectIterator$MoveNext()
+	MoveNext:function()
 	{
 		if (this.SourceEnumerator == null)
 			this.SourceEnumerator = this.Source.GetEnumerator();
@@ -547,13 +547,13 @@ Class("System.Linq.SelectIterator$2", "System.Object",
 			return true;
 		}
 	},
-	Dispose:function System$Linq$SelectIterator$Dispose()
+	Dispose:function()
 	{
 		this.Selector = null;
 		this.Source = null;
 		this.SourceEnumerator = null;
 	},
-	GetEnumerator:function System$Linq$SelectIterator$GetEnumerator()
+	GetEnumerator:function()
 	{
 		return this;
 	}

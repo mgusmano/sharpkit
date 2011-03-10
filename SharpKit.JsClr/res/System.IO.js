@@ -24,7 +24,7 @@ Class("System.IO.Path", "System.Object",
 { //Static members
 	MAX_DIRECTORY_PATH:0xf8,
 	MAX_PATH:260,
-	ChangeExtension:function System$IO$Path$ChangeExtension(path, extension)
+	ChangeExtension:function(path, extension)
 	{
 		if (path == null)
 		{
@@ -56,7 +56,7 @@ Class("System.IO.Path", "System.Object",
 		}
 		return (str + extension);
 	},
-	CharArrayStartsWithOrdinal:function System$IO$Path$CharArrayStartsWithOrdinal(array, numChars, compareTo, ignoreCase)
+	CharArrayStartsWithOrdinal:function(array, numChars, compareTo, ignoreCase)
 	{
 		if (numChars < compareTo.get_Length())
 		{
@@ -76,7 +76,7 @@ Class("System.IO.Path", "System.Object",
 		}
 		return true;
 	},
-	CheckInvalidPathChars:function System$IO$Path$CheckInvalidPathChars(path)
+	CheckInvalidPathChars:function(path)
 	{
 		for (var i = 0;i < path.get_Length();i++)
 		{
@@ -87,7 +87,7 @@ Class("System.IO.Path", "System.Object",
 			}
 		}
 	},
-	CheckSearchPattern:function System$IO$Path$CheckSearchPattern(searchPattern)
+	CheckSearchPattern:function(searchPattern)
 	{
 		var num;
 		while ((num = searchPattern.IndexOf$$String$$StringComparison("..", System.StringComparison.Ordinal)) != -1)
@@ -103,7 +103,7 @@ Class("System.IO.Path", "System.Object",
 			searchPattern = searchPattern.Substring$$Int32(num + 2);
 		}
 	},
-	Combine:function System$IO$Path$Combine(path1, path2)
+	Combine:function(path1, path2)
 	{
 		if ((path1 == null) || (path2 == null))
 		{
@@ -130,11 +130,11 @@ Class("System.IO.Path", "System.Object",
 		}
 		return (path1 + path2);
 	},
-	FixupPath:function System$IO$Path$FixupPath(path)
+	FixupPath:function(path)
 	{
 		return System.IO.Path.NormalizePath(path, false);
 	},
-	GetDirectoryName:function System$IO$Path$GetDirectoryName(path)
+	GetDirectoryName:function(path)
 	{
 		if (path != null)
 		{
@@ -156,7 +156,7 @@ Class("System.IO.Path", "System.Object",
 		}
 		return null;
 	},
-	GetExtension:function System$IO$Path$GetExtension(path)
+	GetExtension:function(path)
 	{
 		if (path == null)
 		{
@@ -183,7 +183,7 @@ Class("System.IO.Path", "System.Object",
 		}
 		return System.String.Empty;
 	},
-	GetFileName:function System$IO$Path$GetFileName(path)
+	GetFileName:function(path)
 	{
 		if (path != null)
 		{
@@ -201,7 +201,7 @@ Class("System.IO.Path", "System.Object",
 		}
 		return path;
 	},
-	GetFileNameWithoutExtension:function System$IO$Path$GetFileNameWithoutExtension(path)
+	GetFileNameWithoutExtension:function(path)
 	{
 		path = System.IO.Path.GetFileName(path);
 		if (path == null)
@@ -215,12 +215,12 @@ Class("System.IO.Path", "System.Object",
 		}
 		return path.Substring$$Int32$$Int32(0, length);
 	},
-	GetFullPath:function System$IO$Path$GetFullPath(path)
+	GetFullPath:function(path)
 	{
 		var fullPathInternal = System.IO.Path.GetFullPathInternal(path);
 		return fullPathInternal;
 	},
-	GetFullPathInternal:function System$IO$Path$GetFullPathInternal(path)
+	GetFullPathInternal:function(path)
 	{
 		if (path == null)
 		{
@@ -228,15 +228,15 @@ Class("System.IO.Path", "System.Object",
 		}
 		return System.IO.Path.NormalizePath(path, true);
 	},
-	GetInvalidFileNameChars:function System$IO$Path$GetInvalidFileNameChars()
+	GetInvalidFileNameChars:function()
 	{
 		return Cast(System.IO.Path.InvalidFileNameChars.Clone(), "System.Char[]");
 	},
-	GetInvalidPathChars:function System$IO$Path$GetInvalidPathChars()
+	GetInvalidPathChars:function()
 	{
 		return Cast(System.IO.Path.RealInvalidPathChars.Clone(), "System.Char[]");
 	},
-	GetPathRoot:function System$IO$Path$GetPathRoot(path)
+	GetPathRoot:function(path)
 	{
 		if (path == null)
 		{
@@ -245,11 +245,11 @@ Class("System.IO.Path", "System.Object",
 		path = System.IO.Path.FixupPath(path);
 		return path.Substring$$Int32$$Int32(0, System.IO.Path.GetRootLength(path));
 	},
-	GetRandomFileName:function System$IO$Path$GetRandomFileName()
+	GetRandomFileName:function()
 	{
 		throw new System.NotSupportedException.ctor();
 	},
-	GetRootLength:function System$IO$Path$GetRootLength(path)
+	GetRootLength:function(path)
 	{
 		System.IO.Path.CheckInvalidPathChars(path);
 		var num = 0;
@@ -278,15 +278,15 @@ Class("System.IO.Path", "System.Object",
 		}
 		return num;
 	},
-	GetTempFileName:function System$IO$Path$GetTempFileName()
+	GetTempFileName:function()
 	{
 		throw new System.NotSupportedException.ctor();
 	},
-	GetTempPath:function System$IO$Path$GetTempPath()
+	GetTempPath:function()
 	{
 		throw new System.NotSupportedException.ctor();
 	},
-	HasExtension:function System$IO$Path$HasExtension(path)
+	HasExtension:function(path)
 	{
 		if (path != null)
 		{
@@ -307,7 +307,7 @@ Class("System.IO.Path", "System.Object",
 		}
 		return false;
 	},
-	InternalCombine:function System$IO$Path$InternalCombine(path1, path2)
+	InternalCombine:function(path1, path2)
 	{
 		if ((path1 == null) || (path2 == null))
 		{
@@ -335,7 +335,7 @@ Class("System.IO.Path", "System.Object",
 		}
 		return (path1 + path2);
 	},
-	IsDirectorySeparator:function System$IO$Path$IsDirectorySeparator(c)
+	IsDirectorySeparator:function(c)
 	{
 		if (c != System.IO.Path.DirectorySeparatorChar)
 		{
@@ -343,7 +343,7 @@ Class("System.IO.Path", "System.Object",
 		}
 		return true;
 	},
-	IsPathRooted:function System$IO$Path$IsPathRooted(path)
+	IsPathRooted:function(path)
 	{
 		if (path != null)
 		{
@@ -356,11 +356,11 @@ Class("System.IO.Path", "System.Object",
 		}
 		return false;
 	},
-	NormalizePath:function System$IO$Path$NormalizePath(path, fullCheck)
+	NormalizePath:function(path, fullCheck)
 	{
 		return System.IO.Path.NormalizePathSlow(path, fullCheck);
 	},
-	NormalizePathSlow:function System$IO$Path$NormalizePathSlow(path, fullCheck)
+	NormalizePathSlow:function(path, fullCheck)
 	{
 		return path;
 	}
