@@ -31,22 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="extjs-3.3.1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="scripts\ext-all-debug-w-comments.js" />
-    <Content Include="scripts\ext-all-debug.js" />
-    <Content Include="scripts\ext-all.js" />
+    <Content Include="res\ext-all-debug-w-comments.js" />
+    <Content Include="res\ext-all-debug.js" />
+    <Content Include="res\ext-all.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpKit.Html4\SharpKit.Html4.csproj">
@@ -58,9 +52,7 @@
       <Name>SharpKit.JavaScript</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="plugins\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

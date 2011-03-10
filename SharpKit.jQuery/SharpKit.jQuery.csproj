@@ -31,13 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="jquery-1.4.4.cs" />
@@ -55,6 +49,7 @@
     <ProjectReference Include="..\SharpKit.Html4\SharpKit.Html4.csproj">
       <Project>{AA74777B-DB40-4DCF-A69A-9DE5A6B2C380}</Project>
       <Name>SharpKit.Html4</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>

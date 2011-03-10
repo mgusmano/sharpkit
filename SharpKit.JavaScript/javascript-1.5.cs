@@ -4,7 +4,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace SharpKit.JavaScript
 {
@@ -1082,11 +1081,11 @@ namespace SharpKit.JavaScript
         public static JsBoolean operator !=(JsNumber x, JsNumber y) { return default(JsBoolean); }
         public static JsNumber operator ++(JsNumber x) { return default(JsNumber); }
         public static JsNumber operator --(JsNumber x) { return default(JsNumber); }
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        //[EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object obj) { return default(bool); }
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        //[EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() { return default(int); }
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        //[EditorBrowsable(EditorBrowsableState.Never)]
         public override string ToString() { return default(string); }
         int IComparable.CompareTo(object obj) { return default(int); }
         static int Compare(JsNumber x, JsNumber y) { return default(int); }
