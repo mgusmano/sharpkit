@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{AE8C0D6B-0A82-493F-8684-0DB9D3412AFD}</ProjectGuid>
+    <ProjectGuid>{2AE12569-FBE9-4249-AEB4-496D1F96FFBA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharpKit.ExtJs_3._3._1</RootNamespace>
-    <AssemblyName>SharpKit.ExtJs-3.3.1</AssemblyName>
+    <RootNamespace>SharpKit.ExtJs_3._1._0</RootNamespace>
+    <AssemblyName>SharpKit.ExtJs-3.1.0</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,13 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="extjs-3.3.1.cs" />
+    <Compile Include="extjs-3.1.0.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="scripts\ext-all-debug-w-comments.js" />
-    <Content Include="scripts\ext-all-debug.js" />
-    <Content Include="scripts\ext-all.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpKit.Html4\SharpKit.Html4.csproj">
@@ -57,9 +52,6 @@
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
       <Name>SharpKit.JavaScript</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="plugins\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

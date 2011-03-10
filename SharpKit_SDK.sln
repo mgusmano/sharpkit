@@ -7,6 +7,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.ExtJs-3.3.1", "Sha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.JsClr", "SharpKit.JsClr\SharpKit.JsClr.csproj", "{7170C3A4-CD48-4D99-8048-E04AFA8BCA99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.JavaScript", "SharpKit.JavaScript\SharpKit.JavaScript.csproj", "{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.Html4", "SharpKit.Html4\SharpKit.Html4.csproj", "{AA74777B-DB40-4DCF-A69A-9DE5A6B2C380}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.jQuery", "SharpKit.jQuery\SharpKit.jQuery.csproj", "{872605DE-E8EC-4D3D-8CEE-A62449A8DAEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.AspNetAjax", "SharpKit.AspNetAjax\SharpKit.AspNetAjax.csproj", "{35DC6D7D-5A1B-40D4-92C0-E52DE2EB43ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.ExtJs-3.1.0", "SharpKit.ExtJs-3.1.0\SharpKit.ExtJs-3.1.0.csproj", "{2AE12569-FBE9-4249-AEB4-496D1F96FFBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.jQTouch", "SharpKit.jQTouch\SharpKit.jQTouch.csproj", "{9B1753AB-A527-47DD-A483-ADD70DE8651E}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -29,6 +41,30 @@ Global
 		{7170C3A4-CD48-4D99-8048-E04AFA8BCA99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7170C3A4-CD48-4D99-8048-E04AFA8BCA99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7170C3A4-CD48-4D99-8048-E04AFA8BCA99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA74777B-DB40-4DCF-A69A-9DE5A6B2C380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA74777B-DB40-4DCF-A69A-9DE5A6B2C380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA74777B-DB40-4DCF-A69A-9DE5A6B2C380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA74777B-DB40-4DCF-A69A-9DE5A6B2C380}.Release|Any CPU.Build.0 = Release|Any CPU
+		{872605DE-E8EC-4D3D-8CEE-A62449A8DAEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{872605DE-E8EC-4D3D-8CEE-A62449A8DAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{872605DE-E8EC-4D3D-8CEE-A62449A8DAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{872605DE-E8EC-4D3D-8CEE-A62449A8DAEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35DC6D7D-5A1B-40D4-92C0-E52DE2EB43ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35DC6D7D-5A1B-40D4-92C0-E52DE2EB43ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35DC6D7D-5A1B-40D4-92C0-E52DE2EB43ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35DC6D7D-5A1B-40D4-92C0-E52DE2EB43ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE12569-FBE9-4249-AEB4-496D1F96FFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE12569-FBE9-4249-AEB4-496D1F96FFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE12569-FBE9-4249-AEB4-496D1F96FFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE12569-FBE9-4249-AEB4-496D1F96FFBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B1753AB-A527-47DD-A483-ADD70DE8651E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B1753AB-A527-47DD-A483-ADD70DE8651E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B1753AB-A527-47DD-A483-ADD70DE8651E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B1753AB-A527-47DD-A483-ADD70DE8651E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
