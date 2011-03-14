@@ -36,6 +36,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="jqgrid-3.8.2.cs" />
     <Compile Include="jquery-1.4.4.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
@@ -46,6 +47,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="simplemodal-1.4.1.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="res\jquery-1.4.4.min.js" />
