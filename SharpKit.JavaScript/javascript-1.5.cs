@@ -7,6 +7,295 @@ using System.Collections.Generic;
 
 namespace SharpKit.JavaScript
 {
+    #region JsAttributes
+    #region JsTypeAttribute
+    ///<summary>
+    ///Controls the interoperability and convertion of a .NET type into JavaScript.
+    ///</summary>
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Struct | AttributeTargets.Delegate | AttributeTargets.Assembly, AllowMultiple = true)]
+    public partial class JsTypeAttribute : Attribute
+    {
+        public JsTypeAttribute() { }
+        public JsTypeAttribute(JsMode mode) { }
+        public JsTypeAttribute(JsMode mode, string filename) { }
+
+        /// <summary>
+        /// Js code that will be written before exporting the type
+        /// </summary>
+        public string PreCode { get; set; }
+        /// <summary>
+        /// Js code that will be written after exporting the type
+        /// </summary>
+        public string PostCode { get; set; }
+
+        /// <summary>
+        /// Precendece between JsTypes in the same file, negative values will put the type before other types, and positive value will put it after other types
+        /// </summary>
+        public int OrderInFile { get; set; }
+
+        /// <summary>
+        /// When used as assembly attribute, indicates the type for which to apply this attribute on.
+        /// This feature should be used when trying to describe classes on external assemblies that has no SharpKit support
+        /// </summary>
+        public Type TargetType { get; set; }
+
+        ///<summary>
+        ///Indicates that all delegate parameters in all members are native javascript functions
+        ///</summary>
+        public bool NativeDelegates { get; set; }
+        ///<summary>
+        ///When true, omits all casts to this type
+        ///</summary>
+        public bool OmitCasts { get; set; }
+        public bool PropertiesAsFields { get; set; }
+        public bool AutomaticPropertiesAsFields { get; set; }
+        ///<summary>
+        ///When true, foreach statements will use the for..in syntax of Javascript
+        ///</summary>
+        public bool NativeEnumerator { get; set; }
+        ///<summary>
+        ///When true, instanciations of this class will use the native Javascript method, rather than calling a constructor
+        ///</summary>
+        public bool NativeConstructors { get; set; }
+        ///<summary>
+        ///When true, instanciations of this class will use the native Javascript method, rather than calling a constructor
+        ///</summary>
+        public bool NativeOverloads { get; set; }
+        ///<summary>
+        ///Indicates that this type will be exported as native js type, 
+        ///only one constructor is allowed, 
+        ///all instance members will be exported to the constructor's prototype
+        ///all static members will be exported to the constructor's members
+        ///</summary>
+        public bool Native { get; set; }
+        ///<summary>
+        ///When set, the class methods and properties will be declared on the window object, instead of a class.
+        ///</summary>
+        public bool GlobalObject { get; set; }
+        ///<summary>
+        ///Any anonymous delegate creation will be exported as a native inline function in javascript
+        ///</summary>
+        public bool NativeFunctions { get; set; }
+        ///<summary>
+        ///Anonymous objects will be created and treated as Json objects
+        ///</summary>
+        public bool NativeJsons { get; set; }
+        /// <summary>
+        ///	Indicates that SharpKit compiler will generate javascript code for this type / member
+        /// This property is inherited and applied to all derived types. Default value is true
+        /// </summary>
+        public bool Export { get; set; }
+        ///<summary>
+        ///When set, changes the type name in the client code
+        ///</summary>
+        public string Name { get; set; }
+        ///<summary>
+        ///The target filename to generate the javascript code into, when using a relative path, it will be relative to the current cs file,
+        ///You may use the ~  (tilda) operator to designate the project directory
+        ///</summary>
+        public string Filename { get; set; }
+        ///<summary>
+        ///The type of js exporter to use
+        ///</summary>
+        public string Exporter { get; set; }
+        public bool IgnoreGenericTypeArguments { get; set; }
+        public JsMode Mode { get; set; }
+    }
+    #endregion
+    #region JsMode
+    ///<summary>
+    ///Specifies the export and interopability mode of a C# type in JavaScript
+    ///</summary>
+    public enum JsMode 
+    { 
+        Global, 
+        Prototype, 
+        Clr, 
+        Json 
+    }
+
+    #endregion
+
+    #region JsExportAttribute
+    [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
+    public partial class JsExportAttribute : Attribute
+    {
+        public bool ExportComments { get; set; }
+        public bool Minify { get; set; }
+        public bool LongFunctionNames { get; set; }
+        public bool EnableProfiler { get; set; }
+    }
+    #endregion
+    #region JsMergedFileAttribute
+    ///<summary>
+    ///Instructs SharpKit Compiler to create a merged file from specified sources
+    ///</summary>
+    [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
+    public partial class JsMergedFileAttribute : Attribute
+    {
+        ///<summary>
+        ///The source files to merge
+        ///</summary>
+        public string[] Sources { get; set; }
+        ///<summary>
+        ///The target merged file name
+        ///</summary>
+        public string Filename { get; set; }
+    }
+    #endregion
+    #region JsMethodAttribute
+    ///<summary>
+    ///Indicates that the SharpKit Build precompiler will change the way it handles this method at the client
+    ///</summary>
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
+    public partial class JsMethodAttribute : Attribute
+    {
+        ///<summary>
+        ///Tells the compiler to omit calls to this method and assume that it was invoked
+        ///Extension methods:  s.DoSomething() ==> s
+        ///</summary>
+        public bool OmitCalls { get; set; }
+        public string Name { get; set; }
+        ///<summary>
+        ///Tells the compiler to drop the method call and write the inline code instead.
+        ///Only available for extention methods.
+        ///object.SomeExtentionMethod(param) with InlineCode="object==param" ==> object==param
+        ///</summary>
+        public string InlineCode { get; set; }
+        ///<summary>
+        ///Custom javascript code implementation for this method
+        ///</summary>
+        public string Code { get; set; }
+        ///<summary>
+        ///When set to true - disables the overloading mechanism 
+        ///and assumes that the overloads are implemented in a single javascript method with this name
+        ///</summary>
+        public bool NativeOverloads { get; set; }
+        ///<summary>
+        ///</summary>
+        public bool IgnoreGenericArguments { get; set; }
+        ///<summary>
+        ///Marks this extension method as an instance method in javascript
+        ///</summary>
+        public bool ExtensionImplementedInInstance { get; set; }
+        public bool NativeDelegates { get; set; }
+        ///<summary>
+        ///</summary>
+        public bool GlobalCode { get; set; }
+        ///<summary>
+        ///Indicates that this method is global, if exported, it will be exported as a global function, and when invoked, it will be invoked without a class name prefix
+        ///</summary>
+        public bool Global { get; set; }
+        /// <summary>
+        ///	Indicates that SharpKit compiler will generate javascript code for this type / member
+        /// This property is inherited and applied to all derived types. Default value is true
+        /// </summary>
+        public bool Export { get; set; }
+    }
+    #endregion
+    #region JsPropertyAttribute
+    ///<summary>
+    ///Indicates that the SharpKit Build precompiler will change the way it handles this property at the client
+    ///</summary>
+    [AttributeUsage(AttributeTargets.Property)]
+    public partial class JsPropertyAttribute : Attribute
+    {
+        ///<summary>
+        ///When set, all references will not use getters and setter, but will treat it as a field instead
+        ///</summary>
+        ///<remarks>Default value is false</remarks>
+        public bool NativeField { get; set; }
+        ///<summary>
+        ///When applied to an indexer property, all references will not use getters and setter, but will treat it as a native indexer instead
+        ///</summary>
+        ///<remarks>Default value is false</remarks>
+        public bool NativeIndexer { get; set; }
+        /// <summary>
+        ///	Indicates that SharpKit compiler will generate javascript code for this type / member
+        /// This property is inherited and applied to all derived types. Default value is true
+        /// </summary>
+        public bool Export { get; set; }
+    }
+    #endregion
+    #region JsEventAttribute
+    ///<summary>
+    ///Indicates that the SharpKit Build precompiler will change the way it handles this property at the client
+    ///</summary>
+    [AttributeUsage(AttributeTargets.Event)]
+    public partial class JsEventAttribute : Attribute
+    {
+        ///<summary>
+        ///</summary>
+        public bool NativeDelegates { get; set; }
+    }
+    #endregion
+    #region JsDelegateAttribute
+    ///<summary>
+    ///Indicates that the SharpKit Build precompiler will change the way it handles this type at the client
+    ///</summary>
+    [AttributeUsage(AttributeTargets.Delegate)]
+    public partial class JsDelegateAttribute : Attribute
+    {
+        public bool NativeDelegates { get; set; }
+        public bool NativeFunction { get; set; }
+    }
+    #endregion
+    #region BrowserCompatibility
+    #region SupportedBrowsersAttribute
+    ///<summary>
+    ///Compile with browser compatibility #defines to activate (i.e. BROWSER_IE6, BROWSER_FireFox3)
+    ///</summary>
+    public partial class SupportedBrowsersAttribute : Attribute
+    {
+        public SupportedBrowsersAttribute(BrowserTypes sb) { }
+        public SupportedBrowsersAttribute(BrowserTypes sb, string notSupportedRemark) { }
+        public BrowserTypes SupportedBrowser { get; set; }
+        ///<summary>
+        ///If specified, and the browser is not supported, this text will be appended to the generate warning.
+        ///</summary>
+        public string NotSupportedRemark { get; set; }
+        ///<summary>
+        ///If specified, a warning will be generated even if the browser is supported. This is used for features that are partially supported.
+        ///</summary>
+        public string PartiallySupportedRemark { get; set; }
+    }
+    #endregion
+    #region IgnoreBrowserCompatibilityAttribute
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Assembly, AllowMultiple = true)]
+    public partial class IgnoreBrowserCompatibilityAttribute : Attribute
+    {
+        public IgnoreBrowserCompatibilityAttribute() { }
+        public IgnoreBrowserCompatibilityAttribute(string ignoredElements) { }
+        public string IgnoredElements { get; set; }
+    }
+    #endregion
+    #region HtmlSpecificationVersionAttribute
+    ///<summary>
+    ///Compile with html specification #deinfes to activate (ie. HTMLSPEC_4, HTMLSPEC_4_01, HTMLSPEC_5)
+    ///</summary>
+    public partial class HtmlSpecificationVersionAttribute : Attribute
+    {
+        public HtmlSpecificationVersionAttribute(float specLevel) { }
+        public float Specification { get; set; }
+    }
+    #endregion
+    [Flags]
+    public enum BrowserTypes { None = 0, IE5_5 = 1, IE6 = 2, IE7 = 4, IE8 = 8, IE8AsIE7 = 16, IE9 = 32, FireFox2 = 64, FireFox3 = 128, FireFox3_5 = 256, FireFox4 = 512, Saf3Win = 1024, Saf3_1Win = 2048, Saf4Win = 4096, Chrome2 = 8192, Chrome3 = 16384, Chrome4 = 32768, Chrome5 = 65536, Opera9 = 131072, Opera10 = 262144, Konqueror3_57 = 524288 }
+    #endregion
+    #region JsEnumAttribute
+    ///<summary>
+    ///Controls the interoperability and convertion of a .NET type into JavaScript.
+    ///</summary>
+    [AttributeUsage(AttributeTargets.Enum)]
+    public partial class JsEnumAttribute : Attribute
+    {
+        public bool ValuesAsNames { get; set; }
+    }
+
+    #endregion
+
+    #endregion
+
 
     #region JsArguments
     [JsType(Name = "arguments", Export = false)]
@@ -1594,289 +1883,6 @@ namespace SharpKit.JavaScript
     }
     #endregion
 
-    #region JsAttributes
-
-    #region JsExportAttribute
-    [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
-    public partial class JsExportAttribute : Attribute
-    {
-        public bool ExportComments { get; set; }
-        public bool Minify { get; set; }
-        public bool LongFunctionNames { get; set; }
-        public bool EnableProfiler { get; set; }
-    }
-    #endregion
-    #region JsMergedFileAttribute
-    ///<summary>
-    ///Instructs SharpKit Compiler to create a merged file from specified sources
-    ///</summary>
-    [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
-    public partial class JsMergedFileAttribute : Attribute
-    {
-        ///<summary>
-        ///The source files to merge
-        ///</summary>
-        public string[] Sources { get; set; }
-        ///<summary>
-        ///The target merged file name
-        ///</summary>
-        public string Filename { get; set; }
-    }
-    #endregion
-    #region JsMethodAttribute
-    ///<summary>
-    ///Indicates that the SharpKit Build precompiler will change the way it handles this method at the client
-    ///</summary>
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
-    public partial class JsMethodAttribute : Attribute
-    {
-        ///<summary>
-        ///Tells the compiler to omit calls to this method and assume that it was invoked
-        ///Extension methods:  s.DoSomething() ==> s
-        ///</summary>
-        public bool OmitCalls { get; set; }
-        public string Name { get; set; }
-        ///<summary>
-        ///Tells the compiler to drop the method call and write the inline code instead.
-        ///Only available for extention methods.
-        ///object.SomeExtentionMethod(param) with InlineCode="object==param" ==> object==param
-        ///</summary>
-        public string InlineCode { get; set; }
-        ///<summary>
-        ///Custom javascript code implementation for this method
-        ///</summary>
-        public string Code { get; set; }
-        ///<summary>
-        ///When set to true - disables the overloading mechanism 
-        ///and assumes that the overloads are implemented in a single javascript method with this name
-        ///</summary>
-        public bool NativeOverloads { get; set; }
-        ///<summary>
-        ///</summary>
-        public bool IgnoreGenericArguments { get; set; }
-        ///<summary>
-        ///Marks this extension method as an instance method in javascript
-        ///</summary>
-        public bool ExtensionImplementedInInstance { get; set; }
-        public bool NativeDelegates { get; set; }
-        ///<summary>
-        ///</summary>
-        public bool GlobalCode { get; set; }
-        ///<summary>
-        ///Indicates that this method is global, if exported, it will be exported as a global function, and when invoked, it will be invoked without a class name prefix
-        ///</summary>
-        public bool Global { get; set; }
-        /// <summary>
-        ///	Indicates that SharpKit compiler will generate javascript code for this type / member
-        /// This property is inherited and applied to all derived types. Default value is true
-        /// </summary>
-        public bool Export { get; set; }
-    }
-    #endregion
-    #region JsPropertyAttribute
-    ///<summary>
-    ///Indicates that the SharpKit Build precompiler will change the way it handles this property at the client
-    ///</summary>
-    [AttributeUsage(AttributeTargets.Property)]
-    public partial class JsPropertyAttribute : Attribute
-    {
-        ///<summary>
-        ///When set, all references will not use getters and setter, but will treat it as a field instead
-        ///</summary>
-        ///<remarks>Default value is false</remarks>
-        public bool NativeField { get; set; }
-        ///<summary>
-        ///When applied to an indexer property, all references will not use getters and setter, but will treat it as a native indexer instead
-        ///</summary>
-        ///<remarks>Default value is false</remarks>
-        public bool NativeIndexer { get; set; }
-        /// <summary>
-        ///	Indicates that SharpKit compiler will generate javascript code for this type / member
-        /// This property is inherited and applied to all derived types. Default value is true
-        /// </summary>
-        public bool Export { get; set; }
-    }
-    #endregion
-    #region JsEventAttribute
-    ///<summary>
-    ///Indicates that the SharpKit Build precompiler will change the way it handles this property at the client
-    ///</summary>
-    [AttributeUsage(AttributeTargets.Event)]
-    public partial class JsEventAttribute : Attribute
-    {
-        ///<summary>
-        ///</summary>
-        public bool NativeDelegates { get; set; }
-    }
-    #endregion
-    #region JsDelegateAttribute
-    ///<summary>
-    ///Indicates that the SharpKit Build precompiler will change the way it handles this type at the client
-    ///</summary>
-    [AttributeUsage(AttributeTargets.Delegate)]
-    public partial class JsDelegateAttribute : Attribute
-    {
-        public bool NativeDelegates { get; set; }
-        public bool NativeFunction { get; set; }
-    }
-    #endregion
-    #region JsTypeAttribute
-    ///<summary>
-    ///Controls the interoperability and convertion of a .NET type into JavaScript.
-    ///</summary>
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Struct | AttributeTargets.Delegate | AttributeTargets.Assembly, AllowMultiple = true)]
-    public partial class JsTypeAttribute : Attribute
-    {
-        public JsTypeAttribute() { }
-        public JsTypeAttribute(JsMode mode) { }
-        public JsTypeAttribute(JsMode mode, string filename) { }
-
-        /// <summary>
-        /// Js code that will be written before exporting the type
-        /// </summary>
-        public string PreCode { get; set; }
-        /// <summary>
-        /// Js code that will be written after exporting the type
-        /// </summary>
-        public string PostCode { get; set; }
-
-        /// <summary>
-        /// Precendece between JsTypes in the same file, negative values will put the type before other types, and positive value will put it after other types
-        /// </summary>
-        public int OrderInFile { get; set; }
-
-        /// <summary>
-        /// When used as assembly attribute, indicates the type for which to apply this attribute on.
-        /// This feature should be used when trying to describe classes on external assemblies that has no SharpKit support
-        /// </summary>
-        public Type TargetType { get; set; }
-
-        ///<summary>
-        ///Indicates that all delegate parameters in all members are native javascript functions
-        ///</summary>
-        public bool NativeDelegates { get; set; }
-        ///<summary>
-        ///When true, omits all casts to this type
-        ///</summary>
-        public bool OmitCasts { get; set; }
-        public bool PropertiesAsFields { get; set; }
-        public bool AutomaticPropertiesAsFields { get; set; }
-        ///<summary>
-        ///When true, foreach statements will use the for..in syntax of Javascript
-        ///</summary>
-        public bool NativeEnumerator { get; set; }
-        ///<summary>
-        ///When true, instanciations of this class will use the native Javascript method, rather than calling a constructor
-        ///</summary>
-        public bool NativeConstructors { get; set; }
-        ///<summary>
-        ///When true, instanciations of this class will use the native Javascript method, rather than calling a constructor
-        ///</summary>
-        public bool NativeOverloads { get; set; }
-        ///<summary>
-        ///Indicates that this type will be exported as native js type, 
-        ///only one constructor is allowed, 
-        ///all instance members will be exported to the constructor's prototype
-        ///all static members will be exported to the constructor's members
-        ///</summary>
-        public bool Native { get; set; }
-        ///<summary>
-        ///When set, the class methods and properties will be declared on the window object, instead of a class.
-        ///</summary>
-        public bool GlobalObject { get; set; }
-        ///<summary>
-        ///Any anonymous delegate creation will be exported as a native inline function in javascript
-        ///</summary>
-        public bool NativeFunctions { get; set; }
-        ///<summary>
-        ///Anonymous objects will be created and treated as Json objects
-        ///</summary>
-        public bool NativeJsons { get; set; }
-        /// <summary>
-        ///	Indicates that SharpKit compiler will generate javascript code for this type / member
-        /// This property is inherited and applied to all derived types. Default value is true
-        /// </summary>
-        public bool Export { get; set; }
-        ///<summary>
-        ///When set, changes the type name in the client code
-        ///</summary>
-        public string Name { get; set; }
-        ///<summary>
-        ///The target filename to generate the javascript code into, when using a relative path, it will be relative to the current cs file,
-        ///You may use the ~  (tilda) operator to designate the project directory
-        ///</summary>
-        public string Filename { get; set; }
-        ///<summary>
-        ///The type of js exporter to use
-        ///</summary>
-        public string Exporter { get; set; }
-        public bool IgnoreGenericTypeArguments { get; set; }
-        public JsMode Mode { get; set; }
-    }
-    #endregion
-    #region JsMode
-    ///<summary>
-    ///Specifies the export and interopability mode of a C# type in JavaScript
-    ///</summary>
-    public enum JsMode { Global, Prototype, Clr, Json }
-
-    #endregion
-    #region BrowserCompatibility
-    #region SupportedBrowsersAttribute
-    ///<summary>
-    ///Compile with browser compatibility #defines to activate (i.e. BROWSER_IE6, BROWSER_FireFox3)
-    ///</summary>
-    public partial class SupportedBrowsersAttribute : Attribute
-    {
-        public SupportedBrowsersAttribute(BrowserTypes sb) { }
-        public SupportedBrowsersAttribute(BrowserTypes sb, string notSupportedRemark) { }
-        public BrowserTypes SupportedBrowser { get; set; }
-        ///<summary>
-        ///If specified, and the browser is not supported, this text will be appended to the generate warning.
-        ///</summary>
-        public string NotSupportedRemark { get; set; }
-        ///<summary>
-        ///If specified, a warning will be generated even if the browser is supported. This is used for features that are partially supported.
-        ///</summary>
-        public string PartiallySupportedRemark { get; set; }
-    }
-    #endregion
-    #region IgnoreBrowserCompatibilityAttribute
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Assembly, AllowMultiple = true)]
-    public partial class IgnoreBrowserCompatibilityAttribute : Attribute
-    {
-        public IgnoreBrowserCompatibilityAttribute() { }
-        public IgnoreBrowserCompatibilityAttribute(string ignoredElements) { }
-        public string IgnoredElements { get; set; }
-    }
-    #endregion
-    #region HtmlSpecificationVersionAttribute
-    ///<summary>
-    ///Compile with html specification #deinfes to activate (ie. HTMLSPEC_4, HTMLSPEC_4_01, HTMLSPEC_5)
-    ///</summary>
-    public partial class HtmlSpecificationVersionAttribute : Attribute
-    {
-        public HtmlSpecificationVersionAttribute(float specLevel) { }
-        public float Specification { get; set; }
-    }
-    #endregion
-    [Flags]
-    public enum BrowserTypes { None = 0, IE5_5 = 1, IE6 = 2, IE7 = 4, IE8 = 8, IE8AsIE7 = 16, IE9 = 32, FireFox2 = 64, FireFox3 = 128, FireFox3_5 = 256, FireFox4 = 512, Saf3Win = 1024, Saf3_1Win = 2048, Saf4Win = 4096, Chrome2 = 8192, Chrome3 = 16384, Chrome4 = 32768, Chrome5 = 65536, Opera9 = 131072, Opera10 = 262144, Konqueror3_57 = 524288 }
-    #endregion
-
-    #region JsEnumAttribute
-    ///<summary>
-    ///Controls the interoperability and convertion of a .NET type into JavaScript.
-    ///</summary>
-    [AttributeUsage(AttributeTargets.Enum)]
-    public partial class JsEnumAttribute : Attribute
-    {
-        public bool ValuesAsNames { get; set; }
-    }
-
-    #endregion
-
-    #endregion
 
     #endregion
 }
