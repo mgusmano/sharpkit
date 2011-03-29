@@ -10,13 +10,22 @@ namespace SharpKit.JavaScript
     #region JsAttributes
     #region JsTypeAttribute
     ///<summary>
-    ///Controls the interoperability and convertion of a .NET type into JavaScript.
+    ///Controls the interoperability and conversion of a .NET type into JavaScript.
     ///</summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Struct | AttributeTargets.Delegate | AttributeTargets.Assembly, AllowMultiple = true)]
     public partial class JsTypeAttribute : Attribute
     {
+        /// <summary>
+        /// Creates an instance of a JsTypeAttribute
+        /// </summary>
         public JsTypeAttribute() { }
+        /// <summary>
+        /// Creates an instance of a JsTypeAttribute in the specified JsMode
+        /// </summary>
         public JsTypeAttribute(JsMode mode) { }
+        /// <summary>
+        /// Creates an instance of a JsTypeAttribute in the specified JsMode, and exported to the specified filename
+        /// </summary>
         public JsTypeAttribute(JsMode mode, string filename) { }
 
         /// <summary>
@@ -108,21 +117,56 @@ namespace SharpKit.JavaScript
     ///</summary>
     public enum JsMode 
     { 
+        /// <summary>
+        /// Specifies a global function export mode, in which only static members are allowed,
+        /// static methods become global functions
+        /// static fields become global variables
+        /// static constrctor becomes global code
+        /// </summary>
         Global, 
+        /// <summary>
+        /// Specifies a prototype object export mode, in which a single constructor is allowed, and both static and instance members.
+        /// constructor becomes a constructor function
+        /// instance members become the equivalent members on the constructor function's prototype.
+        /// static members become members on the constructor function itself.
+        /// </summary>
         Prototype, 
+        /// <summary>
+        /// Specifies a .NET style class, in which all C# elements are supported,
+        /// this mode requires JsClr library to be included on the client at runtime.
+        /// </summary>
         Clr, 
+        /// <summary>
+        /// Specifies an invisible unexported json type, this class will not be exported, 
+        /// instantiation and usage of classes in this mode, will be exported to simple json elements.
+        /// </summary>
         Json 
     }
 
     #endregion
 
     #region JsExportAttribute
+    /// <summary>
+    /// Provides information regarding how SharpKit will export JavaScript code
+    /// </summary>
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
     public partial class JsExportAttribute : Attribute
     {
+        /// <summary>
+        /// Specifies whether to include C# comments in the JavaScript code
+        /// </summary>
         public bool ExportComments { get; set; }
+        /// <summary>
+        /// Specifies whether SharpKit should minify the exported files
+        /// </summary>
         public bool Minify { get; set; }
+        /// <summary>
+        /// Instructs SharpKit to provide any exported function with a global unique name, to help debugging of client side code.
+        /// </summary>
         public bool LongFunctionNames { get; set; }
+        /// <summary>
+        /// Injects profiling code into JavaScript functions to enable performance profiling.
+        /// </summary>
         public bool EnableProfiler { get; set; }
     }
     #endregion
@@ -145,7 +189,7 @@ namespace SharpKit.JavaScript
     #endregion
     #region JsMethodAttribute
     ///<summary>
-    ///Indicates that the SharpKit Build precompiler will change the way it handles this method at the client
+    /// Specifies custom instructions for SharpKit for a single method, this information is used when exporting the member, and when using it.
     ///</summary>
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
     public partial class JsMethodAttribute : Attribute
@@ -155,6 +199,9 @@ namespace SharpKit.JavaScript
         ///Extension methods:  s.DoSomething() ==> s
         ///</summary>
         public bool OmitCalls { get; set; }
+        /// <summary>
+        /// Instructs SharpKit to use a custom name for a method, SharpKit will use this name when exporting the method, and when invoking it.
+        /// </summary>
         public string Name { get; set; }
         ///<summary>
         ///Tells the compiler to drop the method call and write the inline code instead.
@@ -178,6 +225,9 @@ namespace SharpKit.JavaScript
         ///Marks this extension method as an instance method in javascript
         ///</summary>
         public bool ExtensionImplementedInInstance { get; set; }
+        /// <summary>
+        /// Treats delegates inside this method as native javascript functions.
+        /// </summary>
         public bool NativeDelegates { get; set; }
         ///<summary>
         ///</summary>
@@ -195,7 +245,7 @@ namespace SharpKit.JavaScript
     #endregion
     #region JsPropertyAttribute
     ///<summary>
-    ///Indicates that the SharpKit Build precompiler will change the way it handles this property at the client
+    /// Specifies custom instructions for SharpKit for a property, this information is used when exporting the member, and when using it.
     ///</summary>
     [AttributeUsage(AttributeTargets.Property)]
     public partial class JsPropertyAttribute : Attribute
@@ -219,7 +269,7 @@ namespace SharpKit.JavaScript
     #endregion
     #region JsEventAttribute
     ///<summary>
-    ///Indicates that the SharpKit Build precompiler will change the way it handles this property at the client
+    /// Specifies custom instructions for SharpKit for an event, this information is used when exporting the member, and when using it.
     ///</summary>
     [AttributeUsage(AttributeTargets.Event)]
     public partial class JsEventAttribute : Attribute
@@ -231,7 +281,7 @@ namespace SharpKit.JavaScript
     #endregion
     #region JsDelegateAttribute
     ///<summary>
-    ///Indicates that the SharpKit Build precompiler will change the way it handles this type at the client
+    /// Specifies custom instructions for SharpKit for a delegate, this information is used when exporting the member, and when using it.
     ///</summary>
     [AttributeUsage(AttributeTargets.Delegate)]
     public partial class JsDelegateAttribute : Attribute
@@ -284,7 +334,7 @@ namespace SharpKit.JavaScript
     #endregion
     #region JsEnumAttribute
     ///<summary>
-    ///Controls the interoperability and convertion of a .NET type into JavaScript.
+    ///Controls the interoperability and conversion of a .NET enum type into JavaScript.
     ///</summary>
     [AttributeUsage(AttributeTargets.Enum)]
     public partial class JsEnumAttribute : Attribute

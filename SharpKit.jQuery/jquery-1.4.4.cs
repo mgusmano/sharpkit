@@ -178,6 +178,10 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery attr(JsString attributeName, JsNumber value) { return null; }
         /// <summary>
+        /// Set one or more attributes for the set of matched elements.
+        /// </summary>
+        public jQuery attr(JsString attributeName, bool value) { return null; }
+        /// <summary>
         /// Insert content, specified by the parameter, before each element in the set of matched elements.
         /// </summary>
         public jQuery before(JsAction function) { return null; }
