@@ -1,5 +1,5 @@
 //JavaScript v1.5 
-//SharpKit v4.02.8000
+//SharpKit v4.04.5000
 
 using System;
 using System.Collections;
@@ -191,9 +191,19 @@ namespace SharpKit.JavaScript
     ///<summary>
     /// Specifies custom instructions for SharpKit for a single method, this information is used when exporting the member, and when using it.
     ///</summary>
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
+    //[AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
     public partial class JsMethodAttribute : Attribute
     {
+        /// <summary>
+        /// Applies the attribute externally on a method, if the method has overloads, attribute will be applied on all of them
+        /// </summary>
+        public string TargetMethod { get; set; }
+
+        /// <summary>
+        /// Applies the attribute externally on a type
+        /// </summary>
+        public Type TargetType { get; set; }
+
         ///<summary>
         ///Tells the compiler to omit calls to this method and assume that it was invoked
         ///Extension methods:  s.DoSomething() ==> s
