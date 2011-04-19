@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+///
 namespace SharpKit.JavaScript
 {
     #region JsAttributes
@@ -22,10 +23,13 @@ namespace SharpKit.JavaScript
         /// <summary>
         /// Creates an instance of a JsTypeAttribute in the specified JsMode
         /// </summary>
+        /// <param name="mode"></param>
         public JsTypeAttribute(JsMode mode) { }
         /// <summary>
         /// Creates an instance of a JsTypeAttribute in the specified JsMode, and exported to the specified filename
         /// </summary>
+        /// <param name="mode"></param>
+        /// <param name="filename"></param>
         public JsTypeAttribute(JsMode mode, string filename) { }
 
         /// <summary>
@@ -56,7 +60,13 @@ namespace SharpKit.JavaScript
         ///When true, omits all casts to this type
         ///</summary>
         public bool OmitCasts { get; set; }
+        /// <summary>
+        /// Forces all properties to be treated as JavaScript native fields without any getter and setter methods
+        /// </summary>
         public bool PropertiesAsFields { get; set; }
+        /// <summary>
+        /// Forces all automatic properties to be treated as JavaScript native fields without any getter and setter methods
+        /// </summary>
         public bool AutomaticPropertiesAsFields { get; set; }
         ///<summary>
         ///When true, foreach statements will use the for..in syntax of Javascript
@@ -107,7 +117,13 @@ namespace SharpKit.JavaScript
         ///The type of js exporter to use
         ///</summary>
         public string Exporter { get; set; }
+        /// <summary>
+        /// Ignores any generic type arguments of the class when referencing the class in JavaScript
+        /// </summary>
         public bool IgnoreGenericTypeArguments { get; set; }
+        /// <summary>
+        /// Controls the JavaScript mode of this type, a mode is a combination of several boolean settings of the JsTypeAttribute
+        /// </summary>
         public JsMode Mode { get; set; }
     }
     #endregion
@@ -229,6 +245,7 @@ namespace SharpKit.JavaScript
         ///</summary>
         public bool NativeOverloads { get; set; }
         ///<summary>
+        ///Ignores the generic arguments passed to a method when invoking it in JavaScript
         ///</summary>
         public bool IgnoreGenericArguments { get; set; }
         ///<summary>
@@ -240,6 +257,7 @@ namespace SharpKit.JavaScript
         /// </summary>
         public bool NativeDelegates { get; set; }
         ///<summary>
+        ///Generates the method code as global JavaScript code, without any function
         ///</summary>
         public bool GlobalCode { get; set; }
         ///<summary>
@@ -285,6 +303,7 @@ namespace SharpKit.JavaScript
     public partial class JsEventAttribute : Attribute
     {
         ///<summary>
+        ///Causes an event to be treated as a native JavaScript function
         ///</summary>
         public bool NativeDelegates { get; set; }
     }
@@ -296,7 +315,13 @@ namespace SharpKit.JavaScript
     [AttributeUsage(AttributeTargets.Delegate)]
     public partial class JsDelegateAttribute : Attribute
     {
+        ///<summary>
+        ///Causes a delegate to be treated as a native JavaScript function
+        ///</summary>
         public bool NativeDelegates { get; set; }
+        ///<summary>
+        ///Causes an delegate to be treated as a native JavaScript function
+        ///</summary>
         public bool NativeFunction { get; set; }
     }
     #endregion
@@ -935,7 +960,7 @@ namespace SharpKit.JavaScript
         ///<summary>
         ///Returns a date converted to a JsString using Greenwich Mean Time(GMT).
         ///Obsolete, and is provided for backwards compatibility only. It is recommended that you use the toUTCString method instead.
-        ///</summary>setyear
+        ///</summary>
         ///<returns>A String object that contains the date formatted using GMT convention. The format of the return value is as follows: "05 Jan 1996 00:00:00 GMT."</returns>
         [Obsolete]
         [JsMethod(NativeOverloads = true)]
@@ -1930,6 +1955,9 @@ namespace SharpKit.JavaScript
     #endregion
 
     #region JsExtensions
+    /// <summary>
+    /// Provides extension methods for C# to JavaScript
+    /// </summary>
     public static partial class JsExtensions
     {
         ///<summary>

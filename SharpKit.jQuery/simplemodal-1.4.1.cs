@@ -133,7 +133,7 @@ namespace SharpKit.jQuery
         /// User will be unable to interact with the page below the modal or tab away from the dialog. If false, the overlay, iframe, and certain events will be disabled allowing the user to interact with the page below the dialog.
         /// </summary>
         public JsBoolean modal { get; set; }
-        /// /// <summary>
+        /// <summary>
         /// The callback function used in place of SimpleModal's open
         /// </summary>
         public JsAction onOpen { get; set; }

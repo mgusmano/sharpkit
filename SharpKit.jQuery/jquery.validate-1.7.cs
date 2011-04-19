@@ -35,7 +35,8 @@ namespace SharpKit.jQuery
         /// or
         /// Removes the specified rules and returns all rules for the first matched element.
         /// </summary>
-        /// <param name="?"></param>
+        /// <param name="addOrRemove"></param>
+        /// <param name="rules"></param>
         public object rules(JsString addOrRemove, object rules) { return null; }//Returns: Options
 
 
