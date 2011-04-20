@@ -15,7 +15,6 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Validates the selected form.
         /// </summary>
-        /// <param name="options"></param>
         /// <returns></returns>
         public Validator validate() { return null; }
         /// <summary>

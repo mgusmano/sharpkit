@@ -4830,7 +4830,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
         ///<summary>
         ///Invokes a method after a specified number of milliseconds has elapsed. 
         ///</summary>
-        ///<param name="action">a JsFunction to invoke</param>
+        ///<param name="code">a JsFunction to invoke</param>
         ///<param name="ms">Delay, in milliseconds, before invoking the method</param>
         ///<returns>Integer. Returns an identifier that cancels the evaluation with the clearTimeout method.</returns>
         [JsMethod(NativeOverloads = true, NativeDelegates = true)]
