@@ -42,7 +42,7 @@ using SharpKit.JavaScript;
 	"Internal/CoreEx.js",
 })]
 
-[assembly: JsMergedFile(Filename = "jsclr-4.0.0.js", Sources = new string[]
+[assembly: JsMergedFile(Filename = "res/jsclr-4.0.0.js", Sources = new string[]
 {
 	"res/System.js",
 	"res/System.IO.js",

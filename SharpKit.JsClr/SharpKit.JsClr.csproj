@@ -94,7 +94,7 @@
   <ItemGroup>
     <Content Include="Internal\Core.js" />
     <Content Include="Internal\CoreEx.js" />
-    <Content Include="jsclr-4.0.0.js">
+    <Content Include="res\jsclr-4.0.0.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="res\System.Collections.js" />

@@ -33,7 +33,9 @@
     <DocumentationFile>..\..\bin\SharpKit.Html5.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="html-5.cs" />
+    <Compile Include="html-5.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
