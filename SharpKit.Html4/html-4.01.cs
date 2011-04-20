@@ -5149,6 +5149,18 @@ Safari and Chrome don’t support these events on links and/or form fields in al
             private set;
         }
         public JsString returnValue { get; set; }
+        /// <summary>
+        /// moves a window's left and top edge to the specified coordinates.
+        /// </summary>
+        /// <param name="numX"></param>
+        /// <param name="numY"></param>
+        public void moveTo(JsNumber numX, JsNumber numY) { }
+        /// <summary>
+        /// method moves a window a specified number of pixels relative to its current coordinates.
+        /// </summary>
+        /// <param name="numX"></param>
+        /// <param name="numY"></param>
+        public void moveBy(JsNumber numX, JsNumber numY) { }
     }
     #endregion
     #region HtmlWindowLocation
