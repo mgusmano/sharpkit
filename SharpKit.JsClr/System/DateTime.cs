@@ -216,4 +216,27 @@ this.date = System.DateTime.MinValue.date;
 		}
 	}
 
+
+    [JsType(Filename = "~/Internal/Core.js")]
+    static class Extensions
+    {
+        public static JsDate addDays(this JsDate date, JsNumber days)
+        {
+            var date2 = new JsDate(date.valueOf());
+            date2.setDate(date2.getDate() + days);
+            return date2;
+        }
+        public static JsDate addMonths(this JsDate date, JsNumber months)
+        {
+            var date2 = new JsDate(date.valueOf());
+            date2.setMonth(date2.getMonth() + months);
+            return date2;
+        }
+        public static JsDate removeTime(this JsDate date)
+        {
+            var date2 = new JsDate(date.getFullYear(), date.getMonth(), date.getDate());
+            return date2;
+        }
+
+    }
 }

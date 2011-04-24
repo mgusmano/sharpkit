@@ -1055,12 +1055,6 @@ namespace SharpKit.JavaScript
         ///<returns>The stored time value in milliseconds since midnight, January 1, 1970 UTC.</returns>
         [JsMethod(NativeOverloads = true)]
         public new JsNumber valueOf() { return default(JsNumber); }
-        [JsMethod(NativeOverloads = true)]
-        public JsDate addDays(JsNumber days) { return default(JsDate); }
-        [JsMethod(NativeOverloads = true)]
-        public JsDate addMonths(JsNumber months) { return default(JsDate); }
-        [JsMethod(NativeOverloads = true)]
-        public JsDate removeTime() { return default(JsDate); }
         ///<summary>
         ///Returns the time value in a Date object. 
         ///</summary>
