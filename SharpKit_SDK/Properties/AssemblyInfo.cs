@@ -34,3 +34,5 @@ using SharpKit.JavaScript;
 // by using the '*' as shown below:
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("4.04.9000")]
+
+[assembly: JsExport(ExportComments=false, LongFunctionNames=false, Minify=false, EnableProfiler=false)]
