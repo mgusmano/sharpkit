@@ -32,9 +32,6 @@
     <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="jqgrid-3.8.2.cs" />
     <Compile Include="jquery-1.4.4.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -5,15 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2AE12569-FBE9-4249-AEB4-496D1F96FFBA}</ProjectGuid>
+    <ProjectGuid>{6312B4CD-D416-4493-8850-28D6FE3D6AFB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharpKit.ExtJs_3._1._0</RootNamespace>
-    <AssemblyName>SharpKit.ExtJs-3.1.0</AssemblyName>
+    <RootNamespace>SharpKit.FireFox.Firebug</RootNamespace>
+    <AssemblyName>SharpKit.FireFox.Firebug</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
     <DocumentationFile>..\..\bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,19 +19,12 @@
     <TargetFrameworkVersion Condition="'$(Configuration)' == 'v4.0'">v4.0</TargetFrameworkVersion>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
-    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="extjs-3.1.0.cs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
+    <Compile Include="FirebugConsole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpKit.Html4\SharpKit.Html4.csproj">
-      <Project>{AA74777B-DB40-4DCF-A69A-9DE5A6B2C380}</Project>
-      <Name>SharpKit.Html4</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
       <Name>SharpKit.JavaScript</Name>
