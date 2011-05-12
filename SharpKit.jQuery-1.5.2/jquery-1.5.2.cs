@@ -1972,7 +1972,7 @@ namespace SharpKit.jQuery
         /// While jQuery.browser will not be removed from future versions of jQuery, 
         /// every effort to use jQuery.support and proper feature detection should be made.
         /// </summary>
-        public jQueryBrowser browser { get; set; }
+        public static jQueryBrowser browser { get; set; }
         /// <summary>
         /// The number of elements in the jQuery object.
         /// </summary>
@@ -1989,12 +1989,12 @@ namespace SharpKit.jQuery
         /// Deprecated in jQuery 1.3 (see jQuery.support)
         /// . States if the current page, in the user's browser, is being rendered using the W3C CSS Box Model.
         /// </summary>
-        public bool boxModel { get; set; }
+        public static bool boxModel { get; set; }
         /// <summary>
         /// A collection of properties that represent the presence of different browser features or bugs.
         /// </summary>
         public JsObject support { get; set; }
-        public fx fx { get; set; }
+        public static fx fx { get; set; }
     }
 
     [JsType(JsMode.Json)]
