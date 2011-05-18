@@ -162,6 +162,30 @@ namespace SharpKit.jQuery.UI
         public object duration { get; set; }
     }
     #endregion
+    #region Button
+    public static partial class Button
+    {
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery button(this jQuery query) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery button(this jQuery query, ButtonOptions options) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery button(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+    }
+    #endregion
+    #region ButtonOptions
+    ///<summary>
+    ///Options JSON object for Button
+    ///</summary>
+    [JsType(JsMode.Json)]
+    public partial class ButtonOptions
+    {
+        public bool disabled { get; set; }
+        public bool text { get; set; }
+        public object icons { get; set; }
+        public JsString label { get; set; }
+    }
+    #endregion
     #region Datepicker
     ///<summary>
     ///The jQuery UI Datepicker is a highly configurable plugin that adds datepicker functionality to your pages. You can customize the date format and language, restrict the selectable date ranges and add in buttons and other navigation options easily.
