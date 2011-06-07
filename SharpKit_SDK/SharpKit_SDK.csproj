@@ -110,10 +110,6 @@
       <Project>{872605DE-E8EC-4D3D-8CEE-A62449A8DAEB}</Project>
       <Name>SharpKit.jQuery</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SharpKit.JsClr\SharpKit.JsClr.csproj">
-      <Project>{7170C3A4-CD48-4D99-8048-E04AFA8BCA99}</Project>
-      <Name>SharpKit.JsClr</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
