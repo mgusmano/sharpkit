@@ -370,10 +370,18 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///Controls the interoperability and conversion of a .NET enum type into JavaScript.
     ///</summary>
-    [AttributeUsage(AttributeTargets.Enum)]
+    [AttributeUsage(AttributeTargets.Enum | AttributeTargets.Assembly)]
     public partial class JsEnumAttribute : Attribute
     {
+        /// <summary>
+        /// When type is exported, the value of every enum member will be its string name representation, and not its numeric value
+        /// </summary>
         public bool ValuesAsNames { get; set; }
+        /// <summary>
+        /// When used as assembly attribute, indicates the type for which to apply this attribute on.
+        /// This feature should be used when trying to describe classes on external assemblies that has no SharpKit support
+        /// </summary>
+        public Type TargetType { get; set; }
     }
 
     #endregion
