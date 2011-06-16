@@ -1700,7 +1700,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// A generic iterator function, which can be used to seamlessly iterate over both objects and arrays. Arrays and array-like objects with a length property (such as a function's arguments object) are iterated by numeric index, from 0 to length-1. Other objects are iterated via their named properties.
         /// </summary>
-        public static JsObject each(JsObject collection, JsAction<JsNumber, HtmlElement> callback) { return null; }
+        public static JsObject each(object collection, JsAction<JsNumber, object> callback) { return null; }
         /// <summary>
         /// Takes a string and throws an exception containing it.
         /// </summary>
