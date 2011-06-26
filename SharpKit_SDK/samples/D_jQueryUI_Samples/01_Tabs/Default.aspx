@@ -4,10 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>SharpKit Samples</title>
-    <link href="http://jquery-ui.googlecode.com/svn/tags/1.7/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
-    <script src="../../../scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
-    <script src="../../../scripts/jquery-ui-1.7.2.min.js" type="text/javascript"></script>
+    <link href="../../../res/css/redmond/jquery-ui-1.8.13.custom.css" rel="stylesheet"
+        type="text/css" />
+    <script src="../../../res/jquery-1.5.2.js" type="text/javascript"></script>
+    <script src="../../../res/jquery-ui-1.8.11.custom.min.js" type="text/javascript"></script>
     <script src="Default.js" type="text/javascript"></script>
+    <script>        $(jQueryUITabsSample_Load)</script>
 </head>
 <body>
     <h1>jQuery UI Tabs</h1>

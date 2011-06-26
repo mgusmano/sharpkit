@@ -8,9 +8,9 @@ using SharpKit.jQuery.UI;
 class jQueryUITabsSample : jQueryContext
 {
 
-    static jQueryUITabsSample()
+    static void jQueryUITabsSample_Load()
     {
-        J().ready(() => { J("#tabs").tabs(); });
+        J("#tabs").tabs();
     }
 
 }

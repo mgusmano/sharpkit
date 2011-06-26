@@ -4,8 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>SharpKit Samples</title>
-    <script src="../../../scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../../../res/jquery-1.5.2.js" type="text/javascript"></script>
     <script src="Default.js" type="text/javascript"></script>
+    <script>$(jQueryEventsSample_Load)</script>
 </head>
 <body>
     <h1>jQuery Events</h1>

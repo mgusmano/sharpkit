@@ -6,18 +6,13 @@ using SharpKit.jQuery;
 [JsType(JsMode.Global, Filename = "Default.js")]
 class jQueryEventsSample : jQueryContext
 {
-    static jQueryEventsSample()
+    static void jQueryEventsSample_Load()
     {
-        J().ready(() => 
-        { 
-            alert("DOM is ready");
-            J("#button1").click(e => 
-            { 
-                J(@this).text("I have been clicked!"); 
-            });
+        J("#button1").click(e =>
+        {
+            J(@this).text("I have been clicked!");
         });
-
-       
+        alert("Button click was bound");
     }
 }
 

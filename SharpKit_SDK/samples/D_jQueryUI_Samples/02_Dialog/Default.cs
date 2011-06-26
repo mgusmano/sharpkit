@@ -8,9 +8,9 @@ using SharpKit.jQuery.UI;
 class jQueryUIDialogSample : jQueryContext
 {
 
-    static jQueryUIDialogSample()
+    static void jQueryUIDialogSample_Load()
     {
-        J().ready(() => { J("#dialog").dialog(); });
+        J("#dialog").dialog();
     }
 
 }

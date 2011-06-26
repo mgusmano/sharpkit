@@ -7,14 +7,11 @@ using SharpKit.jQuery;
 class jQuerySelectorsSample : jQueryContext
 {
 
-    static jQuerySelectorsSample()
+    static void jQuerySelectorsSample_Load()
     {
-        J().ready(() =>
+        J(".MyExpander > #Header").mousedown(e =>
         {
-            J(".MyExpander > #Header").mousedown(e =>
-            {
-                J(@this).siblings(".MyExpander > #Content").toggle();
-            });
+            J(@this).siblings(".MyExpander > #Content").toggle();
         });
     }
 
