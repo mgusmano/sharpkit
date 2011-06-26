@@ -13,7 +13,7 @@ namespace SharpKit.jQueryUI.ControlsGenerator
     {
         static void Main(string[] args)
         {
-            var asm = typeof(Slider).Assembly;
+            var asm = typeof(SliderExtension).Assembly;
             var optionsTypes = asm.GetTypes().Where(t => t.Name.EndsWith("Options")).ToList();
             XmlDoc = XDocument.Load(@"C:\Projects\SharpKit\googlecode\bin\v4.0\SharpKit.jQueryUI-1.8.11.xml");
             using (Writer = File.CreateText(@"C:\Projects\SharpKit\googlecode\trunk\SharpKit.jQueryUI.Controls\jQueryUIControls.cs"))
@@ -78,18 +78,25 @@ namespace SharpKit.jQueryUI.ControlsGenerator
         }
         static void Generate(Type type)
         {
-            var ceName = "j"+type.Name.Replace("Options", "");
+            var ceName = type.Name.Replace("Options", "");
             var meName = type.Name.Replace("Options", "").ToLower();
             Writer.WriteLine("#region {0}", ceName);
-            WriteSummary(GetTypeSummary(type.FullName.Replace("Options", "")));
+            WriteSummary(GetTypeSummary(type.FullName.Replace("Options", "Extension")));
             Writer.WriteLine("[JsType(JsMode.Prototype)]");
-            Writer.WriteLine("public class {0} : jQueryContext", ceName);
+            Writer.WriteLine("public partial class {0} : jQueryContext", ceName);
             Writer.WriteLine("{");
             Writer.WriteLine("jQuery Selector;");
+            WriteSummary("Creates a new instance of "+ ceName);
             Writer.WriteLine("public {0}(JsString selector, {1} options)", ceName, type.Name);
             Writer.WriteLine("{");
             Writer.WriteLine("Selector = J(selector);");
             Writer.WriteLine("Selector.{0}(options);", meName);
+            Writer.WriteLine("}");
+            WriteSummary("Creates a new instance of " + ceName);
+            Writer.WriteLine("public {0}(JsString selector)", ceName);
+            Writer.WriteLine("{");
+            Writer.WriteLine("Selector = J(selector);");
+            Writer.WriteLine("Selector.{0}();", meName);
             Writer.WriteLine("}");
             foreach (var pe in type.GetProperties())
             {

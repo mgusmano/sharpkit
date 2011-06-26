@@ -1,7 +1,7 @@
 using SharpKit.JavaScript;
 namespace SharpKit.jQuery.UI.Controls
 {
-    #region jAccordion
+    #region Accordion
     ///<summary>
     ///Make the selected elements Accordion widgets. Semantic requirements:
     ///The markup of your accordion container needs pairs of headers and content panels. By default, the header elements are anchors, assuming the following structure:
@@ -24,13 +24,24 @@ namespace SharpKit.jQuery.UI.Controls
     ///});
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jAccordion : jQueryContext
+    public partial class Accordion : jQueryContext
     {
         jQuery Selector;
-        public jAccordion(JsString selector, AccordionOptions options)
+        ///<summary>
+        ///Creates a new instance of Accordion
+        ///</summary>
+        public Accordion(JsString selector, AccordionOptions options)
         {
             Selector = J(selector);
             Selector.accordion(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Accordion
+        ///</summary>
+        public Accordion(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.accordion();
         }
         ///<summary>
         ///Selector for the active element. Set to false to display none at start. Needs collapsible: true.
@@ -174,19 +185,30 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jAddClass
+    #region AddClass
     ///<summary>
     ///[edit]addClass( class, [duration] )
     ///Adds the specified class to each of the set of matched elements with an optional transition between the states.
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jAddClass : jQueryContext
+    public partial class AddClass : jQueryContext
     {
         jQuery Selector;
-        public jAddClass(JsString selector, AddClassOptions options)
+        ///<summary>
+        ///Creates a new instance of AddClass
+        ///</summary>
+        public AddClass(JsString selector, AddClassOptions options)
         {
             Selector = J(selector);
             Selector.addclass(options);
+        }
+        ///<summary>
+        ///Creates a new instance of AddClass
+        ///</summary>
+        public AddClass(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.addclass();
         }
         ///<summary>
         ///One CSS class to add to the elements.
@@ -217,15 +239,26 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jButton
+    #region Button
     [JsType(JsMode.Prototype)]
-    public class jButton : jQueryContext
+    public partial class Button : jQueryContext
     {
         jQuery Selector;
-        public jButton(JsString selector, ButtonOptions options)
+        ///<summary>
+        ///Creates a new instance of Button
+        ///</summary>
+        public Button(JsString selector, ButtonOptions options)
         {
             Selector = J(selector);
             Selector.button(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Button
+        ///</summary>
+        public Button(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.button();
         }
         public bool disabled
         {
@@ -257,7 +290,7 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jDatepicker
+    #region Datepicker
     ///<summary>
     ///The jQuery UI Datepicker is a highly configurable plugin that adds datepicker functionality to your pages. You can customize the date format and language, restrict the selectable date ranges and add in buttons and other navigation options easily.
     ///By default, the datepicker calendar opens in a small overlay onFocus and closes automatically onBlur or when a date if selected. For an inline calendar, simply attach the datepicker to a div or span.
@@ -277,13 +310,24 @@ namespace SharpKit.jQuery.UI.Controls
     ///$.datepicker.parseDate( format, value, settings ) - Extract a date from a string value with a specified format.
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jDatepicker : jQueryContext
+    public partial class Datepicker : jQueryContext
     {
         jQuery Selector;
-        public jDatepicker(JsString selector, DatepickerOptions options)
+        ///<summary>
+        ///Creates a new instance of Datepicker
+        ///</summary>
+        public Datepicker(JsString selector, DatepickerOptions options)
         {
             Selector = J(selector);
             Selector.datepicker(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Datepicker
+        ///</summary>
+        public Datepicker(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.datepicker();
         }
         ///<summary>
         ///The jQuery selector for another field that is to be updated with the selected date from the datepicker. Use the altFormat setting below to change the format of the date within this field. Leave as blank for no alternate field.
@@ -700,7 +744,7 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jDialog
+    #region Dialog
     ///<summary>
     ///A dialog is a floating window that contains a title bar and a content area. The dialog window can be moved, resized and closed with the 'x' icon by default.
     ///If the content length exceeds the maximum height, a scrollbar will automatically appear.
@@ -708,13 +752,24 @@ namespace SharpKit.jQuery.UI.Controls
     ///A call to $(foo).dialog() initializes a dialog. If you want a click to open a dialog, use $(foo).dialog('open'), but if the dialog hasn't been destroyed, the $(foo).dialog() init call is only required once, not on each click.
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jDialog : jQueryContext
+    public partial class Dialog : jQueryContext
     {
         jQuery Selector;
-        public jDialog(JsString selector, DialogOptions options)
+        ///<summary>
+        ///Creates a new instance of Dialog
+        ///</summary>
+        public Dialog(JsString selector, DialogOptions options)
         {
             Selector = J(selector);
             Selector.dialog(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Dialog
+        ///</summary>
+        public Dialog(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.dialog();
         }
         ///<summary>
         ///When autoOpen is true the dialog will open automatically when dialog is called. If false it will stay hidden until .dialog("open") is called on it.
@@ -997,7 +1052,7 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jDraggable
+    #region Draggable
     ///<summary>
     ///The jQuery UI Draggable plugin makes selected elements draggable by mouse.
     ///Draggable elements gets a class of ui-draggable. During drag the element also gets a class of ui-draggable-dragging. If you want not just drag, but drag-and-drop, see the jQuery UI Droppable plugin, which provides a drop target for draggables.
@@ -1007,13 +1062,24 @@ namespace SharpKit.jQuery.UI.Controls
     ///ui.offset - current absolute position of the helper as { top, left } object, relative to page
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jDraggable : jQueryContext
+    public partial class Draggable : jQueryContext
     {
         jQuery Selector;
-        public jDraggable(JsString selector, DraggableOptions options)
+        ///<summary>
+        ///Creates a new instance of Draggable
+        ///</summary>
+        public Draggable(JsString selector, DraggableOptions options)
         {
             Selector = J(selector);
             Selector.draggable(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Draggable
+        ///</summary>
+        public Draggable(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.draggable();
         }
         ///<summary>
         ///If set to false, will prevent the ui-draggable class from being added. This may be desired as a performance optimization when calling .draggable() init on many hundreds of elements.
@@ -1303,7 +1369,7 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jDroppable
+    #region Droppable
     ///<summary>
     ///The jQuery UI Droppable plugin makes selected elements droppable (meaning they accept being dropped on by draggables). You can specify which (individually) or which kind of draggables each will accept.
     ///All callbacks receive two arguments: The original browser event and a prepared ui object, view below for a documentation of this object (if you name your second argument 'ui'):
@@ -1313,13 +1379,24 @@ namespace SharpKit.jQuery.UI.Controls
     ///ui.offset - current absolute position of the draggable helper { top: , left: }
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jDroppable : jQueryContext
+    public partial class Droppable : jQueryContext
     {
         jQuery Selector;
-        public jDroppable(JsString selector, DroppableOptions options)
+        ///<summary>
+        ///Creates a new instance of Droppable
+        ///</summary>
+        public Droppable(JsString selector, DroppableOptions options)
         {
             Selector = J(selector);
             Selector.droppable(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Droppable
+        ///</summary>
+        public Droppable(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.droppable();
         }
         ///<summary>
         ///All draggables that match the selector will be accepted. If a function is specified, the function will be called for each draggable on the page (passed as the first argument to the function), to provide a custom filter. The function should return true if the draggable should be accepted.
@@ -1444,19 +1521,30 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jEffect
+    #region Effect
     ///<summary>
     ///[edit]effect( effect, [options], [speed], [callback] )
     ///Uses a specific effect on an element (without the show/hide logic).
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jEffect : jQueryContext
+    public partial class Effect : jQueryContext
     {
         jQuery Selector;
-        public jEffect(JsString selector, EffectOptions options)
+        ///<summary>
+        ///Creates a new instance of Effect
+        ///</summary>
+        public Effect(JsString selector, EffectOptions options)
         {
             Selector = J(selector);
             Selector.effect(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Effect
+        ///</summary>
+        public Effect(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.effect();
         }
         ///<summary>
         ///The effect to be used. Possible values: 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide', 'transfer'.
@@ -1505,20 +1593,31 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jHide
+    #region Hide
     ///<summary>
     ///[edit]hide( effect, [options], [speed], [callback] )
     ///The enhanced hide method optionally accepts jQuery UI advanced effects.
     ///Uses a specific effect on an element to hide the element if the first argument is an effect string.
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jHide : jQueryContext
+    public partial class Hide : jQueryContext
     {
         jQuery Selector;
-        public jHide(JsString selector, HideOptions options)
+        ///<summary>
+        ///Creates a new instance of Hide
+        ///</summary>
+        public Hide(JsString selector, HideOptions options)
         {
             Selector = J(selector);
             Selector.hide(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Hide
+        ///</summary>
+        public Hide(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.hide();
         }
         ///<summary>
         ///The effect to be used. Possible values: 'blind', 'clip', 'drop', 'explode', 'fold', 'puff', 'slide', 'scale', 'size', 'pulsate'.
@@ -1567,19 +1666,30 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jProgressbar
+    #region Progressbar
     ///<summary>
     ///The progress bar is designed to simply display the current % complete for a process. The bar is coded to be flexibly sized through CSS and will scale to fit inside it's parent container by default.
     ///This is a determinate progress bar, meaning that it should only be used in situations where the system can accurately update the current status complete. A determinate progress bar should never fill from left to right, then loop back to empty for a single process -- if the actual percent complete status cannot be calculated, an indeterminate progress bar (coming soon) or spinner animation is a better way to provide user feedback.
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jProgressbar : jQueryContext
+    public partial class Progressbar : jQueryContext
     {
         jQuery Selector;
-        public jProgressbar(JsString selector, ProgressbarOptions options)
+        ///<summary>
+        ///Creates a new instance of Progressbar
+        ///</summary>
+        public Progressbar(JsString selector, ProgressbarOptions options)
         {
             Selector = J(selector);
             Selector.progressbar(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Progressbar
+        ///</summary>
+        public Progressbar(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.progressbar();
         }
         ///<summary>
         ///The value of the progressbar.
@@ -1609,19 +1719,30 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jRemoveClass
+    #region RemoveClass
     ///<summary>
     ///[edit]removeClass( [class], [duration] )
     ///Removes all or specified class from each of the set of matched elements with an optional transition between the states.
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jRemoveClass : jQueryContext
+    public partial class RemoveClass : jQueryContext
     {
         jQuery Selector;
-        public jRemoveClass(JsString selector, RemoveClassOptions options)
+        ///<summary>
+        ///Creates a new instance of RemoveClass
+        ///</summary>
+        public RemoveClass(JsString selector, RemoveClassOptions options)
         {
             Selector = J(selector);
             Selector.removeclass(options);
+        }
+        ///<summary>
+        ///Creates a new instance of RemoveClass
+        ///</summary>
+        public RemoveClass(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.removeclass();
         }
         ///<summary>
         ///CSS classes to remove from the elements.
@@ -1652,7 +1773,7 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jResizable
+    #region Resizable
     ///<summary>
     ///The jQuery UI Resizable plugin makes selected elements resizable (meaning they have draggable resize handles). You can specify one or more handles as well as min and max width and height.
     ///All callbacks (start,stop,resize) receive two arguments: The original browser event and a prepared ui object. The ui object has the following fields:
@@ -1663,13 +1784,24 @@ namespace SharpKit.jQuery.UI.Controls
     ///ui.size - {width, height} current size
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jResizable : jQueryContext
+    public partial class Resizable : jQueryContext
     {
         jQuery Selector;
-        public jResizable(JsString selector, ResizableOptions options)
+        ///<summary>
+        ///Creates a new instance of Resizable
+        ///</summary>
+        public Resizable(JsString selector, ResizableOptions options)
         {
             Selector = J(selector);
             Selector.resizable(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Resizable
+        ///</summary>
+        public Resizable(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.resizable();
         }
         ///<summary>
         ///Resize these elements synchronous when resizing.
@@ -1876,18 +2008,29 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jSelectable
+    #region Selectable
     ///<summary>
     ///The jQuery UI Selectable plugin allows for elements to be selected by dragging a box (sometimes called a lasso) with the mouse over the elements. Also, elements can be selected by click or drag while holding the Ctrl/Meta key, allowing for multiple (non-contiguous) selections.
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jSelectable : jQueryContext
+    public partial class Selectable : jQueryContext
     {
         jQuery Selector;
-        public jSelectable(JsString selector, SelectableOptions options)
+        ///<summary>
+        ///Creates a new instance of Selectable
+        ///</summary>
+        public Selectable(JsString selector, SelectableOptions options)
         {
             Selector = J(selector);
             Selector.selectable(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Selectable
+        ///</summary>
+        public Selectable(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.selectable();
         }
         ///<summary>
         ///This determines whether to refresh (recalculate) the position and size of each selectee at the beginning of each select operation. If you have many many items, you may want to set this to false and call the refresh method manually.
@@ -2009,20 +2152,31 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jShow
+    #region Show
     ///<summary>
     ///[edit]show( effect, [options], [speed], [callback] )
     ///The enhanced show method optionally accepts jQuery UI advanced effects.
     ///Uses a specific effect on an element to show the element if the first argument is a effect string.
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jShow : jQueryContext
+    public partial class Show : jQueryContext
     {
         jQuery Selector;
-        public jShow(JsString selector, ShowOptions options)
+        ///<summary>
+        ///Creates a new instance of Show
+        ///</summary>
+        public Show(JsString selector, ShowOptions options)
         {
             Selector = J(selector);
             Selector.show(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Show
+        ///</summary>
+        public Show(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.show();
         }
         ///<summary>
         ///The effect to be used. Possible values: 'blind', 'clip', 'drop', 'explode', 'fold', 'puff', 'slide', 'scale', 'size', 'pulsate'.
@@ -2071,7 +2225,7 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jSlider
+    #region Slider
     ///<summary>
     ///The jQuery UI Slider plugin makes selected elements into sliders. There are various options such as multiple handles, and ranges. The handle can be moved with the mouse or the arrow keys.
     ///All callbacks receive two arguments: The original browser event and a prepared ui object, view below for a documentation of this object (if you name your second argument 'ui'):
@@ -2079,13 +2233,24 @@ namespace SharpKit.jQuery.UI.Controls
     ///ui.value: Integer - the current handle's value
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jSlider : jQueryContext
+    public partial class Slider : jQueryContext
     {
         jQuery Selector;
-        public jSlider(JsString selector, SliderOptions options)
+        ///<summary>
+        ///Creates a new instance of Slider
+        ///</summary>
+        public Slider(JsString selector, SliderOptions options)
         {
             Selector = J(selector);
             Selector.slider(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Slider
+        ///</summary>
+        public Slider(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.slider();
         }
         ///<summary>
         ///Whether to slide handle smoothly when user click outside handle on the bar.
@@ -2207,7 +2372,7 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jSortable
+    #region Sortable
     ///<summary>
     ///The jQuery UI Sortable plugin makes selected elements sortable by dragging with the mouse.
     ///All callbacks receive two arguments: The original browser event and a prepared ui object, view below for a documentation of this object (if you name your second argument 'ui'):
@@ -2219,13 +2384,24 @@ namespace SharpKit.jQuery.UI.Controls
     ///ui.sender - the sortable where the item comes from (only exists if you move from one connected list to another)
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jSortable : jQueryContext
+    public partial class Sortable : jQueryContext
     {
         jQuery Selector;
-        public jSortable(JsString selector, SortableOptions options)
+        ///<summary>
+        ///Creates a new instance of Sortable
+        ///</summary>
+        public Sortable(JsString selector, SortableOptions options)
         {
             Selector = J(selector);
             Selector.sortable(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Sortable
+        ///</summary>
+        public Sortable(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.sortable();
         }
         ///<summary>
         ///Defines where the helper that moves with the mouse is being appended to during the drag (for example, to resolve overlap/zIndex issues).
@@ -2566,19 +2742,30 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jSwitchClass
+    #region SwitchClass
     ///<summary>
     ///[edit]switchClass( remove, add, [duration] )
     ///Switches from the class defined in the first argument to the class defined as second argument, using an optional transition.
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jSwitchClass : jQueryContext
+    public partial class SwitchClass : jQueryContext
     {
         jQuery Selector;
-        public jSwitchClass(JsString selector, SwitchClassOptions options)
+        ///<summary>
+        ///Creates a new instance of SwitchClass
+        ///</summary>
+        public SwitchClass(JsString selector, SwitchClassOptions options)
         {
             Selector = J(selector);
             Selector.switchclass(options);
+        }
+        ///<summary>
+        ///Creates a new instance of SwitchClass
+        ///</summary>
+        public SwitchClass(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.switchclass();
         }
         ///<summary>
         ///The CSS class that will be removed.
@@ -2618,7 +2805,7 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jTabs
+    #region Tabs
     ///<summary>
     ///Tabs are generally used to break content into multiple sections that can be swapped to save space, much like an accordion.
     ///By default a tab widget will swap between tabbed sections onClick, but the events can be changed to onHover through an option. Tab content can be loaded via Ajax by setting an href on a tab.
@@ -2721,13 +2908,24 @@ namespace SharpKit.jQuery.UI.Controls
     ///});resizeMap() will call Google Maps' checkResize() on the particular map.
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jTabs : jQueryContext
+    public partial class Tabs : jQueryContext
     {
         jQuery Selector;
-        public jTabs(JsString selector, TabsOptions options)
+        ///<summary>
+        ///Creates a new instance of Tabs
+        ///</summary>
+        public Tabs(JsString selector, TabsOptions options)
         {
             Selector = J(selector);
             Selector.tabs(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Tabs
+        ///</summary>
+        public Tabs(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.tabs();
         }
         ///<summary>
         ///Additional Ajax options to consider when loading tab content (see $.ajax).
@@ -2857,20 +3055,31 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jToggle
+    #region Toggle
     ///<summary>
     ///[edit]toggle( effect, [options], [speed], [callback] )
     ///The enhanced toggle method optionally accepts jQuery UI advanced effects.
     ///Uses a specific effect on an element to toggle the element if the first argument is an effect string.
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jToggle : jQueryContext
+    public partial class Toggle : jQueryContext
     {
         jQuery Selector;
-        public jToggle(JsString selector, ToggleOptions options)
+        ///<summary>
+        ///Creates a new instance of Toggle
+        ///</summary>
+        public Toggle(JsString selector, ToggleOptions options)
         {
             Selector = J(selector);
             Selector.toggle(options);
+        }
+        ///<summary>
+        ///Creates a new instance of Toggle
+        ///</summary>
+        public Toggle(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.toggle();
         }
         ///<summary>
         ///The effect to be used. Possible values: 'blind', 'clip', 'drop', 'explode', 'fold', 'puff', 'slide', 'scale', 'size', 'pulsate'.
@@ -2919,19 +3128,30 @@ namespace SharpKit.jQuery.UI.Controls
         }
     }
     #endregion
-    #region jToggleClass
+    #region ToggleClass
     ///<summary>
     ///[edit]toggleClass( class, [duration] )
     ///Adds the specified class if it is not present, and removes the specified class if it is present, using an optional transition.
     ///</summary>
     [JsType(JsMode.Prototype)]
-    public class jToggleClass : jQueryContext
+    public partial class ToggleClass : jQueryContext
     {
         jQuery Selector;
-        public jToggleClass(JsString selector, ToggleClassOptions options)
+        ///<summary>
+        ///Creates a new instance of ToggleClass
+        ///</summary>
+        public ToggleClass(JsString selector, ToggleClassOptions options)
         {
             Selector = J(selector);
             Selector.toggleclass(options);
+        }
+        ///<summary>
+        ///Creates a new instance of ToggleClass
+        ///</summary>
+        public ToggleClass(JsString selector)
+        {
+            Selector = J(selector);
+            Selector.toggleclass();
         }
         ///<summary>
         ///A CSS class to toggle on the elements.
