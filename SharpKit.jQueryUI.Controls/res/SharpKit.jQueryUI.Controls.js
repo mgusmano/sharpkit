@@ -7,12 +7,6 @@ SharpKit.jQuery.UI.Controls.Accordion = function(selector, options)
 }
 
 
-SharpKit.jQuery.UI.Controls.Accordion = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.accordion();
-}
-
 SharpKit.jQuery.UI.Controls.Accordion.prototype.get_active=function()
 {
 	return this.Get("active");
@@ -132,12 +126,12 @@ SharpKit.jQuery.UI.Controls.Accordion.prototype.set_changestart=function(value)
 
 SharpKit.jQuery.UI.Controls.Accordion.prototype.Get=function(option)
 {
-	return this.Selector.accordion(option);
+	return this.Selector.accordion("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Accordion.prototype.Set=function(option, value)
 {
-	this.Selector.accordion(option, value);
+	this.Selector.accordion("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.AddClass = function(selector, options)
@@ -146,12 +140,6 @@ SharpKit.jQuery.UI.Controls.AddClass = function(selector, options)
 	this.Selector.addclass(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.AddClass = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.addclass();
-}
 
 SharpKit.jQuery.UI.Controls.AddClass.prototype.get_class=function()
 {
@@ -173,12 +161,12 @@ SharpKit.jQuery.UI.Controls.AddClass.prototype.set_duration=function(value)
 
 SharpKit.jQuery.UI.Controls.AddClass.prototype.Get=function(option)
 {
-	return this.Selector.addclass(option);
+	return this.Selector.addclass("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.AddClass.prototype.Set=function(option, value)
 {
-	this.Selector.addclass(option, value);
+	this.Selector.addclass("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Button = function(selector, options)
@@ -187,12 +175,6 @@ SharpKit.jQuery.UI.Controls.Button = function(selector, options)
 	this.Selector.button(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Button = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.button();
-}
 
 SharpKit.jQuery.UI.Controls.Button.prototype.get_disabled=function()
 {
@@ -232,12 +214,12 @@ SharpKit.jQuery.UI.Controls.Button.prototype.set_label=function(value)
 
 SharpKit.jQuery.UI.Controls.Button.prototype.Get=function(option)
 {
-	return this.Selector.button(option);
+	return this.Selector.button("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Button.prototype.Set=function(option, value)
 {
-	this.Selector.button(option, value);
+	this.Selector.button("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Datepicker = function(selector, options)
@@ -246,12 +228,6 @@ SharpKit.jQuery.UI.Controls.Datepicker = function(selector, options)
 	this.Selector.datepicker(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Datepicker = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.datepicker();
-}
 
 SharpKit.jQuery.UI.Controls.Datepicker.prototype.get_altField=function()
 {
@@ -651,12 +627,12 @@ SharpKit.jQuery.UI.Controls.Datepicker.prototype.set_onSelect=function(value)
 
 SharpKit.jQuery.UI.Controls.Datepicker.prototype.Get=function(option)
 {
-	return this.Selector.datepicker(option);
+	return this.Selector.datepicker("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Datepicker.prototype.Set=function(option, value)
 {
-	this.Selector.datepicker(option, value);
+	this.Selector.datepicker("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Dialog = function(selector, options)
@@ -665,12 +641,6 @@ SharpKit.jQuery.UI.Controls.Dialog = function(selector, options)
 	this.Selector.dialog(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Dialog = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.dialog();
-}
 
 SharpKit.jQuery.UI.Controls.Dialog.prototype.get_autoOpen=function()
 {
@@ -944,12 +914,12 @@ SharpKit.jQuery.UI.Controls.Dialog.prototype.set_close=function(value)
 
 SharpKit.jQuery.UI.Controls.Dialog.prototype.Get=function(option)
 {
-	return this.Selector.dialog(option);
+	return this.Selector.dialog("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Dialog.prototype.Set=function(option, value)
 {
-	this.Selector.dialog(option, value);
+	this.Selector.dialog("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Draggable = function(selector, options)
@@ -958,12 +928,6 @@ SharpKit.jQuery.UI.Controls.Draggable = function(selector, options)
 	this.Selector.draggable(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Draggable = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.draggable();
-}
 
 SharpKit.jQuery.UI.Controls.Draggable.prototype.get_addClasses=function()
 {
@@ -1237,12 +1201,12 @@ SharpKit.jQuery.UI.Controls.Draggable.prototype.set_stop=function(value)
 
 SharpKit.jQuery.UI.Controls.Draggable.prototype.Get=function(option)
 {
-	return this.Selector.draggable(option);
+	return this.Selector.draggable("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Draggable.prototype.Set=function(option, value)
 {
-	this.Selector.draggable(option, value);
+	this.Selector.draggable("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Droppable = function(selector, options)
@@ -1251,12 +1215,6 @@ SharpKit.jQuery.UI.Controls.Droppable = function(selector, options)
 	this.Selector.droppable(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Droppable = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.droppable();
-}
 
 SharpKit.jQuery.UI.Controls.Droppable.prototype.get_accept=function()
 {
@@ -1368,12 +1326,12 @@ SharpKit.jQuery.UI.Controls.Droppable.prototype.set_drop=function(value)
 
 SharpKit.jQuery.UI.Controls.Droppable.prototype.Get=function(option)
 {
-	return this.Selector.droppable(option);
+	return this.Selector.droppable("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Droppable.prototype.Set=function(option, value)
 {
-	this.Selector.droppable(option, value);
+	this.Selector.droppable("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Effect = function(selector, options)
@@ -1382,12 +1340,6 @@ SharpKit.jQuery.UI.Controls.Effect = function(selector, options)
 	this.Selector.effect(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Effect = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.effect();
-}
 
 SharpKit.jQuery.UI.Controls.Effect.prototype.get_effect=function()
 {
@@ -1427,12 +1379,12 @@ SharpKit.jQuery.UI.Controls.Effect.prototype.set_callback=function(value)
 
 SharpKit.jQuery.UI.Controls.Effect.prototype.Get=function(option)
 {
-	return this.Selector.effect(option);
+	return this.Selector.effect("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Effect.prototype.Set=function(option, value)
 {
-	this.Selector.effect(option, value);
+	this.Selector.effect("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Hide = function(selector, options)
@@ -1441,12 +1393,6 @@ SharpKit.jQuery.UI.Controls.Hide = function(selector, options)
 	this.Selector.hide(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Hide = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.hide();
-}
 
 SharpKit.jQuery.UI.Controls.Hide.prototype.get_effect=function()
 {
@@ -1486,12 +1432,12 @@ SharpKit.jQuery.UI.Controls.Hide.prototype.set_callback=function(value)
 
 SharpKit.jQuery.UI.Controls.Hide.prototype.Get=function(option)
 {
-	return this.Selector.hide(option);
+	return this.Selector.hide("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Hide.prototype.Set=function(option, value)
 {
-	this.Selector.hide(option, value);
+	this.Selector.hide("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Progressbar = function(selector, options)
@@ -1500,12 +1446,6 @@ SharpKit.jQuery.UI.Controls.Progressbar = function(selector, options)
 	this.Selector.progressbar(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Progressbar = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.progressbar();
-}
 
 SharpKit.jQuery.UI.Controls.Progressbar.prototype.get_value=function()
 {
@@ -1527,12 +1467,12 @@ SharpKit.jQuery.UI.Controls.Progressbar.prototype.set_change=function(value)
 
 SharpKit.jQuery.UI.Controls.Progressbar.prototype.Get=function(option)
 {
-	return this.Selector.progressbar(option);
+	return this.Selector.progressbar("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Progressbar.prototype.Set=function(option, value)
 {
-	this.Selector.progressbar(option, value);
+	this.Selector.progressbar("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.RemoveClass = function(selector, options)
@@ -1541,12 +1481,6 @@ SharpKit.jQuery.UI.Controls.RemoveClass = function(selector, options)
 	this.Selector.removeclass(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.RemoveClass = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.removeclass();
-}
 
 SharpKit.jQuery.UI.Controls.RemoveClass.prototype.get_class=function()
 {
@@ -1568,12 +1502,12 @@ SharpKit.jQuery.UI.Controls.RemoveClass.prototype.set_duration=function(value)
 
 SharpKit.jQuery.UI.Controls.RemoveClass.prototype.Get=function(option)
 {
-	return this.Selector.removeclass(option);
+	return this.Selector.removeclass("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.RemoveClass.prototype.Set=function(option, value)
 {
-	this.Selector.removeclass(option, value);
+	this.Selector.removeclass("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Resizable = function(selector, options)
@@ -1582,12 +1516,6 @@ SharpKit.jQuery.UI.Controls.Resizable = function(selector, options)
 	this.Selector.resizable(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Resizable = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.resizable();
-}
 
 SharpKit.jQuery.UI.Controls.Resizable.prototype.get_alsoResize=function()
 {
@@ -1780,12 +1708,12 @@ SharpKit.jQuery.UI.Controls.Resizable.prototype.set_stop=function(value)
 
 SharpKit.jQuery.UI.Controls.Resizable.prototype.Get=function(option)
 {
-	return this.Selector.resizable(option);
+	return this.Selector.resizable("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Resizable.prototype.Set=function(option, value)
 {
-	this.Selector.resizable(option, value);
+	this.Selector.resizable("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Selectable = function(selector, options)
@@ -1794,12 +1722,6 @@ SharpKit.jQuery.UI.Controls.Selectable = function(selector, options)
 	this.Selector.selectable(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Selectable = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.selectable();
-}
 
 SharpKit.jQuery.UI.Controls.Selectable.prototype.get_autoRefresh=function()
 {
@@ -1911,12 +1833,12 @@ SharpKit.jQuery.UI.Controls.Selectable.prototype.set_unselecting=function(value)
 
 SharpKit.jQuery.UI.Controls.Selectable.prototype.Get=function(option)
 {
-	return this.Selector.selectable(option);
+	return this.Selector.selectable("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Selectable.prototype.Set=function(option, value)
 {
-	this.Selector.selectable(option, value);
+	this.Selector.selectable("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Show = function(selector, options)
@@ -1925,12 +1847,6 @@ SharpKit.jQuery.UI.Controls.Show = function(selector, options)
 	this.Selector.show(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Show = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.show();
-}
 
 SharpKit.jQuery.UI.Controls.Show.prototype.get_effect=function()
 {
@@ -1970,12 +1886,12 @@ SharpKit.jQuery.UI.Controls.Show.prototype.set_callback=function(value)
 
 SharpKit.jQuery.UI.Controls.Show.prototype.Get=function(option)
 {
-	return this.Selector.show(option);
+	return this.Selector.show("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Show.prototype.Set=function(option, value)
 {
-	this.Selector.show(option, value);
+	this.Selector.show("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Slider = function(selector, options)
@@ -1984,12 +1900,6 @@ SharpKit.jQuery.UI.Controls.Slider = function(selector, options)
 	this.Selector.slider(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Slider = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.slider();
-}
 
 SharpKit.jQuery.UI.Controls.Slider.prototype.get_animate=function()
 {
@@ -2101,12 +2011,12 @@ SharpKit.jQuery.UI.Controls.Slider.prototype.set_stop=function(value)
 
 SharpKit.jQuery.UI.Controls.Slider.prototype.Get=function(option)
 {
-	return this.Selector.slider(option);
+	return this.Selector.slider("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Slider.prototype.Set=function(option, value)
 {
-	this.Selector.slider(option, value);
+	this.Selector.slider("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Sortable = function(selector, options)
@@ -2115,12 +2025,6 @@ SharpKit.jQuery.UI.Controls.Sortable = function(selector, options)
 	this.Selector.sortable(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Sortable = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.sortable();
-}
 
 SharpKit.jQuery.UI.Controls.Sortable.prototype.get_appendTo=function()
 {
@@ -2448,12 +2352,12 @@ SharpKit.jQuery.UI.Controls.Sortable.prototype.set_deactivate=function(value)
 
 SharpKit.jQuery.UI.Controls.Sortable.prototype.Get=function(option)
 {
-	return this.Selector.sortable(option);
+	return this.Selector.sortable("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Sortable.prototype.Set=function(option, value)
 {
-	this.Selector.sortable(option, value);
+	this.Selector.sortable("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.SwitchClass = function(selector, options)
@@ -2462,12 +2366,6 @@ SharpKit.jQuery.UI.Controls.SwitchClass = function(selector, options)
 	this.Selector.switchclass(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.SwitchClass = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.switchclass();
-}
 
 SharpKit.jQuery.UI.Controls.SwitchClass.prototype.get_remove=function()
 {
@@ -2498,12 +2396,12 @@ SharpKit.jQuery.UI.Controls.SwitchClass.prototype.set_duration=function(value)
 
 SharpKit.jQuery.UI.Controls.SwitchClass.prototype.Get=function(option)
 {
-	return this.Selector.switchclass(option);
+	return this.Selector.switchclass("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.SwitchClass.prototype.Set=function(option, value)
 {
-	this.Selector.switchclass(option, value);
+	this.Selector.switchclass("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Tabs = function(selector, options)
@@ -2512,12 +2410,6 @@ SharpKit.jQuery.UI.Controls.Tabs = function(selector, options)
 	this.Selector.tabs(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Tabs = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.tabs();
-}
 
 SharpKit.jQuery.UI.Controls.Tabs.prototype.get_ajaxOptions=function()
 {
@@ -2638,12 +2530,12 @@ SharpKit.jQuery.UI.Controls.Tabs.prototype.set_tabTemplate=function(value)
 
 SharpKit.jQuery.UI.Controls.Tabs.prototype.Get=function(option)
 {
-	return this.Selector.tabs(option);
+	return this.Selector.tabs("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Tabs.prototype.Set=function(option, value)
 {
-	this.Selector.tabs(option, value);
+	this.Selector.tabs("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.Toggle = function(selector, options)
@@ -2652,12 +2544,6 @@ SharpKit.jQuery.UI.Controls.Toggle = function(selector, options)
 	this.Selector.toggle(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.Toggle = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.toggle();
-}
 
 SharpKit.jQuery.UI.Controls.Toggle.prototype.get_effect=function()
 {
@@ -2697,12 +2583,12 @@ SharpKit.jQuery.UI.Controls.Toggle.prototype.set_callback=function(value)
 
 SharpKit.jQuery.UI.Controls.Toggle.prototype.Get=function(option)
 {
-	return this.Selector.toggle(option);
+	return this.Selector.toggle("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.Toggle.prototype.Set=function(option, value)
 {
-	this.Selector.toggle(option, value);
+	this.Selector.toggle("option", option, value);
 }
 if(typeof(SharpKit)=='undefined')SharpKit={};if(typeof(SharpKit.jQuery)=='undefined')SharpKit.jQuery={};if(typeof(SharpKit.jQuery.UI)=='undefined')SharpKit.jQuery.UI={};if(typeof(SharpKit.jQuery.UI.Controls)=='undefined')SharpKit.jQuery.UI.Controls={};
 SharpKit.jQuery.UI.Controls.ToggleClass = function(selector, options)
@@ -2711,12 +2597,6 @@ SharpKit.jQuery.UI.Controls.ToggleClass = function(selector, options)
 	this.Selector.toggleclass(options);
 }
 
-
-SharpKit.jQuery.UI.Controls.ToggleClass = function(selector)
-{
-	this.Selector = $(selector);
-	this.Selector.toggleclass();
-}
 
 SharpKit.jQuery.UI.Controls.ToggleClass.prototype.get_class=function()
 {
@@ -2738,10 +2618,10 @@ SharpKit.jQuery.UI.Controls.ToggleClass.prototype.set_duration=function(value)
 
 SharpKit.jQuery.UI.Controls.ToggleClass.prototype.Get=function(option)
 {
-	return this.Selector.toggleclass(option);
+	return this.Selector.toggleclass("option", option);
 }
 
 SharpKit.jQuery.UI.Controls.ToggleClass.prototype.Set=function(option, value)
 {
-	this.Selector.toggleclass(option, value);
+	this.Selector.toggleclass("option", option, value);
 }

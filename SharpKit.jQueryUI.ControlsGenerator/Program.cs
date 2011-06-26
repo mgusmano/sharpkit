@@ -93,10 +93,9 @@ namespace SharpKit.jQueryUI.ControlsGenerator
             Writer.WriteLine("Selector.{0}(options);", meName);
             Writer.WriteLine("}");
             WriteSummary("Creates a new instance of " + ceName);
+            Writer.WriteLine("[JsMethod(Export=false, NativeOverloads=true)]", ceName);
             Writer.WriteLine("public {0}(JsString selector)", ceName);
             Writer.WriteLine("{");
-            Writer.WriteLine("Selector = J(selector);");
-            Writer.WriteLine("Selector.{0}();", meName);
             Writer.WriteLine("}");
             foreach (var pe in type.GetProperties())
             {
@@ -111,11 +110,11 @@ namespace SharpKit.jQueryUI.ControlsGenerator
             }
             Writer.WriteLine("object Get(JsString option)");
             Writer.WriteLine("{");
-            Writer.WriteLine("return Selector.{0}(option);", meName);
+            Writer.WriteLine("return Selector.{0}(\"option\", option);", meName);
             Writer.WriteLine("}");
             Writer.WriteLine("void Set(JsString option, object value)");
             Writer.WriteLine("{");
-            Writer.WriteLine("Selector.{0}(option, value);", meName);
+            Writer.WriteLine("Selector.{0}(\"option\", option, value);", meName);
             Writer.WriteLine("}");
 
             Writer.WriteLine("}");
