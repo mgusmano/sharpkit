@@ -28,7 +28,7 @@ namespace SharpKit.jQuery.UI
     ///	}).next().hide();
     ///});
     ///</summary>
-    public static partial class Accordion
+    public static partial class AccordionExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery accordion(this jQuery query) { return default(jQuery); }
@@ -132,7 +132,7 @@ namespace SharpKit.jQuery.UI
     ///[edit]addClass( class, [duration] )
     ///Adds the specified class to each of the set of matched elements with an optional transition between the states.
     ///</summary>
-    public static partial class AddClass
+    public static partial class AddClassExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery addclass(this jQuery query) { return default(jQuery); }
@@ -171,6 +171,12 @@ namespace SharpKit.jQuery.UI
         public static jQuery button(this jQuery query, ButtonOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery button(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery buttonset(this jQuery query) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery buttonset(this jQuery query, ButtonOptions options) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery buttonset(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
     #endregion
     #region ButtonOptions
@@ -205,7 +211,7 @@ namespace SharpKit.jQuery.UI
     ///$.datepicker.iso8601Week( date ) - Determine the week of the year for a given date: 1 to 53.
     ///$.datepicker.parseDate( format, value, settings ) - Extract a date from a string value with a specified format.
     ///</summary>
-    public static partial class Datepicker
+    public static partial class DatepickerExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery datepicker(this jQuery query) { return default(jQuery); }
@@ -460,7 +466,7 @@ namespace SharpKit.jQuery.UI
     ///A bottom button bar and semi-transparent modal overlay layer are common options that can be added. 
     ///A call to $(foo).dialog() initializes a dialog. If you want a click to open a dialog, use $(foo).dialog('open'), but if the dialog hasn't been destroyed, the $(foo).dialog() init call is only required once, not on each click. 
     ///</summary>
-    public static partial class Dialog
+    public static partial class DialogExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery dialog(this jQuery query) { return default(jQuery); }
@@ -639,7 +645,7 @@ namespace SharpKit.jQuery.UI
     ///ui.position - current position of the helper as { top, left } object, relative to the offset element
     ///ui.offset - current absolute position of the helper as { top, left } object, relative to page
     ///</summary>
-    public static partial class Draggable
+    public static partial class DraggableExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery draggable(this jQuery query) { return default(jQuery); }
@@ -825,7 +831,7 @@ namespace SharpKit.jQuery.UI
     ///ui.position - current position of the draggable helper { top: , left: }
     ///ui.offset - current absolute position of the draggable helper { top: , left: }
     ///</summary>
-    public static partial class Droppable
+    public static partial class DroppableExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery droppable(this jQuery query) { return default(jQuery); }
@@ -914,7 +920,7 @@ namespace SharpKit.jQuery.UI
     ///[edit]effect( effect, [options], [speed], [callback] )
     ///Uses a specific effect on an element (without the show/hide logic).
     ///</summary>
-    public static partial class Effect
+    public static partial class EffectExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery effect(this jQuery query) { return default(jQuery); }
@@ -960,7 +966,7 @@ namespace SharpKit.jQuery.UI
     ///The enhanced hide method optionally accepts jQuery UI advanced effects.
     ///Uses a specific effect on an element to hide the element if the first argument is an effect string.
     ///</summary>
-    public static partial class Hide
+    public static partial class HideExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery hide(this jQuery query) { return default(jQuery); }
@@ -1005,7 +1011,7 @@ namespace SharpKit.jQuery.UI
     ///The progress bar is designed to simply display the current % complete for a process. The bar is coded to be flexibly sized through CSS and will scale to fit inside it's parent container by default. 
     ///This is a determinate progress bar, meaning that it should only be used in situations where the system can accurately update the current status complete. A determinate progress bar should never fill from left to right, then loop back to empty for a single process -- if the actual percent complete status cannot be calculated, an indeterminate progress bar (coming soon) or spinner animation is a better way to provide user feedback. 
     ///</summary>
-    public static partial class Progressbar
+    public static partial class ProgressbarExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery progressbar(this jQuery query) { return default(jQuery); }
@@ -1039,7 +1045,7 @@ namespace SharpKit.jQuery.UI
     ///[edit]removeClass( [class], [duration] )
     ///Removes all or specified class from each of the set of matched elements with an optional transition between the states.
     ///</summary>
-    public static partial class RemoveClass
+    public static partial class RemoveClassExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery removeclass(this jQuery query) { return default(jQuery); }
@@ -1079,7 +1085,7 @@ namespace SharpKit.jQuery.UI
     ///ui.position - {top, left} current position
     ///ui.size - {width, height} current size
     ///</summary>
-    public static partial class Resizable
+    public static partial class ResizableExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery resizable(this jQuery query) { return default(jQuery); }
@@ -1213,7 +1219,7 @@ namespace SharpKit.jQuery.UI
     ///<summary>
     ///The jQuery UI Selectable plugin allows for elements to be selected by dragging a box (sometimes called a lasso) with the mouse over the elements. Also, elements can be selected by click or drag while holding the Ctrl/Meta key, allowing for multiple (non-contiguous) selections.
     ///</summary>
-    public static partial class Selectable
+    public static partial class SelectableExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery selectable(this jQuery query) { return default(jQuery); }
@@ -1300,7 +1306,7 @@ namespace SharpKit.jQuery.UI
     ///The enhanced show method optionally accepts jQuery UI advanced effects.
     ///Uses a specific effect on an element to show the element if the first argument is a effect string.
     ///</summary>
-    public static partial class Show
+    public static partial class ShowExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery show(this jQuery query) { return default(jQuery); }
@@ -1347,7 +1353,7 @@ namespace SharpKit.jQuery.UI
     ///ui.handle: DOMElement - the current focused handle 
     ///ui.value: Integer - the current handle's value 
     ///</summary>
-    public static partial class Slider
+    public static partial class SliderExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery slider(this jQuery query) { return default(jQuery); }
@@ -1439,7 +1445,7 @@ namespace SharpKit.jQuery.UI
     ///ui.placeholder - the placeholder (if you defined one)
     ///ui.sender - the sortable where the item comes from (only exists if you move from one connected list to another)
     ///</summary>
-    public static partial class Sortable
+    public static partial class SortableExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery sortable(this jQuery query) { return default(jQuery); }
@@ -1648,7 +1654,7 @@ namespace SharpKit.jQuery.UI
     ///[edit]switchClass( remove, add, [duration] )
     ///Switches from the class defined in the first argument to the class defined as second argument, using an optional transition.
     ///</summary>
-    public static partial class SwitchClass
+    public static partial class SwitchClassExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery switchclass(this jQuery query) { return default(jQuery); }
@@ -1793,7 +1799,7 @@ namespace SharpKit.jQuery.UI
     ///    }
     ///});resizeMap() will call Google Maps' checkResize() on the particular map. 
     ///</summary>
-    public static partial class Tabs
+    public static partial class TabsExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery tabs(this jQuery query) { return default(jQuery); }
@@ -1884,7 +1890,7 @@ namespace SharpKit.jQuery.UI
     ///The enhanced toggle method optionally accepts jQuery UI advanced effects.
     ///Uses a specific effect on an element to toggle the element if the first argument is an effect string.
     ///</summary>
-    public static partial class Toggle
+    public static partial class ToggleExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery toggle(this jQuery query) { return default(jQuery); }
@@ -1929,7 +1935,7 @@ namespace SharpKit.jQuery.UI
     ///[edit]toggleClass( class, [duration] )
     ///Adds the specified class if it is not present, and removes the specified class if it is present, using an optional transition.
     ///</summary>
-    public static partial class ToggleClass
+    public static partial class ToggleClassExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery toggleclass(this jQuery query) { return default(jQuery); }

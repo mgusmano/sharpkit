@@ -2171,7 +2171,7 @@ namespace SharpKit.jQuery
         public JsAction<XMLHttpRequest, AjaxSettings> beforeSend { get; set; }
         public bool cache { get; set; }
         public JsAction<XMLHttpRequest, JsString> complete { get; set; }
-        public JsString contentTypeString { get; set; }
+        public JsString contentType { get; set; }
         public object context { get; set; }
         public JsAction<object, JsString> dataFilter { get; set; }
         public JsString dataType { get; set; }

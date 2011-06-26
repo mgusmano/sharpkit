@@ -3573,7 +3573,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents a STYLE html node
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "STYLEELEMENT")]
+    [JsType(JsMode.Prototype, Export = false, Name = "STYLE")]
     public partial class HtmlStyleElement : HtmlElement
     {
         protected HtmlStyleElement() { }
