@@ -7,9 +7,11 @@ function btn_onclick()
 	var c2 = new NamespaceSample.Namespace2.SomeClass();
 	alert("new NamespaceSample.Namespace2.SomeClass() returned:" + c2);
 }
+if(typeof(NamespaceSample)=='undefined')NamespaceSample={};if(typeof(NamespaceSample.Namespace1)=='undefined')NamespaceSample.Namespace1={};
 NamespaceSample.Namespace1.SomeClass = function()
 {
 }
+if(typeof(NamespaceSample)=='undefined')NamespaceSample={};if(typeof(NamespaceSample.Namespace2)=='undefined')NamespaceSample.Namespace2={};
 NamespaceSample.Namespace2.SomeClass = function()
 {
 }

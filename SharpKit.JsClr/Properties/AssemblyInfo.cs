@@ -34,7 +34,9 @@ using SharpKit.JavaScript;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("4.0.0.0")]
-[assembly: AssemblyFileVersion("4.05.1000")]
+[assembly: AssemblyFileVersion("4.05.2000")]
+
+[assembly: JsExport(Minify = false, LongFunctionNames = false, ExportComments = false, EnableProfiler = false)]
 
 [assembly: JsMergedFile(Filename = "res/System.js", Sources = new string[]
 {

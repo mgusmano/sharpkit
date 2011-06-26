@@ -547,7 +547,7 @@ Class("System.String", "System.Object",
 	{
 		return this.lastIndexOf(str) == this.length - str.length;
 	},
-	Contains$$String: function(s)
+	Contains: function(s)
 	{
 		return this.indexOf(s) != -1;
 	},
