@@ -78,28 +78,20 @@ Class("System.Collections.Generic.Dictionary$2", "System.Object",
 	{
 		return SharpKit.JavaScript.Utils.Js.GetHashKey(key);
 	},
-	Add$$TKey$$TValue:function(key, value)
+	Add:function(key, value)
 	{
 		var hashKey = this.GetHashKey(key);
 		this._table[hashKey] = value;
 		this._keys[hashKey] = key;
 		this._version++;
 	},
-	Add$$KeyValuePair$2:function(item)
-	{
-		throw new System.NotImplementedException.ctor();
-	},
-	Remove$$TKey:function(key)
+	Remove:function(key)
 	{
 		var hashKey = this.GetHashKey(key);
 		delete(this._table[hashKey]);
 		delete(this._keys[hashKey]);
 		this._version++;
 		return true;
-	},
-	Remove$$KeyValuePair$2:function(item)
-	{
-		throw new System.NotImplementedException.ctor();
 	},
 	ContainsKey:function(key)
 	{
@@ -126,14 +118,6 @@ Class("System.Collections.Generic.Dictionary$2", "System.Object",
 		}
 	},
 	TryGetValue:function(key, value)
-	{
-		throw new System.NotImplementedException.ctor();
-	},
-	Contains:function(item)
-	{
-		throw new System.NotImplementedException.ctor();
-	},
-	CopyTo:function(array, arrayIndex)
 	{
 		throw new System.NotImplementedException.ctor();
 	}

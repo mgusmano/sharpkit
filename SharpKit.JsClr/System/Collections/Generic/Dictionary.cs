@@ -119,17 +119,17 @@ namespace SharpKit.JavaScript.Private
 
 		#region ICollection<KeyValuePair<TKey,TValue>> Members
 
-		public void Add(KeyValuePair<TKey, TValue> item)
+        void ICollection<KeyValuePair<TKey, TValue>>.Add(KeyValuePair<TKey, TValue> item)
 		{
 			throw new NotImplementedException();
 		}
 
-		public bool Contains(KeyValuePair<TKey, TValue> item)
+        bool ICollection<KeyValuePair<TKey, TValue>>.Contains(KeyValuePair<TKey, TValue> item)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
+        void ICollection<KeyValuePair<TKey, TValue>>.CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
 		{
 			throw new NotImplementedException();
 		}
@@ -144,7 +144,7 @@ namespace SharpKit.JavaScript.Private
 			get { throw new NotImplementedException(); }
 		}
 
-		public bool Remove(KeyValuePair<TKey, TValue> item)
+        bool ICollection<KeyValuePair<TKey, TValue>>.Remove(KeyValuePair<TKey, TValue> item)
 		{
 			throw new NotImplementedException();
 		}
