@@ -109,9 +109,9 @@ Class("System.Object", null,
     }
 },
 {
-    Equals$$Object: function(obj)
+    Equals$$Object: function(x, y)
     {
-        return this == obj;
+        return x == y;
     }
 });
 Class("Object", null,
