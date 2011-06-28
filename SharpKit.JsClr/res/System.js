@@ -2260,41 +2260,47 @@ Array.parse = function(value)
 //corlib.js
 Class("System.Object", null,
 {
-	ctor: function()
-	{
-	},
-	toString: function()
-	{
-		return this.ToString();
-	},
-	ToString: function()
-	{
-		return "{" + this.constructor._type.get_FullName() + "}";
-	},
-	construct: function()
-	{
-		arguments.callee.caller._type.baseType.ctor.apply(this, arguments);
-	},
-	GetType: function()
-	{
-		return System.Type._TypeOf(this.constructor._type);
-	},
-	getType: function()
-	{
-		return this.constructor._type;
-	},
-	getTypeName: function()
-	{
-		return this.constructor._type.name;
-	},
-	base: function()
-	{
-		return arguments.callee.caller._type.baseType.ctor.prototype[arguments.callee.caller._name].apply(this, arguments);
-	},
-	callBase: function(methodName)
-	{
-		return arguments.callee.caller._type.baseType.ctor.prototype[methodName].apply(this, Arguments.from(arguments, 1));
-	}
+    ctor: function ()
+    {
+    },
+    toString: function ()
+    {
+        return this.ToString();
+    },
+    ToString: function ()
+    {
+        return "{" + this.constructor._type.get_FullName() + "}";
+    },
+    construct: function ()
+    {
+        arguments.callee.caller._type.baseType.ctor.apply(this, arguments);
+    },
+    GetType: function ()
+    {
+        return System.Type._TypeOf(this.constructor._type);
+    },
+    getType: function ()
+    {
+        return this.constructor._type;
+    },
+    getTypeName: function ()
+    {
+        return this.constructor._type.name;
+    },
+    base: function ()
+    {
+        return arguments.callee.caller._type.baseType.ctor.prototype[arguments.callee.caller._name].apply(this, arguments);
+    },
+    callBase: function (methodName)
+    {
+        return arguments.callee.caller._type.baseType.ctor.prototype[methodName].apply(this, Arguments.from(arguments, 1));
+    }
+},
+{
+    Equals$$Object: function (obj)
+    {
+        return this == obj;
+    }
 });
 Class("Object", null,
 {
