@@ -346,10 +346,10 @@ Class("System.Type", "System.Reflection.MemberInfo",
 			var baseType = this.get_BaseType();
 			if (baseType != null)
 			{
-				var $it8 = baseType.GetProperties().GetEnumerator();
-				while ($it8.MoveNext())
+				var $it9 = baseType.GetProperties().GetEnumerator();
+				while ($it9.MoveNext())
 				{
-					var pe = $it8.get_Current();
+					var pe = $it9.get_Current();
 					if (!this._PropertiesByName.hasOwnProperty(pe._Name))
 					{
 						this._PropertiesByName[pe._Name] = pe;
@@ -410,10 +410,10 @@ Class("System.Type", "System.Reflection.MemberInfo",
 			var baseType = this.get_BaseType();
 			if (baseType != null)
 			{
-				var $it9 = baseType.GetMethods().GetEnumerator();
-				while ($it9.MoveNext())
+				var $it10 = baseType.GetMethods().GetEnumerator();
+				while ($it10.MoveNext())
 				{
-					var pe = $it9.get_Current();
+					var pe = $it10.get_Current();
 					if (this._MethodsByName[pe._Name] == null)
 					{
 						this._MethodsByName[pe._Name] = pe;
@@ -482,10 +482,10 @@ Class("System.Type", "System.Reflection.MemberInfo",
 		else if (memberType == "method")
 		{
 			var methodName = SharpKit.JavaScript.JsNamingHelper.JsFunctionNameToClrMethodName(memberName);
-			var $it10 = this.GetMethods$$String(methodName).GetEnumerator();
-			while ($it10.MoveNext())
+			var $it11 = this.GetMethods$$String(methodName).GetEnumerator();
+			while ($it11.MoveNext())
 			{
-				var method = $it10.get_Current();
+				var method = $it11.get_Current();
 				if (method.JsName == memberName)
 					return method;
 			}

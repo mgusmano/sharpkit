@@ -73,10 +73,10 @@ Class("SharpKit.Extensions2", "System.Object",
 	{
 		var sb = new System.Text.StringBuilder.ctor();
 		var first = true;
-		var $it11 = s.GetEnumerator();
-		while ($it11.MoveNext())
+		var $it12 = s.GetEnumerator();
+		while ($it12.MoveNext())
 		{
-			var c = $it11.get_Current();
+			var c = $it12.get_Current();
 			if (System.Char.IsUpper$$Char(c) && !first)
 			{
 				sb.Append$$Char(' ');
@@ -288,10 +288,10 @@ Class("SharpKit.JavaScript.JsNamingHelper", "System.Object",
 	},
 	ConvertParametersToJsFunctionName:function(prms, sb)
 	{
-		var $it12 = prms.GetEnumerator();
-		while ($it12.MoveNext())
+		var $it13 = prms.GetEnumerator();
+		while ($it13.MoveNext())
 		{
-			var prm = $it12.get_Current();
+			var prm = $it13.get_Current();
 			sb.Append$$String("$$");
 			sb.Append$$String(prm.get_ParameterType().get_Name());
 		}

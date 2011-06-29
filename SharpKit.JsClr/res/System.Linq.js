@@ -292,6 +292,47 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		return false;
 	},
+	Any$$IEnumerable$1:function(TSource, source)
+	{
+		if (source == null)
+		{
+			throw System.Linq.Error.ArgumentNull("source");
+		}
+		var enumerator = source.GetEnumerator();
+		try
+		{
+			if (enumerator.MoveNext())
+			{
+				return true;
+			}
+		}
+		finally
+		{
+			enumerator.Dispose();
+		}
+		return false;
+	},
+	Any$$IEnumerable$1$$Func$2:function(TSource, source, predicate)
+	{
+		if (source == null)
+		{
+			throw System.Linq.Error.ArgumentNull("source");
+		}
+		if (predicate == null)
+		{
+			throw System.Linq.Error.ArgumentNull("predicate");
+		}
+		var $it7 = source.GetEnumerator();
+		while ($it7.MoveNext())
+		{
+			var local = $it7.get_Current();
+			if (predicate.Invoke(local))
+			{
+				return true;
+			}
+		}
+		return false;
+	},
 	Count:function(TSource, source)
 	{
 		if (source == null)
@@ -360,10 +401,10 @@ Class("System.Linq.Enumerable", "System.Object",
 			throw System.Linq.Error.ArgumentNull("source");
 		}
 		var arr = new Array();
-		var $it7 = source.GetEnumerator();
-		while ($it7.MoveNext())
+		var $it8 = source.GetEnumerator();
+		while ($it8.MoveNext())
 		{
-			var obj = $it7.get_Current();
+			var obj = $it8.get_Current();
 			arr.push(obj);
 		}
 		return arr;

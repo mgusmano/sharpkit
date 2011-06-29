@@ -2302,6 +2302,7 @@ Class("System.Object", null,
 {
     Equals$$Object: function(x, y)
     {
+    //TODO: check value types for valueOf()
         return x == y;
     }
 });
@@ -3716,6 +3717,47 @@ Class("System.Linq.Enumerable", "System.Object",
 		}
 		return false;
 	},
+	Any$$IEnumerable$1:function(TSource, source)
+	{
+		if (source == null)
+		{
+			throw System.Linq.Error.ArgumentNull("source");
+		}
+		var enumerator = source.GetEnumerator();
+		try
+		{
+			if (enumerator.MoveNext())
+			{
+				return true;
+			}
+		}
+		finally
+		{
+			enumerator.Dispose();
+		}
+		return false;
+	},
+	Any$$IEnumerable$1$$Func$2:function(TSource, source, predicate)
+	{
+		if (source == null)
+		{
+			throw System.Linq.Error.ArgumentNull("source");
+		}
+		if (predicate == null)
+		{
+			throw System.Linq.Error.ArgumentNull("predicate");
+		}
+		var $it7 = source.GetEnumerator();
+		while ($it7.MoveNext())
+		{
+			var local = $it7.get_Current();
+			if (predicate.Invoke(local))
+			{
+				return true;
+			}
+		}
+		return false;
+	},
 	Count:function(TSource, source)
 	{
 		if (source == null)
@@ -3784,10 +3826,10 @@ Class("System.Linq.Enumerable", "System.Object",
 			throw System.Linq.Error.ArgumentNull("source");
 		}
 		var arr = new Array();
-		var $it7 = source.GetEnumerator();
-		while ($it7.MoveNext())
+		var $it8 = source.GetEnumerator();
+		while ($it8.MoveNext())
 		{
-			var obj = $it7.get_Current();
+			var obj = $it8.get_Current();
 			arr.push(obj);
 		}
 		return arr;
@@ -4704,10 +4746,10 @@ Class("System.Type", "System.Reflection.MemberInfo",
 			var baseType = this.get_BaseType();
 			if (baseType != null)
 			{
-				var $it8 = baseType.GetProperties().GetEnumerator();
-				while ($it8.MoveNext())
+				var $it9 = baseType.GetProperties().GetEnumerator();
+				while ($it9.MoveNext())
 				{
-					var pe = $it8.get_Current();
+					var pe = $it9.get_Current();
 					if (!this._PropertiesByName.hasOwnProperty(pe._Name))
 					{
 						this._PropertiesByName[pe._Name] = pe;
@@ -4768,10 +4810,10 @@ Class("System.Type", "System.Reflection.MemberInfo",
 			var baseType = this.get_BaseType();
 			if (baseType != null)
 			{
-				var $it9 = baseType.GetMethods().GetEnumerator();
-				while ($it9.MoveNext())
+				var $it10 = baseType.GetMethods().GetEnumerator();
+				while ($it10.MoveNext())
 				{
-					var pe = $it9.get_Current();
+					var pe = $it10.get_Current();
 					if (this._MethodsByName[pe._Name] == null)
 					{
 						this._MethodsByName[pe._Name] = pe;
@@ -4840,10 +4882,10 @@ Class("System.Type", "System.Reflection.MemberInfo",
 		else if (memberType == "method")
 		{
 			var methodName = SharpKit.JavaScript.JsNamingHelper.JsFunctionNameToClrMethodName(memberName);
-			var $it10 = this.GetMethods$$String(methodName).GetEnumerator();
-			while ($it10.MoveNext())
+			var $it11 = this.GetMethods$$String(methodName).GetEnumerator();
+			while ($it11.MoveNext())
 			{
-				var method = $it10.get_Current();
+				var method = $it11.get_Current();
 				if (method.JsName == memberName)
 					return method;
 			}
@@ -5198,10 +5240,10 @@ Class("SharpKit.Extensions2", "System.Object",
 	{
 		var sb = new System.Text.StringBuilder.ctor();
 		var first = true;
-		var $it11 = s.GetEnumerator();
-		while ($it11.MoveNext())
+		var $it12 = s.GetEnumerator();
+		while ($it12.MoveNext())
 		{
-			var c = $it11.get_Current();
+			var c = $it12.get_Current();
 			if (System.Char.IsUpper$$Char(c) && !first)
 			{
 				sb.Append$$Char(' ');
@@ -5413,10 +5455,10 @@ Class("SharpKit.JavaScript.JsNamingHelper", "System.Object",
 	},
 	ConvertParametersToJsFunctionName:function(prms, sb)
 	{
-		var $it12 = prms.GetEnumerator();
-		while ($it12.MoveNext())
+		var $it13 = prms.GetEnumerator();
+		while ($it13.MoveNext())
 		{
-			var prm = $it12.get_Current();
+			var prm = $it13.get_Current();
 			sb.Append$$String("$$");
 			sb.Append$$String(prm.get_ParameterType().get_Name());
 		}

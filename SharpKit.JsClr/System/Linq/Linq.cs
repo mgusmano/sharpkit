@@ -368,41 +368,41 @@ namespace SharpKit.JavaScript.Private
 		//  return true;
 		//}
 
-		//public static bool Any<TSource>(this IEnumerable<TSource> source)
-		//{
-		//  if (source == null)
-		//  {
-		//    throw Error.ArgumentNull("source");
-		//  }
-		//  using (IEnumerator<TSource> enumerator = source.GetEnumerator())
-		//  {
-		//    if (enumerator.MoveNext())
-		//    {
-		//      return true;
-		//    }
-		//  }
-		//  return false;
-		//}
+        public static bool Any<TSource>(this IEnumerable<TSource> source)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull("source");
+            }
+            using (IEnumerator<TSource> enumerator = source.GetEnumerator())
+            {
+                if (enumerator.MoveNext())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
-		//public static bool Any<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
-		//{
-		//  if (source == null)
-		//  {
-		//    throw Error.ArgumentNull("source");
-		//  }
-		//  if (predicate == null)
-		//  {
-		//    throw Error.ArgumentNull("predicate");
-		//  }
-		//  foreach (TSource local in source)
-		//  {
-		//    if (predicate(local))
-		//    {
-		//      return true;
-		//    }
-		//  }
-		//  return false;
-		//}
+        public static bool Any<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull("source");
+            }
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull("predicate");
+            }
+            foreach (TSource local in source)
+            {
+                if (predicate(local))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
 		//public static IEnumerable<TSource> AsEnumerable<TSource>(this IEnumerable<TSource> source)
 		//{

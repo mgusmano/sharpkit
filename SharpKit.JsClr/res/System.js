@@ -2299,6 +2299,7 @@ Class("System.Object", null,
 {
     Equals$$Object: function(x, y)
     {
+    //TODO: check value types for valueOf()
         return x == y;
     }
 });
