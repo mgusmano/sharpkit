@@ -720,7 +720,7 @@ Custom tags are not returned in Konqueror.")]
     ///<summary>
     ///Tag: HTML. Represents the root element of a HTML document.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "DOCUMENTELEMENT")]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTML")]
     public partial class HtmlDocumentElement : HtmlElement
     {
         ///<summary>
@@ -1941,7 +1941,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Represents the current settings of all possible inline styles for a given element.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "ELEMENTSTYLE")]
+    [JsType(JsMode.Prototype, Export = false, Name = "STYLE")]
     public partial class HtmlElementStyle
     {
         ///<summary>
@@ -2457,7 +2457,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Allows documents of any type to be embedded.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "EMBEDELEMENT")]
+    [JsType(JsMode.Prototype, Export = false, Name = "EMBED")]
     public partial class HtmlEmbedElement : HtmlElement
     {
         ///<summary>
@@ -2540,7 +2540,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Specifies an individual frame within a frameSet element.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "FRAMEELEMENT")]
+    [JsType(JsMode.Prototype, Export = false, Name = "FRAME")]
     public partial class HtmlFrameElement : HtmlElement
     {
         ///<summary>
@@ -2559,7 +2559,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Specifies a frameset, which is used to organize multiple frames and nested framesets.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "FRAMESETELEMENT")]
+    [JsType(JsMode.Prototype, Export = false, Name = "FRAMESET")]
     public partial class HtmlFrameSetElement : HtmlElement
     {
         ///<summary>
@@ -2608,7 +2608,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Draws a horizontal rule.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "HORIZONTALRULE")]
+    [JsType(JsMode.Prototype, Export = false, Name = "HR")]
     public partial class HtmlHorizontalRule : HtmlElement
     {
         protected HtmlHorizontalRule() { }
@@ -2845,7 +2845,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     }
     #endregion
     #region HtmlInputCheckBox
-    [JsType(JsMode.Prototype, Export = false, Name = "INPUTCHECKBOX")]
+    [JsType(JsMode.Prototype, Export = false, Name = "INPUT")]
     public partial class HtmlInputCheckBox : HtmlInput
     {
         protected HtmlInputCheckBox() { }
@@ -3036,7 +3036,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Inserts a line break.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "LINEBREAK")]
+    [JsType(JsMode.Prototype, Export = false, Name = "BR")]
     public partial class HtmlLineBreak : HtmlElement
     {
         protected HtmlLineBreak() { }
@@ -3078,7 +3078,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents an HTML list item
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "LISTITEM")]
+    [JsType(JsMode.Prototype, Export = false, Name = "LI")]
     public partial class HtmlListItem : HtmlElement
     {
     }
@@ -3099,7 +3099,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Creates a scrolling text marquee.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "MARQUEEELEMENT")]
+    [JsType(JsMode.Prototype, Export = false, Name = "MARQUEE")]
     public partial class HtmlMarqueeElement : HtmlElement
     {
         ///<summary>
@@ -3266,7 +3266,7 @@ Konqueror doesn't see comment nodes.")]
     ///<summary>
     ///Inserts an object into the HTML page.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "OBJECTELEMENT")]
+    [JsType(JsMode.Prototype, Export = false, Name = "OBJECT")]
     public partial class HtmlObjectElement : HtmlElement
     {
         ///<summary>
@@ -3337,7 +3337,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents an ordered list
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "ORDEREDLIST")]
+    [JsType(JsMode.Prototype, Export = false, Name = "OL")]
     public partial class HtmlOrderedList : HtmlElement
     {
     }
@@ -3346,7 +3346,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Denotes a paragraph.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "PARAGRAPH")]
+    [JsType(JsMode.Prototype, Export = false, Name = "P")]
     public partial class HtmlParagraph : HtmlDiv
     {
         protected HtmlParagraph() { }
@@ -3436,7 +3436,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Specifies a script for the page that is interpreted by a script engine.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "SCRIPTELEMENT")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SCRIPT")]
     public partial class HtmlScriptElement : HtmlElement
     {
         ///<summary>
@@ -4744,7 +4744,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents an unordered list
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "UNORDEREDLIST")]
+    [JsType(JsMode.Prototype, Export = false, Name = "UL")]
     public partial class HtmlUnorderedList : HtmlElement
     {
     }
