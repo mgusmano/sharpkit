@@ -1753,16 +1753,34 @@ namespace SharpKit.JavaScript
         ///<returns> an integer value indicating the beginning of the substring within the String object. If the substring is not found, a -1 is returned. If startindex is negative, startindex is treated as zero. If it is larger than the greatest character position index, it is treated as the largest possible index.</returns>
         [JsMethod(NativeOverloads = true)]
         public JsNumber lastIndexOf(JsString substring, JsNumber startindex) { return default(JsNumber); }
+        /// <summary>
+        /// Returns the substring at the specified location within a String object.
+        /// </summary>
+        /// <param name="start">The zero-based index integer indicating the beginning of the substring.</param>
+        /// <returns></returns>
         [JsMethod(NativeOverloads = true)]
-        public JsBoolean startsWith(JsString start) { return default(JsBoolean); }
+        public JsString substring(JsNumber start) { return default(JsString); }
+        /// <summary>
+        /// Returns the substring at the specified location within a String object.
+        /// </summary>
+        /// <param name="start">The zero-based index integer indicating the beginning of the substring.</param>
+        /// <param name="end">The zero-based index integer indicating the end of the substring. The substring includes the characters up to, but not including, the character indicated by end. If end is omitted, the characters from start through the end of the original string are returned.</param>
+        /// <returns></returns>
         [JsMethod(NativeOverloads = true)]
-        public JsBoolean endsWith(JsString end) { return default(JsBoolean); }
+        public JsString substring(JsNumber start, JsNumber end) { return default(JsString); }
+        /// <summary>
+        /// Returns a substring beginning at a specified location and having a specified length.
+        /// </summary>
+        /// <param name="start">The starting position of the desired substring. The index of the first character in the string is zero.</param>
+        /// <param name="length">The number of characters to include in the returned substring.</param>
+        /// <returns></returns>
         [JsMethod(NativeOverloads = true)]
-        public JsString substring(JsNumber index) { return default(JsString); }
-        [JsMethod(NativeOverloads = true)]
-        public JsString substring(JsNumber index, JsNumber length) { return default(JsString); }
-        [JsMethod(NativeOverloads = true)]
-        public JsString substr(JsNumber start, JsNumber end) { return default(JsString); }
+        public JsString substr(JsNumber start, JsNumber length) { return default(JsString); }
+        /// <summary>
+        /// Returns a substring beginning at a specified location and having a specified length.
+        /// </summary>
+        /// <param name="start">The starting position of the desired substring. The index of the first character in the string is zero.</param>
+        /// <returns></returns>
         [JsMethod(NativeOverloads = true)]
         public JsString substr(JsNumber start) { return default(JsString); }
         [JsMethod(NativeOverloads = true)]
