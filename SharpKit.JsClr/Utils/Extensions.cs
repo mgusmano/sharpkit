@@ -10,9 +10,8 @@ using System.IO;
 using System.Diagnostics;
 
 
-////TODO: HACK Dan-el
-//[JsType(Name="SharpKit.Html4.HtmlDomEventHandler")]
-//internal delegate void HtmlDomEventHandler(SharpKit.Html4.HtmlDomEventArgs e);
+[JsType(Name = "SharpKit.Html4.HtmlDomEventHandler")]
+internal delegate void JsImplHtmlDomEventHandler(object e);
 
 namespace SharpKit
 {
