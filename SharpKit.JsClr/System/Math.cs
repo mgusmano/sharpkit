@@ -9,6 +9,8 @@ namespace SharpKit.JavaScript.Private
 	[JsType(Name = "System.Math", Filename="~/res/System.ComponentModel.js")]
 	internal class JsImplMath
 	{
+        public static double PI = JsMath.PI;// 3.1415926535897931;
+
 		public static JsNumber Abs(JsNumber value)
 		{
 			return JsMath.abs(value);

@@ -50,6 +50,16 @@ namespace SharpKit
 	[JsType(Filename="~/res/System.Ext.js")]
 	public static class Extensions2
 	{
+        [JsMethod(Export = false, ExtensionImplementedInInstance=true, NativeOverloads=true)]
+        public static bool startsWith(this JsString s, JsString s2)
+        {
+            return false;
+        }
+        [JsMethod(Export = false, ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static bool endsWith(this JsString s, JsString s2)
+        {
+            return false;
+        }
 
 		[JsMethod(Code = "if(s==null || s.length==0) return defaultValue; return s;")]
 		public static string GetValueOrDefaultIfNullOrEmpty(this string s, string defaultValue)
