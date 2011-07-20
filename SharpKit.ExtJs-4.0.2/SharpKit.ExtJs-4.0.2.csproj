@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6C986D10-2188-463B-BBD2-F0BB290F6780}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharpKit.ExtJs_4._0._2</RootNamespace>
+    <AssemblyName>SharpKit.ExtJs-4.0.2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <TargetFrameworkVersion Condition="'$(Configuration)' == 'v3.5'">v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(Configuration)' == 'v4.0'">v4.0</TargetFrameworkVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ext.AbstractComponent.cs" />
+    <Compile Include="Ext.AbstractManager.cs" />
+    <Compile Include="Ext.AbstractPlugin.cs" />
+    <Compile Include="Ext.Action.cs" />
+    <Compile Include="Ext.Ajax.cs" />
+    <Compile Include="Ext.app.Application.cs" />
+    <Compile Include="Ext.app.Controller.cs" />
+    <Compile Include="Ext.Array.cs" />
+    <Compile Include="Ext.Base.cs" />
+    <Compile Include="Ext.button.Button.cs" />
+    <Compile Include="Ext.button.Cycle.cs" />
+    <Compile Include="Ext.button.Split.cs" />
+    <Compile Include="Ext.chart.axis.Abstract.cs" />
+    <Compile Include="Ext.chart.axis.Axis.cs" />
+    <Compile Include="Ext.chart.axis.Category.cs" />
+    <Compile Include="Ext.chart.axis.Gauge.cs" />
+    <Compile Include="Ext.chart.axis.Numeric.cs" />
+    <Compile Include="Ext.chart.axis.Time.cs" />
+    <Compile Include="Ext.chart.Callout.cs" />
+    <Compile Include="Ext.chart.Chart.cs" />
+    <Compile Include="Ext.chart.Highlight.cs" />
+    <Compile Include="Ext.chart.Label.cs" />
+    <Compile Include="Ext.chart.Legend.cs" />
+    <Compile Include="Ext.chart.LegendItem.cs" />
+    <Compile Include="Ext.chart.Mask.cs" />
+    <Compile Include="Ext.chart.Navigation.cs" />
+    <Compile Include="Ext.chart.series.Area.cs" />
+    <Compile Include="Ext.chart.series.Bar.cs" />
+    <Compile Include="Ext.chart.series.Cartesian.cs" />
+    <Compile Include="Ext.chart.series.Column.cs" />
+    <Compile Include="Ext.chart.series.Gauge.cs" />
+    <Compile Include="Ext.chart.series.Line.cs" />
+    <Compile Include="Ext.chart.series.Pie.cs" />
+    <Compile Include="Ext.chart.series.Radar.cs" />
+    <Compile Include="Ext.chart.series.Scatter.cs" />
+    <Compile Include="Ext.chart.series.Series.cs" />
+    <Compile Include="Ext.chart.theme.Theme.cs" />
+    <Compile Include="Ext.chart.Tip.cs" />
+    <Compile Include="Ext.Class.cs" />
+    <Compile Include="Ext.ClassManager.cs" />
+    <Compile Include="Ext.Component.cs" />
+    <Compile Include="Ext.ComponentLoader.cs" />
+    <Compile Include="Ext.ComponentManager.cs" />
+    <Compile Include="Ext.ComponentQuery.cs" />
+    <Compile Include="Ext.CompositeElement.cs" />
+    <Compile Include="Ext.CompositeElementLite.cs" />
+    <Compile Include="Ext.container.AbstractContainer.cs" />
+    <Compile Include="Ext.container.ButtonGroup.cs" />
+    <Compile Include="Ext.container.Container.cs" />
+    <Compile Include="Ext.container.Viewport.cs" />
+    <Compile Include="Ext.core.DomHelper.cs" />
+    <Compile Include="Ext.core.Element.cs" />
+    <Compile Include="Ext.cs" />
+    <Compile Include="Ext.data.AbstractStore.cs" />
+    <Compile Include="Ext.data.ArrayStore.cs" />
+    <Compile Include="Ext.data.Association.cs" />
+    <Compile Include="Ext.data.Batch.cs" />
+    <Compile Include="Ext.data.BelongsToAssociation.cs" />
+    <Compile Include="Ext.data.Connection.cs" />
+    <Compile Include="Ext.data.DirectStore.cs" />
+    <Compile Include="Ext.data.Errors.cs" />
+    <Compile Include="Ext.data.Field.cs" />
+    <Compile Include="Ext.data.HasManyAssociation.cs" />
+    <Compile Include="Ext.data.JsonP.cs" />
+    <Compile Include="Ext.data.Model.cs" />
+    <Compile Include="Ext.data.NodeInterface.cs" />
+    <Compile Include="Ext.data.Operation.cs" />
+    <Compile Include="Ext.data.proxy.Ajax.cs" />
+    <Compile Include="Ext.data.proxy.Client.cs" />
+    <Compile Include="Ext.data.proxy.Direct.cs" />
+    <Compile Include="Ext.data.proxy.JsonP.cs" />
+    <Compile Include="Ext.data.proxy.LocalStorage.cs" />
+    <Compile Include="Ext.data.proxy.Memory.cs" />
+    <Compile Include="Ext.data.proxy.Proxy.cs" />
+    <Compile Include="Ext.data.proxy.Rest.cs" />
+    <Compile Include="Ext.data.proxy.Server.cs" />
+    <Compile Include="Ext.data.proxy.SessionStorage.cs" />
+    <Compile Include="Ext.data.proxy.WebStorage.cs" />
+    <Compile Include="Ext.data.reader.Array.cs" />
+    <Compile Include="Ext.data.reader.Json.cs" />
+    <Compile Include="Ext.data.reader.Reader.cs" />
+    <Compile Include="Ext.data.reader.Xml.cs" />
+    <Compile Include="Ext.data.Request.cs" />
+    <Compile Include="Ext.data.ResultSet.cs" />
+    <Compile Include="Ext.data.SortTypes.cs" />
+    <Compile Include="Ext.data.Store.cs" />
+    <Compile Include="Ext.data.StoreManager.cs" />
+    <Compile Include="Ext.data.Tree.cs" />
+    <Compile Include="Ext.data.TreeStore.cs" />
+    <Compile Include="Ext.data.Types.cs" />
+    <Compile Include="Ext.data.validations.cs" />
+    <Compile Include="Ext.data.writer.Json.cs" />
+    <Compile Include="Ext.data.writer.Writer.cs" />
+    <Compile Include="Ext.data.writer.Xml.cs" />
+    <Compile Include="Ext.Date.cs" />
+    <Compile Include="Ext.dd.DD.cs" />
+    <Compile Include="Ext.dd.DDProxy.cs" />
+    <Compile Include="Ext.dd.DDTarget.cs" />
+    <Compile Include="Ext.dd.DragDrop.cs" />
+    <Compile Include="Ext.dd.DragDropManager.cs" />
+    <Compile Include="Ext.dd.DragSource.cs" />
+    <Compile Include="Ext.dd.DragTracker.cs" />
+    <Compile Include="Ext.dd.DragZone.cs" />
+    <Compile Include="Ext.dd.DropTarget.cs" />
+    <Compile Include="Ext.dd.DropZone.cs" />
+    <Compile Include="Ext.dd.Registry.cs" />
+    <Compile Include="Ext.dd.ScrollManager.cs" />
+    <Compile Include="Ext.dd.StatusProxy.cs" />
+    <Compile Include="Ext.direct.Event.cs" />
+    <Compile Include="Ext.direct.ExceptionEvent.cs" />
+    <Compile Include="Ext.direct.JsonProvider.cs" />
+    <Compile Include="Ext.direct.Manager.cs" />
+    <Compile Include="Ext.direct.PollingProvider.cs" />
+    <Compile Include="Ext.direct.Provider.cs" />
+    <Compile Include="Ext.direct.RemotingEvent.cs" />
+    <Compile Include="Ext.direct.RemotingProvider.cs" />
+    <Compile Include="Ext.direct.Transaction.cs" />
+    <Compile Include="Ext.DomQuery.cs" />
+    <Compile Include="Ext.draw.Color.cs" />
+    <Compile Include="Ext.draw.Component.cs" />
+    <Compile Include="Ext.draw.CompositeSprite.cs" />
+    <Compile Include="Ext.draw.engine.Svg.cs" />
+    <Compile Include="Ext.draw.engine.Vml.cs" />
+    <Compile Include="Ext.draw.Sprite.cs" />
+    <Compile Include="Ext.draw.Surface.cs" />
+    <Compile Include="Ext.Editor.cs" />
+    <Compile Include="Ext.ElementLoader.cs" />
+    <Compile Include="Ext.env.Browser.cs" />
+    <Compile Include="Ext.env.FeatureDetector.cs" />
+    <Compile Include="Ext.env.OS.cs" />
+    <Compile Include="Ext.EventManager.cs" />
+    <Compile Include="Ext.EventObject.cs" />
+    <Compile Include="Ext.flash.Component.cs" />
+    <Compile Include="Ext.FocusManager.cs" />
+    <Compile Include="Ext.form.action.Action.cs" />
+    <Compile Include="Ext.form.action.DirectLoad.cs" />
+    <Compile Include="Ext.form.action.DirectSubmit.cs" />
+    <Compile Include="Ext.form.action.Load.cs" />
+    <Compile Include="Ext.form.action.StandardSubmit.cs" />
+    <Compile Include="Ext.form.action.Submit.cs" />
+    <Compile Include="Ext.form.Basic.cs" />
+    <Compile Include="Ext.form.CheckboxGroup.cs" />
+    <Compile Include="Ext.form.field.Base.cs" />
+    <Compile Include="Ext.form.field.Checkbox.cs" />
+    <Compile Include="Ext.form.field.ComboBox.cs" />
+    <Compile Include="Ext.form.field.Date.cs" />
+    <Compile Include="Ext.form.field.Display.cs" />
+    <Compile Include="Ext.form.field.Field.cs" />
+    <Compile Include="Ext.form.field.File.cs" />
+    <Compile Include="Ext.form.field.Hidden.cs" />
+    <Compile Include="Ext.form.field.HtmlEditor.cs" />
+    <Compile Include="Ext.form.field.Number.cs" />
+    <Compile Include="Ext.form.field.Picker.cs" />
+    <Compile Include="Ext.form.field.Radio.cs" />
+    <Compile Include="Ext.form.field.Spinner.cs" />
+    <Compile Include="Ext.form.field.Text.cs" />
+    <Compile Include="Ext.form.field.TextArea.cs" />
+    <Compile Include="Ext.form.field.Time.cs" />
+    <Compile Include="Ext.form.field.Trigger.cs" />
+    <Compile Include="Ext.form.field.VTypes.cs" />
+    <Compile Include="Ext.form.FieldAncestor.cs" />
+    <Compile Include="Ext.form.FieldContainer.cs" />
+    <Compile Include="Ext.form.FieldSet.cs" />
+    <Compile Include="Ext.form.Label.cs" />
+    <Compile Include="Ext.form.Labelable.cs" />
+    <Compile Include="Ext.form.Panel.cs" />
+    <Compile Include="Ext.form.RadioGroup.cs" />
+    <Compile Include="Ext.Function.cs" />
+    <Compile Include="Ext.fx.Anim.cs" />
+    <Compile Include="Ext.fx.Animator.cs" />
+    <Compile Include="Ext.fx.Easing.cs" />
+    <Compile Include="Ext.fx.target.Component.cs" />
+    <Compile Include="Ext.fx.target.CompositeElement.cs" />
+    <Compile Include="Ext.fx.target.CompositeElementCSS.cs" />
+    <Compile Include="Ext.fx.target.CompositeSprite.cs" />
+    <Compile Include="Ext.fx.target.Element.cs" />
+    <Compile Include="Ext.fx.target.ElementCSS.cs" />
+    <Compile Include="Ext.fx.target.Sprite.cs" />
+    <Compile Include="Ext.fx.target.Target.cs" />
+    <Compile Include="Ext.grid.column.Action.cs" />
+    <Compile Include="Ext.grid.column.Boolean.cs" />
+    <Compile Include="Ext.grid.column.Column.cs" />
+    <Compile Include="Ext.grid.column.Date.cs" />
+    <Compile Include="Ext.grid.column.Number.cs" />
+    <Compile Include="Ext.grid.column.Template.cs" />
+    <Compile Include="Ext.grid.feature.AbstractSummary.cs" />
+    <Compile Include="Ext.grid.feature.Chunking.cs" />
+    <Compile Include="Ext.grid.feature.Feature.cs" />
+    <Compile Include="Ext.grid.feature.Grouping.cs" />
+    <Compile Include="Ext.grid.feature.GroupingSummary.cs" />
+    <Compile Include="Ext.grid.feature.RowBody.cs" />
+    <Compile Include="Ext.grid.feature.Summary.cs" />
+    <Compile Include="Ext.grid.header.Container.cs" />
+    <Compile Include="Ext.grid.Panel.cs" />
+    <Compile Include="Ext.grid.plugin.CellEditing.cs" />
+    <Compile Include="Ext.grid.plugin.DragDrop.cs" />
+    <Compile Include="Ext.grid.plugin.Editing.cs" />
+    <Compile Include="Ext.grid.plugin.HeaderResizer.cs" />
+    <Compile Include="Ext.grid.plugin.RowEditing.cs" />
+    <Compile Include="Ext.grid.property.Grid.cs" />
+    <Compile Include="Ext.grid.property.HeaderContainer.cs" />
+    <Compile Include="Ext.grid.property.Property.cs" />
+    <Compile Include="Ext.grid.property.Store.cs" />
+    <Compile Include="Ext.grid.RowNumberer.cs" />
+    <Compile Include="Ext.grid.View.cs" />
+    <Compile Include="Ext.Img.cs" />
+    <Compile Include="Ext.is.cs" />
+    <Compile Include="Ext.JSON.cs" />
+    <Compile Include="Ext.Layer.cs" />
+    <Compile Include="Ext.layout.container.Absolute.cs" />
+    <Compile Include="Ext.layout.container.AbstractCard.cs" />
+    <Compile Include="Ext.layout.container.AbstractContainer.cs" />
+    <Compile Include="Ext.layout.container.AbstractFit.cs" />
+    <Compile Include="Ext.layout.container.Accordion.cs" />
+    <Compile Include="Ext.layout.container.Anchor.cs" />
+    <Compile Include="Ext.layout.container.Auto.cs" />
+    <Compile Include="Ext.layout.container.Border.cs" />
+    <Compile Include="Ext.layout.container.Box.cs" />
+    <Compile Include="Ext.layout.container.Card.cs" />
+    <Compile Include="Ext.layout.container.CheckboxGroup.cs" />
+    <Compile Include="Ext.layout.container.Column.cs" />
+    <Compile Include="Ext.layout.container.Container.cs" />
+    <Compile Include="Ext.layout.container.Fit.cs" />
+    <Compile Include="Ext.layout.container.HBox.cs" />
+    <Compile Include="Ext.layout.container.Table.cs" />
+    <Compile Include="Ext.layout.container.VBox.cs" />
+    <Compile Include="Ext.layout.Layout.cs" />
+    <Compile Include="Ext.Loader.cs" />
+    <Compile Include="Ext.LoadMask.cs" />
+    <Compile Include="Ext.menu.CheckItem.cs" />
+    <Compile Include="Ext.menu.ColorPicker.cs" />
+    <Compile Include="Ext.menu.DatePicker.cs" />
+    <Compile Include="Ext.menu.Item.cs" />
+    <Compile Include="Ext.menu.Manager.cs" />
+    <Compile Include="Ext.menu.Menu.cs" />
+    <Compile Include="Ext.menu.Separator.cs" />
+    <Compile Include="Ext.ModelManager.cs" />
+    <Compile Include="Ext.Number.cs" />
+    <Compile Include="Ext.Object.cs" />
+    <Compile Include="Ext.panel.AbstractPanel.cs" />
+    <Compile Include="Ext.panel.Header.cs" />
+    <Compile Include="Ext.panel.Panel.cs" />
+    <Compile Include="Ext.panel.Proxy.cs" />
+    <Compile Include="Ext.panel.Table.cs" />
+    <Compile Include="Ext.panel.Tool.cs" />
+    <Compile Include="Ext.picker.Color.cs" />
+    <Compile Include="Ext.picker.Date.cs" />
+    <Compile Include="Ext.picker.Time.cs" />
+    <Compile Include="Ext.PluginManager.cs" />
+    <Compile Include="Ext.ProgressBar.cs" />
+    <Compile Include="Ext.resizer.Handle.cs" />
+    <Compile Include="Ext.resizer.Resizer.cs" />
+    <Compile Include="Ext.resizer.Splitter.cs" />
+    <Compile Include="Ext.selection.CheckboxModel.cs" />
+    <Compile Include="Ext.selection.Model.cs" />
+    <Compile Include="Ext.selection.RowModel.cs" />
+    <Compile Include="Ext.Shadow.cs" />
+    <Compile Include="Ext.slider.Multi.cs" />
+    <Compile Include="Ext.slider.Single.cs" />
+    <Compile Include="Ext.slider.Tip.cs" />
+    <Compile Include="Ext.state.CookieProvider.cs" />
+    <Compile Include="Ext.state.LocalStorageProvider.cs" />
+    <Compile Include="Ext.state.Manager.cs" />
+    <Compile Include="Ext.state.Provider.cs" />
+    <Compile Include="Ext.state.Stateful.cs" />
+    <Compile Include="Ext.String.cs" />
+    <Compile Include="Ext.supports.cs" />
+    <Compile Include="Ext.tab.Bar.cs" />
+    <Compile Include="Ext.tab.Panel.cs" />
+    <Compile Include="Ext.tab.Tab.cs" />
+    <Compile Include="Ext.TaskManager.cs" />
+    <Compile Include="Ext.Template.cs" />
+    <Compile Include="Ext.tip.QuickTip.cs" />
+    <Compile Include="Ext.tip.QuickTipManager.cs" />
+    <Compile Include="Ext.tip.Tip.cs" />
+    <Compile Include="Ext.tip.ToolTip.cs" />
+    <Compile Include="Ext.toolbar.Fill.cs" />
+    <Compile Include="Ext.toolbar.Item.cs" />
+    <Compile Include="Ext.toolbar.Paging.cs" />
+    <Compile Include="Ext.toolbar.Separator.cs" />
+    <Compile Include="Ext.toolbar.Spacer.cs" />
+    <Compile Include="Ext.toolbar.TextItem.cs" />
+    <Compile Include="Ext.toolbar.Toolbar.cs" />
+    <Compile Include="Ext.tree.Panel.cs" />
+    <Compile Include="Ext.tree.View.cs" />
+    <Compile Include="Ext.tree.ViewDDPlugin.cs" />
+    <Compile Include="Ext.util.AbstractMixedCollection.cs" />
+    <Compile Include="Ext.util.Animate.cs" />
+    <Compile Include="Ext.util.ClickRepeater.cs" />
+    <Compile Include="Ext.util.ComponentDragger.cs" />
+    <Compile Include="Ext.util.Cookies.cs" />
+    <Compile Include="Ext.util.CSS.cs" />
+    <Compile Include="Ext.util.DelayedTask.cs" />
+    <Compile Include="Ext.util.Filter.cs" />
+    <Compile Include="Ext.util.Floating.cs" />
+    <Compile Include="Ext.util.Format.cs" />
+    <Compile Include="Ext.util.Grouper.cs" />
+    <Compile Include="Ext.util.HashMap.cs" />
+    <Compile Include="Ext.util.History.cs" />
+    <Compile Include="Ext.util.Inflector.cs" />
+    <Compile Include="Ext.util.KeyMap.cs" />
+    <Compile Include="Ext.util.KeyNav.cs" />
+    <Compile Include="Ext.util.Memento.cs" />
+    <Compile Include="Ext.util.MixedCollection.cs" />
+    <Compile Include="Ext.util.Observable.cs" />
+    <Compile Include="Ext.util.Point.cs" />
+    <Compile Include="Ext.util.Region.cs" />
+    <Compile Include="Ext.util.Sortable.cs" />
+    <Compile Include="Ext.util.Sorter.cs" />
+    <Compile Include="Ext.util.TaskRunner.cs" />
+    <Compile Include="Ext.util.TextMetrics.cs" />
+    <Compile Include="Ext.Version.cs" />
+    <Compile Include="Ext.view.AbstractView.cs" />
+    <Compile Include="Ext.view.BoundList.cs" />
+    <Compile Include="Ext.view.BoundListKeyNav.cs" />
+    <Compile Include="Ext.view.Table.cs" />
+    <Compile Include="Ext.view.TableChunker.cs" />
+    <Compile Include="Ext.view.View.cs" />
+    <Compile Include="Ext.window.MessageBox.cs" />
+    <Compile Include="Ext.window.Window.cs" />
+    <Compile Include="Ext.WindowManager.cs" />
+    <Compile Include="Ext.XTemplate.cs" />
+    <Compile Include="Ext.ZIndexManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unknown.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SharpKit.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
+      <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
+      <Name>SharpKit.JavaScript</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
