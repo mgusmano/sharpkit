@@ -11,4 +11,9 @@ namespace Ext
     {
         public static ExtGlobal Ext { get; set; }
     }
+
+    partial class ExtGlobal
+    {
+        public T create<T>(object config) { return default(T); }
+    }
 }
