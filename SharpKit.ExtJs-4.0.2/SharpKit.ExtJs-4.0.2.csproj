@@ -356,6 +356,7 @@
     <Compile Include="Ext.WindowManager.cs" />
     <Compile Include="Ext.XTemplate.cs" />
     <Compile Include="Ext.ZIndexManager.cs" />
+    <Compile Include="ExtJsContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unknown.cs" />
   </ItemGroup>
@@ -367,6 +368,9 @@
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
       <Name>SharpKit.JavaScript</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="InvalidMethods.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,15 @@
+Ext.core.Element:anchorTo
+Ext.core.Element:focus
+Ext.core.Element:getHeight
+Ext.core.Element:getWidth
+Ext.core.Element:slideIn
+Ext.data.NodeInterface:findChildBy
+Ext.data.Store:aggregate
+Ext.data.Store:find
+Ext.data.Store:findRecord
+Ext.DomQuery:jsSelect
+Ext.DomQuery:selectNumber
+Ext.DomQuery:selectValue
+Ext.EventObject:within
+Ext.form.Basic:getValues
+Ext.selection.Model:selectRange
