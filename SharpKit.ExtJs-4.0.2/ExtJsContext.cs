@@ -6,14 +6,40 @@ using SharpKit.JavaScript;
 
 namespace Ext
 {
-    [JsType(JsMode.Global, Export=false)]
-    public class ExtJsContext : JsContext
+    //[JsType(JsMode.Global, Export=false)]
+    //public class ExtJsContext : JsContext
+    //{
+    //    public static ExtGlobal Ext { get; set; }
+    //}
+
+    partial class ExtContext
     {
-        public static ExtGlobal Ext { get; set; }
+        public static T create<T>(object config) { return default(T); }
+    }
+}
+namespace Ext.panel
+{
+    public partial class TableConfig
+    {
+        /// <summary>
+        /// The Store the grid should use as its data source (required).
+        /// </summary>
+        public Ext.data.Store store { get; set; }
+        /// <summary>
+        /// A config object that will be applied to the grid's UI view. Any of the config options available for Ext.view.Table can be specified here. This option is ignored if view is specified.
+        /// </summary>
+        public object viewConfig { get; set; }
     }
 
-    partial class ExtGlobal
+}
+namespace Ext.grid.column
+{
+    public partial class ColumnConfig
     {
-        public T create<T>(object config) { return default(T); }
+        /// <summary>
+        /// A renderer is an 'interceptor' method which can be used transform data (value, appearance, etc.) before it is rendered
+        /// </summary>
+        public object renderer{ get; set; }
     }
+
 }
