@@ -278,12 +278,10 @@ public string get_Name()
 		public JsObject namedArguments;
 	}
 
-	[JsType(Name = "Namespace", NativeConstructors = true, Export = false, NativeOverloads=true)]
+	[JsType(JsMode.Json, Name = "Namespace", Export=false)]
 	internal class JsNamespace : JsObject
 	{
-		public JsNamespace(string ns)
-		{
-		}
+        public JsString name { get; set; }
 	}
 }
 

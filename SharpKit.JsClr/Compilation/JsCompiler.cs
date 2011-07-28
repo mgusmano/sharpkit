@@ -67,7 +67,7 @@ namespace SharpKit.JavaScript.Compilation
 
 		static JsObject tmpTypes = new JsObject();
 		internal static JsObject Types = new JsObject();
-		static JsObject Namespaces = new JsObject();
+        //static JsObject Namespaces = new JsObject();
 
 		private static JsType Class(string fullname, string baseTypeName, JsObject definition, JsObject staticDefinition, JsArray interfaceNames, string assemblyName, JsArray customAttributes)
 		{
@@ -208,26 +208,18 @@ type.isEnum = true;")]
 		}
 
 
-		private static JsNamespace ResolveNamespace(string nsText)
+		private static JsNamespace ResolveNamespace(JsString nsText)
 		{
-			var ns = Namespaces[nsText].As<JsNamespace>();
-			if (ns == null)
-			{
-				var index = nsText.As<JsString>().lastIndexOf(".");
-				if (index == -1)
-				{
-					ns = new JsNamespace(nsText);
-                    window.As<JsObject>()[nsText] = ns;
-				}
-				else
-				{
-					var baseNs = ResolveNamespace(nsText.As<JsString>().substring(0, index));
-					var remainder = nsText.As<JsString>().substr(index + 1);
-					ns = new JsNamespace(nsText);
-					baseNs[remainder] = ns;
-				}
-			}
-			Namespaces[nsText] = ns;
+            var ns = window.As<JsNamespace>();
+            var tokens = nsText.split('.');
+            for(var i=0;i<tokens.length;i++)
+            {
+                var token = tokens[i];
+                if (@typeof(ns[token]) == "undefined")
+                    ns[token] = new JsNamespace();
+                ns[token].As<JsNamespace>().name = tokens.slice(0, i).join(".");
+                ns = ns[token].As<JsNamespace>();
+            }
 			return ns;
 		}
 

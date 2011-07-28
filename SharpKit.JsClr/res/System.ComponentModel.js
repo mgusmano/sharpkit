@@ -283,7 +283,8 @@ Class("System.Math", "System.Object",
 	Truncate$$Double:function(d)
 	{
 		throw new System.NotImplementedException.ctor();
-	}
+	},
+	PI : Math.PI
 }, //Interfaces
 null,
 "SharpKit.JsClr", 

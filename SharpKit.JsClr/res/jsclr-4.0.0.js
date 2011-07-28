@@ -41,7 +41,6 @@ function Namespace(name)
 }
 var tmpTypes = new Object();
 var Types = new Object();
-var Namespaces = new Object();
 function Class(fullname, baseTypeName, definition, staticDefinition, interfaceNames, assemblyName, customAttributes)
 {
 	var type = new JsType();
@@ -130,24 +129,16 @@ function BeforeCompilation(func, caller)
 }
 function ResolveNamespace(nsText)
 {
-	var ns = Namespaces[nsText];
-	if (ns == null)
+	var ns = window;
+	var tokens = nsText.split('.');
+	for (var i = 0;i < tokens.length;i++)
 	{
-		var index = nsText.lastIndexOf(".");
-		if (index == -1)
-		{
-			ns = new Namespace(nsText);
-			window[nsText] = ns;
-		}
-		else
-		{
-			var baseNs = ResolveNamespace(nsText.substring(0, index));
-			var remainder = nsText.substr(index + 1);
-			ns = new Namespace(nsText);
-			baseNs[remainder] = ns;
-		}
+		var token = tokens[i];
+		if (typeof(ns[token]) == "undefined")
+			ns[token] = {};
+		ns[token].name = tokens.slice(0, i).join(".");
+		ns = ns[token];
 	}
-	Namespaces[nsText] = ns;
 	return ns;
 }
 var IsCompiled = false;
@@ -208,7 +199,7 @@ function Compile_Phase2_Progressive_Start(progressFunc)
 		TmpTypeList.push(tmpTypes[p]);
 	}
 	var count = TmpTypeList.length;
-	HandleItemCount = Math.ceil((((count / 25)|0)));
+	HandleItemCount = Math.ceil((count / 25));
 	CurrentTmpTypeIndex = -1;
 	Compile_Phase2_Progressive_Item();
 }
