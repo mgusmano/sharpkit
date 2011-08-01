@@ -6,12 +6,12 @@ namespace org.w3c.dom
     public interface Text : CharacterData
     {
         // Text
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Text splitText(int offset) throws DOMException;
         Text splitText(int offset);
         bool isElementContentWhitespace {get;}
         string wholeText {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Text replaceWholeText(String content) throws DOMException;
         Text replaceWholeText(string content);
     }

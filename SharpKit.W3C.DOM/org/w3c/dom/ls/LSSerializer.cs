@@ -13,13 +13,13 @@ namespace org.w3c.dom.ls
         DOMConfiguration domConfig {get;}
         string newLine {get;set;}
         LSSerializerFilter filter {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public boolean write(org.w3c.dom.Node nodeArg, LSOutput destination) throws LSException;
         bool write(Node nodeArg, LSOutput destination);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public boolean writeToURI(org.w3c.dom.Node nodeArg, String uri) throws LSException;
         bool writeToURI(Node nodeArg, string uri);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String writeToString(org.w3c.dom.Node nodeArg) throws org.w3c.dom.DOMException, LSException;
         string writeToString(Node nodeArg);
     }

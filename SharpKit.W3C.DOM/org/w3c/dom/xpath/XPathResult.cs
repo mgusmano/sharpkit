@@ -30,26 +30,26 @@ namespace org.w3c.dom.xpath
 //TODO: Interfaces cannot contain fields in .NET:
 //        public static final short FIRST_ORDERED_NODE_TYPE = 9;
         short resultType {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public double getNumberValue() throws XPathException;
         double numberValue {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String getStringValue() throws XPathException;
         string stringValue {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public boolean getBooleanValue() throws XPathException;
         bool booleanValue {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public org.w3c.dom.Node getSingleNodeValue() throws XPathException;
         Node singleNodeValue {get;}
         bool invalidIteratorState {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public int getSnapshotLength() throws XPathException;
         int snapshotLength {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public org.w3c.dom.Node iterateNext() throws XPathException, org.w3c.dom.DOMException;
         Node iterateNext();
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public org.w3c.dom.Node snapshotItem(int index) throws XPathException;
         Node snapshotItem(int index);
     }

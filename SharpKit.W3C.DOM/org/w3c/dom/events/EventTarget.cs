@@ -10,7 +10,7 @@ namespace org.w3c.dom.events
         // EventTarget
         void addEventListener(string type, EventListener listener, bool useCapture);
         void removeEventListener(string type, EventListener listener, bool useCapture);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public boolean dispatchEvent(Event evt) throws EventException, org.w3c.dom.DOMException;
         bool dispatchEvent(Event evt);
     }

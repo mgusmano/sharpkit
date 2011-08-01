@@ -14,7 +14,7 @@ namespace org.w3c.dom.traversal
         NodeFilter filter {get;}
         bool expandEntityReferences {get;}
         Node currentNode {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setCurrentNode(org.w3c.dom.Node currentNode) throws org.w3c.dom.DOMException;
         Node parentNode();
         Node firstChild();

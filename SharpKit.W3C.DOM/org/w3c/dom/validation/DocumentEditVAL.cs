@@ -11,7 +11,7 @@ namespace org.w3c.dom.validation
     {
         // DocumentEditVAL
         bool continuousValidityChecking {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setContinuousValidityChecking(boolean continuousValidityChecking) throws org.w3c.dom.DOMException, ExceptionVAL;
         DOMConfiguration domConfig {get;}
         NameList getDefinedElements(string namespaceURI);
