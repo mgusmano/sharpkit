@@ -9,10 +9,10 @@ namespace org.w3c.dom.traversal
     public interface DocumentTraversal
     {
         // DocumentTraversal
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public NodeIterator createNodeIterator(org.w3c.dom.Node root, int whatToShow, NodeFilter filter, boolean entityReferenceExpansion) throws org.w3c.dom.DOMException;
         NodeIterator createNodeIterator(Node root, int whatToShow, NodeFilter filter, bool entityReferenceExpansion);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public TreeWalker createTreeWalker(org.w3c.dom.Node root, int whatToShow, NodeFilter filter, boolean entityReferenceExpansion) throws org.w3c.dom.DOMException;
         TreeWalker createTreeWalker(Node root, int whatToShow, NodeFilter filter, bool entityReferenceExpansion);
     }

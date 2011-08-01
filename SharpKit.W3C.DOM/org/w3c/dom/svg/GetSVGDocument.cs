@@ -8,7 +8,7 @@ namespace org.w3c.dom.svg
     public interface GetSVGDocument
     {
         // GetSVGDocument
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGDocument getSVGDocument() throws org.w3c.dom.DOMException;
         SVGDocument sVGDocument {get;}
     }

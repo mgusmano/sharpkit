@@ -9,370 +9,370 @@ namespace org.w3c.dom.css
     {
         // CSS2Properties
         string azimuth {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setAzimuth(String azimuth) throws org.w3c.dom.DOMException;
         string background {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBackground(String background) throws org.w3c.dom.DOMException;
         string backgroundAttachment {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBackgroundAttachment(String backgroundAttachment) throws org.w3c.dom.DOMException;
         string backgroundColor {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBackgroundColor(String backgroundColor) throws org.w3c.dom.DOMException;
         string backgroundImage {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBackgroundImage(String backgroundImage) throws org.w3c.dom.DOMException;
         string backgroundPosition {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBackgroundPosition(String backgroundPosition) throws org.w3c.dom.DOMException;
         string backgroundRepeat {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBackgroundRepeat(String backgroundRepeat) throws org.w3c.dom.DOMException;
         string border {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorder(String border) throws org.w3c.dom.DOMException;
         string borderCollapse {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderCollapse(String borderCollapse) throws org.w3c.dom.DOMException;
         string borderColor {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderColor(String borderColor) throws org.w3c.dom.DOMException;
         string borderSpacing {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderSpacing(String borderSpacing) throws org.w3c.dom.DOMException;
         string borderStyle {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderStyle(String borderStyle) throws org.w3c.dom.DOMException;
         string borderTop {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderTop(String borderTop) throws org.w3c.dom.DOMException;
         string borderRight {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderRight(String borderRight) throws org.w3c.dom.DOMException;
         string borderBottom {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderBottom(String borderBottom) throws org.w3c.dom.DOMException;
         string borderLeft {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderLeft(String borderLeft) throws org.w3c.dom.DOMException;
         string borderTopColor {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderTopColor(String borderTopColor) throws org.w3c.dom.DOMException;
         string borderRightColor {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderRightColor(String borderRightColor) throws org.w3c.dom.DOMException;
         string borderBottomColor {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderBottomColor(String borderBottomColor) throws org.w3c.dom.DOMException;
         string borderLeftColor {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderLeftColor(String borderLeftColor) throws org.w3c.dom.DOMException;
         string borderTopStyle {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderTopStyle(String borderTopStyle) throws org.w3c.dom.DOMException;
         string borderRightStyle {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderRightStyle(String borderRightStyle) throws org.w3c.dom.DOMException;
         string borderBottomStyle {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderBottomStyle(String borderBottomStyle) throws org.w3c.dom.DOMException;
         string borderLeftStyle {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderLeftStyle(String borderLeftStyle) throws org.w3c.dom.DOMException;
         string borderTopWidth {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderTopWidth(String borderTopWidth) throws org.w3c.dom.DOMException;
         string borderRightWidth {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderRightWidth(String borderRightWidth) throws org.w3c.dom.DOMException;
         string borderBottomWidth {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderBottomWidth(String borderBottomWidth) throws org.w3c.dom.DOMException;
         string borderLeftWidth {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderLeftWidth(String borderLeftWidth) throws org.w3c.dom.DOMException;
         string borderWidth {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBorderWidth(String borderWidth) throws org.w3c.dom.DOMException;
         string bottom {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setBottom(String bottom) throws org.w3c.dom.DOMException;
         string captionSide {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setCaptionSide(String captionSide) throws org.w3c.dom.DOMException;
         string clear {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setClear(String clear) throws org.w3c.dom.DOMException;
         string clip {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setClip(String clip) throws org.w3c.dom.DOMException;
         string color {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setColor(String color) throws org.w3c.dom.DOMException;
         string content {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setContent(String content) throws org.w3c.dom.DOMException;
         string counterIncrement {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setCounterIncrement(String counterIncrement) throws org.w3c.dom.DOMException;
         string counterReset {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setCounterReset(String counterReset) throws org.w3c.dom.DOMException;
         string cue {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setCue(String cue) throws org.w3c.dom.DOMException;
         string cueAfter {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setCueAfter(String cueAfter) throws org.w3c.dom.DOMException;
         string cueBefore {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setCueBefore(String cueBefore) throws org.w3c.dom.DOMException;
         string cursor {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setCursor(String cursor) throws org.w3c.dom.DOMException;
         string direction {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setDirection(String direction) throws org.w3c.dom.DOMException;
         string display {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setDisplay(String display) throws org.w3c.dom.DOMException;
         string elevation {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setElevation(String elevation) throws org.w3c.dom.DOMException;
         string emptyCells {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setEmptyCells(String emptyCells) throws org.w3c.dom.DOMException;
         string cssFloat {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setCssFloat(String cssFloat) throws org.w3c.dom.DOMException;
         string font {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setFont(String font) throws org.w3c.dom.DOMException;
         string fontFamily {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setFontFamily(String fontFamily) throws org.w3c.dom.DOMException;
         string fontSize {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setFontSize(String fontSize) throws org.w3c.dom.DOMException;
         string fontSizeAdjust {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setFontSizeAdjust(String fontSizeAdjust) throws org.w3c.dom.DOMException;
         string fontStretch {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setFontStretch(String fontStretch) throws org.w3c.dom.DOMException;
         string fontStyle {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setFontStyle(String fontStyle) throws org.w3c.dom.DOMException;
         string fontVariant {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setFontVariant(String fontVariant) throws org.w3c.dom.DOMException;
         string fontWeight {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setFontWeight(String fontWeight) throws org.w3c.dom.DOMException;
         string height {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setHeight(String height) throws org.w3c.dom.DOMException;
         string left {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setLeft(String left) throws org.w3c.dom.DOMException;
         string letterSpacing {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setLetterSpacing(String letterSpacing) throws org.w3c.dom.DOMException;
         string lineHeight {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setLineHeight(String lineHeight) throws org.w3c.dom.DOMException;
         string listStyle {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setListStyle(String listStyle) throws org.w3c.dom.DOMException;
         string listStyleImage {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setListStyleImage(String listStyleImage) throws org.w3c.dom.DOMException;
         string listStylePosition {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setListStylePosition(String listStylePosition) throws org.w3c.dom.DOMException;
         string listStyleType {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setListStyleType(String listStyleType) throws org.w3c.dom.DOMException;
         string margin {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setMargin(String margin) throws org.w3c.dom.DOMException;
         string marginTop {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setMarginTop(String marginTop) throws org.w3c.dom.DOMException;
         string marginRight {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setMarginRight(String marginRight) throws org.w3c.dom.DOMException;
         string marginBottom {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setMarginBottom(String marginBottom) throws org.w3c.dom.DOMException;
         string marginLeft {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setMarginLeft(String marginLeft) throws org.w3c.dom.DOMException;
         string markerOffset {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setMarkerOffset(String markerOffset) throws org.w3c.dom.DOMException;
         string marks {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setMarks(String marks) throws org.w3c.dom.DOMException;
         string maxHeight {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setMaxHeight(String maxHeight) throws org.w3c.dom.DOMException;
         string maxWidth {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setMaxWidth(String maxWidth) throws org.w3c.dom.DOMException;
         string minHeight {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setMinHeight(String minHeight) throws org.w3c.dom.DOMException;
         string minWidth {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setMinWidth(String minWidth) throws org.w3c.dom.DOMException;
         string orphans {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setOrphans(String orphans) throws org.w3c.dom.DOMException;
         string outline {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setOutline(String outline) throws org.w3c.dom.DOMException;
         string outlineColor {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setOutlineColor(String outlineColor) throws org.w3c.dom.DOMException;
         string outlineStyle {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setOutlineStyle(String outlineStyle) throws org.w3c.dom.DOMException;
         string outlineWidth {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setOutlineWidth(String outlineWidth) throws org.w3c.dom.DOMException;
         string overflow {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setOverflow(String overflow) throws org.w3c.dom.DOMException;
         string padding {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPadding(String padding) throws org.w3c.dom.DOMException;
         string paddingTop {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPaddingTop(String paddingTop) throws org.w3c.dom.DOMException;
         string paddingRight {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPaddingRight(String paddingRight) throws org.w3c.dom.DOMException;
         string paddingBottom {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPaddingBottom(String paddingBottom) throws org.w3c.dom.DOMException;
         string paddingLeft {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPaddingLeft(String paddingLeft) throws org.w3c.dom.DOMException;
         string page {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPage(String page) throws org.w3c.dom.DOMException;
         string pageBreakAfter {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPageBreakAfter(String pageBreakAfter) throws org.w3c.dom.DOMException;
         string pageBreakBefore {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPageBreakBefore(String pageBreakBefore) throws org.w3c.dom.DOMException;
         string pageBreakInside {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPageBreakInside(String pageBreakInside) throws org.w3c.dom.DOMException;
         string pause {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPause(String pause) throws org.w3c.dom.DOMException;
         string pauseAfter {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPauseAfter(String pauseAfter) throws org.w3c.dom.DOMException;
         string pauseBefore {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPauseBefore(String pauseBefore) throws org.w3c.dom.DOMException;
         string pitch {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPitch(String pitch) throws org.w3c.dom.DOMException;
         string pitchRange {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPitchRange(String pitchRange) throws org.w3c.dom.DOMException;
         string playDuring {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPlayDuring(String playDuring) throws org.w3c.dom.DOMException;
         string position {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPosition(String position) throws org.w3c.dom.DOMException;
         string quotes {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setQuotes(String quotes) throws org.w3c.dom.DOMException;
         string richness {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setRichness(String richness) throws org.w3c.dom.DOMException;
         string right {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setRight(String right) throws org.w3c.dom.DOMException;
         string size {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setSize(String size) throws org.w3c.dom.DOMException;
         string speak {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setSpeak(String speak) throws org.w3c.dom.DOMException;
         string speakHeader {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setSpeakHeader(String speakHeader) throws org.w3c.dom.DOMException;
         string speakNumeral {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setSpeakNumeral(String speakNumeral) throws org.w3c.dom.DOMException;
         string speakPunctuation {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setSpeakPunctuation(String speakPunctuation) throws org.w3c.dom.DOMException;
         string speechRate {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setSpeechRate(String speechRate) throws org.w3c.dom.DOMException;
         string stress {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setStress(String stress) throws org.w3c.dom.DOMException;
         string tableLayout {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setTableLayout(String tableLayout) throws org.w3c.dom.DOMException;
         string textAlign {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setTextAlign(String textAlign) throws org.w3c.dom.DOMException;
         string textDecoration {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setTextDecoration(String textDecoration) throws org.w3c.dom.DOMException;
         string textIndent {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setTextIndent(String textIndent) throws org.w3c.dom.DOMException;
         string textShadow {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setTextShadow(String textShadow) throws org.w3c.dom.DOMException;
         string textTransform {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setTextTransform(String textTransform) throws org.w3c.dom.DOMException;
         string top {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setTop(String top) throws org.w3c.dom.DOMException;
         string unicodeBidi {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setUnicodeBidi(String unicodeBidi) throws org.w3c.dom.DOMException;
         string verticalAlign {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setVerticalAlign(String verticalAlign) throws org.w3c.dom.DOMException;
         string visibility {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setVisibility(String visibility) throws org.w3c.dom.DOMException;
         string voiceFamily {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setVoiceFamily(String voiceFamily) throws org.w3c.dom.DOMException;
         string volume {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setVolume(String volume) throws org.w3c.dom.DOMException;
         string whiteSpace {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setWhiteSpace(String whiteSpace) throws org.w3c.dom.DOMException;
         string widows {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setWidows(String widows) throws org.w3c.dom.DOMException;
         string width {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setWidth(String width) throws org.w3c.dom.DOMException;
         string wordSpacing {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setWordSpacing(String wordSpacing) throws org.w3c.dom.DOMException;
         string zIndex {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setZIndex(String zIndex) throws org.w3c.dom.DOMException;
     }
 

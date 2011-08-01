@@ -29,7 +29,7 @@ namespace org.w3c.dom.svg
         float currentScale {get;set;}
         SVGPoint currentTranslate {get;}
         int suspendRedraw(int max_wait_milliseconds);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void unsuspendRedraw(int suspend_handle_id) throws org.w3c.dom.DOMException;
         void unsuspendRedraw(int suspend_handle_id);
         void unsuspendRedrawAll();

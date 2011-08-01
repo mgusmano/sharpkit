@@ -31,10 +31,10 @@ namespace org.w3c.dom
 //TODO: Interfaces cannot contain fields in .NET:
 //        public static final short NOTATION_NODE = 12;
         string nodeName {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String getNodeValue() throws DOMException;
         string nodeValue {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setNodeValue(String nodeValue) throws DOMException;
         short nodeType {get;}
         Node parentNode {get;}
@@ -45,16 +45,16 @@ namespace org.w3c.dom
         Node nextSibling {get;}
         NamedNodeMap attributes {get;}
         Document ownerDocument {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Node insertBefore(Node newChild, Node refChild) throws DOMException;
         Node insertBefore(Node newChild, Node refChild);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Node replaceChild(Node newChild, Node oldChild) throws DOMException;
         Node replaceChild(Node newChild, Node oldChild);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Node removeChild(Node oldChild) throws DOMException;
         Node removeChild(Node oldChild);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Node appendChild(Node newChild) throws DOMException;
         Node appendChild(Node newChild);
         bool hasChildNodes();
@@ -63,7 +63,7 @@ namespace org.w3c.dom
         bool isSupported(string feature, string version);
         string namespaceURI {get;}
         string prefix {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPrefix(String prefix) throws DOMException;
         string localName {get;}
         bool hasAttributes();
@@ -80,13 +80,13 @@ namespace org.w3c.dom
 //        public static final short DOCUMENT_POSITION_CONTAINED_BY = 0x10;
 //TODO: Interfaces cannot contain fields in .NET:
 //        public static final short DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC = 0x20;
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public short compareDocumentPosition(Node other) throws DOMException;
         short compareDocumentPosition(Node other);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String getTextContent() throws DOMException;
         string textContent {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setTextContent(String textContent) throws DOMException;
         bool isSameNode(Node other);
         string lookupPrefix(string namespaceURI);

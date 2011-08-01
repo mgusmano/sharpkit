@@ -6,25 +6,25 @@ namespace org.w3c.dom
     public interface CharacterData : Node
     {
         // CharacterData
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String getData() throws DOMException;
         string data {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setData(String data) throws DOMException;
         int length {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String substringData(int offset, int count) throws DOMException;
         string substringData(int offset, int count);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void appendData(String arg) throws DOMException;
         void appendData(string arg);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void insertData(int offset, String arg) throws DOMException;
         void insertData(int offset, string arg);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void deleteData(int offset, int count) throws DOMException;
         void deleteData(int offset, int count);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void replaceData(int offset, int count, String arg) throws DOMException;
         void replaceData(int offset, int count, string arg);
     }

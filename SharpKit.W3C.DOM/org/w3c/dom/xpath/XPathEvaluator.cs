@@ -9,11 +9,11 @@ namespace org.w3c.dom.xpath
     public interface XPathEvaluator
     {
         // XPathEvaluator
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public XPathExpression createExpression(String expression, XPathNSResolver resolver) throws XPathException, org.w3c.dom.DOMException;
         XPathExpression createExpression(string expression, XPathNSResolver resolver);
         XPathNSResolver createNSResolver(Node nodeResolver);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Object evaluate(String expression, org.w3c.dom.Node contextNode, XPathNSResolver resolver, short type, Object result) throws XPathException, org.w3c.dom.DOMException;
         object evaluate(string expression, Node contextNode, XPathNSResolver resolver, short type, object result);
     }

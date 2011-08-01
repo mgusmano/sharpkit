@@ -9,7 +9,7 @@ namespace org.w3c.dom.css
     {
         // CSSCharsetRule
         string encoding {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setEncoding(String encoding) throws org.w3c.dom.DOMException;
     }
 

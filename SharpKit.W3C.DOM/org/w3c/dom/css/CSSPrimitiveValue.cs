@@ -61,25 +61,25 @@ namespace org.w3c.dom.css
 //TODO: Interfaces cannot contain fields in .NET:
 //        public static final short CSS_RGBCOLOR = 25;
         short primitiveType {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setFloatValue(short unitType, float floatValue) throws org.w3c.dom.DOMException;
         void setFloatValue(short unitType, float floatValue);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public float getFloatValue(short unitType) throws org.w3c.dom.DOMException;
         float getFloatValue(short unitType);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setStringValue(short stringType, String stringValue) throws org.w3c.dom.DOMException;
         void setStringValue(short stringType, string stringValue);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String getStringValue() throws org.w3c.dom.DOMException;
         string stringValue {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Counter getCounterValue() throws org.w3c.dom.DOMException;
         Counter counterValue {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Rect getRectValue() throws org.w3c.dom.DOMException;
         Rect rectValue {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public RGBColor getRGBColorValue() throws org.w3c.dom.DOMException;
         RGBColor rGBColorValue {get;}
     }

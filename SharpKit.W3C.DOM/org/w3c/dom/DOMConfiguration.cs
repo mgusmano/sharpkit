@@ -6,10 +6,10 @@ namespace org.w3c.dom
     public interface DOMConfiguration
     {
         // DOMConfiguration
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setParameter(String name, Object value) throws DOMException;
         void setParameter(string name, object value);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Object getParameter(String name) throws DOMException;
         object getParameter(string name);
         bool canSetParameter(string name, object value);

@@ -11,13 +11,13 @@ namespace org.w3c.dom.validation
         short whitespaceOnly {get;}
         short canSetData(string arg);
         short canAppendData(string arg);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public short canReplaceData(int offset, int count, String arg) throws org.w3c.dom.DOMException;
         short canReplaceData(int offset, int count, string arg);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public short canInsertData(int offset, String arg) throws org.w3c.dom.DOMException;
         short canInsertData(int offset, string arg);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public short canDeleteData(int offset, int count) throws org.w3c.dom.DOMException;
         short canDeleteData(int offset, int count);
     }

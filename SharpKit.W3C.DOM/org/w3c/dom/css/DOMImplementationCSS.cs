@@ -8,7 +8,7 @@ namespace org.w3c.dom.css
     public interface DOMImplementationCSS
     {
         // DOMImplementationCSS
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public CSSStyleSheet createCSSStyleSheet(String title, String media) throws org.w3c.dom.DOMException;
         CSSStyleSheet createCSSStyleSheet(string title, string media);
     }

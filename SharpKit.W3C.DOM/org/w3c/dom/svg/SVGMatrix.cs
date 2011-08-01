@@ -13,14 +13,14 @@ namespace org.w3c.dom.svg
         float e {get;set;}
         float f {get;set;}
         SVGMatrix multiply(SVGMatrix secondMatrix);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGMatrix inverse() throws SVGException;
         SVGMatrix inverse();
         SVGMatrix translate(float x, float y);
         SVGMatrix scale(float scaleFactor);
         SVGMatrix scaleNonUniform(float scaleFactorX, float scaleFactorY);
         SVGMatrix rotate(float angle);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGMatrix rotateFromVector(float x, float y) throws SVGException;
         SVGMatrix rotateFromVector(float x, float y);
         SVGMatrix flipX();

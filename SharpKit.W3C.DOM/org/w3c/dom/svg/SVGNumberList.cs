@@ -9,25 +9,25 @@ namespace org.w3c.dom.svg
     {
         // SVGNumberList
         int numberOfItems {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void clear() throws org.w3c.dom.DOMException;
         void clear();
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGNumber initialize(SVGNumber newItem) throws org.w3c.dom.DOMException, SVGException;
         SVGNumber initialize(SVGNumber newItem);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGNumber getItem(int index) throws org.w3c.dom.DOMException;
         SVGNumber getItem(int index);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGNumber insertItemBefore(SVGNumber newItem, int index) throws org.w3c.dom.DOMException, SVGException;
         SVGNumber insertItemBefore(SVGNumber newItem, int index);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGNumber replaceItem(SVGNumber newItem, int index) throws org.w3c.dom.DOMException, SVGException;
         SVGNumber replaceItem(SVGNumber newItem, int index);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGNumber removeItem(int index) throws org.w3c.dom.DOMException;
         SVGNumber removeItem(int index);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGNumber appendItem(SVGNumber newItem) throws org.w3c.dom.DOMException, SVGException;
         SVGNumber appendItem(SVGNumber newItem);
     }

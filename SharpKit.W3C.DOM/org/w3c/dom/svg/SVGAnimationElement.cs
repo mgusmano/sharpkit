@@ -12,7 +12,7 @@ namespace org.w3c.dom.svg
         SVGElement targetElement {get;}
         float startTime {get;}
         float currentTime {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public float getSimpleDuration() throws org.w3c.dom.DOMException;
         float simpleDuration {get;}
     }

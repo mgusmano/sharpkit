@@ -6,10 +6,10 @@ namespace org.w3c.dom.indexeddb
     public interface IndexedDatabase
     {
         // IndexedDatabase
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public IDBDatabaseSync open(String name, String description) throws IDBDatabaseException;
         IDBDatabaseSync open(string name, string description);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public IDBDatabaseSync open(String name, String description, boolean modifyDatabase) throws IDBDatabaseException;
         IDBDatabaseSync open(string name, string description, bool modifyDatabase);
     }

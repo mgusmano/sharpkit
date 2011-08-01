@@ -9,7 +9,7 @@ namespace org.w3c.dom
         string name {get;}
         bool specified {get;}
         string value {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setValue(String value) throws DOMException;
         Element ownerElement {get;}
         TypeInfo schemaTypeInfo {get;}

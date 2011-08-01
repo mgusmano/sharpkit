@@ -28,7 +28,7 @@ namespace org.w3c.dom.svg
 //        public static final short SVG_PAINTTYPE_URI = 107;
         short paintType {get;}
         string uri {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setPaint(short paintType, String uri, String rgbColor, String iccColor) throws SVGException;
         void setPaint(short paintType, string uri, string rgbColor, string iccColor);
     }

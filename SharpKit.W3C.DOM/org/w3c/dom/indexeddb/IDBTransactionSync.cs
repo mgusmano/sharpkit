@@ -6,10 +6,10 @@ namespace org.w3c.dom.indexeddb
     public interface IDBTransactionSync : IDBTransaction
     {
         // IDBTransactionSync
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void abort() throws IDBDatabaseException;
         void abort();
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void commit() throws IDBDatabaseException;
         void commit();
     }

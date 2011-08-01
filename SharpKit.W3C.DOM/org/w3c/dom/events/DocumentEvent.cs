@@ -8,7 +8,7 @@ namespace org.w3c.dom.events
     public interface DocumentEvent
     {
         // DocumentEvent
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Event createEvent(String eventInterface) throws org.w3c.dom.DOMException;
         Event createEvent(string eventInterface);
     }

@@ -8,12 +8,12 @@ namespace org.w3c.dom.indexeddb
         // IDBCursorSync
         object key {get;}
         object value {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setValue(Object value) throws IDBDatabaseException;
         long count {get;}
         bool _continue();
         bool _continue(object key);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void remove() throws IDBDatabaseException;
         void remove();
     }

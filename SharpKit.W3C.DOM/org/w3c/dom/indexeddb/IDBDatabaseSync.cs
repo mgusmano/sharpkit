@@ -8,41 +8,41 @@ namespace org.w3c.dom.indexeddb
     public interface IDBDatabaseSync : IDBDatabase
     {
         // IDBDatabaseSync
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public IDBObjectStoreSync createObjectStore(String name, String keyPath) throws IDBDatabaseException;
         IDBObjectStoreSync createObjectStore(string name, string keyPath);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public IDBObjectStoreSync createObjectStore(String name, String keyPath, boolean autoIncrement) throws IDBDatabaseException;
         IDBObjectStoreSync createObjectStore(string name, string keyPath, bool autoIncrement);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public IDBObjectStoreSync openObjectStore(String name) throws IDBDatabaseException;
         IDBObjectStoreSync openObjectStore(string name);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public IDBObjectStoreSync openObjectStore(String name, short mode) throws IDBDatabaseException;
         IDBObjectStoreSync openObjectStore(string name, short mode);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public IDBIndexSync createIndex(String name, String storeName, String keyPath) throws IDBDatabaseException;
         IDBIndexSync createIndex(string name, string storeName, string keyPath);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public IDBIndexSync createIndex(String name, String storeName, String keyPath, boolean unique) throws IDBDatabaseException;
         IDBIndexSync createIndex(string name, string storeName, string keyPath, bool unique);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public IDBIndexSync openIndex(String name) throws IDBDatabaseException;
         IDBIndexSync openIndex(string name);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void removeObjectStore(String storeName) throws IDBDatabaseException;
         void removeObjectStore(string storeName);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void removeIndex(String indexName) throws IDBDatabaseException;
         void removeIndex(string indexName);
         string version {set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public IDBTransactionSync transaction() throws IDBDatabaseException;
         IDBTransactionSync transaction();
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public IDBTransactionSync transaction(org.w3c.dom.DOMStringList storeNames) throws IDBDatabaseException;
         IDBTransactionSync transaction(DOMStringList storeNames);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public IDBTransactionSync transaction(org.w3c.dom.DOMStringList storeNames, int timeout) throws IDBDatabaseException;
         IDBTransactionSync transaction(DOMStringList storeNames, int timeout);
     }

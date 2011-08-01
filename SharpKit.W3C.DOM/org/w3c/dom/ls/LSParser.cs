@@ -15,10 +15,10 @@ namespace org.w3c.dom.ls
         LSParserFilter filter {get;set;}
         bool async {get;}
         bool busy {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public org.w3c.dom.Document parse(LSInput input) throws org.w3c.dom.DOMException, LSException;
         Document parse(LSInput input);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public org.w3c.dom.Document parseURI(String uri) throws org.w3c.dom.DOMException, LSException;
         Document parseURI(string uri);
 //TODO: Interfaces cannot contain fields in .NET:
@@ -31,7 +31,7 @@ namespace org.w3c.dom.ls
 //        public static final short ACTION_INSERT_AFTER = 4;
 //TODO: Interfaces cannot contain fields in .NET:
 //        public static final short ACTION_REPLACE = 5;
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public org.w3c.dom.Node parseWithContext(LSInput input, org.w3c.dom.Node contextArg, short action) throws org.w3c.dom.DOMException, LSException;
         Node parseWithContext(LSInput input, Node contextArg, short action);
         void abort();

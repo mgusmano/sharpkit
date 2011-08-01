@@ -9,7 +9,7 @@ namespace org.w3c.dom.xpath
     public interface XPathExpression
     {
         // XPathExpression
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Object evaluate(org.w3c.dom.Node contextNode, short type, Object result) throws XPathException, org.w3c.dom.DOMException;
         object evaluate(Node contextNode, short type, object result);
     }

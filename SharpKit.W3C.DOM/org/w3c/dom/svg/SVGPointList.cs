@@ -9,25 +9,25 @@ namespace org.w3c.dom.svg
     {
         // SVGPointList
         int numberOfItems {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void clear() throws org.w3c.dom.DOMException;
         void clear();
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGPoint initialize(SVGPoint newItem) throws org.w3c.dom.DOMException, SVGException;
         SVGPoint initialize(SVGPoint newItem);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGPoint getItem(int index) throws org.w3c.dom.DOMException;
         SVGPoint getItem(int index);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGPoint insertItemBefore(SVGPoint newItem, int index) throws org.w3c.dom.DOMException, SVGException;
         SVGPoint insertItemBefore(SVGPoint newItem, int index);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGPoint replaceItem(SVGPoint newItem, int index) throws org.w3c.dom.DOMException, SVGException;
         SVGPoint replaceItem(SVGPoint newItem, int index);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGPoint removeItem(int index) throws org.w3c.dom.DOMException;
         SVGPoint removeItem(int index);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGPoint appendItem(SVGPoint newItem) throws org.w3c.dom.DOMException, SVGException;
         SVGPoint appendItem(SVGPoint newItem);
     }

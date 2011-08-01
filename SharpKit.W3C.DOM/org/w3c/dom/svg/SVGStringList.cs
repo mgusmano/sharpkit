@@ -9,25 +9,25 @@ namespace org.w3c.dom.svg
     {
         // SVGStringList
         int numberOfItems {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void clear() throws org.w3c.dom.DOMException;
         void clear();
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String initialize(String newItem) throws org.w3c.dom.DOMException, SVGException;
         string initialize(string newItem);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String getItem(int index) throws org.w3c.dom.DOMException;
         string getItem(int index);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String insertItemBefore(String newItem, int index) throws org.w3c.dom.DOMException, SVGException;
         string insertItemBefore(string newItem, int index);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String replaceItem(String newItem, int index) throws org.w3c.dom.DOMException, SVGException;
         string replaceItem(string newItem, int index);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String removeItem(int index) throws org.w3c.dom.DOMException;
         string removeItem(int index);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String appendItem(String newItem) throws org.w3c.dom.DOMException, SVGException;
         string appendItem(string newItem);
     }

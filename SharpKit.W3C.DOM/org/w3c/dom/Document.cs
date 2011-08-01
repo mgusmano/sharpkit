@@ -12,32 +12,32 @@ namespace org.w3c.dom
         DocumentType doctype {get;}
         DOMImplementation implementation {get;}
         Element documentElement {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Element createElement(String tagName) throws DOMException;
         Element createElement(string tagName);
         DocumentFragment createDocumentFragment();
         Text createTextNode(string data);
         Comment createComment(string data);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public CDATASection createCDATASection(String data) throws DOMException;
         CDATASection createCDATASection(string data);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public ProcessingInstruction createProcessingInstruction(String target, String data) throws DOMException;
         ProcessingInstruction createProcessingInstruction(string target, string data);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Attr createAttribute(String name) throws DOMException;
         Attr createAttribute(string name);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public EntityReference createEntityReference(String name) throws DOMException;
         EntityReference createEntityReference(string name);
         NodeList getElementsByTagName(string tagname);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Node importNode(Node importedNode, boolean deep) throws DOMException;
         Node importNode(Node importedNode, bool deep);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Element createElementNS(String namespaceURI, String qualifiedName) throws DOMException;
         Element createElementNS(string namespaceURI, string qualifiedName);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Attr createAttributeNS(String namespaceURI, String qualifiedName) throws DOMException;
         Attr createAttributeNS(string namespaceURI, string qualifiedName);
         NodeList getElementsByTagNameNS(string namespaceURI, string localName);
@@ -45,19 +45,19 @@ namespace org.w3c.dom
         string inputEncoding {get;}
         string xmlEncoding {get;}
         bool xmlStandalone {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setXmlStandalone(boolean xmlStandalone) throws DOMException;
         string xmlVersion {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setXmlVersion(String xmlVersion) throws DOMException;
         bool strictErrorChecking {get;set;}
         string documentURI {get;set;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Node adoptNode(Node source) throws DOMException;
         Node adoptNode(Node source);
         DOMConfiguration domConfig {get;}
         void normalizeDocument();
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Node renameNode(Node n, String namespaceURI, String qualifiedName) throws DOMException;
         Node renameNode(Node n, string namespaceURI, string qualifiedName);
         // Document-39

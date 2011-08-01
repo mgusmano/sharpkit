@@ -13,10 +13,10 @@ namespace org.w3c.dom.traversal
         int whatToShow {get;}
         NodeFilter filter {get;}
         bool expandEntityReferences {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public org.w3c.dom.Node nextNode() throws org.w3c.dom.DOMException;
         Node nextNode();
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public org.w3c.dom.Node previousNode() throws org.w3c.dom.DOMException;
         Node previousNode();
         void detach();

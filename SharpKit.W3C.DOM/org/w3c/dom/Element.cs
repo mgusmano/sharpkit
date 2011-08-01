@@ -11,50 +11,50 @@ namespace org.w3c.dom
         // Element
         string tagName {get;}
         string getAttribute(string name);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setAttribute(String name, String value) throws DOMException;
         void setAttribute(string name, string value);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void removeAttribute(String name) throws DOMException;
         void removeAttribute(string name);
         Attr getAttributeNode(string name);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Attr setAttributeNode(Attr newAttr) throws DOMException;
         Attr setAttributeNode(Attr newAttr);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Attr removeAttributeNode(Attr oldAttr) throws DOMException;
         Attr removeAttributeNode(Attr oldAttr);
         NodeList getElementsByTagName(string name);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public String getAttributeNS(String namespaceURI, String localName) throws DOMException;
         string getAttributeNS(string namespaceURI, string localName);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setAttributeNS(String namespaceURI, String qualifiedName, String value) throws DOMException;
         void setAttributeNS(string namespaceURI, string qualifiedName, string value);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void removeAttributeNS(String namespaceURI, String localName) throws DOMException;
         void removeAttributeNS(string namespaceURI, string localName);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Attr getAttributeNodeNS(String namespaceURI, String localName) throws DOMException;
         Attr getAttributeNodeNS(string namespaceURI, string localName);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Attr setAttributeNodeNS(Attr newAttr) throws DOMException;
         Attr setAttributeNodeNS(Attr newAttr);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public NodeList getElementsByTagNameNS(String namespaceURI, String localName) throws DOMException;
         NodeList getElementsByTagNameNS(string namespaceURI, string localName);
         bool hasAttribute(string name);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public boolean hasAttributeNS(String namespaceURI, String localName) throws DOMException;
         bool hasAttributeNS(string namespaceURI, string localName);
         TypeInfo schemaTypeInfo {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setIdAttribute(String name, boolean isId) throws DOMException;
         void setIdAttribute(string name, bool isId);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setIdAttributeNS(String namespaceURI, String localName, boolean isId) throws DOMException;
         void setIdAttributeNS(string namespaceURI, string localName, bool isId);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public void setIdAttributeNode(Attr idAttr, boolean isId) throws DOMException;
         void setIdAttributeNode(Attr idAttr, bool isId);
         // Element-41

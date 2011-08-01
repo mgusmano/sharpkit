@@ -11,7 +11,7 @@ namespace org.w3c.dom.svg
         SVGRect bBox {get;}
         SVGMatrix cTM {get;}
         SVGMatrix screenCTM {get;}
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public SVGMatrix getTransformToElement(SVGElement element) throws SVGException;
         SVGMatrix getTransformToElement(SVGElement element);
     }

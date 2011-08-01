@@ -7,10 +7,10 @@ namespace org.w3c.dom
     {
         // DOMImplementation
         bool hasFeature(string feature, string version);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public DocumentType createDocumentType(String qualifiedName, String publicId, String systemId) throws DOMException;
         DocumentType createDocumentType(string qualifiedName, string publicId, string systemId);
-//JAVA TO C# CONVERTER WARNING: Method 'throws' clauses are not available in .NET:
+//TODO:
 //ORIGINAL LINE: public Document createDocument(String namespaceURI, String qualifiedName, DocumentType doctype) throws DOMException;
         Document createDocument(string namespaceURI, string qualifiedName, DocumentType doctype);
         object getFeature(string feature, string version);
