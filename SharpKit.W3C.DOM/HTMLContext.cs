@@ -1,4 +1,4 @@
-﻿using SharpKit.JavaScript;
+using SharpKit.JavaScript;
 using org.w3c.dom.css;
 using org.w3c.dom.webstorage;
 using org.w3c.dom.webdatabase;
@@ -11,7 +11,7 @@ namespace org.w3c.dom.html
         #region Window
         public static Window window { get; private set; }
         public static Window self { get; private set; }
-        public static string name { get; set; }
+        public static JsString name { get; set; }
         public static Location location { get; set; }
         public static History history { get; private set; }
         public static UndoManager undoManager { get; private set; }
@@ -34,9 +34,9 @@ namespace org.w3c.dom.html
         public static Element frameElement { get; private set; }
         public static Window open() { return null; }
         public static Window open(string url) { return null; }
-        public static Window open(string url, string target) { return null; }
-        public static Window open(string url, string target, string features) { return null; }
-        public static Window open(string url, string target, string features, string replace) { return null; }
+        public static Window open(string url, JsString target) { return null; }
+        public static Window open(string url, JsString target, JsString features) { return null; }
+        public static Window open(string url, JsString target, JsString features, JsString replace) { return null; }
         public static Window getElement(int index) { return null; }
         public static object getElement(string name) { return null; }
         public static void setElement(string name, object value){}
@@ -44,13 +44,13 @@ namespace org.w3c.dom.html
         public static ApplicationCache applicationCache { get; private set; }
         public static void alert(string message){}
         public static bool confirm(string message) { return false; }
-        public static string prompt(string message) { return null; }
-        public static string prompt(string message, string _default) { return null; }
+        public static JsString prompt(string message) { return null; }
+        public static JsString prompt(string message, JsString _default) { return null; }
         public static void print(){}
         public static object showModalDialog(string url) { return null; }
         public static object showModalDialog(string url, object argument) { return null; }
-        public static void postMessage(object message, string targetOrigin){}
-        public static void postMessage(object message, string targetOrigin, MessagePort[] ports){}
+        public static void postMessage(object message, JsString targetOrigin){}
+        public static void postMessage(object message, JsString targetOrigin, MessagePort[] ports){}
         public static Function onabort { get; set; }
         public static Function onafterprint { get; set; }
         public static Function onbeforeprint { get; set; }
@@ -122,7 +122,7 @@ namespace org.w3c.dom.html
         public static Function onwaiting { get; set; }
         // Window-1
         public static CSSStyleDeclaration getComputedStyle(Element elt) { return null; }
-        public static CSSStyleDeclaration getComputedStyle(Element elt, string pseudoElt) { return null; }
+        public static CSSStyleDeclaration getComputedStyle(Element elt, JsString pseudoElt) { return null; }
         // Window-2
         public static Document document { get; private set; }
         public static StyleMedia styleMedia { get; private set; }
@@ -146,8 +146,8 @@ namespace org.w3c.dom.html
         public static int setInterval(object handler, object timeout, params object[] args) { return 0; }
         public static void clearInterval(int handle){}
         // WindowDatabase
-        public static Database openDatabase(string name, string version, string displayName, int estimatedSize) { return null; }
-        public static Database openDatabase(string name, string version, string displayName, int estimatedSize, DatabaseCallback creationCallback) { return null; }
+        public static Database openDatabase(string name, JsString version, JsString displayName, int estimatedSize) { return null; }
+        public static Database openDatabase(string name, JsString version, JsString displayName, int estimatedSize, DatabaseCallback creationCallback) { return null; }
         // WindowSessionStorage
         public static Storage sessionStorage { get; private set; }
         // WindowLocalStorage
