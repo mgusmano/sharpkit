@@ -15,7 +15,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
-    <DocumentationFile>..\..\bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <!--TODO:<DocumentationFile>..\..\bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>-->
     <PlatformTarget>AnyCPU</PlatformTarget>
     <TargetFrameworkVersion Condition="'$(Configuration)' == 'v3.5'">v3.5</TargetFrameworkVersion>
     <TargetFrameworkVersion Condition="'$(Configuration)' == 'v4.0'">v4.0</TargetFrameworkVersion>
@@ -555,6 +555,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SharpKit.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SharpKit.W3C.DOM.XML">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
