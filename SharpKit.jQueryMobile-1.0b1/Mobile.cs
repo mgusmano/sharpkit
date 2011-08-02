@@ -6,6 +6,7 @@ namespace SharpKit.jQueryMobile
     [JsType(JsMode.Prototype)]
     public partial class Mobile
     {
+        
         /// <summary>
         /// Programmatically change from one page to another. 
         /// This method is used internally for the page loading and transitioning that occurs as a result of clicking a link or submitting a form, when those features are enabled.
