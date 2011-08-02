@@ -65,3 +65,9 @@ namespace org.w3c.dom.webdatabase
     public delegate void SQLVoidCallback();
 
 }
+namespace org.w3c.dom.html
+{
+    [JsDelegate(NativeDelegates = true, NativeFunction = true)]
+    public delegate void Function();
+
+}
