@@ -266,117 +266,6 @@
         document.
       </summary>
     </member>
-    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.events.EventTarget" -->
-    <!-- Badly formed XML comment ignored for member "M:org.w3c.dom.events.EventTarget.addEventListener(System.String,org.w3c.dom.events.EventListener,System.Boolean)" -->
-    <!-- Badly formed XML comment ignored for member "M:org.w3c.dom.events.EventTarget.removeEventListener(System.String,org.w3c.dom.events.EventListener,System.Boolean)" -->
-    <member name="M:org.w3c.dom.events.EventTarget.dispatchEvent(org.w3c.dom.events.Event)">
-      <summary>
-        This method allows the dispatch of events into the implementations
-        event model. Events dispatched in this manner will have the same
-        capturing and bubbling behavior as events dispatched directly by the
-        implementation. The target of the event is the
-        <code> EventTarget</code> on which <code>dispatchEvent</code> is
-        called.
-      </summary>
-      <param name="evtSpecifies">
-        the event type, behavior, and contextual
-        information to be used in processing the event.
-      </param>
-      <returns>
-        The return value of <code>dispatchEvent</code> indicates
-        whether any of the listeners which handled the event called
-        <code>preventDefault</code>. If <code>preventDefault</code> was
-        called the value is false, else the value is true.
-      </returns>
-      <exception cref="T:org.w3c.dom.events.EventException">
-        UNSPECIFIED_EVENT_TYPE_ERR: Raised if the <code>Event</code>'s type
-        was not specified by initializing the event before
-        <code>dispatchEvent</code> was called. Specification of the
-        <code>Event</code>'s type as <code>null</code> or an empty string
-        will also trigger this exception.
-      </exception>
-    </member>
-    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.events.DocumentEvent" -->
-    <member name="M:org.w3c.dom.events.DocumentEvent.createEvent(System.String)">
-
-      <param name="eventTypeThe">
-        <code>eventType</code> parameter specifies the
-        type of <code>Event</code> interface to be created. If the
-        <code>Event</code> interface specified is supported by the
-        implementation this method will return a new <code>Event</code> of
-        the interface type requested. If the <code>Event</code> is to be
-        dispatched via the <code>dispatchEvent</code> method the
-        appropriate event init method must be called after creation in
-        order to initialize the <code>Event</code>'s values. As an example,
-        a user wishing to synthesize some kind of <code>UIEvent</code>
-        would call <code>createEvent</code> with the parameter "UIEvents".
-        The <code>initUIEvent</code> method could then be called on the
-        newly created <code>UIEvent</code> to set the specific type of
-        UIEvent to be dispatched and set its context information.The
-        <code>createEvent</code> method is used in creating
-        <code>Event</code>s when it is either inconvenient or unnecessary
-        for the user to create an <code>Event</code> themselves. In cases
-        where the implementation provided <code>Event</code> is
-        insufficient, users may supply their own <code>Event</code>
-        implementations for use with the <code>dispatchEvent</code> method.
-      </param>
-      <returns>
-        The newly created <code>Event</code>
-      </returns>
-      <exception cref="T:org.w3c.dom.DOMException">
-        NOT_SUPPORTED_ERR: Raised if the implementation does not support the
-        type of <code>Event</code> interface requested
-      </exception>
-    </member>
-    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.ViewCSS" -->
-    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.views.AbstractView" -->
-    <member name="P:org.w3c.dom.views.AbstractView.document">
-      <summary>
-        The source <code>DocumentView</code> of which this is an
-        <code>AbstractView</code>.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.css.ViewCSS.getComputedStyle(org.w3c.dom.Element,System.String)">
-      <summary>
-        This method is used to get the computed style as it is defined in .
-      </summary>
-      <param name="elt">
-        The element whose style is to be computed. This parameter
-        cannot be null.
-      </param>
-      <param name="pseudoElt">
-        The pseudo-element or <code>null</code> if none.
-      </param>
-      <returns>
-        The computed style. The <code>CSSStyleDeclaration</code> is
-        read-only and contains only absolute values.
-      </returns>
-    </member>
-    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.DocumentCSS" -->
-    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.stylesheets.DocumentStyle" -->
-    <member name="P:org.w3c.dom.stylesheets.DocumentStyle.styleSheets">
-      <summary>
-        A list containing all the style sheets explicitly linked into or
-        embedded in a document. For HTML documents, this includes external
-        style sheets, included via the HTML  LINK element, and inline  STYLE
-        elements. In XML, this includes external style sheets, included via
-        style sheet processing instructions (see ).
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.css.DocumentCSS.getOverrideStyle(org.w3c.dom.Element,System.String)">
-      <summary>
-        This method is used to retrieve the override style declaration for a
-        specified element and a specified pseudo-element.
-      </summary>
-      <param name="elt">
-        The element whose style is to be modified. This parameter
-        cannot be null.
-      </param>
-      <param name="pseudoElt">
-        The pseudo-element or <code>null</code> if none.
-      </param>
-      <returns>  The override style declaration.  </returns>
-    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.NodeList" -->
     <member name="M:org.w3c.dom.NodeList.item(System.Int32)">
       <summary>
@@ -427,361 +316,6 @@
     </member>
     <!-- Badly formed XML comment ignored for member "M:org.w3c.dom.DOMImplementation.createDocumentType(System.String,System.String,System.String)" -->
     <!-- Badly formed XML comment ignored for member "M:org.w3c.dom.DOMImplementation.createDocument(System.String,System.String,org.w3c.dom.DocumentType)" -->
-    <member name="T:org.w3c.dom.html.HTMLTableColElement">
-      <summary>
-        Regroups the <code>COL</code> and <code>COLGROUP</code> elements. See the
-        COL element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLElement">
-      <summary>
-        All HTML element interfaces derive from this class. Elements that only
-        exposethe HTML core attributes are represented by the base
-        <code>HTMLElement</code> interface. These elements are as follows:HEAD
-        special: SUB, SUP, SPAN, BDOfont: TT, I, B, U, S, STRIKE, BIG, SMALL
-        phrase: EM, STRONG, DFN, CODE, SAMP, KBD, VAR, CITE, ACRONYM, ABBRlist:
-        DD, DTNOFRAMES, NOSCRIPTADDRESS, CENTER
-        Note. The <code>style</code> attribute for thisinterface is reserved for
-        future usage.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLElement.id">
-      <summary>
-        The element's identifier. See the id attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLElement.title">
-      <summary>
-        The element's advisory title. See the title attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLElement.lang">
-      <summary>
-        Language code defined in RFC 1766. See the lang attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLElement.dir">
-      <summary>
-        Specifies the base direction of directionally neutraltext and the
-        directionality of tables. See the dir attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLElement.className">
-      <summary>
-        The class attribute of the element. This attribute has been renameddue to
-        conflicts with the "class" keyword exposed by many languages. See the
-        class attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableColElement.align">
-      <summary>
-        Horizontal alignment of cell data in column. See the align attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableColElement.ch">
-      <summary>
-        Alignment character for cells in a column. See the char attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableColElement.chOff">
-      <summary>
-        Offset of alignment character. See the charoff attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableColElement.span">
-      <summary>
-        Indicates the number of columns in a group or affected by a grouping. See
-        the span attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableColElement.vAlign">
-      <summary>
-        Vertical alignment of cell data in column. See the valign attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableColElement.width">
-      <summary>
-        Default column width. See the width attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLScriptElement">
-      <summary>
-        Script statements. See the SCRIPT element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLScriptElement.text">
-      <summary>
-        The script content of the element.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLScriptElement.htmlFor">
-      <summary>
-        Reserved for future use.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLScriptElement.event">
-      <summary>
-        Reserved for future use.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLScriptElement.charset">
-      <summary>
-        The character encoding of the linked resource. See the charset attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLScriptElement.defer">
-      <summary>
-        Indicates that the user agent can defer processing of the script.  See
-        the defer attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLScriptElement.src">
-      <summary>
-        URI designating an external script. See the src attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLScriptElement.type">
-      <summary>
-        The content type of the script language. See the type attribute definition
-        in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLLIElement">
-      <summary>
-        List item. See the LI element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLIElement.type">
-      <summary>
-        List item bullet style. See the type attribute definition in HTML 4.0.
-        This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLIElement.value">
-      <summary>
-        Reset sequence number when used in <code>OL</code> See the value
-        attribute definition in HTML 4.0. This attribute is deprecated in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLFormElement">
-      <summary>
-        The <code>FORM</code> element encompasses behavior similar to acollection
-        and an element. It provides direct access to the containedinput elements
-        as well as the attributes of the form element. See the FORM element
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLFormElement.submit">
-      <summary>
-        Submits the form. It performs the same action as a  submit button.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLFormElement.reset">
-      <summary>
-        Restores a form element's default values. It performs  the same action as
-        a reset button.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFormElement.elements">
-      <summary>
-        Returns a collection of all control elements in the form.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFormElement.length">
-      <summary>
-        The number of form controls in the form.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFormElement.name">
-      <summary>
-        Names the form.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFormElement.acceptCharset">
-      <summary>
-        List of character sets supported by the server. See the accept-charset
-        attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFormElement.action">
-      <summary>
-        Server-side form handler. See the action attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFormElement.enctype">
-      <summary>
-        The content type of the submitted form, generally
-        "application/x-www-form-urlencoded".  See the enctype attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFormElement.method">
-      <summary>
-        HTTP method used to submit form. See the method attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFormElement.target">
-      <summary>
-        Frame to render the resource in. See the target attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLBaseElement">
-      <summary>
-        Document base URI. See the BASE element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBaseElement.href">
-      <summary>
-        The base URI See the href attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBaseElement.target">
-      <summary>
-        The default target frame. See the target attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLAreaElement">
-      <summary>
-        Client-side image map area definition. See the AREA element definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAreaElement.accessKey">
-      <summary>
-        A single character access key to give access to the form control. See the
-        accesskey attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAreaElement.alt">
-      <summary>
-        Alternate text for user agents not rendering the normal contentof this
-        element. See the alt attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAreaElement.coords">
-      <summary>
-        Comma-separated list of lengths, defining an active region geometry.See
-        also <code>shape</code> for the shape of the region. See the coords
-        attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAreaElement.href">
-      <summary>
-        The URI of the linked resource. See the href attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAreaElement.noHref">
-      <summary>
-        Specifies that this area is inactive, i.e., has no associated action. See
-        the nohref attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAreaElement.shape">
-      <summary>
-        The shape of the active area. The coordinates are givenby
-        <code>coords</code>. See the shape attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAreaElement.tabIndex">
-      <summary>
-        Index that represents the element's position in the tabbing order. See
-        the tabindex attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAreaElement.target">
-      <summary>
-        Frame to render the resource in. See the target attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLAppletElement">
-      <summary>
-        An embedded Java applet. See the APPLET element definition in HTML 4.0.
-        This element is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAppletElement.align">
-      <summary>
-        Aligns this object (vertically or horizontally) with respect to its
-        surrounding text. See the align attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAppletElement.alt">
-      <summary>
-        Alternate text for user agents not rendering the normal contentof this
-        element. See the alt attribute definition in HTML 4.0. This attribute is
-        deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAppletElement.archive">
-      <summary>
-        Comma-separated archive list. See the archive attribute definition in
-        HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAppletElement.code">
-      <summary>
-        Applet class file.  See the code attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAppletElement.codeBase">
-      <summary>
-        Optional base URI for applet. See the codebase attribute definition in
-        HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAppletElement.height">
-      <summary>
-        Override height. See the height attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAppletElement.hspace">
-      <summary>
-        Horizontal space to the left and right of this image, applet, or object.
-        See the hspace attribute definition in HTML 4.0. This attribute is
-        deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAppletElement.name">
-      <summary>
-        The name of the applet. See the name attribute definition in HTML 4.0.
-        This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAppletElement.object">
-      <summary>
-        Serialized applet file. See the object attribute definition in HTML 4.0.
-        This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAppletElement.vspace">
-      <summary>
-        Vertical space above and below this image, applet, or object. See the
-        vspace attribute definition in HTML 4.0. This attribute is deprecated in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAppletElement.width">
-      <summary>
-        Override width. See the width attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.events.UIEvent" -->
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.events.Event" -->
     <member name="M:org.w3c.dom.events.Event.stopPropagation">
@@ -1056,35 +590,6 @@
         The declaration-block of this rule.
       </summary>
     </member>
-    <member name="T:org.w3c.dom.html.HTMLFrameSetElement">
-      <summary>
-        Create a grid of frames. See the FRAMESET element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFrameSetElement.cols">
-      <summary>
-        The number of columns of frames in the frameset. See the cols attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFrameSetElement.rows">
-      <summary>
-        The number of rows of frames in the frameset. See the rows attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLDirectoryElement">
-      <summary>
-        Directory list. See the DIR element definition in HTML 4.0. This element is
-        deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDirectoryElement.compact">
-      <summary>
-        Reduce spacing between list items. See the compact attribute definition
-        in HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.CSSMediaRule" -->
     <!-- Badly formed XML comment ignored for member "M:org.w3c.dom.css.CSSMediaRule.insertRule(System.String,System.Int32)" -->
     <!-- Badly formed XML comment ignored for member "M:org.w3c.dom.css.CSSMediaRule.deleteRule(System.Int32)" -->
@@ -1109,106 +614,6 @@
       <summary>
         The system identifier of this notation. If the system identifier was
         not specified, this is <code>null</code>.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLLegendElement">
-      <summary>
-        Provides a caption for a <code>FIELDSET</code> grouping.  See the LEGEND
-        element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLegendElement.form">
-      <summary>
-        Returns the <code>FORM</code> element containing this control.Returns
-        null if this control is not within the context of a form.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLegendElement.accessKey">
-      <summary>
-        A single character access key to give access to the form control. See the
-        accesskey attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLegendElement.align">
-      <summary>
-        Text alignment relative to <code>FIELDSET</code>. See the align attribute
-        definition in HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLLabelElement">
-      <summary>
-        Form field label text. See the LABEL element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLabelElement.form">
-      <summary>
-        Returns the <code>FORM</code> element containing this control.Returns
-        null if this control is not within the context of a form.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLabelElement.accessKey">
-      <summary>
-        A single character access key to give access to the form control. See the
-        accesskey attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLabelElement.htmlFor">
-      <summary>
-        This attribute links this label with another form controlby
-        <code>id</code> attribute. See the for attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLFrameElement">
-      <summary>
-        Create a frame. See the FRAME element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFrameElement.frameBorder">
-      <summary>
-        Request frame borders. See the frameborder attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFrameElement.longDesc">
-      <summary>
-        URI designating a long description of this image or frame. See the
-        longdesc attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFrameElement.marginHeight">
-      <summary>
-        Frame margin height, in pixels. See the marginheight attribute definition
-        in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFrameElement.marginWidth">
-      <summary>
-        Frame margin width, in pixels. See the marginwidth attribute definition
-        in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFrameElement.name">
-      <summary>
-        The frame name (object of the <code>target</code> attribute). See the
-        name attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFrameElement.noResize">
-      <summary>
-        When true, forbid user from resizing frame. See the noresize attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFrameElement.scrolling">
-      <summary>
-        Specify whether or not the frame should have scrollbars. See the
-        scrolling attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFrameElement.src">
-      <summary>
-        A URI designating the initial frame contents. See the src attribute
-        definition in HTML 4.0.
       </summary>
     </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.events.MouseEvent" -->
@@ -1491,124 +896,6 @@
         this is the element with the tagName "HTML".
       </summary>
     </member>
-    <member name="T:org.w3c.dom.html.HTMLObjectElement">
-      <summary>
-        Generic embedded object. Note. In principle, allproperties on the object
-        element are read-write but in someenvironments some properties may be
-        read-only once the underlyingobject is instantiated. See the OBJECT
-        element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.form">
-      <summary>
-        Returns the <code>FORM</code> element containing this control.Returns
-        null if this control is not within the context of a form.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.code">
-      <summary>
-        Applet class file. See the <code>code</code> attribute for
-        HTMLAppletElement.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.align">
-      <summary>
-        Aligns this object (vertically or horizontally) with respect to its
-        surrounding text. See the align attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.archive">
-      <summary>
-        Space-separated list of archives. See the archive attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.border">
-      <summary>
-        Width of border around the object. See the border attribute definition in
-        HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.codeBase">
-      <summary>
-        Base URI for <code>classid</code>, <code>data</code>, and
-        <code>archive</code> attributes. See the codebase attribute definition
-        in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.codeType">
-      <summary>
-        Content type for data downloaded via <code>classid</code> attribute. See
-        the codetype attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.data">
-      <summary>
-        A URI specifying the location of the object's data.  See the data
-        attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.declare">
-      <summary>
-        Declare (for future reference), but do not instantiate, thisobject. See
-        the declare attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.height">
-      <summary>
-        Override height. See the height attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.hspace">
-      <summary>
-        Horizontal space to the left and right of this image, applet, or object.
-        See the hspace attribute definition in HTML 4.0. This attribute is
-        deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.name">
-      <summary>
-        Form control or object name when submitted with a form. See the name
-        attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.standby">
-      <summary>
-        Message to render while loading the object. See the standby attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.tabIndex">
-      <summary>
-        Index that represents the element's position in the tabbing order. See
-        the tabindex attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.type">
-      <summary>
-        Content type for data downloaded via <code>data</code> attribute. See the
-        type attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.useMap">
-      <summary>
-        Use client-side image map. See the usemap attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.vspace">
-      <summary>
-        Vertical space above and below this image, applet, or object. See the
-        vspace attribute definition in HTML 4.0. This attribute is deprecated in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLObjectElement.width">
-      <summary>
-        Override width. See the width attribute definition in HTML 4.0.
-      </summary>
-    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.events.MutationEvent" -->
     <member name="M:org.w3c.dom.events.MutationEvent.initMutationEvent(System.String,System.Boolean,System.Boolean,org.w3c.dom.Node,System.String,System.String,System.String,System.Int16)">
       <summary>
@@ -1730,174 +1017,6 @@
         value zero, i.e., <code>CharacterData</code> nodes may be empty.
       </summary>
     </member>
-    <member name="T:org.w3c.dom.html.HTMLTableCellElement">
-      <summary>
-        The object used to represent the <code>TH</code> and <code>TD</code>
-        elements. See the TD element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.cellIndex">
-      <summary>
-        The index of this cell in the row.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.abbr">
-      <summary>
-        Abbreviation for header cells. See the abbr attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.align">
-      <summary>
-        Horizontal alignment of data in cell. See the align attribute definition
-        in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.axis">
-      <summary>
-        Names group of related headers. See the axis attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.bgColor">
-      <summary>
-        Cell background color. See the bgcolor attribute definition in HTML 4.0.
-        This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.ch">
-      <summary>
-        Alignment character for cells in a column. See the char attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.chOff">
-      <summary>
-        Offset of alignment character. See the charoff attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.colSpan">
-      <summary>
-        Number of columns spanned by cell. See the colspan attribute definition
-        in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.headers">
-      <summary>
-        List of <code>id</code> attribute values for header cells. See the
-        headers attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.height">
-      <summary>
-        Cell height. See the height attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.noWrap">
-      <summary>
-        Suppress word wrapping. See the nowrap attribute definition in HTML 4.0.
-        This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.rowSpan">
-      <summary>
-        Number of rows spanned by cell. See the rowspan attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.scope">
-      <summary>
-        Scope covered by header cells. See the scope attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.vAlign">
-      <summary>
-        Vertical alignment of data in cell. See the valign attribute definition
-        in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCellElement.width">
-      <summary>
-        Cell width. See the width attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLOptionElement">
-      <summary>
-        A selectable choice. See the OPTION element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOptionElement.form">
-      <summary>
-        Returns the <code>FORM</code> element containing this control.Returns
-        null if this control is not within the context of a form.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOptionElement.defaultSelected">
-      <summary>
-        Stores the initial value of the <code>selected</code> attribute.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOptionElement.text">
-      <summary>
-        The text contained within the option element.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOptionElement.index">
-      <summary>
-        The index of this <code>OPTION</code> in its parent <code>SELECT</code>.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOptionElement.disabled">
-      <summary>
-        The control is unavailable in this context. See the disabled attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOptionElement.label">
-      <summary>
-        Option label for use in hierarchical menus. See the label attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOptionElement.selected">
-      <summary>
-        Means that this option is initially selected. See the selected attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOptionElement.value">
-      <summary>
-        The current form control value. See the value attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLMenuElement">
-      <summary>
-        Menu list. See the MENU element definition in HTML 4.0. This element is
-        deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLMenuElement.compact">
-      <summary>
-        Reduce spacing between list items. See the compact attribute definition
-        in HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLBRElement">
-      <summary>
-        Force a line break. See the BR element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBRElement.clear">
-      <summary>
-        Control flow of text around floats. See the clear attribute definition in
-        HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.events.EventException" -->
     <member name="F:org.w3c.dom.events.EventException.UNSPECIFIED_EVENT_TYPE_ERR">
       <summary>
@@ -1952,249 +1071,6 @@
         This attribute is used for the separator of the nested counters.
       </summary>
     </member>
-    <member name="T:org.w3c.dom.html.HTMLTextAreaElement">
-      <summary>
-        Multi-line text field. See the TEXTAREA element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTextAreaElement.blur">
-      <summary>
-        Removes keyboard focus from this element.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTextAreaElement.focus">
-      <summary>
-        Gives keyboard focus to this element.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTextAreaElement.select">
-      <summary>
-        Select the contents of the <code>TEXTAREA</code>.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTextAreaElement.defaultValue">
-      <summary>
-        Stores the initial control value (i.e., the initial value of
-        <code>value</code>).
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTextAreaElement.form">
-      <summary>
-        Returns the <code>FORM</code> element containing this control.Returns
-        null if this control is not within the context of a form.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTextAreaElement.accessKey">
-      <summary>
-        A single character access key to give access to the form control. See the
-        accesskey attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTextAreaElement.cols">
-      <summary>
-        Width of control (in characters). See the cols attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTextAreaElement.disabled">
-      <summary>
-        The control is unavailable in this context. See the disabled attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTextAreaElement.name">
-      <summary>
-        Form control or object name when submitted with a form. See the name
-        attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTextAreaElement.readOnly">
-      <summary>
-        This control is read-only. See the readonly attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTextAreaElement.rows">
-      <summary>
-        Number of text rows. See the rows attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTextAreaElement.tabIndex">
-      <summary>
-        Index that represents the element's position in the tabbing order. See
-        the tabindex attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTextAreaElement.type">
-      <summary>
-        The type of this form control.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTextAreaElement.value">
-      <summary>
-        The current textual content of the multi-line text field. If the entirety
-        of the data can not fit into a single wstring, the implementation may
-        truncate the data.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLTableElement">
-      <summary>
-        The create* and delete* methods on the table allow authors to constructand
-        modify tables. HTML 4.0 specifies that only one of each of the
-        <code>CAPTION</code>, <code>THEAD</code>, and <code>TFOOT</code>elements
-        may exist in a table. Therefore, if one exists, and thecreateTHead() or
-        createTFoot() method is called, the method returnsthe existing THead or
-        TFoot element. See the TABLE element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTableElement.createTHead">
-      <summary>
-        Create a table header row or return an existing one.
-      </summary>
-      <returns>
-        A new table header element (<code>THEAD</code>).
-      </returns>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTableElement.deleteTHead">
-      <summary>
-        Delete the header from the table, if one exists.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTableElement.createTFoot">
-      <summary>
-        Create a table footer row or return an existing one.
-      </summary>
-      <returns>
-        A footer element (<code>TFOOT</code>).
-      </returns>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTableElement.deleteTFoot">
-      <summary>
-        Delete the footer from the table, if one exists.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTableElement.createCaption">
-      <summary>
-        Create a new table caption object or return an existing one.
-      </summary>
-      <returns>
-        A <code>CAPTION</code> element.
-      </returns>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTableElement.deleteCaption">
-      <summary>
-        Delete the table caption, if one exists.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTableElement.insertRow(System.Int32)">
-      <summary>
-        Insert a new empty row in the table.Note. A table row cannot be empty
-        according to HTML 4.0 Recommendation.
-      </summary>
-      <param name="index"> The row number where to insert a new row. </param>
-      <returns> The newly created row. </returns>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTableElement.deleteRow(System.Int32)">
-      <summary>
-        Delete a table row.
-      </summary>
-      <param name="index"> The index of the row to be deleted. </param>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.caption">
-      <summary>
-        Returns the table's <code>CAPTION</code>, or void if none exists.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.tHead">
-      <summary>
-        Returns the table's <code>THEAD</code>, or <code>null</code> if none
-        exists.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.tFoot">
-      <summary>
-        Returns the table's <code>TFOOT</code>, or <code>null</code> if none
-        exists.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.rows">
-      <summary>
-        Returns a collection of all the rows in the table, including all in
-        <code>THEAD</code>, <code>TFOOT</code>, all <code>TBODY</code> elements.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.tBodies">
-      <summary>
-        Returns a collection of the defined table bodies.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.align">
-      <summary>
-        Specifies the table's position with respect to the rest of the document.
-        See the align attribute definition in HTML 4.0. This attribute is
-        deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.bgColor">
-      <summary>
-        Cell background color. See the bgcolor attribute definition in HTML 4.0.
-        This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.border">
-      <summary>
-        The width of the border around the table. See the border attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.cellPadding">
-      <summary>
-        Specifies the horizontal and vertical space between cell content andcell
-        borders. See the cellpadding attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.cellSpacing">
-      <summary>
-        Specifies the horizontal and vertical separation between cells. See the
-        cellspacing attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.frame">
-      <summary>
-        Specifies which external table borders to render. See the frame attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.rules">
-      <summary>
-        Specifies which internal table borders to render. See the rules attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.summary">
-      <summary>
-        Supplementary description about the purpose or structureof a table. See
-        the summary attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableElement.width">
-      <summary>
-        Specifies the desired table width. See the width attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLHeadingElement">
-      <summary>
-        For the <code>H1</code> to <code>H6</code> elements. See the H1 element
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLHeadingElement.align">
-      <summary>
-        Horizontal text alignment. See the align attribute definition in HTML
-        4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.CSSUnknownRule" -->
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.CSSCharsetRule" -->
     <!-- Badly formed XML comment ignored for member "P:org.w3c.dom.css.CSSCharsetRule.encoding" -->
@@ -2215,128 +1091,6 @@
       <exception cref="T:org.w3c.dom.DOMException">
         NO_MODIFICATION_ALLOWED_ERR: Raised when the node is readonly.
       </exception>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLStyleElement">
-      <summary>
-        Style information. A more detailed style sheet object model is planned to be
-        defined in a separate document. See the STYLE element definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLStyleElement.disabled">
-      <summary>
-        Enables/disables the style sheet.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLStyleElement.media">
-      <summary>
-        Designed for use with one or more target media. See the media attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLStyleElement.type">
-      <summary>
-        The style sheet language (Internet media type). See the type attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLQuoteElement">
-      <summary>
-        For the <code>Q</code> and <code>BLOCKQUOTE</code> elements. See the Q
-        element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLQuoteElement.cite">
-      <summary>
-        A URI designating a document that designates a source document or
-        message. See the cite attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLParagraphElement">
-      <summary>
-        Paragraphs. See the P element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLParagraphElement.align">
-      <summary>
-        Horizontal text alignment. See the align attribute definition in HTML
-        4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLModElement">
-      <summary>
-        Notice of modification to part of a document. See the  INS  and DEL
-        element definitions in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLModElement.cite">
-      <summary>
-        A URI designating a document that describes the reason forthe change. See
-        the cite attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLModElement.dateTime">
-      <summary>
-        The date and time of the change. See the datetime attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLDListElement">
-      <summary>
-        Definition list. See the DL element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDListElement.compact">
-      <summary>
-        Reduce spacing between list items. See the compact attribute definition
-        in HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLButtonElement">
-      <summary>
-        Push button. See the BUTTON element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLButtonElement.form">
-      <summary>
-        Returns the <code>FORM</code> element containing this control.Returns
-        null if this control is not within the context of a form.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLButtonElement.accessKey">
-      <summary>
-        A single character access key to give access to the form control. See the
-        accesskey attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLButtonElement.disabled">
-      <summary>
-        The control is unavailable in this context. See the disabled attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLButtonElement.name">
-      <summary>
-        Form control or object name when submitted with a form. See the name
-        attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLButtonElement.tabIndex">
-      <summary>
-        Index that represents the element's position in the tabbing order. See
-        the tabindex attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLButtonElement.type">
-      <summary>
-        The type of button. See the type attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLButtonElement.value">
-      <summary>
-        The current form control value. See the value attribute definition in
-        HTML 4.0.
-      </summary>
     </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.Entity" -->
     <member name="P:org.w3c.dom.Entity.publicId">
@@ -2378,6 +1132,31 @@
         This attribute is used for the left of the rect.
       </summary>
     </member>
+    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.DocumentCSS" -->
+    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.stylesheets.DocumentStyle" -->
+    <member name="P:org.w3c.dom.stylesheets.DocumentStyle.styleSheets">
+      <summary>
+        A list containing all the style sheets explicitly linked into or
+        embedded in a document. For HTML documents, this includes external
+        style sheets, included via the HTML  LINK element, and inline  STYLE
+        elements. In XML, this includes external style sheets, included via
+        style sheet processing instructions (see ).
+      </summary>
+    </member>
+    <member name="M:org.w3c.dom.css.DocumentCSS.getOverrideStyle(org.w3c.dom.Element,System.String)">
+      <summary>
+        This method is used to retrieve the override style declaration for a
+        specified element and a specified pseudo-element.
+      </summary>
+      <param name="elt">
+        The element whose style is to be modified. This parameter
+        cannot be null.
+      </param>
+      <param name="pseudoElt">
+        The pseudo-element or <code>null</code> if none.
+      </param>
+      <returns>  The override style declaration.  </returns>
+    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.CSSImportRule" -->
     <member name="P:org.w3c.dom.css.CSSImportRule.href">
       <summary>
@@ -2398,133 +1177,6 @@
         sheet is for a media type not supported by the user agent).
       </summary>
     </member>
-    <member name="T:org.w3c.dom.html.HTMLTableRowElement">
-      <summary>
-        A row in a table. See the TR element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTableRowElement.insertCell(System.Int32)">
-      <summary>
-        Insert an empty <code>TD</code> cell into this row.
-      </summary>
-      <param name="index"> The place to insert the cell. </param>
-      <returns> The newly created cell. </returns>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTableRowElement.deleteCell(System.Int32)">
-      <summary>
-        Delete a cell from the current row.
-      </summary>
-      <param name="index"> The index of the cell to delete. </param>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableRowElement.rowIndex">
-      <summary>
-        The index of this row, relative to the entire table.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableRowElement.sectionRowIndex">
-      <summary>
-        The index of this row, relative to the current section(<code>THEAD</code>
-        , <code>TFOOT</code>, or <code>TBODY</code>).
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableRowElement.cells">
-      <summary>
-        The collection of cells in this row.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableRowElement.align">
-      <summary>
-        Horizontal alignment of data within cells of this row. See the align
-        attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableRowElement.bgColor">
-      <summary>
-        Background color for rows. See the bgcolor attribute definition in HTML
-        4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableRowElement.ch">
-      <summary>
-        Alignment character for cells in a column. See the char attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableRowElement.chOff">
-      <summary>
-        Offset of alignment character. See the charoff attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableRowElement.vAlign">
-      <summary>
-        Vertical alignment of data within cells of this row. See the valign
-        attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLMetaElement">
-      <summary>
-        This contains generic meta-information about the document. See the META
-        element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLMetaElement.content">
-      <summary>
-        Associated information. See the content attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLMetaElement.httpEquiv">
-      <summary>
-        HTTP response header name. See the http-equiv attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLMetaElement.name">
-      <summary>
-        Meta information name. See the name attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLMetaElement.scheme">
-      <summary>
-        Select form of content. See the scheme attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLFieldSetElement">
-      <summary>
-        Organizes form controls into logical groups. See the  FIELDSET  element
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFieldSetElement.form">
-      <summary>
-        Returns the <code>FORM</code> element containing this control.Returns
-        null if this control is not within the context of a form.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLBaseFontElement">
-      <summary>
-        Base font. See the BASEFONT element definition in HTML 4.0. This element is
-        deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBaseFontElement.color">
-      <summary>
-        Font color. See the color attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBaseFontElement.face">
-      <summary>
-        Font face identifier. See the face attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBaseFontElement.size">
-      <summary>
-        Font size. See the size attribute definition in HTML 4.0. This attribute
-        is deprecated in HTML 4.0.
-      </summary>
-    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.events.EventListener" -->
     <member name="M:org.w3c.dom.events.EventListener.handleEvent(org.w3c.dom.events.Event)">
       <summary>
@@ -2537,6 +1189,30 @@
         and <code>preventDefault</code> methods which are used in
         determining the event's flow and default action.
       </param>
+    </member>
+    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.ViewCSS" -->
+    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.views.AbstractView" -->
+    <member name="P:org.w3c.dom.views.AbstractView.document">
+      <summary>
+        The source <code>DocumentView</code> of which this is an
+        <code>AbstractView</code>.
+      </summary>
+    </member>
+    <member name="M:org.w3c.dom.css.ViewCSS.getComputedStyle(org.w3c.dom.Element,System.String)">
+      <summary>
+        This method is used to get the computed style as it is defined in .
+      </summary>
+      <param name="elt">
+        The element whose style is to be computed. This parameter
+        cannot be null.
+      </param>
+      <param name="pseudoElt">
+        The pseudo-element or <code>null</code> if none.
+      </param>
+      <returns>
+        The computed style. The <code>CSSStyleDeclaration</code> is
+        read-only and contains only absolute values.
+      </returns>
     </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.CSSStyleSheet" -->
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.stylesheets.StyleSheet" -->
@@ -2727,189 +1403,6 @@
         <code>CSSRule</code>.
       </summary>
     </member>
-    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.smil.ElementTimeControl" -->
-    <member name="M:org.w3c.dom.smil.ElementTimeControl.beginElement">
-      <summary>
-        Causes this element to begin the local timeline (subject to restart constraints).
-      </summary>
-      <returns>
-        <code>true</code> if the method call was successful and the
-        element was begun. <code>false</code> if the method call
-        failed. Possible reasons for failure include:
-        <ul>
-          <li>
-            The element does not support the <code>beginElement</code>
-            method. The <code>begin</code> attribute is not set to
-            <code>"indefinite"</code>.
-          </li>
-          <li>
-            The element is already active and cannot be restarted when it is
-            active. The <code>restart</code> attribute is set to
-            <code>"whenNotActive"</code>.
-          </li>
-          <li>
-            The element is active or has been active and cannot be
-            restarted. The <code>restart</code> attribute is set to
-            <code>"never"</code>.
-          </li>
-        </ul>
-        @raise DOMException <code>SYNTAX_ERR</code>: The element was not defined
-        with the appropriate syntax to allow <code>beginElement</code> calls.
-      </returns>
-    </member>
-    <member name="M:org.w3c.dom.smil.ElementTimeControl.beginElementAt(System.Single)">
-      <summary>
-        Causes this element to begin the local timeline (subject to restart
-        constraints), at the passed offset from the current time when the method
-        is called. If the offset is &gt;= 0, the semantics are equivalent to an
-        event-base begin with the specified offset. If the offset is &lt; 0, the
-        semantics are equivalent to beginElement(), but the element active
-        duration is evaluated as though the element had begun at the passed
-        (negative) offset from the current time when the method is called.
-      </summary>
-      <param name="offset"> The offset in seconds at which to begin the element. </param>
-      <returns>
-        <code>true</code> if the method call was successful and the element was begun.
-        <code>false</code> if the method call failed.
-        Possible reasons for failure include:
-        <ul>
-          <li>
-            The element does not support the
-            <code>beginElementAt</code> method. The
-            <code>begin</code> attribute is not set to
-            <code>"indefinite"</code>.
-          </li>
-          <li>
-            The element is already active and cannot be
-            restarted when it is active. The
-            <code>restart</code> attribute is set to
-            <code>"whenNotActive"</code>.
-          </li>
-          <li>
-            The element is active or has been active and
-            cannot be restarted. The <code>restart</code>
-            attribute is set to <code>"never"</code>.
-          </li>
-        </ul>
-        @raise DOMException SYNTAX_ERR: The element was not defined with the appropriate
-        syntax to allow <code>beginElementAt</code> calls.
-      </returns>
-    </member>
-    <member name="M:org.w3c.dom.smil.ElementTimeControl.endElement">
-      <summary>
-        Causes this element to end the local timeline.
-      </summary>
-      <returns>
-        <code>true</code> if the method call was
-        successful and the element was ended.
-        <code>false</code> if method call failed. Possible
-        reasons for failure include:
-        <ul>
-          <li>
-            The element does not support the
-            <code>endElement</code> method. The
-            <code>end</code> attribute is not set to
-            <code>"indefinite"</code>.
-          </li>
-          <li>The element is not active.</li>
-        </ul>
-        @raise DOMException SYNTAX_ERR: The element was not defined with the
-        appropriate syntax to allow <code>endElement</code>
-        calls.
-      </returns>
-    </member>
-    <member name="M:org.w3c.dom.smil.ElementTimeControl.endElementAt(System.Single)">
-      <summary>
-        Causes this element to end the local timeline at the specified offset
-        from the current time when the method is called
-      </summary>
-      <param name="offset">
-        The offset in seconds at which to end the element.
-        Must be <code>&gt;= 0</code>.
-      </param>
-      <returns>
-        <code>true</code> if the method call was
-        successful and the element was ended.
-        <code>false</code> if method call failed. Possible
-        reasons for failure include:
-        <ul>
-          <li>
-            The element does not support the
-            <code>endElementAt</code> method. The
-            <code>end</code> attribute is not set to
-            <code>"indefinite"</code>.
-          </li>
-          <li>The element is not active.</li>
-        </ul>
-        @raise DOMException SYNTAX_ERR: The element was not defined with the
-        appropriate syntax to allow
-        <code>endElementAt</code> calls.
-      </returns>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLIFrameElement">
-      <summary>
-        Inline subwindows. See the IFRAME element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLIFrameElement.align">
-      <summary>
-        Aligns this object (vertically or horizontally) with respect to its
-        surrounding text. See the align attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLIFrameElement.frameBorder">
-      <summary>
-        Request frame borders. See the frameborder attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLIFrameElement.height">
-      <summary>
-        Frame height. See the height attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLIFrameElement.longDesc">
-      <summary>
-        URI designating a long description of this image or frame. See the
-        longdesc attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLIFrameElement.marginHeight">
-      <summary>
-        Frame margin height, in pixels. See the marginheight attribute definition
-        in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLIFrameElement.marginWidth">
-      <summary>
-        Frame margin width, in pixels. See the marginwidth attribute definition
-        in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLIFrameElement.name">
-      <summary>
-        The frame name (object of the <code>target</code> attribute). See the
-        name attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLIFrameElement.scrolling">
-      <summary>
-        Specify whether or not the frame should have scrollbars. See the
-        scrolling attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLIFrameElement.src">
-      <summary>
-        A URI designating the initial frame contents. See the src attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLIFrameElement.width">
-      <summary>
-        Frame width. See the width attribute definition in HTML 4.0.
-      </summary>
-    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.EntityReference" -->
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.DocumentFragment" -->
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.traversal.TreeWalker" -->
@@ -3045,6 +1538,125 @@
         The number of media in the list. The range of valid media is
         <code>0</code> to <code>length-1</code> inclusive.
       </summary>
+    </member>
+    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.smil.ElementTimeControl" -->
+    <member name="M:org.w3c.dom.smil.ElementTimeControl.beginElement">
+      <summary>
+        Causes this element to begin the local timeline (subject to restart constraints).
+      </summary>
+      <returns>
+        <code>true</code> if the method call was successful and the
+        element was begun. <code>false</code> if the method call
+        failed. Possible reasons for failure include:
+        <ul>
+          <li>
+            The element does not support the <code>beginElement</code>
+            method. The <code>begin</code> attribute is not set to
+            <code>"indefinite"</code>.
+          </li>
+          <li>
+            The element is already active and cannot be restarted when it is
+            active. The <code>restart</code> attribute is set to
+            <code>"whenNotActive"</code>.
+          </li>
+          <li>
+            The element is active or has been active and cannot be
+            restarted. The <code>restart</code> attribute is set to
+            <code>"never"</code>.
+          </li>
+        </ul>
+        @raise DOMException <code>SYNTAX_ERR</code>: The element was not defined
+        with the appropriate syntax to allow <code>beginElement</code> calls.
+      </returns>
+    </member>
+    <member name="M:org.w3c.dom.smil.ElementTimeControl.beginElementAt(System.Single)">
+      <summary>
+        Causes this element to begin the local timeline (subject to restart
+        constraints), at the passed offset from the current time when the method
+        is called. If the offset is &gt;= 0, the semantics are equivalent to an
+        event-base begin with the specified offset. If the offset is &lt; 0, the
+        semantics are equivalent to beginElement(), but the element active
+        duration is evaluated as though the element had begun at the passed
+        (negative) offset from the current time when the method is called.
+      </summary>
+      <param name="offset"> The offset in seconds at which to begin the element. </param>
+      <returns>
+        <code>true</code> if the method call was successful and the element was begun.
+        <code>false</code> if the method call failed.
+        Possible reasons for failure include:
+        <ul>
+          <li>
+            The element does not support the
+            <code>beginElementAt</code> method. The
+            <code>begin</code> attribute is not set to
+            <code>"indefinite"</code>.
+          </li>
+          <li>
+            The element is already active and cannot be
+            restarted when it is active. The
+            <code>restart</code> attribute is set to
+            <code>"whenNotActive"</code>.
+          </li>
+          <li>
+            The element is active or has been active and
+            cannot be restarted. The <code>restart</code>
+            attribute is set to <code>"never"</code>.
+          </li>
+        </ul>
+        @raise DOMException SYNTAX_ERR: The element was not defined with the appropriate
+        syntax to allow <code>beginElementAt</code> calls.
+      </returns>
+    </member>
+    <member name="M:org.w3c.dom.smil.ElementTimeControl.endElement">
+      <summary>
+        Causes this element to end the local timeline.
+      </summary>
+      <returns>
+        <code>true</code> if the method call was
+        successful and the element was ended.
+        <code>false</code> if method call failed. Possible
+        reasons for failure include:
+        <ul>
+          <li>
+            The element does not support the
+            <code>endElement</code> method. The
+            <code>end</code> attribute is not set to
+            <code>"indefinite"</code>.
+          </li>
+          <li>The element is not active.</li>
+        </ul>
+        @raise DOMException SYNTAX_ERR: The element was not defined with the
+        appropriate syntax to allow <code>endElement</code>
+        calls.
+      </returns>
+    </member>
+    <member name="M:org.w3c.dom.smil.ElementTimeControl.endElementAt(System.Single)">
+      <summary>
+        Causes this element to end the local timeline at the specified offset
+        from the current time when the method is called
+      </summary>
+      <param name="offset">
+        The offset in seconds at which to end the element.
+        Must be <code>&gt;= 0</code>.
+      </param>
+      <returns>
+        <code>true</code> if the method call was
+        successful and the element was ended.
+        <code>false</code> if method call failed. Possible
+        reasons for failure include:
+        <ul>
+          <li>
+            The element does not support the
+            <code>endElementAt</code> method. The
+            <code>end</code> attribute is not set to
+            <code>"indefinite"</code>.
+          </li>
+          <li>The element is not active.</li>
+        </ul>
+        @raise DOMException SYNTAX_ERR: The element was not defined with the
+        appropriate syntax to allow
+        <code>endElementAt</code> calls.
+      </returns>
     </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.ranges.Range" -->
     <!-- Badly formed XML comment ignored for member "M:org.w3c.dom.ranges.Range.setStart(org.w3c.dom.Node,System.Int32)" -->
@@ -3276,22 +1888,6 @@
         Document is the <code>ownerDocument</code>.
       </returns>
     </member>
-    <member name="T:org.w3c.dom.html.HTMLMapElement">
-      <summary>
-        Client-side image map. See the MAP element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLMapElement.areas">
-      <summary>
-        The list of areas defined for the image map.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLMapElement.name">
-      <summary>
-        Names the map (for use with <code>usemap</code>). See the name attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.CSSPrimitiveValue" -->
     <!-- Badly formed XML comment ignored for member "M:org.w3c.dom.css.CSSPrimitiveValue.setFloatValue(System.Int16,System.Single)" -->
     <member name="M:org.w3c.dom.css.CSSPrimitiveValue.getFloatValue(System.Int16)">
@@ -3504,125 +2100,6 @@
     <!-- Badly formed XML comment ignored for member "P:org.w3c.dom.css.CSS2Properties.width" -->
     <!-- Badly formed XML comment ignored for member "P:org.w3c.dom.css.CSS2Properties.wordSpacing" -->
     <!-- Badly formed XML comment ignored for member "P:org.w3c.dom.css.CSS2Properties.zIndex" -->
-    <member name="T:org.w3c.dom.html.HTMLTableCaptionElement">
-      <summary>
-        Table caption See the CAPTION element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableCaptionElement.align">
-      <summary>
-        Caption alignment with respect to the table. See the align attribute
-        definition in HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLFontElement">
-      <summary>
-        Local change to font. See the FONT element definition in HTML 4.0. This
-        element is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFontElement.color">
-      <summary>
-        Font color. See the color attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFontElement.face">
-      <summary>
-        Font face identifier. See the face attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLFontElement.size">
-      <summary>
-        Font size. See the size attribute definition in HTML 4.0. This attribute
-        is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLAnchorElement">
-      <summary>
-        The anchor element. See the A element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLAnchorElement.blur">
-      <summary>
-        Removes keyboard focus from this element.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLAnchorElement.focus">
-      <summary>
-        Gives keyboard focus to this element.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAnchorElement.accessKey">
-      <summary>
-        A single character access key to give access to the form control. See the
-        accesskey attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAnchorElement.charset">
-      <summary>
-        The character encoding of the linked resource. See the charset attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAnchorElement.coords">
-      <summary>
-        Comma-separated list of lengths, defining an active region geometry.See
-        also <code>shape</code> for the shape of the region. See the coords
-        attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAnchorElement.href">
-      <summary>
-        The URI of the linked resource. See the href attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAnchorElement.hreflang">
-      <summary>
-        Language code of the linked resource. See the hreflang attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAnchorElement.name">
-      <summary>
-        Anchor name. See the name attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAnchorElement.rel">
-      <summary>
-        Forward link type. See the rel attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAnchorElement.rev">
-      <summary>
-        Reverse link type. See the rev attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAnchorElement.shape">
-      <summary>
-        The shape of the active area. The coordinates are givenby
-        <code>coords</code>. See the shape attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAnchorElement.tabIndex">
-      <summary>
-        Index that represents the element's position in the tabbing order. See
-        the tabindex attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAnchorElement.target">
-      <summary>
-        Frame to render the resource in. See the target attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLAnchorElement.type">
-      <summary>
-        Advisory content type. See the type attribute definition in HTML 4.0.
-      </summary>
-    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.DocumentType" -->
     <member name="P:org.w3c.dom.DocumentType.name">
       <summary>
@@ -3706,263 +2183,6 @@
         depending on the type of event.
       </summary>
     </member>
-    <member name="T:org.w3c.dom.html.HTMLImageElement">
-      <summary>
-        Embedded image. See the IMG element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.lowSrc">
-      <summary>
-        URI designating the source of this image, for low-resolution output.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.name">
-      <summary>
-        The name of the element (for backwards compatibility).
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.align">
-      <summary>
-        Aligns this object (vertically or horizontally) with respect to its
-        surrounding text. See the align attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.alt">
-      <summary>
-        Alternate text for user agents not rendering the normal contentof this
-        element. See the alt attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.border">
-      <summary>
-        Width of border around image. See the border attribute definition in HTML
-        4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.height">
-      <summary>
-        Override height. See the height attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.hspace">
-      <summary>
-        Horizontal space to the left and right of this image. See the hspace
-        attribute definition in HTML 4.0. This attribute is deprecated in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.isMap">
-      <summary>
-        Use server-side image map. See the ismap attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.longDesc">
-      <summary>
-        URI designating a long description of this image or frame. See the
-        longdesc attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.src">
-      <summary>
-        URI designating the source of this image. See the src attribute definition
-        in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.useMap">
-      <summary>
-        Use client-side image map. See the usemap attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.vspace">
-      <summary>
-        Vertical space above and below this image. See the vspace attribute
-        definition in HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLImageElement.width">
-      <summary>
-        Override width. See the width attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLHtmlElement">
-      <summary>
-        Root of an HTML document. See the HTML element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLHtmlElement.version">
-      <summary>
-        Version information about the document's DTD. See the version attribute
-        definition in HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.html.HTMLDocument" -->
-    <!-- Badly formed XML comment ignored for member "M:org.w3c.dom.html.HTMLDocument.open" -->
-    <member name="M:org.w3c.dom.html.HTMLDocument.close">
-      <summary>
-        Closes a document stream opened by <code>open()</code>and forces
-        rendering.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLDocument.write(System.String)">
-      <summary>
-        Write a string of text to a document stream opened by<code>open()</code>.
-        The text is parsed into the document's structuremodel.
-      </summary>
-      <param name="text">
-        The string to be parsed into some structure in the document
-        structuremodel.
-      </param>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLDocument.writeln(System.String)">
-      <summary>
-        Write a string of text followed by a newline character to a document
-        stream opened by <code>open()</code>. The text is parsed into the
-        document's structure model.
-      </summary>
-      <param name="text">
-        The string to be parsed into some structure in the document
-        structuremodel.
-      </param>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLDocument.getElementById(System.String)">
-      <summary>
-        Returns the Element whose <code>id</code> is given by elementId. If no
-        such element exists, returns <code>null</code>. Behavior is not defined
-        if more than one element has this <code>id</code>.
-      </summary>
-      <param name="elementId">
-        The unique <code>id</code> value for an element.
-      </param>
-      <returns> The matching element. </returns>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLDocument.getElementsByName(System.String)">
-      <summary>
-        Returns the (possibly empty) collection of elements whose<code>name</code>
-        value is given by <code>elementName</code>.
-      </summary>
-      <param name="elementName">
-        The <code>name</code> attribute value for an element.
-      </param>
-      <returns> The matching elements. </returns>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDocument.title">
-      <summary>
-        The title of a document as specified by the <code>TITLE</code>element in
-        the head of the document.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDocument.referrer">
-      <summary>
-        Returns the URI of the page that linked to this page. The value isan
-        empty string if the user navigated to the page directly (notthrough a
-        link, but, for example, via a bookmark).
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDocument.domain">
-      <summary>
-        The domain name of the server that served the document, or a nullstring
-        if the server cannot be identified by a domain name.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDocument.uRL">
-      <summary>
-        The complete URI of the document.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDocument.body">
-      <summary>
-        The element that contains the content for the document. In documentswith
-        <code>BODY</code> contents, returns the <code>BODY</code>element, and in
-        frameset documents, this returns the outermost<code>FRAMESET</code>
-        element.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDocument.images">
-      <summary>
-        A collection of all the <code>IMG</code> elements in a document.The
-        behavior is limited to <code>IMG</code> elements forbackwards
-        compatibility.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDocument.applets">
-      <summary>
-        A collection of all the <code>OBJECT</code> elements that includeapplets
-        and <code>APPLET</code> (deprecated) elements ina document.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDocument.links">
-      <summary>
-        A collection of all <code>AREA</code> elements andanchor (<code>A</code>)
-        elements in a documentwith a value for the <code>href</code> attribute.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDocument.forms">
-      <summary>
-        A collection of all the forms of a document.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDocument.anchors">
-      <summary>
-        A collection of all the anchor (<code>A</code>) elements in a document
-        with a value for the <code>name</code> attribute.Note. For reasons of
-        backwardscompatibility, the returned set of anchors only contains those
-        anchors created with the <code>name</code> attribute, not those created
-        with the <code>id</code> attribute.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDocument.cookie">
-      <summary>
-        The cookies associated with this document. If there are none, thevalue is
-        an empty string. Otherwise, the value is a string: asemicolon-delimited
-        list of "name, value" pairs for all the cookiesassociated with the page.
-        For example, <code>name=value;expires=date</code>.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLCollection">
-      <summary>
-        An <code>HTMLCollection</code> is a list of nodes. An individual nodemay be
-        accessed by either ordinal index or the node's<code>name</code> or
-        <code>id</code> attributes. Note:Collections in the HTML DOM are assumed
-        to be live meaningthat they are automatically updated when the underlying
-        document ischanged.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLCollection.item(System.Int32)">
-      <summary>
-        This method retrieves a node specified by ordinal index. Nodes are
-        numbered in tree order (depth-first traversal order).
-      </summary>
-      <param name="index"> The index of the node to be fetched. The index origin is 0. </param>
-      <returns>
-        The <code>Node</code> at the corresponding position upon success.
-        A value of <code>null</code> is returned if the index is out of range.
-      </returns>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLCollection.namedItem(System.String)">
-      <summary>
-        This method retrieves a <code>Node</code> using a name. It first searches
-        for a <code>Node</code> with a matching <code>id</code> attribute. If it
-        doesn't find one, it then searches for a <code>Node</code> with a
-        matching <code>name</code> attribute, but only on those elements that
-        are allowed a name attribute.
-      </summary>
-      <param name="name">
-        The name of the <code>Node</code> to be fetched.
-      </param>
-      <returns>
-        The <code>Node</code> with a <code>name</code> or <code>id</code>
-        attribute whose value corresponds to the specified string. Upon
-        failure (e.g., no node with this name exists), returns
-        <code>null</code>.
-      </returns>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLCollection.length">
-      <summary>
-        This attribute specifies the length or size of the list.
-      </summary>
-    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.traversal.DocumentTraversal" -->
     <member name="M:org.w3c.dom.traversal.DocumentTraversal.createNodeIterator(org.w3c.dom.Node,System.Int32,org.w3c.dom.traversal.NodeFilter,System.Boolean)">
       <summary>
@@ -4039,130 +2259,6 @@
         <code>null</code>.
       </exception>
     </member>
-    <member name="T:org.w3c.dom.html.HTMLUListElement">
-      <summary>
-        Unordered list. See the UL element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLUListElement.compact">
-      <summary>
-        Reduce spacing between list items. See the compact attribute definition
-        in HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLUListElement.type">
-      <summary>
-        Bullet style. See the type attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLTitleElement">
-      <summary>
-        The document title. See the TITLE element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTitleElement.text">
-      <summary>
-        The specified title as a string.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLSelectElement">
-      <summary>
-        The select element allows the selection of an option. The containedoptions
-        can be directly accessed through the select element as acollection. See
-        the SELECT element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLSelectElement.add(org.w3c.dom.html.HTMLElement,org.w3c.dom.html.HTMLElement)">
-      <summary>
-        Add a new element to the collection of <code>OPTION</code> elementsfor
-        this <code>SELECT</code>.
-      </summary>
-      <param name="element"> The element to add. </param>
-      <param name="before">
-        The element to insert before, or NULL for the head of the
-        list.
-      </param>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLSelectElement.remove(System.Int32)">
-      <summary>
-        Remove an element from the collection of <code>OPTION</code> elementsfor
-        this <code>SELECT</code>. Does nothing if no element has the givenindex.
-      </summary>
-      <param name="index"> The index of the item to remove. </param>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLSelectElement.blur">
-      <summary>
-        Removes keyboard focus from this element.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLSelectElement.focus">
-      <summary>
-        Gives keyboard focus to this element.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLSelectElement.type">
-      <summary>
-        The type of control created.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLSelectElement.selectedIndex">
-      <summary>
-        The ordinal index of the selected option. The value -1 is returned ifno
-        element is selected. If multiple options are selected, the index ofthe
-        first selected option is returned.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLSelectElement.value">
-      <summary>
-        The current form control value.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLSelectElement.length">
-      <summary>
-        The number of options in this <code>SELECT</code>.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLSelectElement.form">
-      <summary>
-        Returns the <code>FORM</code> element containing this control.Returns
-        null if this control is not within the context of a form.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLSelectElement.options">
-      <summary>
-        The collection of <code>OPTION</code> elements contained by this element.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLSelectElement.disabled">
-      <summary>
-        The control is unavailable in this context. See the disabled attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLSelectElement.multiple">
-      <summary>
-        If true, multiple <code>OPTION</code> elements may be selected in this
-        <code>SELECT</code>. See the multiple attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLSelectElement.name">
-      <summary>
-        Form control or object name when submitted with a form. See the name
-        attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLSelectElement.size">
-      <summary>
-        Number of visible rows. See the size attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLSelectElement.tabIndex">
-      <summary>
-        Index that represents the element's position in the tabbing order. See
-        the tabindex attribute definition in HTML 4.0.
-      </summary>
-    </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.ElementCSSInlineStyle" -->
     <member name="P:org.w3c.dom.css.ElementCSSInlineStyle.style">
       <summary>
@@ -4189,98 +2285,6 @@
     <member name="P:org.w3c.dom.stylesheets.LinkStyle.sheet">
       <summary>
         The style sheet.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLOListElement">
-      <summary>
-        Ordered list. See the OL element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOListElement.compact">
-      <summary>
-        Reduce spacing between list items. See the compact attribute definition
-        in HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOListElement.start">
-      <summary>
-        Starting sequence number. See the start attribute definition in HTML 4.0.
-        This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOListElement.type">
-      <summary>
-        Numbering style. See the type attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLLinkElement">
-      <summary>
-        The <code>LINK</code> element specifies a link to an externalresource, and
-        defines this document's relationship to that resource(or vice versa).  See
-        the LINK element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLinkElement.disabled">
-      <summary>
-        Enables/disables the link. This is currently only used for style sheet
-        links, and may be used to activate or deactivate style sheets.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLinkElement.charset">
-      <summary>
-        The character encoding of the resource being linked to. See the charset
-        attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLinkElement.href">
-      <summary>
-        The URI of the linked resource. See the href attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLinkElement.hreflang">
-      <summary>
-        Language code of the linked resource. See the hreflang attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLinkElement.media">
-      <summary>
-        Designed for use with one or more target media. See the media attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLinkElement.rel">
-      <summary>
-        Forward link type. See the rel attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLinkElement.rev">
-      <summary>
-        Reverse link type. See the rev attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLinkElement.target">
-      <summary>
-        Frame to render the resource in. See the target attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLLinkElement.type">
-      <summary>
-        Advisory content type. See the type attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLBlockquoteElement">
-      <summary>
-        ??? See the BLOCKQUOTE element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBlockquoteElement.cite">
-      <summary>
-        A URI designating a document that describes the reason forthe change. See
-        the cite attribute definition in HTML 4.0.
       </summary>
     </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.CDATASection" -->
@@ -4346,161 +2350,37 @@
       </summary>
     </member>
     <!-- Badly formed XML comment ignored for member "P:org.w3c.dom.traversal.NodeIterator.expandEntityReferences" -->
-    <member name="T:org.w3c.dom.html.HTMLInputElement">
-      <summary>
-        Form control. Note. Depending upon the environmentthe page is being viewed,
-        the value property may be read-only for thefile upload input type. For the
-        "password" input type, the actual valuereturned may be masked to prevent
-        unauthorized use. See the INPUT element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLInputElement.blur">
-      <summary>
-        Removes keyboard focus from this element.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLInputElement.focus">
-      <summary>
-        Gives keyboard focus to this element.
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLInputElement.select">
-      <summary>
-        Select the contents of the text area. For <code>INPUT</code> elements
-        whose <code>type</code> attribute has one of the following values:
-        "Text", "File", or "Password".
-      </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLInputElement.click">
-      <summary>
-        Simulate a mouse-click. For <code>INPUT</code> elements whose
-        <code>type</code> attribute has one of the followingvalues: "Button",
-        "Checkbox", "Radio", "Reset", or "Submit".
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.defaultValue">
-      <summary>
-        Stores the initial control value (i.e., the initial value of
-        <code>value</code>).
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.defaultChecked">
-      <summary>
-        When <code>type</code> has the value "Radio" or "Checkbox", stores the
-        initial value of the <code>checked</code> attribute.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.form">
-      <summary>
-        Returns the <code>FORM</code> element containing this control.Returns
-        null if this control is not within the context of a form.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.accept">
-      <summary>
-        A comma-separated list of content types that a server processing thisform
-        will handle correctly. See the accept attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.accessKey">
-      <summary>
-        A single character access key to give access to the form control. See the
-        accesskey attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.align">
-      <summary>
-        Aligns this object (vertically or horizontally) with respect to its
-        surrounding text. See the align attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.alt">
-      <summary>
-        Alternate text for user agents not rendering the normal contentof this
-        element. See the alt attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.checked">
-      <summary>
-        Describes whether a radio or check box is checked, when<code>type</code>
-        has the value "Radio" or "Checkbox".  The value isTRUE if explicitly
-        set. Represents the current state of the checkboxor radio button. See
-        the checked attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.disabled">
-      <summary>
-        The control is unavailable in this context. See the disabled attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.maxLength">
-      <summary>
-        Maximum number of characters for text fields, when <code>type</code>has
-        the value "Text" or "Password". See the maxlength attribute definition
-        in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.name">
-      <summary>
-        Form control or object name when submitted with a form. See the name
-        attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.readOnly">
-      <summary>
-        This control is read-only. When <code>type</code> has the value "text"or
-        "password" only. See the readonly attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.size">
-      <summary>
-        Size information. The precise meaning is specific to each type offield.
-        See the size attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.src">
-      <summary>
-        When the <code>type</code> attribute has the value "Image", thisattribute
-        specifies the location of the image to be used to decoratethe graphical
-        submit button. See the src attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.tabIndex">
-      <summary>
-        Index that represents the element's position in the tabbing order. See
-        the tabindex attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.type">
-      <summary>
-        The type of control created. See the type attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.useMap">
-      <summary>
-        Use client-side image map. See the usemap attribute definition in HTML
-        4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLInputElement.value">
-      <summary>
-        The current form control value. Used for radio buttons and check boxes.
-        See the value attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLDivElement">
-      <summary>
-        Generic block container. See the DIV element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLDivElement.align">
-      <summary>
-        Horizontal text alignment. See the align attribute definition in HTML
-        4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
+    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.events.DocumentEvent" -->
+    <member name="M:org.w3c.dom.events.DocumentEvent.createEvent(System.String)">
+
+      <param name="eventTypeThe">
+        <code>eventType</code> parameter specifies the
+        type of <code>Event</code> interface to be created. If the
+        <code>Event</code> interface specified is supported by the
+        implementation this method will return a new <code>Event</code> of
+        the interface type requested. If the <code>Event</code> is to be
+        dispatched via the <code>dispatchEvent</code> method the
+        appropriate event init method must be called after creation in
+        order to initialize the <code>Event</code>'s values. As an example,
+        a user wishing to synthesize some kind of <code>UIEvent</code>
+        would call <code>createEvent</code> with the parameter "UIEvents".
+        The <code>initUIEvent</code> method could then be called on the
+        newly created <code>UIEvent</code> to set the specific type of
+        UIEvent to be dispatched and set its context information.The
+        <code>createEvent</code> method is used in creating
+        <code>Event</code>s when it is either inconvenient or unnecessary
+        for the user to create an <code>Event</code> themselves. In cases
+        where the implementation provided <code>Event</code> is
+        insufficient, users may supply their own <code>Event</code>
+        implementations for use with the <code>dispatchEvent</code> method.
+      </param>
+      <returns>
+        The newly created <code>Event</code>
+      </returns>
+      <exception cref="T:org.w3c.dom.DOMException">
+        NOT_SUPPORTED_ERR: Raised if the implementation does not support the
+        type of <code>Event</code> interface requested
+      </exception>
     </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.CSSStyleRule" -->
     <!-- Badly formed XML comment ignored for member "P:org.w3c.dom.css.CSSStyleRule.selectorText" -->
@@ -4572,110 +2452,35 @@
         is <code>0</code> to <code>length-1</code> inclusive.
       </summary>
     </member>
-    <member name="T:org.w3c.dom.html.HTMLTableSectionElement">
+    <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.events.EventTarget" -->
+    <!-- Badly formed XML comment ignored for member "M:org.w3c.dom.events.EventTarget.addEventListener(System.String,org.w3c.dom.events.EventListener,System.Boolean)" -->
+    <!-- Badly formed XML comment ignored for member "M:org.w3c.dom.events.EventTarget.removeEventListener(System.String,org.w3c.dom.events.EventListener,System.Boolean)" -->
+    <member name="M:org.w3c.dom.events.EventTarget.dispatchEvent(org.w3c.dom.events.Event)">
       <summary>
-        The <code>THEAD</code>, <code>TFOOT</code>, and <code>TBODY</code>elements.
+        This method allows the dispatch of events into the implementations
+        event model. Events dispatched in this manner will have the same
+        capturing and bubbling behavior as events dispatched directly by the
+        implementation. The target of the event is the
+        <code> EventTarget</code> on which <code>dispatchEvent</code> is
+        called.
       </summary>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTableSectionElement.insertRow(System.Int32)">
-      <summary>
-        Insert a row into this section.
-      </summary>
-      <param name="index"> The row number where to insert a new row. </param>
-      <returns> The newly created row. </returns>
-    </member>
-    <member name="M:org.w3c.dom.html.HTMLTableSectionElement.deleteRow(System.Int32)">
-      <summary>
-        Delete a row from this section.
-      </summary>
-      <param name="index"> The index of the row to be deleted. </param>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableSectionElement.align">
-      <summary>
-        Horizontal alignment of data in cells. See the <code>align</code>
-        attribute for HTMLTheadElement for details.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableSectionElement.ch">
-      <summary>
-        Alignment character for cells in a column. See the char attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableSectionElement.chOff">
-      <summary>
-        Offset of alignment character. See the charoff attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableSectionElement.vAlign">
-      <summary>
-        Vertical alignment of data in cells.See the <code>valign</code>attribute
-        for HTMLTheadElement for details.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLTableSectionElement.rows">
-      <summary>
-        The collection of rows in this table section.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLPreElement">
-      <summary>
-        Preformatted text. See the PRE element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLPreElement.width">
-      <summary>
-        Fixed width for content. See the width attribute definition in HTML 4.0.
-        This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLOptGroupElement">
-      <summary>
-        Group options together in logical subdivisions. See the OPTGROUP element
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOptGroupElement.disabled">
-      <summary>
-        The control is unavailable in this context. See the disabled attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLOptGroupElement.label">
-      <summary>
-        Assigns a label to this option group. See the label attribute definition
-        in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLIsIndexElement">
-      <summary>
-        This element is usedfor single-line text input. See the ISINDEX element
-        definition in HTML 4.0. This element is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLIsIndexElement.form">
-      <summary>
-        Returns the <code>FORM</code> element containing this control.Returns
-        null if this control is not within the context of a form.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLIsIndexElement.prompt">
-      <summary>
-        The prompt message. See the prompt attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLHeadElement">
-      <summary>
-        Document head information. See the HEAD element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLHeadElement.profile">
-      <summary>
-        URI designating a metadata profile. See the profile attribute definition
-        in HTML 4.0.
-      </summary>
+      <param name="evtSpecifies">
+        the event type, behavior, and contextual
+        information to be used in processing the event.
+      </param>
+      <returns>
+        The return value of <code>dispatchEvent</code> indicates
+        whether any of the listeners which handled the event called
+        <code>preventDefault</code>. If <code>preventDefault</code> was
+        called the value is false, else the value is true.
+      </returns>
+      <exception cref="T:org.w3c.dom.events.EventException">
+        UNSPECIFIED_EVENT_TYPE_ERR: Raised if the <code>Event</code>'s type
+        was not specified by initializing the event before
+        <code>dispatchEvent</code> was called. Specification of the
+        <code>Event</code>'s type as <code>null</code> or an empty string
+        will also trigger this exception.
+      </exception>
     </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.Attr" -->
     <member name="P:org.w3c.dom.Attr.name">
@@ -4690,112 +2495,6 @@
         The <code>Element</code> node this attribute is attached to or
         <code>null</code> if this attribute is not in use.
         @since DOM Level 2
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLParamElement">
-      <summary>
-        Parameters fed to the <code>OBJECT</code> element. See the PARAM element
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLParamElement.name">
-      <summary>
-        The name of a run-time parameter. See the name attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLParamElement.type">
-      <summary>
-        Content type for the <code>value</code> attribute when
-        <code>valuetype</code> has the value "ref". See the type attribute
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLParamElement.value">
-      <summary>
-        The value of a run-time parameter. See the value attribute definition in
-        HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLParamElement.valueType">
-      <summary>
-        Information about the meaning of the <code>value</code> attributevalue.
-        See the valuetype attribute definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLHRElement">
-      <summary>
-        Create a horizontal rule. See the HR element definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLHRElement.align">
-      <summary>
-        Align the rule on the page. See the align attribute definition in HTML
-        4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLHRElement.noShade">
-      <summary>
-        Indicates to the user agent that there should be no shading in the
-        rendering of this element. See the noshade attribute definition in HTML
-        4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLHRElement.size">
-      <summary>
-        The height of the rule. See the size attribute definition in HTML 4.0.
-        This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLHRElement.width">
-      <summary>
-        The width of the rule. See the width attribute definition in HTML 4.0.
-        This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="T:org.w3c.dom.html.HTMLBodyElement">
-      <summary>
-        The HTML document body. This element is always present in the DOM API,even
-        if the tags are not present in the source document. See the BODY element
-        definition in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBodyElement.aLink">
-      <summary>
-        Color of active links (after mouse-button down, but beforemouse-button
-        up). See the alink attribute definition in HTML 4.0. This attribute is
-        deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBodyElement.background">
-      <summary>
-        URI of the background texture tile image. See the background attribute
-        definition in HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBodyElement.bgColor">
-      <summary>
-        Document background color. See the bgcolor attribute definition in HTML
-        4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBodyElement.link">
-      <summary>
-        Color of links that are not active and unvisited. See the link attribute
-        definition in HTML 4.0. This attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBodyElement.text">
-      <summary>
-        Document text color. See the text attribute definition in HTML 4.0. This
-        attribute is deprecated in HTML 4.0.
-      </summary>
-    </member>
-    <member name="P:org.w3c.dom.html.HTMLBodyElement.vLink">
-      <summary>
-        Color of links that have been visited by the user. See the vlink
-        attribute definition in HTML 4.0. This attribute is deprecated in HTML
-        4.0.
       </summary>
     </member>
     <!-- Badly formed XML comment ignored for member "T:org.w3c.dom.css.CSSPageRule" -->
