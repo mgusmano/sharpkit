@@ -2001,8 +2001,9 @@ namespace SharpKit.jQuery
     public partial class jQueryBrowser
     {
         public bool webkit { get; set; }
-        public JsString version { get; set; }
         public bool safari { get; set; }
+        public bool msie { get; set; }
+        public JsString version { get; set; }
     }
 
     [JsType(JsMode.Global, Export = false)]
