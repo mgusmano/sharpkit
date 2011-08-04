@@ -319,7 +319,8 @@ namespace SharpKit.JavaScript
         ///</summary>
         public bool NativeDelegates { get; set; }
         ///<summary>
-        ///Causes an delegate to be treated as a native JavaScript function
+        ///Causes a delegate to be treated as a native JavaScript function without instance context support, 
+        ///this means that any instance context using the 'this' keyword will be lost
         ///</summary>
         public bool NativeFunction { get; set; }
     }
@@ -1953,25 +1954,25 @@ namespace SharpKit.JavaScript
     #region Misc
     #region Delegates
 
-    [JsDelegate(NativeFunction = true)]
+    [JsDelegate(NativeDelegates = true)]
     public delegate void JsAction();
-    [JsDelegate(NativeFunction = true)]
+    [JsDelegate(NativeDelegates = true)]
     public delegate void JsAction<T>(T arg);
-    [JsDelegate(NativeFunction = true)]
+    [JsDelegate(NativeDelegates = true)]
     public delegate void JsAction<T1, T2>(T1 arg1, T2 arg2);
-    [JsDelegate(NativeFunction = true)]
+    [JsDelegate(NativeDelegates = true)]
     public delegate void JsAction<T1, T2, T3>(T1 arg1, T2 arg2, T3 arg3);
-    [JsDelegate(NativeFunction = true)]
+    [JsDelegate(NativeDelegates = true)]
     public delegate void JsAction<T1, T2, T3, T4>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
-    [JsDelegate(NativeFunction = true)]
+    [JsDelegate(NativeDelegates = true)]
     public delegate TResult JsFunc<TResult>();
-    [JsDelegate(NativeFunction = true)]
+    [JsDelegate(NativeDelegates = true)]
     public delegate TResult JsFunc<T, TResult>(T arg);
-    [JsDelegate(NativeFunction = true)]
+    [JsDelegate(NativeDelegates = true)]
     public delegate TResult JsFunc<T1, T2, TResult>(T1 arg1, T2 arg2);
-    [JsDelegate(NativeFunction = true)]
+    [JsDelegate(NativeDelegates = true)]
     public delegate TResult JsFunc<T1, T2, T3, TResult>(T1 arg1, T2 arg2, T3 arg3);
-    [JsDelegate(NativeFunction = true)]
+    [JsDelegate(NativeDelegates = true)]
     public delegate TResult JsFunc<T1, T2, T3, T4, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
     #endregion
 
