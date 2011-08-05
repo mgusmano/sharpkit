@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using SharpKit.JavaScript;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -34,3 +35,24 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+
+[assembly: JsExport(Minify=false, LongFunctionNames=false, ExportComments=false, EnableProfiler=false)]
+
+[assembly: JsMergedFile(Filename = "res/System.js", Sources = new string[]
+{
+	"Internal/Core.js",
+	"Internal/CoreEx.js",
+})]
+
+[assembly: JsMergedFile(Filename = "res/jsclr-4.1.0.js", Sources = new string[]
+{
+	"res/System.js",
+	"res/System.IO.js",
+	"res/System.Linq.js",
+	"res/System.Collections.js",
+	"res/System.Reflection.js",
+	"res/System.Diagnostics.js",
+	"res/System.Text.js",
+	"res/System.Ext.js"
+})]

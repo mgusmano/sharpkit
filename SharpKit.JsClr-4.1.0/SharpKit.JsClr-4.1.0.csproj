@@ -111,8 +111,9 @@
     <Content Include="Compilation\JsCompiler.js" />
     <Content Include="Internal\Core.js" />
     <Content Include="Internal\CoreEx.js" />
-    <Content Include="res\jsclr-4.0.0.js" />
-    <Content Include="res\SharpKit.JsClr.js" />
+    <Content Include="res\jsclr-4.1.0.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="res\System.Collections.js" />
     <Content Include="res\System.ComponentModel.js" />
     <Content Include="res\System.Diagnostics.js" />
