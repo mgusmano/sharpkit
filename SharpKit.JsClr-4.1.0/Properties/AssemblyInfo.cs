@@ -41,6 +41,7 @@ using SharpKit.JavaScript;
 
 [assembly: JsMergedFile(Filename = "res/System.js", Sources = new string[]
 {
+	"Compilation/JsCompiler.js",
 	"Internal/Core.js",
 	"Internal/CoreEx.js",
 })]

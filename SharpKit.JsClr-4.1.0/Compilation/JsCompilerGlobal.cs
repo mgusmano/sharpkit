@@ -6,7 +6,7 @@ using SharpKit.JavaScript.Private;
 
 namespace SharpKit.JavaScript.Compilation
 {
-    [JsType(JsMode.Global, Filename = "JsCompiler.js")]
+    [JsType(JsMode.Global, Filename = "JsCompiler.js", OrderInFile=-1)]
     public class JsCompilerGlobal : BrowserContext
     {
         internal static JsDelegateFunction RemoveDelegate(JsDelegateFunction delOriginal, JsDelegateFunction delToRemove)
