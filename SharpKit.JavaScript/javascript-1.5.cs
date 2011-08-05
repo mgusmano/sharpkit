@@ -391,7 +391,7 @@ namespace SharpKit.JavaScript
 
 
     #region JsArguments
-    [JsType(Name = "arguments", Export = false)]
+    [JsType(JsMode.Prototype, Name = "arguments", Export = false)]
     public partial class JsArguments
     {
         [JsProperty(NativeIndexer = true)]
@@ -1974,6 +1974,36 @@ namespace SharpKit.JavaScript
     public delegate TResult JsFunc<T1, T2, T3, TResult>(T1 arg1, T2 arg2, T3 arg3);
     [JsDelegate(NativeDelegates = true)]
     public delegate TResult JsFunc<T1, T2, T3, T4, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+
+
+
+
+
+
+
+
+
+    [JsDelegate(NativeFunction = true)]
+    public delegate void JsNativeAction();
+    [JsDelegate(NativeFunction = true)]
+    public delegate void JsNativeAction<T>(T arg);
+    [JsDelegate(NativeFunction = true)]
+    public delegate void JsNativeAction<T1, T2>(T1 arg1, T2 arg2);
+    [JsDelegate(NativeFunction = true)]
+    public delegate void JsNativeAction<T1, T2, T3>(T1 arg1, T2 arg2, T3 arg3);
+    [JsDelegate(NativeFunction = true)]
+    public delegate void JsNativeAction<T1, T2, T3, T4>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    [JsDelegate(NativeFunction = true)]
+    public delegate TResult JsNativeFunc<TResult>();
+    [JsDelegate(NativeFunction = true)]
+    public delegate TResult JsNativeFunc<T, TResult>(T arg);
+    [JsDelegate(NativeFunction = true)]
+    public delegate TResult JsNativeFunc<T1, T2, TResult>(T1 arg1, T2 arg2);
+    [JsDelegate(NativeFunction = true)]
+    public delegate TResult JsNativeFunc<T1, T2, T3, TResult>(T1 arg1, T2 arg2, T3 arg3);
+    [JsDelegate(NativeFunction = true)]
+    public delegate TResult JsNativeFunc<T1, T2, T3, T4, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+
     #endregion
 
     #region JsExtensions
