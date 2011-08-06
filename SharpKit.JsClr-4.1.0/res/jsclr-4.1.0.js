@@ -870,10 +870,34 @@ JsTypes.push(
 }}
 	,
 	staticDefinition : {
-		CreateInstance : 
+		CreateInstance$$Type : 
 		function(type)
 {
     return new type._JsType.ctor();
+},CreateInstance$$Type$$BindingFlags$$Binder$$Object$Array$$CultureInfo : 
+		function(type, bindingAttr, binder, args, culture)
+{
+    throw new System.NotImplementedException.ctor();
+},CreateInstance$$Type$$BindingFlags$$Binder$$Object$Array$$CultureInfo$$Object$Array : 
+		function(type, bindingAttr, binder, args, culture, activationAttributes)
+{
+    throw new System.NotImplementedException.ctor();
+},CreateInstance$$Type$$Object$Array : 
+		function(type, args)
+{
+    throw new System.NotImplementedException.ctor();
+},CreateInstance$$Type$$Object$Array$$Object$Array : 
+		function(type, args, activationAttributes)
+{
+    throw new System.NotImplementedException.ctor();
+},CreateInstance$$Type$$Boolean : 
+		function(type, nonPublic)
+{
+    throw new System.NotImplementedException.ctor();
+},CreateInstance : 
+		function(T)
+{
+    return System.Activator.CreateInstance$$Type(Typeof(T));
 }}
 	,
 	baseType : null,
