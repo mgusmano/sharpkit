@@ -1977,6 +1977,12 @@ namespace SharpKit.jQuery
         /// The number of elements in the jQuery object.
         /// </summary>
         public JsNumber length { get; set; }
+
+        /// <summary>
+        /// Get the selected elements by index
+        /// </summary>
+        [JsProperty(NativeIndexer=true)]
+        public HtmlElement this[JsNumber index] { get { return null; } }
         /// <summary>
         /// A selector representing selector originally passed to jQuery().
         /// </summary>
