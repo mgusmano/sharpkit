@@ -1052,7 +1052,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.
         /// </summary>
-        public JsObject position() { return null; }
+        public TopLeft position() { return null; }
         /// <summary>
         /// Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
         /// </summary>
