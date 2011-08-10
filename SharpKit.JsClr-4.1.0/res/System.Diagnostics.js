@@ -3,70 +3,68 @@ if(typeof($CreateDelegate)=='undefined'){var $fki=0;var $fkp=String.fromCharCode
 if(typeof(JsTypes)=='undefined')  JsTypes = [];
 JsTypes.push(
 {
-	isEnum : false,
-	definition : {
-		ctor : 
-		function()
-{
-    System.Object.ctor.call(this);
-}}
-	,
-	staticDefinition : {
-		Break : 
-		function()
-{
-    debugger;
-}}
-	,
-	baseType : null,
-	customAttributes : [],
-	interfaceNames : [],
-	assemblyName : "SharpKit.JsClr-4.1.0",
 	fullname : "System.Diagnostics.Debugger",
 	baseTypeName : "System.Object",
+	definition : 
+	{
+		ctor : function()
+		{
+		    System.Object.ctor.call(this);
+		}
+	},
+	staticDefinition : 
+	{
+		Break : function()
+		{
+		    debugger;
+		}
+	},
+	isEnum : false,
 	isInterface : false,
 	isDelegate : false,
 	isValueType : false,
-	isPartial : false}
-)
+	isPartial : false,
+	assemblyName : "SharpKit.JsClr-4.1.0",
+	customAttributes : [],
+	interfaceNames : []
+});
 if(typeof(JsTypes)=='undefined')  JsTypes = [];
 JsTypes.push(
 {
-	isEnum : false,
-	definition : {
-		ctor : 
-		function()
-{
-    System.Object.ctor.call(this);
-}}
-	,
-	staticDefinition : {
-		TraceWarning$$String : 
-		function(msg)
-{
-    if (!System.Diagnostics.Trace.Enabled)
-        return;
-    if (System.Diagnostics.Trace.Warnings == null)
-        System.Diagnostics.Trace.Warnings = new System.Collections.Generic.List$1.ctor(System.String);
-    System.Diagnostics.Trace.Warnings.Add(msg);
-},TraceWarning$$String$$Object$Array : 
-		function(format, args)
-{
-    if (!System.Diagnostics.Trace.Enabled)
-        return;
-    System.Diagnostics.Trace.TraceWarning$$String(System.String.Format(format, args));
-},Warnings : 
-		null,Enabled : 
-		false}
-	,
-	baseType : null,
-	customAttributes : [],
-	interfaceNames : [],
-	assemblyName : "SharpKit.JsClr-4.1.0",
 	fullname : "System.Diagnostics.Trace",
 	baseTypeName : "System.Object",
+	definition : 
+	{
+		ctor : function()
+		{
+		    System.Object.ctor.call(this);
+		}
+	},
+	staticDefinition : 
+	{
+		TraceWarning$$String : function(msg)
+		{
+		    if (!System.Diagnostics.Trace.Enabled)
+		        return;
+		    if (System.Diagnostics.Trace.Warnings == null)
+		        System.Diagnostics.Trace.Warnings = new System.Collections.Generic.List$1.ctor(System.String);
+		    System.Diagnostics.Trace.Warnings.Add(msg);
+		},
+		TraceWarning$$String$$Object$Array : function(format, args)
+		{
+		    if (!System.Diagnostics.Trace.Enabled)
+		        return;
+		    System.Diagnostics.Trace.TraceWarning$$String(System.String.Format(format, args));
+		},
+		Warnings : null,
+		Enabled : false
+	},
+	isEnum : false,
 	isInterface : false,
 	isDelegate : false,
 	isValueType : false,
-	isPartial : false}
-)
+	isPartial : false,
+	assemblyName : "SharpKit.JsClr-4.1.0",
+	customAttributes : [],
+	interfaceNames : []
+});
