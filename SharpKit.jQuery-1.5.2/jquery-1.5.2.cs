@@ -44,7 +44,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Insert content, specified by the parameter, after each element in the set of matched elements.
         /// </summary>
-        public jQuery after(JsAction<HtmlDomEventArgs> function) { return null; }
+        public jQuery after(JsAction<Event> function) { return null; }
         /// <summary>
         /// Insert content, specified by the parameter, after each element in the set of matched elements.
         /// </summary>
@@ -204,7 +204,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Attach a handler to an event for the elements.
         /// </summary>
-        public jQuery bind(JsString eventType, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery bind(JsString eventType, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Attach a handler to an event for the elements.
         /// </summary>
@@ -212,7 +212,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Attach a handler to an event for the elements.
         /// </summary>
-        public jQuery bind(JsString eventType, JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery bind(JsString eventType, JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Attach a handler to an event for the elements.
         /// </summary>
@@ -224,11 +224,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery blur(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery blur(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery blur(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery blur(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -236,11 +236,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery change(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery change(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery change(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery change(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Get the children of each element in the set of matched elements, optionally filtered by a selector.
         /// </summary>
@@ -264,11 +264,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "click" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery click(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery click(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "click" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery click(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery click(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Create a deep copy of the set of matched elements.
         /// </summary>
@@ -340,11 +340,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "dblclick" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery dblclick(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery dblclick(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "dblclick" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery dblclick(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery dblclick(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Set a timer to delay execution of subsequent items in the queue.
         /// </summary>
@@ -408,11 +408,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "error" JavaScript event.
         /// </summary>
-        public jQuery error(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery error(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "error" JavaScript event.
         /// </summary>
-        public jQuery error(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery error(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Display the matched elements by fading them to opaque.
         /// </summary>
@@ -612,27 +612,27 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery focus(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery focus(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery focus(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery focus(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "focusin" JavaScript event.
         /// </summary>
-        public jQuery focusin(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery focusin(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "focusin" JavaScript event.
         /// </summary>
-        public jQuery focusin(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery focusin(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "focusout" JavaScript event.
         /// </summary>
-        public jQuery focusout(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery focusout(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "focusout" JavaScript event.
         /// </summary>
-        public jQuery focusout(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery focusout(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Retrieve the DOM elements matched by the jQuery object.
         /// </summary>
@@ -712,11 +712,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind a single handler to the matched elements, to be executed when the mouse pointer enters or leaves the elements.
         /// </summary>
-        public jQuery hover(JsAction<HtmlDomEventArgs> handlerInOut) { return null; }
+        public jQuery hover(JsAction<Event> handlerInOut) { return null; }
         /// <summary>
         /// Bind two handlers to the matched elements, to be executed when the mouse pointer enters and leaves the elements.
         /// </summary>
-        public jQuery hover(JsAction<HtmlDomEventArgs> handlerIn, JsAction<HtmlDomEventArgs> handlerOut) { return null; }
+        public jQuery hover(JsAction<Event> handlerIn, JsAction<Event> handlerOut) { return null; }
         /// <summary>
         /// Get the HTML contents of the first element in the set of matched elements.
         /// </summary>
@@ -788,11 +788,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery keydown(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery keydown(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery keydown(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery keydown(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -800,11 +800,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery keypress(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery keypress(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery keypress(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery keypress(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -812,11 +812,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery keyup(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery keyup(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery keyup(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery keyup(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Reduce the set of matched elements to the final one in the set.
         /// </summary>
@@ -832,7 +832,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "load" JavaScript event.
         /// </summary>
-        public jQuery load(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery load(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Load data from the server and place the returned HTML into the matched element.
         /// </summary>
@@ -840,7 +840,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "load" JavaScript event.
         /// </summary>
-        public jQuery load(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery load(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Load data from the server and place the returned HTML into the matched element.
         /// </summary>
@@ -872,11 +872,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery mousedown(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mousedown(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery mousedown(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mousedown(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element.
         /// </summary>
@@ -884,11 +884,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element.
         /// </summary>
-        public jQuery mouseenter(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mouseenter(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element.
         /// </summary>
-        public jQuery mouseenter(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mouseenter(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to be fired when the mouse leaves an element, or trigger that handler on an element.
         /// </summary>
@@ -896,11 +896,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to be fired when the mouse leaves an element, or trigger that handler on an element.
         /// </summary>
-        public jQuery mouseleave(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mouseleave(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to be fired when the mouse leaves an element, or trigger that handler on an element.
         /// </summary>
-        public jQuery mouseleave(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mouseleave(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -908,11 +908,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery mousemove(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mousemove(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery mousemove(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mousemove(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -920,11 +920,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery mouseout(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mouseout(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery mouseout(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mouseout(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -932,11 +932,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery mouseover(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mouseover(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery mouseover(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mouseover(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -944,11 +944,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery mouseup(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mouseup(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery mouseup(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery mouseup(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Get the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling only if it matches that selector.
         /// </summary>
@@ -984,7 +984,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Remove elements from the set of matched elements.
         /// </summary>
-        public jQuery not(JsAction<HtmlDomEventArgs> function) { return null; }
+        public jQuery not(JsAction<Event> function) { return null; }
         /// <summary>
         /// Get the current coordinates of the first element in the set of matched elements, relative to the document.
         /// </summary>
@@ -1004,11 +1004,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Attach a handler to an event for the elements. The handler is executed at most once per element.
         /// </summary>
-        public jQuery one(JsString eventType, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery one(JsString eventType, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Attach a handler to an event for the elements. The handler is executed at most once per element.
         /// </summary>
-        public jQuery one(JsString eventType, JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery one(JsString eventType, JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Get the current computed height for the first element in the set of matched elements, including padding, border, and optionally margin.
         /// </summary>
@@ -1128,7 +1128,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Manipulate the queue of functions to be executed on the matched elements.
         /// </summary>
-        public jQuery queue(JsAction<HtmlDomEventArgs> callback) { return null; }
+        public jQuery queue(JsAction<Event> callback) { return null; }
         /// <summary>
         /// Manipulate the queue of functions to be executed on the matched elements.
         /// </summary>
@@ -1136,7 +1136,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Manipulate the queue of functions to be executed on the matched elements.
         /// </summary>
-        public jQuery queue(JsString queueName, JsAction<HtmlDomEventArgs> callback) { return null; }
+        public jQuery queue(JsString queueName, JsAction<Event> callback) { return null; }
         /// <summary>
         /// Specify a function to execute when the DOM is fully loaded.
         /// </summary>
@@ -1200,11 +1200,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery resize(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery resize(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery resize(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery resize(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -1212,11 +1212,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery scroll(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery scroll(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery scroll(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery scroll(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Get the current horizontal position of the scroll bar for the first element in the set of matched elements.
         /// </summary>
@@ -1240,11 +1240,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery select(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery select(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery select(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery select(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Encode a set of form elements as a string for submission.
         /// </summary>
@@ -1452,11 +1452,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery submit(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery submit(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
         /// </summary>
-        public jQuery submit(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery submit(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Get the combined text contents of each element in the set of matched elements, including their descendants.
         /// </summary>
@@ -1496,7 +1496,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind two or more handlers to the matched elements, to be executed on alternate clicks.
         /// </summary>
-        public jQuery toggle(JsAction<HtmlDomEventArgs> handler, JsAction<HtmlDomEventArgs> handler_) { return null; }
+        public jQuery toggle(JsAction<Event> handler, JsAction<Event> handler_) { return null; }
         /// <summary>
         /// Display or hide the matched elements.
         /// </summary>
@@ -1516,7 +1516,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind two or more handlers to the matched elements, to be executed on alternate clicks.
         /// </summary>
-        public jQuery toggle(JsAction<HtmlDomEventArgs> handler, JsAction<HtmlDomEventArgs> handler_, JsAction<HtmlDomEventArgs> handler__) { return null; }
+        public jQuery toggle(JsAction<Event> handler, JsAction<Event> handler_, JsAction<Event> handler__) { return null; }
         /// <summary>
         /// Display or hide the matched elements.
         /// </summary>
@@ -1564,7 +1564,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Remove a previously-attached event handler from the elements.
         /// </summary>
-        public jQuery unbind(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery unbind(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Remove a previously-attached event handler from the elements.
         /// </summary>
@@ -1572,7 +1572,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Remove a previously-attached event handler from the elements.
         /// </summary>
-        public jQuery unbind(JsString eventType, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery unbind(JsString eventType, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Remove a previously-attached event handler from the elements.
         /// </summary>
@@ -1592,11 +1592,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "unload" JavaScript event.
         /// </summary>
-        public jQuery unload(JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery unload(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "unload" JavaScript event.
         /// </summary>
-        public jQuery unload(JsObject eventData, JsAction<HtmlDomEventArgs> handler) { return null; }
+        public jQuery unload(JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.
         /// </summary>
@@ -2142,6 +2142,10 @@ namespace SharpKit.jQuery
         /// Describes the nature of the event.
         /// </summary>
         public JsString type { get; set; }
+        /// <summary>
+        /// Certain native events may have special properties that can be accessed as properties of the event.originalEvent object. To make special properties available in all event objects, we can add them to the jQuery.event.props array.
+        /// </summary>
+        public HtmlDomEventArgs originalEvent { get; set; }
     }
     [JsType(JsMode.Json, Export = false)]
     public partial class fx
