@@ -199,7 +199,7 @@ namespace SharpKit.Html5
     ///<summary>
     ///The applet element is a Java-specific variant of the embed element. The applet element is now obsoleted so that all extension frameworks (Java, .NET, Flash, etc) are handled in a consistent manner.
     ///</summary>
-    [JsType(Export = false, Name = "HTMLAppletElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLAppletElement")]
     public abstract partial class HtmlAppletElement : HtmlElement
     {
         public JsString align{get;set;}
@@ -267,7 +267,7 @@ IE 5.5 doesn't return custom attributes, and initially gives the attribute value
     ///<summary>
     ///The base element allows authors to specify the document base URL for the purposes of resolving relative URLs , and the name of the default browsing context for the purposes of following hyperlinks . The element does not represent any content beyond this information.
     ///</summary>
-    [JsType(Export = false, Name = "HTMLBaseElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLBaseElement")]
     public abstract partial class HtmlBaseElement : HtmlElement
     {
         public JsString href{get;set;}
@@ -278,7 +278,7 @@ IE 5.5 doesn't return custom attributes, and initially gives the attribute value
     ///<summary>
     ///User agents must treat acronym elements in a manner equivalent to abbr elements.
     ///</summary>
-    [JsType(Export = false, Name = "HTMLBaseFontElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLBaseFontElement")]
     public abstract partial class HtmlBaseFontElement : HtmlElement
     {
         public JsString color{get;set;}
@@ -3096,7 +3096,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///User agents must treat acronym elements in a manner equivalent to abbr elements.
     ///</summary>
-    [JsType(Export = false, Name = "HTMLFontElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLFontElement")]
     public abstract partial class HtmlFontElement : HtmlElement
     {
         public JsString color{get;set;}
@@ -3270,7 +3270,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///These elements represent headings for their sections.User agents must treat acronym elements in a manner equivalent to abbr elements.
     ///</summary>
-    [JsType(Export = false, Name = "HTMLHeadingElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLHeadingElement")]
     public abstract partial class HtmlHeadingElement : HtmlElement
     {
         public JsString align{get;set;}
@@ -3296,7 +3296,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///The html element represents the root of an HTML document.The marquee element is a presentational element that animates content. CSS transitions and animations are a more appropriate mechanism.
     ///</summary>
-    [JsType(Export = false, Name = "HTMLHtmlElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLHtmlElement")]
     public abstract partial class HtmlHtmlElement : HtmlElement
     {
         public JsString version{get;set;}
@@ -3748,7 +3748,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///The label represents a caption in a user interface. The caption can be associated with a specific form control , known as the labelelement's labeled control , either using for attribute, or by putting the form control inside the label element itself.
     ///</summary>
-    [JsType(Export = false, Name = "HTMLLabelElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLLabelElement")]
     public abstract partial class HtmlLabelElement : HtmlElement
     {
         public HtmlForm form{get;set;}
@@ -3859,7 +3859,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///The map element, in conjunction with any area element descendants, defines an image map . The element represents its children.
     ///</summary>
-    [JsType(Export = false, Name = "HTMLMapElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLMapElement")]
     public abstract partial class HtmlMapElement : HtmlElement
     {
         public JsString name{get;set;}
@@ -3919,7 +3919,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///The meta element represents various kinds of metadata that cannot be expressed using the title , base , link , style , and script elements.The marquee element is a presentational element that animates content. CSS transitions and animations are a more appropriate mechanism.
     ///</summary>
-    [JsType(Export = false, Name = "HTMLMetaElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLMetaElement")]
     public abstract partial class HtmlMetaElement : HtmlElement
     {
         public JsString name{get;set;}
@@ -4130,7 +4130,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///The optgroup element represents a group of option elements with a common label.
     ///</summary>
-    [JsType(Export = false, Name = "HTMLOptGroupElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLOptGroupElement")]
     public abstract partial class HtmlOptGroupElement : HtmlElement
     {
         public new bool disabled{get;set;}
@@ -4236,7 +4236,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///The blockquote element represents a section that is quoted from another source.
     ///</summary>
-    [JsType(Export = false, Name = "HTMLQuoteElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLQuoteElement")]
     public abstract partial class HtmlQuoteElement : HtmlElement
     {
         public JsString cite{get;set;}
@@ -4888,7 +4888,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///The caption element represents the title of the table that is its parent, if it has a parent and that is a table element.User agents must treat acronym elements in a manner equivalent to abbr elements.
     ///</summary>
-    [JsType(Export = false, Name = "HTMLTableCaptionElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLTableCaptionElement")]
     public abstract partial class HtmlTableCaptionElement : HtmlElement
     {
         public JsString align{get;set;}
@@ -5731,7 +5731,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     }
     #endregion
     #region HtmlWindow
-    [JsType(Export = false, NativeOverloads = true, PropertiesAsFields = true)]
+    [JsType(JsMode.Prototype, Export = false, NativeOverloads = true, PropertiesAsFields = true)]
     public partial class HtmlWindow : Navigator, WindowModal, WindowTimers
     {
         [HtmlSpecificationVersion(5)]
@@ -6302,7 +6302,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///<summary>
     ///interface History { readonly attribute long length ; void go (in optional long delta); void back (); void forward (); void pushState (in any data, in DOMString title, in optional DOMString url); void replaceState (in any data, in DOMString title, in optional DOMString url); };
     ///</summary>
-    [JsType(Export = false, Name = "History", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "History")]
     public abstract partial class History
     {
         public long length{get;set;}
@@ -6376,13 +6376,13 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region Navigator
-    [JsType(Export = false, Name = "Navigator", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Navigator")]
     public partial interface Navigator : NavigatorID, NavigatorOnLine, NavigatorAbilities
     {
     }
     #endregion
     #region NavigatorAbilities
-    [JsType(Export = false, Name = "NavigatorAbilities", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "NavigatorAbilities")]
     public partial interface NavigatorAbilities
     {
         [HtmlSpecificationVersion(5)]
@@ -6397,7 +6397,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region NavigatorID
-    [JsType(Export = false, Name = "NavigatorID", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "NavigatorID")]
     public partial interface NavigatorID
     {
         JsString appVersion{get;}
@@ -6423,7 +6423,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///<summary>
     ///6.5.6.1 Event handlers
     ///</summary>
-    [JsType(Export = false, Name = "WindowModal", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "WindowModal")]
     public partial interface WindowModal
     {
         object dialogArguments{get;}
@@ -6431,7 +6431,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region WindowTimers
-    [JsType(Export = false, Name = "WindowTimers", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "WindowTimers")]
     public partial interface WindowTimers
     {
         [JsMethod(NativeOverloads = true, NativeDelegates = true)]
@@ -6467,7 +6467,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///interface ApplicationCache { // update status const unsigned short UNCACHED = 0; const unsigned short IDLE = 1; const unsigned short CHECKING = 2; const unsigned short DOWNLOADING = 3; const unsigned short UPDATEREADY = 4; const unsigned short OBSOLETE = 5; readonly attribute unsigned short status ; // updates void update (); void swapCache (); // events attribute Function onchecking ; attribute Function onerror ; attribute Function onnoupdate ; attribute Function ondownloading ; attribute Function onprogress ; attribute Function onupdateready ; attribute Function oncached ; attribute Function onobsolete ; }; ApplicationCache implements EventTarget ;
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "ApplicationCache", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "ApplicationCache")]
     public abstract partial class ApplicationCache : EventTarget
     {
         const ushort UNCACHED = 0;
@@ -6516,7 +6516,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///To allow Web pages to integrate with Web browsers, certain Web browser interface elements are exposed in a limited way to scripts in Web pages.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "BarProp", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "BarProp")]
     public abstract partial class BarProp
     {
         [HtmlSpecificationVersion(5)]
@@ -6525,7 +6525,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region CanvasGradient
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "CanvasGradient", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "CanvasGradient")]
     public abstract partial class CanvasGradient
     {
         [HtmlSpecificationVersion(5)]
@@ -6535,14 +6535,14 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region CanvasPattern
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "CanvasPattern", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "CanvasPattern")]
     public abstract partial class CanvasPattern
     {
     }
     #endregion
     #region CanvasPixelArray
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "CanvasPixelArray", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "CanvasPixelArray")]
     public abstract partial class CanvasPixelArray
     {
         [HtmlSpecificationVersion(5)]
@@ -6556,7 +6556,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///This section is non-normative.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "CanvasRenderingContext2D", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "CanvasRenderingContext2D")]
     public abstract partial class CanvasRenderingContext2D
     {
         [HtmlSpecificationVersion(5)]
@@ -6721,7 +6721,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The drag-and-drop processing model involves several events. They all use the DragEvent interface.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "DataTransfer", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "DataTransfer")]
     public abstract partial class DataTransfer
     {
         [HtmlSpecificationVersion(5)]
@@ -6754,7 +6754,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The DOMSettableTokenList interface is the same as the DOMTokenList interface, except that it allows the underlying JsString to be directly changed.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "DOMSettableTokenList", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "DOMSettableTokenList")]
     public abstract partial class DOMSettableTokenList : DOMTokenList
     {
         [HtmlSpecificationVersion(5)]
@@ -6766,7 +6766,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The DOMStringMap interface represents a set of name-value pairs. It exposes these using the scripting language's native mechanisms for property access.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "DOMStringMap", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "DOMStringMap")]
     public abstract partial class DOMStringMap
     {
         [HtmlSpecificationVersion(5)]
@@ -6778,7 +6778,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The DOMTokenList interface represents an interface to an underlying JsString that consists of a set of space-separated tokens .
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "DOMTokenList", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "DOMTokenList")]
     public abstract partial class DOMTokenList
     {
         [HtmlSpecificationVersion(5)]
@@ -6804,7 +6804,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The area element represents either a hyperlink with some text and a corresponding area on an image map , or a dead area on an image map.User agents must treat acronym elements in a manner equivalent to abbr elements.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLAreaElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLAreaElement")]
     public abstract partial class HtmlAreaElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -6852,7 +6852,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///An audio element represents a sound or audio stream.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLAudioElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLAudioElement")]
     public abstract partial class HtmlAudioElement : HtmlMediaElement
     {
         public  HtmlAudioElement(){}
@@ -6864,7 +6864,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The canvas element provides scripts with a resolution-dependent bitmap canvas, which can be used for rendering graphs, game graphics, or other visual images on the fly.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLCanvasElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "CANVAS")]
     public abstract partial class HtmlCanvasElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -6884,7 +6884,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The command element represents a command that the user can invoke.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLCommandElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLCommandElement")]
     public abstract partial class HtmlCommandElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -6906,7 +6906,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The datalist element represents a set of option elements that represent predefined options for other controls. The contents of the element represents fallback content for legacy user agents, intermixed with option elements that represent the predefined options. In the rendering, the datalist element represents nothing and it, along with its children, should be hidden .
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLDataListElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLDataListElement")]
     public abstract partial class HtmlDataListElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -6918,7 +6918,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The details element represents a disclosure widget from which the user can obtain additional information or controls.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLDetailsElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLDetailsElement")]
     public abstract partial class HtmlDetailsElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -6930,7 +6930,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The device element represents a device selector, to allow the user to give the page access to a device, for example a video camera.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLDeviceElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLDeviceElement")]
     public abstract partial class HtmlDeviceElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -6944,7 +6944,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///User agents must treat acronym elements in a manner equivalent to abbr elements.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLDirectoryElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLDirectoryElement")]
     public abstract partial class HtmlDirectoryElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -6956,7 +6956,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The dl element represents an association list consisting of zero or more name-value groups (a description list). Each group must consist of one or more names ( dt elements) followed by one or more values ( dd elements). Within a single dl element, there should not be more than one dt element for each name.User agents must treat acronym elements in a manner equivalent to abbr elements.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLDListElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLDListElement")]
     public abstract partial class HtmlDListElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -6968,7 +6968,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The HTMLCollection , HTMLAllCollection , HTMLFormControlsCollection , HTMLOptionsCollection , and HTMLPropertiesCollection interfaces represent various lists of DOM nodes. Collectively, objects implementing these interfaces are called collections.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLFormControlsCollection", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLFormControlsCollection")]
     public abstract partial class HtmlFormControlsCollection : HtmlElementCollection
     {
         [HtmlSpecificationVersion(5)]
@@ -6981,7 +6981,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The keygen element represents a key pair generator control. When the control's form is submitted, the private key is stored in the local keystore, and the public key is packaged and sent to the server.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLKeygenElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLKeygenElement")]
     public abstract partial class HtmlKeygenElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -7019,7 +7019,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///Media elements implement the following interface:
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLMediaElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLMediaElement")]
     public abstract partial class HtmlMediaElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -7094,7 +7094,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The menu element represents a list of commands.The marquee element is a presentational element that animates content. CSS transitions and animations are a more appropriate mechanism.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLMenuElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLMenuElement")]
     public abstract partial class HtmlMenuElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -7110,7 +7110,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The meter element represents a scalar measurement within a known range, or a fractional value; for example disk usage, the relevance of a query result, or the fraction of a voting population to have selected a particular candidate.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLMeterElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLMeterElement")]
     public abstract partial class HtmlMeterElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -7132,7 +7132,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The cite attribute may be used to specify the address of a document that explains the change. When that document is long, for instance the minutes of a meeting, authors are encouraged to include a fragment identifier pointing to the specific part of that document that discusses the change.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLModElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLModElement")]
     public abstract partial class HtmlModElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -7146,7 +7146,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The HTMLCollection , HTMLAllCollection , HTMLFormControlsCollection , HTMLOptionsCollection , and HTMLPropertiesCollection interfaces represent various lists of DOM nodes. Collectively, objects implementing these interfaces are called collections.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLOptionsCollection", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLOptionsCollection")]
     public abstract partial class HtmlOptionsCollection : HtmlElementCollection
     {
         [HtmlSpecificationVersion(5)]
@@ -7170,7 +7170,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The output element represents the result of a calculation.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLOutputElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLOutputElement")]
     public abstract partial class HtmlOutputElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -7204,7 +7204,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The param element defines parameters for plugins invoked by object elements. It does not represent anything on its own.The marquee element is a presentational element that animates content. CSS transitions and animations are a more appropriate mechanism.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLParamElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLParamElement")]
     public abstract partial class HtmlParamElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -7222,7 +7222,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The progress element represents the completion progress of a task. The progress is either indeterminate, indicating that progress is being made but that it is not clear how much more work remains to be done before the task is complete (e.g. because the task is waiting for a remote host to respond), or the progress is a number in the range zero to a maximum, giving the fraction of work that has so far been completed.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLProgressElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLProgressElement")]
     public abstract partial class HtmlProgressElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -7238,7 +7238,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The HTMLCollection , HTMLAllCollection , HTMLFormControlsCollection , HTMLOptionsCollection , and HTMLPropertiesCollection interfaces represent various lists of DOM nodes. Collectively, objects implementing these interfaces are called collections.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLPropertiesCollection", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLPropertiesCollection")]
     public abstract partial class HtmlPropertiesCollection : HtmlElementCollection
     {
         [HtmlSpecificationVersion(5)]
@@ -7253,7 +7253,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The source element allows authors to specify multiple media resources for media elements . It does not represent anything on its own.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLSourceElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLSourceElement")]
     public abstract partial class HtmlSourceElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -7269,7 +7269,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The tbody element represents a block of rows that consist of a body of data for the parent table element, if the tbody element has a parent and it is a table .The marquee element is a presentational element that animates content. CSS transitions and animations are a more appropriate mechanism.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLTableSectionElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLTableSectionElement")]
     public abstract partial class HtmlTableSectionElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -7295,7 +7295,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///The time element represents either a time on a 24 hour clock, or a precise date in the proleptic Gregorian calendar, optionally with a time and a time-zone offset. [GREGORIAN]
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLTimeElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLTimeElement")]
     public abstract partial class HtmlTimeElement : HtmlElement
     {
         [HtmlSpecificationVersion(5)]
@@ -7308,7 +7308,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region HtmlUnknownElement
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLUnknownElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLUnknownElement")]
     public abstract partial class HtmlUnknownElement : HtmlElement
     {
     }
@@ -7318,7 +7318,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///A video element is used for playing videos or movies.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "HTMLVideoElement", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "HTMLVideoElement")]
     public abstract partial class HtmlVideoElement : HtmlMediaElement
     {
         [HtmlSpecificationVersion(5)]
@@ -7335,7 +7335,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region ImageData
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "ImageData", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "ImageData")]
     public abstract partial class ImageData
     {
         [HtmlSpecificationVersion(5)]
@@ -7351,7 +7351,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///Media elements implement the following interface:
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "MediaError", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "MediaError")]
     public abstract partial class MediaError
     {
         const ushort MEDIA_ERR_ABORTED = 1;
@@ -7367,7 +7367,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///[ Constructor ] interface MessageChannel { readonly attribute MessagePort port1 ; readonly attribute MessagePort port2 ; };
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "MessageChannel", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "MessageChannel")]
     public abstract partial class MessageChannel
     {
         [HtmlSpecificationVersion(5)]
@@ -7381,7 +7381,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///interface UndoManagerEvent : Event { readonly attribute any data ; void initUndoManagerEvent (in DOMString typeArg, in boolean canBubbleArg, in boolean cancelableArg, in any dataArg); };
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "MessageEvent", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "MessageEvent")]
     public abstract partial class MessageEvent : EventArgs
     {
         [HtmlSpecificationVersion(5)]
@@ -7404,7 +7404,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///Each channel has two message ports. Data sent through one port is received by the other port, and vice versa.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "MessagePort", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "MessagePort")]
     public abstract partial class MessagePort : EventTarget
     {
         [HtmlSpecificationVersion(5)]
@@ -7529,7 +7529,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region NavigatorOnLine
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "NavigatorOnLine", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "NavigatorOnLine")]
     public partial interface NavigatorOnLine
     {
         [HtmlSpecificationVersion(5)]
@@ -7541,7 +7541,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///When an entry in the session history is activated (which happens during session history traversal), the user agent must run the following steps: If the entry is a state object entry, let statebe a structured clone of that state object. Otherwise, let statebe null. Run the appropriate steps according to the conditions described:If the current document readiness is set to the JsString "complete"Synchronously fire a popstate event on the Windowobject of the Document, using the PopStateEventinterface, with the stateattribute set to the value of state. This event must bubble but not be cancelable and has no default action.OtherwiseLet the Document's pending state object be state. (If there was already a pending state object, the previous one is discarded.)The event will then be fired just after the load event.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "PopStateEvent", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "PopStateEvent")]
     public abstract partial class PopStateEvent : EventArgs
     {
         [HtmlSpecificationVersion(5)]
@@ -7553,7 +7553,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region PropertyNodeList
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "PropertyNodeList", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "PropertyNodeList")]
     public abstract partial class PropertyNodeList : NodeList
     {
         [HtmlSpecificationVersion(5)]
@@ -7562,7 +7562,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region RadioNodeList
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "RadioNodeList", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "RadioNodeList")]
     public abstract partial class RadioNodeList : NodeList
     {
         [HtmlSpecificationVersion(5)]
@@ -7574,7 +7574,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///window. getSelection() document. getSelection() Returns the Selectionobject for the window, which stringifies to the text of the current selection.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "Selection", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Selection")]
     public abstract partial class Selection
     {
         [HtmlSpecificationVersion(5)]
@@ -7623,7 +7623,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///Categories Flow content. Phrasing content. Interactive content. Contexts in which this element may be used: Where phrasing content is expected. Content model: Empty. Content attributes: Global attributes type DOM interface: interface HTMLDeviceElement : HTMLElement { attribute DOMString type; readonly attribute any data; };
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "Stream", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Stream")]
     public abstract partial class Stream
     {
         [HtmlSpecificationVersion(5)]
@@ -7638,7 +7638,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///Categories Flow content. Phrasing content. Interactive content. Contexts in which this element may be used: Where phrasing content is expected. Content model: Empty. Content attributes: Global attributes type DOM interface: interface HTMLDeviceElement : HTMLElement { attribute DOMString type; readonly attribute any data; };
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "StreamRecorder", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "StreamRecorder")]
     public abstract partial class StreamRecorder
     {
         [HtmlSpecificationVersion(5)]
@@ -7648,7 +7648,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region TextMetrics
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "TextMetrics", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "TextMetrics")]
     public abstract partial class TextMetrics
     {
         [HtmlSpecificationVersion(5)]
@@ -7660,7 +7660,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///This section is non-normative.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "TimeRanges", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "TimeRanges")]
     public abstract partial class TimeRanges
     {
         [HtmlSpecificationVersion(5)]
@@ -7678,7 +7678,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///To manage undo object entries in the undo transaction history , the UndoManager interface can be used:
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "UndoManager", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "UndoManager")]
     public abstract partial class UndoManager
     {
         [HtmlSpecificationVersion(5)]
@@ -7706,7 +7706,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///interface UndoManagerEvent : Event { readonly attribute any data ; void initUndoManagerEvent (in DOMString typeArg, in boolean canBubbleArg, in boolean cancelableArg, in any dataArg); };
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "UndoManagerEvent", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "UndoManagerEvent")]
     public abstract partial class UndoManagerEvent : EventArgs
     {
         [HtmlSpecificationVersion(5)]
@@ -7721,7 +7721,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///Categories Flow content. Phrasing content. If the typeattribute is not in the Hidden state: Interactive content. Listed, labelable, submittable, and resettableform-associated element. Contexts in which this element may be used: Where phrasing content is expected. Content model: Empty. Content attributes: Global attributes accept alt autocomplete autofocus checked disabled form formaction formenctype formmethod formnovalidate formtarget height list max maxlength min multiple name pattern placeholder readonly required size src step type value width DOM interface: interface HTMLInputElement : HTMLElement { attribute DOMString accept; attribute DOMString alt; attribute boolean autocomplete; attribute boolean autofocus; attribute boolean defaultChecked; attribute boolean checked; attribute boolean disabled; readonly attribute HTMLFormElement form; readonly attribute FileListfiles; attribute DOMString formAction; attribute DOMString formEnctype; attribute DOMString formMethod; attribute boolean formNoValidate; attribute DOMString formTarget; attribute DOMString height; attribute boolean indeterminate; readonly attribute HTMLElement list; attribute DOMString max; attribute long maxLength; attribute DOMString min; attribute boolean multiple; attribute DOMString name; attribute DOMString pattern; attribute DOMString placeholder; attribute boolean readOnly; attribute boolean required; attribute unsigned long size; attribute DOMString src; attribute DOMString step; attribute DOMString type; attribute DOMString defaultValue; attribute DOMString value; attribute DatevalueAsDate; attribute float valueAsNumber; readonly attribute HTMLOptionElement selectedOption; attribute DOMString width; void stepUp(in optional long n); void stepDown(in optional long n); readonly attribute boolean willValidate; readonly attribute ValidityState validity; readonly attribute DOMString validationMessage; boolean checkValidity(); void setCustomValidity(in DOMString error); readonly attribute NodeListlabels; void select(); attribute unsigned long selectionStart; attribute unsigned long selectionEnd; void setSelectionRange(in unsigned long start, in unsigned long end); };
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "ValidityState", NativeConstructors = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "ValidityState")]
     public abstract partial class ValidityState
     {
         [HtmlSpecificationVersion(5)]
@@ -7745,7 +7745,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region Database
-    [JsType(Export = false, Name = "Database")]
+    [JsType(JsMode.Prototype, Export = false, Name = "Database")]
     public partial interface Database
     {
         [HtmlSpecificationVersion(5)]
@@ -7783,7 +7783,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region DatabaseSync
-    [JsType(Export = false, Name = "DatabaseSync")]
+    [JsType(JsMode.Prototype, Export = false, Name = "DatabaseSync")]
     public partial interface DatabaseSync
     {
         [HtmlSpecificationVersion(5)]
@@ -7802,30 +7802,30 @@ Safari and Chrome don’t support these events on links and/or form fields in al
         void changeVersion(JsString oldVersion, JsString newVersion, SQLTransactionSyncCallback callback);
     }
     #endregion
-    [JsType(Export = false, Name = "SQLTransactionSyncCallback")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SQLTransactionSyncCallback")]
     [HtmlSpecificationVersion(5)]
     [JsDelegate(NativeDelegates = true)]
     public delegate void SQLTransactionSyncCallback(SQLTransactionSync transaction);
     [HtmlSpecificationVersion(5)]
     [JsDelegate(NativeDelegates = true)]
-    [JsType(Export = false, Name = "SQLStatementCallback")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SQLStatementCallback")]
     public delegate void SQLStatementCallback(SQLTransaction transaction, SQLResultSet resultSet);
     [HtmlSpecificationVersion(5)]
     [JsDelegate(NativeDelegates = true)]
-    [JsType(Export = false, Name = "SQLStatementErrorCallback")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SQLStatementErrorCallback")]
     public delegate void SQLStatementErrorCallback(SQLTransaction transaction, SQLError error);
-    [JsType(Export = false, Name = "DatabaseCallback")]
+    [JsType(JsMode.Prototype, Export = false, Name = "DatabaseCallback")]
     [HtmlSpecificationVersion(5)]
     public delegate void DatabaseCallback(Database database);
-    [JsType(Export = false, Name = "SQLVoidCallback")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SQLVoidCallback")]
     [HtmlSpecificationVersion(5)]
     [JsDelegate(NativeDelegates = true)]
     public delegate void SQLVoidCallback();
-    [JsType(Export = false, Name = "SQLTransactionCallback")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SQLTransactionCallback")]
     [HtmlSpecificationVersion(5)]
     [JsDelegate(NativeDelegates = true)]
     public delegate void SQLTransactionCallback(SQLTransaction transaction);
-    [JsType(Export = false, Name = "SQLTransactionErrorCallback")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SQLTransactionErrorCallback")]
     [HtmlSpecificationVersion(5)]
     [JsDelegate(NativeDelegates = true)]
     public delegate void SQLTransactionErrorCallback(SQLError error);
@@ -7845,7 +7845,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///Errors in the asynchronous database API are reported using callbacks that have a SQLError object as one of their arguments.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "SQLError")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SQLError")]
     public partial class SQLError
     {
         ///<summary>
@@ -7899,7 +7899,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region SQLException
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "SQLException")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SQLException")]
     public partial class SQLException : Exception
     {
         ///<summary>
@@ -7955,7 +7955,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region SQLResultSet
-    [JsType(Export = false, Name = "SQLResultSet")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SQLResultSet")]
     [HtmlSpecificationVersion(5)]
     public partial interface SQLResultSet
     {
@@ -7968,7 +7968,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region SQLResultSetRowList
-    [JsType(Export = false, Name = "SQLResultSetRowList")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SQLResultSetRowList")]
     [HtmlSpecificationVersion(5)]
     public partial class SQLResultSetRowList : JsArray<object>
     {
@@ -7976,7 +7976,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region SQLTransaction
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "SQLTransaction")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SQLTransaction")]
     public partial interface SQLTransaction
     {
         [HtmlSpecificationVersion(5)]
@@ -7994,7 +7994,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region SQLTransactionSync
-    [JsType(Export = false, Name = "SQLTransactionSync")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SQLTransactionSync")]
     [HtmlSpecificationVersion(5)]
     public partial interface SQLTransactionSync
     {
@@ -8007,7 +8007,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region WindowDatabase
-    [JsType(Export = false, Name = "WindowDatabase")]
+    [JsType(JsMode.Prototype, Export = false, Name = "WindowDatabase")]
     [HtmlSpecificationVersion(5)]
     public partial interface WindowDatabase
     {
@@ -8038,7 +8038,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region WorkerUtilsDatabase
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "WorkerUtilsDatabase")]
+    [JsType(JsMode.Prototype, Export = false, Name = "WorkerUtilsDatabase")]
     public partial interface WorkerUtilsDatabase
     {
         [HtmlSpecificationVersion(5)]
@@ -8056,7 +8056,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region AbstractWorker
-    [JsType(Export = false, Name = "AbstractWorker")]
+    [JsType(JsMode.Prototype, Export = false, Name = "AbstractWorker")]
     [HtmlSpecificationVersion(5)]
     public abstract partial class AbstractWorker : EventTarget
     {
@@ -8074,7 +8074,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region DedicatedWorkerGlobalScope
-    [JsType(Export = false, Name = "DedicatedWorkerGlobalScope")]
+    [JsType(JsMode.Prototype, Export = false, Name = "DedicatedWorkerGlobalScope")]
     [HtmlSpecificationVersion(5)]
     public partial interface DedicatedWorkerGlobalScope
     {
@@ -8100,7 +8100,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region SharedWorkerGlobalScope
-    [JsType(Export = false, Name = "SharedWorkerGlobalScope")]
+    [JsType(JsMode.Prototype, Export = false, Name = "SharedWorkerGlobalScope")]
     [HtmlSpecificationVersion(5)]
     public partial class SharedWorkerGlobalScope : WorkerGlobalScope
     {
@@ -8113,7 +8113,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region Worker
-    [JsType(Export = false, Name = "Worker")]
+    [JsType(JsMode.Prototype, Export = false, Name = "Worker")]
     [HtmlSpecificationVersion(5)]
     public abstract partial class Worker : AbstractWorker
     {
@@ -8130,7 +8130,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region WorkerGlobalScope
-    [JsType(Export = false, Name = "WorkerGlobalScope")]
+    [JsType(JsMode.Prototype, Export = false, Name = "WorkerGlobalScope")]
     [HtmlSpecificationVersion(5)]
     public partial class WorkerGlobalScope : WorkerUtils, EventTarget
     {
@@ -8155,7 +8155,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region WorkerLocation
-    [JsType(Export = false, Name = "WorkerLocation")]
+    [JsType(JsMode.Prototype, Export = false, Name = "WorkerLocation")]
     [HtmlSpecificationVersion(5)]
     public partial interface WorkerLocation
     {
@@ -8178,14 +8178,14 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region WorkerNavigator
-    [JsType(Export = false, Name = "WorkerNavigator")]
+    [JsType(JsMode.Prototype, Export = false, Name = "WorkerNavigator")]
     [HtmlSpecificationVersion(5)]
     public partial interface WorkerNavigator : NavigatorID, NavigatorOnLine
     {
     }
     #endregion
     #region WorkerUtils
-    [JsType(Export = false, Name = "WorkerUtils")]
+    [JsType(JsMode.Prototype, Export = false, Name = "WorkerUtils")]
     [HtmlSpecificationVersion(5)]
     public partial class WorkerUtils : WindowTimers
     {
@@ -8230,7 +8230,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///Each Storage object provides access to a list of key/value pairs, which are sometimes called items. Keys are strings. Any JsString (including the empty JsString) is a valid key. Values can be any data type supported by the structured clone algorithm.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "Storage")]
+    [JsType(JsMode.Prototype, Export = false, Name = "Storage")]
     public partial interface Storage
     {
         [HtmlSpecificationVersion(5)]
@@ -8254,7 +8254,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region WindowLocalStorage
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "WindowLocalStorage")]
+    [JsType(JsMode.Prototype, Export = false, Name = "WindowLocalStorage")]
     public partial interface WindowLocalStorage
     {
         [HtmlSpecificationVersion(5)]
@@ -8263,7 +8263,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
     #region WindowSessionStorage
     [HtmlSpecificationVersion(5)]
-    [JsType(Export = false, Name = "WindowSessionStorage")]
+    [JsType(JsMode.Prototype, Export = false, Name = "WindowSessionStorage")]
     public partial interface WindowSessionStorage
     {
         [HtmlSpecificationVersion(5)]
