@@ -40,6 +40,7 @@
     <Reference Include="SharpKit.JavaScript" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Canvas.htm" />
     <Content Include="Canvas.js" />
     <Content Include="Web.config" />
   </ItemGroup>
