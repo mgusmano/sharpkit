@@ -6,8 +6,8 @@ namespace org.w3c.dom
 
     public interface NodeList
     {
-        // NodeList
-        Node item(int index);
+        [JsProperty(NativeIndexer=true)]
+        Node this[int index]{get;}
         int length {get;}
     }
 

@@ -7,7 +7,8 @@ namespace org.w3c.dom
     public interface DOMImplementationList
     {
         // DOMImplementationList
-        DOMImplementation item(int index);
+        [JsProperty(NativeIndexer = true)]
+        DOMImplementation this[int index] { get; }
         int length {get;}
     }
 

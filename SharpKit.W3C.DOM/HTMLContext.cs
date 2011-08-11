@@ -139,11 +139,11 @@ namespace org.w3c.dom.html
         public static int outerWidth { get; private set; }
         public static int outerHeight { get; private set; }
         // WindowTimers
-        public static int setTimeout(object handler) { return 0; }
-        public static int setTimeout(object handler, object timeout, params object[] args) { return 0; }
+        public static int setTimeout(JsAction handler) { return 0; }
+        public static int setTimeout(JsAction handler, object timeout, params object[] args) { return 0; }
         public static void clearTimeout(int handle){}
-        public static int setInterval(object handler) { return 0; }
-        public static int setInterval(object handler, object timeout, params object[] args) { return 0; }
+        public static int setInterval(JsAction handler) { return 0; }
+        public static int setInterval(JsAction handler, object timeout, params object[] args) { return 0; }
         public static void clearInterval(int handle){}
         // WindowDatabase
         public static Database openDatabase(string name, JsString version, JsString displayName, int estimatedSize) { return null; }

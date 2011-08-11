@@ -9,7 +9,8 @@ namespace org.w3c.dom.css
         // CSSStyleDeclaration
         JsString cssText {get;set;}
         int length {get;}
-        JsString item(int index);
+        [JsProperty(NativeIndexer = true)]
+        JsString this[int index] { get; }
         JsString getPropertyValue(string property);
         JsString getPropertyPriority(string property);
         void setProperty(string property, JsString value);

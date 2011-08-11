@@ -14,7 +14,8 @@ namespace org.w3c.dom
 //TODO:
 //ORIGINAL LINE: public Node removeNamedItem(String name) throws DOMException;
         Node removeNamedItem(string name);
-        Node item(int index);
+        [JsProperty(NativeIndexer = true)]
+        Node this[int index] { get; }
         int length {get;}
 //TODO:
 //ORIGINAL LINE: public Node getNamedItemNS(String namespaceURI, String localName) throws DOMException;

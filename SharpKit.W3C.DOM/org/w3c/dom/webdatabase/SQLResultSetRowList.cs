@@ -8,7 +8,8 @@ namespace org.w3c.dom.webdatabase
     {
         // SQLResultSetRowList
         int length {get;}
-        object item(int index);
+        [JsProperty(NativeIndexer = true)]
+        object this[int index] { get; }
     }
 
 }

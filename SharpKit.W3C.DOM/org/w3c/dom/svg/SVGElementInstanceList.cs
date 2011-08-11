@@ -8,7 +8,8 @@ namespace org.w3c.dom.svg
     {
         // SVGElementInstanceList
         int length {get;}
-        SVGElementInstance item(int index);
+        [JsProperty(NativeIndexer = true)]
+        SVGElementInstance this[int index] { get; }
     }
 
 }

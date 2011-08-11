@@ -18,7 +18,8 @@ namespace org.w3c.dom.html
         JsString type {get;}
         HTMLOptionsCollection options {get;}
         int length {get;set;}
-        object item(int index);
+        [JsProperty(NativeIndexer = true)]
+        object this[int index] { get; }
         object namedItem(string name);
         void add(HTMLElement element);
         void add(HTMLElement element, HTMLElement before);

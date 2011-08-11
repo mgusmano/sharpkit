@@ -9,7 +9,8 @@ namespace org.w3c.dom.stylesheets
         // MediaList
         JsString mediaText {get;set;}
         int length {get;}
-        JsString item(int index);
+        [JsProperty(NativeIndexer = true)]
+        JsString this[int index] { get; }
         void appendMedium(string medium);
         void deleteMedium(string medium);
     }

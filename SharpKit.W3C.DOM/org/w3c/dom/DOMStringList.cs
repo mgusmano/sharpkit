@@ -7,7 +7,8 @@ namespace org.w3c.dom
     public interface DOMStringList
     {
         // DOMStringList
-        JsString item(int index);
+        [JsProperty(NativeIndexer = true)]
+        JsString this[int index] { get; }
         int length {get;}
         bool contains(string str);
     }

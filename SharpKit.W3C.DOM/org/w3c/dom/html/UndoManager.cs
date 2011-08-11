@@ -8,7 +8,8 @@ namespace org.w3c.dom.html
     {
         // UndoManager
         int length {get;}
-        object item(int index);
+        [JsProperty(NativeIndexer = true)]
+        object this[int index] { get; }
         int position {get;}
         int add(object data, JsString title);
         void remove(int index);

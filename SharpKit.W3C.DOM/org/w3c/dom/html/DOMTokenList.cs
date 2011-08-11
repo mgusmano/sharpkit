@@ -8,7 +8,8 @@ namespace org.w3c.dom.html
     {
         // DOMTokenList
         int length {get;}
-        JsString item(int index);
+        [JsProperty(NativeIndexer = true)]
+        JsString this[int index] { get; }
         bool contains(string token);
         void add(string token);
         void remove(string token);

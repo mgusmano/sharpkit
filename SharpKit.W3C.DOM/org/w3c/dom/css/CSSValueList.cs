@@ -8,7 +8,8 @@ namespace org.w3c.dom.css
     {
         // CSSValueList
         int length {get;}
-        CSSValue item(int index);
+        [JsProperty(NativeIndexer = true)]
+        CSSValue this[int index] { get; }
     }
 
 }

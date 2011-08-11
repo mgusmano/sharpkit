@@ -17,7 +17,8 @@ namespace org.w3c.dom.html
         JsString target {get;set;}
         HTMLFormControlsCollection elements {get;}
         int length {get;}
-        object item(int index);
+        [JsProperty(NativeIndexer = true)]
+        object this[int index] { get; }
         object namedItem(string name);
         void submit();
         void reset();

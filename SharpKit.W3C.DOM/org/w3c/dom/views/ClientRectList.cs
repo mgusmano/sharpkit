@@ -8,7 +8,8 @@ namespace org.w3c.dom.views
     {
         // ClientRectList
         int length {get;}
-        ClientRect item(int index);
+        [JsProperty(NativeIndexer = true)]
+        ClientRect this[int index] { get; }
     }
 
 }
