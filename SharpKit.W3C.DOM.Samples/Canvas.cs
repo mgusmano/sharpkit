@@ -3,6 +3,16 @@ using org.w3c.dom.html;
 
 namespace SharpKit.W3C.DOM.Samples
 {
+
+    [JsType(JsMode.Global, Filename = "Canvas.js", OrderInFile = 1)]
+    public class Canvas : HTMLContext
+    {
+        static Canvas()
+        {
+            var spinner = new Spinner(new SpinnerData { x = 50, y = 50, size = 20, degrees = 30 });
+        }
+    }
+
     [JsType(JsMode.Json)]
     class SpinnerData
     {
@@ -12,84 +22,69 @@ namespace SharpKit.W3C.DOM.Samples
         public JsNumber degrees { get; set; }
     }
 
-    [JsType(JsMode.Global, Filename = "Canvas.js")]
-    public class Canvas : HTMLContext
+    [JsType(JsMode.Prototype, Filename = "Canvas.js", Name = "Spinner")]
+    class Spinner : HTMLContext
     {
-        static Canvas()
+        SpinnerData spinnerData { get; set; }
+        JsNumber canvasTimer { get; set; }
+        CanvasRenderingContext2D ctx { get; set; }
+        JsNumber index { get; set; }
+        JsArray<JsNumber> degreesList { get; set; }
+        JsNumber degrees { get; set; }
+
+        public Spinner(SpinnerData sd)
         {
-            buildSpinner(new SpinnerData { x = 50, y = 50, size = 20, degrees = 30 });
+            buildSpinner(sd);
         }
-        static JsNumber canvasTimer;
-        static CanvasRenderingContext2D ctx;
-        static JsNumber i = 0;
-        static JsArray<JsNumber> degreesList;
-        static JsNumber degrees;
-        static SpinnerData data;
-        static void buildSpinner(SpinnerData d)
+        void buildSpinner(SpinnerData sd)
         {
-            data = d;
+            spinnerData = sd;
             var canvas = document.getElementsByTagName("canvas")[0].As<HTMLCanvasElement>();
-            canvas.height = 100;
-            canvas.width = 300;
-            document.getElementsByTagName("article")[0].appendChild(canvas);
             ctx = canvas.getContext("2d").As<CanvasRenderingContext2D>();
-            i = 0;
-            degrees = data.degrees;
+            index = 0;
+            degrees = spinnerData.degrees;
             degreesList = new JsArray<JsNumber>();
-
-            for (i = 0; i < degrees; i++)
-            {
-                degreesList.push(i);
-            }
-
+            for (var x = 0; x < degrees; x++)
+                degreesList.push(x);
             // reset
-            i = 0;
-
+            index = 0;
             // so I can kill it later
             canvasTimer = setInterval(draw, 1000 / degrees);
         }
 
-        static void reset()
+        void reset()
         {
             ctx.clearRect(0, 0, 100, 100); // clear canvas
-
             var left = degreesList.slice(0, 1);
             var right = degreesList.slice(1, degreesList.length);
             degreesList = right.concat(left);
         }
 
-        static void draw()
+        void draw()
         {
-            JsNumber c, s, e;
-
-            var d = 0;
-
-            if (i == 0)
-            {
+            if (index == 0)
                 reset();
-            }
 
             ctx.save();
 
-            d = degreesList[i];
-            c = JsMath.floor(255 / degrees * i);
-            ctx.strokeStyle = "rgb(" + c + ", " + c + ", " + c + ")";
-            ctx.lineWidth = data.size;
+            var degree = degreesList[index];
+            var color = JsMath.floor(255 / degrees * index);
+            ctx.strokeStyle = "rgb(" + color + ", " + color + ", " + color + ")";
+            ctx.lineWidth = spinnerData.size;
             ctx.beginPath();
-            s = JsMath.floor(360 / degrees * (d));
-            e = JsMath.floor(360 / degrees * (d + 1)) - 1;
+            var startAngle = JsMath.floor(360 / degrees * (degree));
+            var endAngle = JsMath.floor(360 / degrees * (degree + 1)) - 1;
 
-            ctx.arc(data.x, data.y, data.size, (JsMath.PI / 180) * s, (JsMath.PI / 180) * e, false);
+            ctx.arc(spinnerData.x, spinnerData.y, spinnerData.size, (JsMath.PI / 180) * startAngle, (JsMath.PI / 180) * endAngle, false);
             ctx.stroke();
 
             ctx.restore();
 
-            i++;
-            if (i >= degrees)
-            {
-                i = 0;
-            }
+            index++;
+            if (index >= degrees)
+                index = 0;
         }
+
     }
 
 }
