@@ -4141,7 +4141,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Denotes one choice in a SELECT element.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "OPTION")]
+    [JsType(JsMode.Prototype, Export = false, Name = "Option")]
     public partial class HtmlOption : HtmlElement
     {
         ///<summary>
@@ -6852,7 +6852,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///An audio element represents a sound or audio stream.
     ///</summary>
     [HtmlSpecificationVersion(5)]
-    [JsType(JsMode.Prototype, Export = false, Name = "HTMLAudioElement")]
+    [JsType(JsMode.Prototype, Export = false, Name = "Audio")]
     public abstract partial class HtmlAudioElement : HtmlMediaElement
     {
         public  HtmlAudioElement(){}
