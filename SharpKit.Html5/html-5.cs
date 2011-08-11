@@ -3409,7 +3409,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Embeds an image or a video clip in the document.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "IMAGE")]
+    [JsType(JsMode.Prototype, Export = false, Name = "Image")]
     public partial class HtmlImage : HtmlElement
     {
         public void main(){}
