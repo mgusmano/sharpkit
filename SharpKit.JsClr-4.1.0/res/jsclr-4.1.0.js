@@ -3717,7 +3717,7 @@ JsTypes.push(
 		            {
 		                return path.Substring$$Int32$$Int32(startIndex, length - startIndex);
 		            }
-		            return string.Empty;
+		            return System.String.Empty;
 		        }
 		        if (((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar))
 		        {

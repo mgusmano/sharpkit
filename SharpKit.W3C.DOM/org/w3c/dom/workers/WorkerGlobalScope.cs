@@ -27,11 +27,11 @@ namespace org.w3c.dom.workers
         DatabaseSync openDatabaseSync(string name, JsString version, JsString displayName, int estimatedSize);
         DatabaseSync openDatabaseSync(string name, JsString version, JsString displayName, int estimatedSize, DatabaseCallback creationCallback);
         // WindowTimers
-        int setTimeout(object handler);
-        int setTimeout(object handler, object timeout, params object[] args);
+        int setTimeout(JsAction handler);
+        int setTimeout(JsAction handler, object timeout, params object[] args);
         void clearTimeout(int handle);
-        int setInterval(object handler);
-        int setInterval(object handler, object timeout, params object[] args);
+        int setInterval(JsAction handler);
+        int setInterval(JsAction handler, object timeout, params object[] args);
         void clearInterval(int handle);
         // DedicatedWorkerGlobalScope
         void postMessage(object message);
