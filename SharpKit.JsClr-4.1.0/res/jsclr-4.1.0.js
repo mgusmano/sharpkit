@@ -3956,7 +3956,7 @@ JsTypes.push(
 		    {
 		        if (list.get_Count() > 0)
 		        {
-		            return list.get_Item(0);
+		            return list.get_Item$$Int32(0);
 		        }
 		    }
 		    else
@@ -4008,7 +4008,7 @@ JsTypes.push(
 		    {
 		        if (list.get_Count() > 0)
 		        {
-		            return list.get_Item(0);
+		            return list.get_Item$$Int32(0);
 		        }
 		    }
 		    else
@@ -4061,7 +4061,7 @@ JsTypes.push(
 		        var count = list.get_Count();
 		        if (count > 0)
 		        {
-		            return list.get_Item(count - 1);
+		            return list.get_Item$$Int32(count - 1);
 		        }
 		    }
 		    else
@@ -4127,7 +4127,7 @@ JsTypes.push(
 		        var count = list.get_Count();
 		        if (count > 0)
 		        {
-		            return list.get_Item(count - 1);
+		            return list.get_Item$$Int32(count - 1);
 		        }
 		    }
 		    else
@@ -4669,12 +4669,12 @@ JsTypes.push(
 		    throw new System.NotImplementedException.ctor();
 		},
 		Item$$ : "TValue",
-		get_Item : function(key)
+		get_Item$$TKey : function(key)
 		{
 		    var hashKey = this.GetHashKey(key);
 		    return this._table[hashKey];
 		},
-		set_Item : function(key, value)
+		set_Item$$TKey$$TValue : function(key, value)
 		{
 		    var hashKey = this.GetHashKey(key);
 		    this._table[hashKey] = value;
@@ -4822,7 +4822,7 @@ JsTypes.push(
 		Current$$ : "T",
 		get_Current : function()
 		{
-		    return this.List.get_Item(this.Index);
+		    return this.List.get_Item$$Int32(this.Index);
 		},
 		Dispose : function()
 		{
@@ -4884,13 +4884,13 @@ JsTypes.push(
 		    throw new System.NotImplementedException.ctor$$String("JsImplList$T");
 		},
 		Item$$ : "T",
-		get_Item : function(index)
+		get_Item$$Int32 : function(index)
 		{
 		    if (index >= this._list.length || index < 0)
 		        throw new System.ArgumentOutOfRangeException.ctor$$String("index");
 		    return this._list[index];
 		},
-		set_Item : function(index, value)
+		set_Item$$Int32$$T : function(index, value)
 		{
 		    if (index >= this._list.length || index < 0)
 		        throw new System.ArgumentOutOfRangeException.ctor$$String("index");

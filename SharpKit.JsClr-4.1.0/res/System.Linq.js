@@ -25,7 +25,7 @@ JsTypes.push(
 		    {
 		        if (list.get_Count() > 0)
 		        {
-		            return list.get_Item(0);
+		            return list.get_Item$$Int32(0);
 		        }
 		    }
 		    else
@@ -77,7 +77,7 @@ JsTypes.push(
 		    {
 		        if (list.get_Count() > 0)
 		        {
-		            return list.get_Item(0);
+		            return list.get_Item$$Int32(0);
 		        }
 		    }
 		    else
@@ -130,7 +130,7 @@ JsTypes.push(
 		        var count = list.get_Count();
 		        if (count > 0)
 		        {
-		            return list.get_Item(count - 1);
+		            return list.get_Item$$Int32(count - 1);
 		        }
 		    }
 		    else
@@ -196,7 +196,7 @@ JsTypes.push(
 		        var count = list.get_Count();
 		        if (count > 0)
 		        {
-		            return list.get_Item(count - 1);
+		            return list.get_Item$$Int32(count - 1);
 		        }
 		    }
 		    else
