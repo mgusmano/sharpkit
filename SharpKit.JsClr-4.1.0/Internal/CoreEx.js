@@ -785,7 +785,7 @@ JsTypes.push({fullname:"VM",  definition:
             return TypeIs(propertyType, type);
         }
         return false;
-    },
+    }
 }
 });
 JsTypes.push({fullname:"SharpKit.DataModel.NotifyCollectionChangedEventArgs", baseTypeName:"System.Object", definition:
