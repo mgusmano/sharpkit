@@ -1,6 +1,7 @@
 ﻿using System;
 
 using SharpKit.JavaScript.Private;
+using SharpKit.JavaScript.Compilation;
 
 namespace SharpKit.JavaScript.Utils
 {
@@ -115,10 +116,9 @@ return null;")]
 			throw new NotImplementedException();
 		}
 
-		[JsMethod(Code="return GetHashKey(key);")]
 		public static string GetHashKey(object key)
 		{
-			throw new NotImplementedException();
+            return JsCompiler.GetHashKey(key);
 		}
 
 		[JsMethod(Code = "delete obj[name];")]
