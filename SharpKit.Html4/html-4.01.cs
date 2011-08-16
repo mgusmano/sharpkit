@@ -2732,7 +2732,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Embeds an image or a video clip in the document.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "IMAGE")]
+    [JsType(JsMode.Prototype, Export = false, Name = "Image")]
     public partial class HtmlImage : HtmlElement
     {
         public void main() { }
@@ -3292,7 +3292,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Denotes one choice in a SELECT element.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "OPTION")]
+    [JsType(JsMode.Prototype, Export = false, Name = "Option")]
     public partial class HtmlOption : HtmlElement
     {
         ///<summary>
