@@ -6045,7 +6045,7 @@ JsTypes.push(
 		},
 		GetHashKey : function(key)
 		{
-		    return GetHashKey(key);
+		    return JsCompiler.GetHashKey(key);
 		},
 		DeleteMember : function(obj, name)
 		{
