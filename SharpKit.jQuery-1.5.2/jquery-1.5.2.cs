@@ -2009,6 +2009,8 @@ namespace SharpKit.jQuery
         public bool webkit { get; set; }
         public bool safari { get; set; }
         public bool msie { get; set; }
+        public bool opera { get; set; }
+		public bool mozilla { get; set; }
         public JsString version { get; set; }
     }
 
