@@ -128,7 +128,7 @@ namespace SharpKit.JavaScript
     #endregion
     #region JsMode
     ///<summary>
-    ///Specifies the export and interopability mode of a C# type in JavaScript
+    ///Specifies the export and interoperability mode of a C# type in JavaScript
     ///</summary>
     public enum JsMode
     {
