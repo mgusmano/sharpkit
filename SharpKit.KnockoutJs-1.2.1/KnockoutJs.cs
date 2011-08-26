@@ -108,8 +108,8 @@ namespace SharpKit.KnockoutJs
         /// Converts a model into the equivalent JSON representation.
         /// </summary>
         /// <param name="model">The model object to convert.</param>
-        /// <returns>The JSON string representing the model data.</returns>
-        public static string toJSON(object model)
+        /// <returns>The JSON JsString representing the model data.</returns>
+        public static JsString toJSON(object model)
         {
             return null;
         }
@@ -126,7 +126,7 @@ namespace SharpKit.KnockoutJs
 		/// <summary>
 		/// Provides access to the currently registered binding handlers.
 		/// </summary>
-		public static JsObject<string, BindingHandler> bindingHandlers{get;private set;}
+		public static JsObject<JsString, BindingHandler> bindingHandlers{get;private set;}
 		/// <summary>
 		/// Gets the mapping plugin which allows converting models to plain
 		/// objects and JSON and vice-versa.
@@ -171,7 +171,7 @@ namespace SharpKit.KnockoutJs
 		/// <param name="bindings">An optional dictionary of bindings, pass null to let Knockout gather them from the element.</param>
 		/// <param name="viewModel">The view model instance.</param>
 		/// <param name="bindingAttributeName">The name of the attribute which has the binding definitions.</param>
-        public static void ApplyBindingsToNode(HtmlElement node, JsObject bindings, object viewModel, string bindingAttributeName)
+        public static void ApplyBindingsToNode(HtmlElement node, JsObject bindings, object viewModel, JsString bindingAttributeName)
 		{
 		}
 		/// <summary>
@@ -270,18 +270,18 @@ namespace SharpKit.KnockoutJs
 		{
 		}
 		/// <summary>
-		/// Creates a model instance from the specified JSON string.
+		/// Creates a model instance from the specified JSON JsString.
 		/// </summary>
 		/// <typeparam name="TModel">The type of the model.</typeparam>
 		/// <param name="jsonData">The JSON data.</param>
 		/// <returns>A new instance of the model.</returns>
         [JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
-        public TModel fromJSON<TModel>(string jsonData)
+        public TModel fromJSON<TModel>(JsString jsonData)
 		{
 			return default(TModel);
 		}
 		/// <summary>
-		/// Creates a model instance from the specified JSON string and a
+		/// Creates a model instance from the specified JSON JsString and a
 		/// custom mapping.
 		/// </summary>
 		/// <typeparam name="TModel">The type of the model.</typeparam>
@@ -289,7 +289,7 @@ namespace SharpKit.KnockoutJs
 		/// <param name="mapping">The mapping rules to apply.</param>
 		/// <returns>A new instance of the model.</returns>
         [JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
-        public TModel fromJSON<TModel>(string jsonData, object mapping)
+        public TModel fromJSON<TModel>(JsString jsonData, object mapping)
 		{
 			return default(TModel);
 		}
@@ -318,13 +318,13 @@ namespace SharpKit.KnockoutJs
 			return default(TModel);
 		}
 		/// <summary>
-		/// Updates the specified model with the specified JSON string.
+		/// Updates the specified model with the specified JSON JsString.
 		/// </summary>
 		/// <typeparam name="TModel">The tyoe of the model.</typeparam>
 		/// <param name="model">The model to update.</param>
-		/// <param name="jsonData">The JSON string representing the new values.</param>
+		/// <param name="jsonData">The JSON JsString representing the new values.</param>
         [JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
-        public void updateFromJSON<TModel>(TModel model, string jsonData)
+        public void updateFromJSON<TModel>(TModel model, JsString jsonData)
 		{
 		}
 		/// <summary>
@@ -428,7 +428,7 @@ namespace SharpKit.KnockoutJs
 		/// </summary>
 		/// <param name="value">The value to check.</param>
 		/// <returns>The index of the matching item; -1 if there is no match.</returns>
-		public int indexOf(T value)
+		public JsNumber indexOf(T value)
 		{
 			return 0;
 		}
