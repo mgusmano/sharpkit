@@ -45,15 +45,27 @@ namespace SharpKit.KnockoutJs
 		private DependentObservable()
 		{
 		}
-		/// <summary>
-		/// Gets the current computed value.
-		/// </summary>
-		/// <returns>The current value.</returns>
-		[JsMethod(Name="")]
-		public T GetValue()
-		{
-			return default(T);
-		}
+
+        /// <summary>
+        /// Gets the current computed value.
+        /// </summary>
+        public T Value
+        {
+            [JsMethod(Name = "")]
+            get { return default(T); }
+            [JsMethod(Name = "")]
+            private set { }
+        }
+
+        ///// <summary>
+        ///// Gets the current computed value.
+        ///// </summary>
+        ///// <returns>The current value.</returns>
+        //[JsMethod(Name="")]
+        //public T GetValue()
+        //{
+        //    return default(T);
+        //}
 		/// <summary>
 		/// Subscribes to change notifications raised when the value changes.
 		/// </summary>
@@ -171,14 +183,14 @@ namespace SharpKit.KnockoutJs
 		/// <param name="bindings">An optional dictionary of bindings, pass null to let Knockout gather them from the element.</param>
 		/// <param name="viewModel">The view model instance.</param>
 		/// <param name="bindingAttributeName">The name of the attribute which has the binding definitions.</param>
-        public static void ApplyBindingsToNode(HtmlElement node, JsObject bindings, object viewModel, JsString bindingAttributeName)
+        public static void applyBindingsToNode(HtmlElement node, JsObject bindings, object viewModel, JsString bindingAttributeName)
 		{
 		}
 		/// <summary>
 		/// Creates an observable with a value computed from one or more other values.
 		/// </summary>
 		/// <typeparam name="T">The type of the observable value.</typeparam>
-		/// <param name="function">A function to compute the value.</param>
+		/// <param name="func">A function to compute the value.</param>
 		/// <returns>A new dependent observable instance.</returns>
         [JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
         public static DependentObservable<T> dependentObservable<T>(JsFunc<T> func)
@@ -199,7 +211,7 @@ namespace SharpKit.KnockoutJs
 		/// Returns true if the value is an observable, false otherwise.
 		/// </summary>
 		/// <param name="value">The value to check.</param>
-		public static bool IsObservable(object value)
+		public static bool isObservable(object value)
 		{
 			return false;
 		}
@@ -348,6 +360,9 @@ namespace SharpKit.KnockoutJs
 		private Observable()
 		{
 		}
+        /// <summary>
+        /// Gets or sets the current value within the observable object.
+        /// </summary>
         public T Value 
         {
             [JsMethod(Name="")]
@@ -355,23 +370,23 @@ namespace SharpKit.KnockoutJs
             [JsMethod(Name = "")]
             set { }
         }
-		/// <summary>
-		/// Gets the current value within the observable object.
-		/// </summary>
-		/// <returns>The current value.</returns>
-		[JsMethod(Name="")]
-		public T GetValue()
-		{
-			return default(T);
-		}
-		/// <summary>
-		/// Sets the value within the observable object.
-		/// </summary>
-		/// <param name="value">The new value.</param>
-		[JsMethod(Name="")]
-		public void SetValue(T value)
-		{
-		}
+        ///// <summary>
+        ///// Gets the current value within the observable object.
+        ///// </summary>
+        ///// <returns>The current value.</returns>
+        //[JsMethod(Name="")]
+        //public T GetValue()
+        //{
+        //    return default(T);
+        //}
+        ///// <summary>
+        ///// Sets the value within the observable object.
+        ///// </summary>
+        ///// <param name="value">The new value.</param>
+        //[JsMethod(Name="")]
+        //public void SetValue(T value)
+        //{
+        //}
 		/// <summary>
 		/// Subscribes to change notifications raised when the value changes.
 		/// </summary>
@@ -414,15 +429,27 @@ namespace SharpKit.KnockoutJs
 		public void destroyAll(params T[] values)
 		{
 		}
-		/// <summary>
-		/// Gets the underlying items within the observable array.
-		/// </summary>
-		/// <returns>The collection of items.</returns>
-		[JsMethod(Name="")]
-		public JsArray<T> GetItems()
-		{
-			return null;
-		}
+
+        /// <summary>
+        /// Gets the underlying items within the observable array.
+        /// </summary>
+        public JsArray<T> Value
+        {
+            [JsMethod(Name = "")]
+            get { return null; }
+            [JsMethod(Name = "")]
+            private set { }
+        }
+
+        ///// <summary>
+        ///// Gets the underlying items within the observable array.
+        ///// </summary>
+        ///// <returns>The collection of items.</returns>
+        //[JsMethod(Name="")]
+        //public JsArray<T> GetItems()
+        //{
+        //    return null;
+        //}
 		/// <summary>
 		/// Returns the index of the first array item that equals the value.
 		/// </summary>
