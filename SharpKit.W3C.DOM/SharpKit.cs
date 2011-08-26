@@ -513,3 +513,9 @@ using SharpKit.JavaScript;
 [assembly: JsType(JsMode.Prototype, PropertiesAsFields = true, TargetType = typeof(org.w3c.dom.xpath.XPathResult))]
 #endregion
 
+/// <summary>
+/// Latest HTML interfaces, created according to w3c specifications, including HTML5, CSS3, SVG, WebGL, WebDatabase and more.
+/// </summary>
+class AssemblyDoc
+{
+}

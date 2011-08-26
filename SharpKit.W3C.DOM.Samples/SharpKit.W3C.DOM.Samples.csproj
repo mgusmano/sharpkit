@@ -48,7 +48,9 @@
     <Compile Include="Canvas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Canvas\DrawingBoard\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpKit.W3C.DOM\SharpKit.W3C.DOM.csproj">
       <Project>{24586114-6564-468F-9D51-98360DFE1465}</Project>

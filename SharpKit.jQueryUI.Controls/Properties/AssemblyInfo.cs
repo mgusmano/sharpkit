@@ -34,6 +34,14 @@ using SharpKit.JavaScript;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("4.06.0000")]
+[assembly: AssemblyFileVersion("4.06.3000")]
 
 [assembly: JsExport(Minify = false, LongFunctionNames = false, ExportComments = false, EnableProfiler = false)]
+
+
+/// <summary>
+/// A wrapper library for jQuery UI, designed to use jQuery UI like a standard control
+/// </summary>
+class AssemblyDoc
+{
+}

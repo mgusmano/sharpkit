@@ -33,4 +33,14 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("4.06.0000")]
+[assembly: AssemblyFileVersion("4.06.3000")]
+
+
+/// <summary>
+/// <para>SharpKit interface for Firebug Console logging API. 
+/// This interface was contributed by <a href="http://www.any-techs.co.il" target="_blank">Any Technologies</a></para>
+/// Having a fancy JavaScript debugger is great, but sometimes the fastest way to find bugs is just to dump as much information to the console as you can. Firebug gives you a set of powerful logging functions that you can call from your own web pages.
+/// </summary>
+class AssemblyDoc
+{
+}

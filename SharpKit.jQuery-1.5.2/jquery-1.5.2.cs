@@ -2204,3 +2204,11 @@ namespace SharpKit.jQuery
         public JsAction xhr { get; set; }
     }
 }
+
+/// <summary>
+/// SharpKit interface for jQuery.
+/// jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript.
+/// </summary>
+class AssemblyDoc
+{
+}

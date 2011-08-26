@@ -2029,6 +2029,40 @@ namespace SharpKit.JavaScript
     }
     #endregion
 
-
+    /// <summary>
+    /// Contains all SharpKit compiler attributes used to customize JavaScript output
+    /// Contains .NET types for primitive JavaScript types such as JsNumber, JsObject, JsArray, etc...
+    /// Contains all JavaScript global functions in a derivable context class - JsContext
+    /// </summary>
+    /// <example>
+    /// This example uses the JsTypeAttribute to instruct SharpKit compiler to convert this class into JavaScript,
+    /// it also uses the parseInt global JavaScript function, and the toString() function on the JsNumber type.
+    /// <code>
+    /// using SharpKit.JavaScript;
+    /// 
+    /// namespace MyApp.Client
+    /// {
+    ///     [JsType(JsMode.Global, Filename="MyScript.js")]
+    ///     class MyScript : JsContext
+    ///     {
+    ///         public static void Main()
+    ///         {
+    ///             var x = parseInt("677");
+    ///             var s = x.toString();
+    ///         }
+    ///     }
+    /// }
+    /// </code>
+    /// </example>
+    class NamespaceDoc
+    {
+    }
     #endregion
+}
+
+/// <summary>
+/// SharpKit core assembly, contains all needed attributes and types required to use SharpKit
+/// </summary>
+class AssemblyDoc
+{
 }

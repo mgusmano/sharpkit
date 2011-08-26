@@ -33,4 +33,15 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("4.06.0000")]
+[assembly: AssemblyFileVersion("4.06.3000")]
+
+
+
+
+/// <summary>
+/// SharpKit interfaces for Ext JS 4.
+/// Ext JS 4 is a pure JavaScript application framework that works everywhere from IE6 to Chrome 11. It enables you to create the best cross-platform applications using nothing but a browser, and has a phenomenal API.
+/// </summary>
+class AssemblyDoc
+{
+}

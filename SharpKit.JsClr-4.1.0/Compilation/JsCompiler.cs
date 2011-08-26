@@ -442,3 +442,13 @@ namespace SharpKit.JavaScript.Compilation
 
     }
 }
+
+/// <summary>
+/// SharpKit library for Clr mode, .NET runtime implementation written in pure JavaScript.
+/// This library supports namespaces, classes, generics, interfaces, enums, delegates, LINQ, reflection and many other .NET features.
+/// To use this library, you must include the jsclr.js script and call the Compile() method.
+/// Clr scripts have no dependencies, and you can include your own clr scripts in any order you want.
+/// </summary>
+class AssemblyDoc
+{
+}

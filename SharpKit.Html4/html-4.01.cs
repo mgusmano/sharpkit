@@ -585,11 +585,12 @@ Opera counts the <div> with id='test'")]
         ///<returns></returns>
         [SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
         public HtmlElement createElement(JsString name) { return null; }
-        ///<summary>
+        /// <summary>
         ///Creates a new HtmlElement
-        ///</summary>
-        ///<param name="name"></param>
-        ///<returns></returns>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="name"></param>
+        /// <returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
         [SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
         public T createElement<T>(JsString name) { return default(T); }
@@ -5421,4 +5422,12 @@ IE 5.5 doesn't return custom attributes, and initially gives the attribute value
     #endregion
 
 
+}
+
+/// <summary>
+/// SharpKit interface for HTML 4.01.
+/// In order to use later browser features like HTML5 please refer to <c>SharpKit.W3C.DOM</c> assembly.
+/// </summary>
+class AssemblyDoc
+{
 }
