@@ -14,7 +14,22 @@ namespace SharpKit.jQueryMobile
         /// Programmatically change from one page to another. 
         /// This method is used internally for the page loading and transitioning that occurs as a result of clicking a link or submitting a form, when those features are enabled.
         /// </summary>
+        /// <example>
+        /// transition to the "about us" page with a slideup transition
+        /// <code>
+        /// $.mobile.changePage( "about/us.html", { transition: "slideup"} );	
+        /// </code>
+        /// transition to the "search results" page, using data from a form with an ID of "search"
+        /// <code>
+        ///$.mobile.changePage( "searchresults.php", {type: "post", data: $("form#search").serialize()});
+        ///</code>
+        ///transition to the "confirm" page with a "pop" transition without tracking it in history
+        ///<code>		
+        ///$.mobile.changePage( "../alerts/confirm.html", {transition: "pop",reverse: false,changeHash: false});	
+        ///</code>
+        /// </example>
         /// <param name="to">jQuery collection object. ($("#about"))</param>
+        /// <param name="options"></param>
         public void changePage(object to, ChangePageOptions options)
         {
         }
@@ -47,7 +62,26 @@ namespace SharpKit.jQueryMobile
         public void removeData()
         {
         }
+        public void loadPage(object url, LoadPageOptions options)
+        {
+        }
     }
+
+    //$.mobile.loadPage (method)
+    //Load an external page, enhance its content, and insert it into the DOM. This method is called internally by the changePage() function when its first argument is a URL. This function does not affect the current active page so it can be used to load pages in the background. The function returns a deferred promise object that gets resolved after the page has been enhanced and inserted into the document.
+    //· Arguments
+    //url (string or object, required) A relative or absolute URL.
+    
+    //Examples:
+
+    ////load the "about us" page into the DOM			
+    //$.mobile.loadPage( "about/us.html" );	
+
+    ////load a "search results" page, using data from a form with an ID of "search"" 		
+    //$.mobile.loadPage( "searchresults.php", {
+    //    type: "post", 
+    //    data: $("form#search").serialize()
+    //});				
 
     [JsType(JsMode.Json)]
     [JsEnum(ValuesAsNames = true)]
@@ -204,125 +238,186 @@ namespace SharpKit.jQueryMobile
         vmousecancel,
         //TODO: AnimationEvents- jQuery Mobile exposes the animationComplete plugin, which you can utilize after adding or removing a class that applies a CSS transition. 
     }
-}
-[JsType(JsMode.Prototype)]
-public class jQuery
-{
-    public void live(JsString name, JsAction<Event, UI> handler)
+
+    [JsType(JsMode.Prototype)]
+    public class jQuery
+    {
+        public void live(JsString name, JsAction<Event, UI> handler)
+        {
+        }
+        //TODOpublic void live(LiveEvent name, JsAction<Event, UI> handler)
+        //{
+        //}
+    }
+
+    public class Event
     {
     }
-    //TODOpublic void live(LiveEvent name, JsAction<Event, UI> handler)
-    //{
-    //}
+    public class UI
+    {
+    }
+
+
+    [JsType(JsMode.Json)]
+    public partial class ChangePageOptions
+    {
+        /// <summary>
+        /// default:	$.mobile.defaultPageTransition)	The transition to use when showing the page.
+        /// </summary>
+        public JsString transition { get; set; }
+        /// <summary>
+        /// default:	(boolean, default:	false) Decides what direction the transition will run when showing the page.
+        /// </summary>
+        public bool reverse { get; set; }
+        /// <summary>
+        /// (boolean,	default:	true) Decides if the hash in the location bar should be updated.
+        /// </summary>
+        public bool changeHash { get; set; }
+        /// <summary>
+        /// (JsString,	default:	undefined) The data-role value to be used when displaying the page. By default this is undefined which means rely on the value of the @data-role attribute defined on the element.
+        /// </summary>
+        public JsString role { get; set; }
+        /// <summary>
+        /// (jQuery collection,	default:	$.mobile.pageContainer) Specifies the element that should contain the page.
+        /// </summary>
+        public jQuery pageContainer { get; set; }
+        /// <summary>
+        /// (JsString, default: "get") Specifies the method ("get" or "post") to use when making a page request.
+        /// <list type=" bullet">
+        /// Used only when the 'to' argument of changePage() is a URL.
+        /// </list>
+        /// </summary>
+        public JsString type { get; set; }
+        /// <summary>
+        /// (object or	JsString,	default: undefined) The data to send with an Ajax page request.
+        /// <list type="bullet">
+        /// Used only when the 'to' argument of changePage() is a URL. 
+        /// </list>
+        /// </summary>
+        public object data { get; set; }
+        /// <summary>
+        /// (boolean, default: false) Forces a reload of a page, even if it is already in the DOM of the page container.
+        /// <list type="bullet">
+        ///Used only when the 'to' argument of changePage() is a URL. 
+        /// </list>
+        /// </summary>
+        public bool reloadPage { get; set; }
+    }
+    /// <summary>
+    /// Load an external page, enhance its content, and insert it into the DOM. This method is called internally by the changePage() function when its first argument is a URL. This function does not affect the current active page so it can be used to load pages in the background. The function returns a deferred promise object that gets resolved after the page has been enhanced and inserted into the document.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public partial class LoadPageOptions
+    {
+        /// <summary>
+        /// (string,	default:	undefined) The data-role value to be used when displaying the page. By default this is undefined which means rely on the value of the @data-role attribute defined on the element.
+        /// </summary>
+        public JsString role { get; set; }
+        /// <summary>
+        /// (jQuery collection,	default:	$.mobile.pageContainer) Specifies the element that should contain the page after it is loaded.
+        /// </summary>
+        public jQuery pageContainer { get; set; }
+        /// <summary>
+        ///  (string, default: "get") Specifies the method ("get" or "post") to use when making a page request.
+        /// </summary>
+        public JsString type { get; set; }
+        /// <summary>
+        /// (object or	string,	default: undefined) The data to send with an Ajax page request.
+        /// </summary>
+        public object data { get; set; }
+        /// <summary>
+        /// (boolean, default: false) Forces a reload of a page, even if it is already in the DOM of the page container.
+        /// </summary>
+        public bool reloadPage { get; set; }
+        /// <summary>
+        /// (number (in ms), default: 50) Forced delay before the loading message is shown. This is meant to allow time for a page that has already been visited to be fetched from cache without a loading message.
+        /// </summary>
+        public JsNumber loadMsgDelay { get; set; }
+    }
+
+
+
+    /// <summary>
+    /// The following defaults are configurable via the $.mobile object:
+    /// </summary>
+    public class MobileOptions
+    {
+        /// <summary>
+        /// default: ""
+        /// The namespace used in data- attributes, for example, data-role. Can be set to anything, including a blank string which is the default. When using, it's clearest if you include a trailing dash, such as "mynamespace-" which maps to data-mynamespace-foo="...".
+        /// NOTE: if you're using data- namespacing, you'll need to manually update/override one selector in the theme CSS. The following data selectors should incorporate the namespace you're using:
+        /// </summary>
+        /// <example>
+        /// This example shows how to....
+        /// <code>
+        /// .ui-mobile [data-mynamespace-role=page], .ui-mobile [data-mynamespace-role=dialog], .ui-page { ...
+        /// </code>
+        /// </example>
+        public JsString ns { get; set; }
+        /// <summary>
+        ///default: true
+        ///When the DOM is ready, the framework should automatically call $.mobile.initializePage. If false, page will not initialize, and will be visually hidden until until $.mobile.initializePage is manually called.
+        /// </summary>
+        public bool autoInitializePage { get; set; }
+        /// <summary>
+        /// default: "ui-page"
+        ///The url parameter used for referencing widget-generated sub-pages (such as those generated by nested listviews). Translates to to example.html&ui-page=subpageIdentifier. The hash segment before &ui-page= is used by the framework for making an Ajax request to the URL where the sub-page exists.
+        /// </summary>
+        public JsString subPageUrlKey { get; set; }
+        /// <summary>
+        /// default: "ui-page-active"
+        /// The class assigned to page currently in view, and during transitions
+        /// activeBtnClass string, default: "ui-page-active"
+        /// The class used for "active" button state, from CSS framework.
+        /// </summary>
+        public JsString activePageClass { get; set; }
+        /// <summary>
+        /// default: "ui-page-active"
+        /// The class used for "active" button state, from CSS framework.
+        /// </summary>
+        public JsString activeBtnClass { get; set; }
+        /// <summary>
+        /// default: true
+        /// jQuery Mobile will automatically handle link clicks and form submissions through Ajax, when possible. If false, url hash listening will be disabled as well, and urls will load as regular http requests.
+        /// </summary>
+        public bool ajaxEnabled { get; set; }
+        /// <summary>
+        /// default: true
+        /// jQuery Mobile will automatically listen and handle changes to the location.hash. Disabling this will prevent jQuery Mobile from handling hash changes, which allows you to handle them yourself, or simply to use simple deep-links within a document that scroll to a particular ID.
+        /// </summary>
+        public bool hashListeningEnabled { get; set; }
+        /// <summary>
+        /// default: 'slide'
+        /// Set the default transition for page changes that use Ajax. Set to 'none' for no transitions by default.
+        /// </summary>
+        public JsString defaultPageTransition { get; set; }
+        /// <summary>
+        ///  default: 'pop'
+        ///  Set the default transition for dialog changes that use Ajax. Set to 'none' for no transitions by default.
+        /// </summary>
+        public JsString defaultDialogTransition { get; set; }
+        /// <summary>
+        /// string, default: 150
+        /// Minimum scroll distance that will be remembered when returning to a page.
+        /// </summary>
+        public JsString minScrollBack { get; set; }
+        /// <summary>
+        /// default: "loading"
+        /// Set the text that appears when a page is loading. If set to false, the message will not appear at all.
+        /// </summary>
+        public JsString loadingMessage { get; set; }
+        /// <summary>
+        /// default: "Error Loading Page"
+        /// Set the text that appears when a page fails to load through Ajax.
+        /// </summary>
+        public JsString pageLoadErrorMessage { get; set; }
+        /// <summary>
+        ///  default: a function returning the value of $.support.mediaquery
+        ///  Any support conditions that must be met in order to proceed.
+        /// </summary>
+        public JsFunc<bool> gradeA { get; set; }
+    }
+
+
+
 }
-
-public class Event
-{
-}
-public class UI
-{
-}
-[JsType(JsMode.Json)]
-public partial class ChangePageOptions
-{
-    /// <summary>
-    /// default:	$.mobile.defaultPageTransition)	The transition to use when showing the page.
-    /// </summary>
-    public JsString transition { get; set; }
-
-    //        transition (JsString,	default:	$.mobile.defaultPageTransition)	The transition to use when showing the page.
-    //reverse (boolean,	default:	false) Decides what direction the transition will run when showing the page.
-    //changeHash (boolean,	default:	true) Decides if the hash in the location bar should be updated.
-    //role (JsString,	default:	undefined) The data-role value to be used when displaying the page. By default this is undefined which means rely on the value of the @data-role attribute defined on the element.
-    //pageContainer (jQuery collection,	default:	$.mobile.pageContainer) Specifies the element that should contain the page.
-    //type (JsString, default: "get") Specifies the method ("get" or "post") to use when making a page request.
-    //Used only when the 'to' argument of changePage() is a URL.
-    //data (object or	JsString,	default: undefined) The data to send with an Ajax page request.
-    //Used only when the 'to' argument of changePage() is a URL.
-    //reloadPage (boolean, default: false) Forces a reload of a page, even if it is already in the DOM of the page container.
-    //Used only when the 'to' argument of changePage() is a URL.
-}
-
-/// <summary>
-/// The following defaults are configurable via the $.mobile object:
-/// </summary>
-public class MobileOptions
-{
-    /// <summary>
-    /// default: ""
-    /// The namespace used in data- attributes, for example, data-role. Can be set to anything, including a blank string which is the default. When using, it's clearest if you include a trailing dash, such as "mynamespace-" which maps to data-mynamespace-foo="...".
-    /// NOTE: if you're using data- namespacing, you'll need to manually update/override one selector in the theme CSS. The following data selectors should incorporate the namespace you're using:
-    /// </summary>
-    /// <example>
-    /// This example shows how to....
-    /// <code>
-    /// .ui-mobile [data-mynamespace-role=page], .ui-mobile [data-mynamespace-role=dialog], .ui-page { ...
-    /// </code>
-    /// </example>
-    public JsString ns { get; set; }
-    /// <summary>
-    ///default: true
-    ///When the DOM is ready, the framework should automatically call $.mobile.initializePage. If false, page will not initialize, and will be visually hidden until until $.mobile.initializePage is manually called.
-    /// </summary>
-    public bool autoInitializePage { get; set; }
-    /// <summary>
-    /// default: "ui-page"
-    ///The url parameter used for referencing widget-generated sub-pages (such as those generated by nested listviews). Translates to to example.html&ui-page=subpageIdentifier. The hash segment before &ui-page= is used by the framework for making an Ajax request to the URL where the sub-page exists.
-    /// </summary>
-    public JsString subPageUrlKey { get; set; }
-    /// <summary>
-    /// default: "ui-page-active"
-    /// The class assigned to page currently in view, and during transitions
-    /// activeBtnClass string, default: "ui-page-active"
-    /// The class used for "active" button state, from CSS framework.
-    /// </summary>
-    public JsString activePageClass { get; set; }
-    /// <summary>
-    /// default: "ui-page-active"
-    /// The class used for "active" button state, from CSS framework.
-    /// </summary>
-    public JsString activeBtnClass { get; set; }
-    /// <summary>
-    /// default: true
-    /// jQuery Mobile will automatically handle link clicks and form submissions through Ajax, when possible. If false, url hash listening will be disabled as well, and urls will load as regular http requests.
-    /// </summary>
-    public bool ajaxEnabled { get; set; }
-    /// <summary>
-    /// default: true
-    /// jQuery Mobile will automatically listen and handle changes to the location.hash. Disabling this will prevent jQuery Mobile from handling hash changes, which allows you to handle them yourself, or simply to use simple deep-links within a document that scroll to a particular ID.
-    /// </summary>
-    public bool hashListeningEnabled { get; set; }
-    /// <summary>
-    /// default: 'slide'
-    /// Set the default transition for page changes that use Ajax. Set to 'none' for no transitions by default.
-    /// </summary>
-    public JsString defaultPageTransition { get; set; }
-    /// <summary>
-    ///  default: 'pop'
-    ///  Set the default transition for dialog changes that use Ajax. Set to 'none' for no transitions by default.
-    /// </summary>
-    public JsString defaultDialogTransition { get; set; }
-    /// <summary>
-    /// string, default: 150
-    /// Minimum scroll distance that will be remembered when returning to a page.
-    /// </summary>
-    public JsString minScrollBack { get; set; }
-    /// <summary>
-    /// default: "loading"
-    /// Set the text that appears when a page is loading. If set to false, the message will not appear at all.
-    /// </summary>
-    public JsString loadingMessage { get; set; }
-    /// <summary>
-    /// default: "Error Loading Page"
-    /// Set the text that appears when a page fails to load through Ajax.
-    /// </summary>
-    public JsString pageLoadErrorMessage { get; set; }
-    /// <summary>
-    ///  default: a function returning the value of $.support.mediaquery
-    ///  Any support conditions that must be met in order to proceed.
-    /// </summary>
-    public JsFunc<bool> gradeA { get; set; }
-}
-
-
-
