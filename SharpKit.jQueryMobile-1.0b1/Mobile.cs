@@ -125,7 +125,7 @@ namespace SharpKit.jQueryMobile
     /*
 
 
-
+    http://jquerymobile.com/demos/1.0b2/#/demos/1.0b2/docs/api/globalconfig.html
 		
 autoInitializePage boolean, default: true
 When the DOM is ready, the framework should automatically call $.mobile.initializePage. If false, page will not initialize, and will be visually hidden until until $.mobile.initializePage is manually called.
