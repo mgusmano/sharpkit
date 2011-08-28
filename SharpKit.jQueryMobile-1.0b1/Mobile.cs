@@ -202,10 +202,7 @@ namespace SharpKit.jQueryMobile
         /// Normalized event for handling touch or mouse mousecancel events
         /// </summary>
         vmousecancel,
-        /// <summary>
-        /// jQuery Mobile exposes the animationComplete plugin, which you can utilize after adding or removing a class that applies a CSS transition. 
-        /// </summary>
-        AnimationEvents,
+        //TODO: AnimationEvents- jQuery Mobile exposes the animationComplete plugin, which you can utilize after adding or removing a class that applies a CSS transition. 
     }
 }
 [JsType(JsMode.Prototype)]
