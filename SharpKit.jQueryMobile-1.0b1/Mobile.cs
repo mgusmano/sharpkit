@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using SharpKit.JavaScript;
+using SharpKit.Html4;
 namespace SharpKit.jQueryMobile
 {
     //TODO: $(document).bind("mobileinit"
@@ -62,26 +63,186 @@ namespace SharpKit.jQueryMobile
         public void removeData()
         {
         }
+        /// <summary>
+        /// Load an external page, enhance its content, and insert it into the DOM. This method is called internally by the changePage() function when its first argument is a URL. This function does not affect the current active page so it can be used to load pages in the background. The function returns a deferred promise object that gets resolved after the page has been enhanced and inserted into the document.
+        /// </summary>
+        ///  /// <example>
+        /// load the "about us" page into the DOM.
+        /// <code>
+        /// $.mobile.loadPage( "about/us.html" );
+        /// </code>
+        /// load a "search results" page, using data from a form with an ID of "search""
+        /// <code>
+        /// $.mobile.loadPage( "searchresults.php", {type: "post", data: $("form#search").serialize()});
+        /// </code>
+        /// </example>
+        /// <param name="url">
+        ///  (string or object, required) A relative or absolute URL.
+        ///  </param>
+        /// <param name="options">
+        /// (object, optional)
+        /// </param>
         public void loadPage(object url, LoadPageOptions options)
         {
         }
-    }
 
-    //$.mobile.loadPage (method)
-    //Load an external page, enhance its content, and insert it into the DOM. This method is called internally by the changePage() function when its first argument is a URL. This function does not affect the current active page so it can be used to load pages in the background. The function returns a deferred promise object that gets resolved after the page has been enhanced and inserted into the document.
-    //· Arguments
-    //url (string or object, required) A relative or absolute URL.
-    
-    //Examples:
+        /// <summary>
+        /// Returns value at named data store for the element, as set by jQuery.data(element, name, value), or the full data store for the element.
+        /// When working with jQuery Mobile, jqmData and jqmRemoveData should be used in place of jQuery core's data and removeData methods (note that this includes $.fn.data, $.fn.removeData, and the $.data, $.removeData, and $.hasData utilities), as they automatically incorporate getting and setting of namespaced data attributes (even if no namespace is currently in use).
+        /// </summary>
+        /// <example>
+        /// When finding elements by their jQuery Mobile data attribute, please use the custom selector :jqmData(), as it automatically incorporates namespaced data attributes into the lookup when they are in use
+        /// <code>
+        /// instead of calling $("div[data-role='page']"), you should use $("div:jqmData(role='page')"), which internally maps to $("div[data-"+ $.mobile.ns +"role='page']") without forcing you to concatenate a namespace into your selectors manually.
+        /// </code>
+        /// </example>
+        public static JsObject jqmData(HtmlElement element) { return null; }
+        /// <summary>
+        /// Returns value at named data store for the element, as set by jQuery.data(element, name, value), or the full data store for the element.
+        /// When working with jQuery Mobile, jqmData and jqmRemoveData should be used in place of jQuery core's data and removeData methods (note that this includes $.fn.data, $.fn.removeData, and the $.data, $.removeData, and $.hasData utilities), as they automatically incorporate getting and setting of namespaced data attributes (even if no namespace is currently in use).
+        /// </summary>
+        public static JsObject jqmdata(HtmlElement element, JsString key) { return null; }
+        /// <summary>
+        /// Store arbitrary data associated with the specified element.
+        /// When working with jQuery Mobile, jqmData and jqmRemoveData should be used in place of jQuery core's data and removeData methods (note that this includes $.fn.data, $.fn.removeData, and the $.data, $.removeData, and $.hasData utilities), as they automatically incorporate getting and setting of namespaced data attributes (even if no namespace is currently in use).
+        /// </summary>
+        public static jQuery jqmdata(HtmlElement element, JsString key, JsObject value) { return null; }
+        /// <summary>
+        /// When working with jQuery Mobile, jqmData and jqmRemoveData should be used in place of jQuery core's data and removeData methods (note that this includes $.fn.data, $.fn.removeData, and the $.data, $.removeData, and $.hasData utilities), as they automatically incorporate getting and setting of namespaced data attributes (even if no namespace is currently in use).
+        /// </summary>
+        public static jQuery jqmRemoveData(HtmlElement element) { return null; }
+        /// <summary>
+        /// Remove a previously-stored piece of data.
+        /// When working with jQuery Mobile, jqmData and jqmRemoveData should be used in place of jQuery core's data and removeData methods (note that this includes $.fn.data, $.fn.removeData, and the $.data, $.removeData, and $.hasData utilities), as they automatically incorporate getting and setting of namespaced data attributes (even if no namespace is currently in use).
+        /// </summary>
+        public static jQuery jqmremoveData(HtmlElement element, JsString name) { return null; }
+       
+        // TODO:public static jQuery jqmHasData()
+                
+        
 
-    ////load the "about us" page into the DOM			
-    //$.mobile.loadPage( "about/us.html" );	
+        /// <summary>
+        /// Show the page loading message, which is configurable via $.mobile.loadingMessage.
+        /// </summary>
+        /// <example>
+        /// cue the page loader
+        /// <code>
+        /// $.mobile.showPageLoadingMsg();
+        /// </code>
+        /// </example>
+        public void showPageLoadingMsg()
+        { 
+        }
+        /// <summary>
+        /// Hide the page loading message, which is configurable via $.mobile.loadingMessage.
+        /// </summary>
+        /// <example>
+        /// cue the page loader
+        /// <code>
+        /// $.mobile.hidePageLoadingMsg();
+        /// </code>
+        /// </example>
+        public void hidePageLoadingMsg()
+        {
+        }
+        /// <summary>
+        /// Utility method for parsing a URL and its relative variants into an object that makes accessing the components of the URL easy. When parsing relative variants, the resulting object will contain empty string values for missing components (like protocol, host, etc). Also, when parsing URLs that have no authority, such as tel: urls, the pathname property of the object will contain the data after the protocol/scheme colon.
+        /// </summary>
+        /// <param name="url">
+        /// (string, required) A relative or absolute URL.
+        /// </param>
+        /// <param name="obj">
+        /// This function returns an object that contains the various components of the URL as strings. The properties on the object mimic the browser's location object
+        /// </param>
+        /// <example>
+        /// Parsing the Url below results an object that is returned with the
+        /// following properties:
+        /// <code>
+        /// obj.href:         http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234&type=unread#msg-content
+        ///  obj.hrefNoHash:   http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234&type=unread
+        ///  obj.hrefNoSearch: http://jblas:password@mycompany.com:8080/mail/inbox
+        ///  obj.domain:       http://jblas:password@mycompany.com:8080
+        ///  obj.protocol:     http:
+        ///  obj.authority:    jblas:password@mycompany.com:8080
+        ///  obj.username:     jblas
+        ///  obj.password:     password
+        ///  obj.host:         mycompany.com:8080
+        ///  obj.hostname:     mycompany.com
+        ///  obj.port:         8080
+        ///  obj.pathname:     /mail/inbox
+        ///  obj.directory:    /mail/
+        ///  obj.filename:     inbox
+        ///  obj.search:       ?msg=1234&type=unread
+        ///  obj.hash:         #msg-content
+        ///  var obj = $.mobile.path.parseUrl("http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234");
+        /// </code>
+        /// </example>
+        public JsString parseUrl(JsString url, ReturnValueParseUrl returnVal)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Utility method for converting a relative file or directory path into an absolute path.
+        /// This function returns a string that is an absolute version of the relative path passed in.
+        /// </summary>
+        /// <example>
+        /// Returns: /a/b/c/file.html
+        /// <code>
+        /// var absPath = $.mobile.path.makePathAbsolute("file.html", "/a/b/c/bar.html");
+        /// </code>
+        /// Returns: /a/foo/file.html
+        /// <code>
+        /// var absPath = $.mobile.path.makePathAbsolute("../../foo/file.html", "/a/b/c/bar.html");
+        /// </code>
+        /// </example>
+        /// <param name="relPath">
+        /// (string, required) A relative file or directory path.
+        /// </param>
+        /// <param name="absPath">
+        /// (string, required) An absolute file or relative path to resolve against.
+        /// </param>
+        public JsString makePathAbsolute(JsString relPath, JsString absPath)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Utility method for converting a relative URL to an absolute URL.
+        /// This function returns a string that is an absolute version of the relative URL passed in.
+        /// </summary>
+        /// <example>
+        /// Returns: http://foo.com/a/b/c/file.html
+        /// <code>
+        /// var absUrl = $.mobile.path.makeUrlAbsolute("file.html", "http://foo.com/a/b/c/test.html");
+        /// </code>
+        /// Returns: http://foo.com/a/foo/file.html
+        /// <code>
+        /// var absUrl = $.mobile.path.makeUrlAbsolute("../../foo/file.html", "http://foo.com/a/b/c/test.html");
+        /// </code>
+        /// Returns: http://foo.com/bar/file.html
+        /// <code>
+        /// var absUrl = $.mobile.path.makeUrlAbsolute("//foo.com/bar/file.html", "http://foo.com/a/b/c/test.html");
+        /// </code>
+        /// Returns: http://foo.com/a/b/c/test.html?a=1&b=2
+        /// <code>
+        /// var absUrl = $.mobile.path.makeUrlAbsolute("?a=1&b=2", "http://foo.com/a/b/c/test.html");
+        /// </code>
+        /// Returns: http://foo.com/a/b/c/test.html#bar
+        /// <code>
+        /// var absUrl = $.mobile.path.makeUrlAbsolute("#bar", "http://foo.com/a/b/c/test.html");
+        /// </code>
+        /// </example>
+        /// <param name="relUrl">
+        /// (string, required) A relative URL.
+        /// </param>
+        /// <param name="absUrl">
+        /// (string, required) An absolute URL to resolve against.
+        /// </param>
+        public JsString makeUrlAbsolute(JsString relUrl, JsString absUrl)   {return null;}
 
-    ////load a "search results" page, using data from a form with an ID of "search"" 		
-    //$.mobile.loadPage( "searchresults.php", {
-    //    type: "post", 
-    //    data: $("form#search").serialize()
-    //});				
+
+}
+
+     
 
     [JsType(JsMode.Json)]
     [JsEnum(ValuesAsNames = true)]
@@ -417,7 +578,81 @@ namespace SharpKit.jQueryMobile
         /// </summary>
         public JsFunc<bool> gradeA { get; set; }
     }
+    /// <summary>
+    /// This function returns an object that contains the various components of the URL as strings. The properties on the object mimic the browser's location object:
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public partial class ReturnValueParseUrl
+    {
+        /// <summary>
+        /// The fragment conponent of the URL, including the leading '#' character.
+        /// </summary>
+        public JsString hash { get; set; }
+        /// <summary>
+        /// The host and port number of the URL.
+        /// </summary>
+        public JsString host { get; set; }
+        /// <summary>
+        /// The name of the host within the URL.
+        /// </summary>
+        public JsString hostname { get; set; }
+        /// <summary>
+        /// The original URL that was parsed.
+        /// </summary>
+        public JsString href { get; set; }
+        /// <summary>
+        /// The path of the file or directory referenced by the URL.
+        /// </summary>
+        public JsString pathname { get; set; }
+        /// <summary>
+        /// The port specified within the URL. Most URLs rely on the default port for the protocol used, so this may be an empty string most of the time.
+        /// </summary>
+        public JsString port { get; set; }
+        /// <summary>
+        /// The protocol for the URL including the trailing ':' character.
+        /// </summary>
+        public JsString protocol { get; set; }
+        /// <summary>
+        /// The query component of the URL including the leading '?' character.
+        /// But it also contains additional properties that provide access to additional components as well as some common forms of the URL developers access:
+        /// </summary>
+        public JsString searchDt { get; set; }
+        /// <summary>
+        /// The username, password, and host components of the URL
+        /// </summary>
+        public JsString authority { get; set; }
+        /// <summary>
+        /// The directory component of the pathname, minus any filename.
+        /// </summary>
+        public JsString directory { get; set; }
+        /// <summary>
+        /// The protocol and authority components of the URL.
+        /// </summary>
+        public JsString domain { get; set; }
+        /// <summary>
+        /// The filename within the pathname component, minus the directory.
+        /// </summary>
+        public JsString filename { get; set; }
+        /// <summary>
+        /// The original URL minus the fragment (hash) components.
+        /// </summary>
+        public JsString hrefNoHash { get; set; }
+        /// <summary>
+        /// The original URL minus the query (search) and fragment (hash) components.
+        /// </summary>
+        public JsString hrefNoSearch { get; set; }
+        /// <summary>
+        /// The password contained within the authority component.
+        /// </summary>
+        public JsString password { get; set; }
+        /// <summary>
+        /// The username contained within the authority component.
+        /// </summary>
+        public JsString username { get; set; }
 
 
 
+
+
+    }
 }
