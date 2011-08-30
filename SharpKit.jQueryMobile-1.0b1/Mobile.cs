@@ -15,6 +15,8 @@ namespace SharpKit.jQueryMobile
         /// Programmatically change from one page to another. 
         /// This method is used internally for the page loading and transitioning that occurs as a result of clicking a link or submitting a form, when those features are enabled.
         /// </summary>
+        /// <param name="to">jQuery collection object. ($("#about"))</param>
+        /// <param name="options"></param>
         /// <example>
         /// transition to the "about us" page with a slideup transition
         /// <code>
@@ -29,8 +31,6 @@ namespace SharpKit.jQueryMobile
         ///$.mobile.changePage( "../alerts/confirm.html", {transition: "pop",reverse: false,changeHash: false});	
         ///</code>
         /// </example>
-        /// <param name="to">jQuery collection object. ($("#about"))</param>
-        /// <param name="options"></param>
         public void changePage(object to, ChangePageOptions options)
         {
         }
@@ -66,6 +66,12 @@ namespace SharpKit.jQueryMobile
         /// <summary>
         /// Load an external page, enhance its content, and insert it into the DOM. This method is called internally by the changePage() function when its first argument is a URL. This function does not affect the current active page so it can be used to load pages in the background. The function returns a deferred promise object that gets resolved after the page has been enhanced and inserted into the document.
         /// </summary>
+        /// <param name="url">
+        ///  (string or object, required) A relative or absolute URL.
+        ///  </param>
+        /// <param name="options">
+        /// (object, optional)
+        /// </param>
         ///  /// <example>
         /// load the "about us" page into the DOM.
         /// <code>
@@ -76,16 +82,9 @@ namespace SharpKit.jQueryMobile
         /// $.mobile.loadPage( "searchresults.php", {type: "post", data: $("form#search").serialize()});
         /// </code>
         /// </example>
-        /// <param name="url">
-        ///  (string or object, required) A relative or absolute URL.
-        ///  </param>
-        /// <param name="options">
-        /// (object, optional)
-        /// </param>
         public void loadPage(object url, LoadPageOptions options)
         {
         }
-
         /// <summary>
         /// Returns value at named data store for the element, as set by jQuery.data(element, name, value), or the full data store for the element.
         /// When working with jQuery Mobile, jqmData and jqmRemoveData should be used in place of jQuery core's data and removeData methods (note that this includes $.fn.data, $.fn.removeData, and the $.data, $.removeData, and $.hasData utilities), as they automatically incorporate getting and setting of namespaced data attributes (even if no namespace is currently in use).
@@ -118,8 +117,6 @@ namespace SharpKit.jQueryMobile
         public static jQuery jqmremoveData(HtmlElement element, JsString name) { return null; }
        
         // TODO:public static jQuery jqmHasData()
-                
-        
 
         /// <summary>
         /// Show the page loading message, which is configurable via $.mobile.loadingMessage.
@@ -151,9 +148,9 @@ namespace SharpKit.jQueryMobile
         /// <param name="url">
         /// (string, required) A relative or absolute URL.
         /// </param>
-        /// <param name="obj">
+        /// <returns>
         /// This function returns an object that contains the various components of the URL as strings. The properties on the object mimic the browser's location object
-        /// </param>
+        /// </returns>
         /// <example>
         /// Parsing the Url below results an object that is returned with the
         /// following properties:
@@ -177,14 +174,19 @@ namespace SharpKit.jQueryMobile
         ///  var obj = $.mobile.path.parseUrl("http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234");
         /// </code>
         /// </example>
-        public JsString parseUrl(JsString url, ReturnValueParseUrl returnVal)
-        {
-            return null;
-        }
+        public ReturnValueParseUrl parseUrl(JsString url) { return null; } //TODO: ask dan-el.
         /// <summary>
         /// Utility method for converting a relative file or directory path into an absolute path.
-        /// This function returns a string that is an absolute version of the relative path passed in.
         /// </summary>
+        /// <param name="relPath">
+        /// (string, required) A relative file or directory path.
+        /// </param>
+        /// <param name="absPath">
+        /// (string, required) An absolute file or relative path to resolve against.
+        /// </param>
+        /// <returns>
+        /// This function returns a string that is an absolute version of the relative path passed in.
+        /// </returns>
         /// <example>
         /// Returns: /a/b/c/file.html
         /// <code>
@@ -195,20 +197,19 @@ namespace SharpKit.jQueryMobile
         /// var absPath = $.mobile.path.makePathAbsolute("../../foo/file.html", "/a/b/c/bar.html");
         /// </code>
         /// </example>
-        /// <param name="relPath">
-        /// (string, required) A relative file or directory path.
-        /// </param>
-        /// <param name="absPath">
-        /// (string, required) An absolute file or relative path to resolve against.
-        /// </param>
-        public JsString makePathAbsolute(JsString relPath, JsString absPath)
-        {
-            return null;
-        }
+        public JsString makePathAbsolute(JsString relPath, JsString absPath) { return null; }
         /// <summary>
         /// Utility method for converting a relative URL to an absolute URL.
-        /// This function returns a string that is an absolute version of the relative URL passed in.
         /// </summary>
+        /// <param name="relUrl">
+        /// (string, required) A relative URL.
+        /// </param>
+        /// <param name="absUrl">
+        /// (string, required) An absolute URL to resolve against.
+        /// </param>
+        /// <returns>
+        /// This function returns a string that is an absolute version of the relative URL passed in.
+        /// </returns>
         /// <example>
         /// Returns: http://foo.com/a/b/c/file.html
         /// <code>
@@ -231,13 +232,174 @@ namespace SharpKit.jQueryMobile
         /// var absUrl = $.mobile.path.makeUrlAbsolute("#bar", "http://foo.com/a/b/c/test.html");
         /// </code>
         /// </example>
-        /// <param name="relUrl">
+        public JsString makeUrlAbsolute(JsString relUrl, JsString absUrl)   { return null; }
+        /// <summary>
+        /// Utility method for comparing the domain of 2 URLs.
+        /// </summary>
+        /// <example>
+        /// Returns: true
+        /// <code>
+        /// var same = $.mobile.path.isSameDomain("http://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
+        /// </code>
+        /// Returns: false
+        /// <code>
+        /// var same = $.mobile.path.isSameDomain("file://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
+        /// </code>
+        /// Returns: false
+        /// <code>
+        /// var same = $.mobile.path.isSameDomain("https://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
+        /// </code>
+        /// Returns: false
+        /// <code>
+        /// var same = $.mobile.path.isSameDomain("http://foo.com/a/file.html", "http://bar.com/a/b/c/test.html");
+        /// </code>
+        /// </example>
+        /// <param name="url1">
         /// (string, required) A relative URL.
         /// </param>
-        /// <param name="absUrl">
+        /// <param name="url2">
         /// (string, required) An absolute URL to resolve against.
         /// </param>
-        public JsString makeUrlAbsolute(JsString relUrl, JsString absUrl)   {return null;}
+        /// <returns>
+        /// This function returns a boolean true if the domains match, false if they don't.
+        /// </returns>
+        public bool isSameDomain(JsString url1, JsString url2) { return false; }
+        /// <summary>
+        /// Utility method for determining if a URL is a relative variant.
+        /// </summary>
+        /// <param name="url">
+        /// (string, required) A relative or absolute URL.
+        /// </param>
+        /// <returns>
+        /// This function returns a boolean true if the URL is relative, false if it is absolute.
+        /// </returns>
+        /// <example>
+        /// Returns: false
+        /// <code>
+        /// var isRel = $.mobile.path.isRelativeUrl("http://foo.com/a/file.html");
+        /// </code>
+        /// Returns: true
+        /// <code>
+        /// var isRel = $.mobile.path.isRelativeUrl("//foo.com/a/file.html");
+        /// </code>
+        /// Returns: true
+        /// <code>
+        /// var isRel = $.mobile.path.isRelativeUrl("/a/file.html");
+        /// </code>
+        /// Returns: true
+        /// <code>
+        /// var isRel = $.mobile.path.isRelativeUrl("file.html");
+        /// </code>
+        /// Returns: true
+        /// <code>
+        /// var isRel = $.mobile.path.isRelativeUrl("?a=1&b=2");
+        /// </code>
+        /// Returns: true
+        /// <code>
+        /// var isRel = $.mobile.path.isRelativeUrl("#foo");
+        /// </code>
+        /// </example>
+        public bool isRelativeUrl(JsString url) { return false; }
+        /// <summary>
+        /// Utility method for determining if a URL is absolute.
+        /// </summary>
+        /// <param name="url">
+        /// (string, required) A relative or absolute URL.
+        /// </param>
+        /// <returns>
+        /// This function returns a boolean true if the URL is absolute, false if it is absolute.
+        /// </returns>
+        /// <example>
+        /// Returns: true
+        /// <code>
+        /// var isAbs = $.mobile.path.isAbsoluteUrl("http://foo.com/a/file.html");
+        /// </code>
+        /// Returns: false
+        /// <code>
+        /// var isAbs = $.mobile.path.isAbsoluteUrl("//foo.com/a/file.html");
+        /// </code>
+        /// Returns: false
+        /// <code>
+        /// var isAbs = $.mobile.path.isAbsoluteUrl("/a/file.html");
+        /// </code>
+        /// Returns: false
+        /// <code>
+        /// var isAbs = $.mobile.path.isAbsoluteUrl("file.html");
+        /// </code>
+        /// Returns: false
+        /// <code>
+        /// var isAbs = $.mobile.path.isAbsoluteUrl("?a=1&b=2");
+        /// </code>
+        /// Returns: false
+        /// <code>
+        /// var isAbs = $.mobile.path.isAbsoluteUrl("#foo");
+        /// </code>
+        /// </example>
+        public bool isAbsoluteUrl(JsString url) { return false; }
+        /// <summary>
+        /// Utilities for working with generated base element. TODO: document as public API is finalized
+        /// </summary>
+        /// <param name="prms"></param>
+        /// <returns></returns>
+        public object @base(params object[] prms) { return null; }
+        /// <summary>
+        /// Scroll to a particular Y position without triggering scroll event listeners.
+        /// </summary>
+        /// <param name="yPos">
+        /// (number, defaults to 0). Pass any number to scroll to that Y location.
+        /// </param>
+        /// <example>
+        /// scroll to Y 100px
+        /// <code>
+        /// $.mobile.silentScroll(100);
+        /// </code>
+        /// </example>
+        public void silentScroll(JsNumber yPos)
+        {
+        }
+        /// <summary>
+        /// Add width breakpoints to the min/max width classes that are added to the HTML element.
+        /// </summary>
+        /// <param name="values">
+        /// (number or array). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here: Orientation & resolution targeting.
+        /// </param>
+        /// <example>
+        /// add a 400px breakpoint
+        /// <code>
+        /// $.mobile.addResolutionBreakpoints(400);
+        /// </code>
+        /// add 2 more breakpoints
+        /// <code>
+        /// $.mobile.addResolutionBreakpoints([600,800]);
+        /// </code>
+        /// </example>
+        public void addResolutionBreakpoints(JsNumber values) 
+        {
+        }
+        /// <summary>
+        /// Add width breakpoints to the min/max width classes that are added to the HTML element.
+        /// </summary>
+        /// <param name="values">
+        /// (number or array). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here: Orientation & resolution targeting.
+        /// </param>
+        /// <example>
+        /// add a 400px breakpoint
+        /// <code>
+        /// $.mobile.addResolutionBreakpoints(400);
+        /// </code>
+        /// add 2 more breakpoints
+        /// <code>
+        /// $.mobile.addResolutionBreakpoints([600,800]);
+        /// </code>
+        /// </example>
+        public void addResolutionBreakpoints(JsArray values)
+        {
+        }
+        /// <summary>
+        /// Reference to the page currently in view.
+        /// </summary>
+        public JsString activePage { get; set; } // TODO: ask dan-el.
+	
 
 
 }
@@ -649,6 +811,9 @@ namespace SharpKit.jQueryMobile
         /// The username contained within the authority component.
         /// </summary>
         public JsString username { get; set; }
+          
+        
+
 
 
 
