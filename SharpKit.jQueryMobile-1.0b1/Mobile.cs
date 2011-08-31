@@ -41,6 +41,8 @@ namespace SharpKit.jQueryMobile
         /// <param name="to">
         /// Absolute or relative URL. ("about/us.html")
         /// </param>
+        /// <param name="options">
+        /// </param>
         public void changePage(JsString to, ChangePageOptions options)
         {
         }
