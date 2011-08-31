@@ -38,7 +38,9 @@ namespace SharpKit.jQueryMobile
         /// Programmatically change from one page to another. 
         /// This method is used internally for the page loading and transitioning that occurs as a result of clicking a link or submitting a form, when those features are enabled.
         /// </summary>
-        /// <param name="to">Absolute or relative URL. ("about/us.html")</param>
+        /// <param name="to">
+        /// Absolute or relative URL. ("about/us.html")
+        /// </param>
         public void changePage(JsString to, ChangePageOptions options)
         {
         }
@@ -46,7 +48,9 @@ namespace SharpKit.jQueryMobile
         /// Programmatically change from one page to another. 
         /// This method is used internally for the page loading and transitioning that occurs as a result of clicking a link or submitting a form, when those features are enabled.
         /// </summary>
-        /// <param name="to">Absolute or relative URL. ("about/us.html")</param>
+        /// <param name="to">
+        /// Absolute or relative URL. ("about/us.html")
+        /// </param>
         public void changePage(JsString to)
         {
         }
@@ -155,8 +159,8 @@ namespace SharpKit.jQueryMobile
         /// Parsing the Url below results an object that is returned with the
         /// following properties:
         /// <code>
-        /// obj.href:         http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234&type=unread#msg-content
-        ///  obj.hrefNoHash:   http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234&type=unread
+        /// obj.href:         http://jblas:password@mycompany.com:8080/mail/inbox?msg&amp;1234&amp;type&amp;unread#msg-content
+        ///  obj.hrefNoHash:   http://jblas:password@mycompany.com:8080/mail/inbox?msg&amp;1234&type&amp;unread
         ///  obj.hrefNoSearch: http://jblas:password@mycompany.com:8080/mail/inbox
         ///  obj.domain:       http://jblas:password@mycompany.com:8080
         ///  obj.protocol:     http:
@@ -169,7 +173,7 @@ namespace SharpKit.jQueryMobile
         ///  obj.pathname:     /mail/inbox
         ///  obj.directory:    /mail/
         ///  obj.filename:     inbox
-        ///  obj.search:       ?msg=1234&type=unread
+        ///  obj.search:       ?msg=1234&amp;type=unread
         ///  obj.hash:         #msg-content
         ///  var obj = $.mobile.path.parseUrl("http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234");
         /// </code>
@@ -223,9 +227,9 @@ namespace SharpKit.jQueryMobile
         /// <code>
         /// var absUrl = $.mobile.path.makeUrlAbsolute("//foo.com/bar/file.html", "http://foo.com/a/b/c/test.html");
         /// </code>
-        /// Returns: http://foo.com/a/b/c/test.html?a=1&b=2
+        /// Returns: http://foo.com/a/b/c/test.html?a=amp;amp;1&amp;b=amp;2
         /// <code>
-        /// var absUrl = $.mobile.path.makeUrlAbsolute("?a=1&b=2", "http://foo.com/a/b/c/test.html");
+        /// var absUrl = $.mobile.path.makeUrlAbsolute("?a&amp;1&b&amp;2", "http://foo.com/a/b/c/test.html");
         /// </code>
         /// Returns: http://foo.com/a/b/c/test.html#bar
         /// <code>
@@ -292,7 +296,7 @@ namespace SharpKit.jQueryMobile
         /// </code>
         /// Returns: true
         /// <code>
-        /// var isRel = $.mobile.path.isRelativeUrl("?a=1&b=2");
+        /// var isRel = $.mobile.path.isRelativeUrl("?a&amp;1&b&amp;2");
         /// </code>
         /// Returns: true
         /// <code>
@@ -328,7 +332,7 @@ namespace SharpKit.jQueryMobile
         /// </code>
         /// Returns: false
         /// <code>
-        /// var isAbs = $.mobile.path.isAbsoluteUrl("?a=1&b=2");
+        /// var isAbs = $.mobile.path.isAbsoluteUrl("?a&amp;1&amp;b&amp;2");
         /// </code>
         /// Returns: false
         /// <code>
@@ -361,7 +365,7 @@ namespace SharpKit.jQueryMobile
         /// Add width breakpoints to the min/max width classes that are added to the HTML element.
         /// </summary>
         /// <param name="values">
-        /// (number or array). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here: Orientation & resolution targeting.
+        /// (number or array). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here: Orientation &amp;resolution targeting.
         /// </param>
         /// <example>
         /// add a 400px breakpoint
@@ -380,7 +384,7 @@ namespace SharpKit.jQueryMobile
         /// Add width breakpoints to the min/max width classes that are added to the HTML element.
         /// </summary>
         /// <param name="values">
-        /// (number or array). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here: Orientation & resolution targeting.
+        /// (number or array). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here: Orientation &amp;resolution targeting.
         /// </param>
         /// <example>
         /// add a 400px breakpoint
@@ -684,7 +688,7 @@ namespace SharpKit.jQueryMobile
         public bool autoInitializePage { get; set; }
         /// <summary>
         /// default: "ui-page"
-        ///The url parameter used for referencing widget-generated sub-pages (such as those generated by nested listviews). Translates to to example.html&ui-page=subpageIdentifier. The hash segment before &ui-page= is used by the framework for making an Ajax request to the URL where the sub-page exists.
+        ///The url parameter used for referencing widget-generated sub-pages (such as those generated by nested listviews). Translates to to example.html&ui-page&amp;subpageIdentifier. The hash segment before &ui-page&amp; is used by the framework for making an Ajax request to the URL where the sub-page exists.
         /// </summary>
         public JsString subPageUrlKey { get; set; }
         /// <summary>
