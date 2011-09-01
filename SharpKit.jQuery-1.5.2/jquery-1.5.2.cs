@@ -2207,6 +2207,10 @@ namespace SharpKit.jQuery
         /// </summary>
         public JsAction<XMLHttpRequest, JsString> complete { get; set; }
         /// <summary>
+        /// A map of string/regular-expression pairs that determine how jQuery will parse the response, given its content type.
+        /// </summary>
+        public object contents { get; set; }
+        /// <summary>
         /// Default: 'application/x-www-form-urlencoded'
         /// When sending data to the server, use this content-type. Default is "application/x-www-form-urlencoded", which is fine for most cases. If you explicitly pass in a content-type to $.ajax() then it'll always be sent to the server (even if no data is sent). Data will always be transmitted to the server using UTF-8 charset; you must decode this appropriately on the server side.
         /// </summary>
@@ -2338,6 +2342,18 @@ namespace SharpKit.jQuery
         /// Callback for creating the XMLHttpRequest object. Defaults to the ActiveXObject when available (IE), the XMLHttpRequest otherwise. Override to provide your own implementation for XMLHttpRequest or enhancements to the factory.
         /// </summary>
         public JsAction xhr { get; set; }
+        /// <summary>
+        /// A map of fieldName-fieldValue pairs to set on the native XHR object. For example, you can use it to set withCredentials to true for cross-domain requests if needed.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $.ajax({url: a_cross_domain_url,xhrFields: {withCredentials: true}});
+        /// </code>
+        /// <list type=">bullet">
+        /// In jQuery 1.5, the withCredentials property was not propagated to the native XHR and thus CORS requests requiring it would ignore this flag. For this reason, we recommend using jQuery 1.5.1+ should you require the use of it.
+        /// </list>
+        /// </example>
+        public object xhrFields { get; set; }
     }
 }
 
