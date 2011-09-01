@@ -2355,6 +2355,110 @@ namespace SharpKit.jQuery
         /// </example>
         public object xhrFields { get; set; }
     }
+    /// <summary>
+    /// jQuery.Deferred(), introduced in version 1.5, is a chainable utility object that can register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.
+    /// </summary>
+    [JsType(JsMode.Prototype)]
+    public class jQueryDeferred:jQueryPromise
+    {
+    
+       
+   }
+    /// <summary>
+    /// This object provides a subset of the methods of the Deferred object (then, done, fail, always, pipe. isResolved, and isRejected) to prevent users from changing the state of the Deferred
+    /// </summary>
+    [JsType(JsMode.Prototype)]
+    public partial class jQueryPromise
+    {
+        /// <summary>
+        /// Utility method to filter and/or chain Deferreds.
+        /// </summary>
+        /// <param name="doneFilter">
+        /// doneFilter An optional function that is called when the Deferred is resolved.
+        /// </param>
+        /// <param name="failFiltre">
+        /// failFilter An optional function that is called when the Deferred is rejected.
+        /// </param>
+        /// <returns>
+        /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
+        /// </returns>
+        public jQueryPromise pipe(JsAction doneFilter, JsAction failFiltre) { return null; }
+        /// <summary>
+        /// Add handlers to be called when the Deferred object is resolved.
+        /// </summary>
+        /// <param name="callback">
+        /// doneCallbacks A function, or array of functions, that are called when the Deferred is resolved.
+        ///doneCallbacks Optional additional functions, or arrays of functions, that are called when the Deferred is resolved.
+        /// </param>
+        /// <returns>
+        /// returns the deferred object
+        /// </returns>
+        /// <example>
+        /// Since the jQuery.get method returns a jqXHR object, which is derived from a Deferred object, we can attach a success callback using the .done() method.
+        ///<code>
+        ///$.get("test.php").done(function() { alert("$.get succeeded"); });
+        ///</code>
+        ///Resolve a Deferred object when the user clicks a button, triggering a number of callback functions:
+        /// </example>
+        public jQueryDeferred done(JsAction callback) { return null; }
+        /// <summary>
+        /// Add handlers to be called when the Deferred object is rejected.
+        /// </summary>
+        /// <param name="callback">
+        /// failCallbacks A function, or array of functions, that are called when the Deferred is rejected.
+        /// failCallbacks Optional additional functions, or arrays of functions, that are called when the Deferred is rejected.
+        /// </param>
+        /// <returns>
+        /// returns the deferred object.
+        /// </returns>
+        /// <example>
+        /// Since the jQuery.get method returns a jqXHR object, which is derived from a Deferred, you can attach a success and failure callback using the deferred.done() and deferred.fail() methods.
+        /// <code>
+        /// $.get("test.php").done(function(){ alert("$.get succeeded"); }).fail(function(){ alert("$.get failed!"); });
+        /// </code>
+        /// </example>
+        public jQueryDeferred fail(JsAction callback) { return null; }
+        /// <summary>
+        /// Add handlers to be called when the Deferred object is either resolved or rejected.
+        /// </summary>
+        /// <param name="callback">
+        /// The argument can be either a single function or an array of functions. When the Deferred is resolved or rejected, the alwaysCallbacks are called
+        /// </param>
+        /// <returns>
+        /// returns the Deferred object.
+        /// </returns>
+        /// <example>
+        /// Since the jQuery.get() method returns a jqXHR object, which is derived from a Deferred object, we can attach a callback for both success and error using the deferred.always() method.
+        ///<code>
+        ///$.get("test.php").always( function() { alert("$.get completed with success or error callback arguments");} );
+        ///</code>
+        /// </example>
+        public jQueryDeferred always(JsAction callback) { return null; }
+        /// <summary>
+        /// Determine whether a Deferred object has been rejected.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the Deferred object is in the rejected state, meaning that either deferred.reject() or deferred.rejectWith() has been called for the object and the failCallbacks have been called (or are in the process of being called).
+        /// </returns>
+        /// <note>
+        /// Note that a Deferred object can be in one of three states: unresolved, resolved, or rejected; use deferred.isResolved() to determine whether the Deferred object is in the resolved state. These methods are primarily useful for debugging, for example to determine whether a Deferred has already been resolved even though you are inside code that intended to reject it.
+        /// </note>
+        public bool isRejected() { return false; }
+        /// <summary>
+        /// Determine whether a Deferred object has been resolved.
+        /// </summary>
+        /// <returns>
+        /// Returns true if the Deferred object is in the resolved state, meaning that either deferred.resolve() or deferred.resolveWith() has been called for the object and the doneCallbacks have been called (or are in the process of being called).
+        /// </returns>
+        ///<note>
+        ///Note that a Deferred object can be in one of three states: unresolved, resolved, or rejected; use deferred.isRejected() to determine whether the Deferred object is in the rejected state. These methods are primarily useful for debugging, for example to determine whether a Deferred has already been resolved even though you are inside code that intended to reject it.
+        ///</note>
+        public bool isResolved() { return false; }
+        
+    }
+
+
+   
 }
 
 /// <summary>
