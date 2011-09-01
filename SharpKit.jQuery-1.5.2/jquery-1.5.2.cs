@@ -2229,7 +2229,7 @@ namespace SharpKit.jQuery
         public object converters { get; set; }
         /// <summary>
         /// Default: false for same-domain requests, true for cross-domain requests
-        //If you wish to force a crossDomain request (such as JSONP) on the same domain, set the value of crossDomain to true. This allows, for example, server-side redirection to another domain
+        ///If you wish to force a crossDomain request (such as JSONP) on the same domain, set the value of crossDomain to true. This allows, for example, server-side redirection to another domain
         /// </summary>
         public bool crossDomain { get; set; } 
         /// <summary>
@@ -2259,7 +2259,7 @@ namespace SharpKit.jQuery
         public bool global { get; set; }
         /// <summary>
         /// Default: {}
-        //A map of additional header key/value pairs to send along with the request. This setting is set before the beforeSend function is called; therefore, any values in the headers setting can be overwritten from within the beforeSend function.
+        ///A map of additional header key/value pairs to send along with the request. This setting is set before the beforeSend function is called; therefore, any values in the headers setting can be overwritten from within the beforeSend function.
         /// </summary>
         public object headers { get; set; }
         /// <summary>
@@ -2299,7 +2299,7 @@ namespace SharpKit.jQuery
         public JsString scriptCharset { get; set; }
         /// <summary>
         /// Default: {}
-        //A map of numeric HTTP codes and functions to be called when the response has the corresponding code. 
+        ///A map of numeric HTTP codes and functions to be called when the response has the corresponding code. 
         /// </summary>
         /// <example>
         /// the following will alert when the response status is a 404:
