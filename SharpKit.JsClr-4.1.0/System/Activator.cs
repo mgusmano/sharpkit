@@ -20,7 +20,7 @@ namespace SharpKit.JavaScript.Private
 		{
             return JsCompiler.NewByFunc(type._JsType.ctor);
 		}
-        public static object CreateInstance(JsImplType type, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture)
+        public static object CreateInstance(JsImplType type, BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

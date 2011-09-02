@@ -277,12 +277,12 @@ namespace SharpKit.JavaScript.Private
 
         public static char[] GetInvalidFileNameChars()
         {
-            return (char[])InvalidFileNameChars.Clone();
+            return InvalidFileNameChars;
         }
 
         public static char[] GetInvalidPathChars()
         {
-            return (char[])RealInvalidPathChars.Clone();
+            return RealInvalidPathChars;
         }
 
         public static string GetPathRoot(string path)

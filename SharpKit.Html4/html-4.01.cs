@@ -6,7 +6,7 @@ namespace SharpKit.Html4
 {
 
     #region HtmlAnchor
-    [JsType(JsMode.Prototype, Export = false, Name = "A")]
+    [JsType(JsMode.Json, Export = false, Name = "A")]
     public partial class HtmlAnchor : HtmlElement
     {
         ///<summary>
@@ -110,7 +110,7 @@ namespace SharpKit.Html4
     ///<summary>
     ///The applet element is a Java-specific variant of the embed element. The applet element is now obsoleted so that all extension frameworks (Java, .NET, Flash, etc) are handled in a consistent manner.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class HtmlAppletElement : HtmlElement
     {
         public JsString align { get; set; }
@@ -130,7 +130,7 @@ namespace SharpKit.Html4
     ///<summary>
     ///Represents an HTML Attribute node
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "ATTRIBUTE")]
+    [JsType(JsMode.Json, Export = false, Name = "ATTRIBUTE")]
     public partial class HtmlAttribute : HtmlNode
     {
         [SupportedBrowsers(BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
@@ -141,7 +141,7 @@ namespace SharpKit.Html4
     ///<summary>
     ///The base element allows authors to specify the document base URL for the purposes of resolving relative URLs , and the name of the default browsing context for the purposes of following hyperlinks . The element does not represent any content beyond this information.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class HtmlBaseElement : HtmlElement
     {
         public JsString href { get; set; }
@@ -152,7 +152,7 @@ namespace SharpKit.Html4
     ///<summary>
     ///User agents must treat acronym elements in a manner equivalent to abbr elements.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class HtmlBaseFontElement : HtmlElement
     {
         public JsString color { get; set; }
@@ -164,7 +164,7 @@ namespace SharpKit.Html4
     ///<summary>
     ///Represents the root Body element of a HTML document
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "BODY")]
+    [JsType(JsMode.Json, Export = false, Name = "BODY")]
     public partial class HtmlBody : HtmlElement
     {
         protected HtmlBody() { }
@@ -216,7 +216,7 @@ namespace SharpKit.Html4
     ///<summary>
     ///Inserts a line break.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "BR")]
+    [JsType(JsMode.Json, Export = false, Name = "BR")]
     public partial class HtmlBr : HtmlElement
     {
         protected HtmlBr() { }
@@ -226,7 +226,7 @@ namespace SharpKit.Html4
     ///<summary>
     ///Specifies a container for rich HTML that is rendered as a button.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "BUTTON")]
+    [JsType(JsMode.Json, Export = false, Name = "BUTTON")]
     public partial class HtmlButton : HtmlElement
     {
         ///<summary>
@@ -283,7 +283,7 @@ namespace SharpKit.Html4
     ///<summary>
     ///Specifies a brief description for a table.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "CAPTION")]
+    [JsType(JsMode.Json, Export = false, Name = "CAPTION")]
     public partial class HtmlCaption : HtmlElement
     {
         ///<summary>
@@ -304,7 +304,7 @@ namespace SharpKit.Html4
     ///<summary>
     ///Provides access to predefined clipboard formats for use in editing operations.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "CLIPBOARDDATA")]
+    [JsType(JsMode.Json, Export = false, Name = "CLIPBOARDDATA")]
     public partial class HtmlClipboardData
     {
         ///<summary>
@@ -405,7 +405,7 @@ namespace SharpKit.Html4
     ///<summary>
     ///Represents a style within a Cascading Style Sheets (CSS) that consists of a selector and one or more declarations.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "CSSRULE")]
+    [JsType(JsMode.Json, Export = false, Name = "CSSRULE")]
     public partial class HtmlCssRule
     {
         ///<summary>
@@ -437,7 +437,7 @@ namespace SharpKit.Html4
     ///<summary>
     ///Specifies a container that renders HTML.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "DIV")]
+    [JsType(JsMode.Json, Export = false, Name = "DIV")]
     public partial class HtmlDiv : HtmlElement
     {
         protected HtmlDiv() { }
@@ -473,7 +473,7 @@ namespace SharpKit.Html4
     }
     #endregion
     #region HtmlScript
-    [JsType(JsMode.Prototype, Export = false, Name = "SCRIPT")]
+    [JsType(JsMode.Json, Export = false, Name = "SCRIPT")]
     public partial class HtmlScript : HtmlElement
     {
         ///<summary>
@@ -514,7 +514,7 @@ namespace SharpKit.Html4
     ///<summary>
     ///Represents an HTML document
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "DOCUMENT")]
+    [JsType(JsMode.Json, Export = false, Name = "DOCUMENT")]
     public partial class HtmlDocument
     {
         ///<summary>
@@ -595,6 +595,7 @@ Opera counts the <div> with id='test'")]
         [SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
         public T createElement<T>(JsString name) { return default(T); }
         [SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
+        [JsMethod(IgnoreGenericArguments=false, NativeOverloads=true)]
         public T createElement<T>() { return default(T); }
         ///<summary>
         ///Retrieves a collection of objects based on the specified element name.
@@ -721,7 +722,7 @@ Custom tags are not returned in Konqueror.")]
     ///<summary>
     ///Tag: HTML. Represents the root element of a HTML document.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "HTML")]
+    [JsType(JsMode.Json, Export = false, Name = "HTML")]
     public partial class HtmlDocumentElement : HtmlElement
     {
         ///<summary>
@@ -887,7 +888,7 @@ Custom tags are not returned in Konqueror.")]
     ///<summary>
     ///Represents a fragment of a document
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "DOCUMENTFRAGMENT")]
+    [JsType(JsMode.Json, Export = false, Name = "DOCUMENTFRAGMENT")]
     public partial class HtmlDocumentFragment : HtmlElement
     {
         protected HtmlDocumentFragment() { }
@@ -897,7 +898,7 @@ Custom tags are not returned in Konqueror.")]
     ///<summary>
     ///Represents the state of an event, such as the element in which the event occurred, the state of the keyboard keys, the location of the mouse, and the state of the mouse buttons. 
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "DOMEVENTARGS")]
+    [JsType(JsMode.Json, Export = false, Name = "DOMEVENTARGS")]
     public partial class HtmlDomEventArgs
     {
         protected HtmlDomEventArgs() { }
@@ -1058,7 +1059,7 @@ Bug: When the element found by this rule has position: relative, IE moves on to 
     }
     #endregion
     #region HtmlDomImplementation
-    [JsType(JsMode.Prototype, Export = false, Name = "DOMIMPLEMENTATION")]
+    [JsType(JsMode.Json, Export = false, Name = "DOMIMPLEMENTATION")]
     public partial class HtmlDomImplementation
     {
         ///<summary>
@@ -1092,7 +1093,7 @@ Bug: When the element found by this rule has position: relative, IE moves on to 
     ///<summary>
     ///Retrieves the type of the requested node.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "ELEMENT")]
+    [JsType(JsMode.Json, Export = false, Name = "ELEMENT")]
     public partial class HtmlElement : HtmlNode
     {
         protected HtmlElement() { }
@@ -1942,7 +1943,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Represents the current settings of all possible inline styles for a given element.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "STYLE")]
+    [JsType(JsMode.Json, Export = false, Name = "STYLE")]
     public partial class HtmlElementStyle
     {
         ///<summary>
@@ -2458,7 +2459,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Allows documents of any type to be embedded.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "EMBED")]
+    [JsType(JsMode.Json, Export = false, Name = "EMBED")]
     public partial class HtmlEmbedElement : HtmlElement
     {
         ///<summary>
@@ -2468,7 +2469,7 @@ You cannot prevent the default onkeydown in Opera.")]
     }
     #endregion
     #region HtmlFieldSet
-    [JsType(JsMode.Prototype, Export = false, Name = "FIELDSET")]
+    [JsType(JsMode.Json, Export = false, Name = "FIELDSET")]
     public partial class HtmlFieldSet : HtmlElement
     {
         ///<summary>
@@ -2485,7 +2486,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///User agents must treat acronym elements in a manner equivalent to abbr elements.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class HtmlFontElement : HtmlElement
     {
         public JsString color { get; set; }
@@ -2497,7 +2498,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Specifies that the contained controls take part in a form.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "FORM")]
+    [JsType(JsMode.Json, Export = false, Name = "FORM")]
     public partial class HtmlForm : HtmlElement
     {
         ///<summary>
@@ -2541,7 +2542,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Specifies an individual frame within a frameSet element.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "FRAME")]
+    [JsType(JsMode.Json, Export = false, Name = "FRAME")]
     public partial class HtmlFrameElement : HtmlElement
     {
         ///<summary>
@@ -2560,7 +2561,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Specifies a frameset, which is used to organize multiple frames and nested framesets.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "FRAMESET")]
+    [JsType(JsMode.Json, Export = false, Name = "FRAMESET")]
     public partial class HtmlFrameSetElement : HtmlElement
     {
         ///<summary>
@@ -2589,7 +2590,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Represents the HEAD element of a HTML document
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "HEAD")]
+    [JsType(JsMode.Json, Export = false, Name = "HEAD")]
     public partial class HtmlHead : HtmlElement
     {
         protected HtmlHead() { }
@@ -2599,7 +2600,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///These elements represent headings for their sections.User agents must treat acronym elements in a manner equivalent to abbr elements.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class HtmlHeadingElement : HtmlElement
     {
         public JsString align { get; set; }
@@ -2609,7 +2610,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Draws a horizontal rule.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "HR")]
+    [JsType(JsMode.Json, Export = false, Name = "HR")]
     public partial class HtmlHorizontalRule : HtmlElement
     {
         protected HtmlHorizontalRule() { }
@@ -2623,7 +2624,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///The html element represents the root of an HTML document.The marquee element is a presentational element that animates content. CSS transitions and animations are a more appropriate mechanism.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class HtmlHtmlElement : HtmlElement
     {
         public JsString version { get; set; }
@@ -2633,7 +2634,7 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Creates inline floating frames. 
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "IFRAME")]
+    [JsType(JsMode.Json, Export = false, Name = "IFRAME")]
     public partial class HtmlIFrame : HtmlElement
     {
         protected HtmlIFrame() { }
@@ -2733,9 +2734,13 @@ You cannot prevent the default onkeydown in Opera.")]
     ///<summary>
     ///Embeds an image or a video clip in the document.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "Image")]
+    [JsType(JsMode.Json, Export = false, Name = "IMAGE")]
     public partial class HtmlImage : HtmlElement
     {
+        [JsMethod(Name="Image")]
+        public HtmlImage()
+        {
+        }
         public void main() { }
         ///<summary>
         ///Sets or retrieves how the object is aligned with adjacent text.
@@ -2846,7 +2851,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     }
     #endregion
     #region HtmlInputCheckBox
-    [JsType(JsMode.Prototype, Export = false, Name = "INPUT")]
+    [JsType(JsMode.Json, Export = false, Name = "INPUT")]
     public partial class HtmlInputCheckBox : HtmlInput
     {
         protected HtmlInputCheckBox() { }
@@ -2856,7 +2861,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Creates a variety of form input controls.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "INPUT")]
+    [JsType(JsMode.Json, Export = false, Name = "INPUT")]
     public partial class HtmlInput : HtmlElement
     {
         ///<summary>
@@ -2995,7 +3000,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///The label represents a caption in a user interface. The caption can be associated with a specific form control , known as the labelelement's labeled control , either using for attribute, or by putting the form control inside the label element itself.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class HtmlLabelElement : HtmlElement
     {
         public HtmlForm form { get; set; }
@@ -3004,7 +3009,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     }
     #endregion
     #region HtmlLegend
-    [JsType(JsMode.Prototype, Export = false, Name = "LEGEND")]
+    [JsType(JsMode.Json, Export = false, Name = "LEGEND")]
     public partial class HtmlLegend : HtmlElement
     {
         ///<summary>
@@ -3037,7 +3042,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Inserts a line break.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "BR")]
+    [JsType(JsMode.Json, Export = false, Name = "BR")]
     public partial class HtmlLineBreak : HtmlElement
     {
         protected HtmlLineBreak() { }
@@ -3047,7 +3052,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents a LINK html node
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "LINK")]
+    [JsType(JsMode.Json, Export = false, Name = "LINK")]
     public partial class HtmlLink : HtmlElement
     {
         protected HtmlLink() { }
@@ -3079,7 +3084,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents an HTML list item
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "LI")]
+    [JsType(JsMode.Json, Export = false, Name = "LI")]
     public partial class HtmlListItem : HtmlElement
     {
     }
@@ -3088,7 +3093,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///The map element, in conjunction with any area element descendants, defines an image map . The element represents its children.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class HtmlMapElement : HtmlElement
     {
         public JsString name { get; set; }
@@ -3100,7 +3105,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Creates a scrolling text marquee.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "MARQUEE")]
+    [JsType(JsMode.Json, Export = false, Name = "MARQUEE")]
     public partial class HtmlMarqueeElement : HtmlElement
     {
         ///<summary>
@@ -3122,7 +3127,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///The meta element represents various kinds of metadata that cannot be expressed using the title , base , link , style , and script elements.The marquee element is a presentational element that animates content. CSS transitions and animations are a more appropriate mechanism.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class HtmlMetaElement : HtmlElement
     {
         public JsString name { get; set; }
@@ -3135,7 +3140,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents an HtmlNode
     ///</summary>
-    [JsType(JsMode.Prototype, OmitCasts = true, Export = false)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public abstract partial class HtmlNode
     {
         ///<summary>
@@ -3267,7 +3272,7 @@ Konqueror doesn't see comment nodes.")]
     ///<summary>
     ///Inserts an object into the HTML page.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "OBJECT")]
+    [JsType(JsMode.Json, Export = false, Name = "OBJECT")]
     public partial class HtmlObjectElement : HtmlElement
     {
         ///<summary>
@@ -3282,7 +3287,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///The optgroup element represents a group of option elements with a common label.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class HtmlOptGroupElement : HtmlElement
     {
         public new JsBoolean disabled { get; set; }
@@ -3293,9 +3298,13 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Denotes one choice in a SELECT element.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "Option")]
+    [JsType(JsMode.Json, Export = false, Name = "OPTION")]
     public partial class HtmlOption : HtmlElement
     {
+        [JsMethod(Name="Option")]
+        public HtmlOption()
+        {
+        }
         ///<summary>
         ///Sets or retrieves the value which is returned to the server when the form control is submitted.
         ///</summary>
@@ -3338,7 +3347,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents an ordered list
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "OL")]
+    [JsType(JsMode.Json, Export = false, Name = "OL")]
     public partial class HtmlOrderedList : HtmlElement
     {
     }
@@ -3347,7 +3356,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Denotes a paragraph.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "P")]
+    [JsType(JsMode.Json, Export = false, Name = "P")]
     public partial class HtmlParagraph : HtmlDiv
     {
         protected HtmlParagraph() { }
@@ -3366,7 +3375,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Renders text in a fixed-width font.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "PRE")]
+    [JsType(JsMode.Json, Export = false, Name = "PRE")]
     public partial class HtmlPre : HtmlElement
     {
         protected HtmlPre() { }
@@ -3376,14 +3385,14 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///The blockquote element represents a section that is quoted from another source.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class HtmlQuoteElement : HtmlElement
     {
         public JsString cite { get; set; }
     }
     #endregion
     #region HtmlScreen
-    [JsType(JsMode.Prototype, Export = false, Name = "SCREEN")]
+    [JsType(JsMode.Json, Export = false, Name = "SCREEN")]
     public partial class HtmlScreen
     {
         ///<summary>
@@ -3437,7 +3446,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Specifies a script for the page that is interpreted by a script engine.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "SCRIPT")]
+    [JsType(JsMode.Json, Export = false, Name = "SCRIPT")]
     public partial class HtmlScriptElement : HtmlElement
     {
         ///<summary>
@@ -3456,7 +3465,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Denotes a list box or drop-down list.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "SELECT")]
+    [JsType(JsMode.Json, Export = false, Name = "SELECT")]
     public partial class HtmlSelect : HtmlElement
     {
         ///<summary>
@@ -3548,7 +3557,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Specifies an inline text container.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "SPAN")]
+    [JsType(JsMode.Json, Export = false, Name = "SPAN")]
     public partial class HtmlSpan : HtmlElement
     {
         ///<summary>
@@ -3574,7 +3583,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents a STYLE html node
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "STYLE")]
+    [JsType(JsMode.Json, Export = false, Name = "STYLE")]
     public partial class HtmlStyleElement : HtmlElement
     {
         protected HtmlStyleElement() { }
@@ -3704,7 +3713,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents an @page rule within a styleSheet.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "STYLESHEETPAGE")]
+    [JsType(JsMode.Json, Export = false, Name = "STYLESHEETPAGE")]
     public partial class HtmlStyleSheetPage
     {
         ///<summary>
@@ -3721,7 +3730,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Specifies that the contained content is organized into a table with rows and columns.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "TABLE")]
+    [JsType(JsMode.Json, Export = false, Name = "TABLE")]
     public partial class HtmlTable : HtmlElement
     {
         ///<summary>
@@ -3906,7 +3915,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Designates rows as the body of the table.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "TBODY")]
+    [JsType(JsMode.Json, Export = false, Name = "TBODY")]
     public partial class HtmlTableBody : HtmlElement
     {
         ///<summary>
@@ -3972,7 +3981,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///The caption element represents the title of the table that is its parent, if it has a parent and that is a table element.User agents must treat acronym elements in a manner equivalent to abbr elements.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class HtmlTableCaptionElement : HtmlElement
     {
         public JsString align { get; set; }
@@ -3982,7 +3991,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Specifies a cell in a table.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "TD")]
+    [JsType(JsMode.Json, Export = false, Name = "TD")]
     public partial class HtmlTableCell : HtmlElement
     {
         protected HtmlTableCell() { }
@@ -4082,7 +4091,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Specifies column-based defaults for the table properties.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "COL")]
+    [JsType(JsMode.Json, Export = false, Name = "COL")]
     public partial class HtmlTableCol : HtmlElement
     {
         protected HtmlTableCol() { }
@@ -4133,7 +4142,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Specifies property defaults for a column or group of columns in a table.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "COLGROUP")]
+    [JsType(JsMode.Json, Export = false, Name = "COLGROUP")]
     public partial class HtmlTableColGroup : HtmlElement
     {
         protected HtmlTableColGroup() { }
@@ -4155,7 +4164,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Designates rows as the table's footer.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "TFOOT")]
+    [JsType(JsMode.Json, Export = false, Name = "TFOOT")]
     public partial class HtmlTableFoot : HtmlTableBody
     {
         protected HtmlTableFoot() { }
@@ -4165,7 +4174,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Designates rows as the table's header.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "THEAD")]
+    [JsType(JsMode.Json, Export = false, Name = "THEAD")]
     public partial class HtmlTableHead : HtmlTableBody
     {
         protected HtmlTableHead() { }
@@ -4175,7 +4184,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Sets how text and other content are vertically aligned within the object that contains them.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "TH")]
+    [JsType(JsMode.Json, Export = false, Name = "TH")]
     public partial class HtmlTableHeadCell : HtmlTableCell
     {
         protected HtmlTableHeadCell() { }
@@ -4185,7 +4194,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Specifies a row in a table.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "TR")]
+    [JsType(JsMode.Json, Export = false, Name = "TR")]
     public partial class HtmlTableRow : HtmlElement
     {
         protected HtmlTableRow() { }
@@ -4239,7 +4248,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     }
     #endregion
     #region HtmlTextArea
-    [JsType(JsMode.Prototype, Export = false, Name = "TEXTAREA")]
+    [JsType(JsMode.Json, Export = false, Name = "TEXTAREA")]
     public partial class HtmlTextArea : HtmlElement
     {
         ///<summary>
@@ -4388,7 +4397,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents a JsString of text as a node in the document hierarchy.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "TEXTNODE")]
+    [JsType(JsMode.Json, Export = false, Name = "TEXTNODE")]
     public partial class HtmlTextNode : HtmlNode
     {
         ///<summary>
@@ -4472,7 +4481,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents the active selection, which is a highlighted block of text or other elements in the document that a user or a script can carry out some action on.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "SELECTION")]
+    [JsType(JsMode.Json, Export = false, Name = "SELECTION")]
     public partial class HtmlSelection
     {
         ///<summary>
@@ -4490,7 +4499,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents text in an HTML element. 
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "TEXTRANGE")]
+    [JsType(JsMode.Json, Export = false, Name = "TEXTRANGE")]
     public partial class HtmlTextRange
     {
         ///<summary>
@@ -4722,7 +4731,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents a rectangle, as returned by the <see cref="M:SharpKit.HtmlModel.HtmlElement.getClientRects"/> method.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "TEXTRECTANGLE")]
+    [JsType(JsMode.Json, Export = false, Name = "TEXTRECTANGLE")]
     public partial class HtmlTextRectangle
     {
         public JsNumber top;
@@ -4735,7 +4744,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents the TITLE element of a HTML document
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "TITLE")]
+    [JsType(JsMode.Json, Export = false, Name = "TITLE")]
     public partial class HtmlTitle : HtmlElement
     {
         protected HtmlTitle() { }
@@ -4745,13 +4754,13 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     ///<summary>
     ///Represents an unordered list
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "UL")]
+    [JsType(JsMode.Json, Export = false, Name = "UL")]
     public partial class HtmlUnorderedList : HtmlElement
     {
     }
     #endregion
     #region HtmlWindow
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public partial class HtmlWindow
     {
         public HtmlWindowNavigator navigator { get; private set; }
@@ -5168,7 +5177,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///<summary>
     ///Contains information about the current URL. 
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "WINDOWLOCATION")]
+    [JsType(JsMode.Json, Export = false, Name = "WINDOWLOCATION")]
     public partial class HtmlWindowLocation
     {
         ///<summary>
@@ -5219,7 +5228,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     }
     #endregion
     #region HtmlWindowNavigator
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public partial class HtmlWindowNavigator
     {
         public JsString appVersion { get; private set; }
@@ -5229,7 +5238,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
 
     #region XMLHttpRequest
-    [JsType(JsMode.Prototype, Name="XMLHttpRequest", Export=false)]
+    [JsType(JsMode.Json, Name="XMLHttpRequest", Export=false)]
     public partial class XMLHttpRequest
     {
         public void open(JsString method, JsString address, JsBoolean async) { }
@@ -5246,7 +5255,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
 
     #region Collections
     #region StyleFilterCollection
-    [JsType(JsMode.Prototype, Export = false, Name = "StyleFilterCollection")]
+    [JsType(JsMode.Json, Export = false, Name = "StyleFilterCollection")]
     public partial class StyleFilterCollection
     {
         public StyleFilter item(JsString name) { return null; }
@@ -5256,7 +5265,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///<summary>
     ///Represents a collection of HtmlNode objects
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "NODECOLLECTION")]
+    [JsType(JsMode.Json, Export = false, Name = "NODECOLLECTION")]
     public partial class HtmlNodeCollection : HtmlNodeCollection<HtmlNode>
     {
     }
@@ -5264,7 +5273,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///<summary>
     ///Represents a generic collection of HtmlNode objects
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "NODECOLLECTION")]
+    [JsType(JsMode.Json, Export = false, Name = "NODECOLLECTION")]
     public partial class HtmlNodeCollection<T> : IEnumerable, IEnumerable<T> where T : class
     {
         [JsProperty(NativeIndexer=true)]
@@ -5293,7 +5302,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///<summary>
     ///Represents a collection of HtmlElement objects
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "ELEMENTCOLLECTION")]
+    [JsType(JsMode.Json, Export = false, Name = "ELEMENTCOLLECTION")]
     public partial class HtmlElementCollection : HtmlNodeCollection<HtmlElement>
     {
     }
@@ -5302,7 +5311,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///<summary>
     ///Represents a collection of rectangles, as returned by the <see cref="M:SharpKit.HtmlModel.HtmlElement.getClientRects"/> method.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "TEXTRECTANGLECOLLECTION")]
+    [JsType(JsMode.Json, Export = false, Name = "TEXTRECTANGLECOLLECTION")]
     public partial class HtmlTextRectangleCollection
     {
         ///<summary>
@@ -5319,7 +5328,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///<summary>
     ///Represents a generic collection of HtmlNode objects
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "GENERICCOLLECTION")]
+    [JsType(JsMode.Json, Export = false, Name = "GENERICCOLLECTION")]
     public partial class HtmlGenericCollection<T> : IEnumerable, IEnumerable<T> where T : class
     {
         [JsProperty(NativeIndexer = true)]
@@ -5339,7 +5348,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     ///<summary>
     ///A collection of attributes of an object.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public partial class HtmlAttributeCollection : IEnumerable, IEnumerable<HtmlAttribute>
     {
         public HtmlAttributeCollection() { }
@@ -5383,7 +5392,7 @@ IE 5.5 doesn't return custom attributes, and initially gives the attribute value
     #region Misc
 
     #region ActiveXObject
-    [JsType(JsMode.Prototype, Name = "ActiveXObject", Export = false)]
+    [JsType(JsMode.Json, Name = "ActiveXObject", Export = false)]
     public partial class ActiveXObject
     {
         public ActiveXObject(JsString className) { }
@@ -5393,7 +5402,7 @@ IE 5.5 doesn't return custom attributes, and initially gives the attribute value
     ///<summary>
     ///interface History { readonly attribute long length ; void go (in optional long delta); void back (); void forward (); void pushState (in any data, in DOMString title, in optional DOMString url); void replaceState (in any data, in DOMString title, in optional DOMString url); };
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public abstract partial class History
     {
         public long length { get; set; }
@@ -5405,13 +5414,13 @@ IE 5.5 doesn't return custom attributes, and initially gives the attribute value
     }
     #endregion
     #region StyleFilter
-    [JsType(JsMode.Prototype, Export = false, Name = "StyleFilter")]
+    [JsType(JsMode.Json, Export = false, Name = "StyleFilter")]
     public partial class StyleFilter
     {
     }
     #endregion
     #region WindowModal
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public partial interface WindowModal
     {
         object dialogArguments { get; }

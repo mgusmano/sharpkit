@@ -8,6 +8,7 @@ namespace SharpKit.JavaScript.Compilation
 
 
 
+
     [JsType(JsMode.Prototype, Name="JsCompiler", Filename = "JsCompiler.js")]
     public class JsCompiler : JsCompilerGlobal
     {
@@ -200,6 +201,7 @@ namespace SharpKit.JavaScript.Compilation
         static void Global2()
         {
         }
+
 
 
 
