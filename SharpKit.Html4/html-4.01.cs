@@ -5238,7 +5238,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
 
     #region XMLHttpRequest
-    [JsType(JsMode.Json, Name="XMLHttpRequest", Export=false)]
+    [JsType(JsMode.Prototype, Name="XMLHttpRequest", Export=false)]
     public partial class XMLHttpRequest
     {
         public void open(JsString method, JsString address, JsBoolean async) { }
@@ -5392,7 +5392,7 @@ IE 5.5 doesn't return custom attributes, and initially gives the attribute value
     #region Misc
 
     #region ActiveXObject
-    [JsType(JsMode.Json, Name = "ActiveXObject", Export = false)]
+    [JsType(JsMode.Prototype, Name = "ActiveXObject", Export = false)]
     public partial class ActiveXObject
     {
         public ActiveXObject(JsString className) { }
