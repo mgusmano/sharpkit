@@ -18,7 +18,7 @@ Spinner.prototype.buildSpinner = function(sd)
     for(var x=0;x < this.degrees;x++)
     this.degreesList.push(x);
     this.index = 0;
-    this.canvasTimer = setInterval($CreateDelegate(this,this.draw),1000 / this.degrees);
+    this.canvasTimer = setInterval(this.draw,1000 / this.degrees);
 }
 
 Spinner.prototype.reset = function()

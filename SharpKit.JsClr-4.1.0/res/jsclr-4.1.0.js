@@ -4237,7 +4237,7 @@ JsTypes.push({
             {
                 return is2.Contains(value);
             }
-            return System.Linq.Enumerable.Contains$1$$IEnumerable$1$$TSource$$IEqualityComparer$1(source,value,null);
+            return System.Linq.Enumerable.Contains$1$$IEnumerable$1$$TSource$$IEqualityComparer$1(TSource,source,value,null);
         }
         ,
         Contains$1$$IEnumerable$1$$TSource$$IEqualityComparer$1:function(TSource,source,value,comparer)
@@ -6363,7 +6363,7 @@ JsTypes.push({
         ,
         ClrTypeToJsTypeRef:function(type)
         {
-            var att=System.Linq.Enumerable.FirstOrDefault$1$$IEnumerable$1(System.Linq.Enumerable.OfType$1(type.GetCustomAttributes$$Type$$Boolean(Typeof(SharpKit.JavaScript.JsTypeAttribute),false)));
+            var att=System.Linq.Enumerable.FirstOrDefault$1$$IEnumerable$1(SharpKit.JavaScript.JsTypeAttribute,System.Linq.Enumerable.OfType$1(SharpKit.JavaScript.JsTypeAttribute,type.GetCustomAttributes$$Type$$Boolean(Typeof(SharpKit.JavaScript.JsTypeAttribute),false)));
             if(att != null && SharpKit.Extensions2.IsNotNullOrEmpty$$String(att.get_Name()))
             {
                 return att.get_Name().Replace$$Char$$Char('`','$');
@@ -6424,7 +6424,7 @@ JsTypes.push({
             if(mi.get_IsStatic())
             {
                 sb.Append$$String(SharpKit.JavaScript.JsNamingHelper.ClrTypeToJsTypeRef(type));
-                var att=System.Linq.Enumerable.FirstOrDefault$1$$IEnumerable$1(System.Linq.Enumerable.OfType$1(type.GetCustomAttributes$$Type$$Boolean(Typeof(SharpKit.JavaScript.JsTypeAttribute),false)));
+                var att=System.Linq.Enumerable.FirstOrDefault$1$$IEnumerable$1(SharpKit.JavaScript.JsTypeAttribute,System.Linq.Enumerable.OfType$1(SharpKit.JavaScript.JsTypeAttribute,type.GetCustomAttributes$$Type$$Boolean(Typeof(SharpKit.JavaScript.JsTypeAttribute),false)));
                 if(att == null || att.get_Mode() == 2)
                 {
                     sb.Append$$String(".staticDefinition.");

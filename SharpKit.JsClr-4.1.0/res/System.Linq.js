@@ -284,7 +284,7 @@ JsTypes.push({
             {
                 return is2.Contains(value);
             }
-            return System.Linq.Enumerable.Contains$1$$IEnumerable$1$$TSource$$IEqualityComparer$1(source,value,null);
+            return System.Linq.Enumerable.Contains$1$$IEnumerable$1$$TSource$$IEqualityComparer$1(TSource,source,value,null);
         }
         ,
         Contains$1$$IEnumerable$1$$TSource$$IEqualityComparer$1:function(TSource,source,value,comparer)
