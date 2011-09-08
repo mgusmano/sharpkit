@@ -72,6 +72,10 @@ namespace SharpKit.JavaScript
         ///</summary>
         public bool NativeEnumerator { get; set; }
         ///<summary>
+        ///When true, foreach statements will use the for loop syntax of Javascript
+        ///</summary>
+        public bool NativeArrayEnumerator { get; set; }
+        ///<summary>
         ///When true, instanciations of this class will use the native Javascript method, rather than calling a constructor
         ///</summary>
         public bool NativeConstructors { get; set; }
@@ -408,7 +412,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///The Array object provides support for creation of arrays of any data type.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator=true)]
     public partial class JsArray : JsObject, IEnumerable<object>
     {
         public JsArray() { }
@@ -531,7 +535,7 @@ namespace SharpKit.JavaScript
     ///The Array object provides support for creation of arrays of any data type.
     ///</summary>
     ///<typeparam name="T"></typeparam>
-    [JsType(JsMode.Prototype, Name = "Array", NativeEnumerator = false, Export = false, IgnoreGenericTypeArguments = true)]
+    [JsType(JsMode.Prototype, Name = "Array", NativeEnumerator = false, Export = false, IgnoreGenericTypeArguments = true, NativeArrayEnumerator=true)]
     public partial class JsArray<T> : JsArray, IEnumerable<T>
     {
         public static implicit operator T[](JsArray<T> x) { return default(T[]); }

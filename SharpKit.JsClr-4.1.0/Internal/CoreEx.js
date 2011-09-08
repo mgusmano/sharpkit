@@ -1,4 +1,4 @@
-﻿//kernel.js
+//kernel.js
 var isIE = navigator.userAgent.toLowerCase().indexOf("msie") > -1;
 var isMoz = document.implementation && document.implementation.createDocument;
 var isWebkit = navigator.userAgent.indexOf("WebKit") > -1; //navigator.vendor == "Apple Computer, Inc.";
