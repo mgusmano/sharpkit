@@ -204,6 +204,11 @@ namespace SharpKit.JavaScript
         ///The target merged file name
         ///</summary>
         public string Filename { get; set; }
+
+        /// <summary>
+        /// Specifies whether to minify the js file using js compression, 
+        /// </summary>
+        public bool Minify { get; set; }
     }
     #endregion
     #region JsMethodAttribute

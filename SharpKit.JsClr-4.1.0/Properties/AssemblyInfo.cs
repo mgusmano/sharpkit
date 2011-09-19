@@ -37,8 +37,6 @@ using SharpKit.JavaScript;
 [assembly: AssemblyFileVersion("4.20.4000")]
 
 
-[assembly: JsExport(Minify=false, LongFunctionNames=false, ExportComments=false, EnableProfiler=false)]
-
 [assembly: JsMergedFile(Filename = "res/System.js", Sources = new string[]
 {
 	"Compilation/JsCompiler.js",
@@ -57,3 +55,5 @@ using SharpKit.JavaScript;
 	"res/System.Text.js",
 	"res/System.Ext.js"
 })]
+
+[assembly: JsMergedFile(Filename = "res/jsclr-4.1.0.min.js", Sources = new string[]{"res/jsclr-4.1.0.js"}, Minify=true)]
