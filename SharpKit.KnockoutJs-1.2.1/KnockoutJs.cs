@@ -257,6 +257,8 @@ namespace SharpKit.KnockoutJs
 		{
 			return null;
 		}
+
+        public static KnockoutUtils utils { get; private set; }
 	}
     [JsType(JsMode.Prototype, Export=false)]
     public class KnockoutUtils
