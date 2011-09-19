@@ -206,7 +206,8 @@ namespace SharpKit.JavaScript
         public string Filename { get; set; }
 
         /// <summary>
-        /// Specifies whether to minify the js file using js compression, 
+        /// Specifies whether to minify the js file using js or css minification
+        /// minification type will be determined by file extension (.js/.css)
         /// </summary>
         public bool Minify { get; set; }
     }
