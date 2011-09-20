@@ -8,6 +8,7 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Prototype, Export = false, Name = "$")]
     public partial class jQuery
     {
+
         /// <summary>
         /// Add elements to the set of matched elements.
         /// </summary>
@@ -81,6 +82,28 @@ namespace SharpKit.jQuery
         /// Attach a function to be executed whenever an Ajax request completes successfully. This is an Ajax Event.
         /// </summary>
         public jQuery ajaxSuccess(JsAction<object, string, XMLHttpRequest> handler) { return null; }
+        /// <summary>
+        /// Handle custom Ajax options or modify existing options before each request is sent and before they are processed by $.ajax().
+        /// </summary>
+        /// <param name="handler">
+        /// handler(options, originalOptions, jqXHR)A handler to set default values for future Ajax requests.
+        /// </param>
+        public void ajaxPrefilter(JsAction<object, object, object> handler) 
+        {
+        }
+        /// <summary>
+        /// Handle custom Ajax options or modify existing options before each request is sent and before they are processed by $.ajax().
+        /// </summary>
+        /// <param name="dataTypes">
+        /// dataTypesAn optional string containing one or more space-separated dataTypes
+        /// </param>
+        /// <param name="handler">
+        /// handler(options, originalOptions, jqXHR)A handler to set default values for future Ajax requests.
+        /// </param>
+        public void ajaxPrefilter(JsString dataTypes, JsAction<object, object, object> handler)
+        {
+        } 
+
         /// <summary>
         /// Add the previous set of elements on the stack to the current set.
         /// </summary>
@@ -361,6 +384,57 @@ namespace SharpKit.jQuery
         /// Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements.
         /// </summary>
         public jQuery @delegate(JsString selector, JsString eventType, JsObject eventData, JsAction handler) { return null; }
+        /// <summary>
+        /// Provides a way to execute callback functions based on one or more objects, usually Deferred objects that represent asynchronous events.
+        /// <list type="bullet">
+        /// If a single Deferred is passed to jQuery.when, its Promise object (a subset of the Deferred methods) is returned by the method. Additional methods of the Promise object can be called to attach callbacks, such as deferred.then. When the Deferred is resolved or rejected, usually by the code that created the Deferred originally, the appropriate callbacks will be called.
+        /// <example>
+        /// the jqXHR object returned by jQuery.ajax is a Deferred and can be used this way:
+        /// <code>
+        /// $.when( $.ajax("test.aspx") ).then(function(ajaxArgs){ 
+        ///      alert(ajaxArgs[1]); /* ajaxArgs is [ "success", statusText, jqXHR ] */
+        /// });        
+        /// </code>
+        /// </example>
+        /// </list>
+        /// <list type="bullet">
+        /// If a single argument is passed to jQuery.when and it is not a Deferred, it will be treated as a resolved Deferred and any doneCallbacks attached will be executed immediately. The doneCallbacks are passed the original argument. In this case any failCallbacks you might set are never called since the Deferred is never rejected.
+        /// <example>
+        /// <code>
+        /// $.when( { testing: 123 } ).done(
+        ///   function(x){ alert(x.testing); } /* alerts "123" */
+        /// );
+        /// </code>
+        /// </example>
+        /// In the case where multiple Deferred objects are passed to jQuery.when, the method returns the Promise from a new "master" Deferred object that tracks the aggregate state of all the Deferreds it has been passed. The method will resolve its master Deferred as soon as all the Deferreds resolve, or reject the master Deferred as soon as one of the Deferreds is rejected. If the master Deferred is resolved, it is passed the resolved values of all the Deferreds that were passed to jQuery.when. For example, when the Deferreds are jQuery.ajax() requests, the arguments will be the jqXHR objects for the requests, in the order they were given in the argument list.
+        /// In the multiple-Deferreds case where one of the Deferreds is rejected, jQuery.when immediately fires the failCallbacks for its master Deferred. Note that some of the Deferreds may still be unresolved at that point. If you need to perform additional processing for this case, such as canceling any unfinished ajax requests, you can keep references to the underlying jqXHR objects in a closure and inspect/cancel them in the failCallback.
+        /// </list>
+        /// </summary>
+        /// <param name="defferds">
+        /// deferreds One or more Deferred objects, or plain JavaScript objects.
+        /// </param>
+        /// <returns>
+        /// Returns: Promise
+        /// </returns>
+        /// <example>
+        ///  Execute a function after two ajax requests are successful. (See the jQuery.ajax() documentation for a complete description of success and error cases for an ajax request).
+        /// <code>
+        /// $.when($.ajax("/page1.php"), $.ajax("/page2.php")).done(function(a1,  a2){
+        ///    /* a1 and a2 are arguments resolved for the 
+        ///        page1 and page2 ajax requests, respectively */
+        ///   var jqXHR = a1[2]; /* arguments are [ "success", statusText, jqXHR ] */
+        ///   if ( /Whip It/.test(jqXHR.responseText) ) {
+        ///      alert("First page has 'Whip It' somewhere.");
+        ///   }
+        /// });
+        /// </code>
+        ///  Execute the function myFunc when both ajax requests are successful, or myFailure if either one has an error.
+        ///  <code>
+        /// $.when($.ajax("/page1.php"), $.ajax("/page2.php"))
+        ///  .then(myFunc, myFailure);
+        ///  </code>
+        /// </example>
+        public jQueryPromise when(params jQueryDeferred[] defferds) { return null; }
         /// <summary>
         /// Execute the next function on the queue for the matched elements.
         /// </summary>
@@ -653,6 +727,45 @@ namespace SharpKit.jQuery
         /// Determine whether any of the matched elements are assigned the given class.
         /// </summary>
         public bool hasClass(JsString className) { return false; }
+        /// <summary>
+        /// Determine whether an element has any jQuery data associated with it.
+        /// </summary>
+        /// <param name="element">
+        /// element A DOM element to be checked for data.
+        /// </param>
+        /// <returns>
+        /// The jQuery.hasData() method provides a way to determine if an element currently has any values that were set using jQuery.data(). If no data is associated with an element (there is no data object at all or the data object is empty), the method returns false; otherwise it returns true.
+        /// The primary advantage of jQuery.hasData(element) is that it does not create and associate a data object with the element if none currently exists. In contrast, jQuery.data(element) always returns a data object to the caller, creating one if no data object previously existed.
+        /// </returns>
+        /// <example>
+        /// Set data on an element and see the results of hasData.
+        /// <code>
+        ///<!DOCTYPE html>
+        ///<html>
+        ///<head>
+        ///  <script src="http:///code.jquery.com/jquery-latest.js"></script>
+        ///</head>
+        ///<body>
+        ///  <p>Results: </p>
+        ///<script>
+        ///$(function(){
+        ///  var $p = jQuery("p"), p = $p[0];
+        ///  $p.append(jQuery.hasData(p)+" "); /* false */
+        ///  jQuery.data(p, "testing", 123);
+        ///  $p.append(jQuery.hasData(p)+" "); /* true*/
+        ///  jQuery.removeData(p, "testing");
+        ///  $p.append(jQuery.hasData(p)+" "); /* false */
+        ///});
+        ///</script>
+        ///
+        ///</body>
+        ///</html>
+        ///Demo:
+        ///Results: false true false
+        /// </code>
+        /// </example>
+        public bool hasData(HtmlElement element) { return false; }  
+
         /// <summary>
         /// Get the current computed height for the first element in the set of matched elements.
         /// </summary>
@@ -2001,6 +2114,91 @@ namespace SharpKit.jQuery
         /// </summary>
         public JsObject support { get; set; }
         public static fx fx { get; set; }
+        /// <summary>
+        /// There are two specific use cases for which jQuery.sub() was created. The first was for providing a painless way of overriding jQuery methods without completely destroying the original methods and another was for helping to do encapsulation and basic namespacing for jQuery plugins.
+        /// Note that jQuery.sub() doesn't attempt to do any sort of isolation - that's not its intention. All the methods on the sub'd version of jQuery will still point to the original jQuery (events bound and triggered will still be through the main jQuery, data will be bound to elements through the main jQuery, Ajax queries and events will run through the main jQuery, etc.).
+        /// Note that if you're looking to use this for plugin development you should first strongly consider using something like the jQuery UI widget factory which manages both state and plugin sub-methods. Some examples of using the jQuery UI widget factory to build a plugin.
+        /// The particular use cases of this method can be best described through some examples.
+        /// <example>
+        /// Adding a method to a jQuery sub so that it isn't exposed externally:
+        /// <code>
+        /// (function(){
+        ///   var sub$ = jQuery.sub();
+        ///   sub$.fn.myCustomMethod = function(){
+        /// return 'just for me';
+        /// };
+        /// sub$(document).ready(function() {
+        /// sub$('body').myCustomMethod() // 'just for me'
+        /// });
+        /// })();
+        /// typeof jQuery('body').myCustomMethod // undefined
+        /// </code>
+        /// </example>
+        /// Override some jQuery methods to provide new functionality.
+        /// <code>
+        /// (function() {
+        ///  var myjQuery = jQuery.sub();
+        ///
+        /// myjQuery.fn.remove = function() {
+        /// // New functionality: Trigger a remove event
+        /// this.trigger("remove");
+        ///
+        /// // Be sure to call the original jQuery remove method
+        /// return jQuery.fn.remove.apply( this, arguments );
+        ///};
+        ///
+        /// myjQuery(function($) {
+        /// $(".menu").click(function() {
+        /// $(this).find(".submenu").remove();
+        /// });
+        ///
+        /// // A new remove event is now triggered from this copy of jQuery
+        /// $(document).bind("remove", function(e) {
+        /// $(e.target).parent().hide();
+        /// });
+        /// });
+        /// })();
+        ///
+        /// // Regular jQuery doesn't trigger a remove event when removing an element
+        /// // This functionality is only contained within the modified 'myjQuery'.
+        /// </code>
+        /// Create a plugin that returns plugin-specific methods.
+        /// <code>
+        /// (function() {
+        ///  // Create a new copy of jQuery using sub()
+        ///  var plugin = jQuery.sub();
+        ///
+        ///  // Extend that copy with the new plugin methods
+        ///  plugin.fn.extend({
+        ///    open: function() {
+        ///      return this.show();
+        ///    },
+        ///    close: function() {
+        ///      return this.hide();
+        ///    }
+        ///  });
+        ///
+        ///  // Add our plugin to the original jQuery
+        ///  jQuery.fn.myplugin = function() {
+        ///    this.addClass("plugin");
+        ///
+        ///    // Make sure our plugin returns our special plugin version of jQuery
+        ///    return plugin( this );
+        ///  };
+        ///})();
+        ///
+        ///$(document).ready(function() {
+        ///  // Call the plugin, open method now exists
+        ///  $('#main').myplugin().open();
+        ///
+        ///  // Note: Calling just $("#main").open() won't work as open doesn't exist!
+        ///});        
+
+  
+
+        /// </code>
+        /// </summary>
+        public static jQuery sub { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -2595,7 +2793,6 @@ namespace SharpKit.jQuery
         /// </code>
         /// </example>
         public jQueryDeferred then(JsAction doneCallbacks, JsAction failCallbacks) { return null; }
-        //TODO: promise.
         
     }
 
