@@ -34,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="com\getfirebug\Console.cs" />
+    <Compile Include="Constructors.cs" />
     <Compile Include="Exception.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="HTMLContext.cs" />
