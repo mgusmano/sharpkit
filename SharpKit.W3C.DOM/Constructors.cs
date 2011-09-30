@@ -18,7 +18,7 @@ namespace org.w3c.dom.websocket
         public short readyState { get; private set; }
         public int bufferedAmount { get; private set; }
         public Function onopen { get; set; }
-        public Function onmessage { get; set; }
+        public JsAction<MessageEvent> onmessage { get; set; }
         public Function onclose { get; set; }
         public bool send(string data) { return false; }
         public void close() { }
