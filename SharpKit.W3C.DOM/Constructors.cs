@@ -7,6 +7,7 @@ using org.w3c.dom.html;
 
 namespace org.w3c.dom.websocket
 {
+    [JsType(JsMode.Prototype, Name = "WebSocket")]
     public class WebSocket
     {
         public WebSocket(string url) { }
@@ -17,10 +18,31 @@ namespace org.w3c.dom.websocket
         public const short CLOSED = 2;
         public short readyState { get; private set; }
         public int bufferedAmount { get; private set; }
-        public Function onopen { get; set; }
+        public JsAction onopen { get; set; }
         public JsAction<MessageEvent> onmessage { get; set; }
-        public Function onclose { get; set; }
+        public JsAction<CloseEvent> onclose { get; set; }
+        public JsAction<MessageEvent> onerror { get; set; }
         public bool send(string data) { return false; }
         public void close() { }
+    }
+
+    [JsType(JsMode.Prototype, Name = "CloseEvent")]
+    public interface CloseEvent : org.w3c.dom.events.Event
+    {
+        /// <summary>
+        /// represents whether the connection closed cleanly or not.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if closed cleanly; otherwise, <c>false</c>.
+        /// </value>
+        bool wasClean { get; }
+        /// <summary>
+        /// represents the WebSocket connection close code provided by the server.
+        /// </summary>
+        UInt16 code { get; }
+        /// <summary>
+        ///  represents the WebSocket connection close reason provided by the server.
+        /// </summary>
+        JsString reason { get; }
     }
 }
