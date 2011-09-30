@@ -1965,6 +1965,7 @@ namespace SharpKit.jQuery.UI
         public object duration { get; set; }
     }
     #endregion
+
 }
 
 
@@ -1973,6 +1974,6 @@ namespace SharpKit.jQuery.UI
 /// SharpKit interface for jQuery UI.
 /// jQuery UI provides abstractions for low-level interaction and animation, advanced effects and high-level, themeable widgets, built on top of the jQuery JavaScript Library, that you can use to build highly interactive web applications.
 /// </summary>
-class AssemblyDoc
+class AssemblyDoc : SharpKit.jQuery.jQueryContext
 {
 }

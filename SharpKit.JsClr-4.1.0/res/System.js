@@ -2782,7 +2782,7 @@ JsTypes.push(
     },
     ToString: function()
     {
-        return "{" + this.constructor._type.get_FullName() + "}";
+        return "{" + this.constructor._type.fullname + "}";
     },
     construct: function()
     {

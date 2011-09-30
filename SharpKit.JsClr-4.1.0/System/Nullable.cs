@@ -7,8 +7,7 @@ using System.Text;
 namespace SharpKit.JavaScript.Private
 {
 
-	[JsType(Name = "System.Nullable", Filename = "~/Internal/Core.js")]
-
+	[JsType(Name = "System.Nullable$1", Filename = "~/Internal/Core.js")]
 	//[Serializable, StructLayout(LayoutKind.Sequential), TypeDependency("System.Collections.Generic.NullableComparer`1"), TypeDependency("System.Collections.Generic.NullableEqualityComparer`1")]
 	internal class Nullable<T> where T : struct
 	{

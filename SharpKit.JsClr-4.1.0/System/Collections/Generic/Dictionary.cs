@@ -9,7 +9,8 @@ using SharpKit.JavaScript.Utils;
 namespace SharpKit.JavaScript.Private
 {
 
-	[JsType(Name = "System.Collections.Generic.Dictionary", Filename = "~/res/System.Collections.js")]
+
+	[JsType(Name = "System.Collections.Generic.Dictionary$2", Filename = "~/res/System.Collections.js")]
 	class JsImplDictionary<TKey, TValue> : IDictionary<TKey, TValue>
 	{
 		JsObject _table;

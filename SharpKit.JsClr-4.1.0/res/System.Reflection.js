@@ -100,7 +100,7 @@ JsTypes.push({
         ,
         GetCustomAttributes$$Type$$Boolean:function(attributeType,inherit)
         {
-            var list=new System.Collections.Generic.List.ctor(System.Object);
+            var list=new System.Collections.Generic.List$1.ctor(System.Object);
             this.AddCustomAttributes(list,attributeType,inherit);
             return list.ToArray();
         }

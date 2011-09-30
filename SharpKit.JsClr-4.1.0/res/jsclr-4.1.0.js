@@ -2782,7 +2782,7 @@ JsTypes.push(
     },
     ToString: function()
     {
-        return "{" + this.constructor._type.get_FullName() + "}";
+        return "{" + this.constructor._type.fullname + "}";
     },
     construct: function()
     {
@@ -3948,7 +3948,7 @@ JsTypes.push({
     }
     ,
     staticDefinition:{
-        First$1$$IEnumerable$1:function(TSource,source)
+        First$1$$IEnumerable:function(TSource,source)
         {
             if(source == null)
             {
@@ -3980,7 +3980,7 @@ JsTypes.push({
             throw System.Linq.Error.NoElements();
         }
         ,
-        First$1$$IEnumerable$1$$Func$2:function(TSource,source,predicate)
+        First$1$$IEnumerable$$Func:function(TSource,source,predicate)
         {
             if(source == null)
             {
@@ -4002,7 +4002,7 @@ JsTypes.push({
             throw System.Linq.Error.NoMatch();
         }
         ,
-        FirstOrDefault$1$$IEnumerable$1:function(TSource,source)
+        FirstOrDefault$1$$IEnumerable:function(TSource,source)
         {
             if(source == null)
             {
@@ -4034,7 +4034,7 @@ JsTypes.push({
             return Default(TSource);
         }
         ,
-        FirstOrDefault$1$$IEnumerable$1$$Func$2:function(TSource,source,predicate)
+        FirstOrDefault$1$$IEnumerable$$Func:function(TSource,source,predicate)
         {
             if(source == null)
             {
@@ -4056,7 +4056,7 @@ JsTypes.push({
             return Default(TSource);
         }
         ,
-        Last$1$$IEnumerable$1:function(TSource,source)
+        Last$1$$IEnumerable:function(TSource,source)
         {
             if(source == null)
             {
@@ -4094,7 +4094,7 @@ JsTypes.push({
             throw System.Linq.Error.NoElements();
         }
         ,
-        Last$1$$IEnumerable$1$$Func$2:function(TSource,source,predicate)
+        Last$1$$IEnumerable$$Func:function(TSource,source,predicate)
         {
             if(source == null)
             {
@@ -4123,7 +4123,7 @@ JsTypes.push({
             return local;
         }
         ,
-        LastOrDefault$1$$IEnumerable$1:function(TSource,source)
+        LastOrDefault$1$$IEnumerable:function(TSource,source)
         {
             if(source == null)
             {
@@ -4161,7 +4161,7 @@ JsTypes.push({
             return Default(TSource);
         }
         ,
-        LastOrDefault$1$$IEnumerable$1$$Func$2:function(TSource,source,predicate)
+        LastOrDefault$1$$IEnumerable$$Func:function(TSource,source,predicate)
         {
             if(source == null)
             {
@@ -4184,20 +4184,7 @@ JsTypes.push({
             return local;
         }
         ,
-        Where$1$$IEnumerable$1$$Func$2:function(TSource,source,predicate)
-        {
-            if(source == null)
-            {
-                throw System.Linq.Error.ArgumentNull("source");
-            }
-            if(predicate == null)
-            {
-                throw System.Linq.Error.ArgumentNull("predicate");
-            }
-            return new System.Linq.WhereIterator.ctor(TSource,source,predicate);
-        }
-        ,
-        Where$1$$IEnumerable$1$$Func$3:function(TSource,source,predicate)
+        Where$1$$IEnumerable$$Func:function(TSource,source,predicate)
         {
             if(source == null)
             {
@@ -4210,21 +4197,21 @@ JsTypes.push({
             throw new System.NotImplementedException.ctor();
         }
         ,
-        Contains$1$$IEnumerable$1$$TSource:function(TSource,source,value)
+        Contains$1$$IEnumerable$$TSource:function(TSource,source,value)
         {
             var is2=As(source,System.Collections.Generic.ICollection$1);
             if(is2 != null)
             {
                 return is2.Contains(value);
             }
-            return System.Linq.Enumerable.Contains$1$$IEnumerable$1$$TSource$$IEqualityComparer$1(TSource,source,value,null);
+            return System.Linq.Enumerable.Contains$1$$IEnumerable$$TSource$$IEqualityComparer(TSource,source,value,null);
         }
         ,
-        Contains$1$$IEnumerable$1$$TSource$$IEqualityComparer$1:function(TSource,source,value,comparer)
+        Contains$1$$IEnumerable$$TSource$$IEqualityComparer:function(TSource,source,value,comparer)
         {
             if(comparer == null)
             {
-                comparer = System.Collections.Generic.EqualityComparer.get_Default();
+                comparer = System.Collections.Generic.EqualityComparer$1.get_Default();
             }
             if(source == null)
             {
@@ -4242,7 +4229,7 @@ JsTypes.push({
             return false;
         }
         ,
-        Any$1$$IEnumerable$1:function(TSource,source)
+        Any$1$$IEnumerable:function(TSource,source)
         {
             if(source == null)
             {
@@ -4263,7 +4250,7 @@ JsTypes.push({
             return false;
         }
         ,
-        Any$1$$IEnumerable$1$$Func$2:function(TSource,source,predicate)
+        Any$1$$IEnumerable$$Func:function(TSource,source,predicate)
         {
             if(source == null)
             {
@@ -4345,7 +4332,7 @@ JsTypes.push({
         ,
         TakeIterator$1:function(TSource,source,count)
         {
-            var d__=new SharpKit.JavaScript.Private.JsImplTakeIterator.ctor(TSource,-2);
+            var d__=new SharpKit.JavaScript.Private.JsImplTakeIterator$1.ctor(TSource,-2);
             d__._Source = source;
             d__._Count = count;
             return d__;
@@ -4373,7 +4360,7 @@ JsTypes.push({
             {
                 throw System.Linq.Error.ArgumentNull("source");
             }
-            return new System.Collections.Generic.List.ctor$$IEnumerable$1(TSource,source);
+            return new System.Collections.Generic.List$1.ctor$$IEnumerable(TSource,source);
         }
     }
     ,
@@ -4431,7 +4418,7 @@ JsTypes.push({
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
-    fullname:"System.Linq.WhereIterator$1",
+    fullname:"System.Linq.WhereIterator",
     baseTypeName:"System.Object",
     definition:{
         ctor:function(T,source,predicate)
@@ -4499,7 +4486,7 @@ JsTypes.push({
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
-    fullname:"System.Linq.OfTypeIterator$1",
+    fullname:"System.Linq.OfTypeIterator",
     baseTypeName:"System.Object",
     definition:{
         ctor:function(T,source)
@@ -4564,7 +4551,7 @@ JsTypes.push({
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
-    fullname:"System.Linq.SelectIterator$2",
+    fullname:"System.Linq.SelectIterator",
     baseTypeName:"System.Object",
     definition:{
         ctor:function(TSource,TResult,source,selector)
@@ -4635,7 +4622,7 @@ JsTypes.push({
     definition:{
         ctor:function()
         {
-            System.Collections.Generic.List.ctor.call(this);
+            System.Collections.Generic.List$1.ctor.call(this);
         }
         
     }
@@ -4752,7 +4739,7 @@ JsTypes.push({
             var array=new Array();
             for(var hashKey in this._table)
             {
-                array.push(new System.Collections.Generic.KeyValuePair.ctor(this.TKey,this.TValue,this._keys[hashKey],this._table[hashKey]));
+                array.push(new System.Collections.Generic.KeyValuePair$2.ctor(this.TKey,this.TValue,this._keys[hashKey],this._table[hashKey]));
             }
             return array.GetEnumerator();
         }
@@ -4785,6 +4772,46 @@ JsTypes.push({
     assemblyName:"SharpKit.JsClr-4.1.0",
     customAttributes:[],
     interfaceNames:["System.Collections.Generic.IDictionary$2"]}
+);
+if(typeof(JsTypes) == "undefined")
+    JsTypes = [];
+JsTypes.push({
+    fullname:"System.Collections.Generic.KeyValuePair$2",
+    baseTypeName:"System.Object",
+    definition:{
+        ctor:function(K,T,key,value)
+        {
+            this._Key = null;
+            this._Value = null;
+            System.Object.ctor.call(this);
+            this._Key = key;
+            this._Value = value;
+        }
+        ,
+        Key$$:"K",
+        get_Key:function()
+        {
+            return this._Key;
+        }
+        
+        ,
+        Value$$:"T",
+        get_Value:function()
+        {
+            return this._Value;
+        }
+        
+    }
+    ,
+    staticDefinition:{},
+    isEnum:false,
+    isInterface:false,
+    isDelegate:false,
+    isValueType:false,
+    isPartial:false,
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    customAttributes:[],
+    interfaceNames:[]}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
@@ -4920,7 +4947,7 @@ JsTypes.push({
             this._list = new Array();
         }
         ,
-        ctor$$IEnumerable$1:function(T,collection)
+        ctor$$IEnumerable:function(T,collection)
         {
             this._list = null;
             System.Object.ctor.call(this);
@@ -4971,7 +4998,7 @@ JsTypes.push({
         ,
         GetEnumerator:function()
         {
-            return new System.Collections.IListEnumerator.ctor(this.T,this);
+            return new System.Collections.IListEnumerator$1.ctor(this.T,this);
         }
         
         ,
@@ -5165,7 +5192,7 @@ JsTypes.push({
         ,
         GetCustomAttributes$$Type$$Boolean:function(attributeType,inherit)
         {
-            var list=new System.Collections.Generic.List.ctor(System.Object);
+            var list=new System.Collections.Generic.List$1.ctor(System.Object);
             this.AddCustomAttributes(list,attributeType,inherit);
             return list.ToArray();
         }
@@ -5835,7 +5862,7 @@ JsTypes.push({
             if(!System.Diagnostics.Trace.Enabled)
                 return;
             if(System.Diagnostics.Trace.Warnings == null)
-                System.Diagnostics.Trace.Warnings = new System.Collections.Generic.List.ctor(System.String);
+                System.Diagnostics.Trace.Warnings = new System.Collections.Generic.List$1.ctor(System.String);
             System.Diagnostics.Trace.Warnings.Add(msg);
         }
         ,
@@ -6318,7 +6345,7 @@ JsTypes.push({
         ,
         ClrTypeToJsTypeRef:function(type)
         {
-            var att=System.Linq.Enumerable.FirstOrDefault$1$$IEnumerable$1(SharpKit.JavaScript.JsTypeAttribute,System.Linq.Enumerable.OfType$1(SharpKit.JavaScript.JsTypeAttribute,type.GetCustomAttributes$$Type$$Boolean(Typeof(SharpKit.JavaScript.JsTypeAttribute),false)));
+            var att=System.Linq.Enumerable.FirstOrDefault$1$$IEnumerable(SharpKit.JavaScript.JsTypeAttribute,System.Linq.Enumerable.OfType$1(SharpKit.JavaScript.JsTypeAttribute,type.GetCustomAttributes$$Type$$Boolean(Typeof(SharpKit.JavaScript.JsTypeAttribute),false)));
             if(att != null && SharpKit.Extensions2.IsNotNullOrEmpty$$String(att.get_Name()))
             {
                 return att.get_Name().Replace$$Char$$Char('`','$');
@@ -6379,7 +6406,7 @@ JsTypes.push({
             if(mi.get_IsStatic())
             {
                 sb.Append$$String(SharpKit.JavaScript.JsNamingHelper.ClrTypeToJsTypeRef(type));
-                var att=System.Linq.Enumerable.FirstOrDefault$1$$IEnumerable$1(SharpKit.JavaScript.JsTypeAttribute,System.Linq.Enumerable.OfType$1(SharpKit.JavaScript.JsTypeAttribute,type.GetCustomAttributes$$Type$$Boolean(Typeof(SharpKit.JavaScript.JsTypeAttribute),false)));
+                var att=System.Linq.Enumerable.FirstOrDefault$1$$IEnumerable(SharpKit.JavaScript.JsTypeAttribute,System.Linq.Enumerable.OfType$1(SharpKit.JavaScript.JsTypeAttribute,type.GetCustomAttributes$$Type$$Boolean(Typeof(SharpKit.JavaScript.JsTypeAttribute),false)));
                 if(att == null || att.get_Mode() == 2)
                 {
                     sb.Append$$String(".staticDefinition.");

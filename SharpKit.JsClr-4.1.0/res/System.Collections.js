@@ -9,7 +9,7 @@ JsTypes.push({
     definition:{
         ctor:function()
         {
-            System.Collections.Generic.List.ctor.call(this);
+            System.Collections.Generic.List$1.ctor.call(this);
         }
         
     }
@@ -126,7 +126,7 @@ JsTypes.push({
             var array=new Array();
             for(var hashKey in this._table)
             {
-                array.push(new System.Collections.Generic.KeyValuePair.ctor(this.TKey,this.TValue,this._keys[hashKey],this._table[hashKey]));
+                array.push(new System.Collections.Generic.KeyValuePair$2.ctor(this.TKey,this.TValue,this._keys[hashKey],this._table[hashKey]));
             }
             return array.GetEnumerator();
         }
@@ -159,6 +159,46 @@ JsTypes.push({
     assemblyName:"SharpKit.JsClr-4.1.0",
     customAttributes:[],
     interfaceNames:["System.Collections.Generic.IDictionary$2"]}
+);
+if(typeof(JsTypes) == "undefined")
+    JsTypes = [];
+JsTypes.push({
+    fullname:"System.Collections.Generic.KeyValuePair$2",
+    baseTypeName:"System.Object",
+    definition:{
+        ctor:function(K,T,key,value)
+        {
+            this._Key = null;
+            this._Value = null;
+            System.Object.ctor.call(this);
+            this._Key = key;
+            this._Value = value;
+        }
+        ,
+        Key$$:"K",
+        get_Key:function()
+        {
+            return this._Key;
+        }
+        
+        ,
+        Value$$:"T",
+        get_Value:function()
+        {
+            return this._Value;
+        }
+        
+    }
+    ,
+    staticDefinition:{},
+    isEnum:false,
+    isInterface:false,
+    isDelegate:false,
+    isValueType:false,
+    isPartial:false,
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    customAttributes:[],
+    interfaceNames:[]}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
@@ -294,7 +334,7 @@ JsTypes.push({
             this._list = new Array();
         }
         ,
-        ctor$$IEnumerable$1:function(T,collection)
+        ctor$$IEnumerable:function(T,collection)
         {
             this._list = null;
             System.Object.ctor.call(this);
@@ -345,7 +385,7 @@ JsTypes.push({
         ,
         GetEnumerator:function()
         {
-            return new System.Collections.IListEnumerator.ctor(this.T,this);
+            return new System.Collections.IListEnumerator$1.ctor(this.T,this);
         }
         
         ,

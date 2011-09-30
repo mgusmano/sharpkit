@@ -15,7 +15,7 @@ JsTypes.push({
     }
     ,
     staticDefinition:{
-        First$1$$IEnumerable$1:function(TSource,source)
+        First$1$$IEnumerable:function(TSource,source)
         {
             if(source == null)
             {
@@ -47,7 +47,7 @@ JsTypes.push({
             throw System.Linq.Error.NoElements();
         }
         ,
-        First$1$$IEnumerable$1$$Func$2:function(TSource,source,predicate)
+        First$1$$IEnumerable$$Func:function(TSource,source,predicate)
         {
             if(source == null)
             {
@@ -69,7 +69,7 @@ JsTypes.push({
             throw System.Linq.Error.NoMatch();
         }
         ,
-        FirstOrDefault$1$$IEnumerable$1:function(TSource,source)
+        FirstOrDefault$1$$IEnumerable:function(TSource,source)
         {
             if(source == null)
             {
@@ -101,7 +101,7 @@ JsTypes.push({
             return Default(TSource);
         }
         ,
-        FirstOrDefault$1$$IEnumerable$1$$Func$2:function(TSource,source,predicate)
+        FirstOrDefault$1$$IEnumerable$$Func:function(TSource,source,predicate)
         {
             if(source == null)
             {
@@ -123,7 +123,7 @@ JsTypes.push({
             return Default(TSource);
         }
         ,
-        Last$1$$IEnumerable$1:function(TSource,source)
+        Last$1$$IEnumerable:function(TSource,source)
         {
             if(source == null)
             {
@@ -161,7 +161,7 @@ JsTypes.push({
             throw System.Linq.Error.NoElements();
         }
         ,
-        Last$1$$IEnumerable$1$$Func$2:function(TSource,source,predicate)
+        Last$1$$IEnumerable$$Func:function(TSource,source,predicate)
         {
             if(source == null)
             {
@@ -190,7 +190,7 @@ JsTypes.push({
             return local;
         }
         ,
-        LastOrDefault$1$$IEnumerable$1:function(TSource,source)
+        LastOrDefault$1$$IEnumerable:function(TSource,source)
         {
             if(source == null)
             {
@@ -228,7 +228,7 @@ JsTypes.push({
             return Default(TSource);
         }
         ,
-        LastOrDefault$1$$IEnumerable$1$$Func$2:function(TSource,source,predicate)
+        LastOrDefault$1$$IEnumerable$$Func:function(TSource,source,predicate)
         {
             if(source == null)
             {
@@ -251,20 +251,7 @@ JsTypes.push({
             return local;
         }
         ,
-        Where$1$$IEnumerable$1$$Func$2:function(TSource,source,predicate)
-        {
-            if(source == null)
-            {
-                throw System.Linq.Error.ArgumentNull("source");
-            }
-            if(predicate == null)
-            {
-                throw System.Linq.Error.ArgumentNull("predicate");
-            }
-            return new System.Linq.WhereIterator.ctor(TSource,source,predicate);
-        }
-        ,
-        Where$1$$IEnumerable$1$$Func$3:function(TSource,source,predicate)
+        Where$1$$IEnumerable$$Func:function(TSource,source,predicate)
         {
             if(source == null)
             {
@@ -277,21 +264,21 @@ JsTypes.push({
             throw new System.NotImplementedException.ctor();
         }
         ,
-        Contains$1$$IEnumerable$1$$TSource:function(TSource,source,value)
+        Contains$1$$IEnumerable$$TSource:function(TSource,source,value)
         {
             var is2=As(source,System.Collections.Generic.ICollection$1);
             if(is2 != null)
             {
                 return is2.Contains(value);
             }
-            return System.Linq.Enumerable.Contains$1$$IEnumerable$1$$TSource$$IEqualityComparer$1(TSource,source,value,null);
+            return System.Linq.Enumerable.Contains$1$$IEnumerable$$TSource$$IEqualityComparer(TSource,source,value,null);
         }
         ,
-        Contains$1$$IEnumerable$1$$TSource$$IEqualityComparer$1:function(TSource,source,value,comparer)
+        Contains$1$$IEnumerable$$TSource$$IEqualityComparer:function(TSource,source,value,comparer)
         {
             if(comparer == null)
             {
-                comparer = System.Collections.Generic.EqualityComparer.get_Default();
+                comparer = System.Collections.Generic.EqualityComparer$1.get_Default();
             }
             if(source == null)
             {
@@ -309,7 +296,7 @@ JsTypes.push({
             return false;
         }
         ,
-        Any$1$$IEnumerable$1:function(TSource,source)
+        Any$1$$IEnumerable:function(TSource,source)
         {
             if(source == null)
             {
@@ -330,7 +317,7 @@ JsTypes.push({
             return false;
         }
         ,
-        Any$1$$IEnumerable$1$$Func$2:function(TSource,source,predicate)
+        Any$1$$IEnumerable$$Func:function(TSource,source,predicate)
         {
             if(source == null)
             {
@@ -412,7 +399,7 @@ JsTypes.push({
         ,
         TakeIterator$1:function(TSource,source,count)
         {
-            var d__=new SharpKit.JavaScript.Private.JsImplTakeIterator.ctor(TSource,-2);
+            var d__=new SharpKit.JavaScript.Private.JsImplTakeIterator$1.ctor(TSource,-2);
             d__._Source = source;
             d__._Count = count;
             return d__;
@@ -440,7 +427,7 @@ JsTypes.push({
             {
                 throw System.Linq.Error.ArgumentNull("source");
             }
-            return new System.Collections.Generic.List.ctor$$IEnumerable$1(TSource,source);
+            return new System.Collections.Generic.List$1.ctor$$IEnumerable(TSource,source);
         }
     }
     ,
@@ -498,7 +485,7 @@ JsTypes.push({
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
-    fullname:"System.Linq.WhereIterator$1",
+    fullname:"System.Linq.WhereIterator",
     baseTypeName:"System.Object",
     definition:{
         ctor:function(T,source,predicate)
@@ -566,7 +553,7 @@ JsTypes.push({
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
-    fullname:"System.Linq.OfTypeIterator$1",
+    fullname:"System.Linq.OfTypeIterator",
     baseTypeName:"System.Object",
     definition:{
         ctor:function(T,source)
@@ -631,7 +618,7 @@ JsTypes.push({
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
-    fullname:"System.Linq.SelectIterator$2",
+    fullname:"System.Linq.SelectIterator",
     baseTypeName:"System.Object",
     definition:{
         ctor:function(TSource,TResult,source,selector)

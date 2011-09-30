@@ -50,7 +50,7 @@ JsTypes.push({
             if(!System.Diagnostics.Trace.Enabled)
                 return;
             if(System.Diagnostics.Trace.Warnings == null)
-                System.Diagnostics.Trace.Warnings = new System.Collections.Generic.List.ctor(System.String);
+                System.Diagnostics.Trace.Warnings = new System.Collections.Generic.List$1.ctor(System.String);
             System.Diagnostics.Trace.Warnings.Add(msg);
         }
         ,

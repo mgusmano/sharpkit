@@ -278,12 +278,12 @@ AfterCompilation(function()
 
         public static char[] GetInvalidFileNameChars()
         {
-            return (char[])InvalidFileNameChars.Clone();
+            return InvalidFileNameChars.Clone().As<char[]>();
         }
 
         public static char[] GetInvalidPathChars()
         {
-            return (char[])RealInvalidPathChars.Clone();
+            return RealInvalidPathChars.Clone().As<char[]>();
         }
 
         public static string GetPathRoot(string path)
