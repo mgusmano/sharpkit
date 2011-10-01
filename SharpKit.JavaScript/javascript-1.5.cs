@@ -84,6 +84,13 @@ namespace SharpKit.JavaScript
         ///</summary>
         public bool NativeOverloads { get; set; }
         ///<summary>
+        ///When true, operator overloads will be exported as native js binary operations:
+        ///if System.Int32 has a '/' operator overload then:
+        ///x / y -> System.Int32.op_div(x, y);   //NativeOperatorOverloads=false
+        ///x / y -> x / y;              //NativeOperatorOverloads=true
+        ///</summary>
+        public bool NativeOperatorOverloads { get; set; }
+        ///<summary>
         ///Indicates that this type will be exported as native js type, 
         ///only one constructor is allowed, 
         ///all instance members will be exported to the constructor's prototype
