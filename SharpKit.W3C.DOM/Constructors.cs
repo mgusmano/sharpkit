@@ -26,7 +26,7 @@ namespace org.w3c.dom.websocket
         public void close() { }
     }
 
-    [JsType(JsMode.Prototype, Name = "CloseEvent")]
+    [JsType(JsMode.Prototype, Name = "CloseEvent", PropertiesAsFields=true)]
     public interface CloseEvent : org.w3c.dom.events.Event
     {
         /// <summary>
