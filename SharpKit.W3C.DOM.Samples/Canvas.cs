@@ -4,6 +4,8 @@ using org.w3c.dom.html;
 namespace SharpKit.W3C.DOM.Samples
 {
 
+
+
     [JsType(JsMode.Global, Filename = "Canvas.js", OrderInFile = 1)]
     public class Canvas : HTMLContext
     {
