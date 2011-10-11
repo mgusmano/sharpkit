@@ -595,7 +595,7 @@ Opera counts the <div> with id='test'")]
         [SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
         public T createElement<T>(JsString name) { return default(T); }
         [SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
-        [JsMethod(IgnoreGenericArguments=false, NativeOverloads=true)]
+        [JsMethod(IgnoreGenericArguments = false, NativeOverloads = true)]
         public T createElement<T>() { return default(T); }
         ///<summary>
         ///Retrieves a collection of objects based on the specified element name.
@@ -709,7 +709,7 @@ Custom tags are not returned in Konqueror.")]
         [SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10, PartiallySupportedRemark = @"IE and Firefox need clientX/Y, while Opera, Chrome and Safari need pageX/Y. Opera 9 reports a text node whenever possible, while this method should report the containing element node.")]
         public HtmlElement elementFromPoint(JsNumber iX, JsNumber iY) { return null; }
         [HtmlSpecificationVersion(5)]
-        [JsProperty(NativeIndexer=true)]
+        [JsProperty(NativeIndexer = true)]
         public object this[JsString name] { get { return null; } set { } }
         ///<summary>
         ///Creates a new comment node, and returns it.
@@ -2737,7 +2737,7 @@ You cannot prevent the default onkeydown in Opera.")]
     [JsType(JsMode.Json, Export = false, Name = "IMAGE")]
     public partial class HtmlImage : HtmlElement
     {
-        [JsMethod(Name="Image")]
+        [JsMethod(Name = "Image")]
         public HtmlImage()
         {
         }
@@ -3301,7 +3301,7 @@ Safari, Chrome, Opera and Konqueror do not support this event on JavaScript erro
     [JsType(JsMode.Json, Export = false, Name = "OPTION")]
     public partial class HtmlOption : HtmlElement
     {
-        [JsMethod(Name="Option")]
+        [JsMethod(Name = "Option")]
         public HtmlOption()
         {
         }
@@ -5238,18 +5238,21 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     #endregion
 
     #region XMLHttpRequest
-    [JsType(JsMode.Prototype, Name="XMLHttpRequest", Export=false)]
+    [JsType(JsMode.Prototype, Name = "XMLHttpRequest", Export = false)]
     public partial class XMLHttpRequest
     {
         public void open(JsString method, JsString address, JsBoolean async) { }
         public void send(JsString body) { }
-        public JsString responseText { get; private set;}
+        public JsString responseText { get; private set; }
         public JsAction onreadystatechange { get; set; }
-        public JsNumber readyState { get; private set;}
-        public JsNumber status { get; private set;}
-        public JsString statusText { get; private set;}
+        public JsNumber readyState { get; private set; }
+        public JsNumber status { get; private set; }
+        public JsString statusText { get; private set; }
         public void setRequestHeader(string name, string value) { }
-
+        /// <summary>
+        /// Cancels the current HTTP request.
+        /// </summary>
+        public void abort() { }
     }
     #endregion
 
@@ -5276,7 +5279,7 @@ Safari and Chrome don’t support these events on links and/or form fields in al
     [JsType(JsMode.Json, Export = false, Name = "NODECOLLECTION")]
     public partial class HtmlNodeCollection<T> : IEnumerable, IEnumerable<T> where T : class
     {
-        [JsProperty(NativeIndexer=true)]
+        [JsProperty(NativeIndexer = true)]
         public T this[JsNumber index] { get { return null; } }
         [JsProperty(NativeIndexer = true)]
         public T this[JsString name] { get { return null; } }
