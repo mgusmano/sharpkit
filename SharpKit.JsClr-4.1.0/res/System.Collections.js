@@ -9,7 +9,7 @@ JsTypes.push({
     definition:{
         ctor:function()
         {
-            System.Collections.Generic.List$1.ctor.call(this);
+            System.Collections.Generic.List$1.ctor.call(this,System.Object);
         }
         
     }
