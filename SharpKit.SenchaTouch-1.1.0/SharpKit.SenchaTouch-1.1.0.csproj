@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5D654D2A-EFC8-4106-BF1C-7B674F841A5A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharpKit.SenchaTouch_1._1._0</RootNamespace>
+    <AssemblyName>SharpKit.SenchaTouch-1.1.0</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <TargetFrameworkVersion Condition="'$(Configuration)' == 'v3.5'">v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(Configuration)' == 'v4.0'">v4.0</TargetFrameworkVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpKit.Html4\SharpKit.Html4.csproj">
+      <Project>{AA74777B-DB40-4DCF-A69A-9DE5A6B2C380}</Project>
+      <Name>SharpKit.Html4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
+      <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
+      <Name>SharpKit.JavaScript</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SenchaTouch-1.1.0.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SharpKit.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
