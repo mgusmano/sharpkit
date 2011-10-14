@@ -5,8 +5,6 @@ if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Reflection.BindingFlags",
-    baseTypeName:null,
-    definition:{},
     staticDefinition:{
         CreateInstance:"CreateInstance",
         DeclaredOnly:"DeclaredOnly",
@@ -29,20 +27,15 @@ JsTypes.push({
         Static:"Static",
         SuppressChangeType:"SuppressChangeType"}
     ,
-    isEnum:true,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Enum"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Reflection.MemberInfo",
     baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -113,22 +106,15 @@ JsTypes.push({
             return this._CustomAttributes;
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Reflection.MethodBase",
     baseTypeName:"System.Reflection.MemberInfo",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -136,22 +122,15 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Reflection.MethodInfo",
     baseTypeName:"System.Reflection.MethodBase",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -180,22 +159,15 @@ JsTypes.push({
             return res;
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Reflection.PropertyInfo",
     baseTypeName:"System.Reflection.MemberInfo",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -250,22 +222,66 @@ JsTypes.push({
             }
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Type",
     baseTypeName:"System.Reflection.MemberInfo",
+    staticDefinition:{
+        _TypeOf:function(jsType)
+        {
+            if(jsType == null)
+                throw new System.Exception.ctor$$String("Cannot resovle type");
+            if(jsType._ClrType == null)
+                jsType._ClrType = new System.Type.ctor(jsType);
+            return jsType._ClrType;
+        }
+        ,
+        GetType$$String:function(name)
+        {
+            return System.Type.GetType$$String$$Boolean(name,false);
+        }
+        
+        ,
+        GetType$$String$$Boolean:function(name,throwOnError)
+        {
+            if(JsTypeHelper._HasTypeArguments(name))
+            {
+                var jsTypeAndArgs=JsTypeHelper._GetTypeWithArguments(name,throwOnError);
+                if(jsTypeAndArgs == null)
+                    return null;
+                var genericType=System.Type._TypeOf(jsTypeAndArgs[0]);
+                var jsTypeArgs=jsTypeAndArgs[1];
+                for(var i=0;i < jsTypeArgs.length;i++)
+                {
+                    jsTypeArgs[i] = System.Type._TypeOf(jsTypeArgs[i]);
+                }
+                var type=genericType._MakeGenericType(jsTypeArgs);
+                return type;
+            }
+            var jsType=JsTypeHelper.GetType(name);
+            if(jsType == null)
+            {
+                if(throwOnError)
+                    throw new System.Exception.ctor$$String("Type " + name + " was not found");
+                return null;
+            }
+            return System.Type._TypeOf(jsType);
+        }
+        ,
+        GetType$$String$$Boolean$$Boolean:function(name,throwOnError,ignoreCase)
+        {
+            if(ignoreCase)
+                throw new System.NotImplementedException.ctor();
+            return System.Type.GetType$$String$$Boolean(name,throwOnError);
+        }
+        ,
+        EmptyTypes:null}
+    ,
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function(jsType)
         {
@@ -289,7 +305,7 @@ JsTypes.push({
         IsEnum$$:"System.Boolean",
         get_IsEnum:function()
         {
-            return this._JsType.isEnum;
+            return this._JsType.Kind == "Enum";
         }
         
         ,
@@ -660,64 +676,5 @@ return this._MakeGenericType(x);
             return t;
         }
     }
-    ,
-    staticDefinition:{
-        _TypeOf:function(jsType)
-        {
-            if(jsType == null)
-                throw new System.Exception.ctor$$String("Cannot resovle type");
-            if(jsType._ClrType == null)
-                jsType._ClrType = new System.Type.ctor(jsType);
-            return jsType._ClrType;
-        }
-        ,
-        GetType$$String:function(name)
-        {
-            return System.Type.GetType$$String$$Boolean(name,false);
-        }
-        
-        ,
-        GetType$$String$$Boolean:function(name,throwOnError)
-        {
-            if(JsTypeHelper._HasTypeArguments(name))
-            {
-                var jsTypeAndArgs=JsTypeHelper._GetTypeWithArguments(name,throwOnError);
-                if(jsTypeAndArgs == null)
-                    return null;
-                var genericType=System.Type._TypeOf(jsTypeAndArgs[0]);
-                var jsTypeArgs=jsTypeAndArgs[1];
-                for(var i=0;i < jsTypeArgs.length;i++)
-                {
-                    jsTypeArgs[i] = System.Type._TypeOf(jsTypeArgs[i]);
-                }
-                var type=genericType._MakeGenericType(jsTypeArgs);
-                return type;
-            }
-            var jsType=JsTypeHelper.GetType(name);
-            if(jsType == null)
-            {
-                if(throwOnError)
-                    throw new System.Exception.ctor$$String("Type " + name + " was not found");
-                return null;
-            }
-            return System.Type._TypeOf(jsType);
-        }
-        ,
-        GetType$$String$$Boolean$$Boolean:function(name,throwOnError,ignoreCase)
-        {
-            if(ignoreCase)
-                throw new System.NotImplementedException.ctor();
-            return System.Type.GetType$$String$$Boolean(name,throwOnError);
-        }
-        ,
-        EmptyTypes:null}
-    ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );

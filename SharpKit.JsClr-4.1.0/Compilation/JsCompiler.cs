@@ -59,14 +59,14 @@ namespace SharpKit.JavaScript.Compilation
                     jsType.ns = fullName.As<JsString>().substring(0, index);
                 }
 
-                if (jsType.isEnum)
+                if (jsType.Kind == JsTypeKind.Enum)
                 {
                     if (jsType.baseTypeName == null)
                         jsType.baseTypeName = "System.Object";
                     if (jsType.definition["ToString"] == null)
                         jsType.definition["ToString"] = new JsFunction("return this._Name;");
                 }
-                else if (jsType.isValueType)
+                else if (jsType.Kind==JsTypeKind.Struct)
                 {
                     if (type.baseTypeName == null)
                         type.baseTypeName = "System.ValueType";
@@ -389,7 +389,7 @@ namespace SharpKit.JavaScript.Compilation
         }
         private static void CompileEnum(JsType currentType)
         {
-            if (currentType.isEnum)
+            if (currentType.Kind==JsTypeKind.Enum)
             {
                 currentType.tryParse = _EnumTryParse;
                 foreach (var p in currentType.staticDefinition)

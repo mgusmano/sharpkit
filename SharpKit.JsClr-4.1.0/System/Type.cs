@@ -28,7 +28,7 @@ namespace SharpKit.JavaScript.Private
 		{
 			get
 			{
-				return _JsType.isEnum;
+				return _JsType.Kind==JsTypeKind.Enum;
 			}
 		}
 

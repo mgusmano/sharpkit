@@ -6,6 +6,8 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Text.StringBuilder",
     baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -99,14 +101,5 @@ JsTypes.push({
             return this;
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );

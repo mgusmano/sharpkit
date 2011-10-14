@@ -192,7 +192,7 @@ function _TestTypeInterfacesIs(testType,iface,testedInterfaces)
 
 function TypeIs(objType,type)
 {
-    if(type.isInterface)
+    if(type.Kind == "Interface")
     {
         var testedInterfaces=new Object();
         while(objType != null)
@@ -204,7 +204,7 @@ function TypeIs(objType,type)
             objType = objType.baseType;
         }
     }
-    else if(type.isDelegate && objType.fullname == "System.Delegate" && type.isDelegate)
+    else if(type.Kind == "Delegate" && objType.fullname == "System.Delegate")
     {
         return true;
     }
@@ -546,14 +546,14 @@ JsCompiler.Compile_Phase1 = function()
             jsType.name = fullName.substring(index + 1);
             jsType.ns = fullName.substring(0,index);
         }
-        if(jsType.isEnum)
+        if(jsType.Kind == "Enum")
         {
             if(jsType.baseTypeName == null)
                 jsType.baseTypeName = "System.Object";
             if(jsType.definition["ToString"] == null)
                 jsType.definition["ToString"] = new Function("return this._Name;");
         }
-        else if(jsType.isValueType)
+        else if(jsType.Kind == "Struct")
         {
             if(type.baseTypeName == null)
                 type.baseTypeName = "System.ValueType";
@@ -842,7 +842,7 @@ JsCompiler.CompileType = function(type)
 
 JsCompiler.CompileEnum = function(currentType)
 {
-    if(currentType.isEnum)
+    if(currentType.Kind == "Enum")
     {
         currentType.tryParse = JsCompiler._EnumTryParse;
         for(var p in currentType.staticDefinition)
@@ -895,14 +895,6 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Activator",
     baseTypeName:"System.Object",
-    definition:{
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-        
-    }
-    ,
     staticDefinition:{
         CreateInstance$$Type:function(type)
         {
@@ -947,20 +939,8 @@ JsTypes.push({
         
     }
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
-);
-if(typeof(JsTypes) == "undefined")
-    JsTypes = [];
-JsTypes.push({
-    fullname:"System.Attribute",
-    baseTypeName:"System.Object",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -968,182 +948,115 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
+}
+);
+if(typeof(JsTypes) == "undefined")
+    JsTypes = [];
+JsTypes.push({
+    fullname:"System.Attribute",
+    baseTypeName:"System.Object",
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Class",
+    definition:{
+        ctor:function()
+        {
+            System.Object.ctor.call(this);
+        }
+        
+    }
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Collections.Generic.IEnumerator$1",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Collections.IEnumerator",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Collections.Generic.IEnumerable$1",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:["System.Collections.IEnumerable"]}
+    interfaceNames:["System.Collections.IEnumerable"],
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Collections.IEnumerable",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Collections.Generic.IList$1",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:["System.Collections.Generic.ICollection$1"]}
+    interfaceNames:["System.Collections.Generic.ICollection$1"],
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Collections.IList",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:["System.Collections.ICollection"]}
+    interfaceNames:["System.Collections.ICollection"],
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Collections.Generic.ICollection$1",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:["System.Collections.Generic.IEnumerable$1"]}
+    interfaceNames:["System.Collections.Generic.IEnumerable$1"],
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Collections.ICollection",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:["System.Collections.IEnumerable"]}
+    interfaceNames:["System.Collections.IEnumerable"],
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Collections.Generic.IDictionary$2",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Collections.IDictionary",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:["System.Collections.ICollection","System.Collections.IEnumerable"]}
+    interfaceNames:["System.Collections.ICollection","System.Collections.IEnumerable"],
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Comparison$1",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(T,obj,func)
         {
@@ -1151,22 +1064,13 @@ JsTypes.push({
             System.MulticastDelegate.ctor.call(this,obj,func);
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.ComponentModel.CancelEventHandler",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(obj,func)
         {
@@ -1174,22 +1078,15 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.ComponentModel.CancelEventArgs",
     baseTypeName:"System.EventArgs",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -1218,54 +1115,29 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.ComponentModel.INotifyPropertyChanging",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.ComponentModel.INotifyPropertyChanged",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.ComponentModel.PropertyChangedEventHandler",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(obj,func)
         {
@@ -1273,22 +1145,15 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.ComponentModel.PropertyChangedEventArgs",
     baseTypeName:"System.EventArgs",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function(propertyName)
         {
@@ -1304,22 +1169,37 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.DateTime",
     baseTypeName:"System.Object",
+    staticDefinition:{
+        Now$$:"SharpKit.JavaScript.Private.JsImplDateTime",
+        get_Now:function()
+        {
+            return new System.DateTime.ctor$$Date(new Date());
+        }
+        
+        ,
+        DaysInMonth:function(year,month)
+        {
+            return 32 - new Date(year, month-1, 32).getDate();
+        }
+        
+        ,
+        Compare:function(t1,t2)
+        {
+            return t1.date.valueOf() - t2.date.valueOf();
+        }
+        
+        ,
+        MinValue:null}
+    ,
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -1514,51 +1394,13 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{
-        Now$$:"SharpKit.JavaScript.Private.JsImplDateTime",
-        get_Now:function()
-        {
-            return new System.DateTime.ctor$$Date(new Date());
-        }
-        
-        ,
-        DaysInMonth:function(year,month)
-        {
-            return 32 - new Date(year, month-1, 32).getDate();
-        }
-        
-        ,
-        Compare:function(t1,t2)
-        {
-            return t1.date.valueOf() - t2.date.valueOf();
-        }
-        
-        ,
-        MinValue:null}
-    ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"SharpKit.JavaScript.Private.Extensions",
     baseTypeName:"System.Object",
-    definition:{
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-        
-    }
-    ,
     staticDefinition:{
         addDays:function(date,days)
         {
@@ -1581,34 +1423,22 @@ JsTypes.push({
         }
     }
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
-);
-if(typeof(JsTypes) == "undefined")
-    JsTypes = [];
-JsTypes.push({
-    fullname:"System.Delegate",
-    baseTypeName:"System.Object",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
             System.Object.ctor.call(this);
         }
         
-        ,
-        DynamicInvoke:function(args)
-        {
-            throw new System.NotImplementedException.ctor();
-        }
-        
     }
-    ,
+}
+);
+if(typeof(JsTypes) == "undefined")
+    JsTypes = [];
+JsTypes.push({
+    fullname:"System.Delegate",
+    baseTypeName:"System.Object",
     staticDefinition:{
         Combine$$Delegate$Array:function(delegates)
         {
@@ -1629,20 +1459,30 @@ JsTypes.push({
         
     }
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Class",
+    definition:{
+        ctor:function()
+        {
+            System.Object.ctor.call(this);
+        }
+        
+        ,
+        DynamicInvoke:function(args)
+        {
+            throw new System.NotImplementedException.ctor();
+        }
+        
+    }
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.MulticastDelegate",
     baseTypeName:"System.Delegate",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -1668,22 +1508,13 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Action",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(obj,func)
         {
@@ -1691,22 +1522,13 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Action$1",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(T,obj,func)
         {
@@ -1714,22 +1536,13 @@ JsTypes.push({
             System.MulticastDelegate.ctor.call(this,obj,func);
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Action$2",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(T1,T2,obj,func)
         {
@@ -1738,22 +1551,13 @@ JsTypes.push({
             System.MulticastDelegate.ctor.call(this,obj,func);
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Action$3",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(T1,T2,T3,obj,func)
         {
@@ -1763,22 +1567,13 @@ JsTypes.push({
             System.MulticastDelegate.ctor.call(this,obj,func);
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Func$1",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(TResult,obj,func)
         {
@@ -1786,22 +1581,13 @@ JsTypes.push({
             System.MulticastDelegate.ctor.call(this,obj,func);
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Func$2",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(T,TResult,obj,func)
         {
@@ -1810,22 +1596,13 @@ JsTypes.push({
             System.MulticastDelegate.ctor.call(this,obj,func);
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Func$3",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(T1,T2,TResult,obj,func)
         {
@@ -1835,22 +1612,13 @@ JsTypes.push({
             System.MulticastDelegate.ctor.call(this,obj,func);
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Func$4",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(T1,T2,T3,TResult,obj,func)
         {
@@ -1861,22 +1629,13 @@ JsTypes.push({
             System.MulticastDelegate.ctor.call(this,obj,func);
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.EventHandler",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(obj,func)
         {
@@ -1884,22 +1643,13 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.EventHandler$1",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(TEventArgs,obj,func)
         {
@@ -1907,22 +1657,13 @@ JsTypes.push({
             System.MulticastDelegate.ctor.call(this,obj,func);
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Predicate$1",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(T,obj,func)
         {
@@ -1930,30 +1671,13 @@ JsTypes.push({
             System.MulticastDelegate.ctor.call(this,obj,func);
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Enum",
     baseTypeName:"System.Object",
-    definition:{
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-        
-    }
-    ,
     staticDefinition:{
         GetNames:function(type)
         {
@@ -1978,20 +1702,8 @@ JsTypes.push({
         }
     }
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
-);
-if(typeof(JsTypes) == "undefined")
-    JsTypes = [];
-JsTypes.push({
-    fullname:"System.Environment",
-    baseTypeName:"System.Object",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -1999,7 +1711,13 @@ JsTypes.push({
         }
         
     }
-    ,
+}
+);
+if(typeof(JsTypes) == "undefined")
+    JsTypes = [];
+JsTypes.push({
+    fullname:"System.Environment",
+    baseTypeName:"System.Object",
     staticDefinition:{
         GetResourceString:function(p)
         {
@@ -2008,20 +1726,8 @@ JsTypes.push({
         
     }
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
-);
-if(typeof(JsTypes) == "undefined")
-    JsTypes = [];
-JsTypes.push({
-    fullname:"System.EventArgs",
-    baseTypeName:"System.Object",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -2029,22 +1735,31 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
+}
+);
+if(typeof(JsTypes) == "undefined")
+    JsTypes = [];
+JsTypes.push({
+    fullname:"System.EventArgs",
+    baseTypeName:"System.Object",
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Class",
+    definition:{
+        ctor:function()
+        {
+            System.Object.ctor.call(this);
+        }
+        
+    }
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Exception",
     baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor$$String$$Exception:function(message,innerException)
         {
@@ -2096,22 +1811,15 @@ JsTypes.push({
         {
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.NotImplementedException",
     baseTypeName:"System.Exception",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -2125,22 +1833,15 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.SystemException",
     baseTypeName:"System.Exception",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -2160,22 +1861,15 @@ JsTypes.push({
             System.Exception.commonPrototype.SetErrorCode.call(-2146233087);
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.ArgumentException",
     baseTypeName:"System.SystemException",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -2220,22 +1914,15 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.NullReferenceException",
     baseTypeName:"System.SystemException",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -2249,22 +1936,15 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.NotSupportedException",
     baseTypeName:"System.SystemException",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -2284,22 +1964,18 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.ArgumentOutOfRangeException",
     baseTypeName:"System.ArgumentException",
+    staticDefinition:{
+        _rangeMessage:null}
+    ,
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -2354,40 +2030,23 @@ JsTypes.push({
             return System.ArgumentOutOfRangeException._rangeMessage;
         }
     }
-    ,
-    staticDefinition:{
-        _rangeMessage:null}
-    ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.IDisposable",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Nullable$1",
     baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function(T,value)
         {
@@ -2462,49 +2121,23 @@ JsTypes.push({
             return this.value.ToString();
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.StringSplitOptions",
-    baseTypeName:null,
-    definition:{},
     staticDefinition:{
         None:"None",
         RemoveEmptyEntries:"RemoveEmptyEntries"}
     ,
-    isEnum:true,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Enum"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Char",
     baseTypeName:"System.Object",
-    definition:{
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-        
-    }
-    ,
     staticDefinition:{
         IsWhiteSpace:function(c)
         {
@@ -2519,20 +2152,25 @@ JsTypes.push({
         
     }
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Class",
+    definition:{
+        ctor:function()
+        {
+            System.Object.ctor.call(this);
+        }
+        
+    }
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.CharEnumerator",
     baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.IEnumerator"],
+    Kind:"Class",
     definition:{
         ctor:function(str2)
         {
@@ -2576,23 +2214,12 @@ JsTypes.push({
             this.index = -1;
         }
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.IEnumerator"]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.StringComparison",
-    baseTypeName:null,
-    definition:{},
     staticDefinition:{
         CurrentCulture:"CurrentCulture",
         CurrentCultureIgnoreCase:"CurrentCultureIgnoreCase",
@@ -2601,20 +2228,15 @@ JsTypes.push({
         Ordinal:"Ordinal",
         OrdinalIgnoreCase:"OrdinalIgnoreCase"}
     ,
-    isEnum:true,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Enum"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Uri",
     baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function(uri)
         {
@@ -2636,22 +2258,15 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.ValueType",
     baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -2659,22 +2274,13 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"SharpKit.Html4.HtmlDomEventHandler",
-    baseTypeName:null,
+    Kind:"Delegate",
     definition:{
         ctor:function(obj,func)
         {
@@ -2682,16 +2288,7 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:true,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+}
 );
 JsRuntime = function()
 {

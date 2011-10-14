@@ -6,14 +6,6 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Diagnostics.Debugger",
     baseTypeName:"System.Object",
-    definition:{
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-        
-    }
-    ,
     staticDefinition:{
         Break:function()
         {
@@ -22,20 +14,8 @@ JsTypes.push({
         
     }
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
-);
-if(typeof(JsTypes) == "undefined")
-    JsTypes = [];
-JsTypes.push({
-    fullname:"System.Diagnostics.Trace",
-    baseTypeName:"System.Object",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -43,7 +23,13 @@ JsTypes.push({
         }
         
     }
-    ,
+}
+);
+if(typeof(JsTypes) == "undefined")
+    JsTypes = [];
+JsTypes.push({
+    fullname:"System.Diagnostics.Trace",
+    baseTypeName:"System.Object",
     staticDefinition:{
         TraceWarning$$String:function(msg)
         {
@@ -64,12 +50,14 @@ JsTypes.push({
         Warnings:null,
         Enabled:false}
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Class",
+    definition:{
+        ctor:function()
+        {
+            System.Object.ctor.call(this);
+        }
+        
+    }
+}
 );

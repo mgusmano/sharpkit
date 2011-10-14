@@ -342,48 +342,6 @@ namespace SharpKit.JavaScript
         public bool NativeFunction { get; set; }
     }
     #endregion
-    #region BrowserCompatibility
-    #region SupportedBrowsersAttribute
-    ///<summary>
-    ///Compile with browser compatibility #defines to activate (i.e. BROWSER_IE6, BROWSER_FireFox3)
-    ///</summary>
-    public partial class SupportedBrowsersAttribute : Attribute
-    {
-        public SupportedBrowsersAttribute(BrowserTypes sb) { }
-        public SupportedBrowsersAttribute(BrowserTypes sb, string notSupportedRemark) { }
-        public BrowserTypes SupportedBrowser { get; set; }
-        ///<summary>
-        ///If specified, and the browser is not supported, this text will be appended to the generate warning.
-        ///</summary>
-        public string NotSupportedRemark { get; set; }
-        ///<summary>
-        ///If specified, a warning will be generated even if the browser is supported. This is used for features that are partially supported.
-        ///</summary>
-        public string PartiallySupportedRemark { get; set; }
-    }
-    #endregion
-    #region IgnoreBrowserCompatibilityAttribute
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Assembly, AllowMultiple = true)]
-    public partial class IgnoreBrowserCompatibilityAttribute : Attribute
-    {
-        public IgnoreBrowserCompatibilityAttribute() { }
-        public IgnoreBrowserCompatibilityAttribute(string ignoredElements) { }
-        public string IgnoredElements { get; set; }
-    }
-    #endregion
-    #region HtmlSpecificationVersionAttribute
-    ///<summary>
-    ///Compile with html specification #deinfes to activate (ie. HTMLSPEC_4, HTMLSPEC_4_01, HTMLSPEC_5)
-    ///</summary>
-    public partial class HtmlSpecificationVersionAttribute : Attribute
-    {
-        public HtmlSpecificationVersionAttribute(float specLevel) { }
-        public float Specification { get; set; }
-    }
-    #endregion
-    [Flags]
-    public enum BrowserTypes { None = 0, IE5_5 = 1, IE6 = 2, IE7 = 4, IE8 = 8, IE8AsIE7 = 16, IE9 = 32, FireFox2 = 64, FireFox3 = 128, FireFox3_5 = 256, FireFox4 = 512, Saf3Win = 1024, Saf3_1Win = 2048, Saf4Win = 4096, Chrome2 = 8192, Chrome3 = 16384, Chrome4 = 32768, Chrome5 = 65536, Opera9 = 131072, Opera10 = 262144, Konqueror3_57 = 524288 }
-    #endregion
     #region JsEnumAttribute
     ///<summary>
     ///Controls the interoperability and conversion of a .NET enum type into JavaScript.
@@ -1603,7 +1561,7 @@ namespace SharpKit.JavaScript
         ///</summary>
         ///<param name="prop">The name of a property of the object.</param>
         ///<param name="handler">A function to call.</param>
-        [SupportedBrowsers(BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4)]
+        //[SupportedBrowsers(BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4)]
         public virtual void watch(JsString prop, Action handler) { }
         ///<summary>
         ///Removes a watchpoint set with the watch method
@@ -1611,7 +1569,7 @@ namespace SharpKit.JavaScript
         ///By default, this method is inherited by every object descended from Object.
         ///</summary>
         ///<param name="prop">The name of a property of the object.</param>
-        [SupportedBrowsers(BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4)]
+        //[SupportedBrowsers(BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4)]
         public virtual void unwatch(JsString prop) { }
         ///<summary>
         ///Returns the primitive value of the specified object.

@@ -5,34 +5,17 @@ if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.ComponentModel.ListSortDirection",
-    baseTypeName:null,
-    definition:{},
     staticDefinition:{
         Ascending:"Ascending",
         Descending:"Descending"}
     ,
-    isEnum:true,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:null,
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Enum"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Math",
     baseTypeName:"System.Object",
-    definition:{
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-        
-    }
-    ,
     staticDefinition:{
         Abs$$Number:function(value)
         {
@@ -444,12 +427,14 @@ JsTypes.push({
         ,
         PI:Math.PI}
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Class",
+    definition:{
+        ctor:function()
+        {
+            System.Object.ctor.call(this);
+        }
+        
+    }
+}
 );

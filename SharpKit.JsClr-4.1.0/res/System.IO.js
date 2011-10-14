@@ -11,14 +11,6 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.IO.Path",
     baseTypeName:"System.Object",
-    definition:{
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-        
-    }
-    ,
     staticDefinition:{
         MAX_DIRECTORY_PATH:0xf8,
         MAX_PATH:260,
@@ -405,12 +397,14 @@ JsTypes.push({
         RealInvalidPathChars:['"','<','>','|','\0','\x0001','\x0002','\x0003','\x0004','\x0005','\x0006','\a','\b','\t','\n','\v','\f','\r','\x000e','\x000f','\x0010','\x0011','\x0012','\x0013','\x0014','\x0015','\x0016','\x0017','\x0018','\x0019','\x001a','\x001b','\x001c','\x001d','\x001e','\x001f'],
         VolumeSeparatorChar:':'}
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Class",
+    definition:{
+        ctor:function()
+        {
+            System.Object.ctor.call(this);
+        }
+        
+    }
+}
 );

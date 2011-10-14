@@ -6,30 +6,14 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Runtime.Serialization.IExtensibleDataObject",
     baseTypeName:"System.Object",
-    definition:{},
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:true,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"SharpKit.PropertyInfoExtensions",
     baseTypeName:"System.Object",
-    definition:{
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-        
-    }
-    ,
     staticDefinition:{
         IsStatic:function(pi)
         {
@@ -44,20 +28,8 @@ JsTypes.push({
         
     }
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
-);
-if(typeof(JsTypes) == "undefined")
-    JsTypes = [];
-JsTypes.push({
-    fullname:"SharpKit.Extensions2",
-    baseTypeName:"System.Object",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -65,7 +37,13 @@ JsTypes.push({
         }
         
     }
-    ,
+}
+);
+if(typeof(JsTypes) == "undefined")
+    JsTypes = [];
+JsTypes.push({
+    fullname:"SharpKit.Extensions2",
+    baseTypeName:"System.Object",
     staticDefinition:{
         GetValueOrDefaultIfNullOrEmpty:function(s,defaultValue)
         {
@@ -146,20 +124,8 @@ JsTypes.push({
         
     }
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
-);
-if(typeof(JsTypes) == "undefined")
-    JsTypes = [];
-JsTypes.push({
-    fullname:"SharpKit.JavaScript.Utils.Js",
-    baseTypeName:"System.Object",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -167,7 +133,13 @@ JsTypes.push({
         }
         
     }
-    ,
+}
+);
+if(typeof(JsTypes) == "undefined")
+    JsTypes = [];
+JsTypes.push({
+    fullname:"SharpKit.JavaScript.Utils.Js",
+    baseTypeName:"System.Object",
     staticDefinition:{
         escape:function(s)
         {
@@ -318,20 +290,8 @@ return null;
         ,
         undefined:null}
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
-);
-if(typeof(JsTypes) == "undefined")
-    JsTypes = [];
-JsTypes.push({
-    fullname:"SharpKit.JavaScript.JsNamingHelper",
-    baseTypeName:"System.Object",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -339,7 +299,13 @@ JsTypes.push({
         }
         
     }
-    ,
+}
+);
+if(typeof(JsTypes) == "undefined")
+    JsTypes = [];
+JsTypes.push({
+    fullname:"SharpKit.JavaScript.JsNamingHelper",
+    baseTypeName:"System.Object",
     staticDefinition:{
         JsFunctionNameToClrMethodName:function(jsFuncName)
         {
@@ -435,12 +401,14 @@ JsTypes.push({
         }
     }
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Class",
+    definition:{
+        ctor:function()
+        {
+            System.Object.ctor.call(this);
+        }
+        
+    }
+}
 );

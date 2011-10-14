@@ -9,6 +9,16 @@ namespace SharpKit.JavaScript.Compilation
 {
 
 
+    [JsTypeAttribute(JsMode.Json)]
+    [JsEnum(ValuesAsNames=true)]
+    public enum JsTypeKind
+    {
+        Class,
+        Struct,
+        Interface,
+        Enum,
+        Delegate,
+    }
 
     /// <summary>
     /// A type used internally by the Js Type System
@@ -20,7 +30,6 @@ namespace SharpKit.JavaScript.Compilation
         internal JsCompilerPrototype commonPrototype{get;set;}
         public bool isCompiled{get;set;}
         public JsObject ctors{get;set;}
-        public bool isEnum{get;set;}
         public JsObject definition{get;set;}
         public JsObject staticDefinition{get;set;}
         public JsType baseType{get;set;}
@@ -34,9 +43,7 @@ namespace SharpKit.JavaScript.Compilation
         public string name{get;set;}
         public string ns{get;set;}
         public string baseTypeName{get;set;}
-        public bool isInterface{get;set;}
-        public bool isDelegate{get;set;}
-        public bool isValueType{get;set;}
+        public JsTypeKind Kind { get; set; }
 
         public bool isPartial{get;set;}
         public JsType realType{get;set;}

@@ -199,7 +199,7 @@ namespace SharpKit.JavaScript.Compilation
         //checkes if the [objType] is of a certain [type]
         static bool TypeIs(JsType objType, JsType type)
         {
-            if (type.isInterface)
+            if (type.Kind==JsTypeKind.Interface)
             {
                 var testedInterfaces = new JsObject();
                 while (objType != null)
@@ -211,7 +211,7 @@ namespace SharpKit.JavaScript.Compilation
                     objType = objType.baseType;
                 }
             }
-            else if (type.isDelegate && objType.fullname=="System.Delegate" && type.isDelegate) 
+            else if (type.Kind==JsTypeKind.Delegate && objType.fullname=="System.Delegate") 
             {
                 //for now, casting between any delegate type is permitted
                 return true;

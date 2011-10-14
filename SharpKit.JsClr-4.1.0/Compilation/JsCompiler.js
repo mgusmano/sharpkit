@@ -192,7 +192,7 @@ function _TestTypeInterfacesIs(testType,iface,testedInterfaces)
 
 function TypeIs(objType,type)
 {
-    if(type.isInterface)
+    if(type.Kind == "Interface")
     {
         var testedInterfaces=new Object();
         while(objType != null)
@@ -204,7 +204,7 @@ function TypeIs(objType,type)
             objType = objType.baseType;
         }
     }
-    else if(type.isDelegate && objType.fullname == "System.Delegate" && type.isDelegate)
+    else if(type.Kind == "Delegate" && objType.fullname == "System.Delegate")
     {
         return true;
     }
@@ -546,14 +546,14 @@ JsCompiler.Compile_Phase1 = function()
             jsType.name = fullName.substring(index + 1);
             jsType.ns = fullName.substring(0,index);
         }
-        if(jsType.isEnum)
+        if(jsType.Kind == "Enum")
         {
             if(jsType.baseTypeName == null)
                 jsType.baseTypeName = "System.Object";
             if(jsType.definition["ToString"] == null)
                 jsType.definition["ToString"] = new Function("return this._Name;");
         }
-        else if(jsType.isValueType)
+        else if(jsType.Kind == "Struct")
         {
             if(type.baseTypeName == null)
                 type.baseTypeName = "System.ValueType";
@@ -842,7 +842,7 @@ JsCompiler.CompileType = function(type)
 
 JsCompiler.CompileEnum = function(currentType)
 {
-    if(currentType.isEnum)
+    if(currentType.Kind == "Enum")
     {
         currentType.tryParse = JsCompiler._EnumTryParse;
         for(var p in currentType.staticDefinition)

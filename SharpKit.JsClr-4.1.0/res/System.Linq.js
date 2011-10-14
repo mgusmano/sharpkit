@@ -6,14 +6,6 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Linq.Enumerable",
     baseTypeName:"System.Object",
-    definition:{
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-        
-    }
-    ,
     staticDefinition:{
         First$1$$IEnumerable:function(TSource,source)
         {
@@ -431,20 +423,8 @@ JsTypes.push({
         }
     }
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
-);
-if(typeof(JsTypes) == "undefined")
-    JsTypes = [];
-JsTypes.push({
-    fullname:"System.Linq.Error",
-    baseTypeName:"System.Object",
+    Kind:"Class",
     definition:{
         ctor:function()
         {
@@ -452,7 +432,13 @@ JsTypes.push({
         }
         
     }
-    ,
+}
+);
+if(typeof(JsTypes) == "undefined")
+    JsTypes = [];
+JsTypes.push({
+    fullname:"System.Linq.Error",
+    baseTypeName:"System.Object",
     staticDefinition:{
         ArgumentNull:function(p)
         {
@@ -473,20 +459,25 @@ JsTypes.push({
         
     }
     ,
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
     assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:[]}
+    Kind:"Class",
+    definition:{
+        ctor:function()
+        {
+            System.Object.ctor.call(this);
+        }
+        
+    }
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Linq.WhereIterator",
     baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.Generic.IEnumerable$1"],
+    Kind:"Class",
     definition:{
         ctor:function(T,source,predicate)
         {
@@ -540,22 +531,16 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.Generic.IEnumerable$1"]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Linq.OfTypeIterator",
     baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.Generic.IEnumerable$1"],
+    Kind:"Class",
     definition:{
         ctor:function(T,source)
         {
@@ -606,22 +591,16 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.Generic.IEnumerable$1"]}
+}
 );
 if(typeof(JsTypes) == "undefined")
     JsTypes = [];
 JsTypes.push({
     fullname:"System.Linq.SelectIterator",
     baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr-4.1.0",
+    interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.Generic.IEnumerable$1"],
+    Kind:"Class",
     definition:{
         ctor:function(TSource,TResult,source,selector)
         {
@@ -674,14 +653,5 @@ JsTypes.push({
         }
         
     }
-    ,
-    staticDefinition:{},
-    isEnum:false,
-    isInterface:false,
-    isDelegate:false,
-    isValueType:false,
-    isPartial:false,
-    assemblyName:"SharpKit.JsClr-4.1.0",
-    customAttributes:[],
-    interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.Generic.IEnumerable$1"]}
+}
 );
