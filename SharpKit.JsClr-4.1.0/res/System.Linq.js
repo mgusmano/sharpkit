@@ -490,6 +490,7 @@ JsTypes.push({
     definition:{
         ctor:function(T,source,predicate)
         {
+            this.T = T;
             this.Predicate = null;
             this.Source = null;
             this.SourceEnumerator = null;
@@ -558,6 +559,7 @@ JsTypes.push({
     definition:{
         ctor:function(T,source)
         {
+            this.T = T;
             this.Source = null;
             this.SourceEnumerator = null;
             System.Object.ctor.call(this);
@@ -623,6 +625,8 @@ JsTypes.push({
     definition:{
         ctor:function(TSource,TResult,source,selector)
         {
+            this.TSource = TSource;
+            this.TResult = TResult;
             this.Selector = null;
             this.Source = null;
             this.SourceEnumerator = null;

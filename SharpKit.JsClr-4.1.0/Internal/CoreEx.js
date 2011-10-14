@@ -357,6 +357,7 @@ AfterCompilation(function()
         System.DateTime.MinValue = minDateTime;
         System.DateTime.commonPrototype.MinValue = minDateTime;
     }
+    Function._type = System.Delegate;
 });
 JsTypes.push({fullname:"System.Boolean", baseTypeName:"System.ValueType",definition:
 {

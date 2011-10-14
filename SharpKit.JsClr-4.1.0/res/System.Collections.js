@@ -32,6 +32,8 @@ JsTypes.push({
     definition:{
         ctor:function(TKey,TValue)
         {
+            this.TKey = TKey;
+            this.TValue = TValue;
             this._table = null;
             this._keys = null;
             this._version = 0;
@@ -168,6 +170,8 @@ JsTypes.push({
     definition:{
         ctor:function(K,T,key,value)
         {
+            this.K = K;
+            this.T = T;
             this._Key = null;
             this._Value = null;
             System.Object.ctor.call(this);
@@ -208,6 +212,7 @@ JsTypes.push({
     definition:{
         ctor:function(T)
         {
+            this.T = T;
             this._list = null;
             System.Object.ctor.call(this);
             this._list = new Array();
@@ -276,6 +281,7 @@ JsTypes.push({
     definition:{
         ctor:function(T,list)
         {
+            this.T = T;
             this.List = null;
             this.Index = 0;
             this.ListCount = 0;
@@ -329,6 +335,7 @@ JsTypes.push({
     definition:{
         ctor:function(T)
         {
+            this.T = T;
             this._list = null;
             System.Object.ctor.call(this);
             this._list = new Array();
@@ -336,6 +343,7 @@ JsTypes.push({
         ,
         ctor$$IEnumerable:function(T,collection)
         {
+            this.T = T;
             this._list = null;
             System.Object.ctor.call(this);
             this._list = new Array();

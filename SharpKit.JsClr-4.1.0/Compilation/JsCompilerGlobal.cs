@@ -211,6 +211,11 @@ namespace SharpKit.JavaScript.Compilation
                     objType = objType.baseType;
                 }
             }
+            else if (type.isDelegate && objType.fullname=="System.Delegate" && type.isDelegate) 
+            {
+                //for now, casting between any delegate type is permitted
+                return true;
+            }
             else
             {
                 while (objType != null)
@@ -255,7 +260,6 @@ namespace SharpKit.JavaScript.Compilation
 			obj.constructor.name=='HTMLImageElement' || obj.constructor.name=='HTMLInputElement' 		//IE & Safari
 		 )
 	{
-		var jsType = typeof(obj);
 		var objTypeName = SharpKit.Html4.HtmlDom.GetTypeNameFromHtmlNode(obj);
 		if(objTypeName==null)
 			throw new Error();

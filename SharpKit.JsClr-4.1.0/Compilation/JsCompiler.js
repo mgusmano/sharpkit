@@ -204,6 +204,10 @@ function TypeIs(objType,type)
             objType = objType.baseType;
         }
     }
+    else if(type.isDelegate && objType.fullname == "System.Delegate" && type.isDelegate)
+    {
+        return true;
+    }
     else
     {
         while(objType != null)
@@ -246,7 +250,6 @@ function GetObjectType(obj)
 			obj.constructor.name=='HTMLImageElement' || obj.constructor.name=='HTMLInputElement' 		//IE & Safari
 		 )
 	{
-		var jsType = typeof(obj);
 		var objTypeName = SharpKit.Html4.HtmlDom.GetTypeNameFromHtmlNode(obj);
 		if(objTypeName==null)
 			throw new Error();

@@ -204,6 +204,10 @@ function TypeIs(objType,type)
             objType = objType.baseType;
         }
     }
+    else if(type.isDelegate && objType.fullname == "System.Delegate" && type.isDelegate)
+    {
+        return true;
+    }
     else
     {
         while(objType != null)
@@ -246,7 +250,6 @@ function GetObjectType(obj)
 			obj.constructor.name=='HTMLImageElement' || obj.constructor.name=='HTMLInputElement' 		//IE & Safari
 		 )
 	{
-		var jsType = typeof(obj);
 		var objTypeName = SharpKit.Html4.HtmlDom.GetTypeNameFromHtmlNode(obj);
 		if(objTypeName==null)
 			throw new Error();
@@ -1152,7 +1155,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1175,7 +1178,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1274,7 +1277,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1692,7 +1695,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1715,7 +1718,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1739,7 +1742,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1764,7 +1767,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1787,7 +1790,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1811,7 +1814,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1836,7 +1839,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1862,7 +1865,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1885,7 +1888,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1908,7 +1911,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -1931,7 +1934,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -2388,6 +2391,7 @@ JsTypes.push({
     definition:{
         ctor:function(T,value)
         {
+            this.T = T;
             this.hasValue = false;
             this.value = null;
             System.Object.ctor.call(this);
@@ -2682,7 +2686,7 @@ JsTypes.push({
     staticDefinition:{},
     isEnum:false,
     isInterface:false,
-    isDelegate:false,
+    isDelegate:true,
     isValueType:false,
     isPartial:false,
     assemblyName:null,
@@ -3058,6 +3062,7 @@ AfterCompilation(function()
         System.DateTime.MinValue = minDateTime;
         System.DateTime.commonPrototype.MinValue = minDateTime;
     }
+    Function._type = System.Delegate;
 });
 JsTypes.push({fullname:"System.Boolean", baseTypeName:"System.ValueType",definition:
 {
