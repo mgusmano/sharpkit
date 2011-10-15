@@ -1934,25 +1934,34 @@ namespace SharpKit.JavaScript
 
     #region Misc
     #region Delegates
-
     [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts=true, Export=false)]
     public delegate void JsAction();
     [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void JsAction<T>(T arg);
     [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void JsAction<T1, T2>(T1 arg1, T2 arg2);
     [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void JsAction<T1, T2, T3>(T1 arg1, T2 arg2, T3 arg3);
     [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void JsAction<T1, T2, T3, T4>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
     [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate TResult JsFunc<TResult>();
     [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate TResult JsFunc<T, TResult>(T arg);
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeDelegates = true)]
     public delegate TResult JsFunc<T1, T2, TResult>(T1 arg1, T2 arg2);
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeDelegates = true)]
     public delegate TResult JsFunc<T1, T2, T3, TResult>(T1 arg1, T2 arg2, T3 arg3);
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeDelegates = true)]
     public delegate TResult JsFunc<T1, T2, T3, T4, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
 
@@ -1965,24 +1974,34 @@ namespace SharpKit.JavaScript
 
 
     [JsDelegate(NativeFunction = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void JsNativeAction();
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeFunction = true)]
     public delegate void JsNativeAction<T>(T arg);
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeFunction = true)]
     public delegate void JsNativeAction<T1, T2>(T1 arg1, T2 arg2);
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeFunction = true)]
     public delegate void JsNativeAction<T1, T2, T3>(T1 arg1, T2 arg2, T3 arg3);
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeFunction = true)]
     public delegate void JsNativeAction<T1, T2, T3, T4>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeFunction = true)]
     public delegate TResult JsNativeFunc<TResult>();
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeFunction = true)]
     public delegate TResult JsNativeFunc<T, TResult>(T arg);
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeFunction = true)]
     public delegate TResult JsNativeFunc<T1, T2, TResult>(T1 arg1, T2 arg2);
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeFunction = true)]
     public delegate TResult JsNativeFunc<T1, T2, T3, TResult>(T1 arg1, T2 arg2, T3 arg3);
     [JsDelegate(NativeFunction = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate TResult JsNativeFunc<T1, T2, T3, T4, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
 
     #endregion
