@@ -6073,21 +6073,21 @@ namespace SharpKit.Html5
         ///Fires when the object loses the input focus.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5|BrowserTypes.IE6|BrowserTypes.IE7|BrowserTypes.IE8AsIE7|BrowserTypes.IE8|BrowserTypes.IE9|BrowserTypes.FireFox2|BrowserTypes.FireFox3|BrowserTypes.FireFox3_5|BrowserTypes.FireFox4|BrowserTypes.Saf3Win|BrowserTypes.Saf3_1Win|BrowserTypes.Saf4Win|BrowserTypes.Chrome2|BrowserTypes.Chrome3|BrowserTypes.Chrome4|BrowserTypes.Chrome5|BrowserTypes.Opera9|BrowserTypes.Opera10, PartiallySupportedRemark = @"Firefox 2 and Opera fire too many events in a variety of circumstances and also incorrectly bubble them.
-Safari and Chrome don’t support these events on links and/or form fields in all circumstances.
-Safari iPhone does not fire the event when the window loses the focus. ", NotSupportedRemark = "Konqueror doesn’t support these events on the browser window.")]
+//Safari and Chrome don’t support these events on links and/or form fields in all circumstances.
+//Safari iPhone does not fire the event when the window loses the focus. ", NotSupportedRemark = "Konqueror doesn’t support these events on the browser window.")]
         public HtmlDomEventHandler onblur;
         ///<summary>
         ///Fires when an error occurs during object loading.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5|BrowserTypes.IE6|BrowserTypes.IE7|BrowserTypes.IE8AsIE7|BrowserTypes.IE8|BrowserTypes.IE9|BrowserTypes.FireFox2|BrowserTypes.FireFox3|BrowserTypes.FireFox3_5|BrowserTypes.FireFox4|BrowserTypes.Saf3Win|BrowserTypes.Saf3_1Win|BrowserTypes.Saf4Win|BrowserTypes.Chrome2|BrowserTypes.Chrome3|BrowserTypes.Chrome4|BrowserTypes.Chrome5|BrowserTypes.Opera9|BrowserTypes.Opera10|BrowserTypes.Konqueror3_57, PartiallySupportedRemark = @"IE and Firefox have trouble with JavaScript errors in the traditional event registration model.
-Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
+//Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
         public HtmlDomEventHandler onerror;
         ///<summary>
         ///Fires when the object receives focus.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5|BrowserTypes.IE6|BrowserTypes.IE7|BrowserTypes.IE8AsIE7|BrowserTypes.IE8|BrowserTypes.IE9|BrowserTypes.FireFox2|BrowserTypes.FireFox3|BrowserTypes.FireFox3_5|BrowserTypes.FireFox4|BrowserTypes.Saf3Win|BrowserTypes.Saf3_1Win|BrowserTypes.Saf4Win|BrowserTypes.Chrome2|BrowserTypes.Chrome3|BrowserTypes.Chrome4|BrowserTypes.Chrome5|BrowserTypes.Opera9|BrowserTypes.Opera10, @"Konqueror doesn’t support these events on the browser window.", PartiallySupportedRemark = @"Firefox 2 and Opera fire too many events in a variety of circumstances and also incorrectly bubble them.
-Firefox fires a focus event whenever you click on the document.
-Safari and Chrome don’t support these events on links and/or form fields in all circumstances.")]
+//Firefox fires a focus event whenever you click on the document.
+//Safari and Chrome don’t support these events on links and/or form fields in all circumstances.")]
         public HtmlDomEventHandler onfocus;
         ///<summary>
         ///Raised when there are changes to the portion of a URL that follows the number sign (#).
