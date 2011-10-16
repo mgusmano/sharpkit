@@ -1309,7 +1309,7 @@ namespace Sys.UI
         ///Gets the y-coordinate of a <see cref="T:Sys.UI.Bounds" /> object in pixels.
         ///</summary>
         [JsProperty(NativeField = true)]
-        public JsNumber Y { get; set; }
+        public JsNumber y { get; set; }
     }
     #endregion
     #region Control
