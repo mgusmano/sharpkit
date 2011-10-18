@@ -11,6 +11,7 @@ namespace SharpKit.JavaScript
     #region JsTypeAttribute
     ///<summary>
     ///Controls the interoperability and conversion of a .NET type into JavaScript.
+    ///This attribute can be used on any type, and as assembly attribute, when used as an assembly attribute, and TargetType is not supplied, it will affect ALL types in the assembly
     ///</summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Struct | AttributeTargets.Delegate | AttributeTargets.Assembly, AllowMultiple = true)]
     public partial class JsTypeAttribute : Attribute
@@ -194,6 +195,18 @@ namespace SharpKit.JavaScript
         /// Injects profiling code into JavaScript functions to enable performance profiling.
         /// </summary>
         public bool EnableProfiler { get; set; }
+
+        /// <summary>
+        /// Specifies prefix / suffix to any filename exported by SharpKit, e.g.: FilenameFormat="js/{0}"
+        /// </summary>
+        public string FilenameFormat { get; set; }
+
+        /// <summary>
+        /// Specifies default js filename for all types that didn't specify a specific js file for export
+        /// If not specified, default file will be res/[AssemblyName].js
+        /// </summary>
+        public string DefaultFilename { get; set; }
+
     }
     #endregion
     #region JsMergedFileAttribute
