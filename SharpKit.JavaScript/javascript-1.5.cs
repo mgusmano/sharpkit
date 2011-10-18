@@ -285,6 +285,10 @@ namespace SharpKit.JavaScript
         /// This property is inherited and applied to all derived types. Default value is true
         /// </summary>
         public bool Export { get; set; }
+        /// <summary>
+        /// Omits the paranthesis () when invoking this method, used for javascript keywords (e.g.: delete)
+        /// </summary>
+        public bool OmitParanthesis { get; set; }
     }
     #endregion
     #region JsPropertyAttribute
@@ -671,6 +675,7 @@ namespace SharpKit.JavaScript
         ///or positive infinity. In those three cases, it returns false.</returns>
         public static JsBoolean isFinite(double number) { return default(JsBoolean); }
         public static void @throw(JsError error) { }
+        [JsMethod(OmitParanthesis=true, NativeOverloads=true)]
         public static void delete(object obj) { }
         ///<summary>
         ///Returns a floating-point number converted from a JsString.
