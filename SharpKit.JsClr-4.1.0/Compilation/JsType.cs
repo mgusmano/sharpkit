@@ -44,7 +44,7 @@ namespace SharpKit.JavaScript.Compilation
         public string ns{get;set;}
         public string baseTypeName{get;set;}
         public JsTypeKind Kind { get; set; }
-
+        public JsFunction cctor { get; set; }
         public bool isPartial{get;set;}
         public JsType realType{get;set;}
         public JsFunction ctor{get;set;}

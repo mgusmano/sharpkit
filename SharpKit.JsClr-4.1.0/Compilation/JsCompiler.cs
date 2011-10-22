@@ -9,7 +9,7 @@ namespace SharpKit.JavaScript.Compilation
 
 
 
-    [JsType(JsMode.Prototype, Name="JsCompiler", Filename = "JsCompiler.js")]
+    [JsType(JsMode.Prototype, Name = "JsCompiler", Filename = "JsCompiler.js")]
     public class JsCompiler : JsCompilerGlobal
     {
 
@@ -21,12 +21,9 @@ namespace SharpKit.JavaScript.Compilation
         }
         private static void Compile_Phase1()
         {
-            for (var i = 0; i < BeforeCompilationFunctions.length; i++)
-            {
-                BeforeCompilationFunctions[i].As<JsFunction>().call(BeforeCompilationCallers[i]);
-            }
-            BeforeCompilationFunctions = new JsArray();
-            BeforeCompilationCallers = new JsArray();
+            foreach (var action in BeforeCompilationFunctions)
+                action();
+            BeforeCompilationFunctions = new JsArray<JsAction>();
             for (var i = 0; i < JsTypes.length; i++)
             {
                 var jsType = JsTypes[i];
@@ -66,7 +63,7 @@ namespace SharpKit.JavaScript.Compilation
                     if (jsType.definition["ToString"] == null)
                         jsType.definition["ToString"] = new JsFunction("return this._Name;");
                 }
-                else if (jsType.Kind==JsTypeKind.Struct)
+                else if (jsType.Kind == JsTypeKind.Struct)
                 {
                     if (type.baseTypeName == null)
                         type.baseTypeName = "System.ValueType";
@@ -81,6 +78,11 @@ namespace SharpKit.JavaScript.Compilation
             {
                 var jsType = JsTypes[i];
                 Compile_Phase2_TmpType(jsType);
+            }
+            foreach (var ce in JsTypes)
+            {
+                if (ce.cctor != null)
+                    ce.cctor.As<JsAction>()();
             }
             JsTypes = new JsArray<JsType>();
         }
@@ -105,16 +107,10 @@ namespace SharpKit.JavaScript.Compilation
         private static void Compile_Phase3()
         {
             var funcs = AfterCompilationFunctions;
-            var callers = AfterCompilationCallers;
-            AfterCompilationFunctions = new JsArray();
-            AfterCompilationCallers = new JsArray();
-            for (var i = 0; i < funcs.length; i++)
-            {
-                funcs[i].As<JsFunction>().call(callers[i]);
-            }
+            AfterCompilationFunctions = new JsArray<JsAction>();
+            foreach (var action in funcs)
+                action();
             IsCompiled = true;
-            //var compileTime = new Date().getTime() - Compile_StartTime;
-            //	alert("compilation took "+compileTime+ "ms");
         }
 
         #region JsCode
@@ -286,6 +282,8 @@ namespace SharpKit.JavaScript.Compilation
                             currentType.As<JsObject>()[p].As<JsFunction>().prototype = currentType.commonPrototype;
                         currentType.ctors[p] = currentType.As<JsObject>()[p];
                     }
+                    if (p == "cctor")
+                        currentType.cctor = p.As<JsFunction>();
                 }
                 //		if(currentType.ctor==null)
                 //		{
@@ -389,7 +387,7 @@ namespace SharpKit.JavaScript.Compilation
         }
         private static void CompileEnum(JsType currentType)
         {
-            if (currentType.Kind==JsTypeKind.Enum)
+            if (currentType.Kind == JsTypeKind.Enum)
             {
                 currentType.tryParse = _EnumTryParse;
                 foreach (var p in currentType.staticDefinition)
@@ -436,10 +434,7 @@ namespace SharpKit.JavaScript.Compilation
         [JsMethod(GlobalCode = true)]
         static void Global4()
         {
-            AfterCompilation(() =>
-            {
-                JsTypeHelper.GetTypeIgnoreNamespace_Cache = new JsObject();
-            }, null);
+            AfterCompilation(() => JsTypeHelper.GetTypeIgnoreNamespace_Cache = new JsObject());
         }
 
     }

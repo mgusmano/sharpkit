@@ -302,30 +302,23 @@ namespace SharpKit.JavaScript.Compilation
             JsCompiler.Compile_Direct();
         }
 
-        protected static JsArray AfterCompilationFunctions = new JsArray();
-        protected static JsArray AfterCompilationCallers = new JsArray();
-        public static void AfterCompilation(JsAction func, object caller)
+        protected static JsArray<JsAction> AfterCompilationFunctions = new JsArray<JsAction>();
+        public static void AfterCompilation(JsAction func)
         {
             if (IsCompiled)
-                func.As<JsFunction>().call(caller);
+                func();
             else
-            {
                 AfterCompilationFunctions.push(func);
-                AfterCompilationCallers.push(caller ?? null);
-            }
         }
-        public static void AfterNextCompilation(JsFunction func, object caller)
+        public static void AfterNextCompilation(JsAction func)
         {
             AfterCompilationFunctions.push(func);
-            AfterCompilationCallers.push(caller ?? null);
         }
 
-        protected static JsArray BeforeCompilationFunctions = new JsArray();
-        protected static JsArray BeforeCompilationCallers = new JsArray();
-        public static void BeforeCompilation(JsFunction func, object caller)
+        protected static JsArray<JsAction> BeforeCompilationFunctions = new JsArray<JsAction>();
+        public static void BeforeCompilation(JsAction func)
         {
             BeforeCompilationFunctions.push(func);
-            BeforeCompilationCallers.push(caller ?? null);
         }
         public static bool IsCompiled = false;
 

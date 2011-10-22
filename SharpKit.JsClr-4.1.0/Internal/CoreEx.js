@@ -59,7 +59,7 @@ var ENABLE_PROFILER = typeof (appConfig) == "object" ? appConfig.enableProfiler 
 var ENABLE_PROFILING = typeof (appConfig) == "object" ? appConfig.enableProfiling : false;
 if (ENABLE_PROFILER)
 {
-    BeforeCompilation(Profiler.Initialize, Profiler);
+    BeforeCompilation(function () { Profiler.Initialize(); });
 }
 var envDebugFunction = (typeof (Debug) != "undefined" && Debug != null && Debug.writeln) ||
 											 (typeof (console) != "undefined" && console != null && console.log) ||
