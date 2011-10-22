@@ -517,6 +517,10 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "DOCUMENT")]
     public partial class HtmlDocument
     {
+        /// <summary>
+        /// Retrieves a collection, in source order, of all form objects in the document.
+        /// </summary>
+        public HtmlNodeCollection<HtmlForm> forms { get; private set; }
         ///<summary>
         ///Gets a collection of objects based on the value of the NAME or ID attribute.
         ///</summary>
@@ -2437,7 +2441,7 @@ namespace SharpKit.Html4
         ///Returns the property value.
         ///</summary>
         ///<param name="propertyName">property name</param>
-        //[SupportedBrowsers(BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
+        //[SupportedBrowsohers(BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
         public JsString getPropertyValue(JsString propertyName) { return null; }
         ///<summary>
         ///Sets the property value.
