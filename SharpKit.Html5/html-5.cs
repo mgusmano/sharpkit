@@ -507,7 +507,7 @@ namespace SharpKit.Html5
     }
     #endregion
     #region HtmlContext
-    [JsType(GlobalObject = true, Export = false)]
+    [JsType(JsMode.Global, Export = false)]
     public partial class HtmlContext : JsContext
     {
         ///<summary>
