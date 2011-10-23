@@ -2199,6 +2199,18 @@ namespace SharpKit.jQuery
         /// </code>
         /// </summary>
         public static jQuery sub { get; set; }
+        /// <summary>
+        /// The jQuery.Event constructor is exposed and can be used when calling trigger. The new operator is optional.
+        /// Check trigger‘s documentation to see how to combine it with your own event object.
+        /// </summary>
+        /// <returns></returns>
+        public static Event Event(JsString name) { return null; }
+        /// <summary>
+        /// The jQuery.Event constructor is exposed and can be used when calling trigger. The new operator is optional.
+        /// Check trigger‘s documentation to see how to combine it with your own event object.
+        /// </summary>
+        /// <returns></returns>
+        public static Event Event(JsString name, Event props) { return null; }
     }
 
     [JsType(JsMode.Json)]
