@@ -2559,6 +2559,10 @@ namespace SharpKit.Html4
         public JsString scrolling { get; set; }
         public JsString src { get; set; }
         public HtmlDocument contentDocument { get; set; }
+        /// <summary>
+        /// Retrieves the window object of the specified frame or iframe.
+        /// </summary>
+        public HtmlWindow contentWindow { get; set; }
     }
     #endregion
     #region HtmlFrameSetElement
