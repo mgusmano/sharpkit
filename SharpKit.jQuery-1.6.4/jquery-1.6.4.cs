@@ -454,7 +454,7 @@ namespace SharpKit.jQuery
         ///  .then(myFunc, myFailure);
         ///  </code>
         /// </example>
-        public jQueryPromise when(params jQueryDeferred[] defferds) { return null; }
+        public jQueryPromise when(params Deferred[] defferds) { return null; }
         /// <summary>
         /// Execute the next function on the queue for the matched elements.
         /// </summary>
@@ -2274,6 +2274,14 @@ namespace SharpKit.jQuery
         /// </summary>
         /// <returns></returns>
         public static Event Event(JsString name, Event props) { return null; }
+        /// <summary>
+        /// The jQuery.Deferred() constructor creates a new Deferred object. The new operator is optional.
+        /// jQuery.Deferred can be passed an optional function, which is called just before the constructor returns and is passed the constructed deferred object as both the this object and as the first argument to the function. The called function can attach callbacks using deferred.then() for example.
+        /// A Deferred object starts in the pending state. Any callbacks added to the object with deferred.then(), deferred.done(), or deferred.fail() are queued to be executed later. Calling deferred.resolve() or deferred.resolveWith() transitions the Deferred into the resolved state and immediately executes any doneCallbacks that are set. Calling deferred.reject() or deferred.rejectWith() transitions the Deferred into the rejected state and immediately executes any failCallbacks that are set. Once the object has entered the resolved or rejected state, it stays in that state. Callbacks can still be added to the resolved or rejected Deferred — they will execute immediately.
+        /// The Deferred object is chainable, similar to the way a jQuery object is chainable, but it has its own methods. After creating a Deferred object, you can use any of the methods below by either chaining directly from the object creation or saving the object in a variable and invoking one or more methods on that variable.
+        /// </summary>
+        /// <returns></returns>
+        public static Deferred Deferred() { return null; }
     }
 
     [JsType(JsMode.Json)]
@@ -2631,9 +2639,18 @@ namespace SharpKit.jQuery
     /// <summary>
     /// jQuery.Deferred(), introduced in version 1.5, is a chainable utility object that can register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.
     /// </summary>
-    [JsType(JsMode.Prototype)]
-    public partial class jQueryDeferred : jQueryPromise
+    [JsType(JsMode.Prototype, Name="jQuery.Deferred")]
+    public partial class Deferred : jQueryPromise
     {
+        /// <summary>
+        /// The jQuery.Deferred() constructor creates a new Deferred object. The new operator is optional.
+        /// jQuery.Deferred can be passed an optional function, which is called just before the constructor returns and is passed the constructed deferred object as both the this object and as the first argument to the function. The called function can attach callbacks using deferred.then() for example.
+        /// A Deferred object starts in the pending state. Any callbacks added to the object with deferred.then(), deferred.done(), or deferred.fail() are queued to be executed later. Calling deferred.resolve() or deferred.resolveWith() transitions the Deferred into the resolved state and immediately executes any doneCallbacks that are set. Calling deferred.reject() or deferred.rejectWith() transitions the Deferred into the rejected state and immediately executes any failCallbacks that are set. Once the object has entered the resolved or rejected state, it stays in that state. Callbacks can still be added to the resolved or rejected Deferred — they will execute immediately.
+        /// The Deferred object is chainable, similar to the way a jQuery object is chainable, but it has its own methods. After creating a Deferred object, you can use any of the methods below by either chaining directly from the object creation or saving the object in a variable and invoking one or more methods on that variable.
+        /// </summary>
+        public Deferred()
+        {
+        }
         /// <summary>
         /// Return a Deferred's Promise object.
         /// </summary>
@@ -2686,7 +2703,7 @@ namespace SharpKit.jQuery
         /// <returns>
         /// Returns: Deferred
         /// </returns>
-        public jQueryDeferred reject(params object[] args) { return null; }
+        public Deferred reject(params object[] args) { return null; }
         /// <summary>
         ///  Reject a Deferred object and call any failCallbacks with the given context and args.
         ///  <list type="bullet">
@@ -2705,7 +2722,7 @@ namespace SharpKit.jQuery
         /// <returns>
         /// Returns: Deferred
         /// </returns>
-        public jQueryDeferred rejectWith(object context, params object[] args) { return null; }
+        public Deferred rejectWith(object context, params object[] args) { return null; }
         /// <summary>
         /// Resolve a Deferred object and call any doneCallbacks with the given args.
         /// <list type="bullet">
@@ -2718,7 +2735,7 @@ namespace SharpKit.jQuery
         /// <returns>
         /// Returns: Deferred
         /// </returns>
-        public jQueryDeferred resolve(params object[] args) { return null; }
+        public Deferred resolve(params object[] args) { return null; }
         /// <summary>
         /// Resolve a Deferred object and call any doneCallbacks with the given context and args.
         /// <list type="bullet">
@@ -2737,7 +2754,7 @@ namespace SharpKit.jQuery
         /// <returns>
         /// Returns: Deferred
         /// </returns>
-        public jQueryDeferred resolveWith(object context, params object[] args) { return null; }
+        public Deferred resolveWith(object context, params object[] args) { return null; }
      
        
    }
@@ -2765,7 +2782,7 @@ namespace SharpKit.jQuery
         ///</code>
         ///Resolve a Deferred object when the user clicks a button, triggering a number of callback functions:
         /// </example>
-        public jQueryDeferred done(JsAction callback) { return null; }
+        public Deferred done(JsAction callback) { return null; }
         /// <summary>
         /// Add handlers to be called when the Deferred object is rejected.
         /// </summary>
@@ -2782,7 +2799,7 @@ namespace SharpKit.jQuery
         /// $.get("test.php").done(function(){ alert("$.get succeeded"); }).fail(function(){ alert("$.get failed!"); });
         /// </code>
         /// </example>
-        public jQueryDeferred fail(JsAction callback) { return null; }
+        public Deferred fail(JsAction callback) { return null; }
         /// <summary>
         /// Add handlers to be called when the Deferred object is either resolved or rejected.
         /// </summary>
@@ -2800,7 +2817,7 @@ namespace SharpKit.jQuery
         ///     } );
         ///</code>
         /// </example>
-        public jQueryDeferred always(JsAction callback) { return null; }
+        public Deferred always(JsAction callback) { return null; }
         /// <summary>
         /// Determine whether a Deferred object has been rejected.
         /// </summary>
@@ -2892,7 +2909,7 @@ namespace SharpKit.jQuery
         /// $.get("test.php").then(function(){ alert("$.get succeeded"); },function(){ alert("$.get failed!"); });
         /// </code>
         /// </example>
-        public jQueryDeferred then(JsAction doneCallbacks, JsAction failCallbacks) { return null; }
+        public Deferred then(JsAction doneCallbacks, JsAction failCallbacks) { return null; }
         
     }
 
