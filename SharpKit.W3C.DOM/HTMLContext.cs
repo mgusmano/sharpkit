@@ -124,7 +124,7 @@ namespace org.w3c.dom.html
         public static CSSStyleDeclaration getComputedStyle(Element elt) { return null; }
         public static CSSStyleDeclaration getComputedStyle(Element elt, JsString pseudoElt) { return null; }
         // Window-2
-        public static Document document { get; private set; }
+        public static HTMLDocument document { get; private set; }
         public static StyleMedia styleMedia { get; private set; }
         public static Screen screen { get; private set; }
         public static int innerWidth { get; private set; }

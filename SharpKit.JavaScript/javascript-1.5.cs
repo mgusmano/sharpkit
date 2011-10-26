@@ -2038,6 +2038,22 @@ namespace SharpKit.JavaScript
         ///<returns></returns>
         [JsMethod(OmitCalls = true)]
         public static T As<T>(this object obj) { return default(T); }
+        /// <summary>
+        /// A quick shortcut to invisibly cast any list to jsarray (usually for Json mode types)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        [JsMethod(OmitCalls = true)]
+        public static JsArray<T> AsJsArray<T>(this IList<T> list) { return null; }
+        /// <summary>
+        /// A quick shortcut to invisibly cast any dictionary to JsObject (usually for Json mode types)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dic"></param>
+        /// <returns></returns>
+        [JsMethod(OmitCalls = true)]
+        public static JsObject<T> AsJsObject<T>(this IDictionary<string, T> dic) { return null; }
     }
     #endregion
 
