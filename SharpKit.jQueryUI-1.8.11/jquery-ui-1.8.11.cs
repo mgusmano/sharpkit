@@ -922,42 +922,103 @@ namespace SharpKit.jQuery.UI
     ///</summary>
     public static partial class EffectExtension
     {
+        /// <summary>
+        /// Uses a specific effect on an element (without the show/hide logic).
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="effect">The effect to be used. Possible values: 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide', 'transfer'.</param>
+        /// <param name="options">A object/hash including specific options for the effect.</param>
+        /// <param name="speed">A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</param>
+        /// <param name="callback">A function that is called after the effect is completed.</param>
+        /// <returns>jQuery</returns>
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery effect(this jQuery query) { return default(jQuery); }
+        public static jQuery effect(this jQuery query, string effect, object options, object speed, JsAction callback) { return default(jQuery); }
+        /// <summary>
+        /// Uses a specific effect on an element (without the show/hide logic).
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="effect">The effect to be used. Possible values: 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide', 'transfer'.</param>
+        /// <param name="options">A object/hash including specific options for the effect.</param>
+        /// <param name="speed">A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</param>
+        /// <returns>jQuery</returns>
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery effect(this jQuery query, EffectOptions options) { return default(jQuery); }
+        public static jQuery effect(this jQuery query, string effect, object options, object speed) { return default(jQuery); }
+        /// <summary>
+        /// Uses a specific effect on an element (without the show/hide logic).
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="effect">The effect to be used. Possible values: 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide', 'transfer'.</param>
+        /// <param name="options">A object/hash including specific options for the effect.</param>
+        /// <returns>jQuery</returns>
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery effect(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+        public static jQuery effect(this jQuery query, string effect, object options) { return default(jQuery); }
+        /// <summary>
+        /// Uses a specific effect on an element (without the show/hide logic).
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="effect">The effect to be used. Possible values: 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide', 'transfer'.</param>
+        /// <returns>jQuery</returns>
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery effect(this jQuery query, string effect) { return default(jQuery); }
+        /// <summary>
+        /// Uses a specific effect on an element (without the show/hide logic).
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="effect">The effect to be used. Possible values: 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide', 'transfer'.</param>
+        /// <param name="options">A object/hash including specific options for the effect.</param>
+        /// <param name="speed">A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</param>
+        /// <param name="callback">A function that is called after the effect is completed.</param>
+        /// <returns>jQuery</returns>
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery effect(this jQuery query, EffectType effect, object options, object speed, JsAction callback) { return default(jQuery); }
+        /// <summary>
+        /// Uses a specific effect on an element (without the show/hide logic).
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="effect">The effect to be used. Possible values: 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide', 'transfer'.</param>
+        /// <param name="options">A object/hash including specific options for the effect.</param>
+        /// <param name="speed">A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</param>
+        /// <returns>jQuery</returns>
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery effect(this jQuery query, EffectType effect, object options, object speed) { return default(jQuery); }
+        /// <summary>
+        /// Uses a specific effect on an element (without the show/hide logic).
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="effect">The effect to be used. Possible values: 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide', 'transfer'.</param>
+        /// <param name="options">A object/hash including specific options for the effect.</param>
+        /// <returns>jQuery</returns>
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery effect(this jQuery query, EffectType effect, object options) { return default(jQuery); }
+        /// <summary>
+        /// Uses a specific effect on an element (without the show/hide logic).
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="effect">The effect to be used. Possible values: 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide', 'transfer'.</param>
+        /// <returns>jQuery</returns>
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery effect(this jQuery query, EffectType effect) { return default(jQuery); }
     }
-    #endregion
-    #region EffectOptions
-    ///<summary>
-    ///Options JSON object for Effect
-    ///</summary>
+
     [JsType(JsMode.Json)]
-    public partial class EffectOptions
+    [JsEnum(ValuesAsNames=true)]
+    public enum EffectType
     {
-        ///<summary>
-        ///The effect to be used. Possible values: 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide', 'transfer'.
-        ///Default: null
-        ///</summary>
-        public string effect { get; set; }
-        ///<summary>
-        ///A object/hash including specific options for the effect.
-        ///Default: null
-        ///</summary>
-        public object options { get; set; }
-        ///<summary>
-        ///A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).
-        ///Default: null
-        ///Types: String, Number
-        ///</summary>
-        public object speed { get; set; }
-        ///<summary>
-        ///A function that is called after the effect is completed.
-        ///Default: null
-        ///</summary>
-        public JsAction callback { get; set; }
+        blind,
+        bounce,
+        clip,
+        drop,
+        explode,
+        fade,
+        fold,
+        highlight,
+        puff,
+        pulsate,
+        scale,
+        shake,
+        size,
+        slide,
+        transfer,
     }
     #endregion
     #region Hide
