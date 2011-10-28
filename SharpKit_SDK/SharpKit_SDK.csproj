@@ -130,6 +130,10 @@
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
       <Name>SharpKit.JavaScript</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharpKit.jQueryUI\SharpKit.jQueryUI.csproj">
+      <Project>{696044B4-CB46-45B6-83FC-CA3C65D72A9C}</Project>
+      <Name>SharpKit.jQueryUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SharpKit.jQuery\SharpKit.jQuery.csproj">
       <Project>{872605DE-E8EC-4D3D-8CEE-A62449A8DAEB}</Project>
       <Name>SharpKit.jQuery</Name>

@@ -56,13 +56,13 @@
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
       <Name>SharpKit.JavaScript</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SharpKit.jQuery-1.5.2\SharpKit.jQuery-1.5.2.csproj">
-      <Project>{496A42F8-9AFF-48F0-BEDD-7B302BF9A9A0}</Project>
-      <Name>SharpKit.jQuery-1.5.2</Name>
+    <ProjectReference Include="..\SharpKit.jQueryUI\SharpKit.jQueryUI.csproj">
+      <Project>{696044B4-CB46-45B6-83FC-CA3C65D72A9C}</Project>
+      <Name>SharpKit.jQueryUI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SharpKit.jQueryUI-1.8.11\SharpKit.jQueryUI-1.8.11.csproj">
-      <Project>{A1DE343D-3DB9-4834-8323-CBB36D7DED48}</Project>
-      <Name>SharpKit.jQueryUI-1.8.11</Name>
+    <ProjectReference Include="..\SharpKit.jQuery\SharpKit.jQuery.csproj">
+      <Project>{872605DE-E8EC-4D3D-8CEE-A62449A8DAEB}</Project>
+      <Name>SharpKit.jQuery</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
