@@ -8,7 +8,7 @@ using System.Collections;
 namespace SharpKit.JavaScript.Private
 {
 
-	[JsType(Name="System.Collections.IListEnumerator", Filename = "~/res/System.Collections.js")]
+	[JsType(Name="System.Collections.IListEnumerator$1", Filename = "~/res/System.Collections.js")]
 	class IListEnumerator<T> : IEnumerator<T>
 	{
 		public IListEnumerator(IList<T> list)

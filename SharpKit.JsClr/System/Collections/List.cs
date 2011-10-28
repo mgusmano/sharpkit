@@ -5,7 +5,7 @@ using System.Text;
 using System.Collections;
 namespace SharpKit.JavaScript.Private
 {
-	[JsType(Name = "System.Collections.Generic.List", Filename = "~/res/System.Collections.js")]
+	[JsType(Name = "System.Collections.Generic.List$1", Filename = "~/res/System.Collections.js")]
 	//[Remotable]
 	internal class JsImplList<T> : IList<T>, IList
 	{
@@ -246,7 +246,7 @@ namespace SharpKit.JavaScript.Private
 	// Returns:
 	//     Value Condition Less than 0 x is less than y.  0 x equals y.  Greater than
 	//     0 x is greater than y.
-	[JsType(Name="System.Comparison", Filename="~/Internal/Core.js")]
+	[JsType(Name="System.Comparison$1", Filename="~/Internal/Core.js")]
 	internal delegate int JsImplComparison<T>(T x, T y);
 
 

@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace SharpKit.JavaScript.Private
 {
-	[JsType(Name = "System.Collections.Generic.Stack", Filename = "~/res/System.Collections.js")]
+	[JsType(Name = "System.Collections.Generic.Stack$1", Filename = "~/res/System.Collections.js")]
 	public class JsImplStack<T> : IEnumerable<T>, ICollection
 	{
 		JsExtendedArray _list;

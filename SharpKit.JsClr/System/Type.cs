@@ -28,7 +28,7 @@ namespace SharpKit.JavaScript.Private
 		{
 			get
 			{
-				return _JsType.isEnum;
+				return _JsType.Kind==JsTypeKind.Enum;
 			}
 		}
 
@@ -56,9 +56,9 @@ namespace SharpKit.JavaScript.Private
 
 		public static JsImplType GetType(string name, bool throwOnError)
 		{
-			if (JsType._HasTypeArguments(name))
+			if (JsTypeHelper._HasTypeArguments(name))
 			{
-				var jsTypeAndArgs = JsType._GetTypeWithArguments(name, throwOnError);
+                var jsTypeAndArgs = JsTypeHelper._GetTypeWithArguments(name, throwOnError);
 				if (jsTypeAndArgs == null)
 					return null;
 				var genericType = _TypeOf(jsTypeAndArgs[0].As<JsType>());
@@ -70,7 +70,7 @@ namespace SharpKit.JavaScript.Private
 				var type = genericType._MakeGenericType(jsTypeArgs);
 				return type;
 			}
-			var jsType = JsType.GetType(name);
+			var jsType = JsTypeHelper.GetType(name);
 			if (jsType == null)
 			{
 				if(throwOnError)
@@ -125,7 +125,7 @@ namespace SharpKit.JavaScript.Private
 				prop._Name = propName;
 				prop._DeclaringType = this;
 				prop._IsStatic = _JsType.staticDefinition != null && _JsType.staticDefinition[funcName] != null;
-				var propTypeName = VM.getMemberTypeName(def, propName);
+				var propTypeName = JsTypeHelper.getMemberTypeName(def, propName);
 				if (propTypeName != null)
 					prop._PropertyType = GetType(propTypeName);
 				else
@@ -320,15 +320,15 @@ namespace SharpKit.JavaScript.Private
 
 		public override string Name
 		{
-			get { return _JsType.get_Name(); }
+			get { return _JsType.GetName(); }
 		}
 		public string FullName
 		{
-			get { return _JsType.get_FullName(); }
+			get { return _JsType.fullname; }
 		}
 		public string AssemblyQualifiedName
 		{
-			get { return _JsType.get_AssemblyQualifiedName(); }
+			get { return _JsType.GetAssemblyQualifiedName(); }
 		}
 
 		bool verifiedCustomAttributesOnTypeAndMembers;
@@ -342,7 +342,7 @@ namespace SharpKit.JavaScript.Private
 			for (var i = 0; i < _JsType.customAttributes.length; i++)
 			{
 				var attDef = _JsType.customAttributes[i].As<JsAttribute>();
-				var attType = JsType.GetType(attDef.typeName);
+                var attType = JsTypeHelper.GetType(attDef.typeName);
 				var jsCtor = attType.As<JsObject>()[attDef.ctorName].As<JsFunction>();
 				var att = Js.ApplyNew(jsCtor, attDef.positionalArguments);
 				if (attDef.namedArguments != null)

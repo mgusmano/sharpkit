@@ -14,8 +14,7 @@ namespace SharpKit.JavaScript.Private
     class IOGlobal
     {
         //TODO: HACK: see Issue #43
-        [JsMethod(Code = @"
-AfterCompilation(function()
+        [JsMethod(Code = @"AfterCompilation(function()
 {
 	System.IO.Path.ctor();
 });
@@ -278,12 +277,12 @@ AfterCompilation(function()
 
         public static char[] GetInvalidFileNameChars()
         {
-            return InvalidFileNameChars.Clone().As<char[]>();
+            return InvalidFileNameChars;
         }
 
         public static char[] GetInvalidPathChars()
         {
-            return RealInvalidPathChars.Clone().As<char[]>();
+            return RealInvalidPathChars;
         }
 
         public static string GetPathRoot(string path)

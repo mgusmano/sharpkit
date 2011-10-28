@@ -23,7 +23,12 @@
     <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'v4.0'">
-    <DefineConstants>JSCLR_4_0_0</DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
+    <DocumentationFile>..\..\bin\v4.0\SharpKit.JsClr.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'v3.5'">
+    <DocumentationFile>..\..\bin\v3.5\SharpKit.JsClr.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -31,9 +36,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compilation\JsCompiler.cs" />
+    <Compile Include="Compilation\JsCompilerGlobal.cs" />
+    <Compile Include="Compilation\JsCompilerInternals.cs" />
     <Compile Include="Compilation\JsType.cs" />
+    <Compile Include="Compilation\JsTypeHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Compilation\TypeHelper.cs" />
     <Compile Include="Compilation\VM.cs" />
     <Compile Include="System\Activator.cs" />
     <Compile Include="System\Attribute.cs" />
@@ -84,9 +91,13 @@
     <Compile Include="Utils\JsRuntime.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Compilation\JsCompiler.js" />
     <Content Include="Internal\Core.js" />
     <Content Include="Internal\CoreEx.js" />
-    <Content Include="res\jsclr-4.0.0.js">
+    <Content Include="res\jsclr-4.1.0.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\jsclr-4.1.0.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="res\System.Collections.js" />
