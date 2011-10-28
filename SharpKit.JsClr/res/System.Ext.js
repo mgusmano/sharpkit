@@ -5,7 +5,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Runtime.Serialization.IExtensibleDataObject",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
@@ -27,7 +27,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -123,7 +123,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -294,7 +294,7 @@ return null;
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -405,7 +405,7 @@ JsTypes.push({
         }
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()

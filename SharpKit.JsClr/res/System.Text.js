@@ -5,7 +5,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Text.StringBuilder",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()

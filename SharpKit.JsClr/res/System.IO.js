@@ -400,7 +400,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()

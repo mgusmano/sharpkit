@@ -940,7 +940,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -956,7 +956,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Attribute",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -972,7 +972,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.IEnumerator$1",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
@@ -980,7 +980,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.IEnumerator",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
@@ -988,7 +988,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.IEnumerable$1",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.IEnumerable"],
     Kind:"Interface"}
 );
@@ -997,7 +997,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.IEnumerable",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
@@ -1005,7 +1005,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.IList$1",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.ICollection$1"],
     Kind:"Interface"}
 );
@@ -1014,7 +1014,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.IList",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.ICollection"],
     Kind:"Interface"}
 );
@@ -1023,7 +1023,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.ICollection$1",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IEnumerable$1"],
     Kind:"Interface"}
 );
@@ -1032,7 +1032,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.ICollection",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.IEnumerable"],
     Kind:"Interface"}
 );
@@ -1041,7 +1041,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.IDictionary$2",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
@@ -1049,7 +1049,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.IDictionary",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.ICollection","System.Collections.IEnumerable"],
     Kind:"Interface"}
 );
@@ -1086,7 +1086,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.ComponentModel.CancelEventArgs",
     baseTypeName:"System.EventArgs",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1123,7 +1123,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.ComponentModel.INotifyPropertyChanging",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
@@ -1131,7 +1131,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.ComponentModel.INotifyPropertyChanged",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
@@ -1153,7 +1153,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.ComponentModel.PropertyChangedEventArgs",
     baseTypeName:"System.EventArgs",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function(propertyName)
@@ -1204,7 +1204,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1429,7 +1429,7 @@ JsTypes.push({
         }
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1465,7 +1465,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1487,7 +1487,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.MulticastDelegate",
     baseTypeName:"System.Delegate",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1708,7 +1708,7 @@ JsTypes.push({
         }
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1732,7 +1732,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1748,7 +1748,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.EventArgs",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1764,7 +1764,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Exception",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor$$String$$Exception:function(message,innerException)
@@ -1824,7 +1824,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.NotImplementedException",
     baseTypeName:"System.Exception",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1846,7 +1846,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.SystemException",
     baseTypeName:"System.Exception",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1874,7 +1874,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.ArgumentException",
     baseTypeName:"System.SystemException",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1927,7 +1927,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.NullReferenceException",
     baseTypeName:"System.SystemException",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1949,7 +1949,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.NotSupportedException",
     baseTypeName:"System.SystemException",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -1985,7 +1985,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -2048,7 +2048,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.IDisposable",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
@@ -2056,7 +2056,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Nullable$1",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function(T,value)
@@ -2163,7 +2163,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -2179,7 +2179,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.CharEnumerator",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.IEnumerator"],
     Kind:"Class",
     definition:{
@@ -2246,7 +2246,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Uri",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function(uri)
@@ -2276,7 +2276,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.ValueType",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -3534,7 +3534,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -3967,7 +3967,7 @@ JsTypes.push({
         }
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -4003,7 +4003,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -4019,7 +4019,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Linq.WhereIterator",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.Generic.IEnumerable$1"],
     Kind:"Class",
     definition:{
@@ -4082,7 +4082,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Linq.OfTypeIterator",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.Generic.IEnumerable$1"],
     Kind:"Class",
     definition:{
@@ -4142,7 +4142,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Linq.SelectIterator",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.Generic.IEnumerable$1"],
     Kind:"Class",
     definition:{
@@ -4204,7 +4204,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.ArrayList",
     baseTypeName:"System.Collections.Generic.List$1",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -4220,7 +4220,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.Dictionary$2",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IDictionary$2"],
     Kind:"Class",
     definition:{
@@ -4352,7 +4352,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.KeyValuePair$2",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function(K,T,key,value)
@@ -4387,7 +4387,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.Stack$1",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IEnumerable$1","System.Collections.ICollection"],
     Kind:"Class",
     definition:{
@@ -4450,7 +4450,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.List$1",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IList$1","System.Collections.IList"],
     Kind:"Class",
     definition:{
@@ -4605,7 +4605,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.IListEnumerator$1",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IEnumerator$1"],
     Kind:"Class",
     definition:{
@@ -4681,7 +4681,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Reflection.MemberInfo",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -4760,7 +4760,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Reflection.MethodBase",
     baseTypeName:"System.Reflection.MemberInfo",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -4776,7 +4776,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Reflection.MethodInfo",
     baseTypeName:"System.Reflection.MethodBase",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -4813,7 +4813,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Reflection.PropertyInfo",
     baseTypeName:"System.Reflection.MemberInfo",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -4932,7 +4932,7 @@ JsTypes.push({
         }
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function(jsType)
@@ -5343,7 +5343,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -5383,7 +5383,7 @@ JsTypes.push({
         }
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -5399,7 +5399,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Text.StringBuilder",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -5501,7 +5501,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Runtime.Serialization.IExtensibleDataObject",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Interface"}
 );
 if(typeof(JsTypes) == "undefined")
@@ -5523,7 +5523,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -5619,7 +5619,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -5790,7 +5790,7 @@ return null;
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -5901,7 +5901,7 @@ JsTypes.push({
         }
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()

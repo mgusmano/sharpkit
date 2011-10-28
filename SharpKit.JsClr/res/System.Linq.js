@@ -422,7 +422,7 @@ JsTypes.push({
         }
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -458,7 +458,7 @@ JsTypes.push({
         
     }
     ,
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -474,7 +474,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Linq.WhereIterator",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.Generic.IEnumerable$1"],
     Kind:"Class",
     definition:{
@@ -537,7 +537,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Linq.OfTypeIterator",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.Generic.IEnumerable$1"],
     Kind:"Class",
     definition:{
@@ -597,7 +597,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Linq.SelectIterator",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IEnumerator$1","System.Collections.Generic.IEnumerable$1"],
     Kind:"Class",
     definition:{

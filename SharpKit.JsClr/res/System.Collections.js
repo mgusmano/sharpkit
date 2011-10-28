@@ -5,7 +5,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.ArrayList",
     baseTypeName:"System.Collections.Generic.List$1",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function()
@@ -21,7 +21,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.Dictionary$2",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IDictionary$2"],
     Kind:"Class",
     definition:{
@@ -153,7 +153,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.KeyValuePair$2",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     Kind:"Class",
     definition:{
         ctor:function(K,T,key,value)
@@ -188,7 +188,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.Stack$1",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IEnumerable$1","System.Collections.ICollection"],
     Kind:"Class",
     definition:{
@@ -251,7 +251,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.Generic.List$1",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IList$1","System.Collections.IList"],
     Kind:"Class",
     definition:{
@@ -406,7 +406,7 @@ if(typeof(JsTypes) == "undefined")
 JsTypes.push({
     fullname:"System.Collections.IListEnumerator$1",
     baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr-4.1.0",
+    assemblyName:"SharpKit.JsClr",
     interfaceNames:["System.Collections.Generic.IEnumerator$1"],
     Kind:"Class",
     definition:{

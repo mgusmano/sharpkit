@@ -1,5 +1,5 @@
 ﻿using SharpKit.JavaScript;
-namespace SharpKit.jQuery.UI
+namespace SharpKit.jQuery
 {
     #region Accordion
     ///<summary>
