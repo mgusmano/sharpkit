@@ -302,6 +302,10 @@ namespace SharpKit.JavaScript
         /// Omits the paranthesis () when invoking this method, used for javascript keywords (e.g.: delete)
         /// </summary>
         public bool OmitParanthesis { get; set; }
+        /// <summary>
+        /// Omits the dot (.) operator before the instance name, when invoking this method, used for javascript keywords (e.g.: instanceof)
+        /// </summary>
+        public bool OmitDotOperator { get; set; }
     }
     #endregion
     #region JsPropertyAttribute
@@ -2054,7 +2058,25 @@ namespace SharpKit.JavaScript
         /// <returns></returns>
         [JsMethod(OmitCalls = true)]
         public static JsObject<T> AsJsObject<T>(this IDictionary<string, T> dic) { return null; }
+        /// <summary>
+        /// Returns a Boolean value that indicates whether or not an object is an instance of a particular class or constructed function.
+        /// This is a JavaScript operator, it is implemented in C# as an extension method.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// var isArray = obj.instanceof&lt;JsArray&gt;()
+        /// </code>
+        /// </example>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        [JsMethod(OmitDotOperator = true, OmitParanthesis = true, Export = false, NativeOverloads = true, Name = "instanceof", ExtensionImplementedInInstance = true)]
+        public static bool instanceof<T>(this object obj)
+        {
+            return false;
+        }
     }
+
     #endregion
 
     /// <summary>
