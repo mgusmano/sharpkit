@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SharpKit.jQuery.UI;
+using SharpKit.jQuery;
 using System.IO;
 using System.Xml.Linq;
 using System.Reflection;
