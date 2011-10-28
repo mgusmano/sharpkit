@@ -5249,13 +5249,43 @@ namespace SharpKit.Html4
     [JsType(JsMode.Prototype, Name = "XMLHttpRequest", Export = false)]
     public partial class XMLHttpRequest
     {
+        /// <summary>
+        /// Assigns method, destination URL, and other optional attributes of a pending request.
+        /// </summary>
+        /// <param name="method"></param>
+        /// <param name="address"></param>
+        /// <param name="async"></param>
         public void open(JsString method, JsString address, JsBoolean async) { }
+        /// <summary>
+        /// Sends an HTTP request to the server and receives a response.
+        /// </summary>
+        /// <param name="body"></param>
         public void send(JsString body) { }
+        /// <summary>
+        /// Retrieves the response body as a string.
+        /// </summary>
         public JsString responseText { get; private set; }
+        /// <summary>
+        /// Sets or retrieves the event handler for asynchronous requests.
+        /// </summary>
         public JsAction onreadystatechange { get; set; }
+        /// <summary>
+        /// Retrieves the current state of the request operation.
+        /// </summary>
         public JsNumber readyState { get; private set; }
+        /// <summary>
+        /// Retrieves the HTTP status code of the request.
+        /// </summary>
         public JsNumber status { get; private set; }
+        /// <summary>
+        /// Retrieves the friendly HTTP status of the request.
+        /// </summary>
         public JsString statusText { get; private set; }
+        /// <summary>
+        /// Adds custom HTTP headers to the request.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
         public void setRequestHeader(string name, string value) { }
         /// <summary>
         /// Cancels the current HTTP request.
