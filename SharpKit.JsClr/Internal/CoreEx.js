@@ -1,4 +1,4 @@
-﻿//kernel.js
+//kernel.js
 var isIE = navigator.userAgent.toLowerCase().indexOf("msie") > -1;
 var isMoz = document.implementation && document.implementation.createDocument;
 var isWebkit = navigator.userAgent.indexOf("WebKit") > -1; //navigator.vendor == "Apple Computer, Inc.";
@@ -59,7 +59,7 @@ var ENABLE_PROFILER = typeof (appConfig) == "object" ? appConfig.enableProfiler 
 var ENABLE_PROFILING = typeof (appConfig) == "object" ? appConfig.enableProfiling : false;
 if (ENABLE_PROFILER)
 {
-    BeforeCompilation(Profiler.Initialize, Profiler);
+    BeforeCompilation(function () { Profiler.Initialize(); });
 }
 var envDebugFunction = (typeof (Debug) != "undefined" && Debug != null && Debug.writeln) ||
 											 (typeof (console) != "undefined" && console != null && console.log) ||
@@ -69,8 +69,8 @@ Array.parse = function(value)
 {
     return eval('(' + value + ')');
 }
-//corlib.js
-Class("System.Object", null,
+JsTypes.push(
+{fullname:"System.Object", definition:
 {
     ctor: function()
     {
@@ -81,7 +81,7 @@ Class("System.Object", null,
     },
     ToString: function()
     {
-        return "{" + this.constructor._type.get_FullName() + "}";
+        return "{" + this.constructor._type.fullname + "}";
     },
     construct: function()
     {
@@ -107,18 +107,18 @@ Class("System.Object", null,
     {
         return arguments.callee.caller._type.baseType.ctor.prototype[methodName].apply(this, Arguments.from(arguments, 1));
     }
-},
+},staticDefinition:
 {
     Equals$$Object: function(x, y)
     {
     //TODO: check value types for valueOf()
         return x == y;
     }
-});
-Class("Object", null,
-{
-});
-Class("Array", "Object",
+}});
+
+JsTypes.push({fullname:"Object"});
+
+JsTypes.push({fullname:"Array", baseTypeName:"Object",definition:
 {
     GetEnumerator: function()
     {
@@ -319,8 +319,9 @@ Class("Array", "Object",
     {
         return this[index];
     }
+}
 });
-Class("ArrayEnumerator", "System.Object", //TODO: implement IEnumerator
+JsTypes.push({fullname:"ArrayEnumerator", baseTypeName:"System.Object", definition://TODO: implement IEnumerator
 {
 ctor: function(array)
 {
@@ -344,6 +345,7 @@ Dispose: function()
 {
     //TODO
 }
+}
 });
 AfterCompilation(function()
 {
@@ -355,15 +357,16 @@ AfterCompilation(function()
         System.DateTime.MinValue = minDateTime;
         System.DateTime.commonPrototype.MinValue = minDateTime;
     }
+    Function._type = System.Delegate;
 });
-Class("System.Boolean", "System.ValueType",
+JsTypes.push({fullname:"System.Boolean", baseTypeName:"System.ValueType",definition:
 {
     ctor: Boolean,
     ToString: function()
     {
         return this == true ? "true" : "false";
     }
-},
+}, staticDefinition:
 {
     tryParse: function(s)
     {
@@ -371,15 +374,16 @@ Class("System.Boolean", "System.ValueType",
             return false;
         return s.toLowerCase().trim() == "true";
     }
+}
 });
-Class("System.Int32", "System.ValueType",
+JsTypes.push({fullname:"System.Int32", baseTypeName:"System.ValueType",definition:
 {
     ctor: Number,
     ToString: function()
     {
         return String(Number(this));
     }
-},
+}, staticDefinition:
 {
     tryParse: function(s)
     {
@@ -389,23 +393,24 @@ Class("System.Int32", "System.ValueType",
     {
         return parseInt(s);
     }
+}
 });
-Class("System.Decimal", "System.ValueType",
+JsTypes.push({fullname:"System.Decimal", baseTypeName:"System.ValueType",definition:
 {
     ctor: function(x) { return new Number(x); },
     ToString: function()
     {
         return this.toString();
     }
-},
+}, staticDefinition:
 {
     tryParse: function(s)
     {
         return parseFloat(s);
     }
-});
+}});
 String.prototype._toString = String.prototype.toString;
-Class("System.String", "System.Object",
+JsTypes.push({fullname:"System.String", baseTypeName:"System.Object", definition:
 {
     ctor: String,
     GetEnumerator: function()
@@ -611,7 +616,7 @@ Class("System.String", "System.Object",
         }
         return s;
     }
-},
+}, staticDefinition:
 {
     Empty: "",
     FormatCache: [],
@@ -661,6 +666,7 @@ Class("System.String", "System.Object",
         else
             return 0;
     }
+}
 });
 Arguments = function()
 {
@@ -698,7 +704,7 @@ Arguments.Contains = function(arguments, object)
     }
     return false;
 }
-Class("Date", null,
+JsTypes.push({fullname:"Date", definition:
 {
     removeTime: function()
     {
@@ -724,7 +730,7 @@ Class("Date", null,
     {
         return this.getFullYear() == date.getFullYear() && this.getMonth() == date.getMonth();
     }
-},
+}, staticDefinition:
 {
     shortDays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
     getNow: function()
@@ -735,40 +741,12 @@ Class("Date", null,
     {
         return new Date().removeTime();
     }
-});
+}});
 //THIS file is for backward compatability and should be deprecated
-Class("VM", null,
+JsTypes.push({fullname:"VM",  definition:
 {
-},
+}, staticDefinition:
 {
-    GetDelegate: function(target, func)
-    {
-        if (target == null)
-            return func;
-        if (typeof (func) == "string")
-            func = target[func];
-        var cache = target.__delegateCache;
-        if (cache == null)
-        {
-            cache = {};
-            target.__delegateCache = cache;
-        }
-        var key = GetHashKey(func) + "$$" + GetHashKey(target);
-        var delegate = cache[key];
-        if (delegate == null)
-        {
-            delegate = function()
-            {
-                return arguments.callee.func.apply(arguments.callee.target, arguments);
-            };
-            //TODO:??investigate if causes memory leaks. alternative: delegate = new Function("return arguments.callee.func.apply(arguments.callee.target, arguments);");
-            delegate.func = func;
-            delegate.target = target;
-            delegate.isDelegate = true;
-            cache[key] = delegate;
-        }
-        return delegate;
-    },
     tryParse: function(text, ctor)
     {
         if (ctor == null)
@@ -808,17 +786,10 @@ Class("VM", null,
             return TypeIs(propertyType, type);
         }
         return false;
-    },
-    getMemberTypeName: function(instance, memberName)
-    {
-        var signature = instance[memberName + "$$"];
-        if (signature == null)
-            return null;
-        var memberTypeName = signature.split(" ").getLast();
-        return memberTypeName;
     }
+}
 });
-Class("SharpKit.DataModel.NotifyCollectionChangedEventArgs", "System.Object",
+JsTypes.push({fullname:"SharpKit.DataModel.NotifyCollectionChangedEventArgs", baseTypeName:"System.Object", definition:
 {
     ctor: function(action, changedItem)
     {
@@ -848,4 +819,5 @@ Class("SharpKit.DataModel.NotifyCollectionChangedEventArgs", "System.Object",
     {
         return this._Action;
     }
+}
 });
