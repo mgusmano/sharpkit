@@ -24,13 +24,20 @@ namespace SharpKit.JavaScript
         /// Creates an instance of a JsTypeAttribute in the specified JsMode
         /// </summary>
         /// <param name="mode"></param>
-        public JsTypeAttribute(JsMode mode) { }
+        public JsTypeAttribute(JsMode mode) 
+        {
+            Mode = mode;
+        }
         /// <summary>
         /// Creates an instance of a JsTypeAttribute in the specified JsMode, and exported to the specified filename
         /// </summary>
         /// <param name="mode"></param>
         /// <param name="filename"></param>
-        public JsTypeAttribute(JsMode mode, string filename) { }
+        public JsTypeAttribute(JsMode mode, string filename) 
+        {
+            Mode = mode;
+            Filename = filename;
+        }
 
         /// <summary>
         /// Js code that will be written before exporting the type
