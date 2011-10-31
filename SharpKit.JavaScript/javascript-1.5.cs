@@ -248,7 +248,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     /// Specifies custom instructions for SharpKit for a single method, this information is used when exporting the member, and when using it.
     ///</summary>
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple=true)]
+    [AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple=true)]
     public partial class JsMethodAttribute : Attribute
     {
         /// <summary>
