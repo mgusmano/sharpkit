@@ -10,7 +10,8 @@ using System.IO;
 using System.Diagnostics;
 
 
-[JsType(Name = "SharpKit.Html4.HtmlDomEventHandler")]
+
+[JsType(Name = "SharpKit.Html4.HtmlDomEventHandler", Filename="~/Internal/Core.js")]
 internal delegate void JsImplHtmlDomEventHandler(object e);
 
 namespace SharpKit

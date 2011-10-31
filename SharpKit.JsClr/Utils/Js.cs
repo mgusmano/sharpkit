@@ -63,38 +63,38 @@ namespace SharpKit.JavaScript.Utils
 		{
 			throw new NotImplementedException("TODO: Implement");
 		}
-		//[JsMethod(Code = "return new System.MulticastDelegate.ctor$$Object$$Function(obj, func);")]
-		public static object CreateDelegate(object obj, JsFunction func)
-		{
-			return new JsImplMulticastDelegate(obj.As<JsObject>(), func);
-		}
+        ////[JsMethod(Code = "return new System.MulticastDelegate.ctor$$Object$$Function(obj, func);")]
+        //public static object CreateDelegate(object obj, JsFunction func)
+        //{
+        //    return new JsImplMulticastDelegate(obj.As<JsObject>(), func);
+        //}
 
-		//[JsMethod(Code = "if(obj==null || funcName==null || obj[funcName]==null) throw new Error('CreateInstanceDelegate error'); return new System.MulticastDelegate.ctor(obj, obj[funcName]);")]
-		public static object CreateInstanceDelegate(object obj, string funcName)
-		{
-			var jsObj = obj.As<JsObject>();
-			if(jsObj==null || funcName==null || jsObj[funcName]==null) 
-				throw new Exception("CreateInstanceDelegate error");
-			return new JsImplMulticastDelegate(jsObj, jsObj[funcName].As<JsFunction>());
-		}
+        ////[JsMethod(Code = "if(obj==null || funcName==null || obj[funcName]==null) throw new Error('CreateInstanceDelegate error'); return new System.MulticastDelegate.ctor(obj, obj[funcName]);")]
+        //public static object CreateInstanceDelegate(object obj, string funcName)
+        //{
+        //    var jsObj = obj.As<JsObject>();
+        //    if(jsObj==null || funcName==null || jsObj[funcName]==null) 
+        //        throw new Exception("CreateInstanceDelegate error");
+        //    return new JsImplMulticastDelegate(jsObj, jsObj[funcName].As<JsFunction>());
+        //}
 
-		public static object CreateInstanceDelegate(object obj, string funcName, bool findOverloadedMethod)
-		{
-			var jsObj = obj.As<JsObject>();
-			if (jsObj == null || funcName == null)
-				throw new Exception("CreateInstanceDelegate error");
-			if (jsObj[funcName] == null && findOverloadedMethod)
-			{
-				var overloadedFuncName = FindOverloadedMethodName(obj, funcName);
-				if (overloadedFuncName == null)
-					throw new Exception("CreateInstanceDelegate error");
-				else
-					funcName = overloadedFuncName;
-			}
-			if(jsObj[funcName] == null)
-				throw new Exception("CreateInstanceDelegate error");
-			return new JsImplMulticastDelegate(jsObj, jsObj[funcName].As<JsFunction>());
-		}
+        //public static object CreateInstanceDelegate(object obj, string funcName, bool findOverloadedMethod)
+        //{
+        //    var jsObj = obj.As<JsObject>();
+        //    if (jsObj == null || funcName == null)
+        //        throw new Exception("CreateInstanceDelegate error");
+        //    if (jsObj[funcName] == null && findOverloadedMethod)
+        //    {
+        //        var overloadedFuncName = FindOverloadedMethodName(obj, funcName);
+        //        if (overloadedFuncName == null)
+        //            throw new Exception("CreateInstanceDelegate error");
+        //        else
+        //            funcName = overloadedFuncName;
+        //    }
+        //    if(jsObj[funcName] == null)
+        //        throw new Exception("CreateInstanceDelegate error");
+        //    return new JsImplMulticastDelegate(jsObj, jsObj[funcName].As<JsFunction>());
+        //}
 
 		[JsMethod(Code=@"funcName+='$$';for(var o in obj)
 if (typeof(obj[o])=='function' && o.indexOf(funcName)==0) 
@@ -119,7 +119,7 @@ return null;")]
 		public static string GetHashKey(object key)
 		{
             return JsCompiler.GetHashKey(key);
-		}
+        }
 
 		[JsMethod(Code = "delete obj[name];")]
 		public static void DeleteMember(object obj, string name)

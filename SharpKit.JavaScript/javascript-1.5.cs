@@ -136,6 +136,11 @@ namespace SharpKit.JavaScript
         /// Controls the JavaScript mode of this type, a mode is a combination of several boolean settings of the JsTypeAttribute
         /// </summary>
         public JsMode Mode { get; set; }
+        /// <summary>
+        /// Forces any delegate used in the current type to be created a native js function without an instance context
+        /// </summary>
+        public bool ForceDelegatesAsNativeFunctions { get; set; }
+
     }
     #endregion
     #region JsMode
@@ -285,6 +290,10 @@ namespace SharpKit.JavaScript
         /// Treats delegates inside this method as native javascript functions.
         /// </summary>
         public bool NativeDelegates { get; set; }
+        /// <summary>
+        /// Forces any delegate used in the current method to be created a native js function without an instance context
+        /// </summary>
+        public bool ForceDelegatesAsNativeFunctions { get; set; }
         ///<summary>
         ///Generates the method code as global JavaScript code, without any function
         ///</summary>
