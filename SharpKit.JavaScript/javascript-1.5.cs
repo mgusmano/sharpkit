@@ -666,6 +666,8 @@ namespace SharpKit.JavaScript
         ///</summary>
         [JsProperty(NativeField = true)]
         public static object undefined { get; set; }
+        [JsProperty(NativeField = true)]
+        public static object @null { get; set; }
         public static JsString @typeof(object obj) { return default(JsString); }
         public static object @this;
         public static object @return(object obj) { return null; }
