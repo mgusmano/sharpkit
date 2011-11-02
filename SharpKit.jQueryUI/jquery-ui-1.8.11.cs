@@ -2027,6 +2027,8 @@ namespace SharpKit.jQuery
     }
     #endregion
 
+    [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void jQueryUIEvent(Event e, object ui);
 }
 
