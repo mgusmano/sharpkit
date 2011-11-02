@@ -102,7 +102,7 @@ namespace SharpKit.jQuery
         ///Overwrite the default location.href-matching with your own matcher.
         ///Default: 
         ///</summary>
-        public JsAction navigationFilter { get; set; }
+        public jQueryUIEvent navigationFilter { get; set; }
         ///<summary>
         ///This event is triggered every time the accordion changes. If the accordion is animated, the event will be triggered upon completion of the animation; otherwise, it is triggered immediately. 
         ///$('.ui-accordion').bind('accordionchange', function(event, ui) {
@@ -113,7 +113,7 @@ namespace SharpKit.jQuery
         ///});
         ///Default: null
         ///</summary>
-        public JsAction change { get; set; }
+        public jQueryUIEvent change { get; set; }
         ///<summary>
         ///This event is triggered every time the accordion starts to change. 
         ///$('.ui-accordion').bind('accordionchangestart', function(event, ui) {
@@ -124,7 +124,7 @@ namespace SharpKit.jQuery
         ///});
         ///Default: null
         ///</summary>
-        public JsAction changestart { get; set; }
+        public jQueryUIEvent changestart { get; set; }
     }
     #endregion
     #region AddClass
@@ -433,30 +433,30 @@ namespace SharpKit.jQuery
         ///Can be a function that takes an input field and current datepicker instance and returns an options object to update the datepicker with. It is called just before the datepicker is displayed.
         ///Default: null
         ///</summary>
-        public JsAction beforeShow { get; set; }
+        public jQueryUIEvent beforeShow { get; set; }
         ///<summary>
         ///The function takes a date as a parameter and must return an array with [0] equal to true/false indicating whether or not this date is selectable, [1] equal to a CSS class name(s) or '' for the default presentation and [2] an optional popup tooltip for this date. It is called for each day in the datepicker before is it displayed.
         ///Default: null
         ///</summary>
-        public JsAction beforeShowDay { get; set; }
+        public jQueryUIEvent beforeShowDay { get; set; }
         ///<summary>
         ///Allows you to define your own event when the datepicker moves to a new month and/or year. The function receives the selected year, month (1-12), and the datepicker instance as parameters. this refers to the associated input field.
         ///Default: null
         ///Types: function(year, month, inst)
         ///</summary>
-        public JsAction onChangeMonthYear { get; set; }
+        public jQueryUIEvent onChangeMonthYear { get; set; }
         ///<summary>
         ///Allows you to define your own event when the datepicker is closed, whether or not a date is selected. The function receives the selected date as text and the datepicker instance as parameters. this refers to the associated input field.
         ///Default: null
         ///Types: function(dateText, inst)
         ///</summary>
-        public JsAction onClose { get; set; }
+        public jQueryUIEvent onClose { get; set; }
         ///<summary>
         ///Allows you to define your own event when the datepicker is selected. The function receives the selected date as text and the datepicker instance as parameters. this refers to the associated input field.
         ///Default: null
         ///Types: function(dateText, inst)
         ///</summary>
-        public JsAction onSelect { get; set; }
+        public jQueryUIEvent onSelect { get; set; }
     }
     #endregion
     #region Dialog
@@ -588,52 +588,52 @@ namespace SharpKit.jQuery
         ///This event is triggered when a dialog attempts to close. If the beforeclose event handler (callback function) returns false, the close will be prevented.
         ///Default: null
         ///</summary>
-        public JsAction beforeclose { get; set; }
+        public jQueryUIEvent beforeclose { get; set; }
         ///<summary>
         ///This event is triggered when dialog is opened.
         ///Default: null
         ///</summary>
-        public JsAction open { get; set; }
+        public jQueryUIEvent open { get; set; }
         ///<summary>
         ///This event is triggered when the dialog gains focus.
         ///Default: null
         ///</summary>
-        public JsAction focus { get; set; }
+        public jQueryUIEvent focus { get; set; }
         ///<summary>
         ///This event is triggered at the beginning of the dialog being dragged.
         ///Default: null
         ///</summary>
-        public JsAction dragStart { get; set; }
+        public jQueryUIEvent dragStart { get; set; }
         ///<summary>
         ///This event is triggered when the dialog is dragged.
         ///Default: null
         ///</summary>
-        public JsAction drag { get; set; }
+        public jQueryUIEvent drag { get; set; }
         ///<summary>
         ///This event is triggered after the dialog has been dragged.
         ///Default: null
         ///</summary>
-        public JsAction dragStop { get; set; }
+        public jQueryUIEvent dragStop { get; set; }
         ///<summary>
         ///This event is triggered at the beginning of the dialog being resized.
         ///Default: null
         ///</summary>
-        public JsAction resizeStart { get; set; }
+        public jQueryUIEvent resizeStart { get; set; }
         ///<summary>
         ///This event is triggered when the dialog is resized.
         ///Default: null
         ///</summary>
-        public JsAction resize { get; set; }
+        public jQueryUIEvent resize { get; set; }
         ///<summary>
         ///This event is triggered after the dialog has been resized.
         ///Default: null
         ///</summary>
-        public JsAction resizeStop { get; set; }
+        public jQueryUIEvent resizeStop { get; set; }
         ///<summary>
         ///This event is triggered when the dialog is closed.
         ///Default: null
         ///</summary>
-        public JsAction close { get; set; }
+        public jQueryUIEvent close { get; set; }
     }
     #endregion
     #region Draggable
@@ -809,17 +809,17 @@ namespace SharpKit.jQuery
         ///This event is triggered when dragging starts.
         ///Default: null
         ///</summary>
-        public JsAction start { get; set; }
+        public jQueryUIEvent start { get; set; }
         ///<summary>
         ///This event is triggered when the mouse is moved during the dragging.
         ///Default: null
         ///</summary>
-        public JsAction drag { get; set; }
+        public jQueryUIEvent drag { get; set; }
         ///<summary>
         ///This event is triggered when dragging stops.
         ///Default: null
         ///</summary>
-        public JsAction stop { get; set; }
+        public jQueryUIEvent stop { get; set; }
     }
     #endregion
     #region Droppable
@@ -892,27 +892,27 @@ namespace SharpKit.jQuery
         ///This event is triggered any time an accepted draggable starts dragging. This can be useful if you want to make the droppable 'light up' when it can be dropped on.
         ///Default: null
         ///</summary>
-        public JsAction activate { get; set; }
+        public jQueryUIEvent activate { get; set; }
         ///<summary>
         ///This event is triggered any time an accepted draggable stops dragging.
         ///Default: null
         ///</summary>
-        public JsAction deactivate { get; set; }
+        public jQueryUIEvent deactivate { get; set; }
         ///<summary>
         ///This event is triggered as an accepted draggable is dragged 'over' (within the tolerance of) this droppable.
         ///Default: null
         ///</summary>
-        public JsAction over { get; set; }
+        public jQueryUIEvent over { get; set; }
         ///<summary>
         ///This event is triggered when an accepted draggable is dragged out (within the tolerance of) this droppable.
         ///Default: null
         ///</summary>
-        public JsAction @out { get; set; }
+        public jQueryUIEvent @out { get; set; }
         ///<summary>
         ///This event is triggered when an accepted draggable is dropped 'over' (within the tolerance of) this droppable. In the callback, $(this) represents the droppable the draggable is dropped on. ui.draggable represents the draggable.
         ///Default: null
         ///</summary>
-        public JsAction drop { get; set; }
+        public jQueryUIEvent drop { get; set; }
     }
     #endregion
     #region Effect
@@ -932,7 +932,7 @@ namespace SharpKit.jQuery
         /// <param name="callback">A function that is called after the effect is completed.</param>
         /// <returns>jQuery</returns>
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery effect(this jQuery query, string effect, object options, object speed, JsAction callback) { return default(jQuery); }
+        public static jQuery effect(this jQuery query, string effect, object options, object speed, jQueryUIEvent callback) { return default(jQuery); }
         /// <summary>
         /// Uses a specific effect on an element (without the show/hide logic).
         /// </summary>
@@ -970,7 +970,7 @@ namespace SharpKit.jQuery
         /// <param name="callback">A function that is called after the effect is completed.</param>
         /// <returns>jQuery</returns>
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery effect(this jQuery query, EffectType effect, object options, object speed, JsAction callback) { return default(jQuery); }
+        public static jQuery effect(this jQuery query, EffectType effect, object options, object speed, jQueryUIEvent callback) { return default(jQuery); }
         /// <summary>
         /// Uses a specific effect on an element (without the show/hide logic).
         /// </summary>
@@ -1064,7 +1064,7 @@ namespace SharpKit.jQuery
         ///A function that is called after the effect is completed.
         ///Default: null
         ///</summary>
-        public JsAction callback { get; set; }
+        public jQueryUIEvent callback { get; set; }
     }
     #endregion
     #region Progressbar
@@ -1098,7 +1098,7 @@ namespace SharpKit.jQuery
         ///This event is triggered when the value of the progressbar changes.
         ///Default: null
         ///</summary>
-        public JsAction change { get; set; }
+        public jQueryUIEvent change { get; set; }
     }
     #endregion
     #region RemoveClass
@@ -1263,17 +1263,17 @@ namespace SharpKit.jQuery
         ///This event is triggered at the start of a resize operation.
         ///Default: null
         ///</summary>
-        public JsAction start { get; set; }
+        public jQueryUIEvent start { get; set; }
         ///<summary>
         ///This event is triggered during the resize, on the drag of the resize handler.
         ///Default: null
         ///</summary>
-        public JsAction resize { get; set; }
+        public jQueryUIEvent resize { get; set; }
         ///<summary>
         ///This event is triggered at the end of a resize operation.
         ///Default: null
         ///</summary>
-        public JsAction stop { get; set; }
+        public jQueryUIEvent stop { get; set; }
     }
     #endregion
     #region Selectable
@@ -1333,32 +1333,32 @@ namespace SharpKit.jQuery
         ///This event is triggered at the end of the select operation, on each element added to the selection.
         ///Default: null
         ///</summary>
-        public JsAction selected { get; set; }
+        public jQueryUIEvent selected { get; set; }
         ///<summary>
         ///This event is triggered during the select operation, on each element added to the selection.
         ///Default: null
         ///</summary>
-        public JsAction selecting { get; set; }
+        public jQueryUIEvent selecting { get; set; }
         ///<summary>
         ///This event is triggered at the beginning of the select operation.
         ///Default: null
         ///</summary>
-        public JsAction start { get; set; }
+        public jQueryUIEvent start { get; set; }
         ///<summary>
         ///This event is triggered at the end of the select operation.
         ///Default: null
         ///</summary>
-        public JsAction stop { get; set; }
+        public jQueryUIEvent stop { get; set; }
         ///<summary>
         ///This event is triggered at the end of the select operation, on each element removed from the selection.
         ///Default: null
         ///</summary>
-        public JsAction unselected { get; set; }
+        public jQueryUIEvent unselected { get; set; }
         ///<summary>
         ///This event is triggered during the select operation, on each element removed from the selection.
         ///Default: null
         ///</summary>
-        public JsAction unselecting { get; set; }
+        public jQueryUIEvent unselecting { get; set; }
     }
     #endregion
     #region Show
@@ -1404,7 +1404,7 @@ namespace SharpKit.jQuery
         ///A function that is called after the effect is completed.
         ///Default: null
         ///</summary>
-        public JsAction callback { get; set; }
+        public jQueryUIEvent callback { get; set; }
     }
     #endregion
     #region Slider
@@ -1476,23 +1476,23 @@ namespace SharpKit.jQuery
         ///This event is triggered when the user starts sliding.
         ///Default: null
         ///</summary>
-        public JsAction start { get; set; }
+        public jQueryUIEvent start { get; set; }
         ///<summary>
         ///This event is triggered on every mouse move during slide. Use ui.value (single-handled sliders) to obtain the value of the current handle, $(..).slider('value', index) to get another handles' value. 
         ///Return false in order to prevent a slide, based on ui.value.
         ///Default: null
         ///</summary>
-        public JsAction slide { get; set; }
+        public jQueryUIEvent slide { get; set; }
         ///<summary>
         ///This event is triggered on slide stop, or if the value is changed programmatically (by the value method). Takes arguments event and ui. Use event.orginalEvent to detect whether the value changed by mouse, keyboard, or programmatically. Use ui.value (single-handled sliders) to obtain the value of the current handle, $(this).slider('values', index) to get another handle's value.
         ///Default: null
         ///</summary>
-        public JsAction change { get; set; }
+        public jQueryUIEvent change { get; set; }
         ///<summary>
         ///This event is triggered when the user stops sliding.
         ///Default: null
         ///</summary>
-        public JsAction stop { get; set; }
+        public jQueryUIEvent stop { get; set; }
     }
     #endregion
     #region Sortable
@@ -1652,62 +1652,62 @@ namespace SharpKit.jQuery
         ///This event is triggered when sorting starts.
         ///Default: null
         ///</summary>
-        public JsAction start { get; set; }
+        public jQueryUIEvent start { get; set; }
         ///<summary>
         ///This event is triggered during sorting.
         ///Default: null
         ///</summary>
-        public JsAction sort { get; set; }
+        public jQueryUIEvent sort { get; set; }
         ///<summary>
         ///This event is triggered during sorting, but only when the DOM position has changed.
         ///Default: null
         ///</summary>
-        public JsAction change { get; set; }
+        public jQueryUIEvent change { get; set; }
         ///<summary>
         ///This event is triggered when sorting stops, but when the placeholder/helper is still available.
         ///Default: null
         ///</summary>
-        public JsAction beforeStop { get; set; }
+        public jQueryUIEvent beforeStop { get; set; }
         ///<summary>
         ///This event is triggered when sorting has stopped.
         ///Default: null
         ///</summary>
-        public JsAction stop { get; set; }
+        public jQueryUIEvent stop { get; set; }
         ///<summary>
         ///This event is triggered when the user stopped sorting and the DOM position has changed.
         ///Default: null
         ///</summary>
-        public JsAction update { get; set; }
+        public jQueryUIEvent update { get; set; }
         ///<summary>
         ///This event is triggered when a connected sortable list has received an item from another list.
         ///Default: null
         ///</summary>
-        public JsAction receive { get; set; }
+        public jQueryUIEvent receive { get; set; }
         ///<summary>
         ///This event is triggered when a sortable item has been dragged out from the list and into another.
         ///Default: null
         ///</summary>
-        public JsAction remove { get; set; }
+        public jQueryUIEvent remove { get; set; }
         ///<summary>
         ///This event is triggered when a sortable item is moved into a connected list.
         ///Default: null
         ///</summary>
-        public JsAction over { get; set; }
+        public jQueryUIEvent over { get; set; }
         ///<summary>
         ///This event is triggered when a sortable item is moved away from a connected list.
         ///Default: null
         ///</summary>
-        public JsAction @out { get; set; }
+        public jQueryUIEvent @out { get; set; }
         ///<summary>
         ///This event is triggered when using connected lists, every connected list on drag start receives it.
         ///Default: null
         ///</summary>
-        public JsAction activate { get; set; }
+        public jQueryUIEvent activate { get; set; }
         ///<summary>
         ///This event is triggered when sorting was stopped, is propagated to all possible connected lists.
         ///Default: null
         ///</summary>
-        public JsAction deactivate { get; set; }
+        public jQueryUIEvent deactivate { get; set; }
     }
     #endregion
     #region SwitchClass
@@ -1988,7 +1988,7 @@ namespace SharpKit.jQuery
         ///A function that is called after the effect is completed.
         ///Default: null
         ///</summary>
-        public JsAction callback { get; set; }
+        public jQueryUIEvent callback { get; set; }
     }
     #endregion
     #region ToggleClass
@@ -2027,6 +2027,7 @@ namespace SharpKit.jQuery
     }
     #endregion
 
+    public delegate void jQueryUIEvent(Event e, object ui);
 }
 
 
