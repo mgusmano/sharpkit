@@ -147,6 +147,10 @@ namespace SharpKit.JavaScript
         /// Forces any delegate used in the current type to be created a native js function without an instance context
         /// </summary>
         public bool ForceDelegatesAsNativeFunctions { get; set; }
+        /// <summary>
+        /// Declares fields and PropertiesAsFields in object definition, and does not move them to the constructor
+        /// </summary>
+        public bool InlineFields { get; set; }
 
     }
     #endregion
