@@ -143,7 +143,7 @@ namespace Ext.data
         /// <summary>
         /// Adds Model instances to the Store by instantiating them based on a JavaScript object. ...
         /// </summary>
-        public JsArray add(object data){return null;}
+        public JsArray<Ext.data.Model> add(object data){return null;}
         /// <summary>
         /// Gets the average value in the store. ...
         /// </summary>
@@ -267,6 +267,10 @@ namespace Ext.data
         /// </summary>
         public new object load(object options){return null;}
         /// <summary>
+        /// Loads data into the Store via the configured proxy. ...
+        /// </summary>
+        public new object load() { return null; }
+        /// <summary>
         /// Loads an array of data straight into the Store ...
         /// </summary>
         public object loadData(JsArray data, bool append){return null;}
@@ -311,6 +315,11 @@ namespace Ext.data
         /// Query the cached records in this Store using a filtering function. ...
         /// </summary>
         public MixedCollection queryBy(JsAction fn, object scope=null){return null;}
+
+        /// <summary>
+        /// Query the cached records in this Store using a filtering function. ...
+        /// </summary>
+        public MixedCollection queryBy( System.Delegate fn ) { return null; }
         /// <summary>
         /// Removes the given record from the Store, firing the 'remove' event for each instance that is removed, plus a single
         /// '...
@@ -329,7 +338,12 @@ namespace Ext.data
         /// and end and returns the result. ...
         /// </summary>
         public JsNumber sum(JsString field, bool grouped){return null;}
-        public JsNumber currentPage{get;set;}
+        /// <summary>
+        /// Sums the value of property for each record between start
+        /// and end and returns the result. ...
+        /// </summary>
+        public JsNumber sum( JsString field ) { return null; }
+        public JsNumber currentPage { get; set; }
         public Ext.util.MixedCollection data{get;set;}
         /// <summary>
         /// The direction in which sorting should be applied when grouping. ...

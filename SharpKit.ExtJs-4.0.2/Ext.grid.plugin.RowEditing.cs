@@ -59,10 +59,6 @@ namespace Ext.grid.plugin
     [JsType(JsMode.Prototype, Export=false)]
     public partial class RowEditing : Editing, Ext.util.Observable
     {
-        /// <summary>
-        /// Start editing the specified record, using the specified Column definition to define which field is being edited. ...
-        /// </summary>
-        public new object startEdit(Ext.data.Model record, Ext.data.Model columnHeader){return null;}
         public RowEditing(RowEditingConfig config){}
         public RowEditing(){}
     }

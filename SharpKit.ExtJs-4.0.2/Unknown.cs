@@ -4,7 +4,7 @@
 //* SharpKit
 //***************************************************
 using SharpKit.JavaScript;
-#region 
+#region
 #region HTMLElement
 public partial class HTMLElement
 {
@@ -92,6 +92,10 @@ namespace Ext
     #region Element
     public partial class Element
     {
+        public void mask( string texto, string mascara ) { }
+        public void unmask() { }
+        public void highlight( string p1, object p2 ) { }
+        public JsArray<SharpKit.Html4.HtmlElement> query( string selector ) { return null; }
     }
     #endregion
 }

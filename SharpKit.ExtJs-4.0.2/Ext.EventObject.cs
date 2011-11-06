@@ -31,83 +31,95 @@ namespace Ext
         /// <summary>
         /// Correctly scales a given wheel delta. ...
         /// </summary>
-        public static object correctWheelDelta(JsNumber delta){return null;}
+        public object correctWheelDelta(JsNumber delta){return null;}
         /// <summary>
         /// Gets the character code for the event. ...
         /// </summary>
-        public static JsNumber getCharCode(){return null;}
+        public JsNumber getCharCode(){return null;}
         /// <summary>
         /// Returns a normalized keyCode for the event. ...
         /// </summary>
-        public static JsNumber getKey(){return null;}
+        public JsNumber getKey(){return null;}
         /// <summary>
         /// Gets the x coordinate of the event. ...
         /// </summary>
-        public static JsNumber getPageX(){return null;}
+        public JsNumber getPageX(){return null;}
         /// <summary>
         /// Gets the y coordinate of the event. ...
         /// </summary>
-        public static JsNumber getPageY(){return null;}
+        public JsNumber getPageY(){return null;}
         /// <summary>
         /// Returns a point object that consists of the object coordinates. ...
         /// </summary>
-        public static Ext.util.Point getPoint(){return null;}
+        public Ext.util.Point getPoint(){return null;}
         /// <summary>
         /// Gets the related target. ...
         /// </summary>
-        public static HTMLElement getRelatedTarget(JsString selector=null, object maxDepth=null, bool returnEl=false){return null;}
+        public HTMLElement getRelatedTarget(JsString selector=null, object maxDepth=null, bool returnEl=false){return null;}
         /// <summary>
         /// Gets the target for the event. ...
         /// </summary>
-        public static HTMLelement getTarget(JsString selector=null, object maxDepth=null, bool returnEl=false){return null;}
+        public HTMLelement getTarget(JsString selector=null, object maxDepth=null, bool returnEl=false){return null;}
+        /// <summary>
+        /// Gets the target for the event. ...
+        /// </summary>
+        public HTMLelement getTarget( JsString selector = null, object maxDepth = null) { return null; }
+        /// <summary>
+        /// Gets the target for the event. ...
+        /// </summary>
+        public HTMLelement getTarget( JsString selector = null ) { return null; }
+        /// <summary>
+        /// Gets the target for the event. ...
+        /// </summary>
+        public HTMLelement getTarget() { return null; }
         /// <summary>
         /// Normalizes mouse wheel y-delta across browsers. ...
         /// </summary>
-        public static JsNumber getWheelDelta(){return null;}
+        public JsNumber getWheelDelta(){return null;}
         /// <summary>
         /// Returns the mouse wheel deltas for this event. ...
         /// </summary>
-        public static object getWheelDeltas(){return null;}
+        public object getWheelDeltas(){return null;}
         /// <summary>
         /// Gets the x coordinate of the event. ...
         /// </summary>
-        public static JsNumber getX(){return null;}
+        public JsNumber getX(){return null;}
         /// <summary>
         /// Gets the page coordinates of the event. ...
         /// </summary>
-        public static JsArray getXY(){return null;}
+        public JsArray getXY(){return null;}
         /// <summary>
         /// Gets the y coordinate of the event. ...
         /// </summary>
-        public static JsNumber getY(){return null;}
+        public JsNumber getY(){return null;}
         /// <summary>
         /// Returns true if the control, meta, shift or alt key was pressed during this event. ...
         /// </summary>
-        public static bool hasModifier(){return false;}
+        public bool hasModifier(){return false;}
         /// <summary>
         /// Injects a DOM event using the data in this object and (optionally) a new target. ...
         /// </summary>
-        public static object injectEvent(object target){return null;}
+        public object injectEvent(object target){return null;}
         /// <summary>
         /// Checks if the key pressed was a "navigation" key ...
         /// </summary>
-        public static bool isNavKeyPress(){return false;}
+        public bool isNavKeyPress(){return false;}
         /// <summary>
         /// Checks if the key pressed was a "special" key ...
         /// </summary>
-        public static bool isSpecialKey(){return false;}
+        public bool isSpecialKey(){return false;}
         /// <summary>
         /// Prevents the browsers default handling of the event. ...
         /// </summary>
-        public static object preventDefault(){return null;}
+        public object preventDefault(){return null;}
         /// <summary>
         /// Stop the event (preventDefault and stopPropagation) ...
         /// </summary>
-        public static object stopEvent(){return null;}
+        public void stopEvent() { }
         /// <summary>
         /// Cancels bubbling of the event. ...
         /// </summary>
-        public static object stopPropagation(){return null;}
+        public object stopPropagation(){return null;}
         public static JsNumber A{get;set;}
         public static JsNumber ALT{get;set;}
         public static JsNumber B{get;set;}
@@ -201,6 +213,8 @@ namespace Ext
         public static JsNumber ZERO{get;set;}
         public EventObject(EventObjectConfig config){}
         public EventObject(){}
+
+        public JsString message { get; set; }
     }
     #endregion
     #region EventObjectConfig

@@ -32,6 +32,8 @@ namespace Ext.grid
     [JsType(JsMode.Prototype, Export=false)]
     public partial class View : Ext.view.Table, Ext.util.Floating, Ext.util.Observable, Ext.util.Animate, Ext.state.Stateful
     {
+        public static new View implement( object members ) { return null; }
+
         public View(Ext.grid.ViewConfig config){}
         public View(){}
     }

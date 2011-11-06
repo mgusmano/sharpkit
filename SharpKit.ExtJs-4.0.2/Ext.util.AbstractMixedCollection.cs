@@ -12,10 +12,15 @@ namespace Ext.util
     [JsType(JsMode.Prototype, Export=false)]
     public partial class AbstractMixedCollection : Ext.Base, Observable
     {
+
         /// <summary>
         /// Adds an item to the collection. ...
         /// </summary>
-        public object add(JsString key, object o){return null;}
+        public object add( JsString key, object o ) { return null; }
+        /// <summary>
+        /// Adds an item to the collection. ...
+        /// </summary>
+        public object add(object o){return null;}
         /// <summary>
         /// Adds all elements of an Array or an Object to the collection. ...
         /// </summary>

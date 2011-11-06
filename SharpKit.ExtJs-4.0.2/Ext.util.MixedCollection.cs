@@ -66,6 +66,8 @@ namespace Ext.util
         public Ext.util.MixedCollection sorters{get;set;}
         public MixedCollection(MixedCollectionConfig config){}
         public MixedCollection(){}
+
+        public JsArray items { get; set; }
     }
     #endregion
     #region MixedCollectionConfig

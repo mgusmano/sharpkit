@@ -98,156 +98,166 @@ namespace Ext
     /// data, it is recommended that an ExtJS data-backed Component such as a View, or
     /// GridPanel, or TreePanel be used.
     /// </summary>
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType( JsMode.Prototype, Export = false )]
     public partial class Component : AbstractComponent, Ext.util.Floating, Ext.util.Observable, Ext.util.Animate, Ext.state.Stateful
     {
         /// <summary>
         /// Creates new Component. ...
         /// </summary>
-        public Component(object config) : base(null){}
+        public Component( object config ) : base( null ) { }
         /// <summary>
         /// Aligns this floating Component to the specified element ...
         /// </summary>
-        public Ext.Component alignTo(object element, JsString position, JsArray offsets=null){return null;}
+        public Ext.Component alignTo( object element, JsString position, JsArray offsets = null ) { return null; }
         /// <summary>
         /// Bubbles up the component/container heirarchy, calling the specified function with each component. ...
         /// </summary>
-        public Ext.Component bubble(JsAction fn, object scope=null, JsArray args=null){return null;}
+        public Ext.Component bubble( JsAction fn, object scope = null, JsArray args = null ) { return null; }
         /// <summary>
         /// Center this Component in its container. ...
         /// </summary>
-        public Ext.Component center(){return null;}
+        public Ext.Component center() { return null; }
         /// <summary>
         /// Clone the current component using the original config values passed into this instance by default. ...
         /// </summary>
-        public Ext.Component cloneConfig(object overrides){return null;}
+        public Ext.Component cloneConfig( object overrides ) { return null; }
         /// <summary>
         /// Moves this floating Component into a constrain region. ...
         /// </summary>
-        public object doConstrain(object constrainTo){return null;}
+        public object doConstrain( object constrainTo ) { return null; }
         /// <summary>
         /// Find a container above this component at any level by a custom function. ...
         /// </summary>
-        public Ext.container.Container findParentBy(JsAction fn){return null;}
+        public Ext.container.Container findParentBy( JsAction fn ) { return null; }
         /// <summary>
         /// Find a container above this component at any level by xtype or class
         /// See also the up method. ...
         /// </summary>
-        public Ext.container.Container findParentByType(object xtype){return null;}
+        public Ext.container.Container findParentByType( object xtype ) { return null; }
         /// <summary>
         /// Try to focus this component. ...
         /// </summary>
-        public Ext.Component focus(bool selectText=false, object delay=null){return null;}
+        public Ext.Component focus( bool selectText = false, object delay = null ) { return null; }
         /// <summary>
         /// Gets the current box measurements of the component's underlying element. ...
         /// </summary>
-        public object getBox(bool local=false){return null;}
+        public object getBox( bool local = false ) { return null; }
         /// <summary>
         /// Gets the current XY position of the component's underlying element. ...
         /// </summary>
-        public JsArray getPosition(bool local=false){return null;}
+        public JsArray getPosition( bool local = false ) { return null; }
         /// <summary>
         /// Gets the xtype for this component as registered with Ext.ComponentManager. ...
         /// </summary>
-        public JsString getXType(){return null;}
+        public JsString getXType() { return null; }
         /// <summary>
         /// Hides this Component, setting it to invisible using the configured hideMode. ...
         /// </summary>
-        public Ext.Component hide(object animateTarget, JsAction callback=null, object scope=null){return null;}
+        public Ext.Component hide( object animateTarget, JsAction callback = null, object scope = null ) { return null; }
         /// <summary>
         /// This method is called internally by Ext.ZIndexManager to signal that a floating
         /// Component has either been moved to th...
         /// </summary>
-        public object setActive(bool active, Ext.Component newActive){return null;}
+        public object setActive( bool active, Ext.Component newActive ) { return null; }
         /// <summary>
         /// Sets the overflow on the content element of the component. ...
         /// </summary>
-        public Ext.Component setAutoScroll(bool scroll){return null;}
+        public Ext.Component setAutoScroll( bool scroll ) { return null; }
         /// <summary>
         /// Sets the page XY position of the component. ...
         /// </summary>
-        public Ext.Component setPagePosition(JsNumber x, JsNumber y, object animate){return null;}
+        public Ext.Component setPagePosition( JsNumber x, JsNumber y, object animate ) { return null; }
         /// <summary>
         /// Sets the left and top of the component. ...
         /// </summary>
-        public Ext.Component setPosition(JsNumber left, JsNumber top, object animate){return null;}
+        public Ext.Component setPosition( JsNumber left, JsNumber top, object animate ) { return null; }
         /// <summary>
         /// Shows this Component, rendering it first if autoRender or floating are true. ...
         /// </summary>
-        public Ext.Component show(object animateTarget, JsAction callback=null, object scope=null){return null;}
+        [JsMethod( Export = false, NativeOverloads = true )]
+        public Ext.Component show( object animateTarget, JsAction callback = null, object scope = null ) { return null; }
+        /// <summary>
+        /// Shows this Component, rendering it first if autoRender or floating are true. ...
+        /// </summary>
+        [JsMethod( Export = false, NativeOverloads = true )]
+        public Ext.Component show() { return null; }
         /// <summary>
         /// Sends this Component to the back of (lower z-index than) any other visible windows ...
         /// </summary>
-        public Ext.Component toBack(){return null;}
+        public Ext.Component toBack() { return null; }
         /// <summary>
         /// Brings this floating Component to the front of any other visible, floating Components managed by the same ZIndexManag...
         /// </summary>
-        public Ext.Component toFront(bool preventFocus=false){return null;}
+        public Ext.Component toFront( bool preventFocus = false ) { return null; }
+        /// <summary>
+        /// Brings this floating Component to the front of any other visible, floating Components managed by the same ZIndexManag...
+        /// </summary>
+        public Ext.Component toFront() { return null; }
         /// <summary>
         /// Sets the current box measurements of the component's underlying element. ...
         /// </summary>
-        public Ext.Component updateBox(object box){return null;}
+        public Ext.Component updateBox( object box ) { return null; }
         /// <summary>
         /// Optional. ...
         /// </summary>
-        public Ext.container.Container floatParent{get;set;}
+        public Ext.container.Container floatParent { get; set; }
         /// <summary>
         /// Optional. ...
         /// </summary>
-        public ZIndexManager zIndexManager{get;set;}
-        public Component(Ext.ComponentConfig config) : base(null){}
-        public Component() : base(null){}
+        public ZIndexManager zIndexManager { get; set; }
+        public Component( Ext.ComponentConfig config ) : base( null ) { }
+        public Component() : base( null ) { }
     }
     #endregion
     #region ComponentConfig
-    [JsType(JsMode.Json, Export=false)]
+    [JsType( JsMode.Json, Export = false )]
     public partial class ComponentConfig : AbstractComponentConfig
     {
         /// <summary>
         /// true to use overflow:'auto' on the components layout element and show scroll bars automatically when
         /// necessary, false...
         /// </summary>
-        public bool autoScroll{get;set;}
+        public bool autoScroll { get; set; }
         /// <summary>
         /// Specify as true to make a floating Component draggable using the Component's encapsulating element as the drag handle. ...
         /// </summary>
-        public new object draggable{get;set;}
+        public new object draggable { get; set; }
         /// <summary>
         /// Specify as true to float the Component outside of the document flow using CSS absolute positioning. ...
         /// </summary>
-        public new bool floating{get;set;}
+        public new bool floating { get; set; }
         /// <summary>
         /// Specifies whether the floated component should be automatically focused when it is
         /// brought to the front. ...
         /// </summary>
-        public bool focusOnToFront{get;set;}
+        public bool focusOnToFront { get; set; }
         /// <summary>
         /// Only valid when a sibling element of a Splitter within a VBox or
         /// HBox layout. ...
         /// </summary>
-        public bool maintainFlex{get;set;}
+        public bool maintainFlex { get; set; }
         /// <summary>
         /// Specify as true to apply a Resizer to this Component
         /// after rendering. ...
         /// </summary>
-        public object resizable{get;set;}
+        public object resizable { get; set; }
         /// <summary>
         /// A valid Ext.resizer.Resizer handles config string (defaults to 'all'). ...
         /// </summary>
-        public JsString resizeHandles{get;set;}
+        public JsString resizeHandles { get; set; }
         /// <summary>
         /// Specifies whether the floating component should be given a shadow. ...
         /// </summary>
-        public object shadow{get;set;}
+        public object shadow { get; set; }
         /// <summary>
         /// True to automatically call toFront when the show method is called
         /// on an already visible, floating component (default ...
         /// </summary>
-        public bool toFrontOnShow{get;set;}
+        public bool toFrontOnShow { get; set; }
     }
     #endregion
     #region ComponentEvents
-    [JsType(JsMode.Json, Export=false)]
+    [JsType( JsMode.Json, Export = false )]
     public partial class ComponentEvents : AbstractComponentEvents
     {
     }

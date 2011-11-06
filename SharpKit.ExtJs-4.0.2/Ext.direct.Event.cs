@@ -14,7 +14,7 @@ namespace Ext.direct
     /// to hold a direct response.
     /// </summary>
     [JsType(JsMode.Prototype, Export=false)]
-    public partial class Event : Ext.Base
+    public partial class Event : Ext.EventObject
     {
         /// <summary>
         /// Creates new Event. ...

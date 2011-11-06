@@ -24,7 +24,7 @@ namespace Ext
         /// <summary>
         /// Returns an item by id. ...
         /// </summary>
-        public object get(JsString id){return null;}
+        public static object get(JsString id){return null;}
         /// <summary>
         /// Gets the number of items in the collection. ...
         /// </summary>

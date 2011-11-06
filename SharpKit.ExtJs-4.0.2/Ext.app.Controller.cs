@@ -204,6 +204,9 @@ namespace Ext.app
         /// A config object containing one or more event handlers to be added to this object during initialization. ...
         /// </summary>
         public object listeners{get;set;}
+
+        public object[] views { get; set; }
+        public object refs { get; set; }
     }
     #endregion
     #region ControllerEvents

@@ -46,6 +46,10 @@ namespace Ext.selection
         /// </summary>
         public object deselectAll(bool suppressEvent){return null;}
         /// <summary>
+        /// Deselect all records in the view. ...
+        /// </summary>
+        public void deselectAll() { }
+        /// <summary>
         /// Enables events fired by this Observable to bubble up an owner hierarchy by calling this.getBubbleTarget() if
         /// present. ...
         /// </summary>

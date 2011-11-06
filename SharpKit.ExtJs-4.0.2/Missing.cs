@@ -7,9 +7,11 @@ using SharpKit.JavaScript;
 namespace Ext
 {
 
-    partial class ExtContext
+    public partial class ExtContext
     {
         public static T create<T>(object config) { return default(T); }
+        public static Ext.window.MessageBox Msg { get; set; }
+        public static Ext.window.MessageBox MessageBox { get; set; }
     }
 }
 namespace Ext.panel

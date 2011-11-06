@@ -21,6 +21,12 @@ namespace Ext
         /// </summary>
         public object callOverridden(object args){return null;}
         /// <summary>
+        /// Call the original method that was previously overridden with override
+        /// Ext.define('My.Cat', {
+        /// constructor: functi...
+        /// </summary>
+        public object callOverridden() { return null; }
+        /// <summary>
         /// Call the parent's overridden method. ...
         /// </summary>
         public object callParent(object args){return null;}
@@ -42,6 +48,10 @@ namespace Ext
         public Class self{get;set;}
         public Base(Ext.BaseConfig config){}
         public Base(){}
+
+        public Class create() { return null; }
+
+        public static Base implement(object members) { return null; }
     }
     #endregion
     #region BaseConfig

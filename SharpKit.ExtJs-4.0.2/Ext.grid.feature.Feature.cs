@@ -132,6 +132,7 @@ namespace Ext.grid.feature
         public Ext.grid.Panel grid{get;set;}
         public bool hasFeatureEvent{get;set;}
         public Ext.view.Table view{get;set;}
+        public JsString ftype { get; set; }
         public Feature(FeatureConfig config){}
         public Feature(){}
     }

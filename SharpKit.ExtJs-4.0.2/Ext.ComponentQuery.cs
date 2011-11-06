@@ -41,29 +41,33 @@ namespace Ext
     /// Ext.container.Container.down and Ext.container.Container.child methods. Also see
     /// Ext.Component.up.
     /// </summary>
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType( JsMode.Prototype, Export = false )]
     public partial class ComponentQuery
     {
         /// <summary>
         /// Tests whether the passed Component matches the selector string. ...
         /// </summary>
-        public static bool @is(Ext.Component component, JsString selector){return false;}
+        public static bool @is( Ext.Component component, JsString selector ) { return false; }
         /// <summary>
         /// Returns an array of matched Components from within the passed root object. ...
         /// </summary>
-        public static Ext.Component query(JsString selector, Ext.container.Container root){return null;}
-        public ComponentQuery(ComponentQueryConfig config){}
-        public ComponentQuery(){}
+        public static JsArray<Ext.Component> query( JsString selector, Ext.container.Container root ) { return null; }
+        /// <summary>
+        /// Returns an array of matched Components.
+        /// </summary>
+        public static JsArray<Ext.Component> query( JsString selector ) { return null; }
+        public ComponentQuery( ComponentQueryConfig config ) { }
+        public ComponentQuery() { }
     }
     #endregion
     #region ComponentQueryConfig
-    [JsType(JsMode.Json, Export=false)]
+    [JsType( JsMode.Json, Export = false )]
     public partial class ComponentQueryConfig
     {
     }
     #endregion
     #region ComponentQueryEvents
-    [JsType(JsMode.Json, Export=false)]
+    [JsType( JsMode.Json, Export = false )]
     public partial class ComponentQueryEvents
     {
     }

@@ -311,6 +311,7 @@ namespace Ext.data
         /// </summary>
         public bool editing{get;set;}
         public JsArray fields{get;set;}
+        public JsObject data { get; set; }
         public object modified{get;set;}
         /// <summary>
         /// true when the record does not yet exist in a server-side database (see

@@ -36,36 +36,44 @@ namespace Ext.window
         /// <summary>
         /// Displays a standard read-only message box with an OK button (comparable to the basic JavaScript alert prompt). ...
         /// </summary>
-        public static MessageBox alert(JsString title, JsString msg, JsAction fn=null, object scope=null){return null;}
+        public MessageBox alert(JsString title, JsString msg, System.Delegate fn=null, object scope=null){return null;}
+        /// <summary>
+        /// Displays a standard read-only message box with an OK button (comparable to the basic JavaScript alert prompt). ...
+        /// </summary>
+        public MessageBox alert( JsString title, JsString msg, System.Delegate fn = null ) { return null; }
+        /// <summary>
+        /// Displays a standard read-only message box with an OK button (comparable to the basic JavaScript alert prompt). ...
+        /// </summary>
+        public MessageBox alert( JsString title, JsString msg ) { return null; }
         /// <summary>
         /// Displays a confirmation message box with Yes and No buttons (comparable to JavaScript's confirm). ...
         /// </summary>
-        public static MessageBox confirm(JsString title, JsString msg, JsAction fn=null, object scope=null){return null;}
+        public MessageBox confirm(JsString title, JsString msg, JsAction fn=null, object scope=null){return null;}
         /// <summary>
         /// Displays a message box with a progress bar. ...
         /// </summary>
-        public static MessageBox progress(JsString title, JsString msg, JsString progressText=null){return null;}
+        public MessageBox progress(JsString title, JsString msg, JsString progressText=null){return null;}
         /// <summary>
         /// Displays a message box with OK and Cancel buttons prompting the user to enter some text (comparable to JavaScript's p...
         /// </summary>
-        public static MessageBox prompt(JsString title, JsString msg, JsAction fn=null, object scope=null, object multiline=null, JsString value=null){return null;}
+        public MessageBox prompt(JsString title, JsString msg, JsAction fn=null, object scope=null, object multiline=null, JsString value=null){return null;}
         /// <summary>
         /// Adds the specified icon to the dialog. ...
         /// </summary>
-        public static MessageBox setIcon(JsString icon){return null;}
+        public MessageBox setIcon(JsString icon){return null;}
         /// <summary>
         /// Displays a new message box, or reinitializes an existing message box, based on the config options
         /// passed in. ...
         /// </summary>
-        public static MessageBox show(object config){return null;}
+        public MessageBox show(object config){return null;}
         /// <summary>
         /// Updates a progress-style message box's text and progress bar. ...
         /// </summary>
-        public static MessageBox updateProgress(JsNumber value, JsString progressText, JsString msg){return null;}
+        public MessageBox updateProgress(JsNumber value, JsString progressText, JsString msg){return null;}
         /// <summary>
         /// Displays a message box with an infinitely auto-updating progress bar. ...
         /// </summary>
-        public static MessageBox wait(JsString msg, JsString title=null, object config=null){return null;}
+        public MessageBox wait(JsString msg, JsString title=null, object config=null){return null;}
         public static JsNumber CANCEL{get;set;}
         public static JsString ERROR{get;set;}
         public static JsString INFO{get;set;}

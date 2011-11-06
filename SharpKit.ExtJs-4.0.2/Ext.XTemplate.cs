@@ -159,35 +159,36 @@ namespace Ext
     /// isBaby: function(age){
     /// return age
     /// </summary>
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType( JsMode.Prototype, Export = false )]
     public partial class XTemplate : Ext.Template
     {
         /// <summary>
         /// Alias for applyTemplate
         /// Returns an HTML fragment of this template with the specified values applied. ...
         /// </summary>
-        public new JsString apply(object values){return null;}
+        public new JsString apply( object values ) { return null; }
         /// <summary>
         /// Returns an HTML fragment of this template with the specified values applied. ...
         /// </summary>
-        public new JsString applyTemplate(object values){return null;}
+        public new JsString applyTemplate( object values ) { return null; }
         /// <summary>
         /// Compile the template to a function for optimized performance. ...
         /// </summary>
-        public new JsAction compile(){return null;}
-        public XTemplate(XTemplateConfig config){}
-        public XTemplate(){}
+        public new JsAction compile() { return null; }
+        public XTemplate( XTemplateConfig config ) { }
+        public XTemplate() { }
+        public XTemplate( params object[] parametros ) { }
     }
     #endregion
     #region XTemplateConfig
-    [JsType(JsMode.Json, Export=false)]
+    [JsType( JsMode.Json, Export = false )]
     public partial class XTemplateConfig : Ext.TemplateConfig
     {
-        public JsRegExp codeRe{get;set;}
+        public JsRegExp codeRe { get; set; }
     }
     #endregion
     #region XTemplateEvents
-    [JsType(JsMode.Json, Export=false)]
+    [JsType( JsMode.Json, Export = false )]
     public partial class XTemplateEvents : Ext.TemplateEvents
     {
     }

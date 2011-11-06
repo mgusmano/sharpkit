@@ -13,109 +13,111 @@ namespace Ext.grid.plugin
     /// in the column configuration. Note:* This class should not be used directly. See Ext.grid.plugin.CellEditing and
     /// Ext.grid.plugin.RowEditing.
     /// </summary>
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType( JsMode.Prototype, Export = false )]
     public partial class Editing : Ext.Base, Ext.util.Observable
     {
         /// <summary>
         /// Adds the specified events to the list of events which this Observable may fire. ...
         /// </summary>
-        public object addEvents(object o, JsString more){return null;}
+        public object addEvents( object o, JsString more ) { return null; }
         /// <summary>
         /// Appends an event handler to this object. ...
         /// </summary>
-        public object addListener(JsString eventName, JsAction handler, object scope=null, object options=null){return null;}
+        public object addListener( JsString eventName, JsAction handler, object scope = null, object options = null ) { return null; }
         /// <summary>
         /// Adds listeners to any Observable object (or Element) which are automatically removed when this Component is
         /// destroyed. ...
         /// </summary>
-        public object addManagedListener(object item, object ename, JsAction fn=null, object scope=null, object opt=null){return null;}
+        public object addManagedListener( object item, object ename, JsAction fn = null, object scope = null, object opt = null ) { return null; }
         /// <summary>
         /// Cancel any active edit that is in progress. ...
         /// </summary>
-        public object cancelEdit(){return null;}
+        public object cancelEdit() { return null; }
         /// <summary>
         /// Removes all listeners for this object including the managed listeners ...
         /// </summary>
-        public object clearListeners(){return null;}
+        public object clearListeners() { return null; }
         /// <summary>
         /// Removes all managed listeners for this object. ...
         /// </summary>
-        public object clearManagedListeners(){return null;}
+        public object clearManagedListeners() { return null; }
         /// <summary>
         /// Complete the edit if there is an active edit in progress. ...
         /// </summary>
-        public object completeEdit(){return null;}
+        public object completeEdit() { return null; }
         /// <summary>
         /// Enables events fired by this Observable to bubble up an owner hierarchy by calling this.getBubbleTarget() if
         /// present. ...
         /// </summary>
-        public object enableBubble(object events){return null;}
+        public object enableBubble( object events ) { return null; }
         /// <summary>
         /// Fires the specified event with the passed parameters (minus the event name, plus the options object passed
         /// to addList...
         /// </summary>
-        public bool fireEvent(JsString eventName, object args){return false;}
+        public bool fireEvent( JsString eventName, object args ) { return false; }
         /// <summary>
         /// Checks to see if this object has any listeners for a specified event ...
         /// </summary>
-        public bool hasListener(JsString eventName){return false;}
+        public bool hasListener( JsString eventName ) { return false; }
         /// <summary>
         /// Shorthand for addManagedListener. ...
         /// </summary>
-        public object mon(object item, object ename, JsAction fn=null, object scope=null, object opt=null){return null;}
+        public object mon( object item, object ename, JsAction fn = null, object scope = null, object opt = null ) { return null; }
         /// <summary>
         /// Shorthand for removeManagedListener. ...
         /// </summary>
-        public object mun(object item, object ename, JsAction fn, object scope){return null;}
+        public object mun( object item, object ename, JsAction fn, object scope ) { return null; }
         /// <summary>
         /// Shorthand for addListener. ...
         /// </summary>
-        public object on(JsString eventName, JsAction handler, object scope=null, object options=null){return null;}
+        public object on( JsString eventName, JsAction handler, object scope = null, object options = null ) { return null; }
         /// <summary>
         /// Relays selected events from the specified Observable as if the events were fired by this. ...
         /// </summary>
-        public object relayEvents(object origin, JsString events, object prefix){return null;}
+        public object relayEvents( object origin, JsString events, object prefix ) { return null; }
         /// <summary>
         /// Removes an event handler. ...
         /// </summary>
-        public object removeListener(JsString eventName, JsAction handler, object scope=null){return null;}
+        public object removeListener( JsString eventName, JsAction handler, object scope = null ) { return null; }
         /// <summary>
         /// Removes listeners that were added by the mon method. ...
         /// </summary>
-        public object removeManagedListener(object item, object ename, JsAction fn, object scope){return null;}
+        public object removeManagedListener( object item, object ename, JsAction fn, object scope ) { return null; }
         /// <summary>
         /// Resumes firing events (see suspendEvents). ...
         /// </summary>
-        public object resumeEvents(){return null;}
+        public object resumeEvents() { return null; }
         /// <summary>
         /// Start editing the specified record, using the specified Column definition to define which field is being edited. ...
         /// </summary>
-        public object startEdit(Ext.data.Model record, Ext.data.Model columnHeader){return null;}
+        /// <param name="record">The Store data record which backs the row to be edited, or index of the record in Store.</param>
+        /// <param name="columnHeader">The Column object defining the column to be edited, or index of the column.</param>
+        public object startEdit( object record, object columnHeader ) { return null; }
         /// <summary>
         /// Suspends the firing of all events. ...
         /// </summary>
-        public object suspendEvents(bool queueSuspended){return null;}
+        public object suspendEvents( bool queueSuspended ) { return null; }
         /// <summary>
         /// Shorthand for removeListener. ...
         /// </summary>
-        public object un(JsString eventName, JsAction handler, object scope=null){return null;}
-        public Editing(EditingConfig config){}
-        public Editing(){}
+        public object un( JsString eventName, JsAction handler, object scope = null ) { return null; }
+        public Editing( EditingConfig config ) { }
+        public Editing() { }
     }
     #endregion
     #region EditingConfig
-    [JsType(JsMode.Json, Export=false)]
+    [JsType( JsMode.Json, Export = false )]
     public partial class EditingConfig : Ext.BaseConfig
     {
-        public JsNumber clicksToEdit{get;set;}
+        public JsNumber clicksToEdit { get; set; }
         /// <summary>
         /// A config object containing one or more event handlers to be added to this object during initialization. ...
         /// </summary>
-        public object listeners{get;set;}
+        public object listeners { get; set; }
     }
     #endregion
     #region EditingEvents
-    [JsType(JsMode.Json, Export=false)]
+    [JsType( JsMode.Json, Export = false )]
     public partial class EditingEvents : Ext.BaseEvents
     {
     }

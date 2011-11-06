@@ -79,6 +79,14 @@ namespace Ext.direct
         /// </summary>
         public object on(JsString eventName, JsAction handler, object scope=null, object options=null){return null;}
         /// <summary>
+        /// Shorthand for addListener. ...
+        /// </summary>
+        public object on( JsString eventName, JsAction handler, object scope = null ) { return null; }
+        /// <summary>
+        /// Shorthand for addListener. ...
+        /// </summary>
+        public object on( JsString eventName, System.Delegate handler ) { return null; }
+        /// <summary>
         /// Relays selected events from the specified Observable as if the events were fired by this. ...
         /// </summary>
         public object relayEvents(object origin, JsString events, object prefix){return null;}

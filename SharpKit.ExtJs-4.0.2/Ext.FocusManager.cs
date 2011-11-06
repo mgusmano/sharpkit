@@ -52,6 +52,10 @@ namespace Ext
         /// </summary>
         public static object enable(object options){return null;}
         /// <summary>
+        /// Enables the FocusManager by turning on all automatic focus management and keyboard navigation ...
+        /// </summary>
+        public static object enable( ) { return null; }
+        /// <summary>
         /// Enables events fired by this Observable to bubble up an owner hierarchy by calling this.getBubbleTarget() if
         /// present. ...
         /// </summary>

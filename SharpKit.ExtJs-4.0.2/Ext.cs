@@ -36,6 +36,10 @@ namespace Ext
         /// </summary>
         public static object apply(object @object, object config, object defaults){return null;}
         /// <summary>
+        /// Copies all the properties of config to the specified object. ...
+        /// </summary>
+        public static object apply( object @object, object config ) { return null; }
+        /// <summary>
         /// Copies all the properties of config to object if they don't already exist. ...
         /// </summary>
         public static object applyIf(object @object, object config){return null;}
@@ -67,6 +71,10 @@ namespace Ext
         /// </summary>
         public static object create(JsString name, object args){return null;}
         /// <summary>
+        /// Instantiate a class by either full name, alias or alternate name. ...
+        /// </summary>
+        public static object create( JsString name ) { return null; }
+        /// <summary>
         /// Instantiate a class by its alias. ...
         /// </summary>
         public static object createByAlias(JsString alias, object args){return null;}
@@ -87,6 +95,10 @@ namespace Ext
         /// </summary>
         public static Ext.Base define(JsString className, object data, JsAction createdFn){return null;}
         /// <summary>
+        /// Defines a class. ...
+        /// </summary>
+        public static Ext.Base define( JsString className, object data ) { return null; }
+        /// <summary>
         /// Attempts to destroy any objects passed to it by removing all event listeners, removing them from the
         /// DOM (if applicab...
         /// </summary>
@@ -98,7 +110,12 @@ namespace Ext
         /// <summary>
         /// Iterates an array or an iterable value and invoke the given callback function for each item. ...
         /// </summary>
-        public static bool each(object iterable, JsAction fn, object scope, bool reverse){return false;}
+        public static bool each( object iterable, System.Delegate fn, object scope, bool reverse ) { return false; }
+
+        /// <summary>
+        /// Iterates an array or an iterable value and invoke the given callback function for each item. ...
+        /// </summary>
+        public static bool each( object iterable, System.Delegate fn ) { return false; }
         /// <summary>
         /// A reusable empty function ...
         /// </summary>
@@ -135,7 +152,7 @@ namespace Ext
         /// <summary>
         /// Returns the current document body as an Ext.core.Element. ...
         /// </summary>
-        public static object getBody(){return null;}
+        public static Element getBody(){return null;}
         /// <summary>
         /// Get the class of the provided object; returns null if it's not an instance
         /// of any class created with Ext.define. ...
@@ -218,6 +235,10 @@ namespace Ext
         /// </summary>
         public static bool isEmpty(object value, bool allowEmptyString=false){return false;}
         /// <summary>
+        /// Returns true if the passed value is empty, false otherwise. ...
+        /// </summary>
+        public static bool isEmpty( object value ) { return false; }
+        /// <summary>
         /// Returns true if the passed value is a JavaScript Function, false otherwise. ...
         /// </summary>
         public static bool isFunction(object value){return false;}
@@ -279,12 +300,12 @@ namespace Ext
         /// <summary>
         /// Creates namespaces to be used for scoping variables and classes so that they are not global. ...
         /// </summary>
-        public static object @namespace(JsString namespace1, JsString namespace2, JsString etc){return null;}
+        public static object @namespace( params JsString[] namespaces ) { return null; }
         /// <summary>
         /// Convenient alias for Ext.namespace
         /// Creates namespaces to be used for scoping variables and classes so that they are ...
         /// </summary>
-        public static object ns(JsString namespace1, JsString namespace2, JsString etc){return null;}
+        public static object ns(params JsString[] namespaces){return null;}
         /// <summary>
         /// This method is deprecated, please use Ext.Number.from instead ...
         /// </summary>
@@ -300,7 +321,7 @@ namespace Ext
         /// <summary>
         /// Proxy to Ext.Base.override. ...
         /// </summary>
-        public static object @override(object cls, object overrides){return null;}
+        public static object @override<T>(object overrides){return null;}
         /// <summary>
         /// Partitions the set into two sets: a true set and a false set. ...
         /// </summary>
@@ -339,6 +360,21 @@ namespace Ext
         /// optionally executes the given callback functi...
         /// </summary>
         public static object require(object expressions, JsAction fn, object scope, object excludes){return null;}
+        /// <summary>
+        /// Loads all classes by the given names and all their direct dependencies;
+        /// optionally executes the given callback functi...
+        /// </summary>
+        public static object require( object expressions, JsAction fn, object scope ) { return null; }
+        /// <summary>
+        /// Loads all classes by the given names and all their direct dependencies;
+        /// optionally executes the given callback functi...
+        /// </summary>
+        public static object require( object expressions, JsAction fn ) { return null; }
+        /// <summary>
+        /// Loads all classes by the given names and all their direct dependencies;
+        /// optionally executes the given callback functi...
+        /// </summary>
+        public static object require( object expressions ) { return null; }
         /// <summary>
         /// Selects elements based on the passed CSS selector to enable Element methods
         /// to be applied to many related elements in...
@@ -381,7 +417,7 @@ namespace Ext
         /// Appends content to the query string of a URL, handling logic for whether to place
         /// a question mark or ampersand. ...
         /// </summary>
-        public static object urlAppend(JsString url, JsString s){return null;}
+        public static JsString urlAppend( JsString url, JsString s ) { return null; }
         /// <summary>
         /// A convenient alias method for Ext.Object.fromQueryString ...
         /// </summary>
@@ -472,6 +508,7 @@ namespace Ext
         public static JsNumber webKitVersion{get;set;}
         public ExtContext(ExtContextConfig config){}
         public ExtContext(){}
+        public static direct.Provider Direct { get; set; }
     }
     #endregion
     #region ExtContextConfig
