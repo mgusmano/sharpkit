@@ -286,6 +286,7 @@
     <Compile Include="Ext.resizer.Handle.cs" />
     <Compile Include="Ext.resizer.Resizer.cs" />
     <Compile Include="Ext.resizer.Splitter.cs" />
+    <Compile Include="Ext.selection.CellModel.cs" />
     <Compile Include="Ext.selection.CheckboxModel.cs" />
     <Compile Include="Ext.selection.Model.cs" />
     <Compile Include="Ext.selection.RowModel.cs" />
