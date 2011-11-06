@@ -1993,7 +1993,13 @@ namespace SharpKit.JavaScript
     [JsDelegate(NativeDelegates = true)]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void JsAction<T1, T2, T3, T4>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
-    [JsDelegate(NativeDelegates = true)]
+    [JsDelegate( NativeDelegates = true )]
+    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
+    public delegate void JsAction<T1, T2, T3, T4, T5>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 );
+    [JsDelegate( NativeDelegates = true )]
+    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
+    public delegate void JsAction<T1, T2, T3, T4, T5, T6>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 );
+    [JsDelegate( NativeDelegates = true )]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate TResult JsFunc<TResult>();
     [JsDelegate(NativeDelegates = true)]
@@ -2008,6 +2014,12 @@ namespace SharpKit.JavaScript
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeDelegates = true)]
     public delegate TResult JsFunc<T1, T2, T3, T4, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
+    [JsDelegate( NativeDelegates = true )]
+    public delegate TResult JsFunc<T1, T2, T3, T4, T5, TResult>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 );
+    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
+    [JsDelegate( NativeDelegates = true )]
+    public delegate TResult JsFunc<T1, T2, T3, T4, T5, T6, TResult>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 );
 
 
 
@@ -2032,7 +2044,13 @@ namespace SharpKit.JavaScript
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeFunction = true)]
     public delegate void JsNativeAction<T1, T2, T3, T4>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
-    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
+    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
+    [JsDelegate( NativeFunction = true )]
+    public delegate void JsNativeAction<T1, T2, T3, T4, T5>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 );
+    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
+    [JsDelegate( NativeFunction = true )]
+    public delegate void JsNativeAction<T1, T2, T3, T4, T5, T6>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 );
+    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
     [JsDelegate(NativeFunction = true)]
     public delegate TResult JsNativeFunc<TResult>();
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
@@ -2047,6 +2065,12 @@ namespace SharpKit.JavaScript
     [JsDelegate(NativeFunction = true)]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate TResult JsNativeFunc<T1, T2, T3, T4, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    [JsDelegate( NativeFunction = true )]
+    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
+    public delegate TResult JsNativeFunc<T1, T2, T3, T4, T5, TResult>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 );
+    [JsDelegate( NativeFunction = true )]
+    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
+    public delegate TResult JsNativeFunc<T1, T2, T3, T4, T5, T6, TResult>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 );
 
     #endregion
 
