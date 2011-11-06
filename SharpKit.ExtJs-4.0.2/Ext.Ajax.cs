@@ -63,6 +63,11 @@ namespace Ext
         public static JsString url{get;set;}
         public Ajax(Ext.AjaxConfig config){}
         public Ajax(){}
+
+        /// <summary>
+        /// Sends an HTTP request to a remote server. ...
+        /// </summary>
+        public static new object request( object options ) { return null; }
     }
     #endregion
     #region AjaxConfig
