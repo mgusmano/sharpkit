@@ -95,7 +95,7 @@ namespace Ext
         public void mask( string texto, string mascara ) { }
         public void unmask() { }
         public void highlight( string p1, object p2 ) { }
-        public JsArray<SharpKit.Html4.HtmlElement> query( string selector ) { return null; }
+        public JsArray<HtmlElement> query( string selector ) { return null; }
     }
     #endregion
 }
