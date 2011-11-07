@@ -714,8 +714,15 @@ namespace SharpKit.JavaScript
         ///or positive infinity. In those three cases, it returns false.</returns>
         public static JsBoolean isFinite(double number) { return default(JsBoolean); }
         public static void @throw(JsError error) { }
+        /// <summary>
+        /// Deletes a property from an object, or removes an element from an array.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>The expression argument is a valid JavaScript expression that usually results in a property name or array element.
+        /// If the result of expression is an object, the property specified in expression exists, and the object will not allow it to be deleted, false is returned.
+        /// In all other cases, true is returned.</returns>
         [JsMethod(OmitParanthesis=true, NativeOverloads=true)]
-        public static void delete(object obj) { }
+        public static bool delete(object obj) { return false; }
         ///<summary>
         ///Returns a floating-point number converted from a JsString.
         ///</summary>
@@ -2118,6 +2125,31 @@ namespace SharpKit.JavaScript
         /// <returns></returns>
         [JsMethod(OmitDotOperator = true, OmitParanthesis = true, Export = false, NativeOverloads = true, Name = "instanceof", ExtensionImplementedInInstance = true)]
         public static bool instanceof<T>(this object obj)
+        {
+            return false;
+        }
+
+        /// <summary>
+        /// A C# extension for '===' operator
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <param name="obj2"></param>
+        /// <returns></returns>
+        [JsMethod(OmitDotOperator = true, OmitParanthesis = true, Export = false, NativeOverloads = true, Name = "===", ExtensionImplementedInInstance = true)]
+        public static bool ExactEquals(this object obj, object obj2)
+        {
+            return false;
+        }
+        /// <summary>
+        /// A C# extension for '!==' operator
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <param name="obj2"></param>
+        /// <returns></returns>
+        [JsMethod(OmitDotOperator = true, OmitParanthesis = true, Export = false, NativeOverloads = true, Name = "!==", ExtensionImplementedInInstance = true)]
+        public static bool ExactNotEquals(this object obj, object obj2)
         {
             return false;
         }
