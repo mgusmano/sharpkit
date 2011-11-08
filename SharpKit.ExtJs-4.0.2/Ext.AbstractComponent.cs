@@ -197,6 +197,12 @@ namespace Ext
         /// </summary>
         public JsString id { get; set; }
         /// <summary>
+        /// An itemId can be used as an alternative way to get a reference to a component when no object reference is available.
+        /// Instead of using an id with Ext.getCmp, use itemId with Ext.container.Container.getComponent which will retrieve itemId's or id's.
+        /// Since itemId's are an index to the container's internal MixedCollection, the itemId is scoped locally to the container -- avoiding potential conflicts with Ext.ComponentManager which requires a unique id.
+        /// </summary>
+        public JsString itemId { get; set; }
+        /// <summary>
         /// Tests whether this Component matches the selector string. ...
         /// </summary>
         public bool @is( JsString selector ) { return false; }

@@ -31,6 +31,10 @@ namespace Ext
         /// </summary>
         public object callParent(object args){return null;}
         /// <summary>
+        /// Call the parent's overridden method. ...
+        /// </summary>
+        public object callParent() { return null; }
+        /// <summary>
         /// Get the current class' name in string format. ...
         /// </summary>
         public JsString getName(){return null;}
