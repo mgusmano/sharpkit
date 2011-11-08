@@ -35,6 +35,14 @@ namespace Ext
         /// </summary>
         public static bool each(object iterable, JsAction fn, object scope, bool reverse){return false;}
         /// <summary>
+        /// Iterates an array or an iterable value and invoke the given callback function for each item. ...
+        /// </summary>
+        public static bool each( object iterable, JsAction fn, object scope ) { return false; }
+        /// <summary>
+        /// Iterates an array or an iterable value and invoke the given callback function for each item. ...
+        /// </summary>
+        public static bool each( object iterable, JsAction fn ) { return false; }
+        /// <summary>
         /// Removes items from an array. ...
         /// </summary>
         public static JsArray erase(JsArray array, JsNumber index, JsNumber removeCount){return null;}
@@ -69,6 +77,11 @@ namespace Ext
         /// missing arrayPrototype.indexOf in Interne...
         /// </summary>
         public static JsNumber indexOf(JsArray array, object item, JsNumber from){return null;}
+        /// <summary>
+        /// Get the index of the provided item in the given array, a supplement for the
+        /// missing arrayPrototype.indexOf in Interne...
+        /// </summary>
+        public static JsNumber indexOf( JsArray array, object item ) { return null; }
         /// <summary>
         /// Inserts items in to an array. ...
         /// </summary>
