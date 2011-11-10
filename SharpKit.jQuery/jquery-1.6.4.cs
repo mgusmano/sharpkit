@@ -90,7 +90,7 @@ namespace SharpKit.jQuery
         /// <param name="handler">
         /// handler(options, originalOptions, jqXHR)A handler to set default values for future Ajax requests.
         /// </param>
-        public void ajaxPrefilter(JsAction<object, object, object> handler) 
+        public void ajaxPrefilter(JsAction<object, object, object> handler)
         {
         }
         /// <summary>
@@ -104,7 +104,7 @@ namespace SharpKit.jQuery
         /// </param>
         public void ajaxPrefilter(JsString dataTypes, JsAction<object, object, object> handler)
         {
-        } 
+        }
 
         /// <summary>
         /// Add the previous set of elements on the stack to the current set.
@@ -731,7 +731,7 @@ namespace SharpKit.jQuery
         public jQuery focus(JsObject eventData, JsAction<Event> handler) { return null; }
 
         // TODO: focus selector- http://api.jquery.com/focus-selector/
-       
+
         /// <summary>
         /// Bind an event handler to the "focusin" JavaScript event.
         /// </summary>
@@ -805,7 +805,7 @@ namespace SharpKit.jQuery
         ///Results: false true false
         /// </code>
         /// </example>
-        public bool hasData(HtmlElement element) { return false; }  
+        public bool hasData(HtmlElement element) { return false; }
 
         /// <summary>
         /// Get the current computed height for the first element in the set of matched elements.
@@ -902,10 +902,10 @@ namespace SharpKit.jQuery
         /// <param name="hold">
         /// Indicates whether the ready hold is being requested or released
         /// </param>
-        public void holdReady(JsAction hold) 
+        public void holdReady(JsAction hold)
         {
         }
-         /// <summary>
+        /// <summary>
         /// Search for a given element from among the matched elements.
         /// </summary>
         public JsNumber index() { return null; }
@@ -2157,7 +2157,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Get the selected elements by index
         /// </summary>
-        [JsProperty(NativeIndexer=true)]
+        [JsProperty(NativeIndexer = true)]
         public HtmlElement this[JsNumber index] { get { return null; } }
         /// <summary>
         /// A selector representing selector originally passed to jQuery().
@@ -2257,7 +2257,7 @@ namespace SharpKit.jQuery
         ///  // Note: Calling just $("#main").open() won't work as open doesn't exist!
         ///});        
 
-  
+
 
         /// </code>
         /// </summary>
@@ -2282,6 +2282,14 @@ namespace SharpKit.jQuery
         /// </summary>
         /// <returns></returns>
         public static Deferred Deferred() { return null; }
+        /// <summary>
+        /// The jQuery.Deferred() constructor creates a new Deferred object. The new operator is optional.
+        /// jQuery.Deferred can be passed an optional function, which is called just before the constructor returns and is passed the constructed deferred object as both the this object and as the first argument to the function. The called function can attach callbacks using deferred.then() for example.
+        /// A Deferred object starts in the pending state. Any callbacks added to the object with deferred.then(), deferred.done(), or deferred.fail() are queued to be executed later. Calling deferred.resolve() or deferred.resolveWith() transitions the Deferred into the resolved state and immediately executes any doneCallbacks that are set. Calling deferred.reject() or deferred.rejectWith() transitions the Deferred into the rejected state and immediately executes any failCallbacks that are set. Once the object has entered the resolved or rejected state, it stays in that state. Callbacks can still be added to the resolved or rejected Deferred — they will execute immediately.
+        /// The Deferred object is chainable, similar to the way a jQuery object is chainable, but it has its own methods. After creating a Deferred object, you can use any of the methods below by either chaining directly from the object creation or saving the object in a variable and invoking one or more methods on that variable.
+        /// </summary>
+        /// <returns></returns>
+        public static Deferred Deferred(JsAction<Deferred> callback) { return null; }
     }
 
     [JsType(JsMode.Json)]
@@ -2291,7 +2299,7 @@ namespace SharpKit.jQuery
         public bool safari { get; set; }
         public bool msie { get; set; }
         public bool opera { get; set; }
-		public bool mozilla { get; set; }
+        public bool mozilla { get; set; }
         public JsString version { get; set; }
     }
 
@@ -2464,7 +2472,7 @@ namespace SharpKit.jQuery
         /// Default: depends on DataType
         ///The content type sent in the request header that tells the server what kind of response it will accept in return. If the accepts setting needs modification, it is recommended to do so once in the $.ajaxSetup() method.
         /// </summary>
-        public object accepts { get; set; }   
+        public object accepts { get; set; }
         /// <summary>
         /// Default: true
         /// By default, all requests are sent asynchronously (i.e. this is set to true by default). If you need synchronous requests, set this option to false. Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation. Note that synchronous requests may temporarily lock the browser, disabling any actions while the request is active.
@@ -2512,7 +2520,7 @@ namespace SharpKit.jQuery
         /// Default: false for same-domain requests, true for cross-domain requests
         ///If you wish to force a crossDomain request (such as JSONP) on the same domain, set the value of crossDomain to true. This allows, for example, server-side redirection to another domain
         /// </summary>
-        public bool crossDomain { get; set; } 
+        public bool crossDomain { get; set; }
         /// <summary>
         /// A function to be used to handle the raw response data of XMLHttpRequest.This is a pre-filtering function to sanitize the response. You should return the sanitized data. The function accepts two arguments: The raw data returned from the server and the 'dataType' parameter.
         /// </summary>
@@ -2639,7 +2647,7 @@ namespace SharpKit.jQuery
     /// <summary>
     /// jQuery.Deferred(), introduced in version 1.5, is a chainable utility object that can register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.
     /// </summary>
-    [JsType(JsMode.Prototype, Name="jQuery.Deferred")]
+    [JsType(JsMode.Prototype, Name = "jQuery.Deferred")]
     public partial class Deferred : jQueryPromise
     {
         /// <summary>
@@ -2755,16 +2763,16 @@ namespace SharpKit.jQuery
         /// Returns: Deferred
         /// </returns>
         public Deferred resolveWith(object context, params object[] args) { return null; }
-     
-       
-   }
+
+
+    }
     /// <summary>
     /// This object provides a subset of the methods of the Deferred object (then, done, fail, always, pipe. isResolved, and isRejected) to prevent users from changing the state of the Deferred
     /// </summary>
     [JsType(JsMode.Prototype)]
     public partial class jQueryPromise
     {
-        
+
         /// <summary>
         /// Add handlers to be called when the Deferred object is resolved.
         /// </summary>
@@ -2859,7 +2867,107 @@ namespace SharpKit.jQuery
         ///     });
         ///
         /// defer.resolve( 5 );
-         /// filtered.done(function( value ) {
+        /// filtered.done(function( value ) {
+        ///   alert( "Value is ( 2*5 = ) 10: " + value );
+        /// });        
+        /// </code>
+        /// Filter reject value:
+        /// <code>
+        /// var defer = $.Deferred(),
+        ///    filtered = defer.pipe( null, function( value ) {
+        ///      return value * 3;
+        ///     });
+        ///
+        /// defer.reject( 6 );
+        /// filtered.fail(function( value ) {
+        ///   alert( "Value is ( 3*6 = ) 18: " + value );
+        /// });        
+        /// </code>
+        /// Chain tasks:
+        /// <code>
+        /// var request = $.ajax( url, { dataType: "json" } ),
+        ///     chained = request.pipe(function( data ) {
+        ///       return $.ajax( url2, { data: { user: data.userId } } );
+        ///     });
+        ///
+        /// chained.done(function( data ) {
+        ///   // data retrieved from url2 as provided by the first request
+        /// });        
+        /// </code>
+        /// </example>
+        public jQueryPromise pipe() { return null; }
+        /// <summary>
+        /// Utility method to filter and/or chain Deferreds.
+        /// </summary>
+        /// <param name="doneFilter">
+        /// doneFilter An optional function that is called when the Deferred is resolved.
+        /// </param>
+        /// <param name="failFilter">
+        /// failFilter An optional function that is called when the Deferred is rejected.
+        /// </param>
+        /// <returns>
+        /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
+        /// </returns>
+        /// <example>
+        /// Filter resolve value:
+        /// <code>
+        /// var defer = $.Deferred(),
+        ///     filtered = defer.pipe(function( value ) {
+        ///       return value * 2;
+        ///     });
+        ///
+        /// defer.resolve( 5 );
+        /// filtered.done(function( value ) {
+        ///   alert( "Value is ( 2*5 = ) 10: " + value );
+        /// });        
+        /// </code>
+        /// Filter reject value:
+        /// <code>
+        /// var defer = $.Deferred(),
+        ///    filtered = defer.pipe( null, function( value ) {
+        ///      return value * 3;
+        ///     });
+        ///
+        /// defer.reject( 6 );
+        /// filtered.fail(function( value ) {
+        ///   alert( "Value is ( 3*6 = ) 18: " + value );
+        /// });        
+        /// </code>
+        /// Chain tasks:
+        /// <code>
+        /// var request = $.ajax( url, { dataType: "json" } ),
+        ///     chained = request.pipe(function( data ) {
+        ///       return $.ajax( url2, { data: { user: data.userId } } );
+        ///     });
+        ///
+        /// chained.done(function( data ) {
+        ///   // data retrieved from url2 as provided by the first request
+        /// });        
+        /// </code>
+        /// </example>
+        public jQueryPromise pipe(JsAction doneFilter) { return null; }
+        /// <summary>
+        /// Utility method to filter and/or chain Deferreds.
+        /// </summary>
+        /// <param name="doneFilter">
+        /// doneFilter An optional function that is called when the Deferred is resolved.
+        /// </param>
+        /// <param name="failFilter">
+        /// failFilter An optional function that is called when the Deferred is rejected.
+        /// </param>
+        /// <returns>
+        /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
+        /// </returns>
+        /// <example>
+        /// Filter resolve value:
+        /// <code>
+        /// var defer = $.Deferred(),
+        ///     filtered = defer.pipe(function( value ) {
+        ///       return value * 2;
+        ///     });
+        ///
+        /// defer.resolve( 5 );
+        /// filtered.done(function( value ) {
         ///   alert( "Value is ( 2*5 = ) 10: " + value );
         /// });        
         /// </code>
@@ -2889,6 +2997,106 @@ namespace SharpKit.jQuery
         /// </example>
         public jQueryPromise pipe(JsAction doneFilter, JsAction failFilter) { return null; }
         /// <summary>
+        /// Utility method to filter and/or chain Deferreds.
+        /// </summary>
+        /// <param name="doneFilter">
+        /// doneFilter An optional function that is called when the Deferred is resolved.
+        /// </param>
+        /// <param name="failFilter">
+        /// failFilter An optional function that is called when the Deferred is rejected.
+        /// </param>
+        /// <returns>
+        /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
+        /// </returns>
+        /// <example>
+        /// Filter resolve value:
+        /// <code>
+        /// var defer = $.Deferred(),
+        ///     filtered = defer.pipe(function( value ) {
+        ///       return value * 2;
+        ///     });
+        ///
+        /// defer.resolve( 5 );
+        /// filtered.done(function( value ) {
+        ///   alert( "Value is ( 2*5 = ) 10: " + value );
+        /// });        
+        /// </code>
+        /// Filter reject value:
+        /// <code>
+        /// var defer = $.Deferred(),
+        ///    filtered = defer.pipe( null, function( value ) {
+        ///      return value * 3;
+        ///     });
+        ///
+        /// defer.reject( 6 );
+        /// filtered.fail(function( value ) {
+        ///   alert( "Value is ( 3*6 = ) 18: " + value );
+        /// });        
+        /// </code>
+        /// Chain tasks:
+        /// <code>
+        /// var request = $.ajax( url, { dataType: "json" } ),
+        ///     chained = request.pipe(function( data ) {
+        ///       return $.ajax( url2, { data: { user: data.userId } } );
+        ///     });
+        ///
+        /// chained.done(function( data ) {
+        ///   // data retrieved from url2 as provided by the first request
+        /// });        
+        /// </code>
+        /// </example>
+        public jQueryPromise pipe(JsFunc<object> doneFilter) { return null; }
+        /// <summary>
+        /// Utility method to filter and/or chain Deferreds.
+        /// </summary>
+        /// <param name="doneFilter">
+        /// doneFilter An optional function that is called when the Deferred is resolved.
+        /// </param>
+        /// <param name="failFilter">
+        /// failFilter An optional function that is called when the Deferred is rejected.
+        /// </param>
+        /// <returns>
+        /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
+        /// </returns>
+        /// <example>
+        /// Filter resolve value:
+        /// <code>
+        /// var defer = $.Deferred(),
+        ///     filtered = defer.pipe(function( value ) {
+        ///       return value * 2;
+        ///     });
+        ///
+        /// defer.resolve( 5 );
+        /// filtered.done(function( value ) {
+        ///   alert( "Value is ( 2*5 = ) 10: " + value );
+        /// });        
+        /// </code>
+        /// Filter reject value:
+        /// <code>
+        /// var defer = $.Deferred(),
+        ///    filtered = defer.pipe( null, function( value ) {
+        ///      return value * 3;
+        ///     });
+        ///
+        /// defer.reject( 6 );
+        /// filtered.fail(function( value ) {
+        ///   alert( "Value is ( 3*6 = ) 18: " + value );
+        /// });        
+        /// </code>
+        /// Chain tasks:
+        /// <code>
+        /// var request = $.ajax( url, { dataType: "json" } ),
+        ///     chained = request.pipe(function( data ) {
+        ///       return $.ajax( url2, { data: { user: data.userId } } );
+        ///     });
+        ///
+        /// chained.done(function( data ) {
+        ///   // data retrieved from url2 as provided by the first request
+        /// });        
+        /// </code>
+        /// </example>
+        public jQueryPromise pipe(JsFunc<object> doneFilter, JsFunc<object> failFilter) { return null; }
+        /// <summary>
         /// Add handlers to be called when the Deferred object is resolved or rejected.
         /// <list type="bullet">
         /// Both arguments can be either a single function or an array of functions. Either argument can also be null if no callback of that type is desired. Alternatively, use .done() or .fail() to set only doneCallbacks or failCallbacks. When the Deferred is resolved, the doneCallbacks are called. If the Deferred is instead rejected, the failCallbacks are called. Callbacks are executed in the order they were added. Since deferred.then returns the deferred object, other methods of the deferred object can be chained to this one, including additional .then() methods. For more information, see the documentation for Deferred object.
@@ -2910,7 +3118,7 @@ namespace SharpKit.jQuery
         /// </code>
         /// </example>
         public Deferred then(JsAction doneCallbacks, JsAction failCallbacks) { return null; }
-        
+
     }
 
     /// <summary>
@@ -2920,7 +3128,7 @@ namespace SharpKit.jQuery
     {
     }
 
-   
+
 }
 
 /// <summary>
