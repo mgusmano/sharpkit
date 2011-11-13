@@ -2437,6 +2437,43 @@ namespace SharpKit.jQuery
         /// Certain native events may have special properties that can be accessed as properties of the event.originalEvent object. To make special properties available in all event objects, we can add them to the jQuery.event.props array.
         /// </summary>
         public HtmlDomEventArgs originalEvent { get; set; }
+
+        public JsBoolean altKey { get; set; }
+        public object attrChange { get; set; }
+        public JsString attrName { get; set; }
+
+        public JsBoolean bubbles { get; set; }
+        public object button { get; set; }
+        public JsBoolean cancelable { get; set; }
+        public JsNumber charCode { get; set; }
+        public JsNumber clientX { get; set; }
+        public JsNumber clientY { get; set; }
+        public JsBoolean ctrlKey { get; set; }
+
+        public object detail { get; set; }
+        public JsString eventPhase { get; set; }
+        public HtmlElement fromElement { get; set; }
+        public object handler { get; set; }
+        public JsNumber keyCode { get; set; }
+        public JsNumber layerX { get; set; }
+        public JsNumber layerY { get; set; }
+        public object metaKey { get; set; }
+        public object newValue { get; set; }
+        public JsNumber offsetX { get; set; }
+        public JsNumber offsetY { get; set; }
+        public object originalTarget { get; set; }
+        public object prevValue { get; set; }
+        public object relatedNode { get; set; }
+
+        public JsNumber screenX { get; set; }
+        public JsNumber screenY { get; set; }
+        public JsBoolean shiftKey { get; set; }
+        public HtmlElement srcElement { get; set; }
+
+        public HtmlElement toElement { get; set; }
+        public object view { get; set; }
+        public JsNumber wheelDelta { get; set; }
+
     }
     [JsType(JsMode.Json, Export = false)]
     public partial class jQueryFx
