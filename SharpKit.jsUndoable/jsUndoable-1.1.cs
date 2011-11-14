@@ -5,7 +5,6 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Prototype, Export=false, Name="UndoManager")]
     public class UndoManager 
     {
-
         /// <summary>
         /// Init the undo mananger with the specific settings
         /// </summary>
@@ -14,15 +13,6 @@ namespace SharpKit.jQuery
         {
 
         }
-
-        /// <summary>
-        /// Update the settings for this manager
-        /// </summary>
-        /// <param name="settings">The object with the new settings</param>
-        public void changeSettings(JsObject settings)
-        {
-        }
-
         /// <summary>
         /// Update the settings for this manager
         /// </summary>
@@ -30,15 +20,6 @@ namespace SharpKit.jQuery
         public void changeSettings(JsUndoableSettings settings)
         {
         }
-
-        /// <summary>
-        /// Run an array of undoable functions
-        /// </summary>
-        /// <param name="actions"></param>
-        public void groupRunner(JsObject actions)
-        {
-        }
-        
         /// <summary>
         /// Report the function used to undo the current action
         /// </summary>
@@ -55,7 +36,6 @@ namespace SharpKit.jQuery
         {
             return null;
         }
-
         /// <summary>
         /// Report the function used to undo the current action
         /// </summary>
@@ -72,7 +52,6 @@ namespace SharpKit.jQuery
         {
             return null;
         }
-
         /// <summary>
         /// Undo the last action
         /// </summary>
