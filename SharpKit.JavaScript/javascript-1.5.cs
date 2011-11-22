@@ -402,6 +402,24 @@ namespace SharpKit.JavaScript
     }
 
     #endregion
+    #region JsFieldAttribute
+    ///<summary>
+    /// Specifies custom instructions for SharpKit for a property, this information is used when exporting the member, and when using it.
+    ///</summary>
+    [AttributeUsage(AttributeTargets.Field)]
+    public partial class JsFieldAttribute : Attribute
+    {
+        /// <summary>
+        ///	Indicates that SharpKit compiler will generate javascript code for this field
+        /// This property is inherited and applied to all derived types. Default value is true
+        /// </summary>
+        public bool Export { get; set; }
+        /// <summary>
+        /// Instructs SharpKit to use a custom name for this field, SharpKit will use this name when exporting the field, and when using it in code.
+        /// </summary>
+        public string Name { get; set; }
+    }
+    #endregion
 
     #endregion
 
@@ -735,6 +753,13 @@ namespace SharpKit.JavaScript
         ///<param name="value">A value to convert into a string.</param>
         ///<returns>An string value</returns>
         public static string String(object value) { return null; }
+        /// <summary>
+        /// Allows writing direct JavaScript code - calling this method will generate only the code inside the string parameter
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        [JsMethod(OmitParanthesis=true, Name="")]
+        public static object JsCode(JsCode code) { return null; }
     }
     #endregion
     #region JsDate
@@ -1981,6 +2006,14 @@ namespace SharpKit.JavaScript
         /// <returns></returns>
         public JsRegExpResult match(JsString rgExp) { return null; }
     }
+    [JsType(JsMode.Prototype, Export = false)]
+    public partial class JsCode
+    {
+        protected JsCode() { }
+        public static implicit operator JsCode(string s) { return default(JsCode); }
+        public static implicit operator JsCode(JsString s) { return default(JsCode); }
+    }
+
     #endregion
 
     #region Misc
