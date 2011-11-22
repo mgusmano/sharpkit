@@ -399,11 +399,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements.
         /// </summary>
-        public jQuery @delegate(JsString selector, JsString eventType, JsAction handler) { return null; }
+        public jQuery @delegate(JsString selector, JsString eventType, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements.
         /// </summary>
-        public jQuery @delegate(JsString selector, JsString eventType, JsObject eventData, JsAction handler) { return null; }
+        public jQuery @delegate(JsString selector, JsString eventType, JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Provides a way to execute callback functions based on one or more objects, usually Deferred objects that represent asynchronous events.
         /// <list type="bullet">
@@ -1000,11 +1000,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Attach a handler to the event for all elements which match the current selector, now and in the future.
         /// </summary>
-        public jQuery live(JsString eventType, JsAction handler) { return null; }
+        public jQuery live(JsString eventType, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Attach a handler to the event for all elements which match the current selector, now and in the future.
         /// </summary>
-        public jQuery live(JsString eventType, JsObject eventData, JsAction handler) { return null; }
+        public jQuery live(JsString eventType, JsObject eventData, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "load" JavaScript event.
         /// </summary>
@@ -1764,7 +1764,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Remove a handler from the event for all elements which match the current selector, now or in the future, based upon a specific set of root elements.
         /// </summary>
-        public jQuery undelegate(JsString selector, JsString eventType, JsAction handler) { return null; }
+        public jQuery undelegate(JsString selector, JsString eventType, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "unload" JavaScript event.
         /// </summary>
@@ -2684,7 +2684,7 @@ namespace SharpKit.jQuery
     /// <summary>
     /// jQuery.Deferred(), introduced in version 1.5, is a chainable utility object that can register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.
     /// </summary>
-    [JsType(JsMode.Prototype, Name = "jQuery.Deferred")]
+    [JsType(JsMode.Prototype, Name = "jQuery.Deferred", Export=false)]
     public partial class Deferred : jQueryPromise
     {
         /// <summary>
@@ -2806,7 +2806,7 @@ namespace SharpKit.jQuery
     /// <summary>
     /// This object provides a subset of the methods of the Deferred object (then, done, fail, always, pipe. isResolved, and isRejected) to prevent users from changing the state of the Deferred
     /// </summary>
-    [JsType(JsMode.Prototype)]
+    [JsType(JsMode.Prototype, Export=false)]
     public partial class jQueryPromise
     {
 
