@@ -731,6 +731,7 @@ namespace SharpKit.JavaScript
         ///<returns>True if number is any value other than NaN, negative infinity, 
         ///or positive infinity. In those three cases, it returns false.</returns>
         public static JsBoolean isFinite(double number) { return default(JsBoolean); }
+        [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
         public static void @throw(JsError error) { }
         /// <summary>
         /// Deletes a property from an object, or removes an element from an array.
