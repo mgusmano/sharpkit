@@ -692,7 +692,9 @@ namespace SharpKit.JavaScript
         public static object @null { get; set; }
         public static JsString @typeof(object obj) { return default(JsString); }
         public static object @this;
+        [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
         public static object @return(object obj) { return null; }
+        [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
         public static object @return() { return null; }
         ///<summary>
         ///Evaluates JScript code and executes it.
