@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{66A5AFDA-90E4-44A9-A695-372610EDC4F4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharpKit.jQuery</RootNamespace>
+    <AssemblyName>SharpKit.W3C.jQuery</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <TargetFrameworkVersion Condition="'$(Configuration)' == 'v3.5'">v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(Configuration)' == 'v4.0'">v4.0</TargetFrameworkVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <TargetFrameworkVersion Condition="'$(Configuration)' == 'v3.5'">v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(Configuration)' == 'v4.0'">v4.0</TargetFrameworkVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'v3.5'">
+    <DocumentationFile>..\..\bin\v3.5\SharpKit.W3C.jQuery.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'v4.0'">
+    <DocumentationFile>..\..\bin\v4.0\SharpKit.W3C.jQuery.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="jquery.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="res\jquery-1.4.4.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\jquery-ui-1.7.2.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\jquery.validate.js" />
+    <Content Include="res\jquery.validate.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
+      <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
+      <Name>SharpKit.JavaScript</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpKit.W3C.DOM\SharpKit.W3C.DOM.csproj">
+      <Project>{24586114-6564-468F-9D51-98360DFE1465}</Project>
+      <Name>SharpKit.W3C.DOM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SharpKit.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

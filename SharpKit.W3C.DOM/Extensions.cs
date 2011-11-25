@@ -67,7 +67,8 @@ namespace org.w3c.dom.webdatabase
 }
 namespace org.w3c.dom.html
 {
-    [JsDelegate(NativeDelegates = true, NativeFunction = true)]
+    //[JsDelegate(NativeDelegates = true, NativeFunction = true)]
+		[JsDelegate(NativeDelegates = true)]
     public delegate void Function();
 
 }

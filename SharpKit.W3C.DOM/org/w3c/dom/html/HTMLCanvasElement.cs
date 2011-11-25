@@ -4,6 +4,7 @@ using SharpKit.JavaScript;
 namespace org.w3c.dom.html
 {
 
+		[JsType(OmitCasts = true)]
     public interface HTMLCanvasElement : HTMLElement
     {
         // HTMLCanvasElement
