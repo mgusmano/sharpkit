@@ -151,6 +151,10 @@ namespace SharpKit.JavaScript
         /// Declares fields and PropertiesAsFields in object definition, and does not move them to the constructor
         /// </summary>
         public bool InlineFields { get; set; }
+        /// <summary>
+        /// Omits optional parameters in methods, when not sent by caller
+        /// </summary>
+        public bool OmitOptionalParameters { get; set; }
 
     }
     #endregion
@@ -326,6 +330,10 @@ namespace SharpKit.JavaScript
         /// Omits the dot (.) operator before the instance name, when invoking this method, used for javascript keywords (e.g.: instanceof)
         /// </summary>
         public bool OmitDotOperator { get; set; }
+        /// <summary>
+        /// Omits optional parameters, when not sent by caller
+        /// </summary>
+        public bool OmitOptionalParameters { get; set; }
     }
     #endregion
     #region JsPropertyAttribute
