@@ -154,17 +154,17 @@ namespace org.w3c.dom.html
         public static Storage localStorage { get; private set; }
         #endregion
 
-				///<summary>
-				///Encodes a text JsString as a valid component of a Uniform Resource Identifier (URI).
-				///</summary>
-				///<param name="encodedURIString">A value representing an encoded URI component.</param>
-				///<returns>A an encoded URI. If you pass the result to decodeURIComponent, 
-				///the original JsString is returned. Because the encodeURIComponent method encodes all 
-				///characters, be careful if the JsString represents a path such 
-				///as /folder1/folder2/default.html. The slash characters will be encoded and will 
-				///not be valid if sent as a request to a web server. Use the encodeURI method if the 
-				///JsString contains more than a single URI component.</returns>
-				public static JsString encodeURIComponent(JsString encodedURIString) { return null; }
+		///<summary>
+		///Encodes a text JsString as a valid component of a Uniform Resource Identifier (URI).
+		///</summary>
+		///<param name="encodedURIString">A value representing an encoded URI component.</param>
+		///<returns>A an encoded URI. If you pass the result to decodeURIComponent, 
+		///the original JsString is returned. Because the encodeURIComponent method encodes all 
+		///characters, be careful if the JsString represents a path such 
+		///as /folder1/folder2/default.html. The slash characters will be encoded and will 
+		///not be valid if sent as a request to a web server. Use the encodeURI method if the 
+		///JsString contains more than a single URI component.</returns>
+		public static JsString encodeURIComponent(JsString encodedURIString) { return null; }
 
 
     }

@@ -26,8 +26,8 @@ namespace org.w3c.dom.websocket
         public void close() { }
     }
 
-    [JsType(JsMode.Prototype, Name = "CloseEvent", PropertiesAsFields=true)]
-    public interface CloseEvent : org.w3c.dom.events.Event
+    [JsType(JsMode.Prototype, Name = "CloseEvent", PropertiesAsFields = true)]
+    public class CloseEvent : org.w3c.dom.events.Event
     {
         /// <summary>
         /// represents whether the connection closed cleanly or not.
@@ -35,14 +35,23 @@ namespace org.w3c.dom.websocket
         /// <value>
         ///   <c>true</c> if closed cleanly; otherwise, <c>false</c>.
         /// </value>
-        bool wasClean { get; }
+        bool wasClean { get { return default(bool); } }
         /// <summary>
         /// represents the WebSocket connection close code provided by the server.
         /// </summary>
-        UInt16 code { get; }
+        UInt16 code { get { return default(UInt16); } }
         /// <summary>
         ///  represents the WebSocket connection close reason provided by the server.
         /// </summary>
-        JsString reason { get; }
+        string reason { get { return default(string); } }
     }
+
+    public partial class HTMLImageElement
+    {
+        public HTMLImageElement() { }
+        public HTMLImageElement(int width) { }
+        public HTMLImageElement(int width, int height) { }
+
+    }
+
 }
