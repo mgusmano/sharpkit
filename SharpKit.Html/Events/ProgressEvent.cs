@@ -6,7 +6,7 @@ namespace SharpKit.Html
 using SharpKit.JavaScript;
 
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class ProgressEvent : Event
+public partial class ProgressEvent : DOMEvent
 {
 
 	// ProgressEvent

@@ -10,7 +10,7 @@ public partial class EventListener
 {
 
 	// EventListener
-	public void handleEvent(Event evt) {}
+	public void handleEvent(DOMEvent evt) {}
 }
 
 }

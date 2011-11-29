@@ -4,7 +4,7 @@ using SharpKit.JavaScript;
 namespace SharpKit.Html
 {
 
-    public class DOMException : Exception
+    public class DOMException : BaseException
     {
         public DOMException(short code, JsString message) : base(message)
         {

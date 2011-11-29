@@ -11,8 +11,8 @@ namespace SharpKit.Html
 
         // HTMLElement
         public NodeList getElementsByClassName(string classNames) { return default(NodeList); }
-        public JsString innerHtml { get; set; }
-        public JsString outerHtml { get; set; }
+        public JsString innerHTML { get; set; }
+        public JsString outerHTML { get; set; }
         public void insertAdjacentHtml(string position, string text) { }
         public JsString id { get; set; }
         public JsString title { get; set; }

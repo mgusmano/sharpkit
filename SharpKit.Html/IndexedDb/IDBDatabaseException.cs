@@ -4,7 +4,7 @@ using SharpKit.JavaScript;
 namespace SharpKit.Html
 {
 
-    public class IDBDatabaseException : Exception
+    public class IDBDatabaseException : BaseException
     {
         public IDBDatabaseException(short code, JsString message) : base(message)
         {

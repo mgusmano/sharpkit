@@ -4,7 +4,7 @@ using SharpKit.JavaScript;
 namespace SharpKit.Html
 {
 
-    public class SVGException : Exception
+    public class SVGException : BaseException
     {
         public SVGException(short code, JsString message) : base(message)
         {

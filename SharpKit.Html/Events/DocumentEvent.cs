@@ -10,7 +10,7 @@ public partial class DocumentEvent
 {
 
 	// DocumentEvent
-	public Event createEvent(string eventInterface) { return default(Event); }
+	public DOMEvent createEvent(string eventInterface) { return default(DOMEvent); }
 }
 
 }

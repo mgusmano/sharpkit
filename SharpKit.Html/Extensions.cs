@@ -3,23 +3,23 @@ using System;
 
 namespace SharpKit.Html
 {
-    partial class HTMLDocument : Document
+    partial class HtmlDocument : Document
     {
     }
     partial class EventSource : EventTarget
     {
     }
-    public class Exception : System.Exception
+    public class BaseException : System.Exception
     {
 
-        public Exception(string message)
+        public BaseException(string message)
             : base(message)
         {
         }
     }
 
     [JsType(JsMode.Prototype, Name = "CloseEvent", PropertiesAsFields = true)]
-    public class CloseEvent : Event
+    public class CloseEvent : DOMEvent
     {
         /// <summary>
         /// represents whether the connection closed cleanly or not.
@@ -38,11 +38,11 @@ namespace SharpKit.Html
         string reason { get { return default(string); } }
     }
 
-    public partial class HTMLImageElement
+    public partial class HtmlImageElement
     {
-        public HTMLImageElement() { }
-        public HTMLImageElement(int width) { }
-        public HTMLImageElement(int width, int height) { }
+        public HtmlImageElement() { }
+        public HtmlImageElement(int width) { }
+        public HtmlImageElement(int width, int height) { }
 
     }
 

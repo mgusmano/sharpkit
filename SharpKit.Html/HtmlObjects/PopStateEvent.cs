@@ -6,7 +6,7 @@ namespace SharpKit.Html
 using SharpKit.JavaScript;
 
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class PopStateEvent : Event
+public partial class PopStateEvent : DOMEvent
 {
 
 	// PopStateEvent

@@ -6,7 +6,7 @@ namespace SharpKit.Html
 using SharpKit.JavaScript;
 
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class StorageEvent : Event
+public partial class StorageEvent : DOMEvent
 {
 
 	// StorageEvent

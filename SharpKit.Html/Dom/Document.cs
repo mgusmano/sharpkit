@@ -67,7 +67,7 @@ public partial class Document : Node, IEventTarget
         throw new System.NotImplementedException();
     }
 
-    public bool dispatchEvent(Event evt)
+    public bool dispatchEvent(DOMEvent evt)
     {
         throw new System.NotImplementedException();
     }

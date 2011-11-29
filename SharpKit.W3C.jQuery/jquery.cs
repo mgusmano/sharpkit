@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
 
-using org.w3c.dom;
-using org.w3c.dom.html;
-using org.w3c.dom.css;
+using SharpKit.Html;
 
 namespace SharpKit.jQuery
 {
@@ -18,7 +16,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Add elements to the set of matched elements.
 		/// </summary>
-		public jQuery add<T>() where T : HTMLElement { return null; }
+		public jQuery add<T>() where T : HtmlElement { return null; }
 
 		/// <summary>
 		/// Add elements to the set of matched elements.
@@ -27,11 +25,11 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Add elements to the set of matched elements.
 		/// </summary>
-		public jQuery add(JsArray<HTMLElement> elements) { return null; }
+		public jQuery add(JsArray<HtmlElement> elements) { return null; }
 		/// <summary>
 		/// Add elements to the set of matched elements.
 		/// </summary>
-		public jQuery add(params HTMLElement[] elements) { return null; }
+		public jQuery add(params HtmlElement[] elements) { return null; }
 		/// <summary>
 		/// Add elements to the set of matched elements.
 		/// </summary>
@@ -39,7 +37,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Add elements to the set of matched elements.
 		/// </summary>
-		public jQuery add(JsString selector, HTMLElement context) { return null; }
+		public jQuery add(JsString selector, HtmlElement context) { return null; }
 		/// <summary>
 		/// Adds the specified class(es) to each of the set of matched elements.
 		/// </summary>
@@ -47,7 +45,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Adds the specified class(es) to each of the set of matched elements.
 		/// </summary>
-		public jQuery addClass(JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery addClass(JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Insert content, specified by the parameter, after each element in the set of matched elements.
 		/// </summary>
@@ -59,7 +57,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Insert content, specified by the parameter, after each element in the set of matched elements.
 		/// </summary>
-		public jQuery after(HTMLElement content) { return null; }
+		public jQuery after(HtmlElement content) { return null; }
 		/// <summary>
 		/// Insert content, specified by the parameter, after each element in the set of matched elements.
 		/// </summary>
@@ -159,7 +157,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
 		/// </summary>
-		public jQuery append(JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery append(JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
 		/// </summary>
@@ -167,7 +165,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
 		/// </summary>
-		public jQuery append(HTMLElement content) { return null; }
+		public jQuery append(HtmlElement content) { return null; }
 		/// <summary>
 		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
 		/// </summary>
@@ -179,7 +177,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Insert every element in the set of matched elements to the end of the target.
 		/// </summary>
-		public jQuery appendTo(HTMLElement target) { return null; }
+		public jQuery appendTo(HtmlElement target) { return null; }
 		/// <summary>
 		/// Insert every element in the set of matched elements to the end of the target.
 		/// </summary>
@@ -195,7 +193,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Set one or more attributes for the set of matched elements.
 		/// </summary>
-		public jQuery attr(JsString attributeName, JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery attr(JsString attributeName, JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Set one or more attributes for the set of matched elements.
 		/// </summary>
@@ -219,7 +217,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Insert content, specified by the parameter, before each element in the set of matched elements.
 		/// </summary>
-		public jQuery before(HTMLElement content) { return null; }
+		public jQuery before(HtmlElement content) { return null; }
 		/// <summary>
 		/// Insert content, specified by the parameter, before each element in the set of matched elements.
 		/// </summary>
@@ -315,11 +313,11 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Get the first ancestor element that matches the selector, beginning at the current element and progressing up through the DOM tree.
 		/// </summary>
-		public jQuery closest(JsString selector, HTMLElement context) { return null; }
+		public jQuery closest(JsString selector, HtmlElement context) { return null; }
 		/// <summary>
 		/// Gets an array of all the elements and selectors matched against the current element up through the DOM tree.
 		/// </summary>
-		public JsArray closest(JsArray selectors, HTMLElement context) { return null; }
+		public JsArray closest(JsArray selectors, HtmlElement context) { return null; }
 		/// <summary>
 		/// Get the first ancestor element that matches the selector, beginning at the current element and progressing up through the DOM tree.
 		/// </summary>
@@ -353,7 +351,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Set one or more CSS properties for the  set of matched elements.
 		/// </summary>
-		public jQuery css(JsString propertyName, JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery css(JsString propertyName, JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Set one or more CSS properties for the  set of matched elements.
 		/// </summary>
@@ -488,7 +486,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Iterate over a jQuery object, executing a function for each matched element.
 		/// </summary>
-		public jQuery each(JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery each(JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Remove all child nodes of the set of matched elements from the DOM.
 		/// </summary>
@@ -688,7 +686,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Reduce the set of matched elements to those that match the selector or pass the function's test.
 		/// </summary>
-		public jQuery filter(HTMLElement element) { return null; }
+		public jQuery filter(HtmlElement element) { return null; }
 		/// <summary>
 		/// Reduce the set of matched elements to those that match the selector or pass the function's test.
 		/// </summary>
@@ -753,11 +751,11 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Retrieve the DOM elements matched by the jQuery object.
 		/// </summary>
-		public JsArray<HTMLElement> get() { return null; }
+		public JsArray<HtmlElement> get() { return null; }
 		/// <summary>
 		/// Retrieve the DOM elements matched by the jQuery object.
 		/// </summary>
-		public HTMLElement get(JsNumber index) { return null; }
+		public HtmlElement get(JsNumber index) { return null; }
 		/// <summary>
 		/// Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.
 		/// </summary>
@@ -765,7 +763,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.
 		/// </summary>
-		public jQuery has(HTMLElement contained) { return null; }
+		public jQuery has(HtmlElement contained) { return null; }
 		/// <summary>
 		/// Determine whether any of the matched elements are assigned the given class.
 		/// </summary>
@@ -807,7 +805,7 @@ namespace SharpKit.jQuery
 		///Results: false true false
 		/// </code>
 		/// </example>
-		public bool hasData(HTMLElement element) { return false; }
+		public bool hasData(HtmlElement element) { return false; }
 
 		/// <summary>
 		/// Get the current computed height for the first element in the set of matched elements.
@@ -816,7 +814,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Set the CSS height of every matched element.
 		/// </summary>
-		public jQuery height(JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery height(JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Set the CSS height of every matched element.
 		/// </summary>
@@ -884,7 +882,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Set the HTML contents of each element in the set of matched elements.
 		/// </summary>
-		public jQuery html(JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery html(JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Holds or releases the execution of jQuery's ready event.
 		/// <list type="bullet">
@@ -917,7 +915,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Search for a given element from among the matched elements.
 		/// </summary>
-		public JsNumber index(HTMLElement element) { return null; }
+		public JsNumber index(HtmlElement element) { return null; }
 		/// <summary>
 		/// Search for a given element from among the matched elements.
 		/// </summary>
@@ -937,7 +935,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Insert every element in the set of matched elements after the target.
 		/// </summary>
-		public jQuery insertAfter(HTMLElement target) { return null; }
+		public jQuery insertAfter(HtmlElement target) { return null; }
 		/// <summary>
 		/// Insert every element in the set of matched elements after the target.
 		/// </summary>
@@ -949,7 +947,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Insert every element in the set of matched elements before the target.
 		/// </summary>
-		public jQuery insertBefore(HTMLElement target) { return null; }
+		public jQuery insertBefore(HtmlElement target) { return null; }
 		/// <summary>
 		/// Insert every element in the set of matched elements before the target.
 		/// </summary>
@@ -1041,7 +1039,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.
 		/// </summary>
-		public jQuery map(JsAction<JsNumber, HTMLElement> callback) { return null; }
+		public jQuery map(JsAction<JsNumber, HtmlElement> callback) { return null; }
 		/// <summary>
 		/// Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
 		/// </summary>
@@ -1157,7 +1155,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Remove elements from the set of matched elements.
 		/// </summary>
-		public jQuery not(JsArray<HTMLElement> elements) { return null; }
+		public jQuery not(JsArray<HtmlElement> elements) { return null; }
 		/// <summary>
 		/// Remove elements from the set of matched elements.
 		/// </summary>
@@ -1173,7 +1171,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Set the current coordinates of every element in the set of matched elements, relative to the document.
 		/// </summary>
-		public jQuery offset(JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery offset(JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Get the closest ancestor element that is positioned.
 		/// </summary>
@@ -1233,7 +1231,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
 		/// </summary>
-		public jQuery prepend(JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery prepend(JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
 		/// </summary>
@@ -1241,7 +1239,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
 		/// </summary>
-		public jQuery prepend(HTMLElement content) { return null; }
+		public jQuery prepend(HtmlElement content) { return null; }
 		/// <summary>
 		/// Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
 		/// </summary>
@@ -1253,7 +1251,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Insert every element in the set of matched elements to the beginning of the target.
 		/// </summary>
-		public jQuery prependTo(HTMLElement target) { return null; }
+		public jQuery prependTo(HtmlElement target) { return null; }
 		/// <summary>
 		/// Insert every element in the set of matched elements to the beginning of the target.
 		/// </summary>
@@ -1341,7 +1339,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Remove a single class, multiple classes, or all classes from each element in the set of matched elements.
 		/// </summary>
-		public jQuery removeClass(JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery removeClass(JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Remove a previously-stored piece of data.
 		/// </summary>
@@ -1365,7 +1363,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Replace each element in the set of matched elements with the provided new content.
 		/// </summary>
-		public jQuery replaceWith(HTMLElement newContent) { return null; }
+		public jQuery replaceWith(HtmlElement newContent) { return null; }
 		/// <summary>
 		/// Replace each element in the set of matched elements with the provided new content.
 		/// </summary>
@@ -1645,7 +1643,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Set the content of each element in the set of matched elements to the specified text.
 		/// </summary>
-		public jQuery text(JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery text(JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Retrieve all the DOM elements contained in the jQuery set, as an array.
 		/// </summary>
@@ -1709,7 +1707,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.
 		/// </summary>
-		public jQuery toggleClass(JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery toggleClass(JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.
 		/// </summary>
@@ -1717,7 +1715,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.
 		/// </summary>
-		public jQuery toggleClass(JsAction<JsNumber, HTMLElement> function, bool @switch) { return null; }
+		public jQuery toggleClass(JsAction<JsNumber, HtmlElement> function, bool @switch) { return null; }
 		/// <summary>
 		/// Execute all handlers and behaviors attached to the matched elements for the given event type.
 		/// </summary>
@@ -1789,7 +1787,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Set the value of each element in the set of matched elements.
 		/// </summary>
-		public jQuery val(JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery val(JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Get the current computed width for the first element in the set of matched elements.
 		/// </summary>
@@ -1797,7 +1795,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Set the CSS width of each element in the set of matched elements.
 		/// </summary>
-		public jQuery width(JsAction<JsNumber, HTMLElement> function) { return null; }
+		public jQuery width(JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Set the CSS width of each element in the set of matched elements.
 		/// </summary>
@@ -1817,7 +1815,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Wrap an HTML structure around each element in the set of matched elements.
 		/// </summary>
-		public jQuery wrap(HTMLElement wrappingElement) { return null; }
+		public jQuery wrap(HtmlElement wrappingElement) { return null; }
 		/// <summary>
 		/// Wrap an HTML structure around each element in the set of matched elements.
 		/// </summary>
@@ -1829,7 +1827,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Wrap an HTML structure around all elements in the set of matched elements.
 		/// </summary>
-		public jQuery wrapAll(HTMLElement wrappingElement) { return null; }
+		public jQuery wrapAll(HtmlElement wrappingElement) { return null; }
 		/// <summary>
 		/// Wrap an HTML structure around all elements in the set of matched elements.
 		/// </summary>
@@ -1853,27 +1851,27 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Check to see if a DOM node is within another DOM node.
 		/// </summary>
-		public static bool contains(HTMLElement container, HTMLElement contained) { return false; }
+		public static bool contains(HtmlElement container, HtmlElement contained) { return false; }
 		/// <summary>
 		/// Returns value at named data store for the element, as set by jQuery.data(element, name, value), or the full data store for the element.
 		/// </summary>
-		public static JsObject data(HTMLElement element) { return null; }
+		public static JsObject data(HtmlElement element) { return null; }
 		/// <summary>
 		/// Returns value at named data store for the element, as set by jQuery.data(element, name, value), or the full data store for the element.
 		/// </summary>
-		public static JsObject data(HTMLElement element, JsString key) { return null; }
+		public static JsObject data(HtmlElement element, JsString key) { return null; }
 		/// <summary>
 		/// Store arbitrary data associated with the specified element.
 		/// </summary>
-		public static jQuery data(HTMLElement element, JsString key, JsObject value) { return null; }
+		public static jQuery data(HtmlElement element, JsString key, JsObject value) { return null; }
 		/// <summary>
 		/// Execute the next function on the queue for the matched element.
 		/// </summary>
-		public static jQuery dequeue(HTMLElement element) { return null; }
+		public static jQuery dequeue(HtmlElement element) { return null; }
 		/// <summary>
 		/// Execute the next function on the queue for the matched element.
 		/// </summary>
-		public static jQuery dequeue(HTMLElement element, JsString queueName) { return null; }
+		public static jQuery dequeue(HtmlElement element, JsString queueName) { return null; }
 		/// <summary>
 		/// A generic iterator function, which can be used to seamlessly iterate over both objects and arrays. Arrays and array-like objects with a length property (such as a function's arguments object) are iterated by numeric index, from 0 to length-1. Other objects are iterated via their named properties.
 		/// </summary>
@@ -1969,7 +1967,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Load a JavaScript file from the server using a GET HTTP request, then execute it.
 		/// </summary>
-		public static XMLHttpRequest getScript(JsString url, JsAction<JsNumber, HTMLElement> success) { return null; }
+		public static XMLHttpRequest getScript(JsString url, JsAction<JsNumber, HtmlElement> success) { return null; }
 		/// <summary>
 		/// Execute some JavaScript code globally.
 		/// </summary>
@@ -1977,11 +1975,11 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Finds the elements of an array which satisfy a filter function. The original array is not affected.
 		/// </summary>
-		public static JsArray grep(JsArray array, JsAction<JsNumber, HTMLElement> function) { return null; }
+		public static JsArray grep(JsArray array, JsAction<JsNumber, HtmlElement> function) { return null; }
 		/// <summary>
 		/// Finds the elements of an array which satisfy a filter function. The original array is not affected.
 		/// </summary>
-		public static JsArray grep(JsArray array, JsAction<JsNumber, HTMLElement> function, bool invert) { return null; }
+		public static JsArray grep(JsArray array, JsAction<JsNumber, HtmlElement> function, bool invert) { return null; }
 		/// <summary>
 		/// Search for a specified value within an array and return its index (or -1 if not found).
 		/// </summary>
@@ -2009,7 +2007,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Check to see if a DOM node is within an XML document (or is an XML document).
 		/// </summary>
-		public static bool isXMLDoc(HTMLElement node) { return false; }
+		public static bool isXMLDoc(HtmlElement node) { return false; }
 		/// <summary>
 		/// Convert an array-like object into a true JavaScript array.
 		/// </summary>
@@ -2017,7 +2015,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Translate all items in an array or array-like object to another array of items.
 		/// </summary>
-		public static JsArray map(JsArray array, JsAction<JsNumber, HTMLElement> callback) { return null; }
+		public static JsArray map(JsArray array, JsAction<JsNumber, HtmlElement> callback) { return null; }
 		/// <summary>
 		/// Merge the contents of two arrays together into the first array.
 		/// </summary>
@@ -2109,27 +2107,27 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Show the queue of functions to be executed on the matched element.
 		/// </summary>
-		public static JsArray queue(HTMLElement element) { return null; }
+		public static JsArray queue(HtmlElement element) { return null; }
 		/// <summary>
 		/// Show the queue of functions to be executed on the matched element.
 		/// </summary>
-		public static JsArray queue(HTMLElement element, JsString queueName) { return null; }
+		public static JsArray queue(HtmlElement element, JsString queueName) { return null; }
 		/// <summary>
 		/// Manipulate the queue of functions to be executed on the matched element.
 		/// </summary>
-		public static jQuery queue(HTMLElement element, JsString queueName, JsArray newQueue) { return null; }
+		public static jQuery queue(HtmlElement element, JsString queueName, JsArray newQueue) { return null; }
 		/// <summary>
 		/// Manipulate the queue of functions to be executed on the matched element.
 		/// </summary>
-		public static jQuery queue(HTMLElement element, JsString queueName, JsAction callback__) { return null; }
+		public static jQuery queue(HtmlElement element, JsString queueName, JsAction callback__) { return null; }
 		/// <summary>
 		/// Remove a previously-stored piece of data.
 		/// </summary>
-		public static jQuery removeData(HTMLElement element) { return null; }
+		public static jQuery removeData(HtmlElement element) { return null; }
 		/// <summary>
 		/// Remove a previously-stored piece of data.
 		/// </summary>
-		public static jQuery removeData(HTMLElement element, JsString name) { return null; }
+		public static jQuery removeData(HtmlElement element, JsString name) { return null; }
 		/// <summary>
 		/// Remove the whitespace from the beginning and end of a string.
 		/// </summary>
@@ -2159,7 +2157,7 @@ namespace SharpKit.jQuery
 		/// Get the selected elements by index
 		/// </summary>
 		[JsProperty(NativeIndexer = true)]
-		public HTMLElement this[JsNumber index] { get { return null; } }
+		public HtmlElement this[JsNumber index] { get { return null; } }
 		/// <summary>
 		/// A selector representing selector originally passed to jQuery().
 		/// </summary>
@@ -2167,7 +2165,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// The DOM node context originally passed to jQuery(); if none was passed then context will likely be the document.
 		/// </summary>
-		public HTMLElement context { get; set; }
+		public HtmlElement context { get; set; }
 		/// <summary>
 		/// Deprecated in jQuery 1.3 (see jQuery.support)
 		/// . States if the current page, in the user's browser, is being rendered using the W3C CSS Box Model.
@@ -2305,7 +2303,7 @@ namespace SharpKit.jQuery
 	}
 
 	[JsType(JsMode.Global, Export = false)]
-	public partial class jQueryContext : HTMLContext
+	public partial class jQueryContext : HtmlContext
 	{
 		/// <summary>
 		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
@@ -2316,7 +2314,7 @@ namespace SharpKit.jQuery
 		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
 		/// </summary>
 		[JsMethod(Name = "$")]
-		public static jQuery J(HTMLElement element) { return null; }
+		public static jQuery J(HtmlElement element) { return null; }
 		/// <summary>
 		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
 		/// </summary>
@@ -2336,7 +2334,7 @@ namespace SharpKit.jQuery
 		/// Creates DOM elements on the fly from the provided string of raw HTML.
 		/// </summary>
 		[JsMethod(Name = "$")]
-		public static jQuery J(JsString html, HTMLDocument ownerDocument) { return null; }
+		public static jQuery J(JsString html, HtmlDocument ownerDocument) { return null; }
 		/// <summary>
 		/// Creates DOM elements on the fly from the provided string of raw HTML.
 		/// </summary>
@@ -2351,7 +2349,7 @@ namespace SharpKit.jQuery
 		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
 		/// </summary>
 		[JsMethod(Name = "$")]
-		public static jQuery J(JsString selector, HTMLElement context) { return null; }
+		public static jQuery J(JsString selector, HtmlElement context) { return null; }
 		/// <summary>
 		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
 		/// </summary>
@@ -2417,11 +2415,11 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// The current DOM element within the event bubbling phase.
 		/// </summary>
-		public HTMLElement currentTarget { get; set; }
+		public HtmlElement currentTarget { get; set; }
 		/// <summary>
 		/// The other DOM element involved in the event, if any.
 		/// </summary>
-		public HTMLElement relatedTarget { get; set; }
+		public HtmlElement relatedTarget { get; set; }
 		/// <summary>
 		/// The optional data passed to jQuery.fn.bind when the current executing handler was bound.
 		/// </summary>
@@ -2429,7 +2427,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// The DOM element that initiated the event.
 		/// </summary>
-		public HTMLElement target { get; set; }
+		public HtmlElement target { get; set; }
 		/// <summary>
 		/// Describes the nature of the event.
 		/// </summary>
@@ -2437,7 +2435,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Certain native events may have special properties that can be accessed as properties of the event.originalEvent object. To make special properties available in all event objects, we can add them to the jQuery.event.props array.
 		/// </summary>
-		public org.w3c.dom.events.Event originalEvent { get; set; }
+		public DOMEvent originalEvent { get; set; }
 
 		public JsBoolean altKey { get; set; }
 		public object attrChange { get; set; }
@@ -2453,7 +2451,7 @@ namespace SharpKit.jQuery
 
 		public object detail { get; set; }
 		public JsString eventPhase { get; set; }
-		public HTMLElement fromElement { get; set; }
+		public HtmlElement fromElement { get; set; }
 		public object handler { get; set; }
 		public JsNumber keyCode { get; set; }
 		public JsNumber layerX { get; set; }
@@ -2469,9 +2467,9 @@ namespace SharpKit.jQuery
 		public JsNumber screenX { get; set; }
 		public JsNumber screenY { get; set; }
 		public JsBoolean shiftKey { get; set; }
-		public HTMLElement srcElement { get; set; }
+		public HtmlElement srcElement { get; set; }
 
-		public HTMLElement toElement { get; set; }
+		public HtmlElement toElement { get; set; }
 		public object view { get; set; }
 		public JsNumber wheelDelta { get; set; }
 

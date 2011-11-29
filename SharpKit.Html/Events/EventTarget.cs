@@ -12,7 +12,7 @@ namespace SharpKit.Html
         // EventTarget
         public void addEventListener(string type, EventListener listener, bool useCapture) { }
         public void removeEventListener(string type, EventListener listener, bool useCapture) { }
-        public bool dispatchEvent(Event evt) { return default(bool); }
+        public bool dispatchEvent(DOMEvent evt) { return default(bool); }
     }
 
     [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
@@ -22,7 +22,7 @@ namespace SharpKit.Html
         // EventTarget
         void addEventListener(string type, EventListener listener, bool useCapture);
         void removeEventListener(string type, EventListener listener, bool useCapture);
-        bool dispatchEvent(Event evt);
+        bool dispatchEvent(DOMEvent evt);
     }
 
 }

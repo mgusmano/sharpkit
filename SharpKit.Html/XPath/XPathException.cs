@@ -4,7 +4,7 @@ using SharpKit.JavaScript;
 namespace SharpKit.Html
 {
 
-    public class XPathException : Exception
+    public class XPathException : BaseException
     {
         public XPathException(short code, JsString message) : base(message)
         {

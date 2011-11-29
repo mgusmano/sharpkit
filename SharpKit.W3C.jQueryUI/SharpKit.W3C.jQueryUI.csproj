@@ -36,13 +36,13 @@
     <None Include="SharpKit.snk" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SharpKit.Html\SharpKit.Html.csproj">
+      <Project>{DF77BAB5-69BC-4F2A-A3E6-81B35BB95D7B}</Project>
+      <Name>SharpKit.Html</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
       <Name>SharpKit.JavaScript</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SharpKit.W3C.DOM\SharpKit.W3C.DOM.csproj">
-      <Project>{24586114-6564-468F-9D51-98360DFE1465}</Project>
-      <Name>SharpKit.W3C.DOM</Name>
     </ProjectReference>
     <ProjectReference Include="..\SharpKit.W3C.jQuery\SharpKit.W3C.jQuery.csproj">
       <Project>{66A5AFDA-90E4-44A9-A695-372610EDC4F4}</Project>
