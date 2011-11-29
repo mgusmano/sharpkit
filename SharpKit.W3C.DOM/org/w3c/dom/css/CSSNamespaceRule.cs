@@ -10,8 +10,8 @@ public partial class CSSNamespaceRule : CSSRule
 {
 
 	// CSSNamespaceRule
-	public string namespaceURI {get { return default(string); } }
-	public string prefix {get { return default(string); } }
+	public string namespaceURI {get;private set;}
+	public string prefix {get;private set;}
 }
 
 }

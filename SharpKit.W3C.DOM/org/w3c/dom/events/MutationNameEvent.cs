@@ -11,8 +11,8 @@ public partial class MutationNameEvent : MutationEvent
 {
 
 	// MutationNameEvent
-	public string prevNamespaceURI {get { return default(string); } }
-	public string prevNodeName {get { return default(string); } }
+	public string prevNamespaceURI {get;private set;}
+	public string prevNodeName {get;private set;}
 	public void initMutationNameEvent(string typeArg, bool canBubbleArg, bool cancelableArg, Node relatedNodeArg, string prevNamespaceURIArg, string prevNodeNameArg) {}
 }
 

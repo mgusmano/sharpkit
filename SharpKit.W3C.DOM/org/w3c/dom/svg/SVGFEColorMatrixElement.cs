@@ -15,9 +15,9 @@ public partial class SVGFEColorMatrixElement : SVGElement
 	public static short SVG_FECOLORMATRIX_TYPE_SATURATE = 2;
 	public static short SVG_FECOLORMATRIX_TYPE_HUEROTATE = 3;
 	public static short SVG_FECOLORMATRIX_TYPE_LUMINANCETOALPHA = 4;
-	public SVGAnimatedString in1 {get { return default(SVGAnimatedString); } }
-	public SVGAnimatedEnumeration type {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedNumberList values {get { return default(SVGAnimatedNumberList); } }
+	public SVGAnimatedString in1 {get;private set;}
+	public SVGAnimatedEnumeration type {get;private set;}
+	public SVGAnimatedNumberList values {get;private set;}
 }
 
 }

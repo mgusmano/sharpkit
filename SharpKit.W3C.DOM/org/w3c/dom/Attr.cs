@@ -10,12 +10,12 @@ public partial class Attr : Node
 {
 
 	// Attr
-	public string name {get { return default(string); } }
-	public bool specified {get { return default(bool); } }
-	public string value {get { return default(string); } set {}}
-	public Element ownerElement {get { return default(Element); } }
-	public TypeInfo schemaTypeInfo {get { return default(TypeInfo); } }
-	public bool isId {get { return default(bool); } }
+	public string name {get;private set;}
+	public bool specified {get;private set;}
+	public string value {get;set;}
+	public Element ownerElement {get;private set;}
+	public TypeInfo schemaTypeInfo {get;private set;}
+	public bool isId {get;private set;}
 }
 
 }

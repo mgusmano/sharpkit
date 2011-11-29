@@ -10,14 +10,14 @@ public partial class EventSource
 {
 
 	// EventSource
-	public string uRL {get { return default(string); } }
+	public string uRL {get;private set;}
 	public static short CONNECTING = 0;
 	public static short OPEN = 1;
 	public static short CLOSED = 2;
-	public short readyState {get { return default(short); } }
-	public JsAction onopen {get { return default(JsAction); } set {}}
-	public JsAction onmessage {get { return default(JsAction); } set {}}
-	public JsAction onerror {get { return default(JsAction); } set {}}
+	public short readyState {get;private set;}
+	public JsAction onopen {get;set;}
+	public JsAction onmessage {get;set;}
+	public JsAction onerror {get;set;}
 	public void close() {}
 }
 

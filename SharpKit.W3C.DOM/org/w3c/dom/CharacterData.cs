@@ -10,8 +10,8 @@ public partial class CharacterData : Node
 {
 
 	// CharacterData
-	public string data {get { return default(string); } set {}}
-	public int length {get { return default(int); } }
+	public string data {get;set;}
+	public int length {get;private set;}
 	public string substringData(int offset, int count) { return default(string); }
 	public void appendData(string arg) {}
 	public void insertData(int offset, string arg) {}

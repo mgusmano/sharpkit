@@ -10,9 +10,9 @@ public partial class HTMLFontElement : HTMLElement
 {
 
 	// HTMLFontElement
-	public string color {get { return default(string); } set {}}
-	public string face {get { return default(string); } set {}}
-	public string size {get { return default(string); } set {}}
+	public string color {get;set;}
+	public string face {get;set;}
+	public string size {get;set;}
 }
 
 }

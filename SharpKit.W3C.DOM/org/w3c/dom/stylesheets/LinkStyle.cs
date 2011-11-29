@@ -10,7 +10,7 @@ public partial class LinkStyle
 {
 
 	// LinkStyle
-	public StyleSheet sheet {get { return default(StyleSheet); } }
+	public StyleSheet sheet {get;private set;}
 }
 
 }

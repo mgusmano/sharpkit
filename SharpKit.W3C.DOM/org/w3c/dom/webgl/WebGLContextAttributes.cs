@@ -10,11 +10,11 @@ public partial class WebGLContextAttributes
 {
 
 	// WebGLContextAttributes
-	public bool alpha {get { return default(bool); } set {}}
-	public bool depth {get { return default(bool); } set {}}
-	public bool stencil {get { return default(bool); } set {}}
-	public bool antialias {get { return default(bool); } set {}}
-	public bool premultipliedAlpha {get { return default(bool); } set {}}
+	public bool alpha {get;set;}
+	public bool depth {get;set;}
+	public bool stencil {get;set;}
+	public bool antialias {get;set;}
+	public bool premultipliedAlpha {get;set;}
 }
 
 }

@@ -12,8 +12,8 @@ public partial class HTMLPropertiesCollection : HTMLCollection
 
 	// HTMLPropertiesCollection
 	[JsProperty(NativeIndexer = true)]
-	public PropertyNodeList this[string name] {get { return default(PropertyNodeList); } }
-	public DOMStringList names {get { return default(DOMStringList); } }
+	public PropertyNodeList this[string name] {get{return null;}}
+	public DOMStringList names {get;private set;}
 }
 
 }

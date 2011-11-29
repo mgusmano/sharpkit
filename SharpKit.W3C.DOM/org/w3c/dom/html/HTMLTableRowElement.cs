@@ -10,19 +10,19 @@ public partial class HTMLTableRowElement : HTMLElement
 {
 
 	// HTMLTableRowElement
-	public int rowIndex {get { return default(int); } }
-	public int sectionRowIndex {get { return default(int); } }
-	public HTMLCollection cells {get { return default(HTMLCollection); } }
+	public int rowIndex {get;private set;}
+	public int sectionRowIndex {get;private set;}
+	public HTMLCollection cells {get;private set;}
 	public HTMLElement insertCell() { return default(HTMLElement); }
 	public HTMLElement insertCell(int index) { return default(HTMLElement); }
 	public void deleteCell(int index) {}
 
 	// HTMLTableRowElement-34
-	public string align {get { return default(string); } set {}}
-	public string bgColor {get { return default(string); } set {}}
-	public string ch {get { return default(string); } set {}}
-	public string chOff {get { return default(string); } set {}}
-	public string vAlign {get { return default(string); } set {}}
+	public string align {get;set;}
+	public string bgColor {get;set;}
+	public string ch {get;set;}
+	public string chOff {get;set;}
+	public string vAlign {get;set;}
 }
 
 }

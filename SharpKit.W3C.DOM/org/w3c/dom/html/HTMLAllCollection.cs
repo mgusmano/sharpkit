@@ -11,7 +11,7 @@ public partial class HTMLAllCollection : HTMLCollection
 
 	// HTMLAllCollection
 	[JsProperty(NativeIndexer = true)]
-	public object this[string name] {get { return default(object); } }
+	public object this[string name] {get{return null;}}
 	public HTMLAllCollection tags(string tagName) { return default(HTMLAllCollection); }
 }
 

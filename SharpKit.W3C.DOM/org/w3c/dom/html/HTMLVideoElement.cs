@@ -10,11 +10,11 @@ public partial class HTMLVideoElement : HTMLMediaElement
 {
 
 	// HTMLVideoElement
-	public string width {get { return default(string); } set {}}
-	public string height {get { return default(string); } set {}}
-	public int videoWidth {get { return default(int); } }
-	public int videoHeight {get { return default(int); } }
-	public string poster {get { return default(string); } set {}}
+	public string width {get;set;}
+	public string height {get;set;}
+	public int videoWidth {get;private set;}
+	public int videoHeight {get;private set;}
+	public string poster {get;set;}
 }
 
 }

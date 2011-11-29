@@ -17,9 +17,9 @@ public partial class SVGTransform
 	public static short SVG_TRANSFORM_ROTATE = 4;
 	public static short SVG_TRANSFORM_SKEWX = 5;
 	public static short SVG_TRANSFORM_SKEWY = 6;
-	public short type {get { return default(short); } }
-	public SVGMatrix matrix {get { return default(SVGMatrix); } set {}}
-	public float angle {get { return default(float); } }
+	public short type {get;private set;}
+	public SVGMatrix matrix {get;set;}
+	public float angle {get;private set;}
 	public void setTranslate(float tx, float ty) {}
 	public void setScale(float sx, float sy) {}
 	public void setRotate(float angle, float cx, float cy) {}

@@ -10,8 +10,8 @@ public partial class SVGAnimatedLength
 {
 
 	// SVGAnimatedLength
-	public SVGLength baseVal {get { return default(SVGLength); } }
-	public SVGLength animVal {get { return default(SVGLength); } }
+	public SVGLength baseVal {get;private set;}
+	public SVGLength animVal {get;private set;}
 }
 
 }

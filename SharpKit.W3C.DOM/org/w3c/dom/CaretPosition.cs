@@ -11,9 +11,9 @@ public partial class CaretPosition
 {
 
 	// CaretPosition
-	public Node offsetNode {get { return default(Node); } }
-	public int offset {get { return default(int); } }
-	public Range range {get { return default(Range); } }
+	public Node offsetNode {get;private set;}
+	public int offset {get;private set;}
+	public Range range {get;private set;}
 }
 
 }

@@ -11,23 +11,23 @@ public partial class HTMLIFrameElement : HTMLElement
 {
 
 	// HTMLIFrameElement
-	public string src {get { return default(string); } set {}}
-	public string srcdoc {get { return default(string); } set {}}
-	public string name {get { return default(string); } set {}}
-	public DOMSettableTokenList sandbox {get { return default(DOMSettableTokenList); } set {}}
-	public bool seamless {get { return default(bool); } set {}}
-	public string width {get { return default(string); } set {}}
-	public string height {get { return default(string); } set {}}
-	public Document contentDocument {get { return default(Document); } }
-	public Window contentWindow {get { return default(Window); } }
+	public string src {get;set;}
+	public string srcdoc {get;set;}
+	public string name {get;set;}
+	public DOMSettableTokenList sandbox {get;set;}
+	public bool seamless {get;set;}
+	public string width {get;set;}
+	public string height {get;set;}
+	public Document contentDocument {get;private set;}
+	public Window contentWindow {get;private set;}
 
 	// HTMLIFrameElement-17
-	public string align {get { return default(string); } set {}}
-	public string frameBorder {get { return default(string); } set {}}
-	public string longDesc {get { return default(string); } set {}}
-	public string marginHeight {get { return default(string); } set {}}
-	public string marginWidth {get { return default(string); } set {}}
-	public string scrolling {get { return default(string); } set {}}
+	public string align {get;set;}
+	public string frameBorder {get;set;}
+	public string longDesc {get;set;}
+	public string marginHeight {get;set;}
+	public string marginWidth {get;set;}
+	public string scrolling {get;set;}
 }
 
 }

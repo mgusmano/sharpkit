@@ -10,7 +10,7 @@ public partial class BooleanArray
 {
 
 	// BooleanArray
-	public int length {get { return default(int); } set {}}
+	public int length {get;set;}
 	public bool getElement(int index) { return default(bool); }
 	public void setElement(int index, bool value) {}
 }

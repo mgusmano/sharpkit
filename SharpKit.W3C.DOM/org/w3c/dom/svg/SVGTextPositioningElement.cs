@@ -10,11 +10,11 @@ public partial class SVGTextPositioningElement : SVGTextContentElement
 {
 
 	// SVGTextPositioningElement
-	public SVGAnimatedLengthList x {get { return default(SVGAnimatedLengthList); } }
-	public SVGAnimatedLengthList y {get { return default(SVGAnimatedLengthList); } }
-	public SVGAnimatedLengthList dx {get { return default(SVGAnimatedLengthList); } }
-	public SVGAnimatedLengthList dy {get { return default(SVGAnimatedLengthList); } }
-	public SVGAnimatedNumberList rotate {get { return default(SVGAnimatedNumberList); } }
+	public SVGAnimatedLengthList x {get;private set;}
+	public SVGAnimatedLengthList y {get;private set;}
+	public SVGAnimatedLengthList dx {get;private set;}
+	public SVGAnimatedLengthList dy {get;private set;}
+	public SVGAnimatedNumberList rotate {get;private set;}
 }
 
 }

@@ -10,8 +10,8 @@ public partial class CSSStyleRule : CSSRule
 {
 
 	// CSSStyleRule
-	public string selectorText {get { return default(string); } set {}}
-	public CSSStyleDeclaration style {get { return default(CSSStyleDeclaration); } }
+	public string selectorText {get;set;}
+	public CSSStyleDeclaration style {get;private set;}
 }
 
 }

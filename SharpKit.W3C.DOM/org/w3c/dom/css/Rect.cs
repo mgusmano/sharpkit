@@ -10,10 +10,10 @@ public partial class Rect
 {
 
 	// Rect
-	public CSSPrimitiveValue top {get { return default(CSSPrimitiveValue); } }
-	public CSSPrimitiveValue right {get { return default(CSSPrimitiveValue); } }
-	public CSSPrimitiveValue bottom {get { return default(CSSPrimitiveValue); } }
-	public CSSPrimitiveValue left {get { return default(CSSPrimitiveValue); } }
+	public CSSPrimitiveValue top {get;private set;}
+	public CSSPrimitiveValue right {get;private set;}
+	public CSSPrimitiveValue bottom {get;private set;}
+	public CSSPrimitiveValue left {get;private set;}
 }
 
 }

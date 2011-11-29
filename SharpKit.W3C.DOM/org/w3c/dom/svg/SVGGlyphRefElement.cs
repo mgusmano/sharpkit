@@ -10,12 +10,12 @@ public partial class SVGGlyphRefElement : SVGElement
 {
 
 	// SVGGlyphRefElement
-	public string glyphRef {get { return default(string); } set {}}
-	public string format {get { return default(string); } set {}}
-	public float x {get { return default(float); } set {}}
-	public float y {get { return default(float); } set {}}
-	public float dx {get { return default(float); } set {}}
-	public float dy {get { return default(float); } set {}}
+	public string glyphRef {get;set;}
+	public string format {get;set;}
+	public float x {get;set;}
+	public float y {get;set;}
+	public float dx {get;set;}
+	public float dy {get;set;}
 }
 
 }

@@ -10,7 +10,7 @@ public partial class HTMLTableHeaderCellElement : HTMLTableCellElement
 {
 
 	// HTMLTableHeaderCellElement
-	public string scope {get { return default(string); } set {}}
+	public string scope {get;set;}
 }
 
 }

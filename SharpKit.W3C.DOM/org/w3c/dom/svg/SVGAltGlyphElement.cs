@@ -10,8 +10,8 @@ public partial class SVGAltGlyphElement : SVGTextPositioningElement
 {
 
 	// SVGAltGlyphElement
-	public string glyphRef {get { return default(string); } set {}}
-	public string format {get { return default(string); } set {}}
+	public string glyphRef {get;set;}
+	public string format {get;set;}
 }
 
 }

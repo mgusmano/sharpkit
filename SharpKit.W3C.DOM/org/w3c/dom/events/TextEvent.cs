@@ -21,8 +21,8 @@ public partial class TextEvent : UIEvent
 	public static int DOM_INPUT_METHOD_VOICE = 0x07;
 	public static int DOM_INPUT_METHOD_MULTIMODAL = 0x08;
 	public static int DOM_INPUT_METHOD_SCRIPT = 0x09;
-	public string data {get { return default(string); } }
-	public int inputMode {get { return default(int); } }
+	public string data {get;private set;}
+	public int inputMode {get;private set;}
 	public void initTextEvent(string typeArg, bool canBubbleArg, bool cancelableArg, AbstractView viewArg, string dataArg, int inputMode) {}
 }
 

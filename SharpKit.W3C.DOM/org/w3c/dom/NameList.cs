@@ -12,7 +12,7 @@ public partial class NameList
 	// NameList
 	public string getName(int index) { return default(string); }
 	public string getNamespaceURI(int index) { return default(string); }
-	public int length {get { return default(int); } }
+	public int length {get;private set;}
 	public bool contains(string str) { return default(bool); }
 	public bool containsNS(string namespaceURI, string name) { return default(bool); }
 }

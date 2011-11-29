@@ -10,12 +10,12 @@ public partial class SVGViewSpec : SVGZoomAndPan
 {
 
 	// SVGViewSpec
-	public SVGTransformList transform {get { return default(SVGTransformList); } }
-	public SVGElement viewTarget {get { return default(SVGElement); } }
-	public string viewBoxString {get { return default(string); } }
-	public string preserveAspectRatioString {get { return default(string); } }
-	public string transformString {get { return default(string); } }
-	public string viewTargetString {get { return default(string); } }
+	public SVGTransformList transform {get;private set;}
+	public SVGElement viewTarget {get;private set;}
+	public string viewBoxString {get;private set;}
+	public string preserveAspectRatioString {get;private set;}
+	public string transformString {get;private set;}
+	public string viewTargetString {get;private set;}
 }
 
 }

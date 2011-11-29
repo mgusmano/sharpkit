@@ -10,10 +10,10 @@ public partial class CSSColorComponentValue : CSSComponentValue
 {
 
 	// CSSColorComponentValue
-	public short red {get { return default(short); } set {}}
-	public short green {get { return default(short); } set {}}
-	public short blue {get { return default(short); } set {}}
-	public float alpha {get { return default(float); } set {}}
+	public short red {get;set;}
+	public short green {get;set;}
+	public short blue {get;set;}
+	public float alpha {get;set;}
 }
 
 }

@@ -10,7 +10,7 @@ public partial class HTMLDirectoryElement : HTMLElement
 {
 
 	// HTMLDirectoryElement
-	public bool compact {get { return default(bool); } set {}}
+	public bool compact {get;set;}
 }
 
 }

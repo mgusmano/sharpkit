@@ -10,8 +10,8 @@ public partial class Notation : Node
 {
 
 	// Notation
-	public string publicId {get { return default(string); } }
-	public string systemId {get { return default(string); } }
+	public string publicId {get;private set;}
+	public string systemId {get;private set;}
 }
 
 }

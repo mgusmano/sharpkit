@@ -10,7 +10,7 @@ public partial class SVGPathSegLinetoVerticalRel : SVGPathSeg
 {
 
 	// SVGPathSegLinetoVerticalRel
-	public float y {get { return default(float); } set {}}
+	public float y {get;set;}
 }
 
 }

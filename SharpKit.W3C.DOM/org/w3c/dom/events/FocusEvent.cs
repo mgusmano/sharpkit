@@ -11,7 +11,7 @@ public partial class FocusEvent : UIEvent
 {
 
 	// FocusEvent
-	public EventTarget relatedTarget {get { return default(EventTarget); } }
+	public EventTarget relatedTarget {get;private set;}
 	public void initFocusEvent(string typeArg, bool canBubbleArg, bool cancelableArg, AbstractView viewArg, int detailArg, EventTarget relatedTargetArg) {}
 }
 

@@ -10,11 +10,11 @@ public partial class SVGFEDiffuseLightingElement : SVGElement
 {
 
 	// SVGFEDiffuseLightingElement
-	public SVGAnimatedString in1 {get { return default(SVGAnimatedString); } }
-	public SVGAnimatedNumber surfaceScale {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber diffuseConstant {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber kernelUnitLengthX {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber kernelUnitLengthY {get { return default(SVGAnimatedNumber); } }
+	public SVGAnimatedString in1 {get;private set;}
+	public SVGAnimatedNumber surfaceScale {get;private set;}
+	public SVGAnimatedNumber diffuseConstant {get;private set;}
+	public SVGAnimatedNumber kernelUnitLengthX {get;private set;}
+	public SVGAnimatedNumber kernelUnitLengthY {get;private set;}
 }
 
 }

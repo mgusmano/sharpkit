@@ -10,12 +10,12 @@ public partial class HTMLMetaElement : HTMLElement
 {
 
 	// HTMLMetaElement
-	public string name {get { return default(string); } set {}}
-	public string httpEquiv {get { return default(string); } set {}}
-	public string content {get { return default(string); } set {}}
+	public string name {get;set;}
+	public string httpEquiv {get;set;}
+	public string content {get;set;}
 
 	// HTMLMetaElement-24
-	public string scheme {get { return default(string); } set {}}
+	public string scheme {get;set;}
 }
 
 }

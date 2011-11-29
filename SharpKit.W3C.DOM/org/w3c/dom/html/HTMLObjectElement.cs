@@ -11,32 +11,32 @@ public partial class HTMLObjectElement : HTMLElement
 {
 
 	// HTMLObjectElement
-	public string data {get { return default(string); } set {}}
-	public string type {get { return default(string); } set {}}
-	public string name {get { return default(string); } set {}}
-	public string useMap {get { return default(string); } set {}}
-	public HTMLFormElement form {get { return default(HTMLFormElement); } }
-	public string width {get { return default(string); } set {}}
-	public string height {get { return default(string); } set {}}
-	public Document contentDocument {get { return default(Document); } }
-	public Window contentWindow {get { return default(Window); } }
-	public bool willValidate {get { return default(bool); } }
-	public ValidityState validity {get { return default(ValidityState); } }
-	public string validationMessage {get { return default(string); } }
+	public string data {get;set;}
+	public string type {get;set;}
+	public string name {get;set;}
+	public string useMap {get;set;}
+	public HTMLFormElement form {get;private set;}
+	public string width {get;set;}
+	public string height {get;set;}
+	public Document contentDocument {get;private set;}
+	public Window contentWindow {get;private set;}
+	public bool willValidate {get;private set;}
+	public ValidityState validity {get;private set;}
+	public string validationMessage {get;private set;}
 	public bool checkValidity() { return default(bool); }
 	public void setCustomValidity(string error) {}
 
 	// HTMLObjectElement-25
-	public string align {get { return default(string); } set {}}
-	public string archive {get { return default(string); } set {}}
-	public string border {get { return default(string); } set {}}
-	public string code {get { return default(string); } set {}}
-	public string codeBase {get { return default(string); } set {}}
-	public string codeType {get { return default(string); } set {}}
-	public bool declare {get { return default(bool); } set {}}
-	public int hspace {get { return default(int); } set {}}
-	public string standby {get { return default(string); } set {}}
-	public int vspace {get { return default(int); } set {}}
+	public string align {get;set;}
+	public string archive {get;set;}
+	public string border {get;set;}
+	public string code {get;set;}
+	public string codeBase {get;set;}
+	public string codeType {get;set;}
+	public bool declare {get;set;}
+	public int hspace {get;set;}
+	public string standby {get;set;}
+	public int vspace {get;set;}
 }
 
 }

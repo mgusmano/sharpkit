@@ -14,11 +14,11 @@ public partial class MutationEvent : Event
 	public static short MODIFICATION = 1;
 	public static short ADDITION = 2;
 	public static short REMOVAL = 3;
-	public Node relatedNode {get { return default(Node); } }
-	public string prevValue {get { return default(string); } }
-	public string newValue {get { return default(string); } }
-	public string attrName {get { return default(string); } }
-	public short attrChange {get { return default(short); } }
+	public Node relatedNode {get;private set;}
+	public string prevValue {get;private set;}
+	public string newValue {get;private set;}
+	public string attrName {get;private set;}
+	public short attrChange {get;private set;}
 	public void initMutationEvent(string typeArg, bool canBubbleArg, bool cancelableArg, Node relatedNodeArg, string prevValueArg, string newValueArg, string attrNameArg, short attrChangeArg) {}
 }
 

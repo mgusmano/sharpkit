@@ -15,11 +15,11 @@ public partial class SVGFEDisplacementMapElement : SVGElement
 	public static short SVG_CHANNEL_G = 2;
 	public static short SVG_CHANNEL_B = 3;
 	public static short SVG_CHANNEL_A = 4;
-	public SVGAnimatedString in1 {get { return default(SVGAnimatedString); } }
-	public SVGAnimatedString in2 {get { return default(SVGAnimatedString); } }
-	public SVGAnimatedNumber scale {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedEnumeration xChannelSelector {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedEnumeration yChannelSelector {get { return default(SVGAnimatedEnumeration); } }
+	public SVGAnimatedString in1 {get;private set;}
+	public SVGAnimatedString in2 {get;private set;}
+	public SVGAnimatedNumber scale {get;private set;}
+	public SVGAnimatedEnumeration xChannelSelector {get;private set;}
+	public SVGAnimatedEnumeration yChannelSelector {get;private set;}
 }
 
 }

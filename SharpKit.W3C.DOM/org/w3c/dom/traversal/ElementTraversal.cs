@@ -11,11 +11,11 @@ public partial class ElementTraversal
 {
 
 	// ElementTraversal
-	public Element firstElementChild {get { return default(Element); } }
-	public Element lastElementChild {get { return default(Element); } }
-	public Element previousElementSibling {get { return default(Element); } }
-	public Element nextElementSibling {get { return default(Element); } }
-	public int childElementCount {get { return default(int); } }
+	public Element firstElementChild {get;private set;}
+	public Element lastElementChild {get;private set;}
+	public Element previousElementSibling {get;private set;}
+	public Element nextElementSibling {get;private set;}
+	public int childElementCount {get;private set;}
 }
 
 }

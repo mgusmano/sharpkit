@@ -10,8 +10,8 @@ public partial class SVGPathElement : SVGElement
 {
 
 	// SVGPathElement
-	public SVGAnimatedNumber pathLength {get { return default(SVGAnimatedNumber); } }
-	public float totalLength {get { return default(float); } }
+	public SVGAnimatedNumber pathLength {get;private set;}
+	public float totalLength {get;private set;}
 	public SVGPoint getPointAtLength(float distance) { return default(SVGPoint); }
 	public int getPathSegAtLength(float distance) { return default(int); }
 	public SVGPathSegClosePath createSVGPathSegClosePath() { return default(SVGPathSegClosePath); }

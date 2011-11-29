@@ -10,7 +10,7 @@ public partial class SVGFEComponentTransferElement : SVGElement
 {
 
 	// SVGFEComponentTransferElement
-	public SVGAnimatedString in1 {get { return default(SVGAnimatedString); } }
+	public SVGAnimatedString in1 {get;private set;}
 }
 
 }

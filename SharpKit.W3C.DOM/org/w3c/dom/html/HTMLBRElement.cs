@@ -12,7 +12,7 @@ public partial class HTMLBRElement : HTMLElement
 	// HTMLBRElement
 
 	// HTMLBRElement-7
-	public string clear {get { return default(string); } set {}}
+	public string clear {get;set;}
 }
 
 }

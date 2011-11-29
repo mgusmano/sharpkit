@@ -13,19 +13,19 @@ public partial class Event
 	public static short CAPTURING_PHASE = 1;
 	public static short AT_TARGET = 2;
 	public static short BUBBLING_PHASE = 3;
-	public string type {get { return default(string); } }
-	public EventTarget target {get { return default(EventTarget); } }
-	public EventTarget currentTarget {get { return default(EventTarget); } }
-	public short eventPhase {get { return default(short); } }
-	public bool bubbles {get { return default(bool); } }
-	public bool cancelable {get { return default(bool); } }
-	public long timeStamp {get { return default(long); } }
+	public string type {get;private set;}
+	public EventTarget target {get;private set;}
+	public EventTarget currentTarget {get;private set;}
+	public short eventPhase {get;private set;}
+	public bool bubbles {get;private set;}
+	public bool cancelable {get;private set;}
+	public long timeStamp {get;private set;}
 	public void stopPropagation() {}
 	public void preventDefault() {}
 	public void initEvent(string eventTypeArg, bool canBubbleArg, bool cancelableArg) {}
 	public void stopImmediatePropagation() {}
-	public bool defaultPrevented {get { return default(bool); } }
-	public bool trusted {get { return default(bool); } }
+	public bool defaultPrevented {get;private set;}
+	public bool trusted {get;private set;}
 }
 
 }

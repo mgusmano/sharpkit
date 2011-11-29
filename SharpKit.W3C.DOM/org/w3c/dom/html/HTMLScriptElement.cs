@@ -10,16 +10,16 @@ public partial class HTMLScriptElement : HTMLElement
 {
 
 	// HTMLScriptElement
-	public string src {get { return default(string); } set {}}
-	public bool async {get { return default(bool); } set {}}
-	public bool defer {get { return default(bool); } set {}}
-	public string type {get { return default(string); } set {}}
-	public string charset {get { return default(string); } set {}}
-	public string text {get { return default(string); } set {}}
+	public string src {get;set;}
+	public bool async {get;set;}
+	public bool defer {get;set;}
+	public string type {get;set;}
+	public string charset {get;set;}
+	public string text {get;set;}
 
 	// HTMLScriptElement-30
-	public string @event {get { return default(string); } set {}}
-	public string htmlFor {get { return default(string); } set {}}
+	public string @event {get;set;}
+	public string htmlFor {get;set;}
 }
 
 }

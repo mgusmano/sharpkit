@@ -14,7 +14,7 @@ public partial class IDBCursor
 	public static short NEXT_NO_DUPLICATE = 1;
 	public static short PREV = 2;
 	public static short PREV_NO_DUPLICATE = 3;
-	public short direction {get { return default(short); } }
+	public short direction {get;private set;}
 }
 
 }

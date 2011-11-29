@@ -14,17 +14,17 @@ public partial class SVGFEConvolveMatrixElement : SVGElement
 	public static short SVG_EDGEMODE_DUPLICATE = 1;
 	public static short SVG_EDGEMODE_WRAP = 2;
 	public static short SVG_EDGEMODE_NONE = 3;
-	public SVGAnimatedInteger orderX {get { return default(SVGAnimatedInteger); } }
-	public SVGAnimatedInteger orderY {get { return default(SVGAnimatedInteger); } }
-	public SVGAnimatedNumberList kernelMatrix {get { return default(SVGAnimatedNumberList); } }
-	public SVGAnimatedNumber divisor {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber bias {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedInteger targetX {get { return default(SVGAnimatedInteger); } }
-	public SVGAnimatedInteger targetY {get { return default(SVGAnimatedInteger); } }
-	public SVGAnimatedEnumeration edgeMode {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedLength kernelUnitLengthX {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength kernelUnitLengthY {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedBoolean preserveAlpha {get { return default(SVGAnimatedBoolean); } }
+	public SVGAnimatedInteger orderX {get;private set;}
+	public SVGAnimatedInteger orderY {get;private set;}
+	public SVGAnimatedNumberList kernelMatrix {get;private set;}
+	public SVGAnimatedNumber divisor {get;private set;}
+	public SVGAnimatedNumber bias {get;private set;}
+	public SVGAnimatedInteger targetX {get;private set;}
+	public SVGAnimatedInteger targetY {get;private set;}
+	public SVGAnimatedEnumeration edgeMode {get;private set;}
+	public SVGAnimatedLength kernelUnitLengthX {get;private set;}
+	public SVGAnimatedLength kernelUnitLengthY {get;private set;}
+	public SVGAnimatedBoolean preserveAlpha {get;private set;}
 }
 
 }

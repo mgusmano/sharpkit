@@ -11,8 +11,8 @@ public partial class DOMStringList
 
 	// DOMStringList
 	[JsProperty(NativeIndexer = true)]
-	public string this[int index] {get { return default(string); } }
-	public int length {get { return default(int); } }
+	public string this[int index] {get{return null;}}
+	public int length {get;private set;}
 	public bool contains(string str) { return default(bool); }
 }
 

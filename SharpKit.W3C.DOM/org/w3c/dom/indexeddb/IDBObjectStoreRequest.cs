@@ -10,7 +10,7 @@ public partial class IDBObjectStoreRequest : IDBObjectStore
 {
 
 	// IDBObjectStoreRequest
-	public IDBRequest request {get { return default(IDBRequest); } }
+	public IDBRequest request {get;private set;}
 	public void put(object value) {}
 	public void put(object value, object key) {}
 	public void put(object value, object key, bool noOverwrite) {}

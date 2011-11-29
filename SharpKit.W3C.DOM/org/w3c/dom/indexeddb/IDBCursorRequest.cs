@@ -10,10 +10,10 @@ public partial class IDBCursorRequest : IDBCursor
 {
 
 	// IDBCursorRequest
-	public IDBRequest request {get { return default(IDBRequest); } }
-	public object key {get { return default(object); } }
-	public object value {get { return default(object); } }
-	public long count {get { return default(long); } }
+	public IDBRequest request {get;private set;}
+	public object key {get;private set;}
+	public object value {get;private set;}
+	public long count {get;private set;}
 	public void update(object value) {}
 	public void _continue() {}
 	public void _continue(object key) {}

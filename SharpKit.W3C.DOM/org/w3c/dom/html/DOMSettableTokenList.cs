@@ -10,7 +10,7 @@ public partial class DOMSettableTokenList : DOMTokenList
 {
 
 	// DOMSettableTokenList
-	public string value {get { return default(string); } set {}}
+	public string value {get;set;}
 }
 
 }

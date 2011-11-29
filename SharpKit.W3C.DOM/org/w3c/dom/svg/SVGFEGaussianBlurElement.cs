@@ -10,9 +10,9 @@ public partial class SVGFEGaussianBlurElement : SVGElement
 {
 
 	// SVGFEGaussianBlurElement
-	public SVGAnimatedString in1 {get { return default(SVGAnimatedString); } }
-	public SVGAnimatedNumber stdDeviationX {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber stdDeviationY {get { return default(SVGAnimatedNumber); } }
+	public SVGAnimatedString in1 {get;private set;}
+	public SVGAnimatedNumber stdDeviationX {get;private set;}
+	public SVGAnimatedNumber stdDeviationY {get;private set;}
 	public void setStdDeviation(float stdDeviationX, float stdDeviationY) {}
 }
 

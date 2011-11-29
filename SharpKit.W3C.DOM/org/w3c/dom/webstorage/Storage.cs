@@ -10,7 +10,7 @@ public partial class Storage
 {
 
 	// Storage
-	public int length {get { return default(int); } }
+	public int length {get;private set;}
 	public string key(int index) { return default(string); }
 	public object getItem(string key) { return default(object); }
 	public void setItem(string key, object data) {}

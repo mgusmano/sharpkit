@@ -10,9 +10,9 @@ public partial class ProgressEvent : Event
 {
 
 	// ProgressEvent
-	public bool lengthComputable {get { return default(bool); } }
-	public int loaded {get { return default(int); } }
-	public int total {get { return default(int); } }
+	public bool lengthComputable {get;private set;}
+	public int loaded {get;private set;}
+	public int total {get;private set;}
 	public void initProgressEvent(string typeArg, bool canBubbleArg, bool cancelableArg, bool lengthComputableArg, int loadedArg, int totalArg) {}
 	public void initProgressEventNS(string namespaceURI, string typeArg, bool canBubbleArg, bool cancelableArg, bool lengthComputableArg, int loadedArg, int totalArg) {}
 }

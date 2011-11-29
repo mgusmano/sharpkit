@@ -16,9 +16,9 @@ public partial class SVGColor : CSSValue
 	public static short SVG_COLORTYPE_RGBCOLOR = 1;
 	public static short SVG_COLORTYPE_RGBCOLOR_ICCCOLOR = 2;
 	public static short SVG_COLORTYPE_CURRENTCOLOR = 3;
-	public short colorType {get { return default(short); } }
-	public RGBColor rgbColor {get { return default(RGBColor); } }
-	public SVGICCColor iccColor {get { return default(SVGICCColor); } }
+	public short colorType {get;private set;}
+	public RGBColor rgbColor {get;private set;}
+	public SVGICCColor iccColor {get;private set;}
 	public void setRGBColor(string rgbColor) {}
 	public void setRGBColorICCColor(string rgbColor, string iccColor) {}
 	public void setColor(short colorType, string rgbColor, string iccColor) {}

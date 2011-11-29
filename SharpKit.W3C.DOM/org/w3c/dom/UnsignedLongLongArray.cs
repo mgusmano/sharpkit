@@ -10,7 +10,7 @@ public partial class UnsignedLongLongArray
 {
 
 	// UnsignedLongLongArray
-	public int length {get { return default(int); } set {}}
+	public int length {get;set;}
 	public long getElement(int index) { return default(long); }
 	public void setElement(int index, long value) {}
 }

@@ -12,7 +12,7 @@ public partial class HTMLPreElement : HTMLElement
 	// HTMLPreElement
 
 	// HTMLPreElement-29
-	public int width {get { return default(int); } set {}}
+	public int width {get;set;}
 }
 
 }

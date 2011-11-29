@@ -10,8 +10,8 @@ public partial class HTMLModElement : HTMLElement
 {
 
 	// HTMLModElement
-	public string cite {get { return default(string); } set {}}
-	public string dateTime {get { return default(string); } set {}}
+	public string cite {get;set;}
+	public string dateTime {get;set;}
 }
 
 }

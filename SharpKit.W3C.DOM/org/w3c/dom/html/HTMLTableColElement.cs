@@ -10,14 +10,14 @@ public partial class HTMLTableColElement : HTMLElement
 {
 
 	// HTMLTableColElement
-	public int span {get { return default(int); } set {}}
+	public int span {get;set;}
 
 	// HTMLTableColElement-9
-	public string align {get { return default(string); } set {}}
-	public string ch {get { return default(string); } set {}}
-	public string chOff {get { return default(string); } set {}}
-	public string vAlign {get { return default(string); } set {}}
-	public string width {get { return default(string); } set {}}
+	public string align {get;set;}
+	public string ch {get;set;}
+	public string chOff {get;set;}
+	public string vAlign {get;set;}
+	public string width {get;set;}
 }
 
 }

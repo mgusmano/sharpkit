@@ -11,9 +11,9 @@ public partial class ErrorEvent : Event
 {
 
 	// ErrorEvent
-	public string message {get { return default(string); } }
-	public string filename {get { return default(string); } }
-	public int lineno {get { return default(int); } }
+	public string message {get;private set;}
+	public string filename {get;private set;}
+	public int lineno {get;private set;}
 	public void initErrorEvent(string typeArg, bool canBubbleArg, bool cancelableArg, string messageArg, string filenameArg, int linenoArg) {}
 }
 

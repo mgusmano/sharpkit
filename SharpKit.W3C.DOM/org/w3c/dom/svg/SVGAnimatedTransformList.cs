@@ -10,8 +10,8 @@ public partial class SVGAnimatedTransformList
 {
 
 	// SVGAnimatedTransformList
-	public SVGTransformList baseVal {get { return default(SVGTransformList); } }
-	public SVGTransformList animVal {get { return default(SVGTransformList); } }
+	public SVGTransformList baseVal {get;private set;}
+	public SVGTransformList animVal {get;private set;}
 }
 
 }

@@ -10,7 +10,7 @@ public partial class SVGFEImageElement : SVGElement
 {
 
 	// SVGFEImageElement
-	public SVGAnimatedPreserveAspectRatio preserveAspectRatio {get { return default(SVGAnimatedPreserveAspectRatio); } }
+	public SVGAnimatedPreserveAspectRatio preserveAspectRatio {get;private set;}
 }
 
 }

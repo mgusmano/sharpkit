@@ -14,11 +14,11 @@ public partial class IDBRequest
 	public static short INITIAL = 0;
 	public static short LOADING = 1;
 	public static short DONE = 2;
-	public short readyState {get { return default(short); } }
-	public IDBDatabaseError error {get { return default(IDBDatabaseError); } }
-	public object result {get { return default(object); } }
-	public JsAction onsuccess {get { return default(JsAction); } set {}}
-	public JsAction onerror {get { return default(JsAction); } set {}}
+	public short readyState {get;private set;}
+	public IDBDatabaseError error {get;private set;}
+	public object result {get;private set;}
+	public JsAction onsuccess {get;set;}
+	public JsAction onerror {get;set;}
 }
 
 }

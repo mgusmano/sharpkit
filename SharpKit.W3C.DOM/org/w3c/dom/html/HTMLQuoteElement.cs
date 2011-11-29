@@ -10,7 +10,7 @@ public partial class HTMLQuoteElement : HTMLElement
 {
 
 	// HTMLQuoteElement
-	public string cite {get { return default(string); } set {}}
+	public string cite {get;set;}
 }
 
 }

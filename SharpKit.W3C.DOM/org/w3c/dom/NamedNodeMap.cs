@@ -14,8 +14,8 @@ public partial class NamedNodeMap
 	public Node setNamedItem(Node arg) { return default(Node); }
 	public Node removeNamedItem(string name) { return default(Node); }
 	[JsProperty(NativeIndexer = true)]
-	public Node this[int index] {get { return default(Node); } }
-	public int length {get { return default(int); } }
+	public Node this[int index] {get{return null;}}
+	public int length {get;private set;}
 	public Node getNamedItemNS(string namespaceURI, string localName) { return default(Node); }
 	public Node setNamedItemNS(Node arg) { return default(Node); }
 	public Node removeNamedItemNS(string namespaceURI, string localName) { return default(Node); }

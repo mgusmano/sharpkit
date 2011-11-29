@@ -10,7 +10,7 @@ public partial class SVGTransformable : SVGLocatable
 {
 
 	// SVGTransformable
-	public SVGAnimatedTransformList transform {get { return default(SVGAnimatedTransformList); } }
+	public SVGAnimatedTransformList transform {get;private set;}
 }
 
 }

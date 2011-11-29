@@ -10,9 +10,9 @@ public partial class CSSLengthComponentValue : CSSComponentValue
 {
 
 	// CSSLengthComponentValue
-	public float em {get { return default(float); } set {}}
-	public float ex {get { return default(float); } set {}}
-	public float px {get { return default(float); } set {}}
+	public float em {get;set;}
+	public float ex {get;set;}
+	public float px {get;set;}
 }
 
 }

@@ -12,7 +12,7 @@ public partial class DatabaseSync
 	// DatabaseSync
 	public void transaction(SQLTransactionSyncCallback callback) {}
 	public void readTransaction(SQLTransactionSyncCallback callback) {}
-	public string version {get { return default(string); } }
+	public string version {get;private set;}
 	public void changeVersion(string oldVersion, string newVersion) {}
 	public void changeVersion(string oldVersion, string newVersion, SQLTransactionSyncCallback callback) {}
 }

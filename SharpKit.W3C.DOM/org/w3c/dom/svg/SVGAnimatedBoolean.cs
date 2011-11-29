@@ -10,8 +10,8 @@ public partial class SVGAnimatedBoolean
 {
 
 	// SVGAnimatedBoolean
-	public bool baseVal {get { return default(bool); } set {}}
-	public bool animVal {get { return default(bool); } }
+	public bool baseVal {get;set;}
+	public bool animVal {get;private set;}
 }
 
 }

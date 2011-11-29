@@ -10,7 +10,7 @@ public partial class SVGExternalResourcesRequired
 {
 
 	// SVGExternalResourcesRequired
-	public SVGAnimatedBoolean externalResourcesRequired {get { return default(SVGAnimatedBoolean); } }
+	public SVGAnimatedBoolean externalResourcesRequired {get;private set;}
 }
 
 }

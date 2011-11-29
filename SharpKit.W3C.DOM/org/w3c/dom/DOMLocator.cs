@@ -10,12 +10,12 @@ public partial class DOMLocator
 {
 
 	// DOMLocator
-	public int lineNumber {get { return default(int); } }
-	public int columnNumber {get { return default(int); } }
-	public int byteOffset {get { return default(int); } }
-	public int utf16Offset {get { return default(int); } }
-	public Node relatedNode {get { return default(Node); } }
-	public string uri {get { return default(string); } }
+	public int lineNumber {get;private set;}
+	public int columnNumber {get;private set;}
+	public int byteOffset {get;private set;}
+	public int utf16Offset {get;private set;}
+	public Node relatedNode {get;private set;}
+	public string uri {get;private set;}
 }
 
 }

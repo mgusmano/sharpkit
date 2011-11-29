@@ -12,10 +12,10 @@ public partial class SVGAnimationElement : SVGElement
 {
 
 	// SVGAnimationElement
-	public SVGElement targetElement {get { return default(SVGElement); } }
-	public float startTime {get { return default(float); } }
-	public float currentTime {get { return default(float); } }
-	public float simpleDuration {get { return default(float); } }
+	public SVGElement targetElement {get;private set;}
+	public float startTime {get;private set;}
+	public float currentTime {get;private set;}
+	public float simpleDuration {get;private set;}
 }
 
 }

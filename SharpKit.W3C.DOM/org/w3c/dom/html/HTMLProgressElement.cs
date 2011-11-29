@@ -11,11 +11,11 @@ public partial class HTMLProgressElement : HTMLElement
 {
 
 	// HTMLProgressElement
-	public float value {get { return default(float); } set {}}
-	public float max {get { return default(float); } set {}}
-	public float position {get { return default(float); } }
-	public HTMLFormElement form {get { return default(HTMLFormElement); } }
-	public NodeList labels {get { return default(NodeList); } }
+	public float value {get;set;}
+	public float max {get;set;}
+	public float position {get;private set;}
+	public HTMLFormElement form {get;private set;}
+	public NodeList labels {get;private set;}
 }
 
 }

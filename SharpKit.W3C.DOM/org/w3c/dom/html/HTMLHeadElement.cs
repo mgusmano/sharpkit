@@ -12,7 +12,7 @@ public partial class HTMLHeadElement : HTMLElement
 	// HTMLHeadElement
 
 	// HTMLHeadElement-14
-	public string profile {get { return default(string); } set {}}
+	public string profile {get;set;}
 }
 
 }

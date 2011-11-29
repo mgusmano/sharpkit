@@ -11,7 +11,7 @@ public partial class WebGLContextLostEvent : Event
 {
 
 	// WebGLContextLostEvent
-	public WebGLRenderingContext context {get { return default(WebGLRenderingContext); } }
+	public WebGLRenderingContext context {get;private set;}
 	public void initWebGLContextLostEvent(string type, bool canBubble, bool cancelable, WebGLRenderingContext context) {}
 }
 

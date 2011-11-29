@@ -15,14 +15,14 @@ public partial class WorkerGlobalScope
 {
 
 	// WorkerGlobalScope
-	public WorkerGlobalScope self {get { return default(WorkerGlobalScope); } }
-	public WorkerLocation location {get { return default(WorkerLocation); } }
+	public WorkerGlobalScope self {get;private set;}
+	public WorkerLocation location {get;private set;}
 	public void close() {}
-	public JsAction onerror {get { return default(JsAction); } set {}}
+	public JsAction onerror {get;set;}
 
 	// WorkerUtils
 	public void importScripts(params string[] urls) {}
-	public WorkerNavigator navigator {get { return default(WorkerNavigator); } }
+	public WorkerNavigator navigator {get;private set;}
 
 	// WorkerUtilsDatabase
 	public Database openDatabase(string name, string version, string displayName, int estimatedSize) { return default(Database); }
@@ -41,12 +41,12 @@ public partial class WorkerGlobalScope
 	// DedicatedWorkerGlobalScope
 	public void postMessage(object message) {}
 	public void postMessage(object message, MessagePort[] ports) {}
-	public JsAction onmessage {get { return default(JsAction); } set {}}
+	public JsAction onmessage {get;set;}
 
 	// SharedWorkerGlobalScope
-	public string name {get { return default(string); } }
-	public ApplicationCache applicationCache {get { return default(ApplicationCache); } }
-	public JsAction onconnect {get { return default(JsAction); } set {}}
+	public string name {get;private set;}
+	public ApplicationCache applicationCache {get;private set;}
+	public JsAction onconnect {get;set;}
 }
 
 }

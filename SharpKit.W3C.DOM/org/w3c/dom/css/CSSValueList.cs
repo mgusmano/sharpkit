@@ -10,9 +10,9 @@ public partial class CSSValueList : CSSValue
 {
 
 	// CSSValueList
-	public int length {get { return default(int); } }
+	public int length {get;private set;}
 	[JsProperty(NativeIndexer = true)]
-	public CSSValue this[int index] {get { return default(CSSValue); } }
+	public CSSValue this[int index] {get{return null;}}
 }
 
 }

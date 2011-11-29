@@ -11,7 +11,7 @@ public partial class CSSCharsetRule : CSSRule
 {
 
 	// CSSCharsetRule
-	public string encoding {get { return default(string); } set {}}
+	public string encoding {get;set;}
 }
 
 }

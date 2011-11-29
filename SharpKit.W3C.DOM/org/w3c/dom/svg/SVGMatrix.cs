@@ -10,12 +10,12 @@ public partial class SVGMatrix
 {
 
 	// SVGMatrix
-	public float a {get { return default(float); } set {}}
-	public float b {get { return default(float); } set {}}
-	public float c {get { return default(float); } set {}}
-	public float d {get { return default(float); } set {}}
-	public float e {get { return default(float); } set {}}
-	public float f {get { return default(float); } set {}}
+	public float a {get;set;}
+	public float b {get;set;}
+	public float c {get;set;}
+	public float d {get;set;}
+	public float e {get;set;}
+	public float f {get;set;}
 	public SVGMatrix multiply(SVGMatrix secondMatrix) { return default(SVGMatrix); }
 	public SVGMatrix inverse() { return default(SVGMatrix); }
 	public SVGMatrix translate(float x, float y) { return default(SVGMatrix); }

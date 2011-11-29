@@ -11,18 +11,18 @@ public partial class HTMLOutputElement : HTMLElement
 {
 
 	// HTMLOutputElement
-	public DOMSettableTokenList htmlFor {get { return default(DOMSettableTokenList); } set {}}
-	public HTMLFormElement form {get { return default(HTMLFormElement); } }
-	public string name {get { return default(string); } set {}}
-	public string type {get { return default(string); } }
-	public string defaultValue {get { return default(string); } set {}}
-	public string value {get { return default(string); } set {}}
-	public bool willValidate {get { return default(bool); } }
-	public ValidityState validity {get { return default(ValidityState); } }
-	public string validationMessage {get { return default(string); } }
+	public DOMSettableTokenList htmlFor {get;set;}
+	public HTMLFormElement form {get;private set;}
+	public string name {get;set;}
+	public string type {get;private set;}
+	public string defaultValue {get;set;}
+	public string value {get;set;}
+	public bool willValidate {get;private set;}
+	public ValidityState validity {get;private set;}
+	public string validationMessage {get;private set;}
 	public bool checkValidity() { return default(bool); }
 	public void setCustomValidity(string error) {}
-	public NodeList labels {get { return default(NodeList); } }
+	public NodeList labels {get;private set;}
 }
 
 }

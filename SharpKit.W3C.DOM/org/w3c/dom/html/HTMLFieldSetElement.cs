@@ -10,14 +10,14 @@ public partial class HTMLFieldSetElement : HTMLElement
 {
 
 	// HTMLFieldSetElement
-	public bool disabled {get { return default(bool); } set {}}
-	public HTMLFormElement form {get { return default(HTMLFormElement); } }
-	public string name {get { return default(string); } set {}}
-	public string type {get { return default(string); } }
-	public HTMLFormControlsCollection elements {get { return default(HTMLFormControlsCollection); } }
-	public bool willValidate {get { return default(bool); } }
-	public ValidityState validity {get { return default(ValidityState); } }
-	public string validationMessage {get { return default(string); } }
+	public bool disabled {get;set;}
+	public HTMLFormElement form {get;private set;}
+	public string name {get;set;}
+	public string type {get;private set;}
+	public HTMLFormControlsCollection elements {get;private set;}
+	public bool willValidate {get;private set;}
+	public ValidityState validity {get;private set;}
+	public string validationMessage {get;private set;}
 	public bool checkValidity() { return default(bool); }
 	public void setCustomValidity(string error) {}
 }

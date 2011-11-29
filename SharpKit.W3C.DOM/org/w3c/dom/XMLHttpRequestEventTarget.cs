@@ -11,13 +11,13 @@ public partial class XMLHttpRequestEventTarget : EventTarget
 {
 
 	// XMLHttpRequestEventTarget
-	public JsAction onloadstart {get { return default(JsAction); } set {}}
-	public JsAction onprogress {get { return default(JsAction); } set {}}
-	public JsAction onabort {get { return default(JsAction); } set {}}
-	public JsAction onerror {get { return default(JsAction); } set {}}
-	public JsAction onload {get { return default(JsAction); } set {}}
-	public JsAction ontimeout {get { return default(JsAction); } set {}}
-	public JsAction onloadend {get { return default(JsAction); } set {}}
+	public JsAction onloadstart {get;set;}
+	public JsAction onprogress {get;set;}
+	public JsAction onabort {get;set;}
+	public JsAction onerror {get;set;}
+	public JsAction onload {get;set;}
+	public JsAction ontimeout {get;set;}
+	public JsAction onloadend {get;set;}
 }
 
 }

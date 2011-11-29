@@ -10,8 +10,8 @@ public partial class HTMLOptGroupElement : HTMLElement
 {
 
 	// HTMLOptGroupElement
-	public bool disabled {get { return default(bool); } set {}}
-	public string label {get { return default(string); } set {}}
+	public bool disabled {get;set;}
+	public string label {get;set;}
 }
 
 }

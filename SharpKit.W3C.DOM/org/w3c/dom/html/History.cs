@@ -10,7 +10,7 @@ public partial class History
 {
 
 	// History
-	public int length {get { return default(int); } }
+	public int length {get;private set;}
 	public void go() {}
 	public void go(int delta) {}
 	public void back() {}

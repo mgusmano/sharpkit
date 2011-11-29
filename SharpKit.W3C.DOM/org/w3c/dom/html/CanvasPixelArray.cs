@@ -10,7 +10,7 @@ public partial class CanvasPixelArray
 {
 
 	// CanvasPixelArray
-	public int length {get { return default(int); } }
+	public int length {get;private set;}
 	public byte getElement(int index) { return default(byte); }
 	public void setElement(int index, byte value) {}
 }

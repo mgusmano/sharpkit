@@ -10,11 +10,11 @@ public partial class SVGFilterPrimitiveStandardAttributes : SVGStylable
 {
 
 	// SVGFilterPrimitiveStandardAttributes
-	public SVGAnimatedLength x {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength y {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength width {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength height {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedString result {get { return default(SVGAnimatedString); } }
+	public SVGAnimatedLength x {get;private set;}
+	public SVGAnimatedLength y {get;private set;}
+	public SVGAnimatedLength width {get;private set;}
+	public SVGAnimatedLength height {get;private set;}
+	public SVGAnimatedString result {get;private set;}
 }
 
 }

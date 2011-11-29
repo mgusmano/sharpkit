@@ -11,8 +11,8 @@ public partial class NodeList
 
 	// NodeList
 	[JsProperty(NativeIndexer = true)]
-	public Node this[int index] {get { return default(Node); } }
-	public int length {get { return default(int); } }
+	public Node this[int index] {get{return null;}}
+	public int length {get;private set;}
 }
 
 }

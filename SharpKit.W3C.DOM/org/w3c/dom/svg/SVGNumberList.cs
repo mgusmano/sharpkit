@@ -11,7 +11,7 @@ public partial class SVGNumberList
 {
 
 	// SVGNumberList
-	public int numberOfItems {get { return default(int); } }
+	public int numberOfItems {get;private set;}
 	public void clear() {}
 	public SVGNumber initialize(SVGNumber newItem) { return default(SVGNumber); }
 	public SVGNumber getItem(int index) { return default(SVGNumber); }

@@ -10,7 +10,7 @@ public partial class SVGFEMergeNodeElement : SVGElement
 {
 
 	// SVGFEMergeNodeElement
-	public SVGAnimatedString in1 {get { return default(SVGAnimatedString); } }
+	public SVGAnimatedString in1 {get;private set;}
 }
 
 }

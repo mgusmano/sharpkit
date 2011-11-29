@@ -10,7 +10,7 @@ public partial class HTMLDataListElement : HTMLElement
 {
 
 	// HTMLDataListElement
-	public HTMLCollection options {get { return default(HTMLCollection); } }
+	public HTMLCollection options {get;private set;}
 }
 
 }

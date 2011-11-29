@@ -11,10 +11,10 @@ public partial class SVGElement : Element
 {
 
 	// SVGElement
-	public string id {get { return default(string); } set {}}
-	public string xmlbase {get { return default(string); } set {}}
-	public SVGSVGElement ownerSVGElement {get { return default(SVGSVGElement); } }
-	public SVGElement viewportElement {get { return default(SVGElement); } }
+	public string id {get;set;}
+	public string xmlbase {get;set;}
+	public SVGSVGElement ownerSVGElement {get;private set;}
+	public SVGElement viewportElement {get;private set;}
 }
 
 }

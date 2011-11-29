@@ -12,8 +12,8 @@ public partial class HTMLUListElement : HTMLElement
 	// HTMLUListElement
 
 	// HTMLUListElement-35
-	public bool compact {get { return default(bool); } set {}}
-	public string type {get { return default(string); } set {}}
+	public bool compact {get;set;}
+	public string type {get;set;}
 }
 
 }

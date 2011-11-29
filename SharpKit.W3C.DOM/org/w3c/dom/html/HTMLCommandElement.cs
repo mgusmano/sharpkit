@@ -10,12 +10,12 @@ public partial class HTMLCommandElement : HTMLElement
 {
 
 	// HTMLCommandElement
-	public string type {get { return default(string); } set {}}
-	public string label {get { return default(string); } set {}}
-	public string icon {get { return default(string); } set {}}
-	public bool disabled {get { return default(bool); } set {}}
-	public bool @checked {get { return default(bool); } set {}}
-	public string radiogroup {get { return default(string); } set {}}
+	public string type {get;set;}
+	public string label {get;set;}
+	public string icon {get;set;}
+	public bool disabled {get;set;}
+	public bool @checked {get;set;}
+	public string radiogroup {get;set;}
 }
 
 }

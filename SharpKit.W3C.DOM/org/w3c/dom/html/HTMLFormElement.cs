@@ -10,20 +10,20 @@ public partial class HTMLFormElement : HTMLElement
 {
 
 	// HTMLFormElement
-	public string acceptCharset {get { return default(string); } set {}}
-	public string action {get { return default(string); } set {}}
-	public bool autocomplete {get { return default(bool); } set {}}
-	public string enctype {get { return default(string); } set {}}
-	public string method {get { return default(string); } set {}}
-	public string name {get { return default(string); } set {}}
-	public bool noValidate {get { return default(bool); } set {}}
-	public string target {get { return default(string); } set {}}
-	public HTMLFormControlsCollection elements {get { return default(HTMLFormControlsCollection); } }
-	public int length {get { return default(int); } }
+	public string acceptCharset {get;set;}
+	public string action {get;set;}
+	public bool autocomplete {get;set;}
+	public string enctype {get;set;}
+	public string method {get;set;}
+	public string name {get;set;}
+	public bool noValidate {get;set;}
+	public string target {get;set;}
+	public HTMLFormControlsCollection elements {get;private set;}
+	public int length {get;private set;}
 	[JsProperty(NativeIndexer = true)]
-	public object this[int index] {get { return default(object); } }
+	public object this[int index] {get{return null;}}
 	[JsProperty(NativeIndexer = true)]
-	public object this[string name] {get { return default(object); } }
+	public object this[string name] {get{return null;}}
 	public void submit() {}
 	public void reset() {}
 	public bool checkValidity() { return default(bool); }

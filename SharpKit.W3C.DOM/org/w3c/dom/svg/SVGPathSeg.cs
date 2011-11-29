@@ -30,8 +30,8 @@ public partial class SVGPathSeg
 	public static short PATHSEG_CURVETO_CUBIC_SMOOTH_REL = 17;
 	public static short PATHSEG_CURVETO_QUADRATIC_SMOOTH_ABS = 18;
 	public static short PATHSEG_CURVETO_QUADRATIC_SMOOTH_REL = 19;
-	public short pathSegType {get { return default(short); } }
-	public string pathSegTypeAsLetter {get { return default(string); } }
+	public short pathSegType {get;private set;}
+	public string pathSegTypeAsLetter {get;private set;}
 }
 
 }

@@ -10,7 +10,7 @@ public partial class CSSPercentageComponentValue : CSSComponentValue
 {
 
 	// CSSPercentageComponentValue
-	public float percent {get { return default(float); } set {}}
+	public float percent {get;set;}
 }
 
 }

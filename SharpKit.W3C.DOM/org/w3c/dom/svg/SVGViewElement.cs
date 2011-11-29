@@ -10,7 +10,7 @@ public partial class SVGViewElement : SVGElement
 {
 
 	// SVGViewElement
-	public SVGStringList viewTarget {get { return default(SVGStringList); } }
+	public SVGStringList viewTarget {get;private set;}
 }
 
 }

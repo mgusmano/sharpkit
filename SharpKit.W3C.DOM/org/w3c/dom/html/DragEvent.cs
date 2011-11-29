@@ -13,7 +13,7 @@ public partial class DragEvent : MouseEvent
 {
 
 	// DragEvent
-	public DataTransfer dataTransfer {get { return default(DataTransfer); } }
+	public DataTransfer dataTransfer {get;private set;}
 	public void initDragEvent(string typeArg, bool canBubbleArg, bool cancelableArg, AbstractView viewArg, int detailArg, int screenXArg, int screenYArg, int clientXArg, int clientYArg, bool ctrlKeyArg, bool altKeyArg, bool shiftKeyArg, bool metaKeyArg, short buttonArg, EventTarget relatedTargetArg, DataTransfer dataTransferArg) {}
 }
 

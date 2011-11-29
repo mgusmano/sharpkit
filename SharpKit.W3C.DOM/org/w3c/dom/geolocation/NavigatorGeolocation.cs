@@ -10,7 +10,7 @@ public partial class NavigatorGeolocation
 {
 
 	// NavigatorGeolocation
-	public Geolocation geolocation {get { return default(Geolocation); } }
+	public Geolocation geolocation {get;private set;}
 }
 
 }

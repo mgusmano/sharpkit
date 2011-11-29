@@ -16,9 +16,9 @@ public partial class SVGFEBlendElement : SVGElement
 	public static short SVG_FEBLEND_MODE_SCREEN = 3;
 	public static short SVG_FEBLEND_MODE_DARKEN = 4;
 	public static short SVG_FEBLEND_MODE_LIGHTEN = 5;
-	public SVGAnimatedString in1 {get { return default(SVGAnimatedString); } }
-	public SVGAnimatedString in2 {get { return default(SVGAnimatedString); } }
-	public SVGAnimatedEnumeration mode {get { return default(SVGAnimatedEnumeration); } }
+	public SVGAnimatedString in1 {get;private set;}
+	public SVGAnimatedString in2 {get;private set;}
+	public SVGAnimatedEnumeration mode {get;private set;}
 }
 
 }

@@ -11,14 +11,14 @@ public partial class HTMLMeterElement : HTMLElement
 {
 
 	// HTMLMeterElement
-	public float value {get { return default(float); } set {}}
-	public float min {get { return default(float); } set {}}
-	public float max {get { return default(float); } set {}}
-	public float low {get { return default(float); } set {}}
-	public float high {get { return default(float); } set {}}
-	public float optimum {get { return default(float); } set {}}
-	public HTMLFormElement form {get { return default(HTMLFormElement); } }
-	public NodeList labels {get { return default(NodeList); } }
+	public float value {get;set;}
+	public float min {get;set;}
+	public float max {get;set;}
+	public float low {get;set;}
+	public float high {get;set;}
+	public float optimum {get;set;}
+	public HTMLFormElement form {get;private set;}
+	public NodeList labels {get;private set;}
 }
 
 }

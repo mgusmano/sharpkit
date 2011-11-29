@@ -10,7 +10,7 @@ public partial class SVGStopElement : SVGElement
 {
 
 	// SVGStopElement
-	public SVGAnimatedNumber offset {get { return default(SVGAnimatedNumber); } }
+	public SVGAnimatedNumber offset {get;private set;}
 }
 
 }

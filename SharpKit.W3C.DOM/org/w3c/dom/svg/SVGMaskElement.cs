@@ -10,12 +10,12 @@ public partial class SVGMaskElement : SVGElement
 {
 
 	// SVGMaskElement
-	public SVGAnimatedEnumeration maskUnits {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedEnumeration maskContentUnits {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedLength x {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength y {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength width {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength height {get { return default(SVGAnimatedLength); } }
+	public SVGAnimatedEnumeration maskUnits {get;private set;}
+	public SVGAnimatedEnumeration maskContentUnits {get;private set;}
+	public SVGAnimatedLength x {get;private set;}
+	public SVGAnimatedLength y {get;private set;}
+	public SVGAnimatedLength width {get;private set;}
+	public SVGAnimatedLength height {get;private set;}
 }
 
 }

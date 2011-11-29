@@ -10,7 +10,7 @@ public partial class SVGClipPathElement : SVGElement
 {
 
 	// SVGClipPathElement
-	public SVGAnimatedEnumeration clipPathUnits {get { return default(SVGAnimatedEnumeration); } }
+	public SVGAnimatedEnumeration clipPathUnits {get;private set;}
 }
 
 }

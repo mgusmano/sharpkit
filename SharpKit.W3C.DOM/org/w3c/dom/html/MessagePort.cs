@@ -14,7 +14,7 @@ public partial class MessagePort
 	public void postMessage(object message, MessagePort[] ports) {}
 	public void start() {}
 	public void close() {}
-	public JsAction onmessage {get { return default(JsAction); } set {}}
+	public JsAction onmessage {get;set;}
 }
 
 }

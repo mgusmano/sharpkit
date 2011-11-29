@@ -10,10 +10,10 @@ public partial class SVGEllipseElement : SVGElement
 {
 
 	// SVGEllipseElement
-	public SVGAnimatedLength cx {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength cy {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength rx {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength ry {get { return default(SVGAnimatedLength); } }
+	public SVGAnimatedLength cx {get;private set;}
+	public SVGAnimatedLength cy {get;private set;}
+	public SVGAnimatedLength rx {get;private set;}
+	public SVGAnimatedLength ry {get;private set;}
 }
 
 }

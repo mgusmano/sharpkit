@@ -10,9 +10,9 @@ public partial class Counter
 {
 
 	// Counter
-	public string identifier {get { return default(string); } }
-	public string listStyle {get { return default(string); } }
-	public string separator {get { return default(string); } }
+	public string identifier {get;private set;}
+	public string listStyle {get;private set;}
+	public string separator {get;private set;}
 }
 
 }

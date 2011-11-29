@@ -10,7 +10,7 @@ public partial class IDBEnvironment
 {
 
 	// IDBEnvironment
-	public IndexedDatabaseRequest indexedDB {get { return default(IndexedDatabaseRequest); } }
+	public IndexedDatabaseRequest indexedDB {get;private set;}
 }
 
 }

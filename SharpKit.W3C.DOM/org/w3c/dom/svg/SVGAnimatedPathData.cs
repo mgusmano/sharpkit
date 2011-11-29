@@ -10,10 +10,10 @@ public partial class SVGAnimatedPathData
 {
 
 	// SVGAnimatedPathData
-	public SVGPathSegList pathSegList {get { return default(SVGPathSegList); } }
-	public SVGPathSegList normalizedPathSegList {get { return default(SVGPathSegList); } }
-	public SVGPathSegList animatedPathSegList {get { return default(SVGPathSegList); } }
-	public SVGPathSegList animatedNormalizedPathSegList {get { return default(SVGPathSegList); } }
+	public SVGPathSegList pathSegList {get;private set;}
+	public SVGPathSegList normalizedPathSegList {get;private set;}
+	public SVGPathSegList animatedPathSegList {get;private set;}
+	public SVGPathSegList animatedNormalizedPathSegList {get;private set;}
 }
 
 }

@@ -10,9 +10,9 @@ public partial class SVGFEPointLightElement : SVGElement
 {
 
 	// SVGFEPointLightElement
-	public SVGAnimatedNumber x {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber y {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber z {get { return default(SVGAnimatedNumber); } }
+	public SVGAnimatedNumber x {get;private set;}
+	public SVGAnimatedNumber y {get;private set;}
+	public SVGAnimatedNumber z {get;private set;}
 }
 
 }

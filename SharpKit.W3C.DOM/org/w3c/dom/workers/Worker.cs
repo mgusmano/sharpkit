@@ -14,7 +14,7 @@ public partial class Worker : AbstractWorker
 	public void terminate() {}
 	public void postMessage(object message) {}
 	public void postMessage(object message, MessagePort[] ports) {}
-	public JsAction onmessage {get { return default(JsAction); } set {}}
+	public JsAction onmessage {get;set;}
 }
 
 }

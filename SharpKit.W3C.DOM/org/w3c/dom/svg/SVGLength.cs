@@ -21,10 +21,10 @@ public partial class SVGLength
 	public static short SVG_LENGTHTYPE_IN = 8;
 	public static short SVG_LENGTHTYPE_PT = 9;
 	public static short SVG_LENGTHTYPE_PC = 10;
-	public short unitType {get { return default(short); } }
-	public float value {get { return default(float); } set {}}
-	public float valueInSpecifiedUnits {get { return default(float); } set {}}
-	public string valueAsString {get { return default(string); } set {}}
+	public short unitType {get;private set;}
+	public float value {get;set;}
+	public float valueInSpecifiedUnits {get;set;}
+	public string valueAsString {get;set;}
 	public void newValueSpecifiedUnits(short unitType, float valueInSpecifiedUnits) {}
 	public void convertToSpecifiedUnits(short unitType) {}
 }

@@ -10,9 +10,9 @@ public partial class HTMLLabelElement : HTMLElement
 {
 
 	// HTMLLabelElement
-	public HTMLFormElement form {get { return default(HTMLFormElement); } }
-	public string htmlFor {get { return default(string); } set {}}
-	public HTMLElement control {get { return default(HTMLElement); } }
+	public HTMLFormElement form {get;private set;}
+	public string htmlFor {get;set;}
+	public HTMLElement control {get;private set;}
 }
 
 }

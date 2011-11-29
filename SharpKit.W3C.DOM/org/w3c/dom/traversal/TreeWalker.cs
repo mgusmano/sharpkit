@@ -12,11 +12,11 @@ public partial class TreeWalker
 {
 
 	// TreeWalker
-	public Node root {get { return default(Node); } }
-	public int whatToShow {get { return default(int); } }
-	public NodeFilter filter {get { return default(NodeFilter); } }
-	public bool expandEntityReferences {get { return default(bool); } }
-	public Node currentNode {get { return default(Node); } set {}}
+	public Node root {get;private set;}
+	public int whatToShow {get;private set;}
+	public NodeFilter filter {get;private set;}
+	public bool expandEntityReferences {get;private set;}
+	public Node currentNode {get;set;}
 	public Node parentNode() { return default(Node); }
 	public Node firstChild() { return default(Node); }
 	public Node lastChild() { return default(Node); }

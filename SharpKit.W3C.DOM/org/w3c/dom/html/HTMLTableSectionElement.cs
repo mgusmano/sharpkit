@@ -10,16 +10,16 @@ public partial class HTMLTableSectionElement : HTMLElement
 {
 
 	// HTMLTableSectionElement
-	public HTMLCollection rows {get { return default(HTMLCollection); } }
+	public HTMLCollection rows {get;private set;}
 	public HTMLElement insertRow() { return default(HTMLElement); }
 	public HTMLElement insertRow(int index) { return default(HTMLElement); }
 	public void deleteRow(int index) {}
 
 	// HTMLTableSectionElement-32
-	public string align {get { return default(string); } set {}}
-	public string ch {get { return default(string); } set {}}
-	public string chOff {get { return default(string); } set {}}
-	public string vAlign {get { return default(string); } set {}}
+	public string align {get;set;}
+	public string ch {get;set;}
+	public string chOff {get;set;}
+	public string vAlign {get;set;}
 }
 
 }

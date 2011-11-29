@@ -11,7 +11,7 @@ public partial class IDBDatabaseRequest : IDBDatabase
 {
 
 	// IDBDatabaseRequest
-	public IDBRequest request {get { return default(IDBRequest); } }
+	public IDBRequest request {get;private set;}
 	public void createObjectStore(string name, string keyPath) {}
 	public void createObjectStore(string name, string keyPath, bool autoIncrement) {}
 	public void openObjectStore(string name) {}

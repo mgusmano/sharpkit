@@ -10,14 +10,14 @@ public partial class SVGFilterElement : SVGElement
 {
 
 	// SVGFilterElement
-	public SVGAnimatedEnumeration filterUnits {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedEnumeration primitiveUnits {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedLength x {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength y {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength width {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength height {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedInteger filterResX {get { return default(SVGAnimatedInteger); } }
-	public SVGAnimatedInteger filterResY {get { return default(SVGAnimatedInteger); } }
+	public SVGAnimatedEnumeration filterUnits {get;private set;}
+	public SVGAnimatedEnumeration primitiveUnits {get;private set;}
+	public SVGAnimatedLength x {get;private set;}
+	public SVGAnimatedLength y {get;private set;}
+	public SVGAnimatedLength width {get;private set;}
+	public SVGAnimatedLength height {get;private set;}
+	public SVGAnimatedInteger filterResX {get;private set;}
+	public SVGAnimatedInteger filterResY {get;private set;}
 	public void setFilterRes(int filterResX, int filterResY) {}
 }
 

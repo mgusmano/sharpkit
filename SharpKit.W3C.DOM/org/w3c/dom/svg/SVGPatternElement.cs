@@ -10,13 +10,13 @@ public partial class SVGPatternElement : SVGElement
 {
 
 	// SVGPatternElement
-	public SVGAnimatedEnumeration patternUnits {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedEnumeration patternContentUnits {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedTransformList patternTransform {get { return default(SVGAnimatedTransformList); } }
-	public SVGAnimatedLength x {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength y {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength width {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength height {get { return default(SVGAnimatedLength); } }
+	public SVGAnimatedEnumeration patternUnits {get;private set;}
+	public SVGAnimatedEnumeration patternContentUnits {get;private set;}
+	public SVGAnimatedTransformList patternTransform {get;private set;}
+	public SVGAnimatedLength x {get;private set;}
+	public SVGAnimatedLength y {get;private set;}
+	public SVGAnimatedLength width {get;private set;}
+	public SVGAnimatedLength height {get;private set;}
 }
 
 }

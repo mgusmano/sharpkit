@@ -10,7 +10,7 @@ public partial class SVGNumber
 {
 
 	// SVGNumber
-	public float value {get { return default(float); } set {}}
+	public float value {get;set;}
 }
 
 }

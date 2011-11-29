@@ -10,12 +10,12 @@ public partial class SVGPathSegCurvetoCubicAbs : SVGPathSeg
 {
 
 	// SVGPathSegCurvetoCubicAbs
-	public float x {get { return default(float); } set {}}
-	public float y {get { return default(float); } set {}}
-	public float x1 {get { return default(float); } set {}}
-	public float y1 {get { return default(float); } set {}}
-	public float x2 {get { return default(float); } set {}}
-	public float y2 {get { return default(float); } set {}}
+	public float x {get;set;}
+	public float y {get;set;}
+	public float x1 {get;set;}
+	public float y1 {get;set;}
+	public float x2 {get;set;}
+	public float y2 {get;set;}
 }
 
 }

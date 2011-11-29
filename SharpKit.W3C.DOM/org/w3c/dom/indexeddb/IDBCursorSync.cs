@@ -10,9 +10,9 @@ public partial class IDBCursorSync : IDBCursor
 {
 
 	// IDBCursorSync
-	public object key {get { return default(object); } }
-	public object value {get { return default(object); } set {}}
-	public long count {get { return default(long); } }
+	public object key {get;private set;}
+	public object value {get;set;}
+	public long count {get;private set;}
 	public bool _continue() { return default(bool); }
 	public bool _continue(object key) { return default(bool); }
 	public void remove() {}

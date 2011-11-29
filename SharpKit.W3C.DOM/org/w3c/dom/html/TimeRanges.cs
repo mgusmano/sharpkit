@@ -10,7 +10,7 @@ public partial class TimeRanges
 {
 
 	// TimeRanges
-	public int length {get { return default(int); } }
+	public int length {get;private set;}
 	public float start(int index) { return default(float); }
 	public float end(int index) { return default(float); }
 }

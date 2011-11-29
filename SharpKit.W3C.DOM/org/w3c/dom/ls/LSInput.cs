@@ -10,14 +10,14 @@ public partial class LSInput
 {
 
 	// LSInput
-	public object characterStream {get { return default(object); } set {}}
-	public object byteStream {get { return default(object); } set {}}
-	public string stringData {get { return default(string); } set {}}
-	public string systemId {get { return default(string); } set {}}
-	public string publicId {get { return default(string); } set {}}
-	public string baseURI {get { return default(string); } set {}}
-	public string encoding {get { return default(string); } set {}}
-	public bool certifiedText {get { return default(bool); } set {}}
+	public object characterStream {get;set;}
+	public object byteStream {get;set;}
+	public string stringData {get;set;}
+	public string systemId {get;set;}
+	public string publicId {get;set;}
+	public string baseURI {get;set;}
+	public string encoding {get;set;}
+	public bool certifiedText {get;set;}
 }
 
 }

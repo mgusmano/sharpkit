@@ -11,7 +11,7 @@ public partial class RadioNodeList : NodeList
 {
 
 	// RadioNodeList
-	public string value {get { return default(string); } set {}}
+	public string value {get;set;}
 }
 
 }

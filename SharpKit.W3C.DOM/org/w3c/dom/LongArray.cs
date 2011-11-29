@@ -10,7 +10,7 @@ public partial class LongArray
 {
 
 	// LongArray
-	public int length {get { return default(int); } set {}}
+	public int length {get;set;}
 	public int getElement(int index) { return default(int); }
 	public void setElement(int index, int value) {}
 }

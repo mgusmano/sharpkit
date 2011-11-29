@@ -10,8 +10,8 @@ public partial class SVGAnimatedNumberList
 {
 
 	// SVGAnimatedNumberList
-	public SVGNumberList baseVal {get { return default(SVGNumberList); } }
-	public SVGNumberList animVal {get { return default(SVGNumberList); } }
+	public SVGNumberList baseVal {get;private set;}
+	public SVGNumberList animVal {get;private set;}
 }
 
 }

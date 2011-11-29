@@ -10,8 +10,8 @@ public partial class HTMLBaseElement : HTMLElement
 {
 
 	// HTMLBaseElement
-	public string href {get { return default(string); } set {}}
-	public string target {get { return default(string); } set {}}
+	public string href {get;set;}
+	public string target {get;set;}
 }
 
 }

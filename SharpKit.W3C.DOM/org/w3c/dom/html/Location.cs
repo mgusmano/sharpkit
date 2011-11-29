@@ -10,17 +10,17 @@ public partial class Location
 {
 
 	// Location
-	public string href {get { return default(string); } set {}}
+	public string href {get;set;}
 	public void assign(string url) {}
 	public void replace(string url) {}
 	public void reload() {}
-	public string protocol {get { return default(string); } set {}}
-	public string host {get { return default(string); } set {}}
-	public string hostname {get { return default(string); } set {}}
-	public string port {get { return default(string); } set {}}
-	public string pathname {get { return default(string); } set {}}
-	public string search {get { return default(string); } set {}}
-	public string hash {get { return default(string); } set {}}
+	public string protocol {get;set;}
+	public string host {get;set;}
+	public string hostname {get;set;}
+	public string port {get;set;}
+	public string pathname {get;set;}
+	public string search {get;set;}
+	public string hash {get;set;}
 	public string resolveURL(string url) { return default(string); }
 }
 

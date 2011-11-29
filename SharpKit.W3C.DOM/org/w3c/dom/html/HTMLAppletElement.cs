@@ -10,17 +10,17 @@ public partial class HTMLAppletElement : HTMLElement
 {
 
 	// HTMLAppletElement
-	public string align {get { return default(string); } set {}}
-	public string alt {get { return default(string); } set {}}
-	public string archive {get { return default(string); } set {}}
-	public string code {get { return default(string); } set {}}
-	public string codeBase {get { return default(string); } set {}}
-	public string height {get { return default(string); } set {}}
-	public int hspace {get { return default(int); } set {}}
-	public string name {get { return default(string); } set {}}
-	public string @object {get { return default(string); } set {}}
-	public int vspace {get { return default(int); } set {}}
-	public string width {get { return default(string); } set {}}
+	public string align {get;set;}
+	public string alt {get;set;}
+	public string archive {get;set;}
+	public string code {get;set;}
+	public string codeBase {get;set;}
+	public string height {get;set;}
+	public int hspace {get;set;}
+	public string name {get;set;}
+	public string @object {get;set;}
+	public int vspace {get;set;}
+	public string width {get;set;}
 }
 
 }

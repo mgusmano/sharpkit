@@ -10,8 +10,8 @@ public partial class SVGAnimatedString
 {
 
 	// SVGAnimatedString
-	public string baseVal {get { return default(string); } set {}}
-	public string animVal {get { return default(string); } }
+	public string baseVal {get;set;}
+	public string animVal {get;private set;}
 }
 
 }

@@ -11,8 +11,8 @@ public partial class UIEvent : Event
 {
 
 	// UIEvent
-	public AbstractView view {get { return default(AbstractView); } }
-	public int detail {get { return default(int); } }
+	public AbstractView view {get;private set;}
+	public int detail {get;private set;}
 	public void initUIEvent(string typeArg, bool canBubbleArg, bool cancelableArg, AbstractView viewArg, int detailArg) {}
 }
 

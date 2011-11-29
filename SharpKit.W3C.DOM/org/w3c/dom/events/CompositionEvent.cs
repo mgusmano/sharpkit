@@ -11,7 +11,7 @@ public partial class CompositionEvent : UIEvent
 {
 
 	// CompositionEvent
-	public string data {get { return default(string); } }
+	public string data {get;private set;}
 	public void initCompositionEvent(string typeArg, bool canBubbleArg, bool cancelableArg, AbstractView viewArg, string dataArg) {}
 }
 

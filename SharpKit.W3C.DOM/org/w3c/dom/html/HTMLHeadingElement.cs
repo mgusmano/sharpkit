@@ -12,7 +12,7 @@ public partial class HTMLHeadingElement : HTMLElement
 	// HTMLHeadingElement
 
 	// HTMLHeadingElement-13
-	public string align {get { return default(string); } set {}}
+	public string align {get;set;}
 }
 
 }

@@ -10,8 +10,8 @@ public partial class SVGAnimatedEnumeration
 {
 
 	// SVGAnimatedEnumeration
-	public short baseVal {get { return default(short); } set {}}
-	public short animVal {get { return default(short); } }
+	public short baseVal {get;set;}
+	public short animVal {get;private set;}
 }
 
 }

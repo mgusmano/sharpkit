@@ -14,10 +14,10 @@ public partial class LSParser
 {
 
 	// LSParser
-	public DOMConfiguration domConfig {get { return default(DOMConfiguration); } }
-	public LSParserFilter filter {get { return default(LSParserFilter); } set {}}
-	public bool async {get { return default(bool); } }
-	public bool busy {get { return default(bool); } }
+	public DOMConfiguration domConfig {get;private set;}
+	public LSParserFilter filter {get;set;}
+	public bool async {get;private set;}
+	public bool busy {get;private set;}
 	public Document parse(LSInput input) { return default(Document); }
 	public Document parseURI(string uri) { return default(Document); }
 	public static short ACTION_APPEND_AS_CHILDREN = 1;

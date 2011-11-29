@@ -16,7 +16,7 @@ public partial class Database
 	public void readTransaction(SQLTransactionCallback callback) {}
 	public void readTransaction(SQLTransactionCallback callback, SQLTransactionErrorCallback errorCallback) {}
 	public void readTransaction(SQLTransactionCallback callback, SQLTransactionErrorCallback errorCallback, SQLVoidCallback successCallback) {}
-	public string version {get { return default(string); } }
+	public string version {get;private set;}
 	public void changeVersion(string oldVersion, string newVersion) {}
 	public void changeVersion(string oldVersion, string newVersion, SQLTransactionCallback callback) {}
 	public void changeVersion(string oldVersion, string newVersion, SQLTransactionCallback callback, SQLTransactionErrorCallback errorCallback) {}

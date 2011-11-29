@@ -10,9 +10,9 @@ public partial class DOMTokenList
 {
 
 	// DOMTokenList
-	public int length {get { return default(int); } }
+	public int length {get;private set;}
 	[JsProperty(NativeIndexer = true)]
-	public string this[int index] {get { return default(string); } }
+	public string this[int index] {get{return null;}}
 	public bool contains(string token) { return default(bool); }
 	public void add(string token) {}
 	public void remove(string token) {}

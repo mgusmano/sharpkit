@@ -12,10 +12,10 @@ public partial class NodeIterator
 {
 
 	// NodeIterator
-	public Node root {get { return default(Node); } }
-	public int whatToShow {get { return default(int); } }
-	public NodeFilter filter {get { return default(NodeFilter); } }
-	public bool expandEntityReferences {get { return default(bool); } }
+	public Node root {get;private set;}
+	public int whatToShow {get;private set;}
+	public NodeFilter filter {get;private set;}
+	public bool expandEntityReferences {get;private set;}
 	public Node nextNode() { return default(Node); }
 	public Node previousNode() { return default(Node); }
 	public void detach() {}

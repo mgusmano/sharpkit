@@ -10,9 +10,9 @@ public partial class HTMLMapElement : HTMLElement
 {
 
 	// HTMLMapElement
-	public string name {get { return default(string); } set {}}
-	public HTMLCollection areas {get { return default(HTMLCollection); } }
-	public HTMLCollection images {get { return default(HTMLCollection); } }
+	public string name {get;set;}
+	public HTMLCollection areas {get;private set;}
+	public HTMLCollection images {get;private set;}
 }
 
 }

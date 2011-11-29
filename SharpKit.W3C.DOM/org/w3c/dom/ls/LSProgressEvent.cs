@@ -11,9 +11,9 @@ public partial class LSProgressEvent : Event
 {
 
 	// LSProgressEvent
-	public LSInput input {get { return default(LSInput); } }
-	public int position {get { return default(int); } }
-	public int totalSize {get { return default(int); } }
+	public LSInput input {get;private set;}
+	public int position {get;private set;}
+	public int totalSize {get;private set;}
 }
 
 }

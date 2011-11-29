@@ -10,8 +10,8 @@ public partial class SVGAnimatedPreserveAspectRatio
 {
 
 	// SVGAnimatedPreserveAspectRatio
-	public SVGPreserveAspectRatio baseVal {get { return default(SVGPreserveAspectRatio); } }
-	public SVGPreserveAspectRatio animVal {get { return default(SVGPreserveAspectRatio); } }
+	public SVGPreserveAspectRatio baseVal {get;private set;}
+	public SVGPreserveAspectRatio animVal {get;private set;}
 }
 
 }

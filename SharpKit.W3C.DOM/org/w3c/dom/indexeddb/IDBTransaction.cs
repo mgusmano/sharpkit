@@ -10,8 +10,8 @@ public partial class IDBTransaction
 {
 
 	// IDBTransaction
-	public bool @static {get { return default(bool); } set {}}
-	public IDBDatabase db {get { return default(IDBDatabase); } set {}}
+	public bool @static {get;set;}
+	public IDBDatabase db {get;set;}
 }
 
 }

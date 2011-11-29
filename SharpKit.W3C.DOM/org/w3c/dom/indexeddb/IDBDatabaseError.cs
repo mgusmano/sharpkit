@@ -10,8 +10,8 @@ public partial class IDBDatabaseError
 {
 
 	// IDBDatabaseError
-	public short code {get { return default(short); } set {}}
-	public string message {get { return default(string); } set {}}
+	public short code {get;set;}
+	public string message {get;set;}
 }
 
 }

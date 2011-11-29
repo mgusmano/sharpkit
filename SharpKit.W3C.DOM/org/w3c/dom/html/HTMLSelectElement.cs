@@ -11,32 +11,32 @@ public partial class HTMLSelectElement : HTMLElement
 {
 
 	// HTMLSelectElement
-	public bool autofocus {get { return default(bool); } set {}}
-	public bool disabled {get { return default(bool); } set {}}
-	public HTMLFormElement form {get { return default(HTMLFormElement); } }
-	public bool multiple {get { return default(bool); } set {}}
-	public string name {get { return default(string); } set {}}
-	public int size {get { return default(int); } set {}}
-	public string type {get { return default(string); } }
-	public HTMLOptionsCollection options {get { return default(HTMLOptionsCollection); } }
-	public int length {get { return default(int); } set {}}
+	public bool autofocus {get;set;}
+	public bool disabled {get;set;}
+	public HTMLFormElement form {get;private set;}
+	public bool multiple {get;set;}
+	public string name {get;set;}
+	public int size {get;set;}
+	public string type {get;private set;}
+	public HTMLOptionsCollection options {get;private set;}
+	public int length {get;set;}
 	[JsProperty(NativeIndexer = true)]
-	public object this[int index] {get { return default(object); } }
+	public object this[int index] {get{return null;}}
 	[JsProperty(NativeIndexer = true)]
-	public object this[string name] {get { return default(object); } }
+	public object this[string name] {get{return null;}}
 	public void add(HTMLElement element) {}
 	public void add(HTMLElement element, HTMLElement before) {}
 	public void add(HTMLElement element, int before) {}
 	public void remove(int index) {}
-	public HTMLCollection selectedOptions {get { return default(HTMLCollection); } }
-	public int selectedIndex {get { return default(int); } set {}}
-	public string value {get { return default(string); } set {}}
-	public bool willValidate {get { return default(bool); } }
-	public ValidityState validity {get { return default(ValidityState); } }
-	public string validationMessage {get { return default(string); } }
+	public HTMLCollection selectedOptions {get;private set;}
+	public int selectedIndex {get;set;}
+	public string value {get;set;}
+	public bool willValidate {get;private set;}
+	public ValidityState validity {get;private set;}
+	public string validationMessage {get;private set;}
 	public bool checkValidity() { return default(bool); }
 	public void setCustomValidity(string error) {}
-	public NodeList labels {get { return default(NodeList); } }
+	public NodeList labels {get;private set;}
 }
 
 }

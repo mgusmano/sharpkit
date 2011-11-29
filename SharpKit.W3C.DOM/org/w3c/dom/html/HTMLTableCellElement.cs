@@ -10,22 +10,22 @@ public partial class HTMLTableCellElement : HTMLElement
 {
 
 	// HTMLTableCellElement
-	public int colSpan {get { return default(int); } set {}}
-	public int rowSpan {get { return default(int); } set {}}
-	public DOMSettableTokenList headers {get { return default(DOMSettableTokenList); } set {}}
-	public int cellIndex {get { return default(int); } }
+	public int colSpan {get;set;}
+	public int rowSpan {get;set;}
+	public DOMSettableTokenList headers {get;set;}
+	public int cellIndex {get;private set;}
 
 	// HTMLTableCellElement-33
-	public string abbr {get { return default(string); } set {}}
-	public string align {get { return default(string); } set {}}
-	public string axis {get { return default(string); } set {}}
-	public string bgColor {get { return default(string); } set {}}
-	public string ch {get { return default(string); } set {}}
-	public string chOff {get { return default(string); } set {}}
-	public string height {get { return default(string); } set {}}
-	public bool noWrap {get { return default(bool); } set {}}
-	public string vAlign {get { return default(string); } set {}}
-	public string width {get { return default(string); } set {}}
+	public string abbr {get;set;}
+	public string align {get;set;}
+	public string axis {get;set;}
+	public string bgColor {get;set;}
+	public string ch {get;set;}
+	public string chOff {get;set;}
+	public string height {get;set;}
+	public bool noWrap {get;set;}
+	public string vAlign {get;set;}
+	public string width {get;set;}
 }
 
 }

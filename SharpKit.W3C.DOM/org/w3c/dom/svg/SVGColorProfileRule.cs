@@ -10,9 +10,9 @@ public partial class SVGColorProfileRule : SVGCSSRule
 {
 
 	// SVGColorProfileRule
-	public string src {get { return default(string); } set {}}
-	public string name {get { return default(string); } set {}}
-	public short renderingIntent {get { return default(short); } set {}}
+	public string src {get;set;}
+	public string name {get;set;}
+	public short renderingIntent {get;set;}
 }
 
 }

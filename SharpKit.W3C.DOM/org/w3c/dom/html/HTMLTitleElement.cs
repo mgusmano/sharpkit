@@ -10,7 +10,7 @@ public partial class HTMLTitleElement : HTMLElement
 {
 
 	// HTMLTitleElement
-	public string text {get { return default(string); } set {}}
+	public string text {get;set;}
 }
 
 }

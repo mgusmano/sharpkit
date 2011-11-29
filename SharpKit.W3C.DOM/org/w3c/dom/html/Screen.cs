@@ -10,12 +10,12 @@ public partial class Screen
 {
 
 	// Screen
-	public int availWidth {get { return default(int); } }
-	public int availHeight {get { return default(int); } }
-	public int width {get { return default(int); } }
-	public int height {get { return default(int); } }
-	public int colorDepth {get { return default(int); } }
-	public int pixelDepth {get { return default(int); } }
+	public int availWidth {get;private set;}
+	public int availHeight {get;private set;}
+	public int width {get;private set;}
+	public int height {get;private set;}
+	public int colorDepth {get;private set;}
+	public int pixelDepth {get;private set;}
 }
 
 }

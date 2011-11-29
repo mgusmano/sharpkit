@@ -10,9 +10,9 @@ public partial class WebGLActiveInfo
 {
 
 	// WebGLActiveInfo
-	public int size {get { return default(int); } }
-	public int type {get { return default(int); } }
-	public string name {get { return default(string); } }
+	public int size {get;private set;}
+	public int type {get;private set;}
+	public string name {get;private set;}
 }
 
 }

@@ -11,23 +11,23 @@ public partial class HTMLButtonElement : HTMLElement
 {
 
 	// HTMLButtonElement
-	public bool autofocus {get { return default(bool); } set {}}
-	public bool disabled {get { return default(bool); } set {}}
-	public HTMLFormElement form {get { return default(HTMLFormElement); } }
-	public string formAction {get { return default(string); } set {}}
-	public string formEnctype {get { return default(string); } set {}}
-	public string formMethod {get { return default(string); } set {}}
-	public string formNoValidate {get { return default(string); } set {}}
-	public string formTarget {get { return default(string); } set {}}
-	public string name {get { return default(string); } set {}}
-	public string type {get { return default(string); } set {}}
-	public string value {get { return default(string); } set {}}
-	public bool willValidate {get { return default(bool); } }
-	public ValidityState validity {get { return default(ValidityState); } }
-	public string validationMessage {get { return default(string); } }
+	public bool autofocus {get;set;}
+	public bool disabled {get;set;}
+	public HTMLFormElement form {get;private set;}
+	public string formAction {get;set;}
+	public string formEnctype {get;set;}
+	public string formMethod {get;set;}
+	public string formNoValidate {get;set;}
+	public string formTarget {get;set;}
+	public string name {get;set;}
+	public string type {get;set;}
+	public string value {get;set;}
+	public bool willValidate {get;private set;}
+	public ValidityState validity {get;private set;}
+	public string validationMessage {get;private set;}
 	public bool checkValidity() { return default(bool); }
 	public void setCustomValidity(string error) {}
-	public NodeList labels {get { return default(NodeList); } }
+	public NodeList labels {get;private set;}
 }
 
 }

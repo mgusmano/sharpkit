@@ -11,7 +11,7 @@ public partial class SVGPointList
 {
 
 	// SVGPointList
-	public int numberOfItems {get { return default(int); } }
+	public int numberOfItems {get;private set;}
 	public void clear() {}
 	public SVGPoint initialize(SVGPoint newItem) { return default(SVGPoint); }
 	public SVGPoint getItem(int index) { return default(SVGPoint); }

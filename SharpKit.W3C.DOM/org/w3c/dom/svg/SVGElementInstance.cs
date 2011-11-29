@@ -11,14 +11,14 @@ public partial class SVGElementInstance : EventTarget
 {
 
 	// SVGElementInstance
-	public SVGElement correspondingElement {get { return default(SVGElement); } }
-	public SVGUseElement correspondingUseElement {get { return default(SVGUseElement); } }
-	public SVGElementInstance parentNode {get { return default(SVGElementInstance); } }
-	public SVGElementInstanceList childNodes {get { return default(SVGElementInstanceList); } }
-	public SVGElementInstance firstChild {get { return default(SVGElementInstance); } }
-	public SVGElementInstance lastChild {get { return default(SVGElementInstance); } }
-	public SVGElementInstance previousSibling {get { return default(SVGElementInstance); } }
-	public SVGElementInstance nextSibling {get { return default(SVGElementInstance); } }
+	public SVGElement correspondingElement {get;private set;}
+	public SVGUseElement correspondingUseElement {get;private set;}
+	public SVGElementInstance parentNode {get;private set;}
+	public SVGElementInstanceList childNodes {get;private set;}
+	public SVGElementInstance firstChild {get;private set;}
+	public SVGElementInstance lastChild {get;private set;}
+	public SVGElementInstance previousSibling {get;private set;}
+	public SVGElementInstance nextSibling {get;private set;}
 }
 
 }

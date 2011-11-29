@@ -10,7 +10,7 @@ public partial class CSSFontFaceRule : CSSRule
 {
 
 	// CSSFontFaceRule
-	public CSSStyleDeclaration style {get { return default(CSSStyleDeclaration); } }
+	public CSSStyleDeclaration style {get;private set;}
 }
 
 }

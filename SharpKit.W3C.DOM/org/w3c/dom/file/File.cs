@@ -10,9 +10,9 @@ public partial class File : Blob
 {
 
 	// File
-	public string name {get { return default(string); } }
-	public string type {get { return default(string); } }
-	public string urn {get { return default(string); } }
+	public string name {get;private set;}
+	public string type {get;private set;}
+	public string urn {get;private set;}
 }
 
 }

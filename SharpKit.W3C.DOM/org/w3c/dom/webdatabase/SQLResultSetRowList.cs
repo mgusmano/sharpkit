@@ -10,9 +10,9 @@ public partial class SQLResultSetRowList
 {
 
 	// SQLResultSetRowList
-	public int length {get { return default(int); } }
+	public int length {get;private set;}
 	[JsProperty(NativeIndexer = true)]
-	public object this[int index] {get { return default(object); } }
+	public object this[int index] {get{return null;}}
 }
 
 }

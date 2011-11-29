@@ -11,12 +11,12 @@ public partial class IDBDatabase
 {
 
 	// IDBDatabase
-	public string name {get { return default(string); } }
-	public string description {get { return default(string); } }
-	public string version {get { return default(string); } }
-	public DOMStringList objectStores {get { return default(DOMStringList); } }
-	public DOMStringList indexes {get { return default(DOMStringList); } }
-	public IDBTransaction currentTransaction {get { return default(IDBTransaction); } }
+	public string name {get;private set;}
+	public string description {get;private set;}
+	public string version {get;private set;}
+	public DOMStringList objectStores {get;private set;}
+	public DOMStringList indexes {get;private set;}
+	public IDBTransaction currentTransaction {get;private set;}
 }
 
 }

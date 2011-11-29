@@ -10,10 +10,10 @@ public partial class SVGStyleElement : SVGElement
 {
 
 	// SVGStyleElement
-	public string xmlspace {get { return default(string); } set {}}
-	public string type {get { return default(string); } set {}}
-	public string media {get { return default(string); } set {}}
-	public string title {get { return default(string); } set {}}
+	public string xmlspace {get;set;}
+	public string type {get;set;}
+	public string media {get;set;}
+	public string title {get;set;}
 }
 
 }

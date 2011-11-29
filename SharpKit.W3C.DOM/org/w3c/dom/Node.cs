@@ -22,17 +22,17 @@ public partial class Node
 	public static short DOCUMENT_TYPE_NODE = 10;
 	public static short DOCUMENT_FRAGMENT_NODE = 11;
 	public static short NOTATION_NODE = 12;
-	public string nodeName {get { return default(string); } }
-	public string nodeValue {get { return default(string); } set {}}
-	public short nodeType {get { return default(short); } }
-	public Node parentNode {get { return default(Node); } }
-	public NodeList childNodes {get { return default(NodeList); } }
-	public Node firstChild {get { return default(Node); } }
-	public Node lastChild {get { return default(Node); } }
-	public Node previousSibling {get { return default(Node); } }
-	public Node nextSibling {get { return default(Node); } }
-	public NamedNodeMap attributes {get { return default(NamedNodeMap); } }
-	public Document ownerDocument {get { return default(Document); } }
+	public string nodeName {get;private set;}
+	public string nodeValue {get;set;}
+	public short nodeType {get;private set;}
+	public Node parentNode {get;private set;}
+	public NodeList childNodes {get;private set;}
+	public Node firstChild {get;private set;}
+	public Node lastChild {get;private set;}
+	public Node previousSibling {get;private set;}
+	public Node nextSibling {get;private set;}
+	public NamedNodeMap attributes {get;private set;}
+	public Document ownerDocument {get;private set;}
 	public Node insertBefore(Node newChild, Node refChild) { return default(Node); }
 	public Node replaceChild(Node newChild, Node oldChild) { return default(Node); }
 	public Node removeChild(Node oldChild) { return default(Node); }
@@ -41,11 +41,11 @@ public partial class Node
 	public Node cloneNode(bool deep) { return default(Node); }
 	public void normalize() {}
 	public bool isSupported(string feature, string version) { return default(bool); }
-	public string namespaceURI {get { return default(string); } }
-	public string prefix {get { return default(string); } set {}}
-	public string localName {get { return default(string); } }
+	public string namespaceURI {get;private set;}
+	public string prefix {get;set;}
+	public string localName {get;private set;}
 	public bool hasAttributes() { return default(bool); }
-	public string baseURI {get { return default(string); } }
+	public string baseURI {get;private set;}
 	public static short DOCUMENT_POSITION_DISCONNECTED = 0x01;
 	public static short DOCUMENT_POSITION_PRECEDING = 0x02;
 	public static short DOCUMENT_POSITION_FOLLOWING = 0x04;
@@ -53,7 +53,7 @@ public partial class Node
 	public static short DOCUMENT_POSITION_CONTAINED_BY = 0x10;
 	public static short DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC = 0x20;
 	public short compareDocumentPosition(Node other) { return default(short); }
-	public string textContent {get { return default(string); } set {}}
+	public string textContent {get;set;}
 	public bool isSameNode(Node other) { return default(bool); }
 	public string lookupPrefix(string namespaceURI) { return default(string); }
 	public bool isDefaultNamespace(string namespaceURI) { return default(bool); }

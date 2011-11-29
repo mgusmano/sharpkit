@@ -10,10 +10,10 @@ public partial class HTMLStyleElement : HTMLElement
 {
 
 	// HTMLStyleElement
-	public bool disabled {get { return default(bool); } set {}}
-	public string media {get { return default(string); } set {}}
-	public string type {get { return default(string); } set {}}
-	public bool scoped {get { return default(bool); } set {}}
+	public bool disabled {get;set;}
+	public string media {get;set;}
+	public string type {get;set;}
+	public bool scoped {get;set;}
 }
 
 }

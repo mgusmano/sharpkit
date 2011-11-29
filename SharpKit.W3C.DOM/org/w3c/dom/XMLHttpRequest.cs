@@ -11,35 +11,35 @@ public partial class XMLHttpRequest : XMLHttpRequestEventTarget
 {
 
 	// XMLHttpRequest
-	public JsAction onreadystatechange {get { return default(JsAction); } set {}}
+	public JsAction onreadystatechange {get;set;}
 	public static short UNSENT = 0;
 	public static short OPENED = 1;
 	public static short HEADERS_RECEIVED = 2;
 	public static short LOADING = 3;
 	public static short DONE = 4;
-	public short readyState {get { return default(short); } }
+	public short readyState {get;private set;}
 	public void open(string method, string url) {}
 	public void open(string method, string url, bool async) {}
 	public void open(string method, string url, bool async, string user) {}
 	public void open(string method, string url, bool async, string user, string password) {}
 	public void setRequestHeader(string header, string value) {}
-	public int timeout {get { return default(int); } set {}}
-	public bool withCredentials {get { return default(bool); } set {}}
-	public XMLHttpRequestUpload upload {get { return default(XMLHttpRequestUpload); } }
+	public int timeout {get;set;}
+	public bool withCredentials {get;set;}
+	public XMLHttpRequestUpload upload {get;private set;}
 	public void send() {}
 	public void send(Blob data) {}
 	public void send(Document data) {}
 	public void send(string data) {}
 	public void send(FormData data) {}
 	public void abort() {}
-	public short status {get { return default(short); } }
-	public string statusText {get { return default(string); } }
+	public short status {get;private set;}
+	public string statusText {get;private set;}
 	public string getResponseHeader(string header) { return default(string); }
-	public string allResponseHeaders {get { return default(string); } }
+	public string allResponseHeaders {get;private set;}
 	public void overrideMimeType(string mime) {}
-	public byte responseBody {get { return default(byte); } }
-	public string responseText {get { return default(string); } }
-	public Document responseXML {get { return default(Document); } }
+	public byte responseBody {get;private set;}
+	public string responseText {get;private set;}
+	public Document responseXML {get;private set;}
 }
 
 }

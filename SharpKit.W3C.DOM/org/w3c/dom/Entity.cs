@@ -10,12 +10,12 @@ public partial class Entity : Node
 {
 
 	// Entity
-	public string publicId {get { return default(string); } }
-	public string systemId {get { return default(string); } }
-	public string notationName {get { return default(string); } }
-	public string inputEncoding {get { return default(string); } }
-	public string xmlEncoding {get { return default(string); } }
-	public string xmlVersion {get { return default(string); } }
+	public string publicId {get;private set;}
+	public string systemId {get;private set;}
+	public string notationName {get;private set;}
+	public string inputEncoding {get;private set;}
+	public string xmlEncoding {get;private set;}
+	public string xmlVersion {get;private set;}
 }
 
 }

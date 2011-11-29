@@ -11,11 +11,11 @@ public partial class SVGZoomEvent : UIEvent
 {
 
 	// SVGZoomEvent
-	public SVGRect zoomRectScreen {get { return default(SVGRect); } }
-	public float previousScale {get { return default(float); } }
-	public SVGPoint previousTranslate {get { return default(SVGPoint); } }
-	public float newScale {get { return default(float); } }
-	public SVGPoint newTranslate {get { return default(SVGPoint); } }
+	public SVGRect zoomRectScreen {get;private set;}
+	public float previousScale {get;private set;}
+	public SVGPoint previousTranslate {get;private set;}
+	public float newScale {get;private set;}
+	public SVGPoint newTranslate {get;private set;}
 }
 
 }

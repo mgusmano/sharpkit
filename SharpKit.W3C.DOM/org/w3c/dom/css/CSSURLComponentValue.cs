@@ -10,7 +10,7 @@ public partial class CSSURLComponentValue : CSSComponentValue
 {
 
 	// CSSURLComponentValue
-	public string url {get { return default(string); } set {}}
+	public string url {get;set;}
 }
 
 }

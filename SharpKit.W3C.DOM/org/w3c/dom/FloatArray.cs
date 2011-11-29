@@ -10,7 +10,7 @@ public partial class FloatArray
 {
 
 	// FloatArray
-	public int length {get { return default(int); } set {}}
+	public int length {get;set;}
 	public float getElement(int index) { return default(float); }
 	public void setElement(int index, float value) {}
 }

@@ -10,9 +10,9 @@ public partial class HTMLOptionsCollection : HTMLCollection
 {
 
 	// HTMLOptionsCollection
-	public int length {get { return default(int); } set {}}
+	public int length {get;set;}
 	[JsProperty(NativeIndexer = true)]
-	public object this[string name] {get { return default(object); } }
+	public object this[string name] {get{return null;}}
 	public void add(HTMLElement element) {}
 	public void add(HTMLElement element, HTMLElement before) {}
 	public void add(HTMLElement element, int before) {}

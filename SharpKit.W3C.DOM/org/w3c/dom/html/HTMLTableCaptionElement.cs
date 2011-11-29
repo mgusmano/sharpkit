@@ -12,7 +12,7 @@ public partial class HTMLTableCaptionElement : HTMLElement
 	// HTMLTableCaptionElement
 
 	// HTMLTableCaptionElement-8
-	public string align {get { return default(string); } set {}}
+	public string align {get;set;}
 }
 
 }

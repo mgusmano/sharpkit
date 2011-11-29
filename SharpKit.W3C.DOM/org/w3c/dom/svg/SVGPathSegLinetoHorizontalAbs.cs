@@ -10,7 +10,7 @@ public partial class SVGPathSegLinetoHorizontalAbs : SVGPathSeg
 {
 
 	// SVGPathSegLinetoHorizontalAbs
-	public float x {get { return default(float); } set {}}
+	public float x {get;set;}
 }
 
 }

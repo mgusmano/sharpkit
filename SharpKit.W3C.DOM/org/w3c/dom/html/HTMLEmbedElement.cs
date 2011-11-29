@@ -10,14 +10,14 @@ public partial class HTMLEmbedElement : HTMLElement
 {
 
 	// HTMLEmbedElement
-	public string src {get { return default(string); } set {}}
-	public string type {get { return default(string); } set {}}
-	public string width {get { return default(string); } set {}}
-	public string height {get { return default(string); } set {}}
+	public string src {get;set;}
+	public string type {get;set;}
+	public string width {get;set;}
+	public string height {get;set;}
 
 	// HTMLEmbedElement-12
-	public string align {get { return default(string); } set {}}
-	public string name {get { return default(string); } set {}}
+	public string align {get;set;}
+	public string name {get;set;}
 }
 
 }

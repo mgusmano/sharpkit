@@ -11,7 +11,7 @@ public partial class PageTransitionEvent : Event
 {
 
 	// PageTransitionEvent
-	public object persisted {get { return default(object); } }
+	public object persisted {get;private set;}
 	public void initPageTransitionEvent(string typeArg, bool canBubbleArg, bool cancelableArg, object persistedArg) {}
 }
 

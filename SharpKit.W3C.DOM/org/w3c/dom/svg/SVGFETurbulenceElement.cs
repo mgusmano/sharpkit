@@ -16,12 +16,12 @@ public partial class SVGFETurbulenceElement : SVGElement
 	public static short SVG_STITCHTYPE_UNKNOWN = 0;
 	public static short SVG_STITCHTYPE_STITCH = 1;
 	public static short SVG_STITCHTYPE_NOSTITCH = 2;
-	public SVGAnimatedNumber baseFrequencyX {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber baseFrequencyY {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedInteger numOctaves {get { return default(SVGAnimatedInteger); } }
-	public SVGAnimatedNumber seed {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedEnumeration stitchTiles {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedEnumeration type {get { return default(SVGAnimatedEnumeration); } }
+	public SVGAnimatedNumber baseFrequencyX {get;private set;}
+	public SVGAnimatedNumber baseFrequencyY {get;private set;}
+	public SVGAnimatedInteger numOctaves {get;private set;}
+	public SVGAnimatedNumber seed {get;private set;}
+	public SVGAnimatedEnumeration stitchTiles {get;private set;}
+	public SVGAnimatedEnumeration type {get;private set;}
 }
 
 }

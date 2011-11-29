@@ -14,10 +14,10 @@ public partial class IDBObjectStore
 	public static short READ_WRITE = 0;
 	public static short READ_ONLY = 1;
 	public static short SNAPSHOT_READ = 2;
-	public short mode {get { return default(short); } }
-	public string name {get { return default(string); } }
-	public string keyPath {get { return default(string); } }
-	public DOMStringList indexNames {get { return default(DOMStringList); } }
+	public short mode {get;private set;}
+	public string name {get;private set;}
+	public string keyPath {get;private set;}
+	public DOMStringList indexNames {get;private set;}
 }
 
 }

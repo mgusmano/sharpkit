@@ -10,7 +10,7 @@ public partial class IDBIndexRequest : IDBIndex
 {
 
 	// IDBIndexRequest
-	public IDBRequest request {get { return default(IDBRequest); } }
+	public IDBRequest request {get;private set;}
 	public void openObjectCursor() {}
 	public void openObjectCursor(IDBKeyRange range) {}
 	public void openObjectCursor(IDBKeyRange range, short direction) {}

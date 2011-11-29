@@ -10,7 +10,7 @@ public partial class SVGURIReference
 {
 
 	// SVGURIReference
-	public SVGAnimatedString href {get { return default(SVGAnimatedString); } }
+	public SVGAnimatedString href {get;private set;}
 }
 
 }

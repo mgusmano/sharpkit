@@ -12,8 +12,8 @@ public partial class SVGStylable
 {
 
 	// SVGStylable
-	public SVGAnimatedString className {get { return default(SVGAnimatedString); } }
-	public CSSStyleDeclaration style {get { return default(CSSStyleDeclaration); } }
+	public SVGAnimatedString className {get;private set;}
+	public CSSStyleDeclaration style {get;private set;}
 	public CSSValue getPresentationAttribute(string name) { return default(CSSValue); }
 }
 

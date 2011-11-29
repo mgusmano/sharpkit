@@ -12,7 +12,7 @@ public partial class HTMLDListElement : HTMLElement
 	// HTMLDListElement
 
 	// HTMLDListElement-11
-	public bool compact {get { return default(bool); } set {}}
+	public bool compact {get;set;}
 }
 
 }

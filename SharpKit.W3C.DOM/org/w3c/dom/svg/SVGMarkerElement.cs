@@ -16,13 +16,13 @@ public partial class SVGMarkerElement : SVGElement
 	public static short SVG_MARKER_ORIENT_UNKNOWN = 0;
 	public static short SVG_MARKER_ORIENT_AUTO = 1;
 	public static short SVG_MARKER_ORIENT_ANGLE = 2;
-	public SVGAnimatedLength refX {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength refY {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedEnumeration markerUnits {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedLength markerWidth {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength markerHeight {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedEnumeration orientType {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedAngle orientAngle {get { return default(SVGAnimatedAngle); } }
+	public SVGAnimatedLength refX {get;private set;}
+	public SVGAnimatedLength refY {get;private set;}
+	public SVGAnimatedEnumeration markerUnits {get;private set;}
+	public SVGAnimatedLength markerWidth {get;private set;}
+	public SVGAnimatedLength markerHeight {get;private set;}
+	public SVGAnimatedEnumeration orientType {get;private set;}
+	public SVGAnimatedAngle orientAngle {get;private set;}
 	public void setOrientToAuto() {}
 	public void setOrientToAngle(SVGAngle angle) {}
 }

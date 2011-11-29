@@ -10,7 +10,7 @@ public partial class WebGLArrayBuffer
 {
 
 	// WebGLArrayBuffer
-	public int byteLength {get { return default(int); } }
+	public int byteLength {get;private set;}
 }
 
 }

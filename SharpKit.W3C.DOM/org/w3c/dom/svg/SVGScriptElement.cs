@@ -10,7 +10,7 @@ public partial class SVGScriptElement : SVGElement
 {
 
 	// SVGScriptElement
-	public string type {get { return default(string); } set {}}
+	public string type {get;set;}
 }
 
 }

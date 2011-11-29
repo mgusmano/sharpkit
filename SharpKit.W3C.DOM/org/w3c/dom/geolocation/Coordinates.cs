@@ -10,13 +10,13 @@ public partial class Coordinates
 {
 
 	// Coordinates
-	public double latitude {get { return default(double); } }
-	public double longitude {get { return default(double); } }
-	public double altitude {get { return default(double); } }
-	public double accuracy {get { return default(double); } }
-	public double altitudeAccuracy {get { return default(double); } }
-	public double heading {get { return default(double); } }
-	public double speed {get { return default(double); } }
+	public double latitude {get;private set;}
+	public double longitude {get;private set;}
+	public double altitude {get;private set;}
+	public double accuracy {get;private set;}
+	public double altitudeAccuracy {get;private set;}
+	public double heading {get;private set;}
+	public double speed {get;private set;}
 }
 
 }

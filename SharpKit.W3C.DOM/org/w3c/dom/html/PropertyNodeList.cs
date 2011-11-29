@@ -11,7 +11,7 @@ public partial class PropertyNodeList : NodeList
 {
 
 	// PropertyNodeList
-	public object values {get { return default(object); } }
+	public object values {get;private set;}
 }
 
 }

@@ -12,17 +12,17 @@ public partial class Selection
 {
 
 	// Selection
-	public Node anchorNode {get { return default(Node); } }
-	public int anchorOffset {get { return default(int); } }
-	public Node focusNode {get { return default(Node); } }
-	public int focusOffset {get { return default(int); } }
-	public bool isCollapsed {get { return default(bool); } }
+	public Node anchorNode {get;private set;}
+	public int anchorOffset {get;private set;}
+	public Node focusNode {get;private set;}
+	public int focusOffset {get;private set;}
+	public bool isCollapsed {get;private set;}
 	public void collapse(Node parentNode, int offset) {}
 	public void collapseToStart() {}
 	public void collapseToEnd() {}
 	public void selectAllChildren(Node parentNode) {}
 	public void deleteFromDocument() {}
-	public int rangeCount {get { return default(int); } }
+	public int rangeCount {get;private set;}
 	public Range getRangeAt(int index) { return default(Range); }
 	public void addRange(Range range) {}
 	public void removeRange(Range range) {}

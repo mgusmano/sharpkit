@@ -13,14 +13,14 @@ public partial class DataTransfer
 {
 
 	// DataTransfer
-	public string dropEffect {get { return default(string); } set {}}
-	public string effectAllowed {get { return default(string); } set {}}
-	public DOMStringList types {get { return default(DOMStringList); } }
+	public string dropEffect {get;set;}
+	public string effectAllowed {get;set;}
+	public DOMStringList types {get;private set;}
 	public void clearData() {}
 	public void clearData(string format) {}
 	public void setData(string format, string data) {}
 	public string getData(string format) { return default(string); }
-	public File files {get { return default(File); } }
+	public File files {get;private set;}
 	public void setDragImage(Element image, int x, int y) {}
 	public void addElement(Element element) {}
 }

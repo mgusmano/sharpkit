@@ -17,13 +17,13 @@ public partial class KeyboardEvent : UIEvent
 	public static int DOM_KEY_LOCATION_NUMPAD = 0x03;
 	public static int DOM_KEY_LOCATION_MOBILE = 0x04;
 	public static int DOM_KEY_LOCATION_JOYSTICK = 0x05;
-	public string key {get { return default(string); } }
-	public int location {get { return default(int); } }
-	public bool ctrlKey {get { return default(bool); } }
-	public bool shiftKey {get { return default(bool); } }
-	public bool altKey {get { return default(bool); } }
-	public bool metaKey {get { return default(bool); } }
-	public bool repeat {get { return default(bool); } }
+	public string key {get;private set;}
+	public int location {get;private set;}
+	public bool ctrlKey {get;private set;}
+	public bool shiftKey {get;private set;}
+	public bool altKey {get;private set;}
+	public bool metaKey {get;private set;}
+	public bool repeat {get;private set;}
 	public bool getModifierState(string keyArg) { return default(bool); }
 	public void initKeyboardEvent(string typeArg, bool canBubbleArg, bool cancelableArg, AbstractView viewArg, string keyArg, int locationArg, string modifiersListArg, bool repeat) {}
 }

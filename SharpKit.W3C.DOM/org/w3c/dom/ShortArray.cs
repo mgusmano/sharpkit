@@ -10,7 +10,7 @@ public partial class ShortArray
 {
 
 	// ShortArray
-	public int length {get { return default(int); } set {}}
+	public int length {get;set;}
 	public short getElement(int index) { return default(short); }
 	public void setElement(int index, short value) {}
 }

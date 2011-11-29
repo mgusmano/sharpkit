@@ -10,11 +10,11 @@ public partial class SVGLocatable
 {
 
 	// SVGLocatable
-	public SVGElement nearestViewportElement {get { return default(SVGElement); } }
-	public SVGElement farthestViewportElement {get { return default(SVGElement); } }
-	public SVGRect bBox {get { return default(SVGRect); } }
-	public SVGMatrix cTM {get { return default(SVGMatrix); } }
-	public SVGMatrix screenCTM {get { return default(SVGMatrix); } }
+	public SVGElement nearestViewportElement {get;private set;}
+	public SVGElement farthestViewportElement {get;private set;}
+	public SVGRect bBox {get;private set;}
+	public SVGMatrix cTM {get;private set;}
+	public SVGMatrix screenCTM {get;private set;}
 	public SVGMatrix getTransformToElement(SVGElement element) { return default(SVGMatrix); }
 }
 

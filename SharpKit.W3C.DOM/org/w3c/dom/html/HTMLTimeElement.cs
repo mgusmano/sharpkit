@@ -10,9 +10,9 @@ public partial class HTMLTimeElement : HTMLElement
 {
 
 	// HTMLTimeElement
-	public string dateTime {get { return default(string); } set {}}
-	public bool pubDate {get { return default(bool); } set {}}
-	public long valueAsDate {get { return default(long); } }
+	public string dateTime {get;set;}
+	public bool pubDate {get;set;}
+	public long valueAsDate {get;private set;}
 }
 
 }

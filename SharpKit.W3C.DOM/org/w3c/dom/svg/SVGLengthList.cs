@@ -11,7 +11,7 @@ public partial class SVGLengthList
 {
 
 	// SVGLengthList
-	public int numberOfItems {get { return default(int); } }
+	public int numberOfItems {get;private set;}
 	public void clear() {}
 	public SVGLength initialize(SVGLength newItem) { return default(SVGLength); }
 	public SVGLength getItem(int index) { return default(SVGLength); }

@@ -10,7 +10,7 @@ public partial class SVGFETileElement : SVGElement
 {
 
 	// SVGFETileElement
-	public SVGAnimatedString in1 {get { return default(SVGAnimatedString); } }
+	public SVGAnimatedString in1 {get;private set;}
 }
 
 }

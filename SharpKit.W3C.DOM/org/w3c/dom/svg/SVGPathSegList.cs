@@ -11,7 +11,7 @@ public partial class SVGPathSegList
 {
 
 	// SVGPathSegList
-	public int numberOfItems {get { return default(int); } }
+	public int numberOfItems {get;private set;}
 	public void clear() {}
 	public SVGPathSeg initialize(SVGPathSeg newItem) { return default(SVGPathSeg); }
 	public SVGPathSeg getItem(int index) { return default(SVGPathSeg); }

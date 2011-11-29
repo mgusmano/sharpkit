@@ -10,8 +10,8 @@ public partial class SVGFitToViewBox
 {
 
 	// SVGFitToViewBox
-	public SVGAnimatedRect viewBox {get { return default(SVGAnimatedRect); } }
-	public SVGAnimatedPreserveAspectRatio preserveAspectRatio {get { return default(SVGAnimatedPreserveAspectRatio); } }
+	public SVGAnimatedRect viewBox {get;private set;}
+	public SVGAnimatedPreserveAspectRatio preserveAspectRatio {get;private set;}
 }
 
 }

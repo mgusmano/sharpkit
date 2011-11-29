@@ -12,9 +12,9 @@ public partial class Document : Node
 {
 
 	// Document
-	public DocumentType doctype {get { return default(DocumentType); } }
-	public DOMImplementation implementation {get { return default(DOMImplementation); } }
-	public Element documentElement {get { return default(Element); } }
+	public DocumentType doctype {get;private set;}
+	public DOMImplementation implementation {get;private set;}
+	public Element documentElement {get;private set;}
 	public Element createElement(string tagName) { return default(Element); }
 	public DocumentFragment createDocumentFragment() { return default(DocumentFragment); }
 	public Text createTextNode(string data) { return default(Text); }
@@ -29,27 +29,27 @@ public partial class Document : Node
 	public Attr createAttributeNS(string namespaceURI, string qualifiedName) { return default(Attr); }
 	public NodeList getElementsByTagNameNS(string namespaceURI, string localName) { return default(NodeList); }
 	public Element getElementById(string elementId) { return default(Element); }
-	public string inputEncoding {get { return default(string); } }
-	public string xmlEncoding {get { return default(string); } }
-	public bool xmlStandalone {get { return default(bool); } set {}}
-	public string xmlVersion {get { return default(string); } set {}}
-	public bool strictErrorChecking {get { return default(bool); } set {}}
-	public string documentURI {get { return default(string); } set {}}
+	public string inputEncoding {get;private set;}
+	public string xmlEncoding {get;private set;}
+	public bool xmlStandalone {get;set;}
+	public string xmlVersion {get;set;}
+	public bool strictErrorChecking {get;set;}
+	public string documentURI {get;set;}
 	public Node adoptNode(Node source) { return default(Node); }
-	public DOMConfiguration domConfig {get { return default(DOMConfiguration); } }
+	public DOMConfiguration domConfig {get;private set;}
 	public void normalizeDocument() {}
 	public Node renameNode(Node n, string namespaceURI, string qualifiedName) { return default(Node); }
 
 	// Document-39
-	public StyleSheet styleSheets {get { return default(StyleSheet); } }
-	public string selectedStyleSheetSet {get { return default(string); } set {}}
-	public string lastStyleSheetSet {get { return default(string); } }
-	public string preferredStyleSheetSet {get { return default(string); } }
-	public DOMStringList styleSheetSets {get { return default(DOMStringList); } }
+	public StyleSheet styleSheets {get;private set;}
+	public string selectedStyleSheetSet {get;set;}
+	public string lastStyleSheetSet {get;private set;}
+	public string preferredStyleSheetSet {get;private set;}
+	public DOMStringList styleSheetSets {get;private set;}
 	public void enableStyleSheetsForSet(string name) {}
 
 	// Document-40
-	public Window defaultView {get { return default(Window); } }
+	public Window defaultView {get;private set;}
 	public Element elementFromPoint(float x, float y) { return default(Element); }
 	public CaretPosition caretPositionFromPoint(float x, float y) { return default(CaretPosition); }
 

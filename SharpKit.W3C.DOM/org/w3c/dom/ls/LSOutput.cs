@@ -10,10 +10,10 @@ public partial class LSOutput
 {
 
 	// LSOutput
-	public object characterStream {get { return default(object); } set {}}
-	public object byteStream {get { return default(object); } set {}}
-	public string systemId {get { return default(string); } set {}}
-	public string encoding {get { return default(string); } set {}}
+	public object characterStream {get;set;}
+	public object byteStream {get;set;}
+	public string systemId {get;set;}
+	public string encoding {get;set;}
 }
 
 }

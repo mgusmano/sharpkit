@@ -11,13 +11,13 @@ public partial class StyleSheet
 {
 
 	// StyleSheet
-	public string type {get { return default(string); } }
-	public string href {get { return default(string); } }
-	public Node ownerNode {get { return default(Node); } }
-	public StyleSheet parentStyleSheet {get { return default(StyleSheet); } }
-	public string title {get { return default(string); } }
-	public MediaList media {get { return default(MediaList); } set {}}
-	public bool disabled {get { return default(bool); } set {}}
+	public string type {get;private set;}
+	public string href {get;private set;}
+	public Node ownerNode {get;private set;}
+	public StyleSheet parentStyleSheet {get;private set;}
+	public string title {get;private set;}
+	public MediaList media {get;set;}
+	public bool disabled {get;set;}
 }
 
 }

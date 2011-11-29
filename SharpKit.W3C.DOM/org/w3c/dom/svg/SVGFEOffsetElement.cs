@@ -10,9 +10,9 @@ public partial class SVGFEOffsetElement : SVGElement
 {
 
 	// SVGFEOffsetElement
-	public SVGAnimatedString in1 {get { return default(SVGAnimatedString); } }
-	public SVGAnimatedNumber dx {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber dy {get { return default(SVGAnimatedNumber); } }
+	public SVGAnimatedString in1 {get;private set;}
+	public SVGAnimatedNumber dx {get;private set;}
+	public SVGAnimatedNumber dy {get;private set;}
 }
 
 }

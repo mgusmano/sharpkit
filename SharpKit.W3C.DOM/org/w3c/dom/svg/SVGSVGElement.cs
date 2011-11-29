@@ -16,21 +16,21 @@ public partial class SVGSVGElement : SVGElement
 {
 
 	// SVGSVGElement
-	public SVGAnimatedLength x {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength y {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength width {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength height {get { return default(SVGAnimatedLength); } }
-	public string contentScriptType {get { return default(string); } set {}}
-	public string contentStyleType {get { return default(string); } set {}}
-	public SVGRect viewport {get { return default(SVGRect); } }
-	public float pixelUnitToMillimeterX {get { return default(float); } }
-	public float pixelUnitToMillimeterY {get { return default(float); } }
-	public float screenPixelToMillimeterX {get { return default(float); } }
-	public float screenPixelToMillimeterY {get { return default(float); } }
-	public bool useCurrentView {get { return default(bool); } set {}}
-	public SVGViewSpec currentView {get { return default(SVGViewSpec); } }
-	public float currentScale {get { return default(float); } set {}}
-	public SVGPoint currentTranslate {get { return default(SVGPoint); } }
+	public SVGAnimatedLength x {get;private set;}
+	public SVGAnimatedLength y {get;private set;}
+	public SVGAnimatedLength width {get;private set;}
+	public SVGAnimatedLength height {get;private set;}
+	public string contentScriptType {get;set;}
+	public string contentStyleType {get;set;}
+	public SVGRect viewport {get;private set;}
+	public float pixelUnitToMillimeterX {get;private set;}
+	public float pixelUnitToMillimeterY {get;private set;}
+	public float screenPixelToMillimeterX {get;private set;}
+	public float screenPixelToMillimeterY {get;private set;}
+	public bool useCurrentView {get;set;}
+	public SVGViewSpec currentView {get;private set;}
+	public float currentScale {get;set;}
+	public SVGPoint currentTranslate {get;private set;}
 	public int suspendRedraw(int max_wait_milliseconds) { return default(int); }
 	public void unsuspendRedraw(int suspend_handle_id) {}
 	public void unsuspendRedrawAll() {}
@@ -38,7 +38,7 @@ public partial class SVGSVGElement : SVGElement
 	public void pauseAnimations() {}
 	public void unpauseAnimations() {}
 	public bool animationsPaused() { return default(bool); }
-	public float currentTime {get { return default(float); } set {}}
+	public float currentTime {get;set;}
 	public NodeList getIntersectionList(SVGRect rect, SVGElement referenceElement) { return default(NodeList); }
 	public NodeList getEnclosureList(SVGRect rect, SVGElement referenceElement) { return default(NodeList); }
 	public bool checkIntersection(SVGElement element, SVGRect rect) { return default(bool); }

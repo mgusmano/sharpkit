@@ -10,8 +10,8 @@ public partial class HTMLCanvasElement : HTMLElement
 {
 
 	// HTMLCanvasElement
-	public int width {get { return default(int); } set {}}
-	public int height {get { return default(int); } set {}}
+	public int width {get;set;}
+	public int height {get;set;}
 	public string toDataURL() { return default(string); }
 	public string toDataURL(string type, params object[] args) { return default(string); }
 	public object getContext(string contextId) { return default(object); }

@@ -10,7 +10,7 @@ public partial class IDBEnvironmentSync
 {
 
 	// IDBEnvironmentSync
-	public IndexedDatabase indexedDB {get { return default(IndexedDatabase); } }
+	public IndexedDatabase indexedDB {get;private set;}
 }
 
 }

@@ -10,9 +10,9 @@ public partial class HTMLSourceElement : HTMLElement
 {
 
 	// HTMLSourceElement
-	public string src {get { return default(string); } set {}}
-	public string type {get { return default(string); } set {}}
-	public string media {get { return default(string); } set {}}
+	public string src {get;set;}
+	public string type {get;set;}
+	public string media {get;set;}
 }
 
 }

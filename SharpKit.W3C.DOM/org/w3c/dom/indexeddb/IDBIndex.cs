@@ -10,10 +10,10 @@ public partial class IDBIndex
 {
 
 	// IDBIndex
-	public string name {get { return default(string); } }
-	public string storeName {get { return default(string); } }
-	public string keyPath {get { return default(string); } }
-	public bool unique {get { return default(bool); } }
+	public string name {get;private set;}
+	public string storeName {get;private set;}
+	public string keyPath {get;private set;}
+	public bool unique {get;private set;}
 }
 
 }

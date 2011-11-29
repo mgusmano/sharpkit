@@ -10,7 +10,7 @@ public partial class BarProp
 {
 
 	// BarProp
-	public bool visible {get { return default(bool); } set {}}
+	public bool visible {get;set;}
 }
 
 }

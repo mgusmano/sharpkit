@@ -10,14 +10,14 @@ public partial class WorkerLocation
 {
 
 	// WorkerLocation
-	public string href {get { return default(string); } }
-	public string protocol {get { return default(string); } }
-	public string host {get { return default(string); } }
-	public string hostname {get { return default(string); } }
-	public string port {get { return default(string); } }
-	public string pathname {get { return default(string); } }
-	public string search {get { return default(string); } }
-	public string hash {get { return default(string); } }
+	public string href {get;private set;}
+	public string protocol {get;private set;}
+	public string host {get;private set;}
+	public string hostname {get;private set;}
+	public string port {get;private set;}
+	public string pathname {get;private set;}
+	public string search {get;private set;}
+	public string hash {get;private set;}
 }
 
 }

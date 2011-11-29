@@ -10,12 +10,12 @@ public partial class HTMLOListElement : HTMLElement
 {
 
 	// HTMLOListElement
-	public bool reversed {get { return default(bool); } set {}}
-	public int start {get { return default(int); } set {}}
+	public bool reversed {get;set;}
+	public int start {get;set;}
 
 	// HTMLOListElement-26
-	public bool compact {get { return default(bool); } set {}}
-	public string type {get { return default(string); } set {}}
+	public bool compact {get;set;}
+	public string type {get;set;}
 }
 
 }

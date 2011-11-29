@@ -10,10 +10,10 @@ public partial class SVGFESpecularLightingElement : SVGElement
 {
 
 	// SVGFESpecularLightingElement
-	public SVGAnimatedString in1 {get { return default(SVGAnimatedString); } }
-	public SVGAnimatedNumber surfaceScale {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber specularConstant {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber specularExponent {get { return default(SVGAnimatedNumber); } }
+	public SVGAnimatedString in1 {get;private set;}
+	public SVGAnimatedNumber surfaceScale {get;private set;}
+	public SVGAnimatedNumber specularConstant {get;private set;}
+	public SVGAnimatedNumber specularExponent {get;private set;}
 }
 
 }

@@ -11,7 +11,7 @@ public partial class BeforeUnloadEvent : Event
 {
 
 	// BeforeUnloadEvent
-	public string returnValue {get { return default(string); } set {}}
+	public string returnValue {get;set;}
 }
 
 }

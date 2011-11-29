@@ -12,7 +12,7 @@ public partial class HTMLDivElement : HTMLElement
 	// HTMLDivElement
 
 	// HTMLDivElement-10
-	public string align {get { return default(string); } set {}}
+	public string align {get;set;}
 }
 
 }

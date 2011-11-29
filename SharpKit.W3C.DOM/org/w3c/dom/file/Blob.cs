@@ -10,7 +10,7 @@ public partial class Blob
 {
 
 	// Blob
-	public long size {get { return default(long); } }
+	public long size {get;private set;}
 	public Blob slice(long start, long length) { return default(Blob); }
 }
 

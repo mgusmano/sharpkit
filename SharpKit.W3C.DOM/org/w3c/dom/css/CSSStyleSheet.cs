@@ -11,8 +11,8 @@ public partial class CSSStyleSheet : StyleSheet
 {
 
 	// CSSStyleSheet
-	public CSSRule ownerRule {get { return default(CSSRule); } }
-	public CSSRule cssRules {get { return default(CSSRule); } }
+	public CSSRule ownerRule {get;private set;}
+	public CSSRule cssRules {get;private set;}
 	public int insertRule(string rule, int index) { return default(int); }
 	public void deleteRule(int index) {}
 }

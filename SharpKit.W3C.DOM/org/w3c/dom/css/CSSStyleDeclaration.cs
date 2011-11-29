@@ -10,139 +10,139 @@ public partial class CSSStyleDeclaration
 {
 
 	// CSSStyleDeclaration
-	public string cssText {get { return default(string); } set {}}
-	public int length {get { return default(int); } }
+	public string cssText {get;set;}
+	public int length {get;private set;}
 	[JsProperty(NativeIndexer = true)]
-	public string this[int index] {get { return default(string); } }
+	public string this[int index] {get{return null;}}
 	public string getPropertyValue(string property) { return default(string); }
 	public string getPropertyPriority(string property) { return default(string); }
 	public void setProperty(string property, string value) {}
 	public void setProperty(string property, string value, string priority) {}
 	public string removeProperty(string property) { return default(string); }
-	public CSSStyleDeclarationValue values {get { return default(CSSStyleDeclarationValue); } }
-	public CSSRule parentRule {get { return default(CSSRule); } }
-	public string azimuth {get { return default(string); } set {}}
-	public string background {get { return default(string); } set {}}
-	public string backgroundAttachment {get { return default(string); } set {}}
-	public string backgroundColor {get { return default(string); } set {}}
-	public string backgroundImage {get { return default(string); } set {}}
-	public string backgroundPosition {get { return default(string); } set {}}
-	public string backgroundRepeat {get { return default(string); } set {}}
-	public string border {get { return default(string); } set {}}
-	public string borderCollapse {get { return default(string); } set {}}
-	public string borderColor {get { return default(string); } set {}}
-	public string borderSpacing {get { return default(string); } set {}}
-	public string borderStyle {get { return default(string); } set {}}
-	public string borderTop {get { return default(string); } set {}}
-	public string borderRight {get { return default(string); } set {}}
-	public string borderBottom {get { return default(string); } set {}}
-	public string borderLeft {get { return default(string); } set {}}
-	public string borderTopColor {get { return default(string); } set {}}
-	public string borderRightColor {get { return default(string); } set {}}
-	public string borderBottomColor {get { return default(string); } set {}}
-	public string borderLeftColor {get { return default(string); } set {}}
-	public string borderTopStyle {get { return default(string); } set {}}
-	public string borderRightStyle {get { return default(string); } set {}}
-	public string borderBottomStyle {get { return default(string); } set {}}
-	public string borderLeftStyle {get { return default(string); } set {}}
-	public string borderTopWidth {get { return default(string); } set {}}
-	public string borderRightWidth {get { return default(string); } set {}}
-	public string borderBottomWidth {get { return default(string); } set {}}
-	public string borderLeftWidth {get { return default(string); } set {}}
-	public string borderWidth {get { return default(string); } set {}}
-	public string bottom {get { return default(string); } set {}}
-	public string captionSide {get { return default(string); } set {}}
-	public string clear {get { return default(string); } set {}}
-	public string clip {get { return default(string); } set {}}
-	public string color {get { return default(string); } set {}}
-	public string content {get { return default(string); } set {}}
-	public string counterIncrement {get { return default(string); } set {}}
-	public string counterReset {get { return default(string); } set {}}
-	public string cue {get { return default(string); } set {}}
-	public string cueAfter {get { return default(string); } set {}}
-	public string cueBefore {get { return default(string); } set {}}
-	public string cursor {get { return default(string); } set {}}
-	public string direction {get { return default(string); } set {}}
-	public string display {get { return default(string); } set {}}
-	public string elevation {get { return default(string); } set {}}
-	public string emptyCells {get { return default(string); } set {}}
-	public string cssFloat {get { return default(string); } set {}}
-	public string font {get { return default(string); } set {}}
-	public string fontFamily {get { return default(string); } set {}}
-	public string fontSize {get { return default(string); } set {}}
-	public string fontSizeAdjust {get { return default(string); } set {}}
-	public string fontStretch {get { return default(string); } set {}}
-	public string fontStyle {get { return default(string); } set {}}
-	public string fontVariant {get { return default(string); } set {}}
-	public string fontWeight {get { return default(string); } set {}}
-	public string height {get { return default(string); } set {}}
-	public string left {get { return default(string); } set {}}
-	public string letterSpacing {get { return default(string); } set {}}
-	public string lineHeight {get { return default(string); } set {}}
-	public string listStyle {get { return default(string); } set {}}
-	public string listStyleImage {get { return default(string); } set {}}
-	public string listStylePosition {get { return default(string); } set {}}
-	public string listStyleType {get { return default(string); } set {}}
-	public string margin {get { return default(string); } set {}}
-	public string marginTop {get { return default(string); } set {}}
-	public string marginRight {get { return default(string); } set {}}
-	public string marginBottom {get { return default(string); } set {}}
-	public string marginLeft {get { return default(string); } set {}}
-	public string markerOffset {get { return default(string); } set {}}
-	public string marks {get { return default(string); } set {}}
-	public string maxHeight {get { return default(string); } set {}}
-	public string maxWidth {get { return default(string); } set {}}
-	public string minHeight {get { return default(string); } set {}}
-	public string minWidth {get { return default(string); } set {}}
-	public string orphans {get { return default(string); } set {}}
-	public string outline {get { return default(string); } set {}}
-	public string outlineColor {get { return default(string); } set {}}
-	public string outlineStyle {get { return default(string); } set {}}
-	public string outlineWidth {get { return default(string); } set {}}
-	public string overflow {get { return default(string); } set {}}
-	public string padding {get { return default(string); } set {}}
-	public string paddingTop {get { return default(string); } set {}}
-	public string paddingRight {get { return default(string); } set {}}
-	public string paddingBottom {get { return default(string); } set {}}
-	public string paddingLeft {get { return default(string); } set {}}
-	public string page {get { return default(string); } set {}}
-	public string pageBreakAfter {get { return default(string); } set {}}
-	public string pageBreakBefore {get { return default(string); } set {}}
-	public string pageBreakInside {get { return default(string); } set {}}
-	public string pause {get { return default(string); } set {}}
-	public string pauseAfter {get { return default(string); } set {}}
-	public string pauseBefore {get { return default(string); } set {}}
-	public string pitch {get { return default(string); } set {}}
-	public string pitchRange {get { return default(string); } set {}}
-	public string playDuring {get { return default(string); } set {}}
-	public string position {get { return default(string); } set {}}
-	public string quotes {get { return default(string); } set {}}
-	public string richness {get { return default(string); } set {}}
-	public string right {get { return default(string); } set {}}
-	public string size {get { return default(string); } set {}}
-	public string speak {get { return default(string); } set {}}
-	public string speakHeader {get { return default(string); } set {}}
-	public string speakNumeral {get { return default(string); } set {}}
-	public string speakPunctuation {get { return default(string); } set {}}
-	public string speechRate {get { return default(string); } set {}}
-	public string stress {get { return default(string); } set {}}
-	public string tableLayout {get { return default(string); } set {}}
-	public string textAlign {get { return default(string); } set {}}
-	public string textDecoration {get { return default(string); } set {}}
-	public string textIndent {get { return default(string); } set {}}
-	public string textShadow {get { return default(string); } set {}}
-	public string textTransform {get { return default(string); } set {}}
-	public string top {get { return default(string); } set {}}
-	public string unicodeBidi {get { return default(string); } set {}}
-	public string verticalAlign {get { return default(string); } set {}}
-	public string visibility {get { return default(string); } set {}}
-	public string voiceFamily {get { return default(string); } set {}}
-	public string volume {get { return default(string); } set {}}
-	public string whiteSpace {get { return default(string); } set {}}
-	public string widows {get { return default(string); } set {}}
-	public string width {get { return default(string); } set {}}
-	public string wordSpacing {get { return default(string); } set {}}
-	public string zIndex {get { return default(string); } set {}}
+	public CSSStyleDeclarationValue values {get;private set;}
+	public CSSRule parentRule {get;private set;}
+	public string azimuth {get;set;}
+	public string background {get;set;}
+	public string backgroundAttachment {get;set;}
+	public string backgroundColor {get;set;}
+	public string backgroundImage {get;set;}
+	public string backgroundPosition {get;set;}
+	public string backgroundRepeat {get;set;}
+	public string border {get;set;}
+	public string borderCollapse {get;set;}
+	public string borderColor {get;set;}
+	public string borderSpacing {get;set;}
+	public string borderStyle {get;set;}
+	public string borderTop {get;set;}
+	public string borderRight {get;set;}
+	public string borderBottom {get;set;}
+	public string borderLeft {get;set;}
+	public string borderTopColor {get;set;}
+	public string borderRightColor {get;set;}
+	public string borderBottomColor {get;set;}
+	public string borderLeftColor {get;set;}
+	public string borderTopStyle {get;set;}
+	public string borderRightStyle {get;set;}
+	public string borderBottomStyle {get;set;}
+	public string borderLeftStyle {get;set;}
+	public string borderTopWidth {get;set;}
+	public string borderRightWidth {get;set;}
+	public string borderBottomWidth {get;set;}
+	public string borderLeftWidth {get;set;}
+	public string borderWidth {get;set;}
+	public string bottom {get;set;}
+	public string captionSide {get;set;}
+	public string clear {get;set;}
+	public string clip {get;set;}
+	public string color {get;set;}
+	public string content {get;set;}
+	public string counterIncrement {get;set;}
+	public string counterReset {get;set;}
+	public string cue {get;set;}
+	public string cueAfter {get;set;}
+	public string cueBefore {get;set;}
+	public string cursor {get;set;}
+	public string direction {get;set;}
+	public string display {get;set;}
+	public string elevation {get;set;}
+	public string emptyCells {get;set;}
+	public string cssFloat {get;set;}
+	public string font {get;set;}
+	public string fontFamily {get;set;}
+	public string fontSize {get;set;}
+	public string fontSizeAdjust {get;set;}
+	public string fontStretch {get;set;}
+	public string fontStyle {get;set;}
+	public string fontVariant {get;set;}
+	public string fontWeight {get;set;}
+	public string height {get;set;}
+	public string left {get;set;}
+	public string letterSpacing {get;set;}
+	public string lineHeight {get;set;}
+	public string listStyle {get;set;}
+	public string listStyleImage {get;set;}
+	public string listStylePosition {get;set;}
+	public string listStyleType {get;set;}
+	public string margin {get;set;}
+	public string marginTop {get;set;}
+	public string marginRight {get;set;}
+	public string marginBottom {get;set;}
+	public string marginLeft {get;set;}
+	public string markerOffset {get;set;}
+	public string marks {get;set;}
+	public string maxHeight {get;set;}
+	public string maxWidth {get;set;}
+	public string minHeight {get;set;}
+	public string minWidth {get;set;}
+	public string orphans {get;set;}
+	public string outline {get;set;}
+	public string outlineColor {get;set;}
+	public string outlineStyle {get;set;}
+	public string outlineWidth {get;set;}
+	public string overflow {get;set;}
+	public string padding {get;set;}
+	public string paddingTop {get;set;}
+	public string paddingRight {get;set;}
+	public string paddingBottom {get;set;}
+	public string paddingLeft {get;set;}
+	public string page {get;set;}
+	public string pageBreakAfter {get;set;}
+	public string pageBreakBefore {get;set;}
+	public string pageBreakInside {get;set;}
+	public string pause {get;set;}
+	public string pauseAfter {get;set;}
+	public string pauseBefore {get;set;}
+	public string pitch {get;set;}
+	public string pitchRange {get;set;}
+	public string playDuring {get;set;}
+	public string position {get;set;}
+	public string quotes {get;set;}
+	public string richness {get;set;}
+	public string right {get;set;}
+	public string size {get;set;}
+	public string speak {get;set;}
+	public string speakHeader {get;set;}
+	public string speakNumeral {get;set;}
+	public string speakPunctuation {get;set;}
+	public string speechRate {get;set;}
+	public string stress {get;set;}
+	public string tableLayout {get;set;}
+	public string textAlign {get;set;}
+	public string textDecoration {get;set;}
+	public string textIndent {get;set;}
+	public string textShadow {get;set;}
+	public string textTransform {get;set;}
+	public string top {get;set;}
+	public string unicodeBidi {get;set;}
+	public string verticalAlign {get;set;}
+	public string visibility {get;set;}
+	public string voiceFamily {get;set;}
+	public string volume {get;set;}
+	public string whiteSpace {get;set;}
+	public string widows {get;set;}
+	public string width {get;set;}
+	public string wordSpacing {get;set;}
+	public string zIndex {get;set;}
 }
 
 }

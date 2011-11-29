@@ -10,7 +10,7 @@ public partial class HTMLDetailsElement : HTMLElement
 {
 
 	// HTMLDetailsElement
-	public bool open {get { return default(bool); } set {}}
+	public bool open {get;set;}
 }
 
 }

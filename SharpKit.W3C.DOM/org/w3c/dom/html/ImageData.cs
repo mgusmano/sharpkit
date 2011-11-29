@@ -10,9 +10,9 @@ public partial class ImageData
 {
 
 	// ImageData
-	public int width {get { return default(int); } }
-	public int height {get { return default(int); } }
-	public CanvasPixelArray data {get { return default(CanvasPixelArray); } }
+	public int width {get;private set;}
+	public int height {get;private set;}
+	public CanvasPixelArray data {get;private set;}
 }
 
 }

@@ -10,8 +10,8 @@ public partial class SVGAnimatedAngle
 {
 
 	// SVGAnimatedAngle
-	public SVGAngle baseVal {get { return default(SVGAngle); } }
-	public SVGAngle animVal {get { return default(SVGAngle); } }
+	public SVGAngle baseVal {get;private set;}
+	public SVGAngle animVal {get;private set;}
 }
 
 }

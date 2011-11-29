@@ -18,7 +18,7 @@ public partial class LSParserFilter
 	public static short FILTER_INTERRUPT = 4;
 	public short startElement(Element elementArg) { return default(short); }
 	public short acceptNode(Node nodeArg) { return default(short); }
-	public int whatToShow {get { return default(int); } }
+	public int whatToShow {get;private set;}
 }
 
 }

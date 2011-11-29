@@ -10,9 +10,9 @@ public partial class SQLResultSet
 {
 
 	// SQLResultSet
-	public int insertId {get { return default(int); } }
-	public int rowsAffected {get { return default(int); } }
-	public SQLResultSetRowList rows {get { return default(SQLResultSetRowList); } }
+	public int insertId {get;private set;}
+	public int rowsAffected {get;private set;}
+	public SQLResultSetRowList rows {get;private set;}
 }
 
 }

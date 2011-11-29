@@ -11,15 +11,15 @@ public partial class HTMLFrameElement : HTMLElement
 {
 
 	// HTMLFrameElement
-	public string frameBorder {get { return default(string); } set {}}
-	public string longDesc {get { return default(string); } set {}}
-	public string marginHeight {get { return default(string); } set {}}
-	public string marginWidth {get { return default(string); } set {}}
-	public string name {get { return default(string); } set {}}
-	public bool noResize {get { return default(bool); } set {}}
-	public string scrolling {get { return default(string); } set {}}
-	public string src {get { return default(string); } set {}}
-	public Document contentDocument {get { return default(Document); } }
+	public string frameBorder {get;set;}
+	public string longDesc {get;set;}
+	public string marginHeight {get;set;}
+	public string marginWidth {get;set;}
+	public string name {get;set;}
+	public bool noResize {get;set;}
+	public string scrolling {get;set;}
+	public string src {get;set;}
+	public Document contentDocument {get;private set;}
 }
 
 }

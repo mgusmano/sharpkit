@@ -10,7 +10,7 @@ public partial class DoubleArray
 {
 
 	// DoubleArray
-	public int length {get { return default(int); } set {}}
+	public int length {get;set;}
 	public double getElement(int index) { return default(double); }
 	public void setElement(int index, double value) {}
 }

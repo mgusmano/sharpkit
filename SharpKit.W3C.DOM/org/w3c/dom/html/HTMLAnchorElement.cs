@@ -10,29 +10,29 @@ public partial class HTMLAnchorElement : HTMLElement
 {
 
 	// HTMLAnchorElement
-	public string href {get { return default(string); } set {}}
-	public string target {get { return default(string); } set {}}
-	public string ping {get { return default(string); } set {}}
-	public string rel {get { return default(string); } set {}}
-	public DOMTokenList relList {get { return default(DOMTokenList); } }
-	public string media {get { return default(string); } set {}}
-	public string hreflang {get { return default(string); } set {}}
-	public string type {get { return default(string); } set {}}
-	public string text {get { return default(string); } set {}}
-	public string protocol {get { return default(string); } set {}}
-	public string host {get { return default(string); } set {}}
-	public string hostname {get { return default(string); } set {}}
-	public string port {get { return default(string); } set {}}
-	public string pathname {get { return default(string); } set {}}
-	public string search {get { return default(string); } set {}}
-	public string hash {get { return default(string); } set {}}
+	public string href {get;set;}
+	public string target {get;set;}
+	public string ping {get;set;}
+	public string rel {get;set;}
+	public DOMTokenList relList {get;private set;}
+	public string media {get;set;}
+	public string hreflang {get;set;}
+	public string type {get;set;}
+	public string text {get;set;}
+	public string protocol {get;set;}
+	public string host {get;set;}
+	public string hostname {get;set;}
+	public string port {get;set;}
+	public string pathname {get;set;}
+	public string search {get;set;}
+	public string hash {get;set;}
 
 	// HTMLAnchorElement-4
-	public string coords {get { return default(string); } set {}}
-	public string charset {get { return default(string); } set {}}
-	public string name {get { return default(string); } set {}}
-	public string rev {get { return default(string); } set {}}
-	public string shape {get { return default(string); } set {}}
+	public string coords {get;set;}
+	public string charset {get;set;}
+	public string name {get;set;}
+	public string rev {get;set;}
+	public string shape {get;set;}
 }
 
 }

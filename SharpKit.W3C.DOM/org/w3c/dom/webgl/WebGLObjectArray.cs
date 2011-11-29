@@ -10,7 +10,7 @@ public partial class WebGLObjectArray
 {
 
 	// WebGLObjectArray
-	public int length {get { return default(int); } }
+	public int length {get;private set;}
 	public WebGLObject get(int index) { return default(WebGLObject); }
 }
 

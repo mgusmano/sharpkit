@@ -10,19 +10,19 @@ public partial class HTMLLinkElement : HTMLElement
 {
 
 	// HTMLLinkElement
-	public bool disabled {get { return default(bool); } set {}}
-	public string href {get { return default(string); } set {}}
-	public string rel {get { return default(string); } set {}}
-	public DOMTokenList relList {get { return default(DOMTokenList); } }
-	public string media {get { return default(string); } set {}}
-	public string hreflang {get { return default(string); } set {}}
-	public string type {get { return default(string); } set {}}
-	public DOMSettableTokenList sizes {get { return default(DOMSettableTokenList); } set {}}
+	public bool disabled {get;set;}
+	public string href {get;set;}
+	public string rel {get;set;}
+	public DOMTokenList relList {get;private set;}
+	public string media {get;set;}
+	public string hreflang {get;set;}
+	public string type {get;set;}
+	public DOMSettableTokenList sizes {get;set;}
 
 	// HTMLLinkElement-22
-	public string charset {get { return default(string); } set {}}
-	public string rev {get { return default(string); } set {}}
-	public string target {get { return default(string); } set {}}
+	public string charset {get;set;}
+	public string rev {get;set;}
+	public string target {get;set;}
 }
 
 }

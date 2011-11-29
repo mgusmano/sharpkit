@@ -11,8 +11,8 @@ public partial class Text : CharacterData
 
 	// Text
 	public Text splitText(int offset) { return default(Text); }
-	public bool isElementContentWhitespace {get { return default(bool); } }
-	public string wholeText {get { return default(string); } }
+	public bool isElementContentWhitespace {get;private set;}
+	public string wholeText {get;private set;}
 	public Text replaceWholeText(string content) { return default(Text); }
 }
 

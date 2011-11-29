@@ -10,9 +10,9 @@ public partial class SVGCircleElement : SVGElement
 {
 
 	// SVGCircleElement
-	public SVGAnimatedLength cx {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength cy {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength r {get { return default(SVGAnimatedLength); } }
+	public SVGAnimatedLength cx {get;private set;}
+	public SVGAnimatedLength cy {get;private set;}
+	public SVGAnimatedLength r {get;private set;}
 }
 
 }

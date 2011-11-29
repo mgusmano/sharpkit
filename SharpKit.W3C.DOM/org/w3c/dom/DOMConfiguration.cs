@@ -13,7 +13,7 @@ public partial class DOMConfiguration
 	public void setParameter(string name, object value) {}
 	public object getParameter(string name) { return default(object); }
 	public bool canSetParameter(string name, object value) { return default(bool); }
-	public DOMStringList parameterNames {get { return default(DOMStringList); } }
+	public DOMStringList parameterNames {get;private set;}
 }
 
 }

@@ -10,12 +10,12 @@ public partial class HTMLParamElement : HTMLElement
 {
 
 	// HTMLParamElement
-	public string name {get { return default(string); } set {}}
-	public string value {get { return default(string); } set {}}
+	public string name {get;set;}
+	public string value {get;set;}
 
 	// HTMLParamElement-28
-	public string type {get { return default(string); } set {}}
-	public string valueType {get { return default(string); } set {}}
+	public string type {get;set;}
+	public string valueType {get;set;}
 }
 
 }

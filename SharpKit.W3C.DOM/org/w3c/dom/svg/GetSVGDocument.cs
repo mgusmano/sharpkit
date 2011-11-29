@@ -11,7 +11,7 @@ public partial class GetSVGDocument
 {
 
 	// GetSVGDocument
-	public SVGDocument sVGDocument {get { return default(SVGDocument); } }
+	public SVGDocument sVGDocument {get;private set;}
 }
 
 }

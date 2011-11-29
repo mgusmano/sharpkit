@@ -10,9 +10,9 @@ public partial class SVGElementInstanceList
 {
 
 	// SVGElementInstanceList
-	public int length {get { return default(int); } }
+	public int length {get;private set;}
 	[JsProperty(NativeIndexer = true)]
-	public SVGElementInstance this[int index] {get { return default(SVGElementInstance); } }
+	public SVGElementInstance this[int index] {get{return null;}}
 }
 
 }

@@ -10,23 +10,23 @@ public partial class HTMLImageElement : HTMLElement
 {
 
 	// HTMLImageElement
-	public string alt {get { return default(string); } set {}}
-	public string src {get { return default(string); } set {}}
-	public string useMap {get { return default(string); } set {}}
-	public bool isMap {get { return default(bool); } set {}}
-	public int width {get { return default(int); } set {}}
-	public int height {get { return default(int); } set {}}
-	public int naturalWidth {get { return default(int); } }
-	public int naturalHeight {get { return default(int); } }
-	public bool complete {get { return default(bool); } }
+	public string alt {get;set;}
+	public string src {get;set;}
+	public string useMap {get;set;}
+	public bool isMap {get;set;}
+	public int width {get;set;}
+	public int height {get;set;}
+	public int naturalWidth {get;private set;}
+	public int naturalHeight {get;private set;}
+	public bool complete {get;private set;}
 
 	// HTMLImageElement-18
-	public string name {get { return default(string); } set {}}
-	public string align {get { return default(string); } set {}}
-	public string border {get { return default(string); } set {}}
-	public int hspace {get { return default(int); } set {}}
-	public string longDesc {get { return default(string); } set {}}
-	public int vspace {get { return default(int); } set {}}
+	public string name {get;set;}
+	public string align {get;set;}
+	public string border {get;set;}
+	public int hspace {get;set;}
+	public string longDesc {get;set;}
+	public int vspace {get;set;}
 }
 
 }

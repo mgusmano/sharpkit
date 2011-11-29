@@ -14,106 +14,106 @@ public partial class HTMLElement : Element
 
 	// HTMLElement
 	public NodeList getElementsByClassName(string classNames) { return default(NodeList); }
-	public string innerHTML {get { return default(string); } set {}}
-	public string outerHTML {get { return default(string); } set {}}
+	public string innerHTML {get;set;}
+	public string outerHTML {get;set;}
 	public void insertAdjacentHTML(string position, string text) {}
-	public string id {get { return default(string); } set {}}
-	public string title {get { return default(string); } set {}}
-	public string lang {get { return default(string); } set {}}
-	public string dir {get { return default(string); } set {}}
-	public string className {get { return default(string); } set {}}
-	public DOMTokenList classList {get { return default(DOMTokenList); } }
-	public DOMStringMap dataset {get { return default(DOMStringMap); } }
-	public bool hidden {get { return default(bool); } set {}}
+	public string id {get;set;}
+	public string title {get;set;}
+	public string lang {get;set;}
+	public string dir {get;set;}
+	public string className {get;set;}
+	public DOMTokenList classList {get;private set;}
+	public DOMStringMap dataset {get;private set;}
+	public bool hidden {get;set;}
 	public void click() {}
 	public void scrollIntoView() {}
 	public void scrollIntoView(bool top) {}
-	public int tabIndex {get { return default(int); } set {}}
+	public int tabIndex {get;set;}
 	public void focus() {}
 	public void blur() {}
-	public string accessKey {get { return default(string); } set {}}
-	public string accessKeyLabel {get { return default(string); } }
-	public bool draggable {get { return default(bool); } set {}}
-	public string contentEditable {get { return default(string); } set {}}
-	public bool isContentEditable {get { return default(bool); } }
-	public HTMLMenuElement contextMenu {get { return default(HTMLMenuElement); } set {}}
-	public string spellcheck {get { return default(string); } set {}}
-	public string commandType {get { return default(string); } }
-	public string label {get { return default(string); } }
-	public string icon {get { return default(string); } }
-	public bool disabled {get { return default(bool); } }
-	public bool @checked {get { return default(bool); } }
-	public CSSStyleDeclaration style {get { return default(CSSStyleDeclaration); } }
-	public JsAction onabort {get { return default(JsAction); } set {}}
-	public JsAction onblur {get { return default(JsAction); } set {}}
-	public JsAction oncanplay {get { return default(JsAction); } set {}}
-	public JsAction oncanplaythrough {get { return default(JsAction); } set {}}
-	public JsAction onchange {get { return default(JsAction); } set {}}
-	public JsAction onclick {get { return default(JsAction); } set {}}
-	public JsAction oncontextmenu {get { return default(JsAction); } set {}}
-	public JsAction ondblclick {get { return default(JsAction); } set {}}
-	public JsAction ondrag {get { return default(JsAction); } set {}}
-	public JsAction ondragend {get { return default(JsAction); } set {}}
-	public JsAction ondragenter {get { return default(JsAction); } set {}}
-	public JsAction ondragleave {get { return default(JsAction); } set {}}
-	public JsAction ondragover {get { return default(JsAction); } set {}}
-	public JsAction ondragstart {get { return default(JsAction); } set {}}
-	public JsAction ondrop {get { return default(JsAction); } set {}}
-	public JsAction ondurationchange {get { return default(JsAction); } set {}}
-	public JsAction onemptied {get { return default(JsAction); } set {}}
-	public JsAction onended {get { return default(JsAction); } set {}}
-	public JsAction onerror {get { return default(JsAction); } set {}}
-	public JsAction onfocus {get { return default(JsAction); } set {}}
-	public JsAction onformchange {get { return default(JsAction); } set {}}
-	public JsAction onforminput {get { return default(JsAction); } set {}}
-	public JsAction oninput {get { return default(JsAction); } set {}}
-	public JsAction oninvalid {get { return default(JsAction); } set {}}
-	public JsAction onkeydown {get { return default(JsAction); } set {}}
-	public JsAction onkeypress {get { return default(JsAction); } set {}}
-	public JsAction onkeyup {get { return default(JsAction); } set {}}
-	public JsAction onload {get { return default(JsAction); } set {}}
-	public JsAction onloadeddata {get { return default(JsAction); } set {}}
-	public JsAction onloadedmetadata {get { return default(JsAction); } set {}}
-	public JsAction onloadstart {get { return default(JsAction); } set {}}
-	public JsAction onmousedown {get { return default(JsAction); } set {}}
-	public JsAction onmousemove {get { return default(JsAction); } set {}}
-	public JsAction onmouseout {get { return default(JsAction); } set {}}
-	public JsAction onmouseover {get { return default(JsAction); } set {}}
-	public JsAction onmouseup {get { return default(JsAction); } set {}}
-	public JsAction onmousewheel {get { return default(JsAction); } set {}}
-	public JsAction onpause {get { return default(JsAction); } set {}}
-	public JsAction onplay {get { return default(JsAction); } set {}}
-	public JsAction onplaying {get { return default(JsAction); } set {}}
-	public JsAction onprogress {get { return default(JsAction); } set {}}
-	public JsAction onratechange {get { return default(JsAction); } set {}}
-	public JsAction onreadystatechange {get { return default(JsAction); } set {}}
-	public JsAction onscroll {get { return default(JsAction); } set {}}
-	public JsAction onseeked {get { return default(JsAction); } set {}}
-	public JsAction onseeking {get { return default(JsAction); } set {}}
-	public JsAction onselect {get { return default(JsAction); } set {}}
-	public JsAction onshow {get { return default(JsAction); } set {}}
-	public JsAction onstalled {get { return default(JsAction); } set {}}
-	public JsAction onsubmit {get { return default(JsAction); } set {}}
-	public JsAction onsuspend {get { return default(JsAction); } set {}}
-	public JsAction ontimeupdate {get { return default(JsAction); } set {}}
-	public JsAction onvolumechange {get { return default(JsAction); } set {}}
-	public JsAction onwaiting {get { return default(JsAction); } set {}}
+	public string accessKey {get;set;}
+	public string accessKeyLabel {get;private set;}
+	public bool draggable {get;set;}
+	public string contentEditable {get;set;}
+	public bool isContentEditable {get;private set;}
+	public HTMLMenuElement contextMenu {get;set;}
+	public string spellcheck {get;set;}
+	public string commandType {get;private set;}
+	public string label {get;private set;}
+	public string icon {get;private set;}
+	public bool disabled {get;private set;}
+	public bool @checked {get;private set;}
+	public CSSStyleDeclaration style {get;private set;}
+	public JsAction onabort {get;set;}
+	public JsAction onblur {get;set;}
+	public JsAction oncanplay {get;set;}
+	public JsAction oncanplaythrough {get;set;}
+	public JsAction onchange {get;set;}
+	public JsAction onclick {get;set;}
+	public JsAction oncontextmenu {get;set;}
+	public JsAction ondblclick {get;set;}
+	public JsAction ondrag {get;set;}
+	public JsAction ondragend {get;set;}
+	public JsAction ondragenter {get;set;}
+	public JsAction ondragleave {get;set;}
+	public JsAction ondragover {get;set;}
+	public JsAction ondragstart {get;set;}
+	public JsAction ondrop {get;set;}
+	public JsAction ondurationchange {get;set;}
+	public JsAction onemptied {get;set;}
+	public JsAction onended {get;set;}
+	public JsAction onerror {get;set;}
+	public JsAction onfocus {get;set;}
+	public JsAction onformchange {get;set;}
+	public JsAction onforminput {get;set;}
+	public JsAction oninput {get;set;}
+	public JsAction oninvalid {get;set;}
+	public JsAction onkeydown {get;set;}
+	public JsAction onkeypress {get;set;}
+	public JsAction onkeyup {get;set;}
+	public JsAction onload {get;set;}
+	public JsAction onloadeddata {get;set;}
+	public JsAction onloadedmetadata {get;set;}
+	public JsAction onloadstart {get;set;}
+	public JsAction onmousedown {get;set;}
+	public JsAction onmousemove {get;set;}
+	public JsAction onmouseout {get;set;}
+	public JsAction onmouseover {get;set;}
+	public JsAction onmouseup {get;set;}
+	public JsAction onmousewheel {get;set;}
+	public JsAction onpause {get;set;}
+	public JsAction onplay {get;set;}
+	public JsAction onplaying {get;set;}
+	public JsAction onprogress {get;set;}
+	public JsAction onratechange {get;set;}
+	public JsAction onreadystatechange {get;set;}
+	public JsAction onscroll {get;set;}
+	public JsAction onseeked {get;set;}
+	public JsAction onseeking {get;set;}
+	public JsAction onselect {get;set;}
+	public JsAction onshow {get;set;}
+	public JsAction onstalled {get;set;}
+	public JsAction onsubmit {get;set;}
+	public JsAction onsuspend {get;set;}
+	public JsAction ontimeupdate {get;set;}
+	public JsAction onvolumechange {get;set;}
+	public JsAction onwaiting {get;set;}
 
 	// HTMLElement-3
-	public Element offsetParent {get { return default(Element); } }
-	public int offsetTop {get { return default(int); } }
-	public int offsetLeft {get { return default(int); } }
-	public int offsetWidth {get { return default(int); } }
-	public int offsetHeight {get { return default(int); } }
+	public Element offsetParent {get;private set;}
+	public int offsetTop {get;private set;}
+	public int offsetLeft {get;private set;}
+	public int offsetWidth {get;private set;}
+	public int offsetHeight {get;private set;}
 
 	// HTMLElement-38
-	public bool itemScope {get { return default(bool); } set {}}
-	public string itemType {get { return default(string); } set {}}
-	public string itemId {get { return default(string); } set {}}
-	public DOMSettableTokenList itemRef {get { return default(DOMSettableTokenList); } set {}}
-	public DOMSettableTokenList itemProp {get { return default(DOMSettableTokenList); } set {}}
-	public HTMLPropertiesCollection properties {get { return default(HTMLPropertiesCollection); } }
-	public object itemValue {get { return default(object); } set {}}
+	public bool itemScope {get;set;}
+	public string itemType {get;set;}
+	public string itemId {get;set;}
+	public DOMSettableTokenList itemRef {get;set;}
+	public DOMSettableTokenList itemProp {get;set;}
+	public HTMLPropertiesCollection properties {get;private set;}
+	public object itemValue {get;set;}
 }
 
 }

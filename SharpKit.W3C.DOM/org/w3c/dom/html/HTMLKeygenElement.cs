@@ -11,19 +11,19 @@ public partial class HTMLKeygenElement : HTMLElement
 {
 
 	// HTMLKeygenElement
-	public bool autofocus {get { return default(bool); } set {}}
-	public string challenge {get { return default(string); } set {}}
-	public bool disabled {get { return default(bool); } set {}}
-	public HTMLFormElement form {get { return default(HTMLFormElement); } }
-	public string keytype {get { return default(string); } set {}}
-	public string name {get { return default(string); } set {}}
-	public string type {get { return default(string); } }
-	public bool willValidate {get { return default(bool); } }
-	public ValidityState validity {get { return default(ValidityState); } }
-	public string validationMessage {get { return default(string); } }
+	public bool autofocus {get;set;}
+	public string challenge {get;set;}
+	public bool disabled {get;set;}
+	public HTMLFormElement form {get;private set;}
+	public string keytype {get;set;}
+	public string name {get;set;}
+	public string type {get;private set;}
+	public bool willValidate {get;private set;}
+	public ValidityState validity {get;private set;}
+	public string validationMessage {get;private set;}
 	public bool checkValidity() { return default(bool); }
 	public void setCustomValidity(string error) {}
-	public NodeList labels {get { return default(NodeList); } }
+	public NodeList labels {get;private set;}
 }
 
 }

@@ -11,8 +11,8 @@ public partial class CSSMediaRule : CSSRule
 {
 
 	// CSSMediaRule
-	public MediaList media {get { return default(MediaList); } set {}}
-	public CSSRule cssRules {get { return default(CSSRule); } }
+	public MediaList media {get;set;}
+	public CSSRule cssRules {get;private set;}
 	public int insertRule(string rule, int index) { return default(int); }
 	public void deleteRule(int index) {}
 }

@@ -10,7 +10,7 @@ public partial class SVGAElement : SVGElement
 {
 
 	// SVGAElement
-	public SVGAnimatedString target {get { return default(SVGAnimatedString); } }
+	public SVGAnimatedString target {get;private set;}
 }
 
 }

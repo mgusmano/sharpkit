@@ -10,12 +10,12 @@ public partial class ClientRect
 {
 
 	// ClientRect
-	public float top {get { return default(float); } }
-	public float right {get { return default(float); } }
-	public float bottom {get { return default(float); } }
-	public float left {get { return default(float); } }
-	public float width {get { return default(float); } }
-	public float height {get { return default(float); } }
+	public float top {get;private set;}
+	public float right {get;private set;}
+	public float bottom {get;private set;}
+	public float left {get;private set;}
+	public float width {get;private set;}
+	public float height {get;private set;}
 }
 
 }

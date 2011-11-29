@@ -11,7 +11,7 @@ public partial class SVGStringList
 {
 
 	// SVGStringList
-	public int numberOfItems {get { return default(int); } }
+	public int numberOfItems {get;private set;}
 	public void clear() {}
 	public string initialize(string newItem) { return default(string); }
 	public string getItem(int index) { return default(string); }

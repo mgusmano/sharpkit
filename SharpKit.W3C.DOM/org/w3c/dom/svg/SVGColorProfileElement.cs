@@ -10,9 +10,9 @@ public partial class SVGColorProfileElement : SVGElement
 {
 
 	// SVGColorProfileElement
-	public string local {get { return default(string); } set {}}
-	public string name {get { return default(string); } set {}}
-	public short renderingIntent {get { return default(short); } set {}}
+	public string local {get;set;}
+	public string name {get;set;}
+	public short renderingIntent {get;set;}
 }
 
 }

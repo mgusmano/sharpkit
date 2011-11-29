@@ -11,7 +11,7 @@ public partial class HTMLFormControlsCollection : HTMLCollection
 
 	// HTMLFormControlsCollection
 	[JsProperty(NativeIndexer = true)]
-	public object this[string name] {get { return default(object); } }
+	public object this[string name] {get{return null;}}
 }
 
 }

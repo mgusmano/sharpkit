@@ -10,7 +10,7 @@ public partial class StyleMedia
 {
 
 	// StyleMedia
-	public string type {get { return default(string); } }
+	public string type {get;private set;}
 	public bool matchMedium(string mediaquery) { return default(bool); }
 }
 

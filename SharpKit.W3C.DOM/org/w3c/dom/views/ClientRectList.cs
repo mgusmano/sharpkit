@@ -10,9 +10,9 @@ public partial class ClientRectList
 {
 
 	// ClientRectList
-	public int length {get { return default(int); } }
+	public int length {get;private set;}
 	[JsProperty(NativeIndexer = true)]
-	public ClientRect this[int index] {get { return default(ClientRect); } }
+	public ClientRect this[int index] {get{return null;}}
 }
 
 }

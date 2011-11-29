@@ -10,8 +10,8 @@ public partial class TypeInfo
 {
 
 	// TypeInfo
-	public string typeName {get { return default(string); } }
-	public string typeNamespace {get { return default(string); } }
+	public string typeName {get;private set;}
+	public string typeNamespace {get;private set;}
 	public static int DERIVATION_RESTRICTION = 0x00000001;
 	public static int DERIVATION_EXTENSION = 0x00000002;
 	public static int DERIVATION_UNION = 0x00000004;

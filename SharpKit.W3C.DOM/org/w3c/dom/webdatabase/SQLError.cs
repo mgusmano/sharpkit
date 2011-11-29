@@ -18,8 +18,8 @@ public partial class SQLError
 	public static short SYNTAX_ERR = 5;
 	public static short CONSTRAINT_ERR = 6;
 	public static short TIMEOUT_ERR = 7;
-	public short code {get { return default(short); } }
-	public string message {get { return default(string); } }
+	public short code {get;private set;}
+	public string message {get;private set;}
 }
 
 }

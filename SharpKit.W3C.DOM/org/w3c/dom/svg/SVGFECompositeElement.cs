@@ -17,13 +17,13 @@ public partial class SVGFECompositeElement : SVGElement
 	public static short SVG_FECOMPOSITE_OPERATOR_ATOP = 4;
 	public static short SVG_FECOMPOSITE_OPERATOR_XOR = 5;
 	public static short SVG_FECOMPOSITE_OPERATOR_ARITHMETIC = 6;
-	public SVGAnimatedString in1 {get { return default(SVGAnimatedString); } }
-	public SVGAnimatedString in2 {get { return default(SVGAnimatedString); } }
-	public SVGAnimatedEnumeration @operator {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedNumber k1 {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber k2 {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber k3 {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber k4 {get { return default(SVGAnimatedNumber); } }
+	public SVGAnimatedString in1 {get;private set;}
+	public SVGAnimatedString in2 {get;private set;}
+	public SVGAnimatedEnumeration @operator {get;private set;}
+	public SVGAnimatedNumber k1 {get;private set;}
+	public SVGAnimatedNumber k2 {get;private set;}
+	public SVGAnimatedNumber k3 {get;private set;}
+	public SVGAnimatedNumber k4 {get;private set;}
 }
 
 }

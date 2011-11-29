@@ -15,9 +15,9 @@ public partial class IDBKeyRange
 	public static short RIGHT_OPEN = 2;
 	public static short LEFT_BOUND = 4;
 	public static short RIGHT_BOUND = 8;
-	public object left {get { return default(object); } }
-	public object right {get { return default(object); } }
-	public short flags {get { return default(short); } }
+	public object left {get;private set;}
+	public object right {get;private set;}
+	public short flags {get;private set;}
 	public IDBKeyRange only(object value) { return default(IDBKeyRange); }
 	public IDBKeyRange leftBound(object bound) { return default(IDBKeyRange); }
 	public IDBKeyRange leftBound(object bound, bool open) { return default(IDBKeyRange); }

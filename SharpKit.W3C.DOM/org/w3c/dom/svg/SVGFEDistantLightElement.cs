@@ -10,8 +10,8 @@ public partial class SVGFEDistantLightElement : SVGElement
 {
 
 	// SVGFEDistantLightElement
-	public SVGAnimatedNumber azimuth {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber elevation {get { return default(SVGAnimatedNumber); } }
+	public SVGAnimatedNumber azimuth {get;private set;}
+	public SVGAnimatedNumber elevation {get;private set;}
 }
 
 }

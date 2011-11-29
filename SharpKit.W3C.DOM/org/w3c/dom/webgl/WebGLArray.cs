@@ -10,10 +10,10 @@ public partial class WebGLArray
 {
 
 	// WebGLArray
-	public WebGLArrayBuffer buffer {get { return default(WebGLArrayBuffer); } }
-	public int byteOffset {get { return default(int); } }
-	public int byteLength {get { return default(int); } }
-	public int length {get { return default(int); } }
+	public WebGLArrayBuffer buffer {get;private set;}
+	public int byteOffset {get;private set;}
+	public int byteLength {get;private set;}
+	public int length {get;private set;}
 	public WebGLArray slice(int start, int end) { return default(WebGLArray); }
 }
 

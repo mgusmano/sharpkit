@@ -11,11 +11,11 @@ public partial class MessageEvent : Event
 {
 
 	// MessageEvent
-	public object data {get { return default(object); } }
-	public string origin {get { return default(string); } }
-	public string lastEventId {get { return default(string); } }
-	public Window source {get { return default(Window); } }
-	public MessagePort ports {get { return default(MessagePort); } }
+	public object data {get;private set;}
+	public string origin {get;private set;}
+	public string lastEventId {get;private set;}
+	public Window source {get;private set;}
+	public MessagePort ports {get;private set;}
 	public void initMessageEvent(string typeArg, bool canBubbleArg, bool cancelableArg, object dataArg, string originArg, string lastEventIdArg, Window sourceArg, MessagePort[] portsArg) {}
 }
 

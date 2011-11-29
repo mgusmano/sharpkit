@@ -13,12 +13,12 @@ public partial class Notification : EventTarget
 	// Notification
 	public void show() {}
 	public void cancel() {}
-	public JsAction onclick {get { return default(JsAction); } set {}}
-	public JsAction ondisplay {get { return default(JsAction); } set {}}
-	public JsAction onerror {get { return default(JsAction); } set {}}
-	public JsAction onclose {get { return default(JsAction); } set {}}
-	public int replaceId {get { return default(int); } set {}}
-	public string dir {get { return default(string); } set {}}
+	public JsAction onclick {get;set;}
+	public JsAction ondisplay {get;set;}
+	public JsAction onerror {get;set;}
+	public JsAction onclose {get;set;}
+	public int replaceId {get;set;}
+	public string dir {get;set;}
 }
 
 }

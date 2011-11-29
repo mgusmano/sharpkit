@@ -10,8 +10,8 @@ public partial class SVGLangSpace
 {
 
 	// SVGLangSpace
-	public string xmllang {get { return default(string); } set {}}
-	public string xmlspace {get { return default(string); } set {}}
+	public string xmllang {get;set;}
+	public string xmlspace {get;set;}
 }
 
 }

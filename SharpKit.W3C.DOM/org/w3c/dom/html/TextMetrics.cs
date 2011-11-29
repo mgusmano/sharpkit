@@ -10,7 +10,7 @@ public partial class TextMetrics
 {
 
 	// TextMetrics
-	public float width {get { return default(float); } }
+	public float width {get;private set;}
 }
 
 }

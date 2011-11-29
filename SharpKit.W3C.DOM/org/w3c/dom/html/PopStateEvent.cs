@@ -11,7 +11,7 @@ public partial class PopStateEvent : Event
 {
 
 	// PopStateEvent
-	public object state {get { return default(object); } }
+	public object state {get;private set;}
 	public void initPopStateEvent(string typeArg, bool canBubbleArg, bool cancelableArg, object stateArg) {}
 }
 

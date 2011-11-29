@@ -16,10 +16,10 @@ public partial class CSSRule
 	public static short FONT_FACE_RULE = 5;
 	public static short PAGE_RULE = 6;
 	public static short NAMESPACE_RULE = 10;
-	public short type {get { return default(short); } }
-	public string cssText {get { return default(string); } set {}}
-	public CSSRule parentRule {get { return default(CSSRule); } }
-	public CSSStyleSheet parentStyleSheet {get { return default(CSSStyleSheet); } }
+	public short type {get;private set;}
+	public string cssText {get;set;}
+	public CSSRule parentRule {get;private set;}
+	public CSSStyleSheet parentStyleSheet {get;private set;}
 }
 
 }

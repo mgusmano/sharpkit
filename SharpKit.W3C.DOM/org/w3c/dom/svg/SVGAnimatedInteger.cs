@@ -10,8 +10,8 @@ public partial class SVGAnimatedInteger
 {
 
 	// SVGAnimatedInteger
-	public int baseVal {get { return default(int); } set {}}
-	public int animVal {get { return default(int); } }
+	public int baseVal {get;set;}
+	public int animVal {get;private set;}
 }
 
 }

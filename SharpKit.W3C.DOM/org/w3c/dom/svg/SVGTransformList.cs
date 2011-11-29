@@ -11,7 +11,7 @@ public partial class SVGTransformList
 {
 
 	// SVGTransformList
-	public int numberOfItems {get { return default(int); } }
+	public int numberOfItems {get;private set;}
 	public void clear() {}
 	public SVGTransform initialize(SVGTransform newItem) { return default(SVGTransform); }
 	public SVGTransform getItem(int index) { return default(SVGTransform); }

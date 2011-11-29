@@ -12,8 +12,8 @@ public partial class LSLoadEvent : Event
 {
 
 	// LSLoadEvent
-	public Document newDocument {get { return default(Document); } }
-	public LSInput input {get { return default(LSInput); } }
+	public Document newDocument {get;private set;}
+	public LSInput input {get;private set;}
 }
 
 }

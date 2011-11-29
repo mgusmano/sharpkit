@@ -15,7 +15,7 @@ public partial class FileError
 	public static short ABORT_ERR = 20;
 	public static short NOT_READABLE_ERR = 24;
 	public static short ENCODING_ERR = 26;
-	public short code {get { return default(short); } }
+	public short code {get;private set;}
 }
 
 }

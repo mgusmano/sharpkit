@@ -18,14 +18,14 @@ public partial class ElementEditVAL : NodeEditVAL
 	public static short VAL_MIXED_CONTENTTYPE = 3;
 	public static short VAL_ELEMENTS_CONTENTTYPE = 4;
 	public static short VAL_SIMPLE_CONTENTTYPE = 5;
-	public NameList allowedChildren {get { return default(NameList); } }
-	public NameList allowedFirstChildren {get { return default(NameList); } }
-	public NameList allowedParents {get { return default(NameList); } }
-	public NameList allowedNextSiblings {get { return default(NameList); } }
-	public NameList allowedPreviousSiblings {get { return default(NameList); } }
-	public NameList allowedAttributes {get { return default(NameList); } }
-	public NameList requiredAttributes {get { return default(NameList); } }
-	public short contentType {get { return default(short); } }
+	public NameList allowedChildren {get;private set;}
+	public NameList allowedFirstChildren {get;private set;}
+	public NameList allowedParents {get;private set;}
+	public NameList allowedNextSiblings {get;private set;}
+	public NameList allowedPreviousSiblings {get;private set;}
+	public NameList allowedAttributes {get;private set;}
+	public NameList requiredAttributes {get;private set;}
+	public short contentType {get;private set;}
 	public short canSetTextContent(string possibleTextContent) { return default(short); }
 	public short canSetAttribute(string attrname, string attrval) { return default(short); }
 	public short canSetAttributeNode(Attr attrNode) { return default(short); }

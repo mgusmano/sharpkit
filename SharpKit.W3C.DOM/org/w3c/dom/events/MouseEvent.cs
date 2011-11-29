@@ -11,27 +11,27 @@ public partial class MouseEvent : UIEvent
 {
 
 	// MouseEvent
-	public int screenX {get { return default(int); } }
-	public int screenY {get { return default(int); } }
-	public int clientX {get { return default(int); } }
-	public int clientY {get { return default(int); } }
-	public bool ctrlKey {get { return default(bool); } }
-	public bool shiftKey {get { return default(bool); } }
-	public bool altKey {get { return default(bool); } }
-	public bool metaKey {get { return default(bool); } }
-	public short button {get { return default(short); } }
-	public short buttons {get { return default(short); } }
-	public EventTarget relatedTarget {get { return default(EventTarget); } }
+	public int screenX {get;private set;}
+	public int screenY {get;private set;}
+	public int clientX {get;private set;}
+	public int clientY {get;private set;}
+	public bool ctrlKey {get;private set;}
+	public bool shiftKey {get;private set;}
+	public bool altKey {get;private set;}
+	public bool metaKey {get;private set;}
+	public short button {get;private set;}
+	public short buttons {get;private set;}
+	public EventTarget relatedTarget {get;private set;}
 	public void initMouseEvent(string typeArg, bool canBubbleArg, bool cancelableArg, AbstractView viewArg, int detailArg, int screenXArg, int screenYArg, int clientXArg, int clientYArg, bool ctrlKeyArg, bool altKeyArg, bool shiftKeyArg, bool metaKeyArg, short buttonArg, short buttonsArg, EventTarget relatedTargetArg) {}
 	public bool getModifierState(string keyArg) { return default(bool); }
 
 	// MouseEvent-43
-	public int pageX {get { return default(int); } }
-	public int pageY {get { return default(int); } }
-	public int x {get { return default(int); } }
-	public int y {get { return default(int); } }
-	public int offsetX {get { return default(int); } }
-	public int offsetY {get { return default(int); } }
+	public int pageX {get;private set;}
+	public int pageY {get;private set;}
+	public int x {get;private set;}
+	public int y {get;private set;}
+	public int offsetX {get;private set;}
+	public int offsetY {get;private set;}
 }
 
 }

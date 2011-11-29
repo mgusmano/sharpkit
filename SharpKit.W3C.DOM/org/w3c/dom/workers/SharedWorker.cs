@@ -11,7 +11,7 @@ public partial class SharedWorker : AbstractWorker
 {
 
 	// SharedWorker
-	public MessagePort port {get { return default(MessagePort); } }
+	public MessagePort port {get;private set;}
 }
 
 }

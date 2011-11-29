@@ -13,12 +13,12 @@ public partial class DOMError
 	public static short SEVERITY_WARNING = 1;
 	public static short SEVERITY_ERROR = 2;
 	public static short SEVERITY_FATAL_ERROR = 3;
-	public short severity {get { return default(short); } }
-	public string message {get { return default(string); } }
-	public string type {get { return default(string); } }
-	public object relatedException {get { return default(object); } }
-	public object relatedData {get { return default(object); } }
-	public DOMLocator location {get { return default(DOMLocator); } }
+	public short severity {get;private set;}
+	public string message {get;private set;}
+	public string type {get;private set;}
+	public object relatedException {get;private set;}
+	public object relatedData {get;private set;}
+	public DOMLocator location {get;private set;}
 }
 
 }

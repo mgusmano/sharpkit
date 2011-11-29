@@ -11,8 +11,8 @@ public partial class DOMImplementationList
 
 	// DOMImplementationList
 	[JsProperty(NativeIndexer = true)]
-	public DOMImplementation this[int index] {get { return default(DOMImplementation); } }
-	public int length {get { return default(int); } }
+	public DOMImplementation this[int index] {get{return null;}}
+	public int length {get;private set;}
 }
 
 }

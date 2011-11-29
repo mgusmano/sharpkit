@@ -10,8 +10,8 @@ public partial class SVGICCColor
 {
 
 	// SVGICCColor
-	public string colorProfile {get { return default(string); } set {}}
-	public SVGNumberList colors {get { return default(SVGNumberList); } }
+	public string colorProfile {get;set;}
+	public SVGNumberList colors {get;private set;}
 }
 
 }

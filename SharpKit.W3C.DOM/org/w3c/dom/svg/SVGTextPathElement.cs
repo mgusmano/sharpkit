@@ -16,9 +16,9 @@ public partial class SVGTextPathElement : SVGTextContentElement
 	public static short TEXTPATH_SPACINGTYPE_UNKNOWN = 0;
 	public static short TEXTPATH_SPACINGTYPE_AUTO = 1;
 	public static short TEXTPATH_SPACINGTYPE_EXACT = 2;
-	public SVGAnimatedLength startOffset {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedEnumeration method {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedEnumeration spacing {get { return default(SVGAnimatedEnumeration); } }
+	public SVGAnimatedLength startOffset {get;private set;}
+	public SVGAnimatedEnumeration method {get;private set;}
+	public SVGAnimatedEnumeration spacing {get;private set;}
 }
 
 }

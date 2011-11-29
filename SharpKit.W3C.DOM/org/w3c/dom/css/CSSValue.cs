@@ -10,7 +10,7 @@ public partial class CSSValue
 {
 
 	// CSSValue
-	public string cssText {get { return default(string); } set {}}
+	public string cssText {get;set;}
 }
 
 }

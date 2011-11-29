@@ -12,31 +12,31 @@ public partial class HTMLDocument:Document
 {
 
 	// HTMLDocument
-	public Location location {get { return default(Location); } set {}}
-	public string uRL {get { return default(string); } }
-	public string domain {get { return default(string); } set {}}
-	public string referrer {get { return default(string); } }
-	public string cookie {get { return default(string); } set {}}
-	public string lastModified {get { return default(string); } }
-	public string compatMode {get { return default(string); } }
-	public string charset {get { return default(string); } set {}}
-	public string characterSet {get { return default(string); } }
-	public string defaultCharset {get { return default(string); } }
-	public string readyState {get { return default(string); } }
+	public Location location {get;set;}
+	public string uRL {get;private set;}
+	public string domain {get;set;}
+	public string referrer {get;private set;}
+	public string cookie {get;set;}
+	public string lastModified {get;private set;}
+	public string compatMode {get;private set;}
+	public string charset {get;set;}
+	public string characterSet {get;private set;}
+	public string defaultCharset {get;private set;}
+	public string readyState {get;private set;}
 	public object getElement(string name) { return default(object); }
-	public string title {get { return default(string); } set {}}
-	public string dir {get { return default(string); } set {}}
-	public HTMLElement body {get { return default(HTMLElement); } set {}}
-	public HTMLHeadElement head {get { return default(HTMLHeadElement); } }
-	public HTMLCollection images {get { return default(HTMLCollection); } }
-	public HTMLCollection embeds {get { return default(HTMLCollection); } }
-	public HTMLCollection plugins {get { return default(HTMLCollection); } }
-	public HTMLCollection links {get { return default(HTMLCollection); } }
-	public HTMLCollection forms {get { return default(HTMLCollection); } }
-	public HTMLCollection scripts {get { return default(HTMLCollection); } }
+	public string title {get;set;}
+	public string dir {get;set;}
+	public HTMLElement body {get;set;}
+	public HTMLHeadElement head {get;private set;}
+	public HTMLCollection images {get;private set;}
+	public HTMLCollection embeds {get;private set;}
+	public HTMLCollection plugins {get;private set;}
+	public HTMLCollection links {get;private set;}
+	public HTMLCollection forms {get;private set;}
+	public HTMLCollection scripts {get;private set;}
 	public NodeList getElementsByName(string elementName) { return default(NodeList); }
 	public NodeList getElementsByClassName(string classNames) { return default(NodeList); }
-	public string innerHTML {get { return default(string); } set {}}
+	public string innerHTML {get;set;}
 	public HTMLDocument open() { return default(HTMLDocument); }
 	public HTMLDocument open(string type) { return default(HTMLDocument); }
 	public HTMLDocument open(string type, string replace) { return default(HTMLDocument); }
@@ -45,10 +45,10 @@ public partial class HTMLDocument:Document
 	public void close() {}
 	public void write(params string[] text) {}
 	public void writeln(params string[] text) {}
-	public Selection selection {get { return default(Selection); } }
-	public Element activeElement {get { return default(Element); } }
+	public Selection selection {get;private set;}
+	public Element activeElement {get;private set;}
 	public bool hasFocus() { return default(bool); }
-	public string designMode {get { return default(string); } set {}}
+	public string designMode {get;set;}
 	public bool execCommand(string commandId) { return default(bool); }
 	public bool execCommand(string commandId, bool showUI) { return default(bool); }
 	public bool execCommand(string commandId, bool showUI, string value) { return default(bool); }
@@ -57,75 +57,75 @@ public partial class HTMLDocument:Document
 	public bool queryCommandState(string commandId) { return default(bool); }
 	public bool queryCommandSupported(string commandId) { return default(bool); }
 	public string queryCommandValue(string commandId) { return default(string); }
-	public HTMLCollection commands {get { return default(HTMLCollection); } }
-	public JsAction onabort {get { return default(JsAction); } set {}}
-	public JsAction onblur {get { return default(JsAction); } set {}}
-	public JsAction oncanplay {get { return default(JsAction); } set {}}
-	public JsAction oncanplaythrough {get { return default(JsAction); } set {}}
-	public JsAction onchange {get { return default(JsAction); } set {}}
-	public JsAction onclick {get { return default(JsAction); } set {}}
-	public JsAction oncontextmenu {get { return default(JsAction); } set {}}
-	public JsAction ondblclick {get { return default(JsAction); } set {}}
-	public JsAction ondrag {get { return default(JsAction); } set {}}
-	public JsAction ondragend {get { return default(JsAction); } set {}}
-	public JsAction ondragenter {get { return default(JsAction); } set {}}
-	public JsAction ondragleave {get { return default(JsAction); } set {}}
-	public JsAction ondragover {get { return default(JsAction); } set {}}
-	public JsAction ondragstart {get { return default(JsAction); } set {}}
-	public JsAction ondrop {get { return default(JsAction); } set {}}
-	public JsAction ondurationchange {get { return default(JsAction); } set {}}
-	public JsAction onemptied {get { return default(JsAction); } set {}}
-	public JsAction onended {get { return default(JsAction); } set {}}
-	public JsAction onerror {get { return default(JsAction); } set {}}
-	public JsAction onfocus {get { return default(JsAction); } set {}}
-	public JsAction onformchange {get { return default(JsAction); } set {}}
-	public JsAction onforminput {get { return default(JsAction); } set {}}
-	public JsAction oninput {get { return default(JsAction); } set {}}
-	public JsAction oninvalid {get { return default(JsAction); } set {}}
-	public JsAction onkeydown {get { return default(JsAction); } set {}}
-	public JsAction onkeypress {get { return default(JsAction); } set {}}
-	public JsAction onkeyup {get { return default(JsAction); } set {}}
-	public JsAction onload {get { return default(JsAction); } set {}}
-	public JsAction onloadeddata {get { return default(JsAction); } set {}}
-	public JsAction onloadedmetadata {get { return default(JsAction); } set {}}
-	public JsAction onloadstart {get { return default(JsAction); } set {}}
-	public JsAction onmousedown {get { return default(JsAction); } set {}}
-	public JsAction onmousemove {get { return default(JsAction); } set {}}
-	public JsAction onmouseout {get { return default(JsAction); } set {}}
-	public JsAction onmouseover {get { return default(JsAction); } set {}}
-	public JsAction onmouseup {get { return default(JsAction); } set {}}
-	public JsAction onmousewheel {get { return default(JsAction); } set {}}
-	public JsAction onpause {get { return default(JsAction); } set {}}
-	public JsAction onplay {get { return default(JsAction); } set {}}
-	public JsAction onplaying {get { return default(JsAction); } set {}}
-	public JsAction onprogress {get { return default(JsAction); } set {}}
-	public JsAction onratechange {get { return default(JsAction); } set {}}
-	public JsAction onreadystatechange {get { return default(JsAction); } set {}}
-	public JsAction onscroll {get { return default(JsAction); } set {}}
-	public JsAction onseeked {get { return default(JsAction); } set {}}
-	public JsAction onseeking {get { return default(JsAction); } set {}}
-	public JsAction onselect {get { return default(JsAction); } set {}}
-	public JsAction onshow {get { return default(JsAction); } set {}}
-	public JsAction onstalled {get { return default(JsAction); } set {}}
-	public JsAction onsubmit {get { return default(JsAction); } set {}}
-	public JsAction onsuspend {get { return default(JsAction); } set {}}
-	public JsAction ontimeupdate {get { return default(JsAction); } set {}}
-	public JsAction onvolumechange {get { return default(JsAction); } set {}}
-	public JsAction onwaiting {get { return default(JsAction); } set {}}
+	public HTMLCollection commands {get;private set;}
+	public JsAction onabort {get;set;}
+	public JsAction onblur {get;set;}
+	public JsAction oncanplay {get;set;}
+	public JsAction oncanplaythrough {get;set;}
+	public JsAction onchange {get;set;}
+	public JsAction onclick {get;set;}
+	public JsAction oncontextmenu {get;set;}
+	public JsAction ondblclick {get;set;}
+	public JsAction ondrag {get;set;}
+	public JsAction ondragend {get;set;}
+	public JsAction ondragenter {get;set;}
+	public JsAction ondragleave {get;set;}
+	public JsAction ondragover {get;set;}
+	public JsAction ondragstart {get;set;}
+	public JsAction ondrop {get;set;}
+	public JsAction ondurationchange {get;set;}
+	public JsAction onemptied {get;set;}
+	public JsAction onended {get;set;}
+	public JsAction onerror {get;set;}
+	public JsAction onfocus {get;set;}
+	public JsAction onformchange {get;set;}
+	public JsAction onforminput {get;set;}
+	public JsAction oninput {get;set;}
+	public JsAction oninvalid {get;set;}
+	public JsAction onkeydown {get;set;}
+	public JsAction onkeypress {get;set;}
+	public JsAction onkeyup {get;set;}
+	public JsAction onload {get;set;}
+	public JsAction onloadeddata {get;set;}
+	public JsAction onloadedmetadata {get;set;}
+	public JsAction onloadstart {get;set;}
+	public JsAction onmousedown {get;set;}
+	public JsAction onmousemove {get;set;}
+	public JsAction onmouseout {get;set;}
+	public JsAction onmouseover {get;set;}
+	public JsAction onmouseup {get;set;}
+	public JsAction onmousewheel {get;set;}
+	public JsAction onpause {get;set;}
+	public JsAction onplay {get;set;}
+	public JsAction onplaying {get;set;}
+	public JsAction onprogress {get;set;}
+	public JsAction onratechange {get;set;}
+	public JsAction onreadystatechange {get;set;}
+	public JsAction onscroll {get;set;}
+	public JsAction onseeked {get;set;}
+	public JsAction onseeking {get;set;}
+	public JsAction onselect {get;set;}
+	public JsAction onshow {get;set;}
+	public JsAction onstalled {get;set;}
+	public JsAction onsubmit {get;set;}
+	public JsAction onsuspend {get;set;}
+	public JsAction ontimeupdate {get;set;}
+	public JsAction onvolumechange {get;set;}
+	public JsAction onwaiting {get;set;}
 
 	// HTMLDocument-36
-	public string fgColor {get { return default(string); } set {}}
-	public string bgColor {get { return default(string); } set {}}
-	public string linkColor {get { return default(string); } set {}}
-	public string vlinkColor {get { return default(string); } set {}}
-	public string alinkColor {get { return default(string); } set {}}
-	public HTMLCollection anchors {get { return default(HTMLCollection); } }
-	public HTMLCollection applets {get { return default(HTMLCollection); } }
+	public string fgColor {get;set;}
+	public string bgColor {get;set;}
+	public string linkColor {get;set;}
+	public string vlinkColor {get;set;}
+	public string alinkColor {get;set;}
+	public HTMLCollection anchors {get;private set;}
+	public HTMLCollection applets {get;private set;}
 	public void clear() {}
-	public HTMLAllCollection all {get { return default(HTMLAllCollection); } }
+	public HTMLAllCollection all {get;private set;}
 
 	// HTMLDocument-37
-	public NodeList items {get { return default(NodeList); } }
+	public NodeList items {get;private set;}
 	public NodeList getItems(string typeNames) { return default(NodeList); }
 }
 

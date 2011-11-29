@@ -11,7 +11,7 @@ public partial class CanvasRenderingContext2D
 {
 
 	// CanvasRenderingContext2D
-	public HTMLCanvasElement canvas {get { return default(HTMLCanvasElement); } }
+	public HTMLCanvasElement canvas {get;private set;}
 	public void save() {}
 	public void restore() {}
 	public void scale(float x, float y) {}
@@ -19,23 +19,23 @@ public partial class CanvasRenderingContext2D
 	public void translate(float x, float y) {}
 	public void transform(float m11, float m12, float m21, float m22, float dx, float dy) {}
 	public void setTransform(float m11, float m12, float m21, float m22, float dx, float dy) {}
-	public float globalAlpha {get { return default(float); } set {}}
-	public string globalCompositeOperation {get { return default(string); } set {}}
-	public object strokeStyle {get { return default(object); } set {}}
-	public object fillStyle {get { return default(object); } set {}}
+	public float globalAlpha {get;set;}
+	public string globalCompositeOperation {get;set;}
+	public object strokeStyle {get;set;}
+	public object fillStyle {get;set;}
 	public CanvasGradient createLinearGradient(float x0, float y0, float x1, float y1) { return default(CanvasGradient); }
 	public CanvasGradient createRadialGradient(float x0, float y0, float r0, float x1, float y1, float r1) { return default(CanvasGradient); }
 	public CanvasPattern createPattern(HTMLImageElement image, string repetition) { return default(CanvasPattern); }
 	public CanvasPattern createPattern(HTMLCanvasElement image, string repetition) { return default(CanvasPattern); }
 	public CanvasPattern createPattern(HTMLVideoElement image, string repetition) { return default(CanvasPattern); }
-	public float lineWidth {get { return default(float); } set {}}
-	public string lineCap {get { return default(string); } set {}}
-	public string lineJoin {get { return default(string); } set {}}
-	public float miterLimit {get { return default(float); } set {}}
-	public float shadowOffsetX {get { return default(float); } set {}}
-	public float shadowOffsetY {get { return default(float); } set {}}
-	public float shadowBlur {get { return default(float); } set {}}
-	public string shadowColor {get { return default(string); } set {}}
+	public float lineWidth {get;set;}
+	public string lineCap {get;set;}
+	public string lineJoin {get;set;}
+	public float miterLimit {get;set;}
+	public float shadowOffsetX {get;set;}
+	public float shadowOffsetY {get;set;}
+	public float shadowBlur {get;set;}
+	public string shadowColor {get;set;}
 	public void clearRect(float x, float y, float w, float h) {}
 	public void fillRect(float x, float y, float w, float h) {}
 	public void strokeRect(float x, float y, float w, float h) {}
@@ -54,9 +54,9 @@ public partial class CanvasRenderingContext2D
 	public bool isPointInPath(float x, float y) { return default(bool); }
 	public bool drawFocusRing(Element element, float xCaret, float yCaret) { return default(bool); }
 	public bool drawFocusRing(Element element, float xCaret, float yCaret, bool canDrawCustom) { return default(bool); }
-	public string font {get { return default(string); } set {}}
-	public string textAlign {get { return default(string); } set {}}
-	public string textBaseline {get { return default(string); } set {}}
+	public string font {get;set;}
+	public string textAlign {get;set;}
+	public string textBaseline {get;set;}
 	public void fillText(string text, float x, float y) {}
 	public void fillText(string text, float x, float y, float maxWidth) {}
 	public void strokeText(string text, float x, float y) {}

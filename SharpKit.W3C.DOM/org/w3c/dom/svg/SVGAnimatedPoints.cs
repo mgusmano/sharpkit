@@ -10,8 +10,8 @@ public partial class SVGAnimatedPoints
 {
 
 	// SVGAnimatedPoints
-	public SVGPointList points {get { return default(SVGPointList); } }
-	public SVGPointList animatedPoints {get { return default(SVGPointList); } }
+	public SVGPointList points {get;private set;}
+	public SVGPointList animatedPoints {get;private set;}
 }
 
 }

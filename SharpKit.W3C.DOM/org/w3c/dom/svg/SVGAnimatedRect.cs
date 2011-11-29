@@ -10,8 +10,8 @@ public partial class SVGAnimatedRect
 {
 
 	// SVGAnimatedRect
-	public SVGRect baseVal {get { return default(SVGRect); } }
-	public SVGRect animVal {get { return default(SVGRect); } }
+	public SVGRect baseVal {get;private set;}
+	public SVGRect animVal {get;private set;}
 }
 
 }

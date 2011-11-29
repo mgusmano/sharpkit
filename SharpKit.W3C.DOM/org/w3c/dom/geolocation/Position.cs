@@ -10,8 +10,8 @@ public partial class Position
 {
 
 	// Position
-	public Coordinates coords {get { return default(Coordinates); } }
-	public long timestamp {get { return default(long); } }
+	public Coordinates coords {get;private set;}
+	public long timestamp {get;private set;}
 }
 
 }

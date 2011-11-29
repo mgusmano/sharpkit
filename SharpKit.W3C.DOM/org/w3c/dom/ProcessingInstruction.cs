@@ -10,8 +10,8 @@ public partial class ProcessingInstruction : Node
 {
 
 	// ProcessingInstruction
-	public string target {get { return default(string); } }
-	public string data {get { return default(string); } set {}}
+	public string target {get;private set;}
+	public string data {get;set;}
 }
 
 }

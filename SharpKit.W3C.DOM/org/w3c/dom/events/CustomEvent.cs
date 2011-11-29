@@ -10,7 +10,7 @@ public partial class CustomEvent : Event
 {
 
 	// CustomEvent
-	public object detail {get { return default(object); } }
+	public object detail {get;private set;}
 	public void initCustomEvent(string typeArg, bool canBubbleArg, bool cancelableArg, object detailArg) {}
 }
 

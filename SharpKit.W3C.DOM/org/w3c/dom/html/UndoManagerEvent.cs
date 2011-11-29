@@ -11,7 +11,7 @@ public partial class UndoManagerEvent : Event
 {
 
 	// UndoManagerEvent
-	public object data {get { return default(object); } }
+	public object data {get;private set;}
 	public void initUndoManagerEvent(string typeArg, bool canBubbleArg, bool cancelableArg, object dataArg) {}
 }
 

@@ -10,14 +10,14 @@ public partial class HTMLOptionElement : HTMLElement
 {
 
 	// HTMLOptionElement
-	public bool disabled {get { return default(bool); } set {}}
-	public HTMLFormElement form {get { return default(HTMLFormElement); } }
-	public string label {get { return default(string); } set {}}
-	public bool defaultSelected {get { return default(bool); } set {}}
-	public bool selected {get { return default(bool); } set {}}
-	public string value {get { return default(string); } set {}}
-	public string text {get { return default(string); } set {}}
-	public int index {get { return default(int); } }
+	public bool disabled {get;set;}
+	public HTMLFormElement form {get;private set;}
+	public string label {get;set;}
+	public bool defaultSelected {get;set;}
+	public bool selected {get;set;}
+	public string value {get;set;}
+	public string text {get;set;}
+	public int index {get;private set;}
 }
 
 }

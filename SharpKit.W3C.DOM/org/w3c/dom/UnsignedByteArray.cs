@@ -10,7 +10,7 @@ public partial class UnsignedByteArray
 {
 
 	// UnsignedByteArray
-	public int length {get { return default(int); } set {}}
+	public int length {get;set;}
 	public byte getElement(int index) { return default(byte); }
 	public void setElement(int index, byte value) {}
 }

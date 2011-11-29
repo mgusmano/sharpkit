@@ -10,10 +10,10 @@ public partial class HTMLLegendElement : HTMLElement
 {
 
 	// HTMLLegendElement
-	public HTMLFormElement form {get { return default(HTMLFormElement); } }
+	public HTMLFormElement form {get;private set;}
 
 	// HTMLLegendElement-20
-	public string align {get { return default(string); } set {}}
+	public string align {get;set;}
 }
 
 }

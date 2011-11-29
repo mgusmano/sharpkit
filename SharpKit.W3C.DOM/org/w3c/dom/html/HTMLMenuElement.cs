@@ -10,11 +10,11 @@ public partial class HTMLMenuElement : HTMLElement
 {
 
 	// HTMLMenuElement
-	public string type {get { return default(string); } set {}}
-	public string label {get { return default(string); } set {}}
+	public string type {get;set;}
+	public string label {get;set;}
 
 	// HTMLMenuElement-23
-	public bool compact {get { return default(bool); } set {}}
+	public bool compact {get;set;}
 }
 
 }

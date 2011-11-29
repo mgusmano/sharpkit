@@ -10,20 +10,20 @@ public partial class HTMLMarqueeElement : HTMLElement
 {
 
 	// HTMLMarqueeElement
-	public string behavior {get { return default(string); } set {}}
-	public string bgColor {get { return default(string); } set {}}
-	public string direction {get { return default(string); } set {}}
-	public string height {get { return default(string); } set {}}
-	public int hspace {get { return default(int); } set {}}
-	public int loop {get { return default(int); } set {}}
-	public int scrollAmount {get { return default(int); } set {}}
-	public int scrollDelay {get { return default(int); } set {}}
-	public string trueSpeed {get { return default(string); } set {}}
-	public int vspace {get { return default(int); } set {}}
-	public string width {get { return default(string); } set {}}
-	public JsAction onbounce {get { return default(JsAction); } set {}}
-	public JsAction onfinish {get { return default(JsAction); } set {}}
-	public JsAction onstart {get { return default(JsAction); } set {}}
+	public string behavior {get;set;}
+	public string bgColor {get;set;}
+	public string direction {get;set;}
+	public string height {get;set;}
+	public int hspace {get;set;}
+	public int loop {get;set;}
+	public int scrollAmount {get;set;}
+	public int scrollDelay {get;set;}
+	public string trueSpeed {get;set;}
+	public int vspace {get;set;}
+	public string width {get;set;}
+	public JsAction onbounce {get;set;}
+	public JsAction onfinish {get;set;}
+	public JsAction onstart {get;set;}
 	public void start() {}
 	public void stop() {}
 }

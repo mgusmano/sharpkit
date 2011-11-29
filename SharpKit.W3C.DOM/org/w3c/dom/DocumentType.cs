@@ -10,12 +10,12 @@ public partial class DocumentType : Node
 {
 
 	// DocumentType
-	public string name {get { return default(string); } }
-	public NamedNodeMap entities {get { return default(NamedNodeMap); } }
-	public NamedNodeMap notations {get { return default(NamedNodeMap); } }
-	public string publicId {get { return default(string); } }
-	public string systemId {get { return default(string); } }
-	public string internalSubset {get { return default(string); } }
+	public string name {get;private set;}
+	public NamedNodeMap entities {get;private set;}
+	public NamedNodeMap notations {get;private set;}
+	public string publicId {get;private set;}
+	public string systemId {get;private set;}
+	public string internalSubset {get;private set;}
 }
 
 }

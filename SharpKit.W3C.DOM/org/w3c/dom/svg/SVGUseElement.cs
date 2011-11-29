@@ -10,12 +10,12 @@ public partial class SVGUseElement : SVGElement
 {
 
 	// SVGUseElement
-	public SVGAnimatedLength x {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength y {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength width {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength height {get { return default(SVGAnimatedLength); } }
-	public SVGElementInstance instanceRoot {get { return default(SVGElementInstance); } }
-	public SVGElementInstance animatedInstanceRoot {get { return default(SVGElementInstance); } }
+	public SVGAnimatedLength x {get;private set;}
+	public SVGAnimatedLength y {get;private set;}
+	public SVGAnimatedLength width {get;private set;}
+	public SVGAnimatedLength height {get;private set;}
+	public SVGElementInstance instanceRoot {get;private set;}
+	public SVGElementInstance animatedInstanceRoot {get;private set;}
 }
 
 }

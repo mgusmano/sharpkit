@@ -14,9 +14,9 @@ public partial class SVGGradientElement : SVGElement
 	public static short SVG_SPREADMETHOD_PAD = 1;
 	public static short SVG_SPREADMETHOD_REFLECT = 2;
 	public static short SVG_SPREADMETHOD_REPEAT = 3;
-	public SVGAnimatedEnumeration gradientUnits {get { return default(SVGAnimatedEnumeration); } }
-	public SVGAnimatedTransformList gradientTransform {get { return default(SVGAnimatedTransformList); } }
-	public SVGAnimatedEnumeration spreadMethod {get { return default(SVGAnimatedEnumeration); } }
+	public SVGAnimatedEnumeration gradientUnits {get;private set;}
+	public SVGAnimatedTransformList gradientTransform {get;private set;}
+	public SVGAnimatedEnumeration spreadMethod {get;private set;}
 }
 
 }

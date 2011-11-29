@@ -12,60 +12,60 @@ public partial class HTMLInputElement : HTMLElement
 {
 
 	// HTMLInputElement
-	public string accept {get { return default(string); } set {}}
-	public string alt {get { return default(string); } set {}}
-	public bool autocomplete {get { return default(bool); } set {}}
-	public bool autofocus {get { return default(bool); } set {}}
-	public bool defaultChecked {get { return default(bool); } set {}}
-	public bool @checked {get { return default(bool); } set {}}
-	public bool disabled {get { return default(bool); } set {}}
-	public HTMLFormElement form {get { return default(HTMLFormElement); } }
-	public File files {get { return default(File); } }
-	public string formAction {get { return default(string); } set {}}
-	public string formEnctype {get { return default(string); } set {}}
-	public string formMethod {get { return default(string); } set {}}
-	public bool formNoValidate {get { return default(bool); } set {}}
-	public string formTarget {get { return default(string); } set {}}
-	public string height {get { return default(string); } set {}}
-	public bool indeterminate {get { return default(bool); } set {}}
-	public HTMLElement list {get { return default(HTMLElement); } }
-	public string max {get { return default(string); } set {}}
-	public int maxLength {get { return default(int); } set {}}
-	public string min {get { return default(string); } set {}}
-	public bool multiple {get { return default(bool); } set {}}
-	public string name {get { return default(string); } set {}}
-	public string pattern {get { return default(string); } set {}}
-	public string placeholder {get { return default(string); } set {}}
-	public bool readOnly {get { return default(bool); } set {}}
-	public bool required {get { return default(bool); } set {}}
-	public int size {get { return default(int); } set {}}
-	public string src {get { return default(string); } set {}}
-	public string step {get { return default(string); } set {}}
-	public string type {get { return default(string); } set {}}
-	public string defaultValue {get { return default(string); } set {}}
-	public string value {get { return default(string); } set {}}
-	public long valueAsDate {get { return default(long); } set {}}
-	public float valueAsNumber {get { return default(float); } set {}}
-	public HTMLOptionElement selectedOption {get { return default(HTMLOptionElement); } }
-	public string width {get { return default(string); } set {}}
+	public string accept {get;set;}
+	public string alt {get;set;}
+	public bool autocomplete {get;set;}
+	public bool autofocus {get;set;}
+	public bool defaultChecked {get;set;}
+	public bool @checked {get;set;}
+	public bool disabled {get;set;}
+	public HTMLFormElement form {get;private set;}
+	public File files {get;private set;}
+	public string formAction {get;set;}
+	public string formEnctype {get;set;}
+	public string formMethod {get;set;}
+	public bool formNoValidate {get;set;}
+	public string formTarget {get;set;}
+	public string height {get;set;}
+	public bool indeterminate {get;set;}
+	public HTMLElement list {get;private set;}
+	public string max {get;set;}
+	public int maxLength {get;set;}
+	public string min {get;set;}
+	public bool multiple {get;set;}
+	public string name {get;set;}
+	public string pattern {get;set;}
+	public string placeholder {get;set;}
+	public bool readOnly {get;set;}
+	public bool required {get;set;}
+	public int size {get;set;}
+	public string src {get;set;}
+	public string step {get;set;}
+	public string type {get;set;}
+	public string defaultValue {get;set;}
+	public string value {get;set;}
+	public long valueAsDate {get;set;}
+	public float valueAsNumber {get;set;}
+	public HTMLOptionElement selectedOption {get;private set;}
+	public string width {get;set;}
 	public void stepUp() {}
 	public void stepUp(int n) {}
 	public void stepDown() {}
 	public void stepDown(int n) {}
-	public bool willValidate {get { return default(bool); } }
-	public ValidityState validity {get { return default(ValidityState); } }
-	public string validationMessage {get { return default(string); } }
+	public bool willValidate {get;private set;}
+	public ValidityState validity {get;private set;}
+	public string validationMessage {get;private set;}
 	public bool checkValidity() { return default(bool); }
 	public void setCustomValidity(string error) {}
-	public NodeList labels {get { return default(NodeList); } }
+	public NodeList labels {get;private set;}
 	public void select() {}
-	public int selectionStart {get { return default(int); } set {}}
-	public int selectionEnd {get { return default(int); } set {}}
+	public int selectionStart {get;set;}
+	public int selectionEnd {get;set;}
 	public void setSelectionRange(int start, int end) {}
 
 	// HTMLInputElement-19
-	public string align {get { return default(string); } set {}}
-	public string useMap {get { return default(string); } set {}}
+	public string align {get;set;}
+	public string useMap {get;set;}
 }
 
 }

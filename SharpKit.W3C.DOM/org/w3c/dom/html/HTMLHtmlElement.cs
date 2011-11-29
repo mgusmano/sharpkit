@@ -12,7 +12,7 @@ public partial class HTMLHtmlElement : HTMLElement
 	// HTMLHtmlElement
 
 	// HTMLHtmlElement-16
-	public string version {get { return default(string); } set {}}
+	public string version {get;set;}
 }
 
 }

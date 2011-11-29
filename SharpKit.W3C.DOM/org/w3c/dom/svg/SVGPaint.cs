@@ -20,8 +20,8 @@ public partial class SVGPaint : SVGColor
 	public static short SVG_PAINTTYPE_URI_RGBCOLOR = 105;
 	public static short SVG_PAINTTYPE_URI_RGBCOLOR_ICCCOLOR = 106;
 	public static short SVG_PAINTTYPE_URI = 107;
-	public short paintType {get { return default(short); } }
-	public string uri {get { return default(string); } set {}}
+	public short paintType {get;private set;}
+	public string uri {get;set;}
 	public void setPaint(short paintType, string uri, string rgbColor, string iccColor) {}
 }
 

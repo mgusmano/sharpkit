@@ -12,11 +12,11 @@ public partial class HTMLHRElement : HTMLElement
 	// HTMLHRElement
 
 	// HTMLHRElement-15
-	public string align {get { return default(string); } set {}}
-	public string color {get { return default(string); } set {}}
-	public bool noShade {get { return default(bool); } set {}}
-	public string size {get { return default(string); } set {}}
-	public string width {get { return default(string); } set {}}
+	public string align {get;set;}
+	public string color {get;set;}
+	public bool noShade {get;set;}
+	public string size {get;set;}
+	public string width {get;set;}
 }
 
 }

@@ -10,8 +10,8 @@ public partial class MessageChannel
 {
 
 	// MessageChannel
-	public MessagePort port1 {get { return default(MessagePort); } }
-	public MessagePort port2 {get { return default(MessagePort); } }
+	public MessagePort port1 {get;private set;}
+	public MessagePort port2 {get;private set;}
 }
 
 }

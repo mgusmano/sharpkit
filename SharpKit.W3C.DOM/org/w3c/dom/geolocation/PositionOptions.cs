@@ -10,9 +10,9 @@ public partial class PositionOptions
 {
 
 	// PositionOptions
-	public bool enableHighAccuracy {get { return default(bool); } set {}}
-	public int timeout {get { return default(int); } set {}}
-	public int maximumAge {get { return default(int); } set {}}
+	public bool enableHighAccuracy {get;set;}
+	public int timeout {get;set;}
+	public int maximumAge {get;set;}
 }
 
 }

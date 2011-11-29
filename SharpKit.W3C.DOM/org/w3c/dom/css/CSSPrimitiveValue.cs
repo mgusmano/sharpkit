@@ -37,13 +37,13 @@ public partial class CSSPrimitiveValue : CSSValue
 	public static short CSS_COUNTER = 23;
 	public static short CSS_RECT = 24;
 	public static short CSS_RGBCOLOR = 25;
-	public short primitiveType {get { return default(short); } }
+	public short primitiveType {get;private set;}
 	public void setFloatValue(short unitType, float floatValue) {}
 	public float getFloatValue(short unitType) { return default(float); }
-	public string stringValue {get { return default(string); } set {}}
-	public Counter counterValue {get { return default(Counter); } }
-	public Rect rectValue {get { return default(Rect); } }
-	public RGBColor rGBColorValue {get { return default(RGBColor); } }
+	public string stringValue {get;set;}
+	public Counter counterValue {get;private set;}
+	public Rect rectValue {get;private set;}
+	public RGBColor rGBColorValue {get;private set;}
 }
 
 }

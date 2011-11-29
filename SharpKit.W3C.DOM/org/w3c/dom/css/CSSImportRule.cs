@@ -11,9 +11,9 @@ public partial class CSSImportRule : CSSRule
 {
 
 	// CSSImportRule
-	public string href {get { return default(string); } }
-	public MediaList media {get { return default(MediaList); } set {}}
-	public CSSStyleSheet styleSheet {get { return default(CSSStyleSheet); } }
+	public string href {get;private set;}
+	public MediaList media {get;set;}
+	public CSSStyleSheet styleSheet {get;private set;}
 }
 
 }

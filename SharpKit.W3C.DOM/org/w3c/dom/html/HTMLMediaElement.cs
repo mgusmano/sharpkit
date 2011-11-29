@@ -10,16 +10,16 @@ public partial class HTMLMediaElement : HTMLElement
 {
 
 	// HTMLMediaElement
-	public MediaError error {get { return default(MediaError); } }
-	public string src {get { return default(string); } set {}}
-	public string currentSrc {get { return default(string); } }
+	public MediaError error {get;private set;}
+	public string src {get;set;}
+	public string currentSrc {get;private set;}
 	public static short NETWORK_EMPTY = 0;
 	public static short NETWORK_IDLE = 1;
 	public static short NETWORK_LOADING = 2;
 	public static short NETWORK_NO_SOURCE = 3;
-	public short networkState {get { return default(short); } }
-	public string preload {get { return default(string); } set {}}
-	public TimeRanges buffered {get { return default(TimeRanges); } }
+	public short networkState {get;private set;}
+	public string preload {get;set;}
+	public TimeRanges buffered {get;private set;}
 	public void load() {}
 	public string canPlayType(string type) { return default(string); }
 	public static short HAVE_NOTHING = 0;
@@ -27,24 +27,24 @@ public partial class HTMLMediaElement : HTMLElement
 	public static short HAVE_CURRENT_DATA = 2;
 	public static short HAVE_FUTURE_DATA = 3;
 	public static short HAVE_ENOUGH_DATA = 4;
-	public short readyState {get { return default(short); } }
-	public bool seeking {get { return default(bool); } }
-	public float currentTime {get { return default(float); } set {}}
-	public float startTime {get { return default(float); } }
-	public float duration {get { return default(float); } }
-	public bool paused {get { return default(bool); } }
-	public float defaultPlaybackRate {get { return default(float); } set {}}
-	public float playbackRate {get { return default(float); } set {}}
-	public TimeRanges played {get { return default(TimeRanges); } }
-	public TimeRanges seekable {get { return default(TimeRanges); } }
-	public bool ended {get { return default(bool); } }
-	public bool autoplay {get { return default(bool); } set {}}
-	public bool loop {get { return default(bool); } set {}}
+	public short readyState {get;private set;}
+	public bool seeking {get;private set;}
+	public float currentTime {get;set;}
+	public float startTime {get;private set;}
+	public float duration {get;private set;}
+	public bool paused {get;private set;}
+	public float defaultPlaybackRate {get;set;}
+	public float playbackRate {get;set;}
+	public TimeRanges played {get;private set;}
+	public TimeRanges seekable {get;private set;}
+	public bool ended {get;private set;}
+	public bool autoplay {get;set;}
+	public bool loop {get;set;}
 	public void play() {}
 	public void pause() {}
-	public bool controls {get { return default(bool); } set {}}
-	public float volume {get { return default(float); } set {}}
-	public bool muted {get { return default(bool); } set {}}
+	public bool controls {get;set;}
+	public float volume {get;set;}
+	public bool muted {get;set;}
 }
 
 }

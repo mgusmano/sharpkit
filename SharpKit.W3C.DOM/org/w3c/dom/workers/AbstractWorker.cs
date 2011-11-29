@@ -10,7 +10,7 @@ public partial class AbstractWorker
 {
 
 	// AbstractWorker
-	public JsAction onerror {get { return default(JsAction); } set {}}
+	public JsAction onerror {get;set;}
 }
 
 }

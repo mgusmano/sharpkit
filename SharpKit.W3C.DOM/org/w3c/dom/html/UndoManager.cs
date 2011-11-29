@@ -10,10 +10,10 @@ public partial class UndoManager
 {
 
 	// UndoManager
-	public int length {get { return default(int); } }
+	public int length {get;private set;}
 	[JsProperty(NativeIndexer = true)]
-	public object this[int index] {get { return default(object); } }
-	public int position {get { return default(int); } }
+	public object this[int index] {get{return null;}}
+	public int position {get;private set;}
 	public int add(object data, string title) { return default(int); }
 	public void remove(int index) {}
 	public void clearUndo() {}

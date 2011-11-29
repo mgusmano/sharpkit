@@ -13,8 +13,8 @@ public partial class DocumentEditVAL : NodeEditVAL
 {
 
 	// DocumentEditVAL
-	public bool continuousValidityChecking {get { return default(bool); } set {}}
-	public DOMConfiguration domConfig {get { return default(DOMConfiguration); } }
+	public bool continuousValidityChecking {get;set;}
+	public DOMConfiguration domConfig {get;private set;}
 	public NameList getDefinedElements(string namespaceURI) { return default(NameList); }
 	public short validateDocument() { return default(short); }
 }

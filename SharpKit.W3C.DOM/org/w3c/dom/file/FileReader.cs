@@ -18,15 +18,15 @@ public partial class FileReader
 	public static short EMPTY = 0;
 	public static short LOADING = 1;
 	public static short DONE = 2;
-	public short readyState {get { return default(short); } }
-	public string result {get { return default(string); } }
-	public FileError error {get { return default(FileError); } }
-	public JsAction onloadstart {get { return default(JsAction); } set {}}
-	public JsAction onprogress {get { return default(JsAction); } set {}}
-	public JsAction onload {get { return default(JsAction); } set {}}
-	public JsAction onabort {get { return default(JsAction); } set {}}
-	public JsAction onerror {get { return default(JsAction); } set {}}
-	public JsAction onloadend {get { return default(JsAction); } set {}}
+	public short readyState {get;private set;}
+	public string result {get;private set;}
+	public FileError error {get;private set;}
+	public JsAction onloadstart {get;set;}
+	public JsAction onprogress {get;set;}
+	public JsAction onload {get;set;}
+	public JsAction onabort {get;set;}
+	public JsAction onerror {get;set;}
+	public JsAction onloadend {get;set;}
 }
 
 }

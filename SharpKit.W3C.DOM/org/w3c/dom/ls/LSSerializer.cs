@@ -13,9 +13,9 @@ public partial class LSSerializer
 {
 
 	// LSSerializer
-	public DOMConfiguration domConfig {get { return default(DOMConfiguration); } }
-	public string newLine {get { return default(string); } set {}}
-	public LSSerializerFilter filter {get { return default(LSSerializerFilter); } set {}}
+	public DOMConfiguration domConfig {get;private set;}
+	public string newLine {get;set;}
+	public LSSerializerFilter filter {get;set;}
 	public bool write(Node nodeArg, LSOutput destination) { return default(bool); }
 	public bool writeToURI(Node nodeArg, string uri) { return default(bool); }
 	public string writeToString(Node nodeArg) { return default(string); }

@@ -14,10 +14,10 @@ public partial class SVGTextContentElement : SVGElement
 	public static short LENGTHADJUST_UNKNOWN = 0;
 	public static short LENGTHADJUST_SPACING = 1;
 	public static short LENGTHADJUST_SPACINGANDGLYPHS = 2;
-	public SVGAnimatedLength textLength {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedEnumeration lengthAdjust {get { return default(SVGAnimatedEnumeration); } }
-	public int numberOfChars {get { return default(int); } }
-	public float computedTextLength {get { return default(float); } }
+	public SVGAnimatedLength textLength {get;private set;}
+	public SVGAnimatedEnumeration lengthAdjust {get;private set;}
+	public int numberOfChars {get;private set;}
+	public float computedTextLength {get;private set;}
 	public float getSubStringLength(int charnum, int nchars) { return default(float); }
 	public SVGPoint getStartPositionOfChar(int charnum) { return default(SVGPoint); }
 	public SVGPoint getEndPositionOfChar(int charnum) { return default(SVGPoint); }

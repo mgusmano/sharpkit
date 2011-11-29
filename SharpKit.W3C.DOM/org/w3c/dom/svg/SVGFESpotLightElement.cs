@@ -10,14 +10,14 @@ public partial class SVGFESpotLightElement : SVGElement
 {
 
 	// SVGFESpotLightElement
-	public SVGAnimatedNumber x {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber y {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber z {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber pointsAtX {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber pointsAtY {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber pointsAtZ {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber specularExponent {get { return default(SVGAnimatedNumber); } }
-	public SVGAnimatedNumber limitingConeAngle {get { return default(SVGAnimatedNumber); } }
+	public SVGAnimatedNumber x {get;private set;}
+	public SVGAnimatedNumber y {get;private set;}
+	public SVGAnimatedNumber z {get;private set;}
+	public SVGAnimatedNumber pointsAtX {get;private set;}
+	public SVGAnimatedNumber pointsAtY {get;private set;}
+	public SVGAnimatedNumber pointsAtZ {get;private set;}
+	public SVGAnimatedNumber specularExponent {get;private set;}
+	public SVGAnimatedNumber limitingConeAngle {get;private set;}
 }
 
 }

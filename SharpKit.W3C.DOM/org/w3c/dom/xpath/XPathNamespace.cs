@@ -13,7 +13,7 @@ public partial class XPathNamespace : Node
 
 	// XPathNamespace
 	public static short XPATH_NAMESPACE_NODE = 13;
-	public Element ownerElement {get { return default(Element); } }
+	public Element ownerElement {get;private set;}
 }
 
 }

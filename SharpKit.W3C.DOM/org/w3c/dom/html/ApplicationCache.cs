@@ -16,17 +16,17 @@ public partial class ApplicationCache
 	public static short DOWNLOADING = 3;
 	public static short UPDATEREADY = 4;
 	public static short OBSOLETE = 5;
-	public short status {get { return default(short); } }
+	public short status {get;private set;}
 	public void update() {}
 	public void swapCache() {}
-	public JsAction onchecking {get { return default(JsAction); } set {}}
-	public JsAction onerror {get { return default(JsAction); } set {}}
-	public JsAction onnoupdate {get { return default(JsAction); } set {}}
-	public JsAction ondownloading {get { return default(JsAction); } set {}}
-	public JsAction onprogress {get { return default(JsAction); } set {}}
-	public JsAction onupdateready {get { return default(JsAction); } set {}}
-	public JsAction oncached {get { return default(JsAction); } set {}}
-	public JsAction onobsolete {get { return default(JsAction); } set {}}
+	public JsAction onchecking {get;set;}
+	public JsAction onerror {get;set;}
+	public JsAction onnoupdate {get;set;}
+	public JsAction ondownloading {get;set;}
+	public JsAction onprogress {get;set;}
+	public JsAction onupdateready {get;set;}
+	public JsAction oncached {get;set;}
+	public JsAction onobsolete {get;set;}
 }
 
 }

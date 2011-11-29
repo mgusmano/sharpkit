@@ -10,8 +10,8 @@ public partial class SVGCursorElement : SVGElement
 {
 
 	// SVGCursorElement
-	public SVGAnimatedLength x {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength y {get { return default(SVGAnimatedLength); } }
+	public SVGAnimatedLength x {get;private set;}
+	public SVGAnimatedLength y {get;private set;}
 }
 
 }

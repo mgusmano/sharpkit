@@ -10,13 +10,13 @@ public partial class SVGPathSegArcRel : SVGPathSeg
 {
 
 	// SVGPathSegArcRel
-	public float x {get { return default(float); } set {}}
-	public float y {get { return default(float); } set {}}
-	public float r1 {get { return default(float); } set {}}
-	public float r2 {get { return default(float); } set {}}
-	public float angle {get { return default(float); } set {}}
-	public bool largeArcFlag {get { return default(bool); } set {}}
-	public bool sweepFlag {get { return default(bool); } set {}}
+	public float x {get;set;}
+	public float y {get;set;}
+	public float r1 {get;set;}
+	public float r2 {get;set;}
+	public float angle {get;set;}
+	public bool largeArcFlag {get;set;}
+	public bool sweepFlag {get;set;}
 }
 
 }

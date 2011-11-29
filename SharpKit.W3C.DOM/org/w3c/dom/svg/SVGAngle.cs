@@ -15,10 +15,10 @@ public partial class SVGAngle
 	public static short SVG_ANGLETYPE_DEG = 2;
 	public static short SVG_ANGLETYPE_RAD = 3;
 	public static short SVG_ANGLETYPE_GRAD = 4;
-	public short unitType {get { return default(short); } }
-	public float value {get { return default(float); } set {}}
-	public float valueInSpecifiedUnits {get { return default(float); } set {}}
-	public string valueAsString {get { return default(string); } set {}}
+	public short unitType {get;private set;}
+	public float value {get;set;}
+	public float valueInSpecifiedUnits {get;set;}
+	public string valueAsString {get;set;}
 	public void newValueSpecifiedUnits(short unitType, float valueInSpecifiedUnits) {}
 	public void convertToSpecifiedUnits(short unitType) {}
 }

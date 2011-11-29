@@ -10,10 +10,10 @@ public partial class HTMLLIElement : HTMLElement
 {
 
 	// HTMLLIElement
-	public int value {get { return default(int); } set {}}
+	public int value {get;set;}
 
 	// HTMLLIElement-21
-	public string type {get { return default(string); } set {}}
+	public string type {get;set;}
 }
 
 }

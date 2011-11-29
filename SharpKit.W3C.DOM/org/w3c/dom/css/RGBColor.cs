@@ -10,9 +10,9 @@ public partial class RGBColor
 {
 
 	// RGBColor
-	public CSSPrimitiveValue red {get { return default(CSSPrimitiveValue); } }
-	public CSSPrimitiveValue green {get { return default(CSSPrimitiveValue); } }
-	public CSSPrimitiveValue blue {get { return default(CSSPrimitiveValue); } }
+	public CSSPrimitiveValue red {get;private set;}
+	public CSSPrimitiveValue green {get;private set;}
+	public CSSPrimitiveValue blue {get;private set;}
 }
 
 }

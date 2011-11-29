@@ -10,11 +10,11 @@ public partial class SVGDocument
 {
 
 	// SVGDocument
-	public string title {get { return default(string); } }
-	public string referrer {get { return default(string); } }
-	public string domain {get { return default(string); } }
-	public string uRL {get { return default(string); } }
-	public SVGSVGElement rootElement {get { return default(SVGSVGElement); } }
+	public string title {get;private set;}
+	public string referrer {get;private set;}
+	public string domain {get;private set;}
+	public string uRL {get;private set;}
+	public SVGSVGElement rootElement {get;private set;}
 }
 
 }

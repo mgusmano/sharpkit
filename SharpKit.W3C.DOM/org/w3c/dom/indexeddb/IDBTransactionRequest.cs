@@ -10,7 +10,7 @@ public partial class IDBTransactionRequest : IDBTransaction
 {
 
 	// IDBTransactionRequest
-	public IDBRequest request {get { return default(IDBRequest); } }
+	public IDBRequest request {get;private set;}
 	public void abort() {}
 	public void commit() {}
 }

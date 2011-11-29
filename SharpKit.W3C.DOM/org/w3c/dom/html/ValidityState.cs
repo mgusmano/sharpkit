@@ -10,15 +10,15 @@ public partial class ValidityState
 {
 
 	// ValidityState
-	public bool valueMissing {get { return default(bool); } }
-	public bool typeMismatch {get { return default(bool); } }
-	public bool patternMismatch {get { return default(bool); } }
-	public bool tooLong {get { return default(bool); } }
-	public bool rangeUnderflow {get { return default(bool); } }
-	public bool rangeOverflow {get { return default(bool); } }
-	public bool stepMismatch {get { return default(bool); } }
-	public bool customError {get { return default(bool); } }
-	public bool valid {get { return default(bool); } }
+	public bool valueMissing {get;private set;}
+	public bool typeMismatch {get;private set;}
+	public bool patternMismatch {get;private set;}
+	public bool tooLong {get;private set;}
+	public bool rangeUnderflow {get;private set;}
+	public bool rangeOverflow {get;private set;}
+	public bool stepMismatch {get;private set;}
+	public bool customError {get;private set;}
+	public bool valid {get;private set;}
 }
 
 }

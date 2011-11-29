@@ -14,7 +14,7 @@ public partial class MediaError
 	public static short MEDIA_ERR_NETWORK = 2;
 	public static short MEDIA_ERR_DECODE = 3;
 	public static short MEDIA_ERR_SRC_NOT_SUPPORTED = 4;
-	public short code {get { return default(short); } }
+	public short code {get;private set;}
 }
 
 }

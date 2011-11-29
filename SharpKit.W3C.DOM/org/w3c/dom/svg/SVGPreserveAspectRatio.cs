@@ -24,8 +24,8 @@ public partial class SVGPreserveAspectRatio
 	public static short SVG_MEETORSLICE_UNKNOWN = 0;
 	public static short SVG_MEETORSLICE_MEET = 1;
 	public static short SVG_MEETORSLICE_SLICE = 2;
-	public short align {get { return default(short); } set {}}
-	public short meetOrSlice {get { return default(short); } set {}}
+	public short align {get;set;}
+	public short meetOrSlice {get;set;}
 }
 
 }

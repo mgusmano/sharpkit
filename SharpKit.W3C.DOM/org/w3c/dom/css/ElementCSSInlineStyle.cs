@@ -10,7 +10,7 @@ public partial class ElementCSSInlineStyle
 {
 
 	// ElementCSSInlineStyle
-	public CSSStyleDeclaration style {get { return default(CSSStyleDeclaration); } }
+	public CSSStyleDeclaration style {get;private set;}
 }
 
 }

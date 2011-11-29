@@ -10,10 +10,10 @@ public partial class SVGLinearGradientElement : SVGGradientElement
 {
 
 	// SVGLinearGradientElement
-	public SVGAnimatedLength x1 {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength y1 {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength x2 {get { return default(SVGAnimatedLength); } }
-	public SVGAnimatedLength y2 {get { return default(SVGAnimatedLength); } }
+	public SVGAnimatedLength x1 {get;private set;}
+	public SVGAnimatedLength y1 {get;private set;}
+	public SVGAnimatedLength x2 {get;private set;}
+	public SVGAnimatedLength y2 {get;private set;}
 }
 
 }
