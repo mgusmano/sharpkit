@@ -19,8 +19,8 @@ public partial class NodeEditVAL
 	public static short VAL_TRUE = 5;
 	public static short VAL_FALSE = 6;
 	public static short VAL_UNKNOWN = 7;
-	public string defaultValue {get { return default(string); } }
-	public DOMStringList enumeratedValues {get { return default(DOMStringList); } }
+	public string defaultValue {get;private set;}
+	public DOMStringList enumeratedValues {get;private set;}
 	public short canInsertBefore(Node newChild, Node refChild) { return default(short); }
 	public short canRemoveChild(Node oldChild) { return default(short); }
 	public short canReplaceChild(Node newChild, Node oldChild) { return default(short); }

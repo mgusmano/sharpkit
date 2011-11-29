@@ -13,8 +13,8 @@ public partial class PositionError
 	public static short PERMISSION_DENIED = 1;
 	public static short POSITION_UNAVAILABLE = 2;
 	public static short TIMEOUT = 3;
-	public short code {get { return default(short); } }
-	public string message {get { return default(string); } }
+	public short code {get;private set;}
+	public string message {get;private set;}
 }
 
 }

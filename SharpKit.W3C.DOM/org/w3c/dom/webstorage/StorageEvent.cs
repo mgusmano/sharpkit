@@ -11,11 +11,11 @@ public partial class StorageEvent : Event
 {
 
 	// StorageEvent
-	public string key {get { return default(string); } }
-	public object oldValue {get { return default(object); } }
-	public object newValue {get { return default(object); } }
-	public string url {get { return default(string); } }
-	public Storage storageArea {get { return default(Storage); } }
+	public string key {get;private set;}
+	public object oldValue {get;private set;}
+	public object newValue {get;private set;}
+	public string url {get;private set;}
+	public Storage storageArea {get;private set;}
 	public void initStorageEvent(string typeArg, bool canBubbleArg, bool cancelableArg, string keyArg, object oldValueArg, object newValueArg, string urlArg, Storage storageAreaArg) {}
 }
 

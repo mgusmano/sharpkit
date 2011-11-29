@@ -12,13 +12,13 @@ public partial class WorkerNavigator
 	// WorkerNavigator
 
 	// NavigatorID
-	public string appName {get { return default(string); } }
-	public string appVersion {get { return default(string); } }
-	public string platform {get { return default(string); } }
-	public string userAgent {get { return default(string); } }
+	public string appName {get;private set;}
+	public string appVersion {get;private set;}
+	public string platform {get;private set;}
+	public string userAgent {get;private set;}
 
 	// NavigatorOnLine
-	public bool onLine {get { return default(bool); } }
+	public bool onLine {get;private set;}
 }
 
 }

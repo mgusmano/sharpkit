@@ -314,8 +314,8 @@ public partial class WebGLRenderingContext
 	public static int RENDERBUFFER_BINDING = 0x8CA7;
 	public static int MAX_RENDERBUFFER_SIZE = 0x84E8;
 	public static int INVALID_FRAMEBUFFER_OPERATION = 0x0506;
-	public HTMLCanvasElement canvas {get { return default(HTMLCanvasElement); } }
-	public WebGLContextAttributes contextAttributes {get { return default(WebGLContextAttributes); } }
+	public HTMLCanvasElement canvas {get;private set;}
+	public WebGLContextAttributes contextAttributes {get;private set;}
 	public bool isContextLost() { return default(bool); }
 	public bool resetContext() { return default(bool); }
 	public void activeTexture(int texture) {}
@@ -379,7 +379,7 @@ public partial class WebGLRenderingContext
 	public int getAttribLocation(WebGLProgram program, string name) { return default(int); }
 	public object getParameter(int pname) { return default(object); }
 	public object getBufferParameter(int target, int pname) { return default(object); }
-	public int error {get { return default(int); } }
+	public int error {get;private set;}
 	public object getFramebufferAttachmentParameter(int target, int attachment, int pname) { return default(object); }
 	public object getProgramParameter(WebGLProgram program, int pname) { return default(object); }
 	public string getProgramInfoLog(WebGLProgram program) { return default(string); }

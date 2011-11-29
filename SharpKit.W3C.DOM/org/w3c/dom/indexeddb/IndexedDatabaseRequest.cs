@@ -10,7 +10,7 @@ public partial class IndexedDatabaseRequest
 {
 
 	// IndexedDatabaseRequest
-	public IDBRequest request {get { return default(IDBRequest); } }
+	public IDBRequest request {get;private set;}
 	public void open(string name, string description) {}
 	public void open(string name, string description, bool modifyDatabase) {}
 }

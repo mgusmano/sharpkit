@@ -11,7 +11,7 @@ public partial class LSSerializerFilter : NodeFilter
 {
 
 	// LSSerializerFilter
-	public int whatToShow {get { return default(int); } }
+	public int whatToShow {get;private set;}
 }
 
 }

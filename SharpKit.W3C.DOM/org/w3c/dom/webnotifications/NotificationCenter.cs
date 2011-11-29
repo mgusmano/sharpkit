@@ -13,7 +13,7 @@ public partial class NotificationCenter
 	public static int PERMISSION_ALLOWED = 0;
 	public static int PERMISSION_UNKNOWN = 1;
 	public static int PERMISSION_DENIED = 2;
-	public int permissionLevel {get { return default(int); } set {}}
+	public int permissionLevel {get;set;}
 	public Notification createNotification(string iconUrl, string title, string body) { return default(Notification); }
 	public Notification createHTMLNotification(string url) { return default(Notification); }
 	public void requestPermission(JsAction callback) {}

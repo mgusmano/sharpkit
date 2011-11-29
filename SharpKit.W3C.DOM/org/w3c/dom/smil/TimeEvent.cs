@@ -12,8 +12,8 @@ public partial class TimeEvent : Event
 {
 
 	// TimeEvent
-	public AbstractView view {get { return default(AbstractView); } }
-	public int detail {get { return default(int); } }
+	public AbstractView view {get;private set;}
+	public int detail {get;private set;}
 	public void initTimeEvent(string typeArg, AbstractView viewArg, int detailArg) {}
 }
 

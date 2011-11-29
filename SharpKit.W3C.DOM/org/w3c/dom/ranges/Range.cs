@@ -15,12 +15,12 @@ public partial class Range
 {
 
 	// Range
-	public Node startContainer {get { return default(Node); } }
-	public int startOffset {get { return default(int); } }
-	public Node endContainer {get { return default(Node); } }
-	public int endOffset {get { return default(int); } }
-	public bool collapsed {get { return default(bool); } }
-	public Node commonAncestorContainer {get { return default(Node); } }
+	public Node startContainer {get;private set;}
+	public int startOffset {get;private set;}
+	public Node endContainer {get;private set;}
+	public int endOffset {get;private set;}
+	public bool collapsed {get;private set;}
+	public Node commonAncestorContainer {get;private set;}
 	public void setStart(Node refNode, int offset) {}
 	public void setEnd(Node refNode, int offset) {}
 	public void setStartBefore(Node refNode) {}
@@ -45,8 +45,8 @@ public partial class Range
 	public void detach() {}
 
 	// Range-42
-	public ClientRectList clientRects {get { return default(ClientRectList); } }
-	public ClientRect boundingClientRect {get { return default(ClientRect); } }
+	public ClientRectList clientRects {get;private set;}
+	public ClientRect boundingClientRect {get;private set;}
 }
 
 }

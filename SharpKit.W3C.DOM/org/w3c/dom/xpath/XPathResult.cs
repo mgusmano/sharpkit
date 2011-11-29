@@ -22,13 +22,13 @@ public partial class XPathResult
 	public static short ORDERED_NODE_SNAPSHOT_TYPE = 7;
 	public static short ANY_UNORDERED_NODE_TYPE = 8;
 	public static short FIRST_ORDERED_NODE_TYPE = 9;
-	public short resultType {get { return default(short); } }
-	public double numberValue {get { return default(double); } }
-	public string stringValue {get { return default(string); } }
-	public bool booleanValue {get { return default(bool); } }
-	public Node singleNodeValue {get { return default(Node); } }
-	public bool invalidIteratorState {get { return default(bool); } }
-	public int snapshotLength {get { return default(int); } }
+	public short resultType {get;private set;}
+	public double numberValue {get;private set;}
+	public string stringValue {get;private set;}
+	public bool booleanValue {get;private set;}
+	public Node singleNodeValue {get;private set;}
+	public bool invalidIteratorState {get;private set;}
+	public int snapshotLength {get;private set;}
 	public Node iterateNext() { return default(Node); }
 	public Node snapshotItem(int index) { return default(Node); }
 }
