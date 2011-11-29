@@ -382,7 +382,8 @@ JsTypes.push({fullname:"System.Int32", baseTypeName:"System.ValueType",definitio
     ToString: function()
     {
         return String(Number(this));
-    }
+    },
+    toString:Number.prototype.toString, //avoid toString override by compiler (toString(radix) won't work if overriden)
 }, staticDefinition:
 {
     tryParse: function(s)
