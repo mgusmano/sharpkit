@@ -136,9 +136,13 @@ namespace SharpKit.JavaScript
         ///</summary>
         public string Exporter { get; set; }
         /// <summary>
-        /// Ignores any generic type arguments of the class when referencing the class in JavaScript
+        /// Omits and ignores any generic type argument
         /// </summary>
         public bool IgnoreGenericTypeArguments { get; set; }
+        /// <summary>
+        /// Omits and ignores any generic argument in any method inside the class (Equivalent to JsMethod(IgnoreGenericArguments=true) on each method)
+        /// </summary>
+        public bool IgnoreGenericMethodArguments { get; set; }
         /// <summary>
         /// Controls the JavaScript mode of this type, a mode is a combination of several boolean settings of the JsTypeAttribute
         /// </summary>
@@ -691,6 +695,10 @@ namespace SharpKit.JavaScript
     public partial class JsContext
     {
         public static JsArguments arguments;
+        [JsMethod(OmitParanthesis=true)]
+        public static void debugger()
+        {
+        }
         ///<summary>
         ///indicates that a variable has not been assigned a value.
         ///</summary>
@@ -699,6 +707,30 @@ namespace SharpKit.JavaScript
         [JsProperty(NativeField = true)]
         public static object @null { get; set; }
         public static JsString @typeof(object obj) { return default(JsString); }
+        public static JsString @typeof(JsNativeAction action) { return null; }
+        [JsMethod(IgnoreGenericArguments = true)]
+        public static JsString @typeof<T>(JsNativeAction<T> action) { return null; }
+        [JsMethod(IgnoreGenericArguments = true)]
+        public static JsString @typeof<T1, T2>(JsNativeAction<T1, T2> action) { return null; }
+        [JsMethod(IgnoreGenericArguments = true)]
+        public static JsString @typeof<T1, T2, T3>(JsNativeAction<T1, T2, T3> action) { return null; }
+        [JsMethod(IgnoreGenericArguments = true)]
+        public static JsString @typeof<T1, T2, T3, T4>(JsNativeAction<T1, T2, T3, T4> action) { return null; }
+        [JsMethod(IgnoreGenericArguments = true)]
+        public static JsString @typeof<T1, T2, T3, T4, T5>(JsNativeAction<T1, T2, T3, T4, T5> action) { return null; }
+        [JsMethod(IgnoreGenericArguments = true)]
+        public static JsString @typeof<R>(JsNativeFunc<R> action) { return null; }
+        [JsMethod(IgnoreGenericArguments = true)]
+        public static JsString @typeof<T, R>(JsNativeFunc<T, R> action) { return null; }
+        [JsMethod(IgnoreGenericArguments = true)]
+        public static JsString @typeof<T1, T2, R>(JsNativeFunc<T1, T2, R> action) { return null; }
+        [JsMethod(IgnoreGenericArguments = true)]
+        public static JsString @typeof<T1, T2, T3, R>(JsNativeFunc<T1, T2, T3, R> action) { return null; }
+        [JsMethod(IgnoreGenericArguments = true)]
+        public static JsString @typeof<T1, T2, T3, T4, R>(JsNativeFunc<T1, T2, T3, T4, R> action) { return null; }
+        [JsMethod(IgnoreGenericArguments = true)]
+        public static JsString @typeof<T1, T2, T3, T4, T5, R>(JsNativeFunc<T1, T2, T3, T4, T5, R> action) { return null; }
+
         public static object @this;
         [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
         public static object @return(object obj) { return null; }
@@ -2167,7 +2199,7 @@ namespace SharpKit.JavaScript
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
         /// <returns></returns>
-        [JsMethod(OmitDotOperator = true, OmitParanthesis = true, Export = false, NativeOverloads = true, Name = "instanceof", ExtensionImplementedInInstance = true)]
+        [JsMethod(OmitDotOperator = true, OmitParanthesis = true, Export = false, NativeOverloads = true, Name = "instanceof", ExtensionImplementedInInstance = true, IgnoreGenericArguments=false)]
         public static bool instanceof<T>(this object obj)
         {
             return false;
