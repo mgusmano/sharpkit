@@ -23,6 +23,7 @@ public partial class Element : Node, IEventTarget
 	public void removeAttributeNS(string namespaceURI, string localName) {}
 	public Attr getAttributeNodeNS(string namespaceURI, string localName) { return default(Attr); }
 	public Attr setAttributeNodeNS(Attr newAttr) { return default(Attr); }
+	public void setAttributeNodeNS(string namespaceURI, string qualifiedName, string value) {}
 	public NodeList getElementsByTagNameNS(string namespaceURI, string localName) { return default(NodeList); }
 	public bool hasAttribute(string name) { return default(bool); }
 	public bool hasAttributeNS(string namespaceURI, string localName) { return default(bool); }
