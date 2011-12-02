@@ -29,6 +29,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HtmlContextBase.cs" />
     <Compile Include="Dom\Attr.cs" />
     <Compile Include="Dom\BooleanArray.cs" />
     <Compile Include="Dom\ByteArray.cs" />
