@@ -34,7 +34,7 @@ public partial class HtmlDocument
 	public HtmlCollection scripts {get; private set; }
 	public NodeList getElementsByName(string elementName) { return default(NodeList); }
 	public NodeList getElementsByClassName(string classNames) { return default(NodeList); }
-	public JsString innerHtml {get; set; }
+	public JsString innerHTML {get; set; }
 	public HtmlDocument open() { return default(HtmlDocument); }
 	public HtmlDocument open(string type) { return default(HtmlDocument); }
 	public HtmlDocument open(string type, string replace) { return default(HtmlDocument); }
