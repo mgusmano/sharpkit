@@ -55,10 +55,10 @@ JsTypes.push(
         },
         ReplaceFirst$$String$$String$$String$$StringComparison:function(s,search,replace,comparisonType)
         {
-            var index=s.IndexOf$$String$$StringComparison(search,comparisonType);
+            var index=s.indexOf(search,comparisonType);
             if(index != -1)
             {
-                var finalStr=System.String.Concat$$String$$String$$String(s.Substring$$Int32$$Int32(0,index),replace,s.Substring$$Int32(search.get_Length() + index));
+                var finalStr=System.String.Concat$$String$$String$$String(s.substr(0,index),replace,s.substr(search.length  + index));
                 return finalStr;
             }
             return s;
@@ -78,7 +78,7 @@ JsTypes.push(
                 sb.Append$$Char(c);
                 first = false;
             }
-            return sb.ToString();
+            return sb.toString();
         },
         RemoveLast:function(s,count)
         {
@@ -87,7 +87,7 @@ JsTypes.push(
         TrimEnd:function(s,trimText)
         {
             if(s.EndsWith$$String(trimText))
-                return SharpKit.Extensions2.RemoveLast(s,trimText.get_Length());
+                return SharpKit.Extensions2.RemoveLast(s,trimText.length );
             return s;
         },
         EqualsIgnoreCase:function(s1,s2)
@@ -234,9 +234,9 @@ JsTypes.push(
         JsFunctionNameToClrMethodName:function(jsFuncName)
         {
             var methodName=jsFuncName;
-            var di=jsFuncName.IndexOf$$Char('$');
+            var di=jsFuncName.indexOf('$');
             if(di > 0)
-                methodName = jsFuncName.Substring$$Int32$$Int32(0,di);
+                methodName = jsFuncName.substr(0,di);
             return methodName;
         },
         ClrTypeToJsTypeRef:function(type)
@@ -255,7 +255,7 @@ JsTypes.push(
             sb.Append$$String(typeRef);
             sb.Append$$String(".ctor");
             SharpKit.JavaScript.JsNamingHelper.ConvertParametersToJsFunctionName(mi.GetParameters(),sb);
-            return sb.ToString();
+            return sb.toString();
         },
         ConvertParametersToJsFunctionName:function(prms,sb)
         {
@@ -309,7 +309,7 @@ JsTypes.push(
             }
             sb.Append$$String(name);
             SharpKit.JavaScript.JsNamingHelper.ConvertParametersToJsFunctionName(mi.GetParameters(),sb);
-            return sb.ToString();
+            return sb.toString();
         },
         IsPropertySetter:function(mi)
         {

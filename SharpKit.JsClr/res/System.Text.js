@@ -23,7 +23,7 @@ JsTypes.push(
             this.length = 0;
             System.Object.ctor.call(this);
             this.array = [s];
-            this.length = s == null?0:s.get_Length();
+            this.length = s == null?0:s.length ;
         },
         Append$$Char:function(s)
         {
@@ -33,36 +33,36 @@ JsTypes.push(
         Append$$String:function(s)
         {
             this.array.push(s);
-            this.length += s.get_Length();
+            this.length += s.length ;
         },
         Append$$Object:function(obj)
         {
             if(obj != null)
             {
-                var s=obj.ToString();
+                var s=obj.toString();
                 this.array.push(s);
-                this.length += s.get_Length();
+                this.length += s.length ;
             }
         },
         AppendFormat$$String$$Object:function(s,arg0)
         {
             var ss=System.String.Format$$String$$Object(s,arg0);
             this.array.push(ss);
-            this.length += ss.get_Length();
+            this.length += ss.length ;
         },
         AppendFormat$$String$$Object$$Object:function(s,arg0,arg1)
         {
             var ss=System.String.Format$$String$$Object$$Object(s,arg0,arg1);
             this.array.push(ss);
-            this.length += ss.get_Length();
+            this.length += ss.length ;
         },
         AppendFormat$$String$$Object$$Object$$Object:function(s,arg0,arg1,arg2)
         {
             var ss=System.String.Format$$String$$Object$$Object$$Object(s,arg0,arg1,arg2);
             this.array.push(ss);
-            this.length += ss.get_Length();
+            this.length += ss.length ;
         },
-        ToString:function()
+        toString:function()
         {
             return this.array.join("");
         },

@@ -1,9 +1,20 @@
 //JavaScript v1.5 
 //SharpKit v4.04.5000
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using SharpKit.JavaScript;
+
+[assembly: JsMethod(TargetType = typeof(object), TargetMethod = "ToString", Name = "toString")]
+[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToUpper", Name = "toUpperCase")]
+[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToLower", Name = "toLowerCase")]
+[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "IndexOf", Name = "indexOf", NativeOverloads=true)]
+[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "LastIndexOf", Name = "lastIndexOf", NativeOverloads=true)]
+[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "get_Chars", Name = "charAt")]
+[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "get_Length", Name = "length", OmitParanthesis=true)]
+[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "Trim", Name = "trim")]
+[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "Substring", Name = "substr", NativeOverloads=true)]
+
 
 namespace SharpKit.JavaScript
 {
@@ -24,7 +35,7 @@ namespace SharpKit.JavaScript
         /// Creates an instance of a JsTypeAttribute in the specified JsMode
         /// </summary>
         /// <param name="mode"></param>
-        public JsTypeAttribute(JsMode mode) 
+        public JsTypeAttribute(JsMode mode)
         {
             Mode = mode;
         }
@@ -33,7 +44,7 @@ namespace SharpKit.JavaScript
         /// </summary>
         /// <param name="mode"></param>
         /// <param name="filename"></param>
-        public JsTypeAttribute(JsMode mode, string filename) 
+        public JsTypeAttribute(JsMode mode, string filename)
         {
             Mode = mode;
             Filename = filename;
@@ -260,7 +271,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     /// Specifies custom instructions for SharpKit for a single method, this information is used when exporting the member, and when using it.
     ///</summary>
-    [AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple=true)]
+    [AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
     public partial class JsMethodAttribute : Attribute
     {
         /// <summary>
@@ -454,7 +465,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///The Array object provides support for creation of arrays of any data type.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator=true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator = true)]
     public partial class JsArray : JsObject, IEnumerable<object>
     {
         public JsArray() { }
@@ -577,7 +588,7 @@ namespace SharpKit.JavaScript
     ///The Array object provides support for creation of arrays of any data type.
     ///</summary>
     ///<typeparam name="T"></typeparam>
-    [JsType(JsMode.Prototype, Name = "Array", NativeEnumerator = false, Export = false, IgnoreGenericTypeArguments = true, NativeArrayEnumerator=true)]
+    [JsType(JsMode.Prototype, Name = "Array", NativeEnumerator = false, Export = false, IgnoreGenericTypeArguments = true, NativeArrayEnumerator = true)]
     public partial class JsArray<T> : JsArray, IEnumerable<T>
     {
         public static implicit operator T[](JsArray<T> x) { return default(T[]); }
@@ -695,7 +706,7 @@ namespace SharpKit.JavaScript
     public partial class JsContext
     {
         public static JsArguments arguments;
-        [JsMethod(OmitParanthesis=true)]
+        [JsMethod(OmitParanthesis = true)]
         public static void debugger()
         {
         }
@@ -782,7 +793,7 @@ namespace SharpKit.JavaScript
         /// <returns>The expression argument is a valid JavaScript expression that usually results in a property name or array element.
         /// If the result of expression is an object, the property specified in expression exists, and the object will not allow it to be deleted, false is returned.
         /// In all other cases, true is returned.</returns>
-        [JsMethod(OmitParanthesis=true, NativeOverloads=true)]
+        [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
         public static bool delete(object obj) { return false; }
         ///<summary>
         ///Returns a floating-point number converted from a JsString.
@@ -801,7 +812,7 @@ namespace SharpKit.JavaScript
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        [JsMethod(OmitParanthesis=true, Name="")]
+        [JsMethod(OmitParanthesis = true, Name = "")]
         public static object JsCode(JsCode code) { return null; }
     }
     #endregion
@@ -2062,7 +2073,7 @@ namespace SharpKit.JavaScript
     #region Misc
     #region Delegates
     [JsDelegate(NativeDelegates = true)]
-    [JsType(JsMode.Json, OmitCasts=true, Export=false)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void JsAction();
     [JsDelegate(NativeDelegates = true)]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
@@ -2076,13 +2087,13 @@ namespace SharpKit.JavaScript
     [JsDelegate(NativeDelegates = true)]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void JsAction<T1, T2, T3, T4>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
-    [JsDelegate( NativeDelegates = true )]
-    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
-    public delegate void JsAction<T1, T2, T3, T4, T5>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 );
-    [JsDelegate( NativeDelegates = true )]
-    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
-    public delegate void JsAction<T1, T2, T3, T4, T5, T6>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 );
-    [JsDelegate( NativeDelegates = true )]
+    [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
+    public delegate void JsAction<T1, T2, T3, T4, T5>(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
+    public delegate void JsAction<T1, T2, T3, T4, T5, T6>(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    [JsDelegate(NativeDelegates = true)]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate TResult JsFunc<TResult>();
     [JsDelegate(NativeDelegates = true)]
@@ -2097,12 +2108,12 @@ namespace SharpKit.JavaScript
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeDelegates = true)]
     public delegate TResult JsFunc<T1, T2, T3, T4, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
-    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
-    [JsDelegate( NativeDelegates = true )]
-    public delegate TResult JsFunc<T1, T2, T3, T4, T5, TResult>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 );
-    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
-    [JsDelegate( NativeDelegates = true )]
-    public delegate TResult JsFunc<T1, T2, T3, T4, T5, T6, TResult>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 );
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
+    [JsDelegate(NativeDelegates = true)]
+    public delegate TResult JsFunc<T1, T2, T3, T4, T5, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
+    [JsDelegate(NativeDelegates = true)]
+    public delegate TResult JsFunc<T1, T2, T3, T4, T5, T6, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
 
 
 
@@ -2127,13 +2138,13 @@ namespace SharpKit.JavaScript
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeFunction = true)]
     public delegate void JsNativeAction<T1, T2, T3, T4>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
-    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
-    [JsDelegate( NativeFunction = true )]
-    public delegate void JsNativeAction<T1, T2, T3, T4, T5>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 );
-    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
-    [JsDelegate( NativeFunction = true )]
-    public delegate void JsNativeAction<T1, T2, T3, T4, T5, T6>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 );
-    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
+    [JsDelegate(NativeFunction = true)]
+    public delegate void JsNativeAction<T1, T2, T3, T4, T5>(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
+    [JsDelegate(NativeFunction = true)]
+    public delegate void JsNativeAction<T1, T2, T3, T4, T5, T6>(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     [JsDelegate(NativeFunction = true)]
     public delegate TResult JsNativeFunc<TResult>();
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
@@ -2148,12 +2159,12 @@ namespace SharpKit.JavaScript
     [JsDelegate(NativeFunction = true)]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate TResult JsNativeFunc<T1, T2, T3, T4, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
-    [JsDelegate( NativeFunction = true )]
-    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
-    public delegate TResult JsNativeFunc<T1, T2, T3, T4, T5, TResult>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 );
-    [JsDelegate( NativeFunction = true )]
-    [JsType( JsMode.Json, OmitCasts = true, Export = false )]
-    public delegate TResult JsNativeFunc<T1, T2, T3, T4, T5, T6, TResult>( T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 );
+    [JsDelegate(NativeFunction = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
+    public delegate TResult JsNativeFunc<T1, T2, T3, T4, T5, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    [JsDelegate(NativeFunction = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
+    public delegate TResult JsNativeFunc<T1, T2, T3, T4, T5, T6, TResult>(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
 
     #endregion
 
@@ -2163,6 +2174,13 @@ namespace SharpKit.JavaScript
     /// </summary>
     public static partial class JsExtensions
     {
+        /// <summary>
+        /// Invisibly converts the string reference to JsString on order to use native javascript string functions
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(OmitCalls = true)]
+        public static JsString AsJsString(this string s) { return new JsString(s); }
         ///<summary>
         ///Allows converting an object to a different type without affecting the generated javascript code.
         ///</summary>
@@ -2199,7 +2217,7 @@ namespace SharpKit.JavaScript
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
         /// <returns></returns>
-        [JsMethod(OmitDotOperator = true, OmitParanthesis = true, Export = false, NativeOverloads = true, Name = "instanceof", ExtensionImplementedInInstance = true, IgnoreGenericArguments=false)]
+        [JsMethod(OmitDotOperator = true, OmitParanthesis = true, Export = false, NativeOverloads = true, Name = "instanceof", ExtensionImplementedInInstance = true, IgnoreGenericArguments = false)]
         public static bool instanceof<T>(this object obj)
         {
             return false;

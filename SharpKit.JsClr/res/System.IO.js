@@ -33,13 +33,13 @@ JsTypes.push(
             }
             System.IO.Path.CheckInvalidPathChars(path);
             var str=path;
-            var length=path.get_Length();
+            var length=path.length ;
             while(--length >= 0)
             {
-                var ch=path.get_Chars(length);
+                var ch=path.charAt(length);
                 if(ch == '.')
                 {
-                    str = path.Substring$$Int32$$Int32(0,length);
+                    str = path.substr(0,length);
                     break;
                 }
                 if(((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar))
@@ -47,11 +47,11 @@ JsTypes.push(
                     break;
                 }
             }
-            if((extension == null) || (path.get_Length() == 0))
+            if((extension == null) || (path.length  == 0))
             {
                 return str;
             }
-            if((extension.get_Length() == 0) || (extension.get_Chars(0) != '.'))
+            if((extension.length  == 0) || (extension.charAt(0) != '.'))
             {
                 str = str + ".";
             }
@@ -59,18 +59,18 @@ JsTypes.push(
         },
         CharArrayStartsWithOrdinal:function(array,numChars,compareTo,ignoreCase)
         {
-            if(numChars < compareTo.get_Length())
+            if(numChars < compareTo.length )
             {
                 return false;
             }
             if(ignoreCase)
             {
-                var str=new System.String.ctor$$Char$Array$$Int32$$Int32(array,0,compareTo.get_Length());
+                var str=new System.String.ctor$$Char$Array$$Int32$$Int32(array,0,compareTo.length );
                 return compareTo.Equals$$String$$StringComparison(str,5);
             }
-            for(var i=0;i < compareTo.get_Length();i++)
+            for(var i=0;i < compareTo.length ;i++)
             {
-                if(array[i] != compareTo.get_Chars(i))
+                if(array[i] != compareTo.charAt(i))
                 {
                     return false;
                 }
@@ -79,7 +79,7 @@ JsTypes.push(
         },
         CheckInvalidPathChars:function(path)
         {
-            for(var i=0;i < path.get_Length();i++)
+            for(var i=0;i < path.length ;i++)
             {
                 var num2=path.charCodeAt(i);
                 if(((num2 == 0x22) || (num2 == 60)) || (((num2 == 0x3e) || (num2 == 0x7c)) || (num2 < 0x20)))
@@ -91,17 +91,17 @@ JsTypes.push(
         CheckSearchPattern:function(searchPattern)
         {
             var num;
-            while((num = searchPattern.IndexOf$$String$$StringComparison("..",4)) != -1)
+            while((num = searchPattern.indexOf("..",4)) != -1)
             {
-                if((num + 2) == searchPattern.get_Length())
+                if((num + 2) == searchPattern.length )
                 {
                     throw new System.ArgumentException.ctor$$String(System.Environment.GetResourceString("Arg_InvalidSearchPattern"));
                 }
-                if((searchPattern.get_Chars(num + 2) == System.IO.Path.DirectorySeparatorChar) || (searchPattern.get_Chars(num + 2) == System.IO.Path.AltDirectorySeparatorChar))
+                if((searchPattern.charAt(num + 2) == System.IO.Path.DirectorySeparatorChar) || (searchPattern.charAt(num + 2) == System.IO.Path.AltDirectorySeparatorChar))
                 {
                     throw new System.ArgumentException.ctor$$String(System.Environment.GetResourceString("Arg_InvalidSearchPattern"));
                 }
-                searchPattern = searchPattern.Substring$$Int32(num + 2);
+                searchPattern = searchPattern.substr(num + 2);
             }
         },
         Combine:function(path1,path2)
@@ -112,11 +112,11 @@ JsTypes.push(
             }
             System.IO.Path.CheckInvalidPathChars(path1);
             System.IO.Path.CheckInvalidPathChars(path2);
-            if(path2.get_Length() == 0)
+            if(path2.length  == 0)
             {
                 return path1;
             }
-            if(path1.get_Length() == 0)
+            if(path1.length  == 0)
             {
                 return path2;
             }
@@ -124,7 +124,7 @@ JsTypes.push(
             {
                 return path2;
             }
-            var ch=path1.get_Chars(path1.get_Length() - 1);
+            var ch=path1.charAt(path1.length  - 1);
             if(((ch != System.IO.Path.DirectorySeparatorChar) && (ch != System.IO.Path.AltDirectorySeparatorChar)) && (ch != System.IO.Path.VolumeSeparatorChar))
             {
                 return (path1 + System.IO.Path.DirectorySeparatorChar + path2);
@@ -142,17 +142,17 @@ JsTypes.push(
                 System.IO.Path.CheckInvalidPathChars(path);
                 path = System.IO.Path.FixupPath(path);
                 var rootLength=System.IO.Path.GetRootLength(path);
-                if(path.get_Length() > rootLength)
+                if(path.length  > rootLength)
                 {
-                    var length=path.get_Length();
+                    var length=path.length ;
                     if(length == rootLength)
                     {
                         return null;
                     }
-                    while(((length > rootLength) && (path.get_Chars(--length) != System.IO.Path.DirectorySeparatorChar)) && (path.get_Chars(length) != System.IO.Path.AltDirectorySeparatorChar))
+                    while(((length > rootLength) && (path.charAt(--length) != System.IO.Path.DirectorySeparatorChar)) && (path.charAt(length) != System.IO.Path.AltDirectorySeparatorChar))
                     {
                     }
-                    return path.Substring$$Int32$$Int32(0,length);
+                    return path.substr(0,length);
                 }
             }
             return null;
@@ -164,16 +164,16 @@ JsTypes.push(
                 return null;
             }
             System.IO.Path.CheckInvalidPathChars(path);
-            var length=path.get_Length();
+            var length=path.length ;
             var startIndex=length;
             while(--startIndex >= 0)
             {
-                var ch=path.get_Chars(startIndex);
+                var ch=path.charAt(startIndex);
                 if(ch == '.')
                 {
                     if(startIndex != (length - 1))
                     {
-                        return path.Substring$$Int32$$Int32(startIndex,length - startIndex);
+                        return path.substr(startIndex,length - startIndex);
                     }
                     return System.String.Empty;
                 }
@@ -189,14 +189,14 @@ JsTypes.push(
             if(path != null)
             {
                 System.IO.Path.CheckInvalidPathChars(path);
-                var length=path.get_Length();
+                var length=path.length ;
                 var num2=length;
                 while(--num2 >= 0)
                 {
-                    var ch=path.get_Chars(num2);
+                    var ch=path.charAt(num2);
                     if(((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar))
                     {
-                        return path.Substring$$Int32$$Int32(num2 + 1,(length - num2) - 1);
+                        return path.substr(num2 + 1,(length - num2) - 1);
                     }
                 }
             }
@@ -209,12 +209,12 @@ JsTypes.push(
             {
                 return null;
             }
-            var length=path.LastIndexOf$$Char('.');
+            var length=path.lastIndexOf('.');
             if(length == -1)
             {
                 return path;
             }
-            return path.Substring$$Int32$$Int32(0,length);
+            return path.substr(0,length);
         },
         GetFullPath:function(path)
         {
@@ -244,7 +244,7 @@ JsTypes.push(
                 return null;
             }
             path = System.IO.Path.FixupPath(path);
-            return path.Substring$$Int32$$Int32(0,System.IO.Path.GetRootLength(path));
+            return path.substr(0,System.IO.Path.GetRootLength(path));
         },
         GetRandomFileName:function()
         {
@@ -254,25 +254,25 @@ JsTypes.push(
         {
             System.IO.Path.CheckInvalidPathChars(path);
             var num=0;
-            var length=path.get_Length();
-            if((length >= 1) && System.IO.Path.IsDirectorySeparator(path.get_Chars(0)))
+            var length=path.length ;
+            if((length >= 1) && System.IO.Path.IsDirectorySeparator(path.charAt(0)))
             {
                 num = 1;
-                if((length >= 2) && System.IO.Path.IsDirectorySeparator(path.get_Chars(1)))
+                if((length >= 2) && System.IO.Path.IsDirectorySeparator(path.charAt(1)))
                 {
                     num = 2;
                     var num3=2;
-                    while((num < length) && (((path.get_Chars(num) != System.IO.Path.DirectorySeparatorChar) && (path.get_Chars(num) != System.IO.Path.AltDirectorySeparatorChar)) || (--num3 > 0)))
+                    while((num < length) && (((path.charAt(num) != System.IO.Path.DirectorySeparatorChar) && (path.charAt(num) != System.IO.Path.AltDirectorySeparatorChar)) || (--num3 > 0)))
                     {
                         num++;
                     }
                 }
                 return num;
             }
-            if((length >= 2) && (path.get_Chars(1) == System.IO.Path.VolumeSeparatorChar))
+            if((length >= 2) && (path.charAt(1) == System.IO.Path.VolumeSeparatorChar))
             {
                 num = 2;
-                if((length >= 3) && System.IO.Path.IsDirectorySeparator(path.get_Chars(2)))
+                if((length >= 3) && System.IO.Path.IsDirectorySeparator(path.charAt(2)))
                 {
                     num++;
                 }
@@ -292,13 +292,13 @@ JsTypes.push(
             if(path != null)
             {
                 System.IO.Path.CheckInvalidPathChars(path);
-                var length=path.get_Length();
+                var length=path.length ;
                 while(--length >= 0)
                 {
-                    var ch=path.get_Chars(length);
+                    var ch=path.charAt(length);
                     if(ch == '.')
                     {
-                        return (length != (path.get_Length() - 1));
+                        return (length != (path.length  - 1));
                     }
                     if(((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar))
                     {
@@ -316,7 +316,7 @@ JsTypes.push(
             }
             System.IO.Path.CheckInvalidPathChars(path1);
             System.IO.Path.CheckInvalidPathChars(path2);
-            if(path2.get_Length() == 0)
+            if(path2.length  == 0)
             {
                 throw new System.ArgumentException.ctor$$String$$String(System.Environment.GetResourceString("Argument_PathEmpty"),"path2");
             }
@@ -324,12 +324,12 @@ JsTypes.push(
             {
                 throw new System.ArgumentException.ctor$$String$$String(System.Environment.GetResourceString("Arg_Path2IsRooted"),"path2");
             }
-            var length=path1.get_Length();
+            var length=path1.length ;
             if(length == 0)
             {
                 return path2;
             }
-            var ch=path1.get_Chars(length - 1);
+            var ch=path1.charAt(length - 1);
             if(((ch != System.IO.Path.DirectorySeparatorChar) && (ch != System.IO.Path.AltDirectorySeparatorChar)) && (ch != System.IO.Path.VolumeSeparatorChar))
             {
                 return (path1 + System.IO.Path.DirectorySeparatorChar + path2);
@@ -349,8 +349,8 @@ JsTypes.push(
             if(path != null)
             {
                 System.IO.Path.CheckInvalidPathChars(path);
-                var length=path.get_Length();
-                if(((length >= 1) && ((path.get_Chars(0) == System.IO.Path.DirectorySeparatorChar) || (path.get_Chars(0) == System.IO.Path.AltDirectorySeparatorChar))) || ((length >= 2) && (path.get_Chars(1) == System.IO.Path.VolumeSeparatorChar)))
+                var length=path.length ;
+                if(((length >= 1) && ((path.charAt(0) == System.IO.Path.DirectorySeparatorChar) || (path.charAt(0) == System.IO.Path.AltDirectorySeparatorChar))) || ((length >= 2) && (path.charAt(1) == System.IO.Path.VolumeSeparatorChar)))
                 {
                     return true;
                 }

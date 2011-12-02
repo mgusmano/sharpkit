@@ -24,13 +24,6 @@ Object.ctor = Object;
 Array.ctor = Array;
 Date.ctor = Date;
 Function.ctor = Function;
-Date.prototype.ToString = Date.prototype.toString;
-Number.prototype.ToString = Number.prototype.toString;
-Error.prototype.ToString = function()
-{
-    return this.name + " : " + this.message;
-}
-//Error.prototype.ToString = Error.prototype.toString;
 if (typeof (ActiveXObject) != "undefined")
     ActiveXObject.ctor$$String = ActiveXObject;
 Number.prototype.get_Value = function() //nullable support
@@ -76,10 +69,6 @@ JsTypes.push(
     {
     },
     toString: function()
-    {
-        return this.ToString();
-    },
-    ToString: function()
     {
         return "{" + this.constructor._type.fullname + "}";
     },
@@ -362,7 +351,7 @@ AfterCompilation(function()
 JsTypes.push({fullname:"System.Boolean", baseTypeName:"System.ValueType",definition:
 {
     ctor: Boolean,
-    ToString: function()
+    toString: function()
     {
         return this == true ? "true" : "false";
     }
@@ -379,7 +368,7 @@ JsTypes.push({fullname:"System.Boolean", baseTypeName:"System.ValueType",definit
 JsTypes.push({fullname:"System.Int32", baseTypeName:"System.ValueType",definition:
 {
     ctor: Number,
-    ToString: function()
+    toString: function()
     {
         return String(Number(this));
     },
@@ -399,7 +388,7 @@ JsTypes.push({fullname:"System.Int32", baseTypeName:"System.ValueType",definitio
 JsTypes.push({fullname:"System.Decimal", baseTypeName:"System.ValueType",definition:
 {
     ctor: function(x) { return new Number(x); },
-    ToString: function()
+    toString: function()
     {
         return this.toString();
     }
@@ -568,10 +557,6 @@ JsTypes.push({fullname:"System.String", baseTypeName:"System.Object", definition
     Contains: function(s)
     {
         return this.indexOf(s) != -1;
-    },
-    ToString: function()
-    {
-        return this._toString();
     },
     toString: function()
     {

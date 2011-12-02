@@ -1111,7 +1111,7 @@ JsTypes.push(
         {
             return this.date.getDay();
         },
-        ToString:function()
+        toString:function()
         {
             return this.date.toString();
         },
@@ -1119,17 +1119,17 @@ JsTypes.push(
         {
             format = format.Replace$$String$$String("yyyy",this.get_Year().ToString$$String("0000"));
             format = format.Replace$$String$$String("yyyy",this.get_Year().ToString$$String("00"));
-            format = format.Replace$$String$$String("y",this.get_Year().ToString());
+            format = format.Replace$$String$$String("y",this.get_Year().toString());
             format = format.Replace$$String$$String("MM",this.get_Month().ToString$$String("00"));
-            format = format.Replace$$String$$String("M",this.get_Month().ToString());
+            format = format.Replace$$String$$String("M",this.get_Month().toString());
             format = format.Replace$$String$$String("dd",this.get_Day().ToString$$String("00"));
-            format = format.Replace$$String$$String("d",this.get_Day().ToString());
+            format = format.Replace$$String$$String("d",this.get_Day().toString());
             format = format.Replace$$String$$String("HH",this.get_Hour().ToString$$String("00"));
-            format = format.Replace$$String$$String("H",this.get_Hour().ToString());
+            format = format.Replace$$String$$String("H",this.get_Hour().toString());
             format = format.Replace$$String$$String("mm",this.get_Minute().ToString$$String("00"));
-            format = format.Replace$$String$$String("m",this.get_Minute().ToString());
+            format = format.Replace$$String$$String("m",this.get_Minute().toString());
             format = format.Replace$$String$$String("ss",this.get_Second().ToString$$String("00"));
-            format = format.Replace$$String$$String("s",this.get_Second().ToString());
+            format = format.Replace$$String$$String("s",this.get_Second().toString());
             return format;
         },
         AddDays:function(days)
@@ -1501,7 +1501,7 @@ JsTypes.push(
         {
             return this._Message;
         },
-        ToString:function()
+        toString:function()
         {
             var ie=this.get_InnerException();
             if(ie == null)
@@ -1768,13 +1768,13 @@ JsTypes.push(
             }
             return this.value.GetHashCode();
         },
-        ToString:function()
+        toString:function()
         {
             if(!this.get_HasValue())
             {
                 return "";
             }
-            return this.value.ToString();
+            return this.value.toString();
         }
     }
 });
@@ -1883,7 +1883,7 @@ JsTypes.push(
         {
             return this._OriginalString;
         },
-        ToString:function()
+        toString:function()
         {
             return this._OriginalString;
         }
@@ -1948,13 +1948,6 @@ Object.ctor = Object;
 Array.ctor = Array;
 Date.ctor = Date;
 Function.ctor = Function;
-Date.prototype.ToString = Date.prototype.toString;
-Number.prototype.ToString = Number.prototype.toString;
-Error.prototype.ToString = function()
-{
-    return this.name + " : " + this.message;
-}
-//Error.prototype.ToString = Error.prototype.toString;
 if (typeof (ActiveXObject) != "undefined")
     ActiveXObject.ctor$$String = ActiveXObject;
 Number.prototype.get_Value = function() //nullable support
@@ -2000,10 +1993,6 @@ JsTypes.push(
     {
     },
     toString: function()
-    {
-        return this.ToString();
-    },
-    ToString: function()
     {
         return "{" + this.constructor._type.fullname + "}";
     },
@@ -2286,7 +2275,7 @@ AfterCompilation(function()
 JsTypes.push({fullname:"System.Boolean", baseTypeName:"System.ValueType",definition:
 {
     ctor: Boolean,
-    ToString: function()
+    toString: function()
     {
         return this == true ? "true" : "false";
     }
@@ -2303,7 +2292,7 @@ JsTypes.push({fullname:"System.Boolean", baseTypeName:"System.ValueType",definit
 JsTypes.push({fullname:"System.Int32", baseTypeName:"System.ValueType",definition:
 {
     ctor: Number,
-    ToString: function()
+    toString: function()
     {
         return String(Number(this));
     },
@@ -2323,7 +2312,7 @@ JsTypes.push({fullname:"System.Int32", baseTypeName:"System.ValueType",definitio
 JsTypes.push({fullname:"System.Decimal", baseTypeName:"System.ValueType",definition:
 {
     ctor: function(x) { return new Number(x); },
-    ToString: function()
+    toString: function()
     {
         return this.toString();
     }
@@ -2492,10 +2481,6 @@ JsTypes.push({fullname:"System.String", baseTypeName:"System.Object", definition
     Contains: function(s)
     {
         return this.indexOf(s) != -1;
-    },
-    ToString: function()
-    {
-        return this._toString();
     },
     toString: function()
     {
@@ -2780,13 +2765,13 @@ JsTypes.push(
             }
             System.IO.Path.CheckInvalidPathChars(path);
             var str=path;
-            var length=path.get_Length();
+            var length=path.length ;
             while(--length >= 0)
             {
-                var ch=path.get_Chars(length);
+                var ch=path.charAt(length);
                 if(ch == '.')
                 {
-                    str = path.Substring$$Int32$$Int32(0,length);
+                    str = path.substr(0,length);
                     break;
                 }
                 if(((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar))
@@ -2794,11 +2779,11 @@ JsTypes.push(
                     break;
                 }
             }
-            if((extension == null) || (path.get_Length() == 0))
+            if((extension == null) || (path.length  == 0))
             {
                 return str;
             }
-            if((extension.get_Length() == 0) || (extension.get_Chars(0) != '.'))
+            if((extension.length  == 0) || (extension.charAt(0) != '.'))
             {
                 str = str + ".";
             }
@@ -2806,18 +2791,18 @@ JsTypes.push(
         },
         CharArrayStartsWithOrdinal:function(array,numChars,compareTo,ignoreCase)
         {
-            if(numChars < compareTo.get_Length())
+            if(numChars < compareTo.length )
             {
                 return false;
             }
             if(ignoreCase)
             {
-                var str=new System.String.ctor$$Char$Array$$Int32$$Int32(array,0,compareTo.get_Length());
+                var str=new System.String.ctor$$Char$Array$$Int32$$Int32(array,0,compareTo.length );
                 return compareTo.Equals$$String$$StringComparison(str,5);
             }
-            for(var i=0;i < compareTo.get_Length();i++)
+            for(var i=0;i < compareTo.length ;i++)
             {
-                if(array[i] != compareTo.get_Chars(i))
+                if(array[i] != compareTo.charAt(i))
                 {
                     return false;
                 }
@@ -2826,7 +2811,7 @@ JsTypes.push(
         },
         CheckInvalidPathChars:function(path)
         {
-            for(var i=0;i < path.get_Length();i++)
+            for(var i=0;i < path.length ;i++)
             {
                 var num2=path.charCodeAt(i);
                 if(((num2 == 0x22) || (num2 == 60)) || (((num2 == 0x3e) || (num2 == 0x7c)) || (num2 < 0x20)))
@@ -2838,17 +2823,17 @@ JsTypes.push(
         CheckSearchPattern:function(searchPattern)
         {
             var num;
-            while((num = searchPattern.IndexOf$$String$$StringComparison("..",4)) != -1)
+            while((num = searchPattern.indexOf("..",4)) != -1)
             {
-                if((num + 2) == searchPattern.get_Length())
+                if((num + 2) == searchPattern.length )
                 {
                     throw new System.ArgumentException.ctor$$String(System.Environment.GetResourceString("Arg_InvalidSearchPattern"));
                 }
-                if((searchPattern.get_Chars(num + 2) == System.IO.Path.DirectorySeparatorChar) || (searchPattern.get_Chars(num + 2) == System.IO.Path.AltDirectorySeparatorChar))
+                if((searchPattern.charAt(num + 2) == System.IO.Path.DirectorySeparatorChar) || (searchPattern.charAt(num + 2) == System.IO.Path.AltDirectorySeparatorChar))
                 {
                     throw new System.ArgumentException.ctor$$String(System.Environment.GetResourceString("Arg_InvalidSearchPattern"));
                 }
-                searchPattern = searchPattern.Substring$$Int32(num + 2);
+                searchPattern = searchPattern.substr(num + 2);
             }
         },
         Combine:function(path1,path2)
@@ -2859,11 +2844,11 @@ JsTypes.push(
             }
             System.IO.Path.CheckInvalidPathChars(path1);
             System.IO.Path.CheckInvalidPathChars(path2);
-            if(path2.get_Length() == 0)
+            if(path2.length  == 0)
             {
                 return path1;
             }
-            if(path1.get_Length() == 0)
+            if(path1.length  == 0)
             {
                 return path2;
             }
@@ -2871,7 +2856,7 @@ JsTypes.push(
             {
                 return path2;
             }
-            var ch=path1.get_Chars(path1.get_Length() - 1);
+            var ch=path1.charAt(path1.length  - 1);
             if(((ch != System.IO.Path.DirectorySeparatorChar) && (ch != System.IO.Path.AltDirectorySeparatorChar)) && (ch != System.IO.Path.VolumeSeparatorChar))
             {
                 return (path1 + System.IO.Path.DirectorySeparatorChar + path2);
@@ -2889,17 +2874,17 @@ JsTypes.push(
                 System.IO.Path.CheckInvalidPathChars(path);
                 path = System.IO.Path.FixupPath(path);
                 var rootLength=System.IO.Path.GetRootLength(path);
-                if(path.get_Length() > rootLength)
+                if(path.length  > rootLength)
                 {
-                    var length=path.get_Length();
+                    var length=path.length ;
                     if(length == rootLength)
                     {
                         return null;
                     }
-                    while(((length > rootLength) && (path.get_Chars(--length) != System.IO.Path.DirectorySeparatorChar)) && (path.get_Chars(length) != System.IO.Path.AltDirectorySeparatorChar))
+                    while(((length > rootLength) && (path.charAt(--length) != System.IO.Path.DirectorySeparatorChar)) && (path.charAt(length) != System.IO.Path.AltDirectorySeparatorChar))
                     {
                     }
-                    return path.Substring$$Int32$$Int32(0,length);
+                    return path.substr(0,length);
                 }
             }
             return null;
@@ -2911,16 +2896,16 @@ JsTypes.push(
                 return null;
             }
             System.IO.Path.CheckInvalidPathChars(path);
-            var length=path.get_Length();
+            var length=path.length ;
             var startIndex=length;
             while(--startIndex >= 0)
             {
-                var ch=path.get_Chars(startIndex);
+                var ch=path.charAt(startIndex);
                 if(ch == '.')
                 {
                     if(startIndex != (length - 1))
                     {
-                        return path.Substring$$Int32$$Int32(startIndex,length - startIndex);
+                        return path.substr(startIndex,length - startIndex);
                     }
                     return System.String.Empty;
                 }
@@ -2936,14 +2921,14 @@ JsTypes.push(
             if(path != null)
             {
                 System.IO.Path.CheckInvalidPathChars(path);
-                var length=path.get_Length();
+                var length=path.length ;
                 var num2=length;
                 while(--num2 >= 0)
                 {
-                    var ch=path.get_Chars(num2);
+                    var ch=path.charAt(num2);
                     if(((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar))
                     {
-                        return path.Substring$$Int32$$Int32(num2 + 1,(length - num2) - 1);
+                        return path.substr(num2 + 1,(length - num2) - 1);
                     }
                 }
             }
@@ -2956,12 +2941,12 @@ JsTypes.push(
             {
                 return null;
             }
-            var length=path.LastIndexOf$$Char('.');
+            var length=path.lastIndexOf('.');
             if(length == -1)
             {
                 return path;
             }
-            return path.Substring$$Int32$$Int32(0,length);
+            return path.substr(0,length);
         },
         GetFullPath:function(path)
         {
@@ -2991,7 +2976,7 @@ JsTypes.push(
                 return null;
             }
             path = System.IO.Path.FixupPath(path);
-            return path.Substring$$Int32$$Int32(0,System.IO.Path.GetRootLength(path));
+            return path.substr(0,System.IO.Path.GetRootLength(path));
         },
         GetRandomFileName:function()
         {
@@ -3001,25 +2986,25 @@ JsTypes.push(
         {
             System.IO.Path.CheckInvalidPathChars(path);
             var num=0;
-            var length=path.get_Length();
-            if((length >= 1) && System.IO.Path.IsDirectorySeparator(path.get_Chars(0)))
+            var length=path.length ;
+            if((length >= 1) && System.IO.Path.IsDirectorySeparator(path.charAt(0)))
             {
                 num = 1;
-                if((length >= 2) && System.IO.Path.IsDirectorySeparator(path.get_Chars(1)))
+                if((length >= 2) && System.IO.Path.IsDirectorySeparator(path.charAt(1)))
                 {
                     num = 2;
                     var num3=2;
-                    while((num < length) && (((path.get_Chars(num) != System.IO.Path.DirectorySeparatorChar) && (path.get_Chars(num) != System.IO.Path.AltDirectorySeparatorChar)) || (--num3 > 0)))
+                    while((num < length) && (((path.charAt(num) != System.IO.Path.DirectorySeparatorChar) && (path.charAt(num) != System.IO.Path.AltDirectorySeparatorChar)) || (--num3 > 0)))
                     {
                         num++;
                     }
                 }
                 return num;
             }
-            if((length >= 2) && (path.get_Chars(1) == System.IO.Path.VolumeSeparatorChar))
+            if((length >= 2) && (path.charAt(1) == System.IO.Path.VolumeSeparatorChar))
             {
                 num = 2;
-                if((length >= 3) && System.IO.Path.IsDirectorySeparator(path.get_Chars(2)))
+                if((length >= 3) && System.IO.Path.IsDirectorySeparator(path.charAt(2)))
                 {
                     num++;
                 }
@@ -3039,13 +3024,13 @@ JsTypes.push(
             if(path != null)
             {
                 System.IO.Path.CheckInvalidPathChars(path);
-                var length=path.get_Length();
+                var length=path.length ;
                 while(--length >= 0)
                 {
-                    var ch=path.get_Chars(length);
+                    var ch=path.charAt(length);
                     if(ch == '.')
                     {
-                        return (length != (path.get_Length() - 1));
+                        return (length != (path.length  - 1));
                     }
                     if(((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar))
                     {
@@ -3063,7 +3048,7 @@ JsTypes.push(
             }
             System.IO.Path.CheckInvalidPathChars(path1);
             System.IO.Path.CheckInvalidPathChars(path2);
-            if(path2.get_Length() == 0)
+            if(path2.length  == 0)
             {
                 throw new System.ArgumentException.ctor$$String$$String(System.Environment.GetResourceString("Argument_PathEmpty"),"path2");
             }
@@ -3071,12 +3056,12 @@ JsTypes.push(
             {
                 throw new System.ArgumentException.ctor$$String$$String(System.Environment.GetResourceString("Arg_Path2IsRooted"),"path2");
             }
-            var length=path1.get_Length();
+            var length=path1.length ;
             if(length == 0)
             {
                 return path2;
             }
-            var ch=path1.get_Chars(length - 1);
+            var ch=path1.charAt(length - 1);
             if(((ch != System.IO.Path.DirectorySeparatorChar) && (ch != System.IO.Path.AltDirectorySeparatorChar)) && (ch != System.IO.Path.VolumeSeparatorChar))
             {
                 return (path1 + System.IO.Path.DirectorySeparatorChar + path2);
@@ -3096,8 +3081,8 @@ JsTypes.push(
             if(path != null)
             {
                 System.IO.Path.CheckInvalidPathChars(path);
-                var length=path.get_Length();
-                if(((length >= 1) && ((path.get_Chars(0) == System.IO.Path.DirectorySeparatorChar) || (path.get_Chars(0) == System.IO.Path.AltDirectorySeparatorChar))) || ((length >= 2) && (path.get_Chars(1) == System.IO.Path.VolumeSeparatorChar)))
+                var length=path.length ;
+                if(((length >= 1) && ((path.charAt(0) == System.IO.Path.DirectorySeparatorChar) || (path.charAt(0) == System.IO.Path.AltDirectorySeparatorChar))) || ((length >= 2) && (path.charAt(1) == System.IO.Path.VolumeSeparatorChar)))
                 {
                     return true;
                 }
@@ -4388,7 +4373,7 @@ JsTypes.push(
         {
             var member=def[funcName];
             var func=member;
-            var propName=funcName.Substring$$Int32(4);
+            var propName=funcName.substr(4);
             var prop=this._PropertiesByName[propName];
             if(prop == null)
             {
@@ -4638,7 +4623,7 @@ JsTypes.push(
         {
             return Is(obj, this._JsType);
         },
-        ToString:function()
+        toString:function()
         {
             return System.String.Format$$String$$Object$Array("{Name = " + this.get_Name() + " FullName = " + this.get_FullName() + "}");
         },
@@ -4772,7 +4757,7 @@ JsTypes.push(
             this.length = 0;
             System.Object.ctor.call(this);
             this.array = [s];
-            this.length = s == null?0:s.get_Length();
+            this.length = s == null?0:s.length ;
         },
         Append$$Char:function(s)
         {
@@ -4782,36 +4767,36 @@ JsTypes.push(
         Append$$String:function(s)
         {
             this.array.push(s);
-            this.length += s.get_Length();
+            this.length += s.length ;
         },
         Append$$Object:function(obj)
         {
             if(obj != null)
             {
-                var s=obj.ToString();
+                var s=obj.toString();
                 this.array.push(s);
-                this.length += s.get_Length();
+                this.length += s.length ;
             }
         },
         AppendFormat$$String$$Object:function(s,arg0)
         {
             var ss=System.String.Format$$String$$Object(s,arg0);
             this.array.push(ss);
-            this.length += ss.get_Length();
+            this.length += ss.length ;
         },
         AppendFormat$$String$$Object$$Object:function(s,arg0,arg1)
         {
             var ss=System.String.Format$$String$$Object$$Object(s,arg0,arg1);
             this.array.push(ss);
-            this.length += ss.get_Length();
+            this.length += ss.length ;
         },
         AppendFormat$$String$$Object$$Object$$Object:function(s,arg0,arg1,arg2)
         {
             var ss=System.String.Format$$String$$Object$$Object$$Object(s,arg0,arg1,arg2);
             this.array.push(ss);
-            this.length += ss.get_Length();
+            this.length += ss.length ;
         },
-        ToString:function()
+        toString:function()
         {
             return this.array.join("");
         },
@@ -4893,10 +4878,10 @@ JsTypes.push(
         },
         ReplaceFirst$$String$$String$$String$$StringComparison:function(s,search,replace,comparisonType)
         {
-            var index=s.IndexOf$$String$$StringComparison(search,comparisonType);
+            var index=s.indexOf(search,comparisonType);
             if(index != -1)
             {
-                var finalStr=System.String.Concat$$String$$String$$String(s.Substring$$Int32$$Int32(0,index),replace,s.Substring$$Int32(search.get_Length() + index));
+                var finalStr=System.String.Concat$$String$$String$$String(s.substr(0,index),replace,s.substr(search.length  + index));
                 return finalStr;
             }
             return s;
@@ -4916,7 +4901,7 @@ JsTypes.push(
                 sb.Append$$Char(c);
                 first = false;
             }
-            return sb.ToString();
+            return sb.toString();
         },
         RemoveLast:function(s,count)
         {
@@ -4925,7 +4910,7 @@ JsTypes.push(
         TrimEnd:function(s,trimText)
         {
             if(s.EndsWith$$String(trimText))
-                return SharpKit.Extensions2.RemoveLast(s,trimText.get_Length());
+                return SharpKit.Extensions2.RemoveLast(s,trimText.length );
             return s;
         },
         EqualsIgnoreCase:function(s1,s2)
@@ -5072,9 +5057,9 @@ JsTypes.push(
         JsFunctionNameToClrMethodName:function(jsFuncName)
         {
             var methodName=jsFuncName;
-            var di=jsFuncName.IndexOf$$Char('$');
+            var di=jsFuncName.indexOf('$');
             if(di > 0)
-                methodName = jsFuncName.Substring$$Int32$$Int32(0,di);
+                methodName = jsFuncName.substr(0,di);
             return methodName;
         },
         ClrTypeToJsTypeRef:function(type)
@@ -5093,7 +5078,7 @@ JsTypes.push(
             sb.Append$$String(typeRef);
             sb.Append$$String(".ctor");
             SharpKit.JavaScript.JsNamingHelper.ConvertParametersToJsFunctionName(mi.GetParameters(),sb);
-            return sb.ToString();
+            return sb.toString();
         },
         ConvertParametersToJsFunctionName:function(prms,sb)
         {
@@ -5147,7 +5132,7 @@ JsTypes.push(
             }
             sb.Append$$String(name);
             SharpKit.JavaScript.JsNamingHelper.ConvertParametersToJsFunctionName(mi.GetParameters(),sb);
-            return sb.ToString();
+            return sb.toString();
         },
         IsPropertySetter:function(mi)
         {

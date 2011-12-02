@@ -1111,7 +1111,7 @@ JsTypes.push(
         {
             return this.date.getDay();
         },
-        ToString:function()
+        toString:function()
         {
             return this.date.toString();
         },
@@ -1119,17 +1119,17 @@ JsTypes.push(
         {
             format = format.Replace$$String$$String("yyyy",this.get_Year().ToString$$String("0000"));
             format = format.Replace$$String$$String("yyyy",this.get_Year().ToString$$String("00"));
-            format = format.Replace$$String$$String("y",this.get_Year().ToString());
+            format = format.Replace$$String$$String("y",this.get_Year().toString());
             format = format.Replace$$String$$String("MM",this.get_Month().ToString$$String("00"));
-            format = format.Replace$$String$$String("M",this.get_Month().ToString());
+            format = format.Replace$$String$$String("M",this.get_Month().toString());
             format = format.Replace$$String$$String("dd",this.get_Day().ToString$$String("00"));
-            format = format.Replace$$String$$String("d",this.get_Day().ToString());
+            format = format.Replace$$String$$String("d",this.get_Day().toString());
             format = format.Replace$$String$$String("HH",this.get_Hour().ToString$$String("00"));
-            format = format.Replace$$String$$String("H",this.get_Hour().ToString());
+            format = format.Replace$$String$$String("H",this.get_Hour().toString());
             format = format.Replace$$String$$String("mm",this.get_Minute().ToString$$String("00"));
-            format = format.Replace$$String$$String("m",this.get_Minute().ToString());
+            format = format.Replace$$String$$String("m",this.get_Minute().toString());
             format = format.Replace$$String$$String("ss",this.get_Second().ToString$$String("00"));
-            format = format.Replace$$String$$String("s",this.get_Second().ToString());
+            format = format.Replace$$String$$String("s",this.get_Second().toString());
             return format;
         },
         AddDays:function(days)
@@ -1501,7 +1501,7 @@ JsTypes.push(
         {
             return this._Message;
         },
-        ToString:function()
+        toString:function()
         {
             var ie=this.get_InnerException();
             if(ie == null)
@@ -1768,13 +1768,13 @@ JsTypes.push(
             }
             return this.value.GetHashCode();
         },
-        ToString:function()
+        toString:function()
         {
             if(!this.get_HasValue())
             {
                 return "";
             }
-            return this.value.ToString();
+            return this.value.toString();
         }
     }
 });
@@ -1883,7 +1883,7 @@ JsTypes.push(
         {
             return this._OriginalString;
         },
-        ToString:function()
+        toString:function()
         {
             return this._OriginalString;
         }
@@ -1948,13 +1948,6 @@ Object.ctor = Object;
 Array.ctor = Array;
 Date.ctor = Date;
 Function.ctor = Function;
-Date.prototype.ToString = Date.prototype.toString;
-Number.prototype.ToString = Number.prototype.toString;
-Error.prototype.ToString = function()
-{
-    return this.name + " : " + this.message;
-}
-//Error.prototype.ToString = Error.prototype.toString;
 if (typeof (ActiveXObject) != "undefined")
     ActiveXObject.ctor$$String = ActiveXObject;
 Number.prototype.get_Value = function() //nullable support
@@ -2000,10 +1993,6 @@ JsTypes.push(
     {
     },
     toString: function()
-    {
-        return this.ToString();
-    },
-    ToString: function()
     {
         return "{" + this.constructor._type.fullname + "}";
     },
@@ -2286,7 +2275,7 @@ AfterCompilation(function()
 JsTypes.push({fullname:"System.Boolean", baseTypeName:"System.ValueType",definition:
 {
     ctor: Boolean,
-    ToString: function()
+    toString: function()
     {
         return this == true ? "true" : "false";
     }
@@ -2303,7 +2292,7 @@ JsTypes.push({fullname:"System.Boolean", baseTypeName:"System.ValueType",definit
 JsTypes.push({fullname:"System.Int32", baseTypeName:"System.ValueType",definition:
 {
     ctor: Number,
-    ToString: function()
+    toString: function()
     {
         return String(Number(this));
     },
@@ -2323,7 +2312,7 @@ JsTypes.push({fullname:"System.Int32", baseTypeName:"System.ValueType",definitio
 JsTypes.push({fullname:"System.Decimal", baseTypeName:"System.ValueType",definition:
 {
     ctor: function(x) { return new Number(x); },
-    ToString: function()
+    toString: function()
     {
         return this.toString();
     }
@@ -2492,10 +2481,6 @@ JsTypes.push({fullname:"System.String", baseTypeName:"System.Object", definition
     Contains: function(s)
     {
         return this.indexOf(s) != -1;
-    },
-    ToString: function()
-    {
-        return this._toString();
     },
     toString: function()
     {

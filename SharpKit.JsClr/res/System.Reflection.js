@@ -283,7 +283,7 @@ JsTypes.push(
         {
             var member=def[funcName];
             var func=member;
-            var propName=funcName.Substring$$Int32(4);
+            var propName=funcName.substr(4);
             var prop=this._PropertiesByName[propName];
             if(prop == null)
             {
@@ -533,7 +533,7 @@ JsTypes.push(
         {
             return Is(obj, this._JsType);
         },
-        ToString:function()
+        toString:function()
         {
             return System.String.Format$$String$$Object$Array("{Name = " + this.get_Name() + " FullName = " + this.get_FullName() + "}");
         },

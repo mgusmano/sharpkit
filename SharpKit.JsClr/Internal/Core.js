@@ -301,7 +301,7 @@ JsTypes.push(
         {
             return this.date.getDay();
         },
-        ToString:function()
+        toString:function()
         {
             return this.date.toString();
         },
@@ -309,17 +309,17 @@ JsTypes.push(
         {
             format = format.Replace$$String$$String("yyyy",this.get_Year().ToString$$String("0000"));
             format = format.Replace$$String$$String("yyyy",this.get_Year().ToString$$String("00"));
-            format = format.Replace$$String$$String("y",this.get_Year().ToString());
+            format = format.Replace$$String$$String("y",this.get_Year().toString());
             format = format.Replace$$String$$String("MM",this.get_Month().ToString$$String("00"));
-            format = format.Replace$$String$$String("M",this.get_Month().ToString());
+            format = format.Replace$$String$$String("M",this.get_Month().toString());
             format = format.Replace$$String$$String("dd",this.get_Day().ToString$$String("00"));
-            format = format.Replace$$String$$String("d",this.get_Day().ToString());
+            format = format.Replace$$String$$String("d",this.get_Day().toString());
             format = format.Replace$$String$$String("HH",this.get_Hour().ToString$$String("00"));
-            format = format.Replace$$String$$String("H",this.get_Hour().ToString());
+            format = format.Replace$$String$$String("H",this.get_Hour().toString());
             format = format.Replace$$String$$String("mm",this.get_Minute().ToString$$String("00"));
-            format = format.Replace$$String$$String("m",this.get_Minute().ToString());
+            format = format.Replace$$String$$String("m",this.get_Minute().toString());
             format = format.Replace$$String$$String("ss",this.get_Second().ToString$$String("00"));
-            format = format.Replace$$String$$String("s",this.get_Second().ToString());
+            format = format.Replace$$String$$String("s",this.get_Second().toString());
             return format;
         },
         AddDays:function(days)
@@ -691,7 +691,7 @@ JsTypes.push(
         {
             return this._Message;
         },
-        ToString:function()
+        toString:function()
         {
             var ie=this.get_InnerException();
             if(ie == null)
@@ -958,13 +958,13 @@ JsTypes.push(
             }
             return this.value.GetHashCode();
         },
-        ToString:function()
+        toString:function()
         {
             if(!this.get_HasValue())
             {
                 return "";
             }
-            return this.value.ToString();
+            return this.value.toString();
         }
     }
 });
@@ -1073,7 +1073,7 @@ JsTypes.push(
         {
             return this._OriginalString;
         },
-        ToString:function()
+        toString:function()
         {
             return this._OriginalString;
         }
