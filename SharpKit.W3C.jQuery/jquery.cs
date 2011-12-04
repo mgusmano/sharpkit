@@ -1987,7 +1987,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Determine whether the argument is an array.
 		/// </summary>
-		public static bool isArray(JsObject obj) { return false; }
+		public static bool isArray(object obj) { return false; }
 		/// <summary>
 		/// Check to see if an object is empty (contains no properties).
 		/// </summary>
