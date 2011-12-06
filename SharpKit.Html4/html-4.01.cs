@@ -401,6 +401,87 @@ namespace SharpKit.Html4
         public static HtmlDocument document { get; set; }
     }
     #endregion
+    #region HtmlContextBase
+    [JsType(JsMode.Global, Export = false)]
+    public partial class HtmlContextBase : JsContextBase
+    {
+        ///<summary>
+        ///Displays a dialog box containing an application-defined message. 
+        ///</summary>
+        ///<param name="message">Optional. String that specifies the message to display in the dialog box.</param>
+        ///<remarks>You cannot change the title bar of the Alert dialog box.</remarks>
+        protected static void alert(object message) { }
+        /// <summary>
+        /// Displays a confirmation dialog box that contains an optional message as well as OK and Cancel buttons.
+        /// </summary>
+        /// <param name="message">Optional. String that specifies the message to display in the confirmation dialog box. If no value is provided, the dialog box does not contain a message.</param>
+        /// <returns>Boolean. Returns one of the following possible values:
+        ///	<list type="table">
+        ///	<item>
+        ///		<term>true</term>
+        ///		<description>The user clicked the OK button.</description>
+        ///	</item>
+        ///	<item>
+        ///		<term>false</term>
+        ///		<description>The user clicked Cancel button.</description>
+        /// </item>
+        /// </list>
+        /// </returns>
+        protected static JsBoolean confirm(JsString message) { return null; }
+        ///<summary>
+        ///Encodes String objects so they can be read on all computers.
+        ///</summary>
+        ///<param name="s">String object or literal to be encoded.</param>
+        ///<returns>A JsString value (in Unicode format) that contains the contents of charstring. All spaces, punctuation, accented characters, and any other non-ASCII characters are replaced with %xx encoding, where xx is equivalent to the hexadecimal number representing the character. For example, a space is returned as "%20."</returns>
+        protected static JsString escape(JsString s) { return null; }
+        ///<summary>
+        ///Returns the unencoded version of an encoded component of a Uniform Resource Identifier (URI). 
+        ///</summary>
+        ///<param name="encodedURIString">A value representing an encoded URI component.</param>
+        ///<returns>The required encodedURIString argument is a value representing an encoded 
+        ///URI component.A URIComponent is part of a complete URI. If the encodedURIString is 
+        ///not valid, a URIError occurs.</returns>
+        protected static JsString decodeURIComponent(JsString encodedURIString) { return null; }
+        ///<summary>
+        ///Encodes a text JsString as a valid component of a Uniform Resource Identifier (URI).
+        ///</summary>
+        ///<param name="encodedURIString">A value representing an encoded URI component.</param>
+        ///<returns>A an encoded URI. If you pass the result to decodeURIComponent, 
+        ///the original JsString is returned. Because the encodeURIComponent method encodes all 
+        ///characters, be careful if the JsString represents a path such 
+        ///as /folder1/folder2/default.html. The slash characters will be encoded and will 
+        ///not be valid if sent as a request to a web server. Use the encodeURI method if the 
+        ///JsString contains more than a single URI component.</returns>
+        protected static JsString encodeURIComponent(JsString encodedURIString) { return null; }
+        ///<summary>
+        ///Encodes a text JsString as a valid Uniform Resource Identifier (URI) 
+        ///</summary>
+        ///<param name="URIString">A value representing an encoded URI.</param>
+        ///<returns>n encoded URI. If you pass the result to decodeURI, the original JsString is returned. The encodeURI method does not encode the following characters: ":", "/", ";", and "?". Use encodeURIComponent to encode these characters.</returns>
+        protected static JsString encodeURI(JsString URIString) { return null; }
+        ///<summary>
+        ///Returns the unencoded version of an encoded Uniform Resource Identifier (URI). 
+        ///</summary>
+        ///<param name="URIString"></param>
+        ///<returns></returns>
+        protected static JsString decodeURI(JsString URIString) { return null; }
+        ///<summary>
+        ///Decodes String objects encoded with the escape method.
+        ///</summary>
+        ///<param name="charString">String object or literal to be decoded.</param>
+        ///<returns>A JsString value that contains the contents of charstring. All characters encoded with the %xx hexadecimal form are replaced by their ASCII character set equivalents.</returns>
+        protected static JsString unescape(JsString charString) { return null; }
+        ///<summary>
+        ///Retrieves the HTML window
+        ///</summary>
+        protected static HtmlWindow window { get; set; }
+        ///<summary>
+        ///Retrieves the HTML document
+        ///</summary>
+        protected static HtmlDocument document { get; set; }
+    }
+    #endregion
+
     #region HtmlCssRule
     ///<summary>
     ///Represents a style within a Cascading Style Sheets (CSS) that consists of a selector and one or more declarations.

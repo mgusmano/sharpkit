@@ -7,13 +7,27 @@ using System.Collections;
 
 namespace SharpKit.Html
 {
+    /// <summary>
+    /// Provides Linq-like extensions for HtmlElement without requiring Clr mode
+    /// This library requires a script include SharpKit.Html.Linq.js
+    /// </summary>
     [JsType(JsMode.Prototype)]
     public static class Extensions
     {
+        /// <summary>
+        /// Returns a collection of the descendant elements for this element
+        /// </summary>
+        /// <param name="el"></param>
+        /// <returns></returns>
         public static IEnumerable<HtmlElement> Descendents(this HtmlElement el)
         {
             return new HtmlElementEnumerator(el, true, false);
         }
+        /// <summary>
+        /// Returns a collection of the child elements for this element
+        /// </summary>
+        /// <param name="el"></param>
+        /// <returns></returns>
         public static IEnumerable<HtmlElement> Children(this HtmlElement el)
         {
             return new HtmlElementEnumerator(el, false, false);

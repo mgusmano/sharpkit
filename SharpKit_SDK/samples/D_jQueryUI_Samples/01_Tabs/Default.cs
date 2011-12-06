@@ -4,7 +4,7 @@ using SharpKit.jQuery;
 
 
 [JsType(JsMode.Global, Filename = "Default.js")]
-class jQueryUITabsSample : jQueryContext
+class jQueryUITabsSample : jQueryContextBase
 {
 
     static void jQueryUITabsSample_Load()

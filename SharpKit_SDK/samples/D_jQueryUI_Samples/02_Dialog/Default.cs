@@ -4,7 +4,7 @@ using SharpKit.jQuery;
 
 
 [JsType(JsMode.Global, Filename = "Default.js")]
-class jQueryUIDialogSample : jQueryContext
+class jQueryUIDialogSample : jQueryContextBase
 {
 
     static void jQueryUIDialogSample_Load()

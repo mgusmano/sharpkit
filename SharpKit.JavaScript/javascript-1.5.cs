@@ -619,6 +619,7 @@ namespace SharpKit.JavaScript
     [JsType(JsMode.Prototype, Name = "Array", NativeEnumerator = false, Export = false, IgnoreGenericTypeArguments = true, NativeArrayEnumerator = true)]
     public partial class JsArray<T> : IEnumerable<T>
     {
+        public static implicit operator JsArray(JsArray<T> x) { return null; }
         public static implicit operator T[](JsArray<T> x) { return default(T[]); }
         public static implicit operator JsArray<T>(T[] array) { return default(JsArray<T>); }
         [JsMethod(IgnoreGenericArguments = true)]
