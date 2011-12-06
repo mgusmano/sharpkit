@@ -451,8 +451,8 @@ namespace SharpKit.JavaScript
     /// <summary>
     /// An object representing the arguments to the currently executing function, and the functions that called it.
     /// </summary>
-    [JsType(JsMode.Prototype, Name = "arguments", Export = false)]
-    public partial class JsArguments
+    [JsType(JsMode.Prototype, Name = "arguments", Export = false, NativeArrayEnumerator=true, NativeEnumerator=false)]
+    public partial class JsArguments : IEnumerable<object>, IEnumerable
     {
         /// <summary>
         /// The zero-based index to argument values passed to the Function object.
@@ -470,6 +470,24 @@ namespace SharpKit.JavaScript
         /// Returns the Function object being executed, that is, the body text of the specified Function object.
         /// </summary>
         public JsFunction callee { get; set; }
+
+        #region IEnumerable<object> Members
+
+        public IEnumerator<object> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region IEnumerable Members
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
     #endregion
     #region JsArray
