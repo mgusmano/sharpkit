@@ -3,7 +3,7 @@ using SharpKit.JavaScript;
 namespace SharpKit.Html
 {
     [JsType(JsMode.Global, Export = false)]
-    public class HtmlContextBase : JsContext
+    public class HtmlContextBase : JsContextBase
     {
         #region Window
         protected static Window window { get; private set; }

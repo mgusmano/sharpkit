@@ -34,3 +34,10 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.5.0.0")]
 [assembly: AssemblyFileVersion("4.23.2000")]
+
+/// <summary>
+/// SharpKit core assembly, contains all needed attributes and types required to use SharpKit
+/// </summary>
+class AssemblyDoc
+{
+}

@@ -749,6 +749,8 @@ namespace SharpKit.JavaScript
         public static implicit operator JsBoolean(bool x) { return default(JsBoolean); }
     }
     #endregion
+    #region JsTypes
+    
     [JsType(JsMode.Json)]
     [JsEnum(ValuesAsNames = true)]
     public enum JsTypes
@@ -760,6 +762,8 @@ namespace SharpKit.JavaScript
         function,
         undefined,
     }
+    #endregion
+
     #region JsContext
     [JsType(JsMode.Global, Export = false)]
     public partial class JsContext
@@ -1054,6 +1058,301 @@ namespace SharpKit.JavaScript
         public static object JsCode(JsCode code) { return null; }
     }
     #endregion
+    #region JsContextBase
+    [JsType(JsMode.Global, Export = false)]
+    public partial class JsContextBase
+    {
+        protected static JsArguments arguments;
+        [JsMethod(OmitParanthesis = true)]
+        protected static void debugger()
+        {
+        }
+        ///<summary>
+        ///indicates that a variable has not been assigned a value.
+        ///</summary>
+        [JsProperty(NativeField = true)]
+        protected static object undefined { get; set; }
+        [JsProperty(NativeField = true)]
+        protected static object @null { get; set; }
+        /// <summary>
+        /// The typeof operator returns a string indicating the type of the unevaluated operand.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        protected static JsString @typeof(object obj) { return null; }
+        /// <summary>
+        /// A C# equivalant to the javascript typeof operator, with one difference, 
+        /// this one returns an enum with all possible values, instead of an untyped string
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        [JsMethod(Name = "typeof")]
+        protected static JsTypes JsTypeOf(object obj) { return default(JsTypes); }
+        /// <summary>
+        /// Returns a reference to the ctor function of a prototype mode type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = false, Name = "", OmitParanthesis = true)]
+        protected static JsAction CtorOf<T>() { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function with instance context if applicable
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsAction ActionOf(JsAction action) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function with instance context if applicable
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsAction<T> ActionOf<T>(JsAction<T> action) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function with instance context if applicable
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsAction<T1, T2> ActionOf<T1, T2>(JsAction<T1, T2> action) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function with instance context if applicable
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsAction<T1, T2, T3> ActionOf<T1, T2, T3>(JsAction<T1, T2, T3> action) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function with instance context if applicable
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsAction<T1, T2, T3, T4> ActionOf<T1, T2, T3, T4>(JsAction<T1, T2, T3, T4> action) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function with instance context if applicable
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsAction<T1, T2, T3, T4, T5> ActionOf<T1, T2, T3, T4, T5>(JsAction<T1, T2, T3, T4, T5> action) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function with instance context if applicable
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsFunc<R> FuncOf<R>(JsFunc<R> func) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function with instance context if applicable
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsFunc<T, R> FuncOf<T, R>(JsFunc<T, R> func) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function with instance context if applicable
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsFunc<T1, T2, R> FuncOf<T1, T2, R>(JsFunc<T1, T2, R> func) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function with instance context if applicable
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsFunc<T1, T2, T3, R> FuncOf<T1, T2, T3, R>(JsFunc<T1, T2, T3, R> func) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function with instance context if applicable
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsFunc<T1, T2, T3, T4, R> FuncOf<T1, T2, T3, T4, R>(JsFunc<T1, T2, T3, T4, R> func) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function with instance context if applicable
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsFunc<T1, T2, T3, T4, T5, R> FuncOf<T1, T2, T3, T4, T5, R>(JsFunc<T1, T2, T3, T4, T5, R> func) { return null; }
+
+        /// <summary>
+        /// Returns a reference to a javascript function without instance context even if applicable
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsNativeAction NativeActionOf(JsNativeAction action) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function without instance context even if applicable
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsNativeAction<T> NativeActionOf<T>(JsNativeAction<T> action) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function without instance context even if applicable
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsNativeAction<T1, T2> NativeActionOf<T1, T2>(JsNativeAction<T1, T2> action) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function without instance context even if applicable
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsNativeAction<T1, T2, T3> NativeActionOf<T1, T2, T3>(JsNativeAction<T1, T2, T3> action) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function without instance context even if applicable
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsNativeAction<T1, T2, T3, T4> NativeActionOf<T1, T2, T3, T4>(JsNativeAction<T1, T2, T3, T4> action) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function without instance context even if applicable
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsNativeAction<T1, T2, T3, T4, T5> NativeActionOf<T1, T2, T3, T4, T5>(JsNativeAction<T1, T2, T3, T4, T5> action) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function without instance context even if applicable
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsNativeFunc<R> NativeFuncOf<R>(JsNativeFunc<R> func) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function without instance context even if applicable
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsNativeFunc<T, R> NativeFuncOf<T, R>(JsNativeFunc<T, R> func) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function without instance context even if applicable
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsNativeFunc<T1, T2, R> NativeFuncOf<T1, T2, R>(JsNativeFunc<T1, T2, R> func) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function without instance context even if applicable
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsNativeFunc<T1, T2, T3, R> NativeFuncOf<T1, T2, T3, R>(JsNativeFunc<T1, T2, T3, R> func) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function without instance context even if applicable
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsNativeFunc<T1, T2, T3, T4, R> NativeFuncOf<T1, T2, T3, T4, R>(JsNativeFunc<T1, T2, T3, T4, R> func) { return null; }
+        /// <summary>
+        /// Returns a reference to a javascript function without instance context even if applicable
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
+        protected static JsNativeFunc<T1, T2, T3, T4, T5, R> NativeFuncOf<T1, T2, T3, T4, T5, R>(JsNativeFunc<T1, T2, T3, T4, T5, R> func) { return null; }
+
+        [JsProperty(NativeField = true)]
+        protected static object @this { get; set; }
+        [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
+        protected static object @return(object obj) { return null; }
+        [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
+        protected static object @return() { return null; }
+        ///<summary>
+        ///Evaluates JScript code and executes it.
+        ///</summary>
+        ///<param name="code">A JsString value that contains valid JScript code. This JsString is parsed by the JScript parser and executed.</param>
+        ///<returns></returns>
+        protected static object eval(JsString code) { return default(object); }
+        ///<summary>
+        ///Returns an integer converted from a JsString.
+        ///</summary>
+        ///<param name="s">A JsString to convert into a number.</param>
+        ///<returns>An integer value equal to the number contained in numString. If no prefix of numString can be successfully parsed into an integer, NaN (not a number) is returned.</returns>
+        protected static JsNumber parseInt(JsString s) { return default(JsNumber); }
+        ///<summary>
+        ///Returns an integer converted from a JsString.
+        ///</summary>
+        ///<param name="numString">A JsString to convert into a number.</param>
+        ///<param name="radix"> A value between 2 and 36 indicating the base 
+        ///of the number contained in numString. If not supplied, strings with 
+        ///a prefix of '0x' are considered hexadecimal and strings with a prefix 
+        ///of '0' are considered octal. All other strings are considered decimal.</param>
+        ///<returns>An integer value equal to the number contained in numString. 
+        ///If no prefix of numString can be successfully parsed into an integer, 
+        ///NaN (not a number) is returned.</returns>
+        protected static JsNumber parseInt(JsString numString, JsNumber radix) { return default(JsNumber); }
+        ///<summary>
+        ///Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
+        ///</summary>
+        ///<param name="numValue">A value to be tested against NaN.</param>
+        ///<returns>True if the value converted to the Number type is the NaN, otherwise false.</returns>
+        protected static JsBoolean isNaN(object numValue) { return default(JsBoolean); }
+        ///<summary>
+        ///Returns a Boolean value that indicates if a supplied number is finite.
+        ///</summary>
+        ///<param name="number">A numeric value.</param>
+        ///<returns>True if number is any value other than NaN, negative infinity, 
+        ///or positive infinity. In those three cases, it returns false.</returns>
+        protected static JsBoolean isFinite(double number) { return default(JsBoolean); }
+        [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
+        protected static void @throw(JsError error) { }
+        /// <summary>
+        /// Deletes a property from an object, or removes an element from an array.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>The expression argument is a valid JavaScript expression that usually results in a property name or array element.
+        /// If the result of expression is an object, the property specified in expression exists, and the object will not allow it to be deleted, false is returned.
+        /// In all other cases, true is returned.</returns>
+        [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
+        protected static bool delete(object obj) { return false; }
+        ///<summary>
+        ///Returns a floating-point number converted from a JsString.
+        ///</summary>
+        ///<param name="s">A JsString that contains a floating-point number.</param>
+        ///<returns>A numerical value equal to the number contained in numString. If no prefix of numString can be successfully parsed into a floating-point number, NaN (not a number) is returned.</returns>
+        protected static float parseFloat(JsString s) { return default(float); }
+        ///<summary>
+        ///Returns an string converted from a value.
+        ///</summary>
+        ///<param name="value">A value to convert into a string.</param>
+        ///<returns>An string value</returns>
+        protected static string String(object value) { return null; }
+        /// <summary>
+        /// Allows writing direct JavaScript code - calling this method will generate only the code inside the string parameter
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        [JsMethod(OmitParanthesis = true, Name = "")]
+        protected static object JsCode(JsCode code) { return null; }
+    }
+    #endregion
+
     #region JsDate
     [JsType(Export = false, Name = "Date", NativeConstructors = true)]
     public partial class JsDate : JsObject
@@ -2012,7 +2311,6 @@ namespace SharpKit.JavaScript
         public new T this[JsString key] { get { return default(T); } set { } }
     }
     #endregion
-
     #region JsRegExp
     ///<summary>
     ///An object that contains a regular expression pattern along with flags that identify how to apply the pattern.
@@ -2308,7 +2606,6 @@ namespace SharpKit.JavaScript
 
     #endregion
 
-    #region Misc
     #region Delegates
     /// <summary>
     /// A delegate for native javascript
@@ -2531,6 +2828,7 @@ namespace SharpKit.JavaScript
 
     #endregion
 
+    #region Namespace Documentation
     /// <summary>
     /// Contains all SharpKit compiler attributes used to customize JavaScript output
     /// Contains .NET types for primitive JavaScript types such as JsNumber, JsObject, JsArray, etc...
@@ -2559,12 +2857,6 @@ namespace SharpKit.JavaScript
     class NamespaceDoc
     {
     }
+ 
     #endregion
-}
-
-/// <summary>
-/// SharpKit core assembly, contains all needed attributes and types required to use SharpKit
-/// </summary>
-class AssemblyDoc
-{
 }
