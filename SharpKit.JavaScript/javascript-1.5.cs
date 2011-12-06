@@ -446,7 +446,6 @@ namespace SharpKit.JavaScript
 
     #endregion
 
-
     #region JsArguments
     /// <summary>
     /// An object representing the arguments to the currently executing function, and the functions that called it.
