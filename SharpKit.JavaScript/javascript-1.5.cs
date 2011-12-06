@@ -744,7 +744,7 @@ namespace SharpKit.JavaScript
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static JsString @typeof(object obj) { return default(JsTypes); }
+        public static JsString @typeof(object obj) { return null; }
         /// <summary>
         /// A C# equivalant to the javascript typeof operator, with one difference, 
         /// this one returns an enum with all possible values, instead of an untyped string
