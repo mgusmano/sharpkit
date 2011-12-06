@@ -495,7 +495,7 @@ namespace SharpKit.JavaScript
     ///The Array object provides support for creation of arrays of any data type.
     ///</summary>
     [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator = true)]
-    public partial class JsArray : JsObject, IEnumerable<object>
+    public partial class JsArray : IEnumerable<object>
     {
         public JsArray() { }
         public JsArray(JsArray array) { }
@@ -618,7 +618,7 @@ namespace SharpKit.JavaScript
     ///</summary>
     ///<typeparam name="T"></typeparam>
     [JsType(JsMode.Prototype, Name = "Array", NativeEnumerator = false, Export = false, IgnoreGenericTypeArguments = true, NativeArrayEnumerator = true)]
-    public partial class JsArray<T> : JsArray, IEnumerable<T>
+    public partial class JsArray<T> : IEnumerable<T>
     {
         public static implicit operator T[](JsArray<T> x) { return default(T[]); }
         public static implicit operator JsArray<T>(T[] array) { return default(JsArray<T>); }
@@ -631,15 +631,19 @@ namespace SharpKit.JavaScript
         [JsMethod(IgnoreGenericArguments = true)]
         public JsArray(params T[] items) { }
         [JsProperty(NativeIndexer = true)]
-        public new T this[JsNumber index] { get { return default(T); } set { } }
+        public  T this[JsNumber index] { get { return default(T); } set { } }
         ///<summary>
         ///Appends new elements to an array, and returns the new length of the array.
         ///</summary>
         ///<param name="items">Optional. New elements of the Array.</param>
-        [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
         public void push(params T[] items) { }
+        ///<summary>
+        ///Appends new elements to an array, and returns the new length of the array.
+        ///</summary>
+        ///<param name="item">Optional. New elements of the Array.</param>
+        public void push(T item) { }
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public new T peek() { return default(T); }
+        public  T peek() { return default(T); }
         ///<summary>
         ///Removes the last element from an array and returns it.
         ///</summary>
@@ -648,7 +652,7 @@ namespace SharpKit.JavaScript
         ///</remarks>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public new T pop() { return default(T); }
+        public  T pop() { return default(T); }
         ///<summary>
         ///Returns a new array consisting of a combination of the current array and any additional items.
         ///</summary>
@@ -679,25 +683,25 @@ namespace SharpKit.JavaScript
         ///</remarks>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public new JsArray<T> slice(JsNumber start, JsNumber end) { return default(JsArray<T>); }
+        public  JsArray<T> slice(JsNumber start, JsNumber end) { return default(JsArray<T>); }
         ///<summary>
         ///Returns an Array object with the elements reversed.
         ///</summary>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public new JsArray<T> reverse() { return default(JsArray<T>); }
+        public  JsArray<T> reverse() { return default(JsArray<T>); }
         ///<summary>
         ///Removes the first element from an array and returns that element.
         ///</summary>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public new T shift() { return default(T); }
+        public  T shift() { return default(T); }
         ///<summary>
         ///Inserts specified elements into the beginning of an array.
         ///</summary>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public new T unshift() { return default(T); }
+        public  T unshift() { return default(T); }
         ///<summary>
         ///Inserts specified elements into the beginning of an array.
         ///</summary>
@@ -715,9 +719,25 @@ namespace SharpKit.JavaScript
         ///Returns an Array object with the elements sorted.
         ///</summary>
         [JsMethod(NativeOverloads = true)]
-        public new void sort() { }
-        public new IEnumerator<T> GetEnumerator() { return default(IEnumerator<T>); }
+        public  void sort() { }
+        public  IEnumerator<T> GetEnumerator() { return default(IEnumerator<T>); }
         IEnumerator IEnumerable.GetEnumerator() { return default(IEnumerator); }
+
+
+
+        ///<summary>
+        ///Returns a JsString value consisting of all the elements of an array concatenated together and separated by the specified separator character.
+        ///</summary>
+        ///<param name="separator">Required. A JsString that is used to separate one element of an array from the next in the resulting String object. If omitted, the array elements are separated with a comma.</param>
+        ///<returns></returns>
+        [JsMethod(NativeOverloads = true)]
+        public JsString join(JsString separator) { return default(JsString); }
+        ///<summary>
+        ///Returns an integer value one higher than the highest element defined in an array.
+        ///</summary>
+        [JsProperty(NativeField = true)]
+        public JsNumber length { get; set; }
+
     }
     #endregion
     #region JsBoolean

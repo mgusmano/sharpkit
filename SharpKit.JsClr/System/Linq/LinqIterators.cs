@@ -8,7 +8,6 @@ using System.Collections;
 namespace SharpKit.JavaScript.Private
 {
 	[JsType(Name = "System.Linq.WhereIterator", Filename = "~/res/System.Linq.js")]
-
 	class WhereIterator<T> : IEnumerator<T>, IEnumerable<T>
 	{
 		public WhereIterator(IEnumerable<T> source, Func<T, bool> predicate)
@@ -91,7 +90,6 @@ namespace SharpKit.JavaScript.Private
 	}
 
 	[JsType(Name = "System.Linq.OfTypeIterator", Filename = "~/res/System.Linq.js")]
-
 	class JsImplOfTypeIterator<T> : IEnumerator<T>, IEnumerable<T>
 	{
 		public JsImplOfTypeIterator(IEnumerable source)
@@ -172,7 +170,6 @@ namespace SharpKit.JavaScript.Private
 
 
 	[JsType(Name = "System.Linq.SelectIterator", Filename = "~/res/System.Linq.js")]
-
 	class JsImplSelectIterator<TSource, TResult> : IEnumerator<TResult>, IEnumerable<TResult>
 	{
 		public JsImplSelectIterator(IEnumerable<TSource> source, Func<TSource, TResult> selector)

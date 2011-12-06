@@ -5,6 +5,10 @@ namespace SharpKit.Html
 {
     partial class HtmlDocument : Document
     {
+        public new HtmlElement documentElement { get; private set; }
+        public new HtmlElement createElement(string tagName) { return default(HtmlElement); }
+        public new HtmlElement getElementById(string elementId) { return default(HtmlElement); }
+
     }
     partial class EventSource : EventTarget
     {
