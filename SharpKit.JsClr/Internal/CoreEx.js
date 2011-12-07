@@ -651,6 +651,10 @@ JsTypes.push({fullname:"System.String", baseTypeName:"System.Object", definition
             return -1;
         else
             return 0;
+    },
+    IsNullOrEmpty : function(s)
+    {
+        return s==null || s.length==0;
     }
 }
 });
