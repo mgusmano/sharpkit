@@ -24,9 +24,8 @@ namespace SharpKit.JavaScript.Compilation
             foreach (var action in BeforeCompilationFunctions)
                 action();
             BeforeCompilationFunctions = new JsArray<JsAction>();
-            for (var i = 0; i < JsTypes.length; i++)
+            foreach(var jsType in JsTypes)
             {
-                var jsType = JsTypes[i];
                 var fullName = jsType.fullname;
                 var type = Types[fullName].As<JsType>();
                 if (type == null)
@@ -198,18 +197,9 @@ namespace SharpKit.JavaScript.Compilation
         {
         }
 
-
-
-
-
-
         #endregion
 
-
-        internal static JsObject Types = new JsObject();
-
-
-
+        internal static JsObject<JsType> Types = new JsObject<JsType>();
 
         private static JsNamespace ResolveNamespace(JsString nsText)
         {
@@ -225,8 +215,6 @@ namespace SharpKit.JavaScript.Compilation
             }
             return ns;
         }
-
-
 
         private static void ResolveBaseType(JsType type, JsType currentType)
         {
@@ -275,8 +263,8 @@ namespace SharpKit.JavaScript.Compilation
                     if (p.As<JsString>().search("ctor") == 0) //isCtor
                     {
                         currentType.As<JsObject>()[p] = type.definition[p];
-                        JsContext.delete(type.definition[p]);
-                        if (JsContext.@typeof(currentType.commonPrototype) == "undefined")
+                        delete(type.definition[p]);
+                        if (@typeof(currentType.commonPrototype) == "undefined")
                             currentType.commonPrototype = currentType.As<JsObject>()[p].As<JsFunction>().prototype.As<JsCompilerPrototype>();
                         else
                             currentType.As<JsObject>()[p].As<JsFunction>().prototype = currentType.commonPrototype;
@@ -285,10 +273,6 @@ namespace SharpKit.JavaScript.Compilation
                     if (p == "cctor")
                         currentType.cctor = p.As<JsFunction>();
                 }
-                //		if(currentType.ctor==null)
-                //		{
-                //			currentType.ctor = window[type.get_FullName()];
-                //		}
                 if (currentType.ctor == null)
                 {
                     if (currentType.ns == null || currentType.ns == "")
@@ -296,10 +280,6 @@ namespace SharpKit.JavaScript.Compilation
                         var jsCtor = window.As<JsObject>()[currentType.name].As<JsFunction>();
                         currentType.ctor = jsCtor;
                     }
-                    //			currentType.ctor = type.definition[type.name];
-                    //			if(type.definition[type.name]!=null)
-                    //				delete type.definition[type.name];
-                    //			else
                     if (currentType.ctor == null && currentType.ctors != null)
                     {
                         var createCtor = true;
@@ -319,7 +299,7 @@ namespace SharpKit.JavaScript.Compilation
                     if (currentType.ctor != null)
                     {
                         currentType.ctors["ctor"] = currentType.ctor;
-                        if (JsContext.@typeof(currentType.commonPrototype) == "undefined")
+                        if (@typeof(currentType.commonPrototype) == "undefined")
                             currentType.commonPrototype = currentType.ctor.prototype.As<JsCompilerPrototype>();
                         else
                             currentType.ctor.prototype = currentType.commonPrototype;
@@ -331,8 +311,6 @@ namespace SharpKit.JavaScript.Compilation
                     if (ctor._type == null)
                         ctor._type = currentType;
                 }
-                //		if(currentType.ctor._type==null)
-                //			currentType.ctor._type = currentType;
                 if (baseTypeResolved)
                 {
                     _CopyObject(currentType.baseType.commonPrototype, currentType.commonPrototype);
@@ -356,7 +334,7 @@ namespace SharpKit.JavaScript.Compilation
                 foreach (var p in type.staticDefinition)
                 {
                     var member = type.staticDefinition[p];
-                    //TODO: if (JsContext.@typeof(currentType.As<JsObject>()[p]) != "undefined")
+                    //TODO: if (@typeof(currentType.As<JsObject>()[p]) != "undefined")
                     //TODO:    throw new JsError("Reserved static member name " + p).As<Exception>();
                     currentType.As<JsObject>()[p] = member;
                     if (JsContext.@typeof(member) == "function")

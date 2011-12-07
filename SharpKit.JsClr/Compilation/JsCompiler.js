@@ -460,9 +460,9 @@ JsCompiler.Compile_Phase1 = function()
         action();
     }
     BeforeCompilationFunctions = new Array();
-    for(var i=0;i < JsTypes.length;i++)
+    for(var $i3=0,$j3=JsTypes.length;$i3 < $j3;$i3++)
     {
-        var jsType=JsTypes[i];
+        var jsType=JsTypes[$i3];
         var fullName=jsType.fullname;
         var type=JsCompiler.Types[fullName];
         if(type == null)
@@ -511,9 +511,9 @@ JsCompiler.Compile_Phase2 = function()
         var jsType=JsTypes[i];
         JsCompiler.Compile_Phase2_TmpType(jsType);
     }
-    for(var $i3=0,$j3=JsTypes.length;$i3 < $j3;$i3++)
+    for(var $i4=0,$j4=JsTypes.length;$i4 < $j4;$i4++)
     {
-        var ce=JsTypes[$i3];
+        var ce=JsTypes[$i4];
         if(ce.cctor != null)
             ce.cctor();
     }
@@ -537,9 +537,9 @@ JsCompiler.Compile_Phase3 = function()
 {
     var funcs=AfterCompilationFunctions;
     AfterCompilationFunctions = new Array();
-    for(var $i4=0,$j4=funcs.length;$i4 < $j4;$i4++)
+    for(var $i5=0,$j5=funcs.length;$i5 < $j5;$i5++)
     {
-        var action=funcs[$i4];
+        var action=funcs[$i5];
         action();
     }
     IsCompiled = true;

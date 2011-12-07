@@ -63,9 +63,9 @@ namespace SharpKit.JavaScript.Compilation
     }
 
     [JsType(JsMode.Global, Export = false)]
-    public class BrowserContext : JsContext
+    public class BrowserContext : JsContextBase
     {
-        public static BrowserWindow window { get; set; }
+        protected static BrowserWindow window { get; set; }
     }
     [JsType(JsMode.Prototype, Export = false)]
     public class BrowserWindow

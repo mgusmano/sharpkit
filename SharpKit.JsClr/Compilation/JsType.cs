@@ -38,27 +38,27 @@ namespace SharpKit.JavaScript.Compilation
         public JsArray<JsString> interfaceNames{get;set;}
         internal JsImplType _ClrType { get; set; }
         public JsArray<JsType> derivedTypes{get;set;}
-        public string assemblyName{get;set;}
-        public string fullname{get;set;}
-        public string name{get;set;}
-        public string ns{get;set;}
-        public string baseTypeName{get;set;}
+        public JsString assemblyName { get; set; }
+        public JsString fullname{get;set;}
+        public JsString name { get; set; }
+        public JsString ns { get; set; }
+        public JsString baseTypeName { get; set; }
         public JsTypeKind Kind { get; set; }
         public JsFunction cctor { get; set; }
         public bool isPartial{get;set;}
         public JsType realType{get;set;}
         public JsFunction ctor{get;set;}
-        public string _AssemblyQualifiedName{get;set;}
+        public JsString _AssemblyQualifiedName { get; set; }
 
     }
 
     [JsType(JsMode.Json)]
     public class JsAttribute
     {
-        public string targetType{get;set;}
-        public string targetMemberName{get;set;}
-        public string typeName{get;set;}
-        public string ctorName{get;set;}
+        public JsString targetType { get; set; }
+        public JsString targetMemberName { get; set; }
+        public JsString typeName { get; set; }
+        public JsString ctorName { get; set; }
         public JsArray positionalArguments{get;set;}
         public JsObject namedArguments{get;set;}
     }

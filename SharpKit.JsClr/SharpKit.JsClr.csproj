@@ -26,9 +26,11 @@
     <DefineConstants>
     </DefineConstants>
     <DocumentationFile>..\..\bin\v4.0\SharpKit.JsClr.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'v3.5'">
     <DocumentationFile>..\..\bin\v3.5\SharpKit.JsClr.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
