@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
+using System.ComponentModel;
 
 [assembly: JsMethod(TargetType = typeof(object), TargetMethod = "ToString", Name = "toString")]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToUpper", Name = "toUpperCase")]
@@ -373,6 +374,7 @@ namespace SharpKit.JavaScript
         /// This property is inherited and applied to all derived types. Default value is true
         /// </summary>
         public bool Export { get; set; }
+        public string Name { get; set; }
     }
     #endregion
     #region JsEventAttribute
@@ -450,7 +452,7 @@ namespace SharpKit.JavaScript
     /// <summary>
     /// An object representing the arguments to the currently executing function, and the functions that called it.
     /// </summary>
-    [JsType(JsMode.Prototype, Name = "arguments", Export = false, NativeArrayEnumerator=true, NativeEnumerator=false)]
+    [JsType(JsMode.Prototype, Name = "arguments", Export = false, NativeArrayEnumerator = true, NativeEnumerator = false)]
     public partial class JsArguments : IEnumerable<object>, IEnumerable
     {
         /// <summary>
@@ -631,7 +633,7 @@ namespace SharpKit.JavaScript
         [JsMethod(IgnoreGenericArguments = true)]
         public JsArray(params T[] items) { }
         [JsProperty(NativeIndexer = true)]
-        public  T this[JsNumber index] { get { return default(T); } set { } }
+        public T this[JsNumber index] { get { return default(T); } set { } }
         ///<summary>
         ///Appends new elements to an array, and returns the new length of the array.
         ///</summary>
@@ -643,7 +645,7 @@ namespace SharpKit.JavaScript
         ///<param name="item">Optional. New elements of the Array.</param>
         public void push(T item) { }
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public  T peek() { return default(T); }
+        public T peek() { return default(T); }
         ///<summary>
         ///Removes the last element from an array and returns it.
         ///</summary>
@@ -652,7 +654,7 @@ namespace SharpKit.JavaScript
         ///</remarks>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public  T pop() { return default(T); }
+        public T pop() { return default(T); }
         ///<summary>
         ///Returns a new array consisting of a combination of the current array and any additional items.
         ///</summary>
@@ -683,25 +685,25 @@ namespace SharpKit.JavaScript
         ///</remarks>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public  JsArray<T> slice(JsNumber start, JsNumber end) { return default(JsArray<T>); }
+        public JsArray<T> slice(JsNumber start, JsNumber end) { return default(JsArray<T>); }
         ///<summary>
         ///Returns an Array object with the elements reversed.
         ///</summary>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public  JsArray<T> reverse() { return default(JsArray<T>); }
+        public JsArray<T> reverse() { return default(JsArray<T>); }
         ///<summary>
         ///Removes the first element from an array and returns that element.
         ///</summary>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public  T shift() { return default(T); }
+        public T shift() { return default(T); }
         ///<summary>
         ///Inserts specified elements into the beginning of an array.
         ///</summary>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public  T unshift() { return default(T); }
+        public T unshift() { return default(T); }
         ///<summary>
         ///Inserts specified elements into the beginning of an array.
         ///</summary>
@@ -719,12 +721,9 @@ namespace SharpKit.JavaScript
         ///Returns an Array object with the elements sorted.
         ///</summary>
         [JsMethod(NativeOverloads = true)]
-        public  void sort() { }
-        public  IEnumerator<T> GetEnumerator() { return default(IEnumerator<T>); }
+        public void sort() { }
+        public IEnumerator<T> GetEnumerator() { return default(IEnumerator<T>); }
         IEnumerator IEnumerable.GetEnumerator() { return default(IEnumerator); }
-
-
-
         ///<summary>
         ///Returns a JsString value consisting of all the elements of an array concatenated together and separated by the specified separator character.
         ///</summary>
@@ -751,7 +750,7 @@ namespace SharpKit.JavaScript
     }
     #endregion
     #region JsTypes
-    
+
     [JsType(JsMode.Json)]
     [JsEnum(ValuesAsNames = true)]
     public enum JsTypes
@@ -793,7 +792,7 @@ namespace SharpKit.JavaScript
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        [JsMethod(Name="typeof")]
+        [JsMethod(Name = "typeof")]
         public static JsTypes JsTypeOf(object obj) { return default(JsTypes); }
         /// <summary>
         /// Returns a reference to the ctor function of a prototype mode type
@@ -984,7 +983,7 @@ namespace SharpKit.JavaScript
         [JsMethod(IgnoreGenericArguments = true, Name = "", OmitParanthesis = true)]
         public static JsNativeFunc<T1, T2, T3, T4, T5, R> NativeFuncOf<T1, T2, T3, T4, T5, R>(JsNativeFunc<T1, T2, T3, T4, T5, R> func) { return null; }
 
-        [JsProperty(NativeField=true)]
+        [JsProperty(NativeField = true)]
         public static object @this { get; set; }
         [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
         public static object @return(object obj) { return null; }
@@ -1356,7 +1355,7 @@ namespace SharpKit.JavaScript
 
     #region JsDate
     [JsType(Export = false, Name = "Date", NativeConstructors = true)]
-    public partial class JsDate : JsObject
+    public partial class JsDate : JsObjectBase
     {
         public static JsNumber operator -(JsDate date1, JsDate date2) { return default(JsNumber); }
         public JsDate(params object[] prms) { }
@@ -1827,8 +1826,8 @@ namespace SharpKit.JavaScript
     }
     #endregion
     #region JsError
-    [JsType(JsMode.Prototype, Export = false, Name = "Error")]
-    public partial class JsError : JsObject
+    [JsType(JsMode.Prototype, Export = false, Name = "Error", PropertiesAsFields = true)]
+    public partial class JsError : Exception
     {
         public JsError() { }
         public JsError(JsString s) { }
@@ -1860,11 +1859,47 @@ namespace SharpKit.JavaScript
         ///</summary>
         [JsProperty(NativeField = true)]
         public JsString number { get; set; }
+        #region Exception Hiding
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override IDictionary Data { get { return base.Data; } }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override Exception GetBaseException() { return base.GetBaseException(); }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) { base.GetObjectData(info, context); }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override string HelpLink { get { return base.HelpLink; } set { base.HelpLink = value; } }
+        [JsProperty(NativeField = true, Name = "message")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override string Message { get { return base.Message; } }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override string Source { get { return base.Source; } set { base.Source = value; } }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override string StackTrace { get { return base.StackTrace; } }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public new Exception InnerException { get { return base.InnerException; } }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public new System.Reflection.MethodBase TargetSite { get { return base.TargetSite; } }
+        #endregion
+        #region Object Hiding
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public new Type GetType() { return base.GetType(); }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() { return base.GetHashCode(); }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object obj) { return base.Equals(obj); }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override string ToString() { return base.ToString(); }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public static new bool Equals(object objA, object objB) { return object.Equals(objA, objB); }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public static new bool ReferenceEquals(object objA, object objB) { return object.ReferenceEquals(objA, objB); }
+        #endregion
+
     }
     #endregion
     #region JsFunction
     [JsType(JsMode.Prototype, Export = false, Name = "Function")]
-    public partial class JsFunction : JsObject
+    public partial class JsFunction : JsObjectBase
     {
         public JsFunction(params JsString[] prmsAndBody) { }
         ///<summary>
@@ -2091,7 +2126,7 @@ namespace SharpKit.JavaScript
     ///An object representation of the number data type and placeholder for numeric constants.
     ///</summary>
     [JsType(JsMode.Prototype, Export = false, Name = "Number")]
-    public partial class JsNumber : JsObject, IConvertible, IComparable, IComparable<JsNumber>, IEquatable<JsNumber>, IFormattable
+    public partial class JsNumber : JsObjectBase, IConvertible, IComparable, IComparable<JsNumber>, IEquatable<JsNumber>, IFormattable
     {
         public JsNumber(double d) { }
         public static implicit operator double(JsNumber number) { return default(double); }
@@ -2216,8 +2251,8 @@ namespace SharpKit.JavaScript
     }
     #endregion
     #region JsObject
-    [JsType(JsMode.Prototype, Export = false, Name = "Object")]
-    public partial class JsObject : IEnumerable<JsString>
+    [JsType(JsMode.Prototype, Export = false)]
+    public abstract partial class JsObjectBase
     {
         ///<summary>
         ///Watches for a property to be assigned a value and runs a function when that occurs.
@@ -2263,11 +2298,9 @@ namespace SharpKit.JavaScript
         ///</summary>
         ///<returns></returns>
         public virtual object valueOf() { return default(object); }
-        public JsObject() { }
-        public JsObject(object json) { }
-        public JsObject constructor;
-        [JsProperty(NativeIndexer = true)]
-        public object this[JsString name] { get { return default(object); } set { } }
+
+        public JsFunction constructor { get; set; }
+
         ///<summary>
         ///Returns a Boolean value indicating whether an object exists in another object's prototype chain.
         ///</summary>
@@ -2285,31 +2318,60 @@ namespace SharpKit.JavaScript
         ///</summary>
         ///<returns>Returns "[object objectname]", where objectname is the name of the object type.</returns>
         public virtual JsString toString() { return default(JsString); }
+
+        #region Object Hiding
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public new Type GetType() { return base.GetType(); }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() { return base.GetHashCode(); }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object obj) { return base.Equals(obj); }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override string ToString() { return base.ToString(); }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public static new bool Equals(object objA, object objB) { return object.Equals(objA, objB); }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public static new bool ReferenceEquals(object objA, object objB) { return object.ReferenceEquals(objA, objB); }
+        #endregion
+    }
+    [JsType(JsMode.Prototype, Export = false, Name = "Object", NativeEnumerator = true)]
+    public partial class JsObject : JsObjectBase, IEnumerable<JsString>
+    {
+        public JsObject() { }
+        public JsObject(object json) { }
+        [JsProperty(NativeIndexer = true)]
+        public object this[JsString name] { get { return default(object); } set { } }
         IEnumerator<JsString> IEnumerable<JsString>.GetEnumerator() { return default(IEnumerator<JsString>); }
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() { return default(System.Collections.IEnumerator); }
+        IEnumerator IEnumerable.GetEnumerator() { return default(IEnumerator); }
+
+
     }
     #endregion
     #region JsObject<T>
-    [JsType(JsMode.Prototype, Export = false, Name = "Object")]
-    public partial class JsObject<T> : JsObject
+    [JsType(JsMode.Prototype, Export = false, Name = "Object", NativeEnumerator=true)]
+    public partial class JsObject<T> : JsObjectBase, IEnumerable<JsString>
     {
+        public static implicit operator JsObject(JsObject<T> obj) { return null; }
         [JsMethod(IgnoreGenericArguments = true)]
         public JsObject() { }
         [JsProperty(NativeIndexer = true)]
-        public new T this[JsString name] { get { return default(T); } set { } }
+        public T this[JsString name] { get { return default(T); } set { } }
+        IEnumerator<JsString> IEnumerable<JsString>.GetEnumerator() { return default(IEnumerator<JsString>); }
+        IEnumerator IEnumerable.GetEnumerator() { return default(IEnumerator); }
     }
     #endregion
     #region JsObject<K, T>
 
-    [JsType(JsMode.Prototype, Export = false, Name = "Object", IgnoreGenericTypeArguments = true)]
-    public class JsObject<K, T> : JsObject
+    [JsType(JsMode.Prototype, Export = false, Name = "Object", IgnoreGenericTypeArguments = true, NativeEnumerator = true)]
+    public class JsObject<K, T> : JsObjectBase, IEnumerable<K>
     {
+        public static implicit operator JsObject(JsObject<K, T> obj) { return null; }
         [JsMethod(IgnoreGenericArguments = true)]
         public JsObject() { }
         [JsProperty(NativeIndexer = true)]
         public T this[K key] { get { return default(T); } set { } }
-        [JsProperty(NativeIndexer = true)]
-        public new T this[JsString key] { get { return default(T); } set { } }
+        IEnumerator<K> IEnumerable<K>.GetEnumerator() { return default(IEnumerator<K>); }
+        IEnumerator IEnumerable.GetEnumerator() { return default(IEnumerator); }
     }
     #endregion
     #region JsRegExp
@@ -2319,7 +2381,7 @@ namespace SharpKit.JavaScript
     ///re = new RegExp("pattern"[,"flags"]) 
     ///</summary>
     [JsType(JsMode.Prototype, Export = false, Name = "RegExp")]
-    public partial class JsRegExp : JsObject
+    public partial class JsRegExp : JsObjectBase
     {
         public JsRegExp(JsString pattern) { }
         public JsRegExp(JsString pattern, JsString flags) { }
@@ -2373,7 +2435,7 @@ namespace SharpKit.JavaScript
     ///Allows manipulation and formatting of text strings and determination and location of substrings within strings.
     ///</summary>
     [JsType(JsMode.Prototype, Export = false, Name = "String")]
-    public partial class JsString : JsObject
+    public partial class JsString : JsObjectBase
     {
         public JsString() { }
         public JsString(object obj) { }
@@ -2597,6 +2659,9 @@ namespace SharpKit.JavaScript
         /// <returns></returns>
         public JsRegExpResult match(JsString rgExp) { return null; }
     }
+    /// <summary>
+    /// A special class, when used as a method parameter, can be assigned as string, and generates the native js code inside the string
+    /// </summary>
     [JsType(JsMode.Prototype, Export = false)]
     public partial class JsCode
     {
@@ -2804,7 +2869,6 @@ namespace SharpKit.JavaScript
         /// <summary>
         /// A C# extension for '===' operator
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
         /// <param name="obj2"></param>
         /// <returns></returns>
@@ -2816,7 +2880,6 @@ namespace SharpKit.JavaScript
         /// <summary>
         /// A C# extension for '!==' operator
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
         /// <param name="obj2"></param>
         /// <returns></returns>
@@ -2858,6 +2921,6 @@ namespace SharpKit.JavaScript
     class NamespaceDoc
     {
     }
- 
+
     #endregion
 }
