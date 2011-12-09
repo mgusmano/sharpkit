@@ -4454,10 +4454,10 @@ JsTypes.push(
                 var baseType=this.get_BaseType();
                 if(baseType != null)
                 {
-                    var $it9=baseType.GetProperties().GetEnumerator();
-                    while($it9.MoveNext())
+                    var props=baseType.GetProperties();
+                    for(var $i10=0,$j10=props.length;$i10 < $j10;$i10++)
                     {
-                        var pe=$it9.get_Current();
+                        var pe=props[$i10];
                         if(!this._PropertiesByName.hasOwnProperty(pe._Name))
                         {
                             this._PropertiesByName[pe._Name] = pe;
@@ -4516,10 +4516,10 @@ JsTypes.push(
                 var baseType=this.get_BaseType();
                 if(baseType != null)
                 {
-                    var $it10=baseType.GetMethods().GetEnumerator();
-                    while($it10.MoveNext())
+                    var methods=baseType.GetMethods();
+                    for(var $i11=0,$j11=methods.length;$i11 < $j11;$i11++)
                     {
-                        var pe=$it10.get_Current();
+                        var pe=methods[$i11];
                         if(this._MethodsByName[pe._Name] == null)
                         {
                             this._MethodsByName[pe._Name] = pe;
@@ -4603,10 +4603,10 @@ JsTypes.push(
             else if(memberType == "method")
             {
                 var methodName=SharpKit.JavaScript.JsNamingHelper.JsFunctionNameToClrMethodName(memberName);
-                var $it11=this.GetMethods$$String(methodName).GetEnumerator();
-                while($it11.MoveNext())
+                var methods=this.GetMethods$$String(methodName);
+                for(var $i12=0,$j12=methods.length;$i12 < $j12;$i12++)
                 {
-                    var method=$it11.get_Current();
+                    var method=methods[$i12];
                     if(method.JsName == memberName)
                         return method;
                 }
@@ -5086,10 +5086,9 @@ JsTypes.push(
         },
         ConvertParametersToJsFunctionName:function(prms,sb)
         {
-            var $it13=prms.GetEnumerator();
-            while($it13.MoveNext())
+            for(var $i14=0,$j14=prms.length;$i14 < $j14;$i14++)
             {
-                var prm=$it13.get_Current();
+                var prm=prms[$i14];
                 sb.Append$$String("$$");
                 sb.Append$$String(prm.get_ParameterType().get_Name());
             }

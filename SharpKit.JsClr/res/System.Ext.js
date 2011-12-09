@@ -259,10 +259,9 @@ JsTypes.push(
         },
         ConvertParametersToJsFunctionName:function(prms,sb)
         {
-            var $it13=prms.GetEnumerator();
-            while($it13.MoveNext())
+            for(var $i14=0,$j14=prms.length;$i14 < $j14;$i14++)
             {
-                var prm=$it13.get_Current();
+                var prm=prms[$i14];
                 sb.Append$$String("$$");
                 sb.Append$$String(prm.get_ParameterType().get_Name());
             }

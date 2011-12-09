@@ -197,7 +197,8 @@ namespace SharpKit.JavaScript.Private
 				var baseType = BaseType;
 				if (baseType != null)
 				{
-					foreach (var pe in baseType.GetProperties())
+                    var props = baseType.GetProperties();
+					foreach (var pe in props)
 					{
 						if (!_PropertiesByName.hasOwnProperty(pe._Name))
 						{
@@ -274,7 +275,8 @@ namespace SharpKit.JavaScript.Private
 				var baseType = BaseType;
 				if (baseType != null)
 				{
-					foreach (var pe in baseType.GetMethods())
+                    var methods = baseType.GetMethods();
+					foreach (var pe in methods)
 					{
 						if (_MethodsByName[pe._Name] == null)
 						{
@@ -369,7 +371,8 @@ namespace SharpKit.JavaScript.Private
 			else if (memberType == "method")
 			{
 				var methodName = JsNamingHelper.JsFunctionNameToClrMethodName(memberName);
-				foreach (var method in GetMethods(methodName))
+                var methods = GetMethods(methodName);
+				foreach (var method in methods)
 				{
 					if (method.JsName == memberName) //TODO: optimize?
 						return method;
