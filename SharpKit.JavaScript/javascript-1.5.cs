@@ -174,6 +174,10 @@ namespace SharpKit.JavaScript
         /// Omits optional parameters in methods, when not sent by caller
         /// </summary>
         public bool OmitOptionalParameters { get; set; }
+        /// <summary>
+        /// Specifies whether or not to declare inheritance of a class to a base class
+        /// </summary>
+        public bool OmitInheritance { get; set; }
 
     }
     #endregion
