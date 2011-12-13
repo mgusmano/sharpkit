@@ -1831,6 +1831,7 @@ namespace SharpKit.JavaScript
         [JsMethod(NativeOverloads = true)]
         public void setFullYear(JsNumber numYear, JsNumber numMonth, JsNumber numdate) { }
     }
+
     #endregion
     #region JsError
     [JsType(JsMode.Prototype, Export = false, Name = "Error", PropertiesAsFields = true)]
