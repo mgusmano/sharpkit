@@ -225,7 +225,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Attach a handler to an event for the elements.
         /// </summary>
-        public jQuery bind(object events) { return null; }
+        public jQuery bind(EventsMap events) { return null; }
         /// <summary>
         /// Attach a handler to an event for the elements.
         /// </summary>
@@ -2739,7 +2739,7 @@ namespace SharpKit.jQuery
     /// <summary>
     /// jQuery.Deferred(), introduced in version 1.5, is a chainable utility object that can register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.
     /// </summary>
-    [JsType(JsMode.Prototype, Name = "jQuery.Deferred", Export=false)]
+    [JsType(JsMode.Prototype, Name = "jQuery.Deferred", Export = false)]
     public partial class Deferred : Promise
     {
         /// <summary>
@@ -2861,7 +2861,7 @@ namespace SharpKit.jQuery
     /// <summary>
     /// This object provides a subset of the methods of the Deferred object (then, done, fail, always, pipe. isResolved, and isRejected) to prevent users from changing the state of the Deferred
     /// </summary>
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     public partial class Promise
     {
 
@@ -3262,5 +3262,32 @@ namespace SharpKit.jQuery
         public JsString getResponseHeader(string name) { return null; }
     }
 
+
+    [JsType(JsMode.Json)]
+    public class EventsMap
+    {
+        //Keyboard Events
+        public JsAction<Event> focusin { get; set; }
+        public JsAction<Event> focusout { get; set; }
+        public JsAction<Event> keydown { get; set; }
+        public JsAction<Event> keypress { get; set; }
+        public JsAction<Event> keyup { get; set; }
+        //Mouse Events
+        public JsAction<Event> click { get; set; }
+        public JsAction<Event> dblclick { get; set; }
+        public JsAction<Event> hover { get; set; }
+        public JsAction<Event> mousedown { get; set; }
+        public JsAction<Event> mouseenter { get; set; }
+        public JsAction<Event> mouseleave { get; set; }
+        public JsAction<Event> mousemove { get; set; }
+        public JsAction<Event> mouseout { get; set; }
+        public JsAction<Event> mouseover { get; set; }
+        public JsAction<Event> mouseup { get; set; }
+        public JsAction<Event> toggle { get; set; }
+        //browser events
+        public JsAction<Event> error { get; set; }
+        public JsAction<Event> resize { get; set; }
+        public JsAction<Event> scroll { get; set; }
+    }
 }
 
