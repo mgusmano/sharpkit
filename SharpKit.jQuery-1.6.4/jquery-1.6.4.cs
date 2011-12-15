@@ -63,15 +63,15 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Register a handler to be called when Ajax requests complete. This is an Ajax Event.
         /// </summary>
-        public jQuery ajaxComplete(JsAction<object, string, XMLHttpRequest> handler) { return null; }
+        public jQuery ajaxComplete(JsAction<object, string, jqXHR> handler) { return null; }
         /// <summary>
         /// Register a handler to be called when Ajax requests complete with an error. This is an Ajax Event.
         /// </summary>
-        public jQuery ajaxError(JsAction<Event, XMLHttpRequest, object, JsError> handler) { return null; }
+        public jQuery ajaxError(JsAction<Event, jqXHR, object, JsError> handler) { return null; }
         /// <summary>
         /// Attach a function to be executed before an Ajax request is sent. This is an Ajax Event.
         /// </summary>
-        public jQuery ajaxSend(JsAction<object, string, XMLHttpRequest> handler) { return null; }
+        public jQuery ajaxSend(JsAction<object, string, jqXHR> handler) { return null; }
         /// <summary>
         /// Register a handler to be called when the first Ajax request begins. This is an Ajax Event.
         /// </summary>
@@ -83,7 +83,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Attach a function to be executed whenever an Ajax request completes successfully. This is an Ajax Event.
         /// </summary>
-        public jQuery ajaxSuccess(JsAction<object, string, XMLHttpRequest> handler) { return null; }
+        public jQuery ajaxSuccess(JsAction<object, string, jqXHR> handler) { return null; }
         /// <summary>
         /// Handle custom Ajax options or modify existing options before each request is sent and before they are processed by $.ajax().
         /// </summary>
@@ -113,47 +113,47 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties) { return null; }
+        public jQuery animate(Object properties) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, Map options) { return null; }
+        public jQuery animate(Object properties, Object options) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsAction callback) { return null; }
+        public jQuery animate(Object properties, JsAction callback) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsString easing) { return null; }
+        public jQuery animate(Object properties, JsString easing) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsNumber duration) { return null; }
+        public jQuery animate(Object properties, JsNumber duration) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsString duration, JsString easing) { return null; }
+        public jQuery animate(Object properties, JsString duration, JsString easing) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsString easing, JsAction callback) { return null; }
+        public jQuery animate(Object properties, JsString easing, JsAction callback) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsNumber duration, JsAction callback) { return null; }
+        public jQuery animate(Object properties, JsNumber duration, JsAction callback) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsNumber duration, JsString easing) { return null; }
+        public jQuery animate(Object properties, JsNumber duration, JsString easing) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsString duration, JsString easing, JsAction callback) { return null; }
+        public jQuery animate(Object properties, JsString duration, JsString easing, JsAction callback) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsNumber duration, JsString easing, JsAction callback) { return null; }
+        public jQuery animate(Object properties, JsNumber duration, JsString easing, JsAction callback) { return null; }
         /// <summary>
         /// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
         /// </summary>
@@ -189,7 +189,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Set one or more attributes for the set of matched elements.
         /// </summary>
-        public jQuery attr(Map map) { return null; }
+        public jQuery attr(Object map) { return null; }
         /// <summary>
         /// Set one or more attributes for the set of matched elements.
         /// </summary>
@@ -347,7 +347,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Set one or more CSS properties for the  set of matched elements.
         /// </summary>
-        public jQuery css(Map map) { return null; }
+        public jQuery css(Object map) { return null; }
         /// <summary>
         /// Set one or more CSS properties for the  set of matched elements.
         /// </summary>
@@ -454,7 +454,7 @@ namespace SharpKit.jQuery
         ///  .then(myFunc, myFailure);
         ///  </code>
         /// </example>
-        public jQueryPromise when(params Deferred[] defferds) { return null; }
+        public Promise when(params Deferred[] defferds) { return null; }
         /// <summary>
         /// Execute the next function on the queue for the matched elements.
         /// </summary>
@@ -1024,7 +1024,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Load data from the server and place the returned HTML into the matched element.
         /// </summary>
-        public jQuery load(JsString url, JsAction<object, string, XMLHttpRequest> complete) { return null; }
+        public jQuery load(JsString url, JsAction<object, string, jqXHR> complete) { return null; }
         /// <summary>
         /// Load data from the server and place the returned HTML into the matched element.
         /// </summary>
@@ -1032,11 +1032,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Load data from the server and place the returned HTML into the matched element.
         /// </summary>
-        public jQuery load(JsString url, object data, JsAction<object, string, XMLHttpRequest> complete) { return null; }
+        public jQuery load(JsString url, object data, JsAction<object, string, jqXHR> complete) { return null; }
         /// <summary>
         /// Load data from the server and place the returned HTML into the matched element.
         /// </summary>
-        public jQuery load(JsString url, JsString data, JsAction<object, string, XMLHttpRequest> complete) { return null; }
+        public jQuery load(JsString url, JsString data, JsAction<object, string, jqXHR> complete) { return null; }
         /// <summary>
         /// Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.
         /// </summary>
@@ -1844,7 +1844,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Perform an asynchronous HTTP (Ajax) request.
         /// </summary>
-        public static XMLHttpRequest ajax(AjaxSettings settings) { return null; }
+        public static jqXHR ajax(AjaxSettings settings) { return null; }
         /// <summary>
         /// Set default values for future Ajax requests.
         /// </summary>
@@ -1904,71 +1904,71 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url) { return null; }
+        public static jqXHR get(JsString url) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, object data) { return null; }
+        public static jqXHR get(JsString url, object data) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, JsAction<object, string, XMLHttpRequest> callback) { return null; }
+        public static jqXHR get(JsString url, JsAction<object, string, jqXHR> callback) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, JsString data) { return null; }
+        public static jqXHR get(JsString url, JsString data) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, object data, JsString dataType) { return null; }
+        public static jqXHR get(JsString url, object data, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, object data, JsAction<object, string, XMLHttpRequest> callback) { return null; }
+        public static jqXHR get(JsString url, object data, JsAction<object, string, jqXHR> callback) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, JsAction<object, string, XMLHttpRequest> callback, JsString dataType) { return null; }
+        public static jqXHR get(JsString url, JsAction<object, string, jqXHR> callback, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, JsString data, JsString dataType) { return null; }
+        public static jqXHR get(JsString url, JsString data, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, JsString data, JsAction<object, string, XMLHttpRequest> callback) { return null; }
+        public static jqXHR get(JsString url, JsString data, JsAction<object, string, jqXHR> callback) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, object data, JsAction<object, string, XMLHttpRequest> callback, JsString dataType) { return null; }
+        public static jqXHR get(JsString url, object data, JsAction<object, string, jqXHR> callback, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, JsString data, JsAction<object, string, XMLHttpRequest> callback, JsString dataType) { return null; }
+        public static jqXHR get(JsString url, JsString data, JsAction<object, string, jqXHR> callback, JsString dataType) { return null; }
         /// <summary>
         /// Load JSON-encoded data from the server using a GET HTTP request.
         /// </summary>
-        public static XMLHttpRequest getJSON(JsString url) { return null; }
+        public static jqXHR getJSON(JsString url) { return null; }
         /// <summary>
         /// Load JSON-encoded data from the server using a GET HTTP request.
         /// </summary>
-        public static XMLHttpRequest getJSON(JsString url, JsAction<object, string, XMLHttpRequest> callback) { return null; }
+        public static jqXHR getJSON(JsString url, JsAction<object, string, jqXHR> callback) { return null; }
         /// <summary>
         /// Load JSON-encoded data from the server using a GET HTTP request.
         /// </summary>
-        public static XMLHttpRequest getJSON(JsString url, object data) { return null; }
+        public static jqXHR getJSON(JsString url, object data) { return null; }
         /// <summary>
         /// Load JSON-encoded data from the server using a GET HTTP request.
         /// </summary>
-        public static XMLHttpRequest getJSON(JsString url, object data, JsAction<object, string, XMLHttpRequest> callback) { return null; }
+        public static jqXHR getJSON(JsString url, object data, JsAction<object, string, jqXHR> callback) { return null; }
         /// <summary>
         /// Load a JavaScript file from the server using a GET HTTP request, then execute it.
         /// </summary>
-        public static XMLHttpRequest getScript(JsString url) { return null; }
+        public static jqXHR getScript(JsString url) { return null; }
         /// <summary>
         /// Load a JavaScript file from the server using a GET HTTP request, then execute it.
         /// </summary>
-        public static XMLHttpRequest getScript(JsString url, JsAction<JsNumber, HtmlElement> success) { return null; }
+        public static jqXHR getScript(JsString url, JsAction<JsNumber, HtmlElement> success) { return null; }
         /// <summary>
         /// Execute some JavaScript code globally.
         /// </summary>
@@ -2056,47 +2056,47 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url) { return null; }
+        public static jqXHR post(JsString url) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, object data) { return null; }
+        public static jqXHR post(JsString url, object data) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, JsAction<object, string, XMLHttpRequest> success) { return null; }
+        public static jqXHR post(JsString url, JsAction<object, string, jqXHR> success) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, JsString data) { return null; }
+        public static jqXHR post(JsString url, JsString data) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, object data, JsString dataType) { return null; }
+        public static jqXHR post(JsString url, object data, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, object data, JsAction<object, string, XMLHttpRequest> success) { return null; }
+        public static jqXHR post(JsString url, object data, JsAction<object, string, jqXHR> success) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, JsAction<object, string, XMLHttpRequest> success, JsString dataType) { return null; }
+        public static jqXHR post(JsString url, JsAction<object, string, jqXHR> success, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, JsString data, JsString dataType) { return null; }
+        public static jqXHR post(JsString url, JsString data, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, JsString data, JsAction<object, string, XMLHttpRequest> success) { return null; }
+        public static jqXHR post(JsString url, JsString data, JsAction<object, string, jqXHR> success) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, object data, JsAction<object, string, XMLHttpRequest> success, JsString dataType) { return null; }
+        public static jqXHR post(JsString url, object data, JsAction<object, string, jqXHR> success, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, JsString data, JsAction<object, string, XMLHttpRequest> success, JsString dataType) { return null; }
+        public static jqXHR post(JsString url, JsString data, JsAction<object, string, jqXHR> success, JsString dataType) { return null; }
         /// <summary>
         /// Takes a function and returns a new one that will always have a particular context.
         /// </summary>
@@ -2548,10 +2548,6 @@ namespace SharpKit.jQuery
     }
 
 
-    [JsType(JsMode.Json)]
-    public partial class Map : HtmlElementStyle
-    {
-    }
 
     [JsType(JsMode.Json)]
     public partial class TopLeft
@@ -2581,7 +2577,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// A pre-request callback function that can be used to modify the jqXHR (in jQuery 1.4.x, XMLHTTPRequest) object before it is sent. Use this to set custom headers, etc. The jqXHR and settings maps are passed as arguments. This is an Ajax Event. Returning false in the beforeSend function will cancel the request. As of jQuery 1.5, the beforeSend option will be called regardless of the type of request.
         /// </summary>
-        public JsAction<XMLHttpRequest, AjaxSettings> beforeSend { get; set; }
+        public JsAction<jqXHR, AjaxSettings> beforeSend { get; set; }
         /// <summary>
         /// Default: true, false for dataType 'script' and 'jsonp'
         /// If set to false, it will force requested pages not to be cached by the browser. Setting cache to false also appends a query string parameter, "_=[TIMESTAMP]", to the URL.
@@ -2590,7 +2586,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// A function to be called when the request finishes (after success and error callbacks are executed). The function gets passed two arguments: The jqXHR (in jQuery 1.4.x, XMLHTTPRequest) object and a string categorizing the status of the request ("success", "notmodified", "error", "timeout", "abort", or "parsererror"). As of jQuery 1.5, the complete setting can accept an array of functions. Each function will be called in turn. This is an Ajax Event
         /// </summary>
-        public JsAction<XMLHttpRequest, JsString> complete { get; set; }
+        public JsAction<jqXHR, JsString> complete { get; set; }
         /// <summary>
         /// A map of string/regular-expression pairs that determine how jQuery will parse the response, given its content type.
         /// </summary>
@@ -2636,7 +2632,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// A function to be called if the request fails. The function receives three arguments: The jqXHR (in jQuery 1.4.x, XMLHttpRequest) object, a string describing the type of error that occurred and an optional exception object, if one occurred. Possible values for the second argument (besides null) are "timeout", "error", "abort", and "parsererror". When an HTTP error occurs, errorThrown receives the textual portion of the HTTP status, such as "Not Found" or "Internal Server Error." As of jQuery 1.5, the error setting can accept an array of functions. Each function will be called in turn. Note: This handler is not called for cross-domain script and JSONP requests. This is an Ajax Event.
         /// </summary>
-        public JsAction<XMLHttpRequest, JsString, JsError> error { get; set; }
+        public JsAction<jqXHR, JsString, JsError> error { get; set; }
         /// <summary>
         /// Default: true
         /// Whether to trigger global Ajax event handlers for this request. The default is true. Set to false to prevent the global handlers like ajaxStart or ajaxStop from being triggered. This can be used to control various Ajax Events
@@ -2699,7 +2695,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// A function to be called if the request succeeds. The function gets passed three arguments: The data returned from the server, formatted according to the dataType parameter; a string describing the status; and the jqXHR (in jQuery 1.4.x, XMLHttpRequest) object. As of jQuery 1.5, the success setting can accept an array of functions. Each function will be called in turn. This is an Ajax Event.
         /// </summary>
-        public JsAction<object, JsString, XMLHttpRequest> success { get; set; }
+        public JsAction<object, JsString, jqXHR> success { get; set; }
         /// <summary>
         /// Set a local timeout (in milliseconds) for the request. This will override the global timeout, if one is set with $.ajaxSetup(). For example, you could use this property to give a single request a longer timeout than all other requests that you've set to time out in one second. See $.ajaxSetup() for global timeouts. In jQuery 1.4.x and below, please note that the XMLHttpRequest object will be in an invalid state should the request time out. Where this is the case, accessing any object members may result in an exception being thrown. In jQuery 1.5.2 and above,$.ajax() does not handle JSONP requests as expected should the request fail due to a timeout in Firefox 3.0+. This is a browser-based issue due to FF currently not providing a way to abort cross-domain requests once the script tag has been appended. This issue does not currently affect other browsers.
         /// </summary>
@@ -2744,7 +2740,7 @@ namespace SharpKit.jQuery
     /// jQuery.Deferred(), introduced in version 1.5, is a chainable utility object that can register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.
     /// </summary>
     [JsType(JsMode.Prototype, Name = "jQuery.Deferred", Export=false)]
-    public partial class Deferred : jQueryPromise
+    public partial class Deferred : Promise
     {
         /// <summary>
         /// The jQuery.Deferred() constructor creates a new Deferred object. The new operator is optional.
@@ -2791,7 +2787,7 @@ namespace SharpKit.jQuery
         /// obj.done(function( name ) {obj.hello( name ); // will alert "Hello John"}).hello( "Karl" ); // will alert "Hello Karl"
         /// </code>
         /// </example>
-        public jQueryPromise promise(object target) { return null; }
+        public Promise promise(object target) { return null; }
         /// <summary>
         /// Reject a Deferred object and call any failCallbacks with the given args.
         /// <list type="bullet">
@@ -2866,7 +2862,7 @@ namespace SharpKit.jQuery
     /// This object provides a subset of the methods of the Deferred object (then, done, fail, always, pipe. isResolved, and isRejected) to prevent users from changing the state of the Deferred
     /// </summary>
     [JsType(JsMode.Prototype, Export=false)]
-    public partial class jQueryPromise
+    public partial class Promise
     {
 
         /// <summary>
@@ -2991,7 +2987,7 @@ namespace SharpKit.jQuery
         /// });        
         /// </code>
         /// </example>
-        public jQueryPromise pipe() { return null; }
+        public Promise pipe() { return null; }
         /// <summary>
         /// Utility method to filter and/or chain Deferreds.
         /// </summary>
@@ -3041,7 +3037,7 @@ namespace SharpKit.jQuery
         /// });        
         /// </code>
         /// </example>
-        public jQueryPromise pipe(JsAction doneFilter) { return null; }
+        public Promise pipe(JsAction doneFilter) { return null; }
         /// <summary>
         /// Utility method to filter and/or chain Deferreds.
         /// </summary>
@@ -3091,7 +3087,7 @@ namespace SharpKit.jQuery
         /// });        
         /// </code>
         /// </example>
-        public jQueryPromise pipe(JsAction doneFilter, JsAction failFilter) { return null; }
+        public Promise pipe(JsAction doneFilter, JsAction failFilter) { return null; }
         /// <summary>
         /// Utility method to filter and/or chain Deferreds.
         /// </summary>
@@ -3141,7 +3137,7 @@ namespace SharpKit.jQuery
         /// });        
         /// </code>
         /// </example>
-        public jQueryPromise pipe(JsFunc<object> doneFilter) { return null; }
+        public Promise pipe(JsFunc<object> doneFilter) { return null; }
         /// <summary>
         /// Utility method to filter and/or chain Deferreds.
         /// </summary>
@@ -3191,7 +3187,7 @@ namespace SharpKit.jQuery
         /// });        
         /// </code>
         /// </example>
-        public jQueryPromise pipe(JsFunc<object> doneFilter, JsFunc<object> failFilter) { return null; }
+        public Promise pipe(JsFunc<object> doneFilter, JsFunc<object> failFilter) { return null; }
         /// <summary>
         /// Add handlers to be called when the Deferred object is resolved or rejected.
         /// <list type="bullet">
@@ -3224,6 +3220,47 @@ namespace SharpKit.jQuery
     {
     }
 
+    [JsType(JsMode.Json)]
+    public class jqXHR
+    {
+        /// <summary>
+        /// Retrieves the response body as a string.
+        /// </summary>
+        public JsString responseText { get; private set; }
+        /// <summary>
+        /// Retrieves the current state of the request operation.
+        /// </summary>
+        public JsNumber readyState { get; private set; }
+        /// <summary>
+        /// Retrieves the HTTP status code of the request.
+        /// </summary>
+        public JsNumber status { get; private set; }
+        /// <summary>
+        /// Retrieves the friendly HTTP status of the request.
+        /// </summary>
+        public JsString statusText { get; private set; }
+        /// <summary>
+        /// Adds custom HTTP headers to the request which departs from the standard by replacing the old value with the new one rather than concatenating the new value to the old one
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public void setRequestHeader(string name, string value) { }
+        /// <summary>
+        /// Cancels the current HTTP request.
+        /// </summary>
+        public void abort() { }
+        /// <summary>
+        /// Retrieves all response headers in a single string
+        /// </summary>
+        /// <returns></returns>
+        public JsString getAllResponseHeaders() { return null; }
+        /// <summary>
+        /// Retrieves a response header value by name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public JsString getResponseHeader(string name) { return null; }
+    }
 
 }
 

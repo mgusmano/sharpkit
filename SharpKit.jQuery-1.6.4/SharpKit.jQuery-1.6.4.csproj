@@ -21,6 +21,7 @@
     <TargetFrameworkVersion Condition="'$(Configuration)' == 'v4.0'">v4.0</TargetFrameworkVersion>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="jquery-1.6.4.cs">
