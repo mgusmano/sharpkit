@@ -6,7 +6,7 @@ using SharpKit.JavaScript;
 using SharpKit.Html4;
 namespace SharpKit.jQuery
 {
-
+    #region jQuery
     [JsType(JsMode.Prototype, Export = false, Name = "$")]
     public partial class jQuery
     {
@@ -113,47 +113,47 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Object properties) { return null; }
+        public jQuery animate(object properties) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Object properties, Object options) { return null; }
+        public jQuery animate(object properties, object options) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Object properties, JsAction callback) { return null; }
+        public jQuery animate(object properties, JsAction callback) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Object properties, JsString easing) { return null; }
+        public jQuery animate(object properties, JsString easing) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Object properties, JsNumber duration) { return null; }
+        public jQuery animate(object properties, JsNumber duration) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Object properties, JsString duration, JsString easing) { return null; }
+        public jQuery animate(object properties, JsString duration, JsString easing) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Object properties, JsString easing, JsAction callback) { return null; }
+        public jQuery animate(object properties, JsString easing, JsAction callback) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Object properties, JsNumber duration, JsAction callback) { return null; }
+        public jQuery animate(object properties, JsNumber duration, JsAction callback) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Object properties, JsNumber duration, JsString easing) { return null; }
+        public jQuery animate(object properties, JsNumber duration, JsString easing) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Object properties, JsString duration, JsString easing, JsAction callback) { return null; }
+        public jQuery animate(object properties, JsString duration, JsString easing, JsAction callback) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Object properties, JsNumber duration, JsString easing, JsAction callback) { return null; }
+        public jQuery animate(object properties, JsNumber duration, JsString easing, JsAction callback) { return null; }
         /// <summary>
         /// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
         /// </summary>
@@ -189,7 +189,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Set one or more attributes for the set of matched elements.
         /// </summary>
-        public jQuery attr(Object map) { return null; }
+        public jQuery attr(object map) { return null; }
         /// <summary>
         /// Set one or more attributes for the set of matched elements.
         /// </summary>
@@ -335,7 +335,7 @@ namespace SharpKit.jQuery
         /// </param>
         /// <returns>
         /// </returns>
-        public jQuery closest(Object element) { return null; } // ask dan-el about the element type.
+        public jQuery closest(object element) { return null; } // ask dan-el about the element type.
         /// <summary>
         /// Get the children of each element in the set of matched elements, including text and comment nodes.
         /// </summary>
@@ -347,7 +347,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Set one or more CSS properties for the  set of matched elements.
         /// </summary>
-        public jQuery css(Object map) { return null; }
+        public jQuery css(object map) { return null; }
         /// <summary>
         /// Set one or more CSS properties for the  set of matched elements.
         /// </summary>
@@ -712,7 +712,7 @@ namespace SharpKit.jQuery
         /// </param>
         /// <returns>
         /// </returns>
-        public jQuery find(Object element) { return null; } // ask doni about the eeent type.
+        public jQuery find(object element) { return null; } // ask doni about the eeent type.
         /// <summary>
         /// Reduce the set of matched elements to the first in the set.
         /// </summary>
@@ -1998,7 +1998,7 @@ namespace SharpKit.jQuery
         /// </summary>
         public static bool isFunction(object obj) { return false; }
         /// <summary>
-        /// Check to see if an object is a plain object (created using "{}" or "new Object").
+        /// Check to see if an object is a plain object (created using "{}" or "new object").
         /// </summary>
         public static bool isPlainObject(object @object) { return false; }
         /// <summary>
@@ -2256,9 +2256,6 @@ namespace SharpKit.jQuery
         ///
         ///  // Note: Calling just $("#main").open() won't work as open doesn't exist!
         ///});        
-
-
-
         /// </code>
         /// </summary>
         public static jQuery sub { get; set; }
@@ -2292,17 +2289,8 @@ namespace SharpKit.jQuery
         public static Deferred Deferred(JsAction<Deferred> callback) { return null; }
     }
 
-    [JsType(JsMode.Json)]
-    public partial class jQueryBrowser
-    {
-        public bool webkit { get; set; }
-        public bool safari { get; set; }
-        public bool msie { get; set; }
-        public bool opera { get; set; }
-        public bool mozilla { get; set; }
-        public JsString version { get; set; }
-    }
-
+    #endregion
+    #region jQueryContext
     [JsType(JsMode.Global, Export = false)]
     public partial class jQueryContext : HtmlContext
     {
@@ -2362,6 +2350,9 @@ namespace SharpKit.jQuery
         [JsMethod(Name = "$")]
         public static jQuery J(JsString selector) { return null; }
     }
+
+    #endregion
+    #region jQueryContextBase
     [JsType(JsMode.Global, Export = false)]
     public partial class jQueryContextBase : HtmlContextBase
     {
@@ -2421,119 +2412,23 @@ namespace SharpKit.jQuery
         [JsMethod(Name = "$")]
         protected static jQuery J(JsString selector) { return null; }
     }
-    [JsType(JsMode.Json, Export = false)]
-    public partial class Event
+
+    #endregion
+    #region jQueryBrowser
+    [JsType(JsMode.Json)]
+    public partial class jQueryBrowser
     {
-        /// <summary>
-        /// Returns whether event.stopImmediatePropagation() was ever called on this event object.
-        /// </summary>
-        public bool isImmediatePropagationStopped() { return false; }
-        /// <summary>
-        /// Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree.
-        /// </summary>
-        public void stopImmediatePropagation() { }
-        /// <summary>
-        /// Returns whether event.stopPropagation() was ever called on this event object.
-        /// </summary>
-        public bool isPropagationStopped() { return false; }
-        /// <summary>
-        /// Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
-        /// </summary>
-        public void stopPropagation() { }
-        /// <summary>
-        /// Returns whether event.preventDefault() was ever called on this event object.
-        /// </summary>
-        public bool isDefaultPrevented() { return false; }
-        /// <summary>
-        /// If this method is called, the default action of the event will not be triggered.
-        /// </summary>
-        public void preventDefault() { }
-        /// <summary>
-        /// The namespace specified when the event was triggered.
-        /// </summary>
-        public JsString @namespace { get; set; }
-        /// <summary>
-        /// The difference in milliseconds between the time an event is triggered and January 1, 1970.
-        /// </summary>
-        public JsNumber timeStamp { get; set; }
-        /// <summary>
-        /// The last value returned by an event handler that was triggered by this event, unless the value was undefined.
-        /// </summary>
-        public object result { get; set; }
-        /// <summary>
-        /// For key or button events, this attribute indicates the specific button or key that was pressed.
-        /// </summary>
-        public JsNumber which { get; set; }
-        /// <summary>
-        /// The mouse position relative to the top edge of the document.
-        /// </summary>
-        public JsNumber pageY { get; set; }
-        /// <summary>
-        /// The mouse position relative to the left edge of the document.
-        /// </summary>
-        public JsNumber pageX { get; set; }
-        /// <summary>
-        /// The current DOM element within the event bubbling phase.
-        /// </summary>
-        public HtmlElement currentTarget { get; set; }
-        /// <summary>
-        /// The other DOM element involved in the event, if any.
-        /// </summary>
-        public HtmlElement relatedTarget { get; set; }
-        /// <summary>
-        /// The optional data passed to jQuery.fn.bind when the current executing handler was bound.
-        /// </summary>
-        public object data { get; set; }
-        /// <summary>
-        /// The DOM element that initiated the event.
-        /// </summary>
-        public HtmlElement target { get; set; }
-        /// <summary>
-        /// Describes the nature of the event.
-        /// </summary>
-        public JsString type { get; set; }
-        /// <summary>
-        /// Certain native events may have special properties that can be accessed as properties of the event.originalEvent object. To make special properties available in all event objects, we can add them to the jQuery.event.props array.
-        /// </summary>
-        public HtmlDomEventArgs originalEvent { get; set; }
-
-        public JsBoolean altKey { get; set; }
-        public object attrChange { get; set; }
-        public JsString attrName { get; set; }
-
-        public JsBoolean bubbles { get; set; }
-        public object button { get; set; }
-        public JsBoolean cancelable { get; set; }
-        public JsNumber charCode { get; set; }
-        public JsNumber clientX { get; set; }
-        public JsNumber clientY { get; set; }
-        public JsBoolean ctrlKey { get; set; }
-
-        public object detail { get; set; }
-        public JsString eventPhase { get; set; }
-        public HtmlElement fromElement { get; set; }
-        public object handler { get; set; }
-        public JsNumber keyCode { get; set; }
-        public JsNumber layerX { get; set; }
-        public JsNumber layerY { get; set; }
-        public object metaKey { get; set; }
-        public object newValue { get; set; }
-        public JsNumber offsetX { get; set; }
-        public JsNumber offsetY { get; set; }
-        public object originalTarget { get; set; }
-        public object prevValue { get; set; }
-        public object relatedNode { get; set; }
-
-        public JsNumber screenX { get; set; }
-        public JsNumber screenY { get; set; }
-        public JsBoolean shiftKey { get; set; }
-        public HtmlElement srcElement { get; set; }
-
-        public HtmlElement toElement { get; set; }
-        public object view { get; set; }
-        public JsNumber wheelDelta { get; set; }
-
+        public bool webkit { get; set; }
+        public bool safari { get; set; }
+        public bool msie { get; set; }
+        public bool opera { get; set; }
+        public bool mozilla { get; set; }
+        public JsString version { get; set; }
     }
+
+    #endregion
+    #region jQueryFx
+
     [JsType(JsMode.Json, Export = false)]
     public partial class jQueryFx
     {
@@ -2547,15 +2442,52 @@ namespace SharpKit.jQuery
         public bool off { get; set; }
     }
 
-
+    #endregion
+    #region jqXHR
 
     [JsType(JsMode.Json)]
-    public partial class TopLeft
+    public class jqXHR
     {
-        public JsNumber top { get; set; }
-        public JsNumber left { get; set; }
+        /// <summary>
+        /// Retrieves the response body as a string.
+        /// </summary>
+        public JsString responseText { get; private set; }
+        /// <summary>
+        /// Retrieves the current state of the request operation.
+        /// </summary>
+        public JsNumber readyState { get; private set; }
+        /// <summary>
+        /// Retrieves the HTTP status code of the request.
+        /// </summary>
+        public JsNumber status { get; private set; }
+        /// <summary>
+        /// Retrieves the friendly HTTP status of the request.
+        /// </summary>
+        public JsString statusText { get; private set; }
+        /// <summary>
+        /// Adds custom HTTP headers to the request which departs from the standard by replacing the old value with the new one rather than concatenating the new value to the old one
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public void setRequestHeader(string name, string value) { }
+        /// <summary>
+        /// Cancels the current HTTP request.
+        /// </summary>
+        public void abort() { }
+        /// <summary>
+        /// Retrieves all response headers in a single string
+        /// </summary>
+        /// <returns></returns>
+        public JsString getAllResponseHeaders() { return null; }
+        /// <summary>
+        /// Retrieves a response header value by name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public JsString getResponseHeader(string name) { return null; }
     }
-
+    #endregion
+    #region AjaxSettings
 
     [JsType(JsMode.Json)]
     public partial class AjaxSettings
@@ -2571,7 +2503,7 @@ namespace SharpKit.jQuery
         /// </summary>
         public bool async { get; set; }
         /// <summary>
-        /// Data to be sent to the server. It is converted to a query string, if not already a string. It's appended to the url for GET-requests. See processData option to prevent this automatic processing. Object must be Key/Value pairs. If value is an Array, jQuery serializes multiple values with same key based on the value of the traditional setting (described below).
+        /// Data to be sent to the server. It is converted to a query string, if not already a string. It's appended to the url for GET-requests. See processData option to prevent this automatic processing. object must be Key/Value pairs. If value is an Array, jQuery serializes multiple values with same key based on the value of the traditional setting (described below).
         /// </summary>
         public object data { get; set; }
         /// <summary>
@@ -2736,6 +2668,154 @@ namespace SharpKit.jQuery
         /// </example>
         public object xhrFields { get; set; }
     }
+    #endregion
+    #region Event
+    [JsType(JsMode.Json, Export = false)]
+    public partial class Event
+    {
+        /// <summary>
+        /// Returns whether event.stopImmediatePropagation() was ever called on this event object.
+        /// </summary>
+        public bool isImmediatePropagationStopped() { return false; }
+        /// <summary>
+        /// Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree.
+        /// </summary>
+        public void stopImmediatePropagation() { }
+        /// <summary>
+        /// Returns whether event.stopPropagation() was ever called on this event object.
+        /// </summary>
+        public bool isPropagationStopped() { return false; }
+        /// <summary>
+        /// Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
+        /// </summary>
+        public void stopPropagation() { }
+        /// <summary>
+        /// Returns whether event.preventDefault() was ever called on this event object.
+        /// </summary>
+        public bool isDefaultPrevented() { return false; }
+        /// <summary>
+        /// If this method is called, the default action of the event will not be triggered.
+        /// </summary>
+        public void preventDefault() { }
+        /// <summary>
+        /// The namespace specified when the event was triggered.
+        /// </summary>
+        public JsString @namespace { get; set; }
+        /// <summary>
+        /// The difference in milliseconds between the time an event is triggered and January 1, 1970.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+        /// <summary>
+        /// The last value returned by an event handler that was triggered by this event, unless the value was undefined.
+        /// </summary>
+        public object result { get; set; }
+        /// <summary>
+        /// For key or button events, this attribute indicates the specific button or key that was pressed.
+        /// </summary>
+        public JsNumber which { get; set; }
+        /// <summary>
+        /// The mouse position relative to the top edge of the document.
+        /// </summary>
+        public JsNumber pageY { get; set; }
+        /// <summary>
+        /// The mouse position relative to the left edge of the document.
+        /// </summary>
+        public JsNumber pageX { get; set; }
+        /// <summary>
+        /// The current DOM element within the event bubbling phase.
+        /// </summary>
+        public HtmlElement currentTarget { get; set; }
+        /// <summary>
+        /// The other DOM element involved in the event, if any.
+        /// </summary>
+        public HtmlElement relatedTarget { get; set; }
+        /// <summary>
+        /// The optional data passed to jQuery.fn.bind when the current executing handler was bound.
+        /// </summary>
+        public object data { get; set; }
+        /// <summary>
+        /// The DOM element that initiated the event.
+        /// </summary>
+        public HtmlElement target { get; set; }
+        /// <summary>
+        /// Describes the nature of the event.
+        /// </summary>
+        public JsString type { get; set; }
+        /// <summary>
+        /// Certain native events may have special properties that can be accessed as properties of the event.originalEvent object. To make special properties available in all event objects, we can add them to the jQuery.event.props array.
+        /// </summary>
+        public HtmlDomEventArgs originalEvent { get; set; }
+
+        public JsBoolean altKey { get; set; }
+        public object attrChange { get; set; }
+        public JsString attrName { get; set; }
+
+        public JsBoolean bubbles { get; set; }
+        public object button { get; set; }
+        public JsBoolean cancelable { get; set; }
+        public JsNumber charCode { get; set; }
+        public JsNumber clientX { get; set; }
+        public JsNumber clientY { get; set; }
+        public JsBoolean ctrlKey { get; set; }
+
+        public object detail { get; set; }
+        public JsString eventPhase { get; set; }
+        public HtmlElement fromElement { get; set; }
+        public object handler { get; set; }
+        public JsNumber keyCode { get; set; }
+        public JsNumber layerX { get; set; }
+        public JsNumber layerY { get; set; }
+        public object metaKey { get; set; }
+        public object newValue { get; set; }
+        public JsNumber offsetX { get; set; }
+        public JsNumber offsetY { get; set; }
+        public object originalTarget { get; set; }
+        public object prevValue { get; set; }
+        public object relatedNode { get; set; }
+
+        public JsNumber screenX { get; set; }
+        public JsNumber screenY { get; set; }
+        public JsBoolean shiftKey { get; set; }
+        public HtmlElement srcElement { get; set; }
+
+        public HtmlElement toElement { get; set; }
+        public object view { get; set; }
+        public JsNumber wheelDelta { get; set; }
+
+    }
+    #endregion
+    #region EventsMap
+
+
+    [JsType(JsMode.Json)]
+    public class EventsMap
+    {
+        //Keyboard Events
+        public JsAction<Event> focusin { get; set; }
+        public JsAction<Event> focusout { get; set; }
+        public JsAction<Event> keydown { get; set; }
+        public JsAction<Event> keypress { get; set; }
+        public JsAction<Event> keyup { get; set; }
+        //Mouse Events
+        public JsAction<Event> click { get; set; }
+        public JsAction<Event> dblclick { get; set; }
+        public JsAction<Event> hover { get; set; }
+        public JsAction<Event> mousedown { get; set; }
+        public JsAction<Event> mouseenter { get; set; }
+        public JsAction<Event> mouseleave { get; set; }
+        public JsAction<Event> mousemove { get; set; }
+        public JsAction<Event> mouseout { get; set; }
+        public JsAction<Event> mouseover { get; set; }
+        public JsAction<Event> mouseup { get; set; }
+        public JsAction<Event> toggle { get; set; }
+        //browser events
+        public JsAction<Event> error { get; set; }
+        public JsAction<Event> resize { get; set; }
+        public JsAction<Event> scroll { get; set; }
+    }
+    #endregion
+    #region Deferred
+
     /// <summary>
     /// jQuery.Deferred(), introduced in version 1.5, is a chainable utility object that can register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.
     /// </summary>
@@ -2858,6 +2938,9 @@ namespace SharpKit.jQuery
 
 
     }
+    #endregion
+    #region Promise
+
     /// <summary>
     /// This object provides a subset of the methods of the Deferred object (then, done, fail, always, pipe. isResolved, and isRejected) to prevent users from changing the state of the Deferred
     /// </summary>
@@ -2941,12 +3024,6 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Utility method to filter and/or chain Deferreds.
         /// </summary>
-        /// <param name="doneFilter">
-        /// doneFilter An optional function that is called when the Deferred is resolved.
-        /// </param>
-        /// <param name="failFilter">
-        /// failFilter An optional function that is called when the Deferred is rejected.
-        /// </param>
         /// <returns>
         /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
         /// </returns>
@@ -2993,9 +3070,6 @@ namespace SharpKit.jQuery
         /// </summary>
         /// <param name="doneFilter">
         /// doneFilter An optional function that is called when the Deferred is resolved.
-        /// </param>
-        /// <param name="failFilter">
-        /// failFilter An optional function that is called when the Deferred is rejected.
         /// </param>
         /// <returns>
         /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
@@ -3093,9 +3167,6 @@ namespace SharpKit.jQuery
         /// </summary>
         /// <param name="doneFilter">
         /// doneFilter An optional function that is called when the Deferred is resolved.
-        /// </param>
-        /// <param name="failFilter">
-        /// failFilter An optional function that is called when the Deferred is rejected.
         /// </param>
         /// <returns>
         /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
@@ -3212,6 +3283,17 @@ namespace SharpKit.jQuery
         public Deferred then(JsAction doneCallbacks, JsAction failCallbacks) { return null; }
 
     }
+    #endregion
+    #region TopLeft
+    [JsType(JsMode.Json)]
+    public partial class TopLeft
+    {
+        public JsNumber top { get; set; }
+        public JsNumber left { get; set; }
+    }
+
+    #endregion
+    #region NamespaceDoc
 
     /// <summary>
     /// SharpKit.jQuery namespace contains all jQuery core framework APIs
@@ -3219,75 +3301,6 @@ namespace SharpKit.jQuery
     class NamespaceDoc
     {
     }
-
-    [JsType(JsMode.Json)]
-    public class jqXHR
-    {
-        /// <summary>
-        /// Retrieves the response body as a string.
-        /// </summary>
-        public JsString responseText { get; private set; }
-        /// <summary>
-        /// Retrieves the current state of the request operation.
-        /// </summary>
-        public JsNumber readyState { get; private set; }
-        /// <summary>
-        /// Retrieves the HTTP status code of the request.
-        /// </summary>
-        public JsNumber status { get; private set; }
-        /// <summary>
-        /// Retrieves the friendly HTTP status of the request.
-        /// </summary>
-        public JsString statusText { get; private set; }
-        /// <summary>
-        /// Adds custom HTTP headers to the request which departs from the standard by replacing the old value with the new one rather than concatenating the new value to the old one
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
-        public void setRequestHeader(string name, string value) { }
-        /// <summary>
-        /// Cancels the current HTTP request.
-        /// </summary>
-        public void abort() { }
-        /// <summary>
-        /// Retrieves all response headers in a single string
-        /// </summary>
-        /// <returns></returns>
-        public JsString getAllResponseHeaders() { return null; }
-        /// <summary>
-        /// Retrieves a response header value by name
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        public JsString getResponseHeader(string name) { return null; }
-    }
-
-
-    [JsType(JsMode.Json)]
-    public class EventsMap
-    {
-        //Keyboard Events
-        public JsAction<Event> focusin { get; set; }
-        public JsAction<Event> focusout { get; set; }
-        public JsAction<Event> keydown { get; set; }
-        public JsAction<Event> keypress { get; set; }
-        public JsAction<Event> keyup { get; set; }
-        //Mouse Events
-        public JsAction<Event> click { get; set; }
-        public JsAction<Event> dblclick { get; set; }
-        public JsAction<Event> hover { get; set; }
-        public JsAction<Event> mousedown { get; set; }
-        public JsAction<Event> mouseenter { get; set; }
-        public JsAction<Event> mouseleave { get; set; }
-        public JsAction<Event> mousemove { get; set; }
-        public JsAction<Event> mouseout { get; set; }
-        public JsAction<Event> mouseover { get; set; }
-        public JsAction<Event> mouseup { get; set; }
-        public JsAction<Event> toggle { get; set; }
-        //browser events
-        public JsAction<Event> error { get; set; }
-        public JsAction<Event> resize { get; set; }
-        public JsAction<Event> scroll { get; set; }
-    }
+    #endregion
 }
 
