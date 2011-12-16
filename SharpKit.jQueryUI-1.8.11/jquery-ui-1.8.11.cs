@@ -2026,7 +2026,61 @@ namespace SharpKit.jQuery
         public object duration { get; set; }
     }
     #endregion
+    #region Position
 
+    ///<summary>
+    ///[edit]hide( effect, [options], [speed], [callback] )
+    ///The enhanced hide method optionally accepts jQuery UI advanced effects.
+    ///Uses a specific effect on an element to hide the element if the first argument is an effect string.
+    ///</summary>
+    public static partial class PositionExtension
+    {
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery position(this jQuery query, PositionOptions options) { return default(jQuery); }
+    }
+
+    ///<summary>
+    ///Options JSON object for Position
+    ///</summary>
+    [JsType(JsMode.Json)]
+    public partial class PositionOptions
+    {
+        ///<summary>
+        ///Defines which position on the element being positioned to align with the target element: "horizontal vertical" alignment. A single value such as "right" will default to "right center", "top" will default to "center top" (following CSS convention). 
+        /// Acceptable values: "top", "center", "bottom", "left", "right". 
+        /// Example: "left top" or "center center
+        ///</summary>
+        public string my { get; set; }
+        ///<summary>
+        ///Defines which position on the target element to align the positioned element against: "horizontal vertical" alignment. A single value such as "right" will default to "right center", "top" will default to "center top" (following CSS convention). 
+        ///Acceptable values: "top", "center", "bottom", "left", "right". 
+        /// Example: "left top" or "center center"
+        ///</summary>
+        public string at { get; set; }
+        ///<summary>
+        ///Element to position against. If you provide a selector, the first matching element will be used. If you provide a jQuery object, the first element will be used. If you provide an event object, the pageX and pageY properties will be used. 
+        /// Example: "#top-menu
+        ///Types: Selector, Element, jQuery, Event
+        ///</summary>
+        public object of { get; set; }
+        ///<summary>
+        ///Add these left-top values to the calculated position, eg. "50 50" (left top) A single value such as "50" will apply to both.
+        ///</summary>
+        public string offset { get; set; }
+        /// <summary>
+        /// When the positioned element overflows the window in some direction, move it to an alternative position. Similar to my and at, this accepts a single value or a pair for horizontal/vertical, eg. "flip", "fit", "fit flip", "fit none".
+        /// Acceptable values: "flip", "fit", "none".
+        /// flip: to the opposite side and the collision detection is run again to see if it will fit. If it won't fit in either position, the center option should be used as a fall back. 
+        /// fit: so the element keeps in the desired direction, but is re-positioned so it fits. 
+        /// none: not do collision detection.
+        /// </summary>
+        public string collision { get; set; }
+        /// <summary>
+        /// When specified the actual property setting is delegated to this callback. Receives a single parameter which is a hash of top and left values for the position that should be set.
+        /// </summary>
+        public JsAction<object> @using { get; set; }
+    }
+    #endregion
     [JsDelegate(NativeDelegates = true)]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void jQueryUIEvent(Event e, object ui);
