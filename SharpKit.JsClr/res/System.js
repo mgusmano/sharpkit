@@ -2284,10 +2284,6 @@ JsTypes.push({fullname:"System.Boolean", baseTypeName:"System.ValueType",definit
 JsTypes.push({fullname:"System.Int32", baseTypeName:"System.ValueType",definition:
 {
     ctor: Number,
-    toString: function()
-    {
-        return String(Number(this));
-    },
     toString:Number.prototype.toString //avoid toString override by compiler (toString(radix) won't work if overriden)
 }, staticDefinition:
 {
