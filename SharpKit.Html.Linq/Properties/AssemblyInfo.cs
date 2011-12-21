@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using SharpKit.JavaScript;
@@ -34,5 +34,5 @@ using SharpKit.JavaScript;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("4.23.5000")]
 [assembly: JsMergedFile(Filename="res/SharpKit.Html.Linq.min.js", Sources=new string[]{"res/SharpKit.Html.Linq.js"}, Minify=true)]

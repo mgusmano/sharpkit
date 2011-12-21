@@ -33,7 +33,7 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.5.0.0")]
-[assembly: AssemblyFileVersion("4.23.4000")]
+[assembly: AssemblyFileVersion("4.23.5000")]
 
 /// <summary>
 /// SharpKit core assembly, contains all needed attributes and types required to use SharpKit
