@@ -395,6 +395,20 @@ JsTypes.push({fullname:"System.Decimal", baseTypeName:"System.ValueType",definit
         return parseFloat(s);
     }
 }});
+
+JsTypes.push({ fullname: "System.Double", baseTypeName: "System.ValueType", definition:
+{
+    ctor: function (x) { return new Number(x); }
+}, 
+staticDefinition:
+{
+    tryParse: function (s) 
+    {
+        return parseFloat(s);
+    }
+}
+});
+
 String.prototype._toString = String.prototype.toString;
 JsTypes.push({fullname:"System.String", baseTypeName:"System.Object", definition:
 {
