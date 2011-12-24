@@ -167,7 +167,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "BODY")]
     public partial class HtmlBody : HtmlElement
     {
-        protected HtmlBody() { }
         ///<summary>
         ///Creates a TextRange object for the element
         ///</summary>
@@ -219,7 +218,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "BR")]
     public partial class HtmlBr : HtmlElement
     {
-        protected HtmlBr() { }
     }
     #endregion
     #region HtmlButton
@@ -521,7 +519,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "DIV")]
     public partial class HtmlDiv : HtmlElement
     {
-        protected HtmlDiv() { }
         ///<summary>
         ///Sets or retrieves a field of a given data source, as specified by the dataSrc property, to bind to the specified object.
         ///</summary>
@@ -976,7 +973,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "DOCUMENTFRAGMENT")]
     public partial class HtmlDocumentFragment : HtmlElement
     {
-        protected HtmlDocumentFragment() { }
     }
     #endregion
     #region HtmlDomEventArgs
@@ -1374,6 +1370,8 @@ namespace SharpKit.Html4
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10, "Konqueror ignores comment nodes.")]
         public HtmlNodeCollection childNodes { get; set; }
+        [JsProperty(NativeField=true, Name="")]
+        public HtmlNodeToAppend AppendChilds { get; set; }
         ///<summary>
         ///Sets or retrieves advisory information (a ToolTip) for the object. 
         ///</summary>
@@ -2682,7 +2680,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "HEAD")]
     public partial class HtmlHead : HtmlElement
     {
-        protected HtmlHead() { }
     }
     #endregion
     #region HtmlHeadingElement
@@ -2702,7 +2699,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "HR")]
     public partial class HtmlHorizontalRule : HtmlElement
     {
-        protected HtmlHorizontalRule() { }
         public JsString align { get; set; }
         public JsString color { get; set; }
         public JsBoolean noShade { get; set; }
@@ -2726,7 +2722,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "IFRAME")]
     public partial class HtmlIFrame : HtmlElement
     {
-        protected HtmlIFrame() { }
         public JsString readyState
         {
             get;
@@ -2943,7 +2938,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "INPUT")]
     public partial class HtmlInputCheckBox : HtmlInput
     {
-        protected HtmlInputCheckBox() { }
     }
     #endregion
     #region HtmlInput
@@ -3134,7 +3128,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "BR")]
     public partial class HtmlLineBreak : HtmlElement
     {
-        protected HtmlLineBreak() { }
     }
     #endregion
     #region HtmlLink
@@ -3144,7 +3137,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "LINK")]
     public partial class HtmlLink : HtmlElement
     {
-        protected HtmlLink() { }
         ///<summary>
         ///Sets or retrieves the destination URL or anchor point.
         ///</summary>
@@ -3448,7 +3440,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "P")]
     public partial class HtmlParagraph : HtmlDiv
     {
-        protected HtmlParagraph() { }
         /// <summary>
         /// Sets or retrieves the side on which floating objects are not to be positioned when any IHTMLBlockElement is inserted into the document.
         /// Possible Values:
@@ -3467,7 +3458,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "PRE")]
     public partial class HtmlPre : HtmlElement
     {
-        protected HtmlPre() { }
     }
     #endregion
     #region HtmlQuoteElement
@@ -3665,7 +3655,6 @@ namespace SharpKit.Html4
         ///Sets or retrieves the source of the data for data binding.
         ///</summary>
         public JsString dataSrc { get; set; }
-        protected HtmlSpan() { }
     }
     #endregion
     #region HtmlStyleElement
@@ -3675,7 +3664,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "STYLE")]
     public partial class HtmlStyleElement : HtmlElement
     {
-        protected HtmlStyleElement() { }
         ///<summary>
         ///Sets or retrieves the MIME type of the object. e.g. 'text/css'
         ///</summary>
@@ -4083,7 +4071,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "TD")]
     public partial class HtmlTableCell : HtmlElement
     {
-        protected HtmlTableCell() { }
         ///<summary>
         ///Sets or retrieves abbreviated text for the object.
         ///</summary>
@@ -4183,7 +4170,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "COL")]
     public partial class HtmlTableCol : HtmlElement
     {
-        protected HtmlTableCol() { }
         ///<summary>
         ///Sets or retrieves the width of the object.
         ///</summary>
@@ -4234,7 +4220,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "COLGROUP")]
     public partial class HtmlTableColGroup : HtmlElement
     {
-        protected HtmlTableColGroup() { }
         ///<summary>
         ///String that specifies or receives one of the following values.
         ///</summary>
@@ -4256,7 +4241,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "TFOOT")]
     public partial class HtmlTableFoot : HtmlTableBody
     {
-        protected HtmlTableFoot() { }
     }
     #endregion
     #region HtmlTableHead
@@ -4266,7 +4250,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "THEAD")]
     public partial class HtmlTableHead : HtmlTableBody
     {
-        protected HtmlTableHead() { }
     }
     #endregion
     #region HtmlTableHeadCell
@@ -4276,7 +4259,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "TH")]
     public partial class HtmlTableHeadCell : HtmlTableCell
     {
-        protected HtmlTableHeadCell() { }
     }
     #endregion
     #region HtmlTableRow
@@ -4286,7 +4268,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "TR")]
     public partial class HtmlTableRow : HtmlElement
     {
-        protected HtmlTableRow() { }
         public HtmlNodeCollection<HtmlTableCell> cells { get; set; }
         ///<summary>
         ///Creates a new cell in the table row (tr), and adds the cell to the cells collection. 
@@ -4836,7 +4817,6 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false, Name = "TITLE")]
     public partial class HtmlTitle : HtmlElement
     {
-        protected HtmlTitle() { }
     }
     #endregion
     #region HtmlUnorderedList
@@ -5387,11 +5367,37 @@ namespace SharpKit.Html4
     ///<summary>
     ///Represents a collection of HtmlNode objects
     ///</summary>
-    [JsType(JsMode.Json, Export = false, Name = "NODECOLLECTION")]
+    [JsType(JsMode.Json, Export = false)]
     public partial class HtmlNodeCollection : HtmlNodeCollection<HtmlNode>
     {
     }
+    /// <summary>
+    /// A phantom class designed to allow collection initializer support in native html elements
+    /// example:
+    /// var div = new HtmlDiv { AppendChilds = { new HtmlDiv { InnerText="Hello" } } };
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public partial class HtmlNodeToAppend : IEnumerable<HtmlNode>
+    {
+        [JsMethod(Name="appendChild")]
+        public void Add(HtmlNode node)
+        {
+        }
 
+        #region IEnumerable<HtmlNode> Members
+
+        IEnumerator<HtmlNode> IEnumerable<HtmlNode>.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+    }
     ///<summary>
     ///Represents a generic collection of HtmlNode objects
     ///</summary>
@@ -5552,6 +5558,358 @@ namespace SharpKit.Html4
 
     #endregion
 
+    #region Constructors
+
+partial class ActiveXObject
+    {
+        [JsMethod(Name = "document.createElement('ActiveXObject')", OmitParanthesis = true, OmitNewOperator = true)]
+        public ActiveXObject() { }
+    }
+    partial class HtmlAnchor
+    {
+        [JsMethod(Name = "document.createElement('A')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlAnchor() { }
+    }
+    partial class HtmlAttribute
+    {
+        [JsMethod(Name = "document.createElement('ATTRIBUTE')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlAttribute() { }
+    }
+    partial class HtmlBody
+    {
+        [JsMethod(Name = "document.createElement('BODY')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlBody() { }
+    }
+    partial class HtmlBr
+    {
+        [JsMethod(Name = "document.createElement('BR')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlBr() { }
+    }
+    partial class HtmlButton
+    {
+        [JsMethod(Name = "document.createElement('BUTTON')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlButton() { }
+    }
+    partial class HtmlCaption
+    {
+        [JsMethod(Name = "document.createElement('CAPTION')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlCaption() { }
+    }
+    partial class HtmlClipboardData
+    {
+        [JsMethod(Name = "document.createElement('CLIPBOARDDATA')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlClipboardData() { }
+    }
+    partial class HtmlCssRule
+    {
+        [JsMethod(Name = "document.createElement('CSSRULE')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlCssRule() { }
+    }
+    partial class HtmlDiv
+    {
+        [JsMethod(Name = "document.createElement('DIV')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlDiv() { }
+    }
+    partial class HtmlDocument
+    {
+        [JsMethod(Name = "document.createElement('DOCUMENT')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlDocument() { }
+    }
+    partial class HtmlDocumentElement
+    {
+        [JsMethod(Name = "document.createElement('HTML')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlDocumentElement() { }
+    }
+    partial class HtmlDocumentFragment
+    {
+        [JsMethod(Name = "document.createDocumentFragment", OmitNewOperator = true)]
+        public HtmlDocumentFragment() { }
+    }
+    partial class HtmlEmbedElement
+    {
+        [JsMethod(Name = "document.createElement('EMBED')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlEmbedElement() { }
+    }
+    partial class HtmlFieldSet
+    {
+        [JsMethod(Name = "document.createElement('FIELDSET')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlFieldSet() { }
+    }
+    partial class HtmlForm
+    {
+        [JsMethod(Name = "document.createElement('FORM')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlForm() { }
+    }
+    partial class HtmlFrameElement
+    {
+        [JsMethod(Name = "document.createElement('FRAME')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlFrameElement() { }
+    }
+    partial class HtmlFrameSetElement
+    {
+        [JsMethod(Name = "document.createElement('FRAMESET')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlFrameSetElement() { }
+    }
+    partial class HtmlHead
+    {
+        [JsMethod(Name = "document.createElement('HEAD')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlHead() { }
+    }
+    partial class HtmlHorizontalRule
+    {
+        [JsMethod(Name = "document.createElement('HR')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlHorizontalRule() { }
+    }
+    partial class HtmlIFrame
+    {
+        [JsMethod(Name = "document.createElement('IFRAME')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlIFrame() { }
+    }
+    partial class HtmlInput
+    {
+        [JsMethod(Name = "document.createElement('INPUT')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlInput() { }
+    }
+    public partial class HtmlInputText : HtmlInput
+    {
+        [JsMethod(Name = "document.createElement('INPUT')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlInputText() { }
+    }
+    partial class HtmlInputCheckBox
+    {
+        [JsMethod(Name = "function(){var x = document.createElement('INPUT');x.type = 'checkbox';return x;}()", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlInputCheckBox() { }
+    }
+    public partial class HtmlInputPassword : HtmlInput
+    {
+        [JsMethod(Name = "function(){var x = document.createElement('INPUT');x.type = 'password';return x;}()", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlInputPassword() { }
+    }
+    public partial class HtmlInputImage : HtmlInput
+    {
+        [JsMethod(Name = "function(){var x = document.createElement('INPUT');x.type = 'image';return x;}()", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlInputImage() { }
+    }
+    public partial class HtmlInputRadio : HtmlInput
+    {
+        [JsMethod(Name = "function(){var x = document.createElement('INPUT');x.type = 'radio';return x;}()", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlInputRadio() { }
+    }
+    public partial class HtmlInputFile : HtmlInput
+    {
+        [JsMethod(Name = "function(){var x = document.createElement('INPUT');x.type = 'file';return x;}()", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlInputFile() { }
+    }
+    public partial class HtmlInputSubmit : HtmlInput
+    {
+        [JsMethod(Name = "function(){var x = document.createElement('INPUT');x.type = 'submit';return x;}()", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlInputSubmit() { }
+    }
+    public partial class HtmlInputReset : HtmlInput
+    {
+        [JsMethod(Name = "function(){var x = document.createElement('INPUT');x.type = 'reset';return x;}()", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlInputReset() { }
+    }
+    public partial class HtmlInputHidden : HtmlInput
+    {
+        [JsMethod(Name = "function(){var x = document.createElement('INPUT');x.type = 'hidden';return x;}()", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlInputHidden() { }
+    }
+    public partial class HtmlInputButton : HtmlInput
+    {
+        [JsMethod(Name = "function(){var x = document.createElement('INPUT');x.type = 'button';return x;}()", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlInputButton() { }
+    }
+    partial class HtmlLegend
+    {
+        [JsMethod(Name = "document.createElement('LEGEND')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlLegend() { }
+    }
+    partial class HtmlLineBreak
+    {
+        [JsMethod(Name = "document.createElement('BR')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlLineBreak() { }
+    }
+    partial class HtmlLink
+    {
+        [JsMethod(Name = "document.createElement('LINK')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlLink() { }
+    }
+    partial class HtmlListItem
+    {
+        [JsMethod(Name = "document.createElement('LI')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlListItem() { }
+    }
+    partial class HtmlMarqueeElement
+    {
+        [JsMethod(Name = "document.createElement('MARQUEE')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlMarqueeElement() { }
+    }
+    partial class HtmlObjectElement
+    {
+        [JsMethod(Name = "document.createElement('OBJECT')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlObjectElement() { }
+    }
+    partial class HtmlOrderedList
+    {
+        [JsMethod(Name = "document.createElement('OL')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlOrderedList() { }
+    }
+    partial class HtmlParagraph
+    {
+        [JsMethod(Name = "document.createElement('P')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlParagraph() { }
+    }
+    partial class HtmlPre
+    {
+        [JsMethod(Name = "document.createElement('PRE')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlPre() { }
+    }
+    partial class HtmlScreen
+    {
+        [JsMethod(Name = "document.createElement('SCREEN')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlScreen() { }
+    }
+    partial class HtmlScript
+    {
+        [JsMethod(Name = "document.createElement('SCRIPT')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlScript() { }
+    }
+    partial class HtmlScriptElement
+    {
+        [JsMethod(Name = "document.createElement('SCRIPT')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlScriptElement() { }
+    }
+    partial class HtmlSelect
+    {
+        [JsMethod(Name = "document.createElement('SELECT')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlSelect() { }
+    }
+    partial class HtmlSelection
+    {
+        [JsMethod(Name = "document.createElement('SELECTION')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlSelection() { }
+    }
+    partial class HtmlSpan
+    {
+        [JsMethod(Name = "document.createElement('SPAN')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlSpan() { }
+    }
+    partial class HtmlStyleElement
+    {
+        [JsMethod(Name = "document.createElement('STYLE')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlStyleElement() { }
+    }
+    partial class HtmlStyleSheetPage
+    {
+        [JsMethod(Name = "document.createElement('STYLESHEETPAGE')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlStyleSheetPage() { }
+    }
+    partial class HtmlTable
+    {
+        [JsMethod(Name = "document.createElement('TABLE')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTable() { }
+    }
+    partial class HtmlTableBody
+    {
+        [JsMethod(Name = "document.createElement('TBODY')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTableBody() { }
+    }
+    partial class HtmlTableCell
+    {
+        [JsMethod(Name = "document.createElement('TD')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTableCell() { }
+    }
+    partial class HtmlTableCol
+    {
+        [JsMethod(Name = "document.createElement('COL')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTableCol() { }
+    }
+    partial class HtmlTableColGroup
+    {
+        [JsMethod(Name = "document.createElement('COLGROUP')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTableColGroup() { }
+    }
+    partial class HtmlTableFoot
+    {
+        [JsMethod(Name = "document.createElement('TFOOT')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTableFoot() { }
+    }
+    partial class HtmlTableHead
+    {
+        [JsMethod(Name = "document.createElement('THEAD')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTableHead() { }
+    }
+    partial class HtmlTableHeadCell
+    {
+        [JsMethod(Name = "document.createElement('TH')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTableHeadCell() { }
+    }
+    partial class HtmlTableRow
+    {
+        [JsMethod(Name = "document.createElement('TR')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTableRow() { }
+    }
+    partial class HtmlTextArea
+    {
+        [JsMethod(Name = "document.createElement('TEXTAREA')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTextArea() { }
+    }
+    partial class HtmlTextNode
+    {
+        [JsMethod(Name = "document.createTextNode", OmitNewOperator = true)]
+        public HtmlTextNode(JsString s)
+        {
+        }
+    }
+    partial class HtmlTextRange
+    {
+        [JsMethod(Name = "document.createElement('TEXTRANGE')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTextRange() { }
+    }
+    partial class HtmlTextRectangle
+    {
+        [JsMethod(Name = "document.createElement('TEXTRECTANGLE')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTextRectangle() { }
+    }
+    partial class HtmlTextRectangleCollection
+    {
+        [JsMethod(Name = "document.createElement('TEXTRECTANGLECOLLECTION')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTextRectangleCollection() { }
+    }
+    partial class HtmlTitle
+    {
+        [JsMethod(Name = "document.createElement('TITLE')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlTitle() { }
+    }
+    partial class HtmlUnorderedList
+    {
+        [JsMethod(Name = "document.createElement('UL')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlUnorderedList() { }
+    }
+    partial class HtmlWindowLocation
+    {
+        [JsMethod(Name = "document.createElement('WINDOWLOCATION')", OmitParanthesis = true, OmitNewOperator = true)]
+        public HtmlWindowLocation() { }
+    }
+    partial class StyleFilter
+    {
+        [JsMethod(Name = "document.createElement('StyleFilter')", OmitParanthesis = true, OmitNewOperator = true)]
+        public StyleFilter() { }
+    }
+    partial class StyleFilterCollection
+    {
+        [JsMethod(Name = "document.createElement('StyleFilterCollection')", OmitParanthesis = true, OmitNewOperator = true)]
+        public StyleFilterCollection() { }
+    }
+    partial class XMLHttpRequest
+    {
+        [JsMethod(Name = "document.createElement('XMLHttpRequest')", OmitParanthesis = true, OmitNewOperator = true)]
+        public XMLHttpRequest() { }
+    }
+    
+   
+    #endregion
 
 }
 
