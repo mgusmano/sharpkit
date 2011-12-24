@@ -605,8 +605,8 @@ namespace SharpKit.Html4
         ///<param name="sNameValue"></param>
         ///<returns></returns>
         //[SupportedBrowsers(BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5, @"IE5-7 ignores the <p> and custom tags with name='test', but counts the <div> with id='test'
-//IE8 and Konqueror ignore the custom tag.
-//Opera counts the <div> with id='test'")]
+        //IE8 and Konqueror ignore the custom tag.
+        //Opera counts the <div> with id='test'")]
         public HtmlElementCollection getElementsByName(JsString sNameValue) { return null; }
         ///<summary>
         ///Binds the specified function to an event, so that the function gets called whenever the event fires on the object.
@@ -684,7 +684,7 @@ namespace SharpKit.Html4
         ///</summary>
         ///<param name="sTagName">String that specifies the name of an element.</param>
         //[SupportedBrowsers(BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Opera9 | BrowserTypes.Opera10, @"The * argument, which ought to select all elements in the document, doesn't work in IE 5.5. 
-//Custom tags are not returned in Konqueror.")]
+        //Custom tags are not returned in Konqueror.")]
         public HtmlElementCollection getElementsByTagName(JsString sTagName) { return null; }
         ///<summary>
         ///Creates a new Stylesheet node
@@ -1038,7 +1038,7 @@ namespace SharpKit.Html4
         ///Sets or retrieves the y-coordinate of the mouse pointer's position relative to the object firing the event. 
         ///</summary>
         //[SupportedBrowsers(BrowserTypes.IE8 | BrowserTypes.IE9, @"In IE the coordinates are calculated relative to the target element when that element is eligible to become an offsetParent. If that's not the case, the coordinates are calculated relative to the target's offsetParent.
-//Bug: When the element found by this rule has position: relative, IE moves on to the next offsetParent for the calculation of offsetY, but not of offsetX.")]
+        //Bug: When the element found by this rule has position: relative, IE moves on to the next offsetParent for the calculation of offsetY, but not of offsetX.")]
         public JsNumber offsetY { get; set; }
         ///<summary>
         ///Sets or retrieves the object that fired the event. 
@@ -1189,7 +1189,7 @@ namespace SharpKit.Html4
         ///</summary>
         ///<param name="attName">String that specifies the attribute name. </param>
         //[SupportedBrowsers(BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5, @"IE5-7 and Opera don't remove event handlers.
-//Konqueror doesn't remove the align attribute.")]
+        //Konqueror doesn't remove the align attribute.")]
         public void removeAttribute(JsString attName) { }
         ///<summary>
         ///Removes the given attribute from the object.
@@ -1260,8 +1260,8 @@ namespace SharpKit.Html4
         ///</summary>
         ///<returns>Returns the TextRectangle collection. Each rectangle has four integer properties (top, left, right, and bottom) that each represent a coordinate of the rectangle, in pixels.</returns>
         //[SupportedBrowsers(BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Opera9 | BrowserTypes.Opera10, @"IE5-7 returns far too many rectangles for the first test paragraphs. The correct number is 5 (for 5 lines), but IE5.5 returns 9 and IE6/7 14. IE8b2 gets this right.
-//Furthermore, IE5-7 also split up a block-level element such as a <p> into one rectangle per line. This is incorrect: a block-level element should be reported as one rectangle.
-//Finally, in IE 5-7 the rectangles are off by about two pixels.", PartiallySupportedRemark = @"Firefox doesn't round the top/bottom coordinates.")]
+        //Furthermore, IE5-7 also split up a block-level element such as a <p> into one rectangle per line. This is incorrect: a block-level element should be reported as one rectangle.
+        //Finally, in IE 5-7 the rectangles are off by about two pixels.", PartiallySupportedRemark = @"Firefox doesn't round the top/bottom coordinates.")]
         public HtmlTextRectangleCollection getClientRects() { return null; }
         ///<summary>
         ///Specifies that an element cannot be selected.
@@ -1345,7 +1345,7 @@ namespace SharpKit.Html4
         ///Retrieves the scrolling width of the object.
         ///</summary>
         //[SupportedBrowsers(BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Konqueror3_57, @"When the element has no scrollbars IE makes the scrollHeight equal to the actual height of the content; and not the height of the element. scrollWidth is correct, except in IE8, where it’s 5 pixels off.
-//Opera gives odd, incorrect values.")]
+        //Opera gives odd, incorrect values.")]
         public JsNumber scrollWidth { get; set; }
         ///<summary>
         ///Gets the namespace defined for the element.
@@ -1370,7 +1370,7 @@ namespace SharpKit.Html4
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10, "Konqueror ignores comment nodes.")]
         public HtmlNodeCollection childNodes { get; set; }
-        [JsProperty(NativeField=true, Name="")]
+        [JsProperty(NativeField = true, Name = "")]
         public HtmlNodeToAppend AppendChilds { get; set; }
         ///<summary>
         ///Sets or retrieves advisory information (a ToolTip) for the object. 
@@ -1381,7 +1381,7 @@ namespace SharpKit.Html4
         ///Sets or retrieves the HTML between the start and end tags of the object.
         ///</summary>
         //[SupportedBrowsers(BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10, @"In IE and Konqueror innerHTML does not work correctly when you update tables. Solve this by using pure DOM methods instead. 
-//If you remove elements through innerHTML in IE, their content is wiped and only the element itself (i.e. opening and closing tags) remain. If you want to remove nodes that you may want to reinsert at a later time, use DOM methods such as removeChild().")]
+        //If you remove elements through innerHTML in IE, their content is wiped and only the element itself (i.e. opening and closing tags) remain. If you want to remove nodes that you may want to reinsert at a later time, use DOM methods such as removeChild().")]
         public JsString innerHTML { get; set; }
         ///<summary>
         ///Sets or retrieves the text between the start and end tags of the object.
@@ -1438,7 +1438,7 @@ namespace SharpKit.Html4
         ///Retrieves the tag name of the object. 
         ///</summary>
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, @"In IE (all versions) the tagName of a comment node is !. 
-//Use nodeName instead.")]
+        //Use nodeName instead.")]
         public JsString tagName { get; set; }
         ///<summary>
         ///Retrieves the parent object in the document hierarchy.
@@ -1646,9 +1646,9 @@ namespace SharpKit.Html4
         ///<param name="oSrcAttribute">attribute object to be removed.</param>
         ///<remarks>Returns a reference to the removed attribute object.</remarks>
         //[SupportedBrowsers(BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, @"IE 6 does't remove anything, but doesn't give an error message either.
-//IE 7 doesn't remove styles and event handlers.
-//Opera doesn't remove event handlers.
-//Konqueror doesn't remove the align attribute.")]
+        //IE 7 doesn't remove styles and event handlers.
+        //Opera doesn't remove event handlers.
+        //Konqueror doesn't remove the align attribute.")]
         public HtmlAttribute removeAttributeNode(JsString oSrcAttribute) { return null; }
         ///<summary>
         ///Makes the element either a child or parent of another element.
@@ -1758,8 +1758,8 @@ namespace SharpKit.Html4
         ///Fires when the object loses the input focus.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, PartiallySupportedRemark = @"Firefox 2 and Opera fire too many events in a variety of circumstances and also incorrectly bubble them.
-//Safari and Chrome don’t support these events on links and/or form fields in all circumstances.
-//Safari iPhone does not fire the event when the window loses the focus. ")]
+        //Safari and Chrome don’t support these events on links and/or form fields in all circumstances.
+        //Safari iPhone does not fire the event when the window loses the focus. ")]
         public HtmlDomEventHandler onblur;
         ///<summary>
         ///Fires when data changes in the data provider.
@@ -1846,8 +1846,8 @@ namespace SharpKit.Html4
         ///Fires when the object receives focus.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, PartiallySupportedRemark = @"Firefox 2 and Opera fire too many events in a variety of circumstances and also incorrectly bubble them.
-//Firefox fires a focus event whenever you click on the document.
-//Safari and Chrome don’t support these events on links and/or form fields in all circumstances.")]
+        //Firefox fires a focus event whenever you click on the document.
+        //Safari and Chrome don’t support these events on links and/or form fields in all circumstances.")]
         public HtmlDomEventHandler onfocus;
         ///<summary>
         ///Fires when the user presses the F1 key while the browser is the active window.
@@ -1857,7 +1857,7 @@ namespace SharpKit.Html4
         ///Fires when the user presses a key.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, PartiallySupportedRemark = @"The keydown event does not repeat in Opera and Konqueror.
-//You cannot prevent the default onkeydown in Opera.")]
+        //You cannot prevent the default onkeydown in Opera.")]
         public HtmlDomEventHandler onkeydown;
         ///<summary>
         ///Fires when the user presses an alphanumeric key.
@@ -2926,7 +2926,7 @@ namespace SharpKit.Html4
         ///Fires when an error occurs during object loading.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, PartiallySupportedRemark = @"IE and Firefox have trouble with JavaScript errors in the traditional event registration model.
-//Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
+        //Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
         public HtmlDomEventHandler onerror;
         ///<summary>
         ///Fires immediately after the browser loads the object.
@@ -3066,7 +3066,7 @@ namespace SharpKit.Html4
         ///Fires when an error occurs during object loading.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, PartiallySupportedRemark = @"IE and Firefox have trouble with JavaScript errors in the traditional event registration model.
-//Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
+        //Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
         public HtmlDomEventHandler onerror;
         ///<summary>
         ///Fires immediately after the browser loads the object.
@@ -3153,7 +3153,7 @@ namespace SharpKit.Html4
         ///Fires when an error occurs during object loading.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, PartiallySupportedRemark = @"IE and Firefox have trouble with JavaScript errors in the traditional event registration model.
-//Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
+        //Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
         public HtmlDomEventHandler onerror;
         ///<summary>
         ///Fires immediately after the browser loads the object.
@@ -3288,7 +3288,7 @@ namespace SharpKit.Html4
         /// </list>
         /// </remarks>
         //[SupportedBrowsers(BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10, @"IE 5.5: attributes and document not defined; comment has nodeType 1.
-		//Konqueror doesn't see comment nodes.")]
+        //Konqueror doesn't see comment nodes.")]
         public JsNumber nodeType;
         ///<summary>
         ///Retrieves a reference to the previous child of the parent for the object.
@@ -3304,14 +3304,14 @@ namespace SharpKit.Html4
         ///Retrieves the name of a particular type of node. 
         ///</summary>
         //[SupportedBrowsers(BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10, @"IE 5.5 doesn't support a nodeName for attributes and the document. 
-//IE 5.5 reports the nodeName of a comment as !. 
-//Konqueror doesn't see comment nodes.")]
+        //IE 5.5 reports the nodeName of a comment as !. 
+        //Konqueror doesn't see comment nodes.")]
         public JsString nodeName { get; set; }
         ///<summary>
         ///Sets or retrieves the value of a node.
         ///</summary>
         //[SupportedBrowsers(BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10, @"IE 5.5 doesn't support nodeValue for attributes
-		//Konqueror doesn't see comment nodes.")]
+        //Konqueror doesn't see comment nodes.")]
         public JsString nodeValue { get; set; }
         ///<summary>
         ///Retrieves the parent object in the document hierarchy.
@@ -3360,7 +3360,7 @@ namespace SharpKit.Html4
         ///Fires when an error occurs during object loading.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, PartiallySupportedRemark = @"IE and Firefox have trouble with JavaScript errors in the traditional event registration model.
-//Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
+        //Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
         public HtmlDomEventHandler onerror;
     }
     #endregion
@@ -3532,7 +3532,7 @@ namespace SharpKit.Html4
         ///Fires when an error occurs during object loading.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, PartiallySupportedRemark = @"IE and Firefox have trouble with JavaScript errors in the traditional event registration model.
-//Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
+        //Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
         public HtmlDomEventHandler onerror;
         ///<summary>
         ///Fires immediately after the browser loads the object.
@@ -3778,7 +3778,7 @@ namespace SharpKit.Html4
         ///Fires when an error occurs during object loading.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, PartiallySupportedRemark = @"IE and Firefox have trouble with JavaScript errors in the traditional event registration model.
-//Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
+        //Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
         public HtmlDomEventHandler onerror;
         ///<summary>
         ///Fires immediately after the browser loads the object.
@@ -5160,21 +5160,21 @@ namespace SharpKit.Html4
         ///Fires when the object loses the input focus.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10, PartiallySupportedRemark = @"Firefox 2 and Opera fire too many events in a variety of circumstances and also incorrectly bubble them.
-//Safari and Chrome don’t support these events on links and/or form fields in all circumstances.
-//Safari iPhone does not fire the event when the window loses the focus. ", NotSupportedRemark = "Konqueror doesn’t support these events on the browser window.")]
+        //Safari and Chrome don’t support these events on links and/or form fields in all circumstances.
+        //Safari iPhone does not fire the event when the window loses the focus. ", NotSupportedRemark = "Konqueror doesn’t support these events on the browser window.")]
         public HtmlDomEventHandler onblur;
         ///<summary>
         ///Fires when an error occurs during object loading.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, PartiallySupportedRemark = @"IE and Firefox have trouble with JavaScript errors in the traditional event registration model.
-//Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
+        //Safari, Chrome, Opera and Konqueror do not support this event on JavaScript errors.")]
         public HtmlDomEventHandler onerror;
         ///<summary>
         ///Fires when the object receives focus.
         ///</summary>		
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10, @"Konqueror doesn’t support these events on the browser window.", PartiallySupportedRemark = @"Firefox 2 and Opera fire too many events in a variety of circumstances and also incorrectly bubble them.
-//Firefox fires a focus event whenever you click on the document.
-//Safari and Chrome don’t support these events on links and/or form fields in all circumstances.")]
+        //Firefox fires a focus event whenever you click on the document.
+        //Safari and Chrome don’t support these events on links and/or form fields in all circumstances.")]
         public HtmlDomEventHandler onfocus;
         ///<summary>
         ///Raised when there are changes to the portion of a URL that follows the number sign (#).
@@ -5379,7 +5379,7 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json)]
     public partial class HtmlNodeToAppend : IEnumerable<HtmlNode>
     {
-        [JsMethod(Name="appendChild")]
+        [JsMethod(Name = "appendChild")]
         public void Add(HtmlNode node)
         {
         }
@@ -5494,8 +5494,8 @@ namespace SharpKit.Html4
         ///<param name="index">Integer that specifies the attribute. It is the zero-based index of the attribute to be retrieved from the attributes collection.</param>
         ///<returns>Returns an attribute for an element from the attributes collection</returns>
         //[SupportedBrowsers(BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, @"Firefox and IE8 try to create a list in source code order, but the order is off.
-//IE5-7 takes the second possible attribute of node x (dataFld in the test), whether it's defined or not. Therefore it consists of all attributes that can possibly be defined on the node (84 all in all).
-//IE 5.5 initially gives the value of the attribute; not the attribute object.")]
+        //IE5-7 takes the second possible attribute of node x (dataFld in the test), whether it's defined or not. Therefore it consists of all attributes that can possibly be defined on the node (84 all in all).
+        //IE 5.5 initially gives the value of the attribute; not the attribute object.")]
         [JsProperty(NativeIndexer = true)]
         public HtmlAttribute this[JsNumber index] { get { return null; } set { } }
         ///<summary>
@@ -5504,7 +5504,7 @@ namespace SharpKit.Html4
         ///<param name="name">String that specifies the attribute. The attribute whose name matches the JsString is retrieved.</param>
         ///<returns>Returns an attribute for an element from the attributes collection</returns>
         //[SupportedBrowsers(BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57, @"IE5-7 doesn't return the value of a style attribute.
-//IE 5.5 doesn't return custom attributes, and initially gives the attribute value instead of an attribute object.")]
+        //IE 5.5 doesn't return custom attributes, and initially gives the attribute value instead of an attribute object.")]
         [JsProperty(NativeIndexer = true)]
         public HtmlAttribute this[JsString name] { get { return null; } set { } }
         public IEnumerator<HtmlAttribute> GetEnumerator() { return default(IEnumerator<HtmlAttribute>); }
@@ -5560,20 +5560,10 @@ namespace SharpKit.Html4
 
     #region Constructors
 
-partial class ActiveXObject
-    {
-        [JsMethod(Name = "document.createElement('ActiveXObject')", OmitParanthesis = true, OmitNewOperator = true)]
-        public ActiveXObject() { }
-    }
     partial class HtmlAnchor
     {
         [JsMethod(Name = "document.createElement('A')", OmitParanthesis = true, OmitNewOperator = true)]
         public HtmlAnchor() { }
-    }
-    partial class HtmlAttribute
-    {
-        [JsMethod(Name = "document.createElement('ATTRIBUTE')", OmitParanthesis = true, OmitNewOperator = true)]
-        public HtmlAttribute() { }
     }
     partial class HtmlBody
     {
@@ -5595,25 +5585,10 @@ partial class ActiveXObject
         [JsMethod(Name = "document.createElement('CAPTION')", OmitParanthesis = true, OmitNewOperator = true)]
         public HtmlCaption() { }
     }
-    partial class HtmlClipboardData
-    {
-        [JsMethod(Name = "document.createElement('CLIPBOARDDATA')", OmitParanthesis = true, OmitNewOperator = true)]
-        public HtmlClipboardData() { }
-    }
-    partial class HtmlCssRule
-    {
-        [JsMethod(Name = "document.createElement('CSSRULE')", OmitParanthesis = true, OmitNewOperator = true)]
-        public HtmlCssRule() { }
-    }
     partial class HtmlDiv
     {
         [JsMethod(Name = "document.createElement('DIV')", OmitParanthesis = true, OmitNewOperator = true)]
         public HtmlDiv() { }
-    }
-    partial class HtmlDocument
-    {
-        [JsMethod(Name = "document.createElement('DOCUMENT')", OmitParanthesis = true, OmitNewOperator = true)]
-        public HtmlDocument() { }
     }
     partial class HtmlDocumentElement
     {
@@ -5765,11 +5740,7 @@ partial class ActiveXObject
         [JsMethod(Name = "document.createElement('PRE')", OmitParanthesis = true, OmitNewOperator = true)]
         public HtmlPre() { }
     }
-    partial class HtmlScreen
-    {
-        [JsMethod(Name = "document.createElement('SCREEN')", OmitParanthesis = true, OmitNewOperator = true)]
-        public HtmlScreen() { }
-    }
+    //TODO: merge HtmlScript and HtmlScriptElement
     partial class HtmlScript
     {
         [JsMethod(Name = "document.createElement('SCRIPT')", OmitParanthesis = true, OmitNewOperator = true)]
@@ -5784,11 +5755,6 @@ partial class ActiveXObject
     {
         [JsMethod(Name = "document.createElement('SELECT')", OmitParanthesis = true, OmitNewOperator = true)]
         public HtmlSelect() { }
-    }
-    partial class HtmlSelection
-    {
-        [JsMethod(Name = "document.createElement('SELECTION')", OmitParanthesis = true, OmitNewOperator = true)]
-        public HtmlSelection() { }
     }
     partial class HtmlSpan
     {
@@ -5858,24 +5824,7 @@ partial class ActiveXObject
     partial class HtmlTextNode
     {
         [JsMethod(Name = "document.createTextNode", OmitNewOperator = true)]
-        public HtmlTextNode(JsString s)
-        {
-        }
-    }
-    partial class HtmlTextRange
-    {
-        [JsMethod(Name = "document.createElement('TEXTRANGE')", OmitParanthesis = true, OmitNewOperator = true)]
-        public HtmlTextRange() { }
-    }
-    partial class HtmlTextRectangle
-    {
-        [JsMethod(Name = "document.createElement('TEXTRECTANGLE')", OmitParanthesis = true, OmitNewOperator = true)]
-        public HtmlTextRectangle() { }
-    }
-    partial class HtmlTextRectangleCollection
-    {
-        [JsMethod(Name = "document.createElement('TEXTRECTANGLECOLLECTION')", OmitParanthesis = true, OmitNewOperator = true)]
-        public HtmlTextRectangleCollection() { }
+        public HtmlTextNode(JsString s) { }
     }
     partial class HtmlTitle
     {
@@ -5892,23 +5841,7 @@ partial class ActiveXObject
         [JsMethod(Name = "document.createElement('WINDOWLOCATION')", OmitParanthesis = true, OmitNewOperator = true)]
         public HtmlWindowLocation() { }
     }
-    partial class StyleFilter
-    {
-        [JsMethod(Name = "document.createElement('StyleFilter')", OmitParanthesis = true, OmitNewOperator = true)]
-        public StyleFilter() { }
-    }
-    partial class StyleFilterCollection
-    {
-        [JsMethod(Name = "document.createElement('StyleFilterCollection')", OmitParanthesis = true, OmitNewOperator = true)]
-        public StyleFilterCollection() { }
-    }
-    partial class XMLHttpRequest
-    {
-        [JsMethod(Name = "document.createElement('XMLHttpRequest')", OmitParanthesis = true, OmitNewOperator = true)]
-        public XMLHttpRequest() { }
-    }
-    
-   
+
     #endregion
 
 }
