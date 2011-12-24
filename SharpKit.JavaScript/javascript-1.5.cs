@@ -357,6 +357,10 @@ namespace SharpKit.JavaScript
         /// Omits optional parameters, when not sent by caller
         /// </summary>
         public bool OmitOptionalParameters { get; set; }
+        /// <summary>
+        /// Omits the new operator when creating new instances on a consutrctor
+        /// </summary>
+        public bool OmitNewOperator { get; set; }
     }
     #endregion
     #region JsPropertyAttribute
