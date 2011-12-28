@@ -865,6 +865,7 @@ namespace SharpKit.JavaScript
         /// <summary>
         /// Returns a reference to a javascript function with instance context if applicable
         /// </summary>
+        /// <typeparam name="T"></typeparam>
         /// <typeparam name="R"></typeparam>
         /// <param name="func"></param>
         /// <returns></returns>
@@ -956,6 +957,7 @@ namespace SharpKit.JavaScript
         /// <summary>
         /// Returns a reference to a javascript function without instance context even if applicable
         /// </summary>
+        /// <typeparam name="T"></typeparam>
         /// <typeparam name="R"></typeparam>
         /// <param name="func"></param>
         /// <returns></returns>
@@ -964,6 +966,8 @@ namespace SharpKit.JavaScript
         /// <summary>
         /// Returns a reference to a javascript function without instance context even if applicable
         /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
         /// <typeparam name="R"></typeparam>
         /// <param name="func"></param>
         /// <returns></returns>
@@ -972,6 +976,7 @@ namespace SharpKit.JavaScript
         /// <summary>
         /// Returns a reference to a javascript function without instance context even if applicable
         /// </summary>
+        /// <typeparam name="T1"></typeparam>
         /// <typeparam name="R"></typeparam>
         /// <param name="func"></param>
         /// <returns></returns>
