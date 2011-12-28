@@ -6,7 +6,7 @@ using SharpKit.JavaScript.Private;
 
 namespace SharpKit.JavaScript.Compilation
 {
-    [JsType(JsMode.Global, Filename = "JsCompiler.js", OrderInFile=-1)]
+    [JsType(JsMode.Global, Filename = "JsCompiler.js", OrderInFile = -1)]
     public class JsCompilerGlobal : BrowserContext
     {
         internal static JsDelegateFunction RemoveDelegate(JsDelegateFunction delOriginal, JsDelegateFunction delToRemove)
@@ -199,7 +199,9 @@ namespace SharpKit.JavaScript.Compilation
         //checkes if the [objType] is of a certain [type]
         static bool TypeIs(JsType objType, JsType type)
         {
-            if (type.Kind==JsTypeKind.Interface)
+            if (objType == type)
+                return true;
+            if (type.Kind == JsTypeKind.Interface)
             {
                 var testedInterfaces = new JsObject();
                 while (objType != null)
@@ -210,20 +212,26 @@ namespace SharpKit.JavaScript.Compilation
                         return true;
                     objType = objType.baseType;
                 }
+                return false;
             }
-            else if (type.Kind==JsTypeKind.Delegate && objType.fullname=="System.Delegate") 
+            if (type.Kind == JsTypeKind.Delegate && objType.fullname == "System.Delegate")
             {
                 //for now, casting between any delegate type is permitted
                 return true;
             }
-            else
+            if (objType.fullname == "System.Int32")
             {
-                while (objType != null)
-                {
-                    if (objType == type)
-                        return true;
-                    objType = objType.baseType;
-                }
+                if (type.fullname == "System.Decimal")
+                    return true;
+                if (type.fullname == "System.Double")
+                    return true;
+            }
+            var t = objType.baseType;
+            while (t != null)
+            {
+                if (t == type)
+                    return true;
+                t = t.baseType;
             }
             return false;
         }

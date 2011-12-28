@@ -158,7 +158,7 @@ var System$Reflection$PropertyInfo=
         {
             if(this._Setter == null)
                 throw new System.Exception.ctor$$String("Property " + this._Name + " doesn't have a setter");
-            if(indexes == null || indexes.length  == 0)
+            if(indexes == null || indexes.length == 0)
             {
                 this._Setter.call(obj,value);
             }

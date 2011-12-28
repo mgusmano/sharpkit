@@ -33,7 +33,7 @@ var System$IO$Path=
             }
             System.IO.Path.CheckInvalidPathChars(path);
             var str=path;
-            var length=path.length ;
+            var length=path.length;
             while(--length >= 0)
             {
                 var ch=path.charAt(length);
@@ -47,11 +47,11 @@ var System$IO$Path=
                     break;
                 }
             }
-            if((extension == null) || (path.length  == 0))
+            if((extension == null) || (path.length == 0))
             {
                 return str;
             }
-            if((extension.length  == 0) || (extension.charAt(0) != '.'))
+            if((extension.length == 0) || (extension.charAt(0) != '.'))
             {
                 str = str + ".";
             }
@@ -59,16 +59,16 @@ var System$IO$Path=
         },
         CharArrayStartsWithOrdinal:function(array,numChars,compareTo,ignoreCase)
         {
-            if(numChars < compareTo.length )
+            if(numChars < compareTo.length)
             {
                 return false;
             }
             if(ignoreCase)
             {
-                var str=new System.String.ctor$$Char$Array$$Int32$$Int32(array,0,compareTo.length );
+                var str=new System.String.ctor$$Char$Array$$Int32$$Int32(array,0,compareTo.length);
                 return compareTo.Equals$$String$$StringComparison(str,5);
             }
-            for(var i=0;i < compareTo.length ;i++)
+            for(var i=0;i < compareTo.length;i++)
             {
                 if(array[i] != compareTo.charAt(i))
                 {
@@ -79,7 +79,7 @@ var System$IO$Path=
         },
         CheckInvalidPathChars:function(path)
         {
-            for(var i=0;i < path.length ;i++)
+            for(var i=0;i < path.length;i++)
             {
                 var num2=path.charCodeAt(i);
                 if(((num2 == 0x22) || (num2 == 60)) || (((num2 == 0x3e) || (num2 == 0x7c)) || (num2 < 0x20)))
@@ -93,7 +93,7 @@ var System$IO$Path=
             var num;
             while((num = searchPattern.indexOf("..",4)) != -1)
             {
-                if((num + 2) == searchPattern.length )
+                if((num + 2) == searchPattern.length)
                 {
                     throw new System.ArgumentException.ctor$$String(System.Environment.GetResourceString("Arg_InvalidSearchPattern"));
                 }
@@ -112,11 +112,11 @@ var System$IO$Path=
             }
             System.IO.Path.CheckInvalidPathChars(path1);
             System.IO.Path.CheckInvalidPathChars(path2);
-            if(path2.length  == 0)
+            if(path2.length == 0)
             {
                 return path1;
             }
-            if(path1.length  == 0)
+            if(path1.length == 0)
             {
                 return path2;
             }
@@ -124,7 +124,7 @@ var System$IO$Path=
             {
                 return path2;
             }
-            var ch=path1.charAt(path1.length  - 1);
+            var ch=path1.charAt(path1.length - 1);
             if(((ch != System.IO.Path.DirectorySeparatorChar) && (ch != System.IO.Path.AltDirectorySeparatorChar)) && (ch != System.IO.Path.VolumeSeparatorChar))
             {
                 return (path1 + System.IO.Path.DirectorySeparatorChar + path2);
@@ -142,9 +142,9 @@ var System$IO$Path=
                 System.IO.Path.CheckInvalidPathChars(path);
                 path = System.IO.Path.FixupPath(path);
                 var rootLength=System.IO.Path.GetRootLength(path);
-                if(path.length  > rootLength)
+                if(path.length > rootLength)
                 {
-                    var length=path.length ;
+                    var length=path.length;
                     if(length == rootLength)
                     {
                         return null;
@@ -164,7 +164,7 @@ var System$IO$Path=
                 return null;
             }
             System.IO.Path.CheckInvalidPathChars(path);
-            var length=path.length ;
+            var length=path.length;
             var startIndex=length;
             while(--startIndex >= 0)
             {
@@ -189,7 +189,7 @@ var System$IO$Path=
             if(path != null)
             {
                 System.IO.Path.CheckInvalidPathChars(path);
-                var length=path.length ;
+                var length=path.length;
                 var num2=length;
                 while(--num2 >= 0)
                 {
@@ -254,7 +254,7 @@ var System$IO$Path=
         {
             System.IO.Path.CheckInvalidPathChars(path);
             var num=0;
-            var length=path.length ;
+            var length=path.length;
             if((length >= 1) && System.IO.Path.IsDirectorySeparator(path.charAt(0)))
             {
                 num = 1;
@@ -292,13 +292,13 @@ var System$IO$Path=
             if(path != null)
             {
                 System.IO.Path.CheckInvalidPathChars(path);
-                var length=path.length ;
+                var length=path.length;
                 while(--length >= 0)
                 {
                     var ch=path.charAt(length);
                     if(ch == '.')
                     {
-                        return (length != (path.length  - 1));
+                        return (length != (path.length - 1));
                     }
                     if(((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar))
                     {
@@ -316,7 +316,7 @@ var System$IO$Path=
             }
             System.IO.Path.CheckInvalidPathChars(path1);
             System.IO.Path.CheckInvalidPathChars(path2);
-            if(path2.length  == 0)
+            if(path2.length == 0)
             {
                 throw new System.ArgumentException.ctor$$String$$String(System.Environment.GetResourceString("Argument_PathEmpty"),"path2");
             }
@@ -324,7 +324,7 @@ var System$IO$Path=
             {
                 throw new System.ArgumentException.ctor$$String$$String(System.Environment.GetResourceString("Arg_Path2IsRooted"),"path2");
             }
-            var length=path1.length ;
+            var length=path1.length;
             if(length == 0)
             {
                 return path2;
@@ -349,7 +349,7 @@ var System$IO$Path=
             if(path != null)
             {
                 System.IO.Path.CheckInvalidPathChars(path);
-                var length=path.length ;
+                var length=path.length;
                 if(((length >= 1) && ((path.charAt(0) == System.IO.Path.DirectorySeparatorChar) || (path.charAt(0) == System.IO.Path.AltDirectorySeparatorChar))) || ((length >= 2) && (path.charAt(1) == System.IO.Path.VolumeSeparatorChar)))
                 {
                     return true;

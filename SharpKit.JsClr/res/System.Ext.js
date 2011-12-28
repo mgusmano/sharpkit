@@ -60,7 +60,7 @@ var SharpKit$Extensions2=
             var index=s.indexOf(search,comparisonType);
             if(index != -1)
             {
-                var finalStr=System.String.Concat$$String$$String$$String(s.substr(0,index),replace,s.substr(search.length  + index));
+                var finalStr=System.String.Concat$$String$$String$$String(s.substr(0,index),replace,s.substr(search.length + index));
                 return finalStr;
             }
             return s;
@@ -89,7 +89,7 @@ var SharpKit$Extensions2=
         TrimEnd:function(s,trimText)
         {
             if(s.EndsWith$$String(trimText))
-                return SharpKit.Extensions2.RemoveLast(s,trimText.length );
+                return SharpKit.Extensions2.RemoveLast(s,trimText.length);
             return s;
         },
         EqualsIgnoreCase:function(s1,s2)
@@ -316,7 +316,7 @@ var SharpKit$JavaScript$JsNamingHelper=
         IsPropertySetter:function(mi)
         {
             var name=mi.get_Name();
-            return name.StartsWith$$String("set_") && mi.GetParameters().length  == 1;
+            return name.StartsWith$$String("set_") && mi.GetParameters().length == 1;
         }
     },
     assemblyName:"SharpKit.JsClr",

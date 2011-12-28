@@ -174,6 +174,8 @@ function _TestTypeInterfacesIs(testType,iface,testedInterfaces)
 }
 function TypeIs(objType,type)
 {
+    if(objType == type)
+        return true;
     if(type.Kind == "Interface")
     {
         var testedInterfaces=new Object();
@@ -185,19 +187,25 @@ function TypeIs(objType,type)
                 return true;
             objType = objType.baseType;
         }
+        return false;
     }
-    else if(type.Kind == "Delegate" && objType.fullname == "System.Delegate")
+    if(type.Kind == "Delegate" && objType.fullname == "System.Delegate")
     {
         return true;
     }
-    else
+    if(objType.fullname == "System.Int32")
     {
-        while(objType != null)
-        {
-            if(objType == type)
-                return true;
-            objType = objType.baseType;
-        }
+        if(type.fullname == "System.Decimal")
+            return true;
+        if(type.fullname == "System.Double")
+            return true;
+    }
+    var t=objType.baseType;
+    while(t != null)
+    {
+        if(t == type)
+            return true;
+        t = t.baseType;
     }
     return false;
 }
@@ -2334,7 +2342,7 @@ JsTypes.push({fullname:"System.Boolean", baseTypeName:"System.ValueType",definit
     }
 }
 });
-JsTypes.push({fullname:"System.Int32", baseTypeName:"System.ValueType",definition:
+JsTypes.push({ fullname: "System.Int32", baseTypeName: "System.ValueType", definition:
 {
     ctor: Number,
     toString:Number.prototype.toString //avoid toString override by compiler (toString(radix) won't work if overriden)
@@ -2824,7 +2832,7 @@ var System$IO$Path=
             }
             System.IO.Path.CheckInvalidPathChars(path);
             var str=path;
-            var length=path.length ;
+            var length=path.length;
             while(--length >= 0)
             {
                 var ch=path.charAt(length);
@@ -2838,11 +2846,11 @@ var System$IO$Path=
                     break;
                 }
             }
-            if((extension == null) || (path.length  == 0))
+            if((extension == null) || (path.length == 0))
             {
                 return str;
             }
-            if((extension.length  == 0) || (extension.charAt(0) != '.'))
+            if((extension.length == 0) || (extension.charAt(0) != '.'))
             {
                 str = str + ".";
             }
@@ -2850,16 +2858,16 @@ var System$IO$Path=
         },
         CharArrayStartsWithOrdinal:function(array,numChars,compareTo,ignoreCase)
         {
-            if(numChars < compareTo.length )
+            if(numChars < compareTo.length)
             {
                 return false;
             }
             if(ignoreCase)
             {
-                var str=new System.String.ctor$$Char$Array$$Int32$$Int32(array,0,compareTo.length );
+                var str=new System.String.ctor$$Char$Array$$Int32$$Int32(array,0,compareTo.length);
                 return compareTo.Equals$$String$$StringComparison(str,5);
             }
-            for(var i=0;i < compareTo.length ;i++)
+            for(var i=0;i < compareTo.length;i++)
             {
                 if(array[i] != compareTo.charAt(i))
                 {
@@ -2870,7 +2878,7 @@ var System$IO$Path=
         },
         CheckInvalidPathChars:function(path)
         {
-            for(var i=0;i < path.length ;i++)
+            for(var i=0;i < path.length;i++)
             {
                 var num2=path.charCodeAt(i);
                 if(((num2 == 0x22) || (num2 == 60)) || (((num2 == 0x3e) || (num2 == 0x7c)) || (num2 < 0x20)))
@@ -2884,7 +2892,7 @@ var System$IO$Path=
             var num;
             while((num = searchPattern.indexOf("..",4)) != -1)
             {
-                if((num + 2) == searchPattern.length )
+                if((num + 2) == searchPattern.length)
                 {
                     throw new System.ArgumentException.ctor$$String(System.Environment.GetResourceString("Arg_InvalidSearchPattern"));
                 }
@@ -2903,11 +2911,11 @@ var System$IO$Path=
             }
             System.IO.Path.CheckInvalidPathChars(path1);
             System.IO.Path.CheckInvalidPathChars(path2);
-            if(path2.length  == 0)
+            if(path2.length == 0)
             {
                 return path1;
             }
-            if(path1.length  == 0)
+            if(path1.length == 0)
             {
                 return path2;
             }
@@ -2915,7 +2923,7 @@ var System$IO$Path=
             {
                 return path2;
             }
-            var ch=path1.charAt(path1.length  - 1);
+            var ch=path1.charAt(path1.length - 1);
             if(((ch != System.IO.Path.DirectorySeparatorChar) && (ch != System.IO.Path.AltDirectorySeparatorChar)) && (ch != System.IO.Path.VolumeSeparatorChar))
             {
                 return (path1 + System.IO.Path.DirectorySeparatorChar + path2);
@@ -2933,9 +2941,9 @@ var System$IO$Path=
                 System.IO.Path.CheckInvalidPathChars(path);
                 path = System.IO.Path.FixupPath(path);
                 var rootLength=System.IO.Path.GetRootLength(path);
-                if(path.length  > rootLength)
+                if(path.length > rootLength)
                 {
-                    var length=path.length ;
+                    var length=path.length;
                     if(length == rootLength)
                     {
                         return null;
@@ -2955,7 +2963,7 @@ var System$IO$Path=
                 return null;
             }
             System.IO.Path.CheckInvalidPathChars(path);
-            var length=path.length ;
+            var length=path.length;
             var startIndex=length;
             while(--startIndex >= 0)
             {
@@ -2980,7 +2988,7 @@ var System$IO$Path=
             if(path != null)
             {
                 System.IO.Path.CheckInvalidPathChars(path);
-                var length=path.length ;
+                var length=path.length;
                 var num2=length;
                 while(--num2 >= 0)
                 {
@@ -3045,7 +3053,7 @@ var System$IO$Path=
         {
             System.IO.Path.CheckInvalidPathChars(path);
             var num=0;
-            var length=path.length ;
+            var length=path.length;
             if((length >= 1) && System.IO.Path.IsDirectorySeparator(path.charAt(0)))
             {
                 num = 1;
@@ -3083,13 +3091,13 @@ var System$IO$Path=
             if(path != null)
             {
                 System.IO.Path.CheckInvalidPathChars(path);
-                var length=path.length ;
+                var length=path.length;
                 while(--length >= 0)
                 {
                     var ch=path.charAt(length);
                     if(ch == '.')
                     {
-                        return (length != (path.length  - 1));
+                        return (length != (path.length - 1));
                     }
                     if(((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar))
                     {
@@ -3107,7 +3115,7 @@ var System$IO$Path=
             }
             System.IO.Path.CheckInvalidPathChars(path1);
             System.IO.Path.CheckInvalidPathChars(path2);
-            if(path2.length  == 0)
+            if(path2.length == 0)
             {
                 throw new System.ArgumentException.ctor$$String$$String(System.Environment.GetResourceString("Argument_PathEmpty"),"path2");
             }
@@ -3115,7 +3123,7 @@ var System$IO$Path=
             {
                 throw new System.ArgumentException.ctor$$String$$String(System.Environment.GetResourceString("Arg_Path2IsRooted"),"path2");
             }
-            var length=path1.length ;
+            var length=path1.length;
             if(length == 0)
             {
                 return path2;
@@ -3140,7 +3148,7 @@ var System$IO$Path=
             if(path != null)
             {
                 System.IO.Path.CheckInvalidPathChars(path);
-                var length=path.length ;
+                var length=path.length;
                 if(((length >= 1) && ((path.charAt(0) == System.IO.Path.DirectorySeparatorChar) || (path.charAt(0) == System.IO.Path.AltDirectorySeparatorChar))) || ((length >= 2) && (path.charAt(1) == System.IO.Path.VolumeSeparatorChar)))
                 {
                     return true;
@@ -4319,7 +4327,7 @@ var System$Reflection$PropertyInfo=
         {
             if(this._Setter == null)
                 throw new System.Exception.ctor$$String("Property " + this._Name + " doesn't have a setter");
-            if(indexes == null || indexes.length  == 0)
+            if(indexes == null || indexes.length == 0)
             {
                 this._Setter.call(obj,value);
             }
@@ -4833,7 +4841,7 @@ var System$Text$StringBuilder=
             this.length = 0;
             System.Object.ctor.call(this);
             this.array = [s];
-            this.length = s == null?0:s.length ;
+            this.length = s == null?0:s.length;
         },
         Append$$Char:function(s)
         {
@@ -4843,7 +4851,7 @@ var System$Text$StringBuilder=
         Append$$String:function(s)
         {
             this.array.push(s);
-            this.length += s.length ;
+            this.length += s.length;
         },
         Append$$Object:function(obj)
         {
@@ -4851,26 +4859,26 @@ var System$Text$StringBuilder=
             {
                 var s=obj.toString();
                 this.array.push(s);
-                this.length += s.length ;
+                this.length += s.length;
             }
         },
         AppendFormat$$String$$Object:function(s,arg0)
         {
             var ss=System.String.Format$$String$$Object(s,arg0);
             this.array.push(ss);
-            this.length += ss.length ;
+            this.length += ss.length;
         },
         AppendFormat$$String$$Object$$Object:function(s,arg0,arg1)
         {
             var ss=System.String.Format$$String$$Object$$Object(s,arg0,arg1);
             this.array.push(ss);
-            this.length += ss.length ;
+            this.length += ss.length;
         },
         AppendFormat$$String$$Object$$Object$$Object:function(s,arg0,arg1,arg2)
         {
             var ss=System.String.Format$$String$$Object$$Object$$Object(s,arg0,arg1,arg2);
             this.array.push(ss);
-            this.length += ss.length ;
+            this.length += ss.length;
         },
         toString:function()
         {
@@ -4960,7 +4968,7 @@ var SharpKit$Extensions2=
             var index=s.indexOf(search,comparisonType);
             if(index != -1)
             {
-                var finalStr=System.String.Concat$$String$$String$$String(s.substr(0,index),replace,s.substr(search.length  + index));
+                var finalStr=System.String.Concat$$String$$String$$String(s.substr(0,index),replace,s.substr(search.length + index));
                 return finalStr;
             }
             return s;
@@ -4989,7 +4997,7 @@ var SharpKit$Extensions2=
         TrimEnd:function(s,trimText)
         {
             if(s.EndsWith$$String(trimText))
-                return SharpKit.Extensions2.RemoveLast(s,trimText.length );
+                return SharpKit.Extensions2.RemoveLast(s,trimText.length);
             return s;
         },
         EqualsIgnoreCase:function(s1,s2)
@@ -5216,7 +5224,7 @@ var SharpKit$JavaScript$JsNamingHelper=
         IsPropertySetter:function(mi)
         {
             var name=mi.get_Name();
-            return name.StartsWith$$String("set_") && mi.GetParameters().length  == 1;
+            return name.StartsWith$$String("set_") && mi.GetParameters().length == 1;
         }
     },
     assemblyName:"SharpKit.JsClr",

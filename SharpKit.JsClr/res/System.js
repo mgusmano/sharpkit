@@ -174,6 +174,8 @@ function _TestTypeInterfacesIs(testType,iface,testedInterfaces)
 }
 function TypeIs(objType,type)
 {
+    if(objType == type)
+        return true;
     if(type.Kind == "Interface")
     {
         var testedInterfaces=new Object();
@@ -185,19 +187,25 @@ function TypeIs(objType,type)
                 return true;
             objType = objType.baseType;
         }
+        return false;
     }
-    else if(type.Kind == "Delegate" && objType.fullname == "System.Delegate")
+    if(type.Kind == "Delegate" && objType.fullname == "System.Delegate")
     {
         return true;
     }
-    else
+    if(objType.fullname == "System.Int32")
     {
-        while(objType != null)
-        {
-            if(objType == type)
-                return true;
-            objType = objType.baseType;
-        }
+        if(type.fullname == "System.Decimal")
+            return true;
+        if(type.fullname == "System.Double")
+            return true;
+    }
+    var t=objType.baseType;
+    while(t != null)
+    {
+        if(t == type)
+            return true;
+        t = t.baseType;
     }
     return false;
 }
@@ -2334,7 +2342,7 @@ JsTypes.push({fullname:"System.Boolean", baseTypeName:"System.ValueType",definit
     }
 }
 });
-JsTypes.push({fullname:"System.Int32", baseTypeName:"System.ValueType",definition:
+JsTypes.push({ fullname: "System.Int32", baseTypeName: "System.ValueType", definition:
 {
     ctor: Number,
     toString:Number.prototype.toString //avoid toString override by compiler (toString(radix) won't work if overriden)

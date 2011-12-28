@@ -23,7 +23,7 @@ var System$Text$StringBuilder=
             this.length = 0;
             System.Object.ctor.call(this);
             this.array = [s];
-            this.length = s == null?0:s.length ;
+            this.length = s == null?0:s.length;
         },
         Append$$Char:function(s)
         {
@@ -33,7 +33,7 @@ var System$Text$StringBuilder=
         Append$$String:function(s)
         {
             this.array.push(s);
-            this.length += s.length ;
+            this.length += s.length;
         },
         Append$$Object:function(obj)
         {
@@ -41,26 +41,26 @@ var System$Text$StringBuilder=
             {
                 var s=obj.toString();
                 this.array.push(s);
-                this.length += s.length ;
+                this.length += s.length;
             }
         },
         AppendFormat$$String$$Object:function(s,arg0)
         {
             var ss=System.String.Format$$String$$Object(s,arg0);
             this.array.push(ss);
-            this.length += ss.length ;
+            this.length += ss.length;
         },
         AppendFormat$$String$$Object$$Object:function(s,arg0,arg1)
         {
             var ss=System.String.Format$$String$$Object$$Object(s,arg0,arg1);
             this.array.push(ss);
-            this.length += ss.length ;
+            this.length += ss.length;
         },
         AppendFormat$$String$$Object$$Object$$Object:function(s,arg0,arg1,arg2)
         {
             var ss=System.String.Format$$String$$Object$$Object$$Object(s,arg0,arg1,arg2);
             this.array.push(ss);
-            this.length += ss.length ;
+            this.length += ss.length;
         },
         toString:function()
         {
