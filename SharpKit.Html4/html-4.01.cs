@@ -2571,6 +2571,10 @@ namespace SharpKit.Html4
         ///Submits the form.
         ///</summary>
         public void submit() { }
+        /// <summary>
+        /// Sets or retrieves the window or frame at which to target content.
+        /// </summary>
+        public JsString target { get; set; }
         ///<summary>
         ///Fires when the user resets a form.
         ///</summary>		
