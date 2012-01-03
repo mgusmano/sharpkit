@@ -99,6 +99,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.RxJS", "SharpKit.R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKitGridSample", "SharpKitGridSample\SharpKitGridSample.csproj", "{3036F32C-B75C-4A52-A38E-B02758203426}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.Raphael", "SharpKit.Raphael\SharpKit.Raphael.csproj", "{D28E5C00-2614-4361-985C-774CA235DA94}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -895,6 +897,26 @@ Global
 		{3036F32C-B75C-4A52-A38E-B02758203426}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3036F32C-B75C-4A52-A38E-B02758203426}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
 		{3036F32C-B75C-4A52-A38E-B02758203426}.v4.0|x86.ActiveCfg = Release|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.Debug|Any CPU.ActiveCfg = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.Debug|Any CPU.Build.0 = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.Debug|Mixed Platforms.ActiveCfg = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.Debug|Mixed Platforms.Build.0 = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.Debug|x86.ActiveCfg = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.Release|Any CPU.ActiveCfg = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.Release|Any CPU.Build.0 = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.Release|Mixed Platforms.ActiveCfg = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.Release|Mixed Platforms.Build.0 = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.Release|x86.ActiveCfg = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.v3.5|Any CPU.ActiveCfg = v3.5|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.v3.5|Any CPU.Build.0 = v3.5|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.v3.5|Mixed Platforms.ActiveCfg = v3.5|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.v3.5|Mixed Platforms.Build.0 = v3.5|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.v3.5|x86.ActiveCfg = v3.5|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.v4.0|Any CPU.ActiveCfg = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.v4.0|Any CPU.Build.0 = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.v4.0|Mixed Platforms.ActiveCfg = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.v4.0|Mixed Platforms.Build.0 = v4.0|Any CPU
+		{D28E5C00-2614-4361-985C-774CA235DA94}.v4.0|x86.ActiveCfg = v4.0|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
