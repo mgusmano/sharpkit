@@ -97,6 +97,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.jQuery.Query", "Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.RxJS", "SharpKit.RxJS\SharpKit.RxJS.csproj", "{11DFE37F-89CD-47B2-B269-A81BE5765D15}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKitGridSample", "SharpKitGridSample\SharpKitGridSample.csproj", "{3036F32C-B75C-4A52-A38E-B02758203426}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -873,6 +875,26 @@ Global
 		{11DFE37F-89CD-47B2-B269-A81BE5765D15}.v4.0|Mixed Platforms.ActiveCfg = v4.0|Any CPU
 		{11DFE37F-89CD-47B2-B269-A81BE5765D15}.v4.0|Mixed Platforms.Build.0 = v4.0|Any CPU
 		{11DFE37F-89CD-47B2-B269-A81BE5765D15}.v4.0|x86.ActiveCfg = v4.0|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.Release|x86.ActiveCfg = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.v3.5|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.v3.5|Mixed Platforms.Build.0 = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.v3.5|x86.ActiveCfg = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
+		{3036F32C-B75C-4A52-A38E-B02758203426}.v4.0|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

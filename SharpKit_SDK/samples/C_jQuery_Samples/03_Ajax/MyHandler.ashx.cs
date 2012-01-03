@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Script.Serialization;
 using SharpKit.JavaScript;
 
-namespace SharpKitSamples.jQuerySamples.AjaxSample
+namespace SharpKitGridSample.jQuerySamples.AjaxSample
 {
     /// <summary>
     /// Simple HttpHandler to 

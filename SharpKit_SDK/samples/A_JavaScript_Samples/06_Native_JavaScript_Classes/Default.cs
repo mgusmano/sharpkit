@@ -1,7 +1,7 @@
 ﻿using SharpKit.JavaScript;
 using SharpKit.Html4;
 
-namespace SharpKitSamples
+namespace SharpKitGridSample
 {
     [JsType(JsMode.Global, Filename = "Default.js")]
     class Native_JavaScript_Classes : HtmlContext
