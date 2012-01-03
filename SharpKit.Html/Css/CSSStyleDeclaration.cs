@@ -94,6 +94,7 @@ public partial class CSSStyleDeclaration
 	public JsString maxWidth {get; set; }
 	public JsString minHeight {get; set; }
 	public JsString minWidth {get; set; }
+    public JsString opacity { get; set; }
 	public JsString orphans {get; set; }
 	public JsString outline {get; set; }
 	public JsString outlineColor {get; set; }
