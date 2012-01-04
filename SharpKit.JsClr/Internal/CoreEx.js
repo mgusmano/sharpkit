@@ -405,7 +405,9 @@ staticDefinition:
     tryParse: function (s) 
     {
         return parseFloat(s);
-    }
+    },
+    PositiveInfinity : Number.POSITIVE_INFINITY,
+    NegativeInfinity : Number.NEGATIVE_INFINITY
 }
 });
 
