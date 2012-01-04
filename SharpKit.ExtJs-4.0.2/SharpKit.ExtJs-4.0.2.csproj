@@ -357,6 +357,7 @@
     <Compile Include="Ext.WindowManager.cs" />
     <Compile Include="Ext.XTemplate.cs" />
     <Compile Include="Ext.ZIndexManager.cs" />
+    <Compile Include="ExtJsCompiler.cs" />
     <Compile Include="Missing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unknown.cs" />
