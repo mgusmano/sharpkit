@@ -52,6 +52,7 @@ using SharpKit.JavaScript;
 	"res/System.Collections.js",
 	"res/System.Reflection.js",
 	"res/System.Diagnostics.js",
+	"res/System.ComponentModel.js",
 	"res/System.Text.js",
 	"res/System.Ext.js"
 })]

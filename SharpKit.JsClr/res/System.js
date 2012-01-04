@@ -2382,7 +2382,10 @@ staticDefinition:
     tryParse: function (s) 
     {
         return parseFloat(s);
-    }
+    },
+    IsNan : isNaN,
+    PositiveInfinity : Number.POSITIVE_INFINITY,
+    NegativeInfinity : Number.NEGATIVE_INFINITY
 }
 });
 
