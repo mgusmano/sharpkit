@@ -128,6 +128,214 @@ namespace SharpKit.Raphael
         {
             return null;
         }
+
+        /// <summary>
+        /// Adds event handler for click for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object click(JsAction handler)
+        {
+            return null;
+        }
+        public static object clone()
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds or retrieves given value asociated with given key. See also Element.removeData
+        /// </summary>
+        /// <param name="key">any, key to store data</param>
+        /// <param name="value">value to store</param>
+        /// <returns></returns>
+        /// <example>
+        /// <code>
+        /// for (var i = 0, i < 5, i++) {
+        /// paper.circle(10 + 15 * i, 10, 10)
+        /// .attr({fill: "#000"})
+        /// .data("i", i)
+        /// .click(function () {
+        /// alert(this.data("i"));
+        /// });
+        /// </code>
+        /// </example>
+        public static object data(string key, object value)
+        {
+            return null;
+        }
+        //there is anathor return for specipic case. how should i write it? olso there is a function for exemple - what should i do with it?
+        /// <summary>
+        /// Adds event handler for double click for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object dblclick(JsAction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds event handlers for drag of the element.
+        /// </summary>
+        /// <param name="onmove">handler for moving</param>
+        /// <param name="onstart">handler for drag start</param>
+        /// <param name="onend">handler for drag end</param>
+        /// <param name="mcontext">context for moving handler</param>
+        /// <param name="scontext">context for drag start handler</param>
+        /// <param name="econtext">context for drag end handler</param>
+        /// <returns></returns>
+        public static object drag(JsAction onmove, JsAction onstart, JsAction onend, object mcontext, object scontext, object econtext)
+        {
+            return null;
+        }
+        //there are some X&Y stuff what should i do with them?
+        /// <summary>
+        /// Return bounding box for a given element
+        /// </summary>
+        /// <param name="isWithoutTransform">flag, true if you want to have bounding box before transformations. Default is false.</param>
+        /// <returns></returns>
+        public static object getBBox(object isWithoutTransform)
+        {
+            return null;
+        }
+        // object=boolean
+
+        //grey box
+        /// <summary>
+        /// Return coordinates of the point located at the given length on the given path. Only works for element of “path” type.
+        /// </summary>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public static object getPointAtLength(JsNumber length)
+        {
+            return null;
+        }
+        //grey box
+        /// <summary>
+        /// Return subpath of a given element from given length to given length. Only works for element of “path” type.
+        /// </summary>
+        /// <param name="from">position of the start of the segment</param>
+        /// <param name="to">position of the end of the segment</param>
+        /// <returns></returns>
+        public static string getSubpath(JsNumber from, JsNumber to)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Returns length of the path in pixels. Only works for element of “path” type.
+        /// </summary>
+        /// <returns></returns>
+        public static JsNumber getTotalLength()
+        {
+            return null;
+        }
+        /// <summary>
+        /// Return set of elements that create glow-like effect around given element. See Paper.set. Note: Glow is not connected to the element. If you change element attributes it won’t adjust itself.
+        /// </summary>
+        /// <param name="glow">parameters object with all properties optional:</param>
+        /// <returns></returns>
+        public static object glow(object glow)
+        {
+            return null;
+        }
+        // grey box
+        /// <summary>
+        /// Makes element invisible. See Element.show.
+        /// </summary>
+        /// <returns></returns>
+        public static object hide()
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds event handlers for hover for the element.
+        /// </summary>
+        /// <param name="f_in">handler for hover in</param>
+        /// <param name="f_out">handler for hover out</param>
+        /// <param name="icontext">context for hover in handler</param>
+        /// <param name="ocontext">context for hover out handler</param>
+        /// <returns></returns>
+        public static object hover(JsAction f_in, JsAction f_out, object icontext, object ocontext)
+        {
+            return null;
+        }
+        //elemnt.id?!?!
+        /// <summary>
+        /// Inserts current object after the given one.
+        /// </summary>
+        /// <returns></returns>
+        public static object insertAfter()
+        {
+            return null;
+        }
+        /// <summary>
+        /// Inserts current object before the given one.
+        /// </summary>
+        /// <returns></returns>
+        public static object insertBefore()
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds event handler for mousedown for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object mousedown(JsAction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds event handler for mousemove for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object mousemove(JsAction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds event handler for mouseout for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object mouseout(JsAction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds event handler for mouseover for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object mouseover(JsAction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds event handler for mouseup for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object mouseup(JsAction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Shortcut for assigning event handler for drag.over.<id> event, where id is id of the element (see Element.id).
+        /// </summary>
+        /// <param name="F">handler for event, first argument would be the element you are dragging over</param>
+        public static void OnDragOver(JsAction F) { }
+        /// <summary>
+        /// Stops animation of the element with ability to resume it later on.
+        /// </summary>
+        /// <param name="anim">animation object</param>
+        /// <returns></returns>
+        public static object pause(object anim)
+        {
+            return null;
+        }
+
+
     }
 
     [JsType(JsMode.Json)]
@@ -249,7 +457,122 @@ namespace SharpKit.Raphael
         public JsNumber width { get; set; }
         public JsNumber x { get; set; }
         public JsNumber y { get; set; }
+
     }
 
+    [JsType(JsMode.Json)]
+    public class dragOptions
+    {
+        /// <summary>
+        /// x position of the mouse
+        /// </summary>
+        public JsNumber x { get; set; }
+        /// <summary>
+        /// DOM event object
+        /// </summary>
+        public object JsEvent { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class dragOptions2
+    {
+        /// <summary>
+        /// shift by x from the start point
+        /// </summary>
+        public JsNumber dx { get; set; }
+        /// <summary>
+        /// shift by y from the start point
+        /// </summary>
+        public JsNumber dy { get; set; }
+        /// <summary>
+        /// x position of the mouse
+        /// </summary>
+        public JsNumber x { get; set; }
+        /// <summary>
+        /// y position of the mouse
+        /// </summary>
+        public JsNumber y { get; set; }
+        /// <summary>
+        /// DOM event object
+        /// </summary>
+        public object JsEvent { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class dragOptions3
+    {
+        /// <summary>
+        /// DOM event object
+        /// </summary>
+        public object JsEvent { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class getBBoxOptions
+    {
+        /// <summary>
+        /// top left corner x
+        /// </summary>
+        public JsNumber x { get; set; }
+        /// <summary>
+        /// top left corner y
+        /// </summary>
+        public JsNumber y { get; set; }
+        /// <summary>
+        /// width
+        /// </summary>
+        public JsNumber width { get; set; }
+        /// <summary>
+        /// height
+        /// </summary>
+        public JsNumber height { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class getPointAtLengthOptions
+    {
+        /// <summary>
+        /// x coordinate
+        /// </summary>
+        public JsNumber x { get; set; }
+        /// <summary>
+        /// y coordinate
+        /// </summary>
+        public JsNumber y { get; set; }
+        /// <summary>
+        /// angle of derivative
+        /// </summary>
+        public JsNumber alpha { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class glowOptions
+    {
+        /// <summary>
+        /// size of the glow, default is 10
+        /// </summary>
+        public JsNumber width { get; set; }
+        /// <summary>
+        /// will it be filled, default is false
+        /// </summary>
+        public bool fill { get; set; }
+
+        /// <summary>
+        /// opacity, default is 0.5
+        /// </summary>
+        public JsNumber opacity { get; set; }
+        /// <summary>
+        /// horizontal offset, default is 0
+        /// </summary>
+        public JsNumber offsetx { get; set; }
+        /// <summary>
+        /// vertical offset, default is 0
+        /// </summary>
+        public JsNumber offsety { get; set; }
+        /// <summary>
+        /// glow colour, default is black
+        /// </summary>
+        public string color { get; set; }
+    }
 
 }
