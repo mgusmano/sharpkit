@@ -81,4 +81,15 @@ namespace SharpKit.Html
     [JsDelegate(NativeDelegates = true)]
     public delegate void Function();
 
+
+
+    partial class CSSStyleDeclaration
+    {
+        public JsString borderRadius { get; set; }
+        public JsString borderTopLeftRadius { get; set; }
+        public JsString borderTopRightRadius { get; set; }
+        public JsString borderBottomRightRadius { get; set; }
+        public JsString borderBottomLeftRadius { get; set; }
+    }
+
 }
