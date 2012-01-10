@@ -210,7 +210,8 @@ namespace SharpKit.JavaScript
         /// Specifies an invisible unexported json type, this class will not be exported, 
         /// instantiation and usage of classes in this mode, will be exported to simple json elements.
         /// </summary>
-        Json
+        Json,
+        ExtJs,
     }
 
     #endregion
@@ -2451,7 +2452,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///Allows manipulation and formatting of text strings and determination and location of substrings within strings.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "String")]
+    [JsType(JsMode.Prototype, Export = false, Name = "String", NativeEnumerator=false, NativeArrayEnumerator=true)]
     public partial class JsString : JsObjectBase
     {
         public JsString() { }
