@@ -6,7 +6,7 @@ using SharpKit.JavaScript;
 using SharpKit.Html4;
 namespace SharpKit.jQuery
 {
-
+    #region jQuery
     [JsType(JsMode.Prototype, Export = false, Name = "$")]
     public partial class jQuery
     {
@@ -63,15 +63,15 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Register a handler to be called when Ajax requests complete. This is an Ajax Event.
         /// </summary>
-        public jQuery ajaxComplete(JsAction<object, string, XMLHttpRequest> handler) { return null; }
+        public jQuery ajaxComplete(JsAction<object, string, jqXHR> handler) { return null; }
         /// <summary>
         /// Register a handler to be called when Ajax requests complete with an error. This is an Ajax Event.
         /// </summary>
-        public jQuery ajaxError(JsAction<Event, XMLHttpRequest, object, JsError> handler) { return null; }
+        public jQuery ajaxError(JsAction<Event, jqXHR, object, JsError> handler) { return null; }
         /// <summary>
         /// Attach a function to be executed before an Ajax request is sent. This is an Ajax Event.
         /// </summary>
-        public jQuery ajaxSend(JsAction<object, string, XMLHttpRequest> handler) { return null; }
+        public jQuery ajaxSend(JsAction<object, string, jqXHR> handler) { return null; }
         /// <summary>
         /// Register a handler to be called when the first Ajax request begins. This is an Ajax Event.
         /// </summary>
@@ -83,7 +83,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Attach a function to be executed whenever an Ajax request completes successfully. This is an Ajax Event.
         /// </summary>
-        public jQuery ajaxSuccess(JsAction<object, string, XMLHttpRequest> handler) { return null; }
+        public jQuery ajaxSuccess(JsAction<object, string, jqXHR> handler) { return null; }
         /// <summary>
         /// Handle custom Ajax options or modify existing options before each request is sent and before they are processed by $.ajax().
         /// </summary>
@@ -113,47 +113,47 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties) { return null; }
+        public jQuery animate(object properties) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, Map options) { return null; }
+        public jQuery animate(object properties, object options) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsAction callback) { return null; }
+        public jQuery animate(object properties, JsAction callback) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsString easing) { return null; }
+        public jQuery animate(object properties, JsString easing) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsNumber duration) { return null; }
+        public jQuery animate(object properties, JsNumber duration) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsString duration, JsString easing) { return null; }
+        public jQuery animate(object properties, JsString duration, JsString easing) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsString easing, JsAction callback) { return null; }
+        public jQuery animate(object properties, JsString easing, JsAction callback) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsNumber duration, JsAction callback) { return null; }
+        public jQuery animate(object properties, JsNumber duration, JsAction callback) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsNumber duration, JsString easing) { return null; }
+        public jQuery animate(object properties, JsNumber duration, JsString easing) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsString duration, JsString easing, JsAction callback) { return null; }
+        public jQuery animate(object properties, JsString duration, JsString easing, JsAction callback) { return null; }
         /// <summary>
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
-        public jQuery animate(Map properties, JsNumber duration, JsString easing, JsAction callback) { return null; }
+        public jQuery animate(object properties, JsNumber duration, JsString easing, JsAction callback) { return null; }
         /// <summary>
         /// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
         /// </summary>
@@ -189,7 +189,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Set one or more attributes for the set of matched elements.
         /// </summary>
-        public jQuery attr(Map map) { return null; }
+        public jQuery attr(object map) { return null; }
         /// <summary>
         /// Set one or more attributes for the set of matched elements.
         /// </summary>
@@ -225,7 +225,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Attach a handler to an event for the elements.
         /// </summary>
-        public jQuery bind(object events) { return null; }
+        public jQuery bind(EventsMap events) { return null; }
         /// <summary>
         /// Attach a handler to an event for the elements.
         /// </summary>
@@ -335,7 +335,7 @@ namespace SharpKit.jQuery
         /// </param>
         /// <returns>
         /// </returns>
-        public jQuery closest(Object element) { return null; } // ask dan-el about the element type.
+        public jQuery closest(object element) { return null; } // ask dan-el about the element type.
         /// <summary>
         /// Get the children of each element in the set of matched elements, including text and comment nodes.
         /// </summary>
@@ -347,7 +347,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Set one or more CSS properties for the  set of matched elements.
         /// </summary>
-        public jQuery css(Map map) { return null; }
+        public jQuery css(object map) { return null; }
         /// <summary>
         /// Set one or more CSS properties for the  set of matched elements.
         /// </summary>
@@ -454,7 +454,7 @@ namespace SharpKit.jQuery
         ///  .then(myFunc, myFailure);
         ///  </code>
         /// </example>
-        public jQueryPromise when(params Deferred[] defferds) { return null; }
+        public Promise when(params Deferred[] defferds) { return null; }
         /// <summary>
         /// Execute the next function on the queue for the matched elements.
         /// </summary>
@@ -712,7 +712,7 @@ namespace SharpKit.jQuery
         /// </param>
         /// <returns>
         /// </returns>
-        public jQuery find(Object element) { return null; } // ask doni about the eeent type.
+        public jQuery find(object element) { return null; } // ask doni about the eeent type.
         /// <summary>
         /// Reduce the set of matched elements to the first in the set.
         /// </summary>
@@ -1024,7 +1024,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Load data from the server and place the returned HTML into the matched element.
         /// </summary>
-        public jQuery load(JsString url, JsAction<object, string, XMLHttpRequest> complete) { return null; }
+        public jQuery load(JsString url, JsAction<object, string, jqXHR> complete) { return null; }
         /// <summary>
         /// Load data from the server and place the returned HTML into the matched element.
         /// </summary>
@@ -1032,11 +1032,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Load data from the server and place the returned HTML into the matched element.
         /// </summary>
-        public jQuery load(JsString url, object data, JsAction<object, string, XMLHttpRequest> complete) { return null; }
+        public jQuery load(JsString url, object data, JsAction<object, string, jqXHR> complete) { return null; }
         /// <summary>
         /// Load data from the server and place the returned HTML into the matched element.
         /// </summary>
-        public jQuery load(JsString url, JsString data, JsAction<object, string, XMLHttpRequest> complete) { return null; }
+        public jQuery load(JsString url, JsString data, JsAction<object, string, jqXHR> complete) { return null; }
         /// <summary>
         /// Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.
         /// </summary>
@@ -1844,7 +1844,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Perform an asynchronous HTTP (Ajax) request.
         /// </summary>
-        public static XMLHttpRequest ajax(AjaxSettings settings) { return null; }
+        public static jqXHR ajax(AjaxSettings settings) { return null; }
         /// <summary>
         /// Set default values for future Ajax requests.
         /// </summary>
@@ -1904,71 +1904,71 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url) { return null; }
+        public static jqXHR get(JsString url) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, object data) { return null; }
+        public static jqXHR get(JsString url, object data) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, JsAction<object, string, XMLHttpRequest> callback) { return null; }
+        public static jqXHR get(JsString url, JsAction<object, string, jqXHR> callback) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, JsString data) { return null; }
+        public static jqXHR get(JsString url, JsString data) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, object data, JsString dataType) { return null; }
+        public static jqXHR get(JsString url, object data, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, object data, JsAction<object, string, XMLHttpRequest> callback) { return null; }
+        public static jqXHR get(JsString url, object data, JsAction<object, string, jqXHR> callback) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, JsAction<object, string, XMLHttpRequest> callback, JsString dataType) { return null; }
+        public static jqXHR get(JsString url, JsAction<object, string, jqXHR> callback, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, JsString data, JsString dataType) { return null; }
+        public static jqXHR get(JsString url, JsString data, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, JsString data, JsAction<object, string, XMLHttpRequest> callback) { return null; }
+        public static jqXHR get(JsString url, JsString data, JsAction<object, string, jqXHR> callback) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, object data, JsAction<object, string, XMLHttpRequest> callback, JsString dataType) { return null; }
+        public static jqXHR get(JsString url, object data, JsAction<object, string, jqXHR> callback, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
-        public static XMLHttpRequest get(JsString url, JsString data, JsAction<object, string, XMLHttpRequest> callback, JsString dataType) { return null; }
+        public static jqXHR get(JsString url, JsString data, JsAction<object, string, jqXHR> callback, JsString dataType) { return null; }
         /// <summary>
         /// Load JSON-encoded data from the server using a GET HTTP request.
         /// </summary>
-        public static XMLHttpRequest getJSON(JsString url) { return null; }
+        public static jqXHR getJSON(JsString url) { return null; }
         /// <summary>
         /// Load JSON-encoded data from the server using a GET HTTP request.
         /// </summary>
-        public static XMLHttpRequest getJSON(JsString url, JsAction<object, string, XMLHttpRequest> callback) { return null; }
+        public static jqXHR getJSON(JsString url, JsAction<object, string, jqXHR> callback) { return null; }
         /// <summary>
         /// Load JSON-encoded data from the server using a GET HTTP request.
         /// </summary>
-        public static XMLHttpRequest getJSON(JsString url, object data) { return null; }
+        public static jqXHR getJSON(JsString url, object data) { return null; }
         /// <summary>
         /// Load JSON-encoded data from the server using a GET HTTP request.
         /// </summary>
-        public static XMLHttpRequest getJSON(JsString url, object data, JsAction<object, string, XMLHttpRequest> callback) { return null; }
+        public static jqXHR getJSON(JsString url, object data, JsAction<object, string, jqXHR> callback) { return null; }
         /// <summary>
         /// Load a JavaScript file from the server using a GET HTTP request, then execute it.
         /// </summary>
-        public static XMLHttpRequest getScript(JsString url) { return null; }
+        public static jqXHR getScript(JsString url) { return null; }
         /// <summary>
         /// Load a JavaScript file from the server using a GET HTTP request, then execute it.
         /// </summary>
-        public static XMLHttpRequest getScript(JsString url, JsAction<JsNumber, HtmlElement> success) { return null; }
+        public static jqXHR getScript(JsString url, JsAction<JsNumber, HtmlElement> success) { return null; }
         /// <summary>
         /// Execute some JavaScript code globally.
         /// </summary>
@@ -1998,7 +1998,7 @@ namespace SharpKit.jQuery
         /// </summary>
         public static bool isFunction(object obj) { return false; }
         /// <summary>
-        /// Check to see if an object is a plain object (created using "{}" or "new Object").
+        /// Check to see if an object is a plain object (created using "{}" or "new object").
         /// </summary>
         public static bool isPlainObject(object @object) { return false; }
         /// <summary>
@@ -2056,47 +2056,47 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url) { return null; }
+        public static jqXHR post(JsString url) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, object data) { return null; }
+        public static jqXHR post(JsString url, object data) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, JsAction<object, string, XMLHttpRequest> success) { return null; }
+        public static jqXHR post(JsString url, JsAction<object, string, jqXHR> success) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, JsString data) { return null; }
+        public static jqXHR post(JsString url, JsString data) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, object data, JsString dataType) { return null; }
+        public static jqXHR post(JsString url, object data, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, object data, JsAction<object, string, XMLHttpRequest> success) { return null; }
+        public static jqXHR post(JsString url, object data, JsAction<object, string, jqXHR> success) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, JsAction<object, string, XMLHttpRequest> success, JsString dataType) { return null; }
+        public static jqXHR post(JsString url, JsAction<object, string, jqXHR> success, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, JsString data, JsString dataType) { return null; }
+        public static jqXHR post(JsString url, JsString data, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, JsString data, JsAction<object, string, XMLHttpRequest> success) { return null; }
+        public static jqXHR post(JsString url, JsString data, JsAction<object, string, jqXHR> success) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, object data, JsAction<object, string, XMLHttpRequest> success, JsString dataType) { return null; }
+        public static jqXHR post(JsString url, object data, JsAction<object, string, jqXHR> success, JsString dataType) { return null; }
         /// <summary>
         /// Load data from the server using a HTTP POST request.
         /// </summary>
-        public static XMLHttpRequest post(JsString url, JsString data, JsAction<object, string, XMLHttpRequest> success, JsString dataType) { return null; }
+        public static jqXHR post(JsString url, JsString data, JsAction<object, string, jqXHR> success, JsString dataType) { return null; }
         /// <summary>
         /// Takes a function and returns a new one that will always have a particular context.
         /// </summary>
@@ -2256,9 +2256,6 @@ namespace SharpKit.jQuery
         ///
         ///  // Note: Calling just $("#main").open() won't work as open doesn't exist!
         ///});        
-
-
-
         /// </code>
         /// </summary>
         public static jQuery sub { get; set; }
@@ -2292,17 +2289,8 @@ namespace SharpKit.jQuery
         public static Deferred Deferred(JsAction<Deferred> callback) { return null; }
     }
 
-    [JsType(JsMode.Json)]
-    public partial class jQueryBrowser
-    {
-        public bool webkit { get; set; }
-        public bool safari { get; set; }
-        public bool msie { get; set; }
-        public bool opera { get; set; }
-        public bool mozilla { get; set; }
-        public JsString version { get; set; }
-    }
-
+    #endregion
+    #region jQueryContext
     [JsType(JsMode.Global, Export = false)]
     public partial class jQueryContext : HtmlContext
     {
@@ -2362,6 +2350,9 @@ namespace SharpKit.jQuery
         [JsMethod(Name = "$")]
         public static jQuery J(JsString selector) { return null; }
     }
+
+    #endregion
+    #region jQueryContextBase
     [JsType(JsMode.Global, Export = false)]
     public partial class jQueryContextBase : HtmlContextBase
     {
@@ -2421,6 +2412,264 @@ namespace SharpKit.jQuery
         [JsMethod(Name = "$")]
         protected static jQuery J(JsString selector) { return null; }
     }
+
+    #endregion
+    #region jQueryBrowser
+    [JsType(JsMode.Json)]
+    public partial class jQueryBrowser
+    {
+        public bool webkit { get; set; }
+        public bool safari { get; set; }
+        public bool msie { get; set; }
+        public bool opera { get; set; }
+        public bool mozilla { get; set; }
+        public JsString version { get; set; }
+    }
+
+    #endregion
+    #region jQueryFx
+
+    [JsType(JsMode.Json, Export = false)]
+    public partial class jQueryFx
+    {
+        /// <summary>
+        /// The rate (in milliseconds) at which animations fire.
+        /// </summary>
+        public JsNumber interval { get; set; }
+        /// <summary>
+        /// Globally disable all animations.
+        /// </summary>
+        public bool off { get; set; }
+    }
+
+    #endregion
+    #region jqXHR
+
+    [JsType(JsMode.Json)]
+    public class jqXHR
+    {
+        /// <summary>
+        /// Retrieves the response body as a string.
+        /// </summary>
+        public JsString responseText { get; private set; }
+        /// <summary>
+        /// Retrieves the current state of the request operation.
+        /// </summary>
+        public JsNumber readyState { get; private set; }
+        /// <summary>
+        /// Retrieves the HTTP status code of the request.
+        /// </summary>
+        public JsNumber status { get; private set; }
+        /// <summary>
+        /// Retrieves the friendly HTTP status of the request.
+        /// </summary>
+        public JsString statusText { get; private set; }
+        /// <summary>
+        /// Adds custom HTTP headers to the request which departs from the standard by replacing the old value with the new one rather than concatenating the new value to the old one
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public void setRequestHeader(string name, string value) { }
+        /// <summary>
+        /// Cancels the current HTTP request.
+        /// </summary>
+        public void abort() { }
+        /// <summary>
+        /// Retrieves all response headers in a single string
+        /// </summary>
+        /// <returns></returns>
+        public JsString getAllResponseHeaders() { return null; }
+        /// <summary>
+        /// Retrieves a response header value by name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public JsString getResponseHeader(string name) { return null; }
+    }
+    #endregion
+    #region AjaxSettings
+
+    [JsType(JsMode.Json)]
+    public partial class AjaxSettings
+    {
+        /// <summary>
+        /// Default: depends on DataType
+        ///The content type sent in the request header that tells the server what kind of response it will accept in return. If the accepts setting needs modification, it is recommended to do so once in the $.ajaxSetup() method.
+        /// </summary>
+        public object accepts { get; set; }
+        /// <summary>
+        /// Default: true
+        /// By default, all requests are sent asynchronously (i.e. this is set to true by default). If you need synchronous requests, set this option to false. Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation. Note that synchronous requests may temporarily lock the browser, disabling any actions while the request is active.
+        /// </summary>
+        public bool async { get; set; }
+        /// <summary>
+        /// Data to be sent to the server. It is converted to a query string, if not already a string. It's appended to the url for GET-requests. See processData option to prevent this automatic processing. object must be Key/Value pairs. If value is an Array, jQuery serializes multiple values with same key based on the value of the traditional setting (described below).
+        /// </summary>
+        public object data { get; set; }
+        /// <summary>
+        /// A pre-request callback function that can be used to modify the jqXHR (in jQuery 1.4.x, XMLHTTPRequest) object before it is sent. Use this to set custom headers, etc. The jqXHR and settings maps are passed as arguments. This is an Ajax Event. Returning false in the beforeSend function will cancel the request. As of jQuery 1.5, the beforeSend option will be called regardless of the type of request.
+        /// </summary>
+        public JsAction<jqXHR, AjaxSettings> beforeSend { get; set; }
+        /// <summary>
+        /// Default: true, false for dataType 'script' and 'jsonp'
+        /// If set to false, it will force requested pages not to be cached by the browser. Setting cache to false also appends a query string parameter, "_=[TIMESTAMP]", to the URL.
+        /// </summary>
+        public bool cache { get; set; }
+        /// <summary>
+        /// A function to be called when the request finishes (after success and error callbacks are executed). The function gets passed two arguments: The jqXHR (in jQuery 1.4.x, XMLHTTPRequest) object and a string categorizing the status of the request ("success", "notmodified", "error", "timeout", "abort", or "parsererror"). As of jQuery 1.5, the complete setting can accept an array of functions. Each function will be called in turn. This is an Ajax Event
+        /// </summary>
+        public JsAction<jqXHR, JsString> complete { get; set; }
+        /// <summary>
+        /// A map of string/regular-expression pairs that determine how jQuery will parse the response, given its content type.
+        /// </summary>
+        public object contents { get; set; }
+        /// <summary>
+        /// Default: 'application/x-www-form-urlencoded'
+        /// When sending data to the server, use this content-type. Default is "application/x-www-form-urlencoded", which is fine for most cases. If you explicitly pass in a content-type to $.ajax() then it'll always be sent to the server (even if no data is sent). Data will always be transmitted to the server using UTF-8 charset; you must decode this appropriately on the server side.
+        /// </summary>
+        public JsString contentType { get; set; }
+        /// <summary>
+        /// This object will be made the context of all Ajax-related callbacks. By default, the context is an object that represents the ajax settings used in the call ($.ajaxSettings merged with the settings passed to $.ajax). For example specifying a DOM element as the context will make that the context for the complete callback of a request, like so:
+        /// <code>
+        /// $.ajax({url: "test.html",context: document.body,success: function(){$(this).addClass("done");}});
+        /// </code>
+        /// </summary>
+        public object context { get; set; }
+        /// <summary>
+        /// Default: {"* text": window.String, "text html": true, "text json": jQuery.parseJSON, "text xml": jQuery.parseXML}
+        /// A map of dataType-to-dataType converters. Each converter's value is a function that returns the transformed value of the response.
+        /// </summary>
+        public object converters { get; set; }
+        /// <summary>
+        /// Default: false for same-domain requests, true for cross-domain requests
+        ///If you wish to force a crossDomain request (such as JSONP) on the same domain, set the value of crossDomain to true. This allows, for example, server-side redirection to another domain
+        /// </summary>
+        public bool crossDomain { get; set; }
+        /// <summary>
+        /// A function to be used to handle the raw response data of XMLHttpRequest.This is a pre-filtering function to sanitize the response. You should return the sanitized data. The function accepts two arguments: The raw data returned from the server and the 'dataType' parameter.
+        /// </summary>
+        public JsFunc<object, JsString, JsString> dataFilter { get; set; }
+        /// <summary>
+        /// Default: Intelligent Guess (xml, json, script, or html)
+        /// The type of data that you're expecting back from the server. If none is specified, jQuery will try to infer it based on the MIME type of the response (an XML MIME type will yield XML, in 1.4 JSON will yield a JavaScript object, in 1.4 script will execute the script, and anything else will be returned as a string). The available types (and the result passed as the first argument to your success callback) are:
+        /// "xml": Returns a XML document that can be processed via jQuery.
+        /// "html": Returns HTML as plain text; included script tags are evaluated when inserted in the DOM.
+        /// "script": Evaluates the response as JavaScript and returns it as plain text. Disables caching by appending a query string parameter, "_=[TIMESTAMP]", to the URL unless the cache option is set to true. Note: This will turn POSTs into GETs for remote-domain requests.
+        /// "json": Evaluates the response as JSON and returns a JavaScript object. In jQuery 1.4 the JSON data is parsed in a strict manner; any malformed JSON is rejected and a parse error is thrown. (See json.org for more information on proper JSON formatting.)
+        /// "jsonp": Loads in a JSON block using JSONP. Adds an extra "?callback=?" to the end of your URL to specify the callback. Disables caching by appending a query string parameter, "_=[TIMESTAMP]", to the URL unless the cache option is set to true.
+        /// "text": A plain text string.
+        /// multiple, space-separated values: As of jQuery 1.5, jQuery can convert a dataType from what it received in the Content-Type header to what you require. For example, if you want a text response to be treated as XML, use "text xml" for the dataType. You can also make a JSONP request, have it received as text, and interpreted by jQuery as XML: "jsonp text xml." Similarly, a shorthand string such as "jsonp xml" will first attempt to convert from jsonp to xml, and, failing that, convert from jsonp to text, and then from text to xml.
+        /// </summary>
+        public JsString dataType { get; set; }
+        /// <summary>
+        /// A function to be called if the request fails. The function receives three arguments: The jqXHR (in jQuery 1.4.x, XMLHttpRequest) object, a string describing the type of error that occurred and an optional exception object, if one occurred. Possible values for the second argument (besides null) are "timeout", "error", "abort", and "parsererror". When an HTTP error occurs, errorThrown receives the textual portion of the HTTP status, such as "Not Found" or "Internal Server Error." As of jQuery 1.5, the error setting can accept an array of functions. Each function will be called in turn. Note: This handler is not called for cross-domain script and JSONP requests. This is an Ajax Event.
+        /// </summary>
+        public JsAction<jqXHR, JsString, JsError> error { get; set; }
+        /// <summary>
+        /// Default: true
+        /// Whether to trigger global Ajax event handlers for this request. The default is true. Set to false to prevent the global handlers like ajaxStart or ajaxStop from being triggered. This can be used to control various Ajax Events
+        /// </summary>
+        public bool global { get; set; }
+        /// <summary>
+        /// Default: {}
+        ///A map of additional header key/value pairs to send along with the request. This setting is set before the beforeSend function is called; therefore, any values in the headers setting can be overwritten from within the beforeSend function.
+        /// </summary>
+        public object headers { get; set; }
+        /// <summary>
+        /// Default: false
+        /// Allow the request to be successful only if the response has changed since the last request. This is done by checking the Last-Modified header. Default value is false, ignoring the header. In jQuery 1.4 this technique also checks the 'etag' specified by the server to catch unmodified data
+        /// </summary>
+        public bool ifModified { get; set; }
+        /// <summary>
+        /// Default: depends on current location protocol
+        ///Allow the current environment to be recognized as "local," (e.g. the filesystem), even if jQuery does not recognize it as such by default. The following protocols are currently recognized as local: file, *-extension, and widget. If the isLocal setting needs modification, it is recommended to do so once in the $.ajaxSetup() method.
+        /// </summary>
+        public bool isLocal { get; set; }
+        /// <summary>
+        /// Override the callback function name in a jsonp request. This value will be used instead of 'callback' in the 'callback=?' part of the query string in the url. So {jsonp:'onJSONPLoad'} would result in 'onJSONPLoad=?' passed to the server. As of jQuery 1.5, setting the jsonp option to false prevents jQuery from adding the "?callback" string to the URL or attempting to use "=?" for transformation. In this case, you should also explicitly set the jsonpCallback setting. For example, { jsonp: false, jsonpCallback: "callbackName" }
+        /// </summary>
+        public JsString jsonp { get; set; }
+        /// <summary>
+        /// Specify the callback function name for a JSONP request. This value will be used instead of the random name automatically generated by jQuery. It is preferable to let jQuery generate a unique name as it'll make it easier to manage the requests and provide callbacks and error handling. You may want to specify the callback when you want to enable better browser caching of GET requests. As of jQuery 1.5, you can also use a function for this setting, in which case the value of jsonpCallback is set to the return value of that function.
+        /// </summary>
+        public JsAction jsonpCallback { get; set; }
+        /// <summary>
+        /// A mime type to override the XHR mime type.
+        /// </summary>
+        public JsString mimeType { get; set; }
+        /// <summary>
+        /// A password to be used in response to an HTTP access authentication request.
+        /// </summary>
+        public JsString password { get; set; }
+        /// <summary>
+        /// Default: true
+        /// By default, data passed in to the data option as an object (technically, anything other than a string) will be processed and transformed into a query string, fitting to the default content-type "application/x-www-form-urlencoded". If you want to send a DOMDocument, or other non-processed data, set this option to false
+        /// </summary>
+        public bool processData { get; set; }
+        /// <summary>
+        /// Only for requests with "jsonp" or "script" dataType and "GET" type. Forces the request to be interpreted as a certain charset. Only needed for charset differences between the remote and local content.
+        /// </summary>
+        public JsString scriptCharset { get; set; }
+        /// <summary>
+        /// Default: {}
+        ///A map of numeric HTTP codes and functions to be called when the response has the corresponding code. 
+        /// </summary>
+        /// <example>
+        /// the following will alert when the response status is a 404:
+        /// <code>
+        /// $.ajax({statusCode: {404: function() {alert('page not found');}}});
+        /// </code>
+        /// <list type="note">
+        /// If the request is successful, the status code functions take the same parameters as the success callback; if it results in an error, they take the same parameters as the error callback.
+        /// </list>
+        /// </example>
+        public object statusCode { get; set; }
+        /// <summary>
+        /// A function to be called if the request succeeds. The function gets passed three arguments: The data returned from the server, formatted according to the dataType parameter; a string describing the status; and the jqXHR (in jQuery 1.4.x, XMLHttpRequest) object. As of jQuery 1.5, the success setting can accept an array of functions. Each function will be called in turn. This is an Ajax Event.
+        /// </summary>
+        public JsAction<object, JsString, jqXHR> success { get; set; }
+        /// <summary>
+        /// Set a local timeout (in milliseconds) for the request. This will override the global timeout, if one is set with $.ajaxSetup(). For example, you could use this property to give a single request a longer timeout than all other requests that you've set to time out in one second. See $.ajaxSetup() for global timeouts. In jQuery 1.4.x and below, please note that the XMLHttpRequest object will be in an invalid state should the request time out. Where this is the case, accessing any object members may result in an exception being thrown. In jQuery 1.5.2 and above,$.ajax() does not handle JSONP requests as expected should the request fail due to a timeout in Firefox 3.0+. This is a browser-based issue due to FF currently not providing a way to abort cross-domain requests once the script tag has been appended. This issue does not currently affect other browsers.
+        /// </summary>
+        public JsNumber timeout { get; set; }
+        /// <summary>
+        /// Set this to true if you wish to use the traditional style of param serialization.
+        /// </summary>
+        public bool traditional { get; set; }
+        /// <summary>
+        /// Default: 'GET'
+        /// The type of request to make ("POST" or "GET"), default is "GET". Note: Other HTTP request methods, such as PUT and DELETE, can also be used here, but they are not supported by all browsers.
+        /// </summary>
+        public JsString type { get; set; }
+        /// <summary>
+        /// Default: The current page
+        /// A string containing the URL to which the request is sent.
+        /// </summary>
+        public JsString url { get; set; }
+        /// <summary>
+        /// A username to be used in response to an HTTP access authentication request.
+        /// </summary>
+        public JsString username { get; set; }
+        /// <summary>
+        /// Default: ActiveXObject when available (IE), the XMLHttpRequest otherwise
+        /// Callback for creating the XMLHttpRequest object. Defaults to the ActiveXObject when available (IE), the XMLHttpRequest otherwise. Override to provide your own implementation for XMLHttpRequest or enhancements to the factory.
+        /// </summary>
+        public JsAction xhr { get; set; }
+        /// <summary>
+        /// A map of fieldName-fieldValue pairs to set on the native XHR object. For example, you can use it to set withCredentials to true for cross-domain requests if needed.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $.ajax({url: a_cross_domain_url,xhrFields: {withCredentials: true}});
+        /// </code>
+        /// <list type=">bullet">
+        /// In jQuery 1.5, the withCredentials property was not propagated to the native XHR and thus CORS requests requiring it would ignore this flag. For this reason, we recommend using jQuery 1.5.1+ should you require the use of it.
+        /// </list>
+        /// </example>
+        public object xhrFields { get; set; }
+    }
+    #endregion
+    #region Event
     [JsType(JsMode.Json, Export = false)]
     public partial class Event
     {
@@ -2534,217 +2783,44 @@ namespace SharpKit.jQuery
         public JsNumber wheelDelta { get; set; }
 
     }
-    [JsType(JsMode.Json, Export = false)]
-    public partial class jQueryFx
-    {
-        /// <summary>
-        /// The rate (in milliseconds) at which animations fire.
-        /// </summary>
-        public JsNumber interval { get; set; }
-        /// <summary>
-        /// Globally disable all animations.
-        /// </summary>
-        public bool off { get; set; }
-    }
+    #endregion
+    #region EventsMap
 
 
     [JsType(JsMode.Json)]
-    public partial class Map : HtmlElementStyle
+    public class EventsMap
     {
+        //Keyboard Events
+        public JsAction<Event> focusin { get; set; }
+        public JsAction<Event> focusout { get; set; }
+        public JsAction<Event> keydown { get; set; }
+        public JsAction<Event> keypress { get; set; }
+        public JsAction<Event> keyup { get; set; }
+        //Mouse Events
+        public JsAction<Event> click { get; set; }
+        public JsAction<Event> dblclick { get; set; }
+        public JsAction<Event> hover { get; set; }
+        public JsAction<Event> mousedown { get; set; }
+        public JsAction<Event> mouseenter { get; set; }
+        public JsAction<Event> mouseleave { get; set; }
+        public JsAction<Event> mousemove { get; set; }
+        public JsAction<Event> mouseout { get; set; }
+        public JsAction<Event> mouseover { get; set; }
+        public JsAction<Event> mouseup { get; set; }
+        public JsAction<Event> toggle { get; set; }
+        //browser events
+        public JsAction<Event> error { get; set; }
+        public JsAction<Event> resize { get; set; }
+        public JsAction<Event> scroll { get; set; }
     }
+    #endregion
+    #region Deferred
 
-    [JsType(JsMode.Json)]
-    public partial class TopLeft
-    {
-        public JsNumber top { get; set; }
-        public JsNumber left { get; set; }
-    }
-
-
-    [JsType(JsMode.Json)]
-    public partial class AjaxSettings
-    {
-        /// <summary>
-        /// Default: depends on DataType
-        ///The content type sent in the request header that tells the server what kind of response it will accept in return. If the accepts setting needs modification, it is recommended to do so once in the $.ajaxSetup() method.
-        /// </summary>
-        public object accepts { get; set; }
-        /// <summary>
-        /// Default: true
-        /// By default, all requests are sent asynchronously (i.e. this is set to true by default). If you need synchronous requests, set this option to false. Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation. Note that synchronous requests may temporarily lock the browser, disabling any actions while the request is active.
-        /// </summary>
-        public bool async { get; set; }
-        /// <summary>
-        /// Data to be sent to the server. It is converted to a query string, if not already a string. It's appended to the url for GET-requests. See processData option to prevent this automatic processing. Object must be Key/Value pairs. If value is an Array, jQuery serializes multiple values with same key based on the value of the traditional setting (described below).
-        /// </summary>
-        public object data { get; set; }
-        /// <summary>
-        /// A pre-request callback function that can be used to modify the jqXHR (in jQuery 1.4.x, XMLHTTPRequest) object before it is sent. Use this to set custom headers, etc. The jqXHR and settings maps are passed as arguments. This is an Ajax Event. Returning false in the beforeSend function will cancel the request. As of jQuery 1.5, the beforeSend option will be called regardless of the type of request.
-        /// </summary>
-        public JsAction<XMLHttpRequest, AjaxSettings> beforeSend { get; set; }
-        /// <summary>
-        /// Default: true, false for dataType 'script' and 'jsonp'
-        /// If set to false, it will force requested pages not to be cached by the browser. Setting cache to false also appends a query string parameter, "_=[TIMESTAMP]", to the URL.
-        /// </summary>
-        public bool cache { get; set; }
-        /// <summary>
-        /// A function to be called when the request finishes (after success and error callbacks are executed). The function gets passed two arguments: The jqXHR (in jQuery 1.4.x, XMLHTTPRequest) object and a string categorizing the status of the request ("success", "notmodified", "error", "timeout", "abort", or "parsererror"). As of jQuery 1.5, the complete setting can accept an array of functions. Each function will be called in turn. This is an Ajax Event
-        /// </summary>
-        public JsAction<XMLHttpRequest, JsString> complete { get; set; }
-        /// <summary>
-        /// A map of string/regular-expression pairs that determine how jQuery will parse the response, given its content type.
-        /// </summary>
-        public object contents { get; set; }
-        /// <summary>
-        /// Default: 'application/x-www-form-urlencoded'
-        /// When sending data to the server, use this content-type. Default is "application/x-www-form-urlencoded", which is fine for most cases. If you explicitly pass in a content-type to $.ajax() then it'll always be sent to the server (even if no data is sent). Data will always be transmitted to the server using UTF-8 charset; you must decode this appropriately on the server side.
-        /// </summary>
-        public JsString contentType { get; set; }
-        /// <summary>
-        /// This object will be made the context of all Ajax-related callbacks. By default, the context is an object that represents the ajax settings used in the call ($.ajaxSettings merged with the settings passed to $.ajax). For example specifying a DOM element as the context will make that the context for the complete callback of a request, like so:
-        /// <code>
-        /// $.ajax({url: "test.html",context: document.body,success: function(){$(this).addClass("done");}});
-        /// </code>
-        /// </summary>
-        public object context { get; set; }
-        /// <summary>
-        /// Default: {"* text": window.String, "text html": true, "text json": jQuery.parseJSON, "text xml": jQuery.parseXML}
-        /// A map of dataType-to-dataType converters. Each converter's value is a function that returns the transformed value of the response.
-        /// </summary>
-        public object converters { get; set; }
-        /// <summary>
-        /// Default: false for same-domain requests, true for cross-domain requests
-        ///If you wish to force a crossDomain request (such as JSONP) on the same domain, set the value of crossDomain to true. This allows, for example, server-side redirection to another domain
-        /// </summary>
-        public bool crossDomain { get; set; }
-        /// <summary>
-        /// A function to be used to handle the raw response data of XMLHttpRequest.This is a pre-filtering function to sanitize the response. You should return the sanitized data. The function accepts two arguments: The raw data returned from the server and the 'dataType' parameter.
-        /// </summary>
-        public JsAction<object, JsString> dataFilter { get; set; }
-        /// <summary>
-        /// Default: Intelligent Guess (xml, json, script, or html)
-        /// The type of data that you're expecting back from the server. If none is specified, jQuery will try to infer it based on the MIME type of the response (an XML MIME type will yield XML, in 1.4 JSON will yield a JavaScript object, in 1.4 script will execute the script, and anything else will be returned as a string). The available types (and the result passed as the first argument to your success callback) are:
-        /// "xml": Returns a XML document that can be processed via jQuery.
-        /// "html": Returns HTML as plain text; included script tags are evaluated when inserted in the DOM.
-        /// "script": Evaluates the response as JavaScript and returns it as plain text. Disables caching by appending a query string parameter, "_=[TIMESTAMP]", to the URL unless the cache option is set to true. Note: This will turn POSTs into GETs for remote-domain requests.
-        /// "json": Evaluates the response as JSON and returns a JavaScript object. In jQuery 1.4 the JSON data is parsed in a strict manner; any malformed JSON is rejected and a parse error is thrown. (See json.org for more information on proper JSON formatting.)
-        /// "jsonp": Loads in a JSON block using JSONP. Adds an extra "?callback=?" to the end of your URL to specify the callback. Disables caching by appending a query string parameter, "_=[TIMESTAMP]", to the URL unless the cache option is set to true.
-        /// "text": A plain text string.
-        /// multiple, space-separated values: As of jQuery 1.5, jQuery can convert a dataType from what it received in the Content-Type header to what you require. For example, if you want a text response to be treated as XML, use "text xml" for the dataType. You can also make a JSONP request, have it received as text, and interpreted by jQuery as XML: "jsonp text xml." Similarly, a shorthand string such as "jsonp xml" will first attempt to convert from jsonp to xml, and, failing that, convert from jsonp to text, and then from text to xml.
-        /// </summary>
-        public JsString dataType { get; set; }
-        /// <summary>
-        /// A function to be called if the request fails. The function receives three arguments: The jqXHR (in jQuery 1.4.x, XMLHttpRequest) object, a string describing the type of error that occurred and an optional exception object, if one occurred. Possible values for the second argument (besides null) are "timeout", "error", "abort", and "parsererror". When an HTTP error occurs, errorThrown receives the textual portion of the HTTP status, such as "Not Found" or "Internal Server Error." As of jQuery 1.5, the error setting can accept an array of functions. Each function will be called in turn. Note: This handler is not called for cross-domain script and JSONP requests. This is an Ajax Event.
-        /// </summary>
-        public JsAction<XMLHttpRequest, JsString, JsError> error { get; set; }
-        /// <summary>
-        /// Default: true
-        /// Whether to trigger global Ajax event handlers for this request. The default is true. Set to false to prevent the global handlers like ajaxStart or ajaxStop from being triggered. This can be used to control various Ajax Events
-        /// </summary>
-        public bool global { get; set; }
-        /// <summary>
-        /// Default: {}
-        ///A map of additional header key/value pairs to send along with the request. This setting is set before the beforeSend function is called; therefore, any values in the headers setting can be overwritten from within the beforeSend function.
-        /// </summary>
-        public object headers { get; set; }
-        /// <summary>
-        /// Default: false
-        /// Allow the request to be successful only if the response has changed since the last request. This is done by checking the Last-Modified header. Default value is false, ignoring the header. In jQuery 1.4 this technique also checks the 'etag' specified by the server to catch unmodified data
-        /// </summary>
-        public bool ifModified { get; set; }
-        /// <summary>
-        /// Default: depends on current location protocol
-        ///Allow the current environment to be recognized as "local," (e.g. the filesystem), even if jQuery does not recognize it as such by default. The following protocols are currently recognized as local: file, *-extension, and widget. If the isLocal setting needs modification, it is recommended to do so once in the $.ajaxSetup() method.
-        /// </summary>
-        public bool isLocal { get; set; }
-        /// <summary>
-        /// Override the callback function name in a jsonp request. This value will be used instead of 'callback' in the 'callback=?' part of the query string in the url. So {jsonp:'onJSONPLoad'} would result in 'onJSONPLoad=?' passed to the server. As of jQuery 1.5, setting the jsonp option to false prevents jQuery from adding the "?callback" string to the URL or attempting to use "=?" for transformation. In this case, you should also explicitly set the jsonpCallback setting. For example, { jsonp: false, jsonpCallback: "callbackName" }
-        /// </summary>
-        public JsString jsonp { get; set; }
-        /// <summary>
-        /// Specify the callback function name for a JSONP request. This value will be used instead of the random name automatically generated by jQuery. It is preferable to let jQuery generate a unique name as it'll make it easier to manage the requests and provide callbacks and error handling. You may want to specify the callback when you want to enable better browser caching of GET requests. As of jQuery 1.5, you can also use a function for this setting, in which case the value of jsonpCallback is set to the return value of that function.
-        /// </summary>
-        public JsAction jsonpCallback { get; set; }
-        /// <summary>
-        /// A mime type to override the XHR mime type.
-        /// </summary>
-        public JsString mimeType { get; set; }
-        /// <summary>
-        /// A password to be used in response to an HTTP access authentication request.
-        /// </summary>
-        public JsString password { get; set; }
-        /// <summary>
-        /// Default: true
-        /// By default, data passed in to the data option as an object (technically, anything other than a string) will be processed and transformed into a query string, fitting to the default content-type "application/x-www-form-urlencoded". If you want to send a DOMDocument, or other non-processed data, set this option to false
-        /// </summary>
-        public bool processData { get; set; }
-        /// <summary>
-        /// Only for requests with "jsonp" or "script" dataType and "GET" type. Forces the request to be interpreted as a certain charset. Only needed for charset differences between the remote and local content.
-        /// </summary>
-        public JsString scriptCharset { get; set; }
-        /// <summary>
-        /// Default: {}
-        ///A map of numeric HTTP codes and functions to be called when the response has the corresponding code. 
-        /// </summary>
-        /// <example>
-        /// the following will alert when the response status is a 404:
-        /// <code>
-        /// $.ajax({statusCode: {404: function() {alert('page not found');}}});
-        /// </code>
-        /// <list type="note">
-        /// If the request is successful, the status code functions take the same parameters as the success callback; if it results in an error, they take the same parameters as the error callback.
-        /// </list>
-        /// </example>
-        public object statusCode { get; set; }
-        /// <summary>
-        /// A function to be called if the request succeeds. The function gets passed three arguments: The data returned from the server, formatted according to the dataType parameter; a string describing the status; and the jqXHR (in jQuery 1.4.x, XMLHttpRequest) object. As of jQuery 1.5, the success setting can accept an array of functions. Each function will be called in turn. This is an Ajax Event.
-        /// </summary>
-        public JsAction<object, JsString, XMLHttpRequest> success { get; set; }
-        /// <summary>
-        /// Set a local timeout (in milliseconds) for the request. This will override the global timeout, if one is set with $.ajaxSetup(). For example, you could use this property to give a single request a longer timeout than all other requests that you've set to time out in one second. See $.ajaxSetup() for global timeouts. In jQuery 1.4.x and below, please note that the XMLHttpRequest object will be in an invalid state should the request time out. Where this is the case, accessing any object members may result in an exception being thrown. In jQuery 1.5.2 and above,$.ajax() does not handle JSONP requests as expected should the request fail due to a timeout in Firefox 3.0+. This is a browser-based issue due to FF currently not providing a way to abort cross-domain requests once the script tag has been appended. This issue does not currently affect other browsers.
-        /// </summary>
-        public JsNumber timeout { get; set; }
-        /// <summary>
-        /// Set this to true if you wish to use the traditional style of param serialization.
-        /// </summary>
-        public bool traditional { get; set; }
-        /// <summary>
-        /// Default: 'GET'
-        /// The type of request to make ("POST" or "GET"), default is "GET". Note: Other HTTP request methods, such as PUT and DELETE, can also be used here, but they are not supported by all browsers.
-        /// </summary>
-        public JsString type { get; set; }
-        /// <summary>
-        /// Default: The current page
-        /// A string containing the URL to which the request is sent.
-        /// </summary>
-        public JsString url { get; set; }
-        /// <summary>
-        /// A username to be used in response to an HTTP access authentication request.
-        /// </summary>
-        public JsString username { get; set; }
-        /// <summary>
-        /// Default: ActiveXObject when available (IE), the XMLHttpRequest otherwise
-        /// Callback for creating the XMLHttpRequest object. Defaults to the ActiveXObject when available (IE), the XMLHttpRequest otherwise. Override to provide your own implementation for XMLHttpRequest or enhancements to the factory.
-        /// </summary>
-        public JsAction xhr { get; set; }
-        /// <summary>
-        /// A map of fieldName-fieldValue pairs to set on the native XHR object. For example, you can use it to set withCredentials to true for cross-domain requests if needed.
-        /// </summary>
-        /// <example>
-        /// <code>
-        /// $.ajax({url: a_cross_domain_url,xhrFields: {withCredentials: true}});
-        /// </code>
-        /// <list type=">bullet">
-        /// In jQuery 1.5, the withCredentials property was not propagated to the native XHR and thus CORS requests requiring it would ignore this flag. For this reason, we recommend using jQuery 1.5.1+ should you require the use of it.
-        /// </list>
-        /// </example>
-        public object xhrFields { get; set; }
-    }
     /// <summary>
     /// jQuery.Deferred(), introduced in version 1.5, is a chainable utility object that can register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.
     /// </summary>
     [JsType(JsMode.Prototype, Name = "jQuery.Deferred", Export = false)]
-    public partial class Deferred : jQueryPromise
+    public partial class Deferred : Promise
     {
         /// <summary>
         /// The jQuery.Deferred() constructor creates a new Deferred object. The new operator is optional.
@@ -2791,7 +2867,7 @@ namespace SharpKit.jQuery
         /// obj.done(function( name ) {obj.hello( name ); // will alert "Hello John"}).hello( "Karl" ); // will alert "Hello Karl"
         /// </code>
         /// </example>
-        public jQueryPromise promise(object target) { return null; }
+        public Promise promise(object target) { return null; }
         /// <summary>
         /// Reject a Deferred object and call any failCallbacks with the given args.
         /// <list type="bullet">
@@ -2862,11 +2938,14 @@ namespace SharpKit.jQuery
 
 
     }
+    #endregion
+    #region Promise
+
     /// <summary>
     /// This object provides a subset of the methods of the Deferred object (then, done, fail, always, pipe. isResolved, and isRejected) to prevent users from changing the state of the Deferred
     /// </summary>
     [JsType(JsMode.Prototype, Export = false)]
-    public partial class jQueryPromise
+    public partial class Promise
     {
 
         /// <summary>
@@ -2945,11 +3024,52 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Utility method to filter and/or chain Deferreds.
         /// </summary>
+        /// <returns>
+        /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
+        /// </returns>
+        /// <example>
+        /// Filter resolve value:
+        /// <code>
+        /// var defer = $.Deferred(),
+        ///     filtered = defer.pipe(function( value ) {
+        ///       return value * 2;
+        ///     });
+        ///
+        /// defer.resolve( 5 );
+        /// filtered.done(function( value ) {
+        ///   alert( "Value is ( 2*5 = ) 10: " + value );
+        /// });        
+        /// </code>
+        /// Filter reject value:
+        /// <code>
+        /// var defer = $.Deferred(),
+        ///    filtered = defer.pipe( null, function( value ) {
+        ///      return value * 3;
+        ///     });
+        ///
+        /// defer.reject( 6 );
+        /// filtered.fail(function( value ) {
+        ///   alert( "Value is ( 3*6 = ) 18: " + value );
+        /// });        
+        /// </code>
+        /// Chain tasks:
+        /// <code>
+        /// var request = $.ajax( url, { dataType: "json" } ),
+        ///     chained = request.pipe(function( data ) {
+        ///       return $.ajax( url2, { data: { user: data.userId } } );
+        ///     });
+        ///
+        /// chained.done(function( data ) {
+        ///   // data retrieved from url2 as provided by the first request
+        /// });        
+        /// </code>
+        /// </example>
+        public Promise pipe() { return null; }
+        /// <summary>
+        /// Utility method to filter and/or chain Deferreds.
+        /// </summary>
         /// <param name="doneFilter">
         /// doneFilter An optional function that is called when the Deferred is resolved.
-        /// </param>
-        /// <param name="failFilter">
-        /// failFilter An optional function that is called when the Deferred is rejected.
         /// </param>
         /// <returns>
         /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
@@ -2991,7 +3111,7 @@ namespace SharpKit.jQuery
         /// });        
         /// </code>
         /// </example>
-        public jQueryPromise pipe() { return null; }
+        public Promise pipe(JsAction doneFilter) { return null; }
         /// <summary>
         /// Utility method to filter and/or chain Deferreds.
         /// </summary>
@@ -3041,7 +3161,54 @@ namespace SharpKit.jQuery
         /// });        
         /// </code>
         /// </example>
-        public jQueryPromise pipe(JsAction doneFilter) { return null; }
+        public Promise pipe(JsAction doneFilter, JsAction failFilter) { return null; }
+        /// <summary>
+        /// Utility method to filter and/or chain Deferreds.
+        /// </summary>
+        /// <param name="doneFilter">
+        /// doneFilter An optional function that is called when the Deferred is resolved.
+        /// </param>
+        /// <returns>
+        /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
+        /// </returns>
+        /// <example>
+        /// Filter resolve value:
+        /// <code>
+        /// var defer = $.Deferred(),
+        ///     filtered = defer.pipe(function( value ) {
+        ///       return value * 2;
+        ///     });
+        ///
+        /// defer.resolve( 5 );
+        /// filtered.done(function( value ) {
+        ///   alert( "Value is ( 2*5 = ) 10: " + value );
+        /// });        
+        /// </code>
+        /// Filter reject value:
+        /// <code>
+        /// var defer = $.Deferred(),
+        ///    filtered = defer.pipe( null, function( value ) {
+        ///      return value * 3;
+        ///     });
+        ///
+        /// defer.reject( 6 );
+        /// filtered.fail(function( value ) {
+        ///   alert( "Value is ( 3*6 = ) 18: " + value );
+        /// });        
+        /// </code>
+        /// Chain tasks:
+        /// <code>
+        /// var request = $.ajax( url, { dataType: "json" } ),
+        ///     chained = request.pipe(function( data ) {
+        ///       return $.ajax( url2, { data: { user: data.userId } } );
+        ///     });
+        ///
+        /// chained.done(function( data ) {
+        ///   // data retrieved from url2 as provided by the first request
+        /// });        
+        /// </code>
+        /// </example>
+        public Promise pipe(JsFunc<object> doneFilter) { return null; }
         /// <summary>
         /// Utility method to filter and/or chain Deferreds.
         /// </summary>
@@ -3091,107 +3258,7 @@ namespace SharpKit.jQuery
         /// });        
         /// </code>
         /// </example>
-        public jQueryPromise pipe(JsAction doneFilter, JsAction failFilter) { return null; }
-        /// <summary>
-        /// Utility method to filter and/or chain Deferreds.
-        /// </summary>
-        /// <param name="doneFilter">
-        /// doneFilter An optional function that is called when the Deferred is resolved.
-        /// </param>
-        /// <param name="failFilter">
-        /// failFilter An optional function that is called when the Deferred is rejected.
-        /// </param>
-        /// <returns>
-        /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
-        /// </returns>
-        /// <example>
-        /// Filter resolve value:
-        /// <code>
-        /// var defer = $.Deferred(),
-        ///     filtered = defer.pipe(function( value ) {
-        ///       return value * 2;
-        ///     });
-        ///
-        /// defer.resolve( 5 );
-        /// filtered.done(function( value ) {
-        ///   alert( "Value is ( 2*5 = ) 10: " + value );
-        /// });        
-        /// </code>
-        /// Filter reject value:
-        /// <code>
-        /// var defer = $.Deferred(),
-        ///    filtered = defer.pipe( null, function( value ) {
-        ///      return value * 3;
-        ///     });
-        ///
-        /// defer.reject( 6 );
-        /// filtered.fail(function( value ) {
-        ///   alert( "Value is ( 3*6 = ) 18: " + value );
-        /// });        
-        /// </code>
-        /// Chain tasks:
-        /// <code>
-        /// var request = $.ajax( url, { dataType: "json" } ),
-        ///     chained = request.pipe(function( data ) {
-        ///       return $.ajax( url2, { data: { user: data.userId } } );
-        ///     });
-        ///
-        /// chained.done(function( data ) {
-        ///   // data retrieved from url2 as provided by the first request
-        /// });        
-        /// </code>
-        /// </example>
-        public jQueryPromise pipe(JsFunc<object> doneFilter) { return null; }
-        /// <summary>
-        /// Utility method to filter and/or chain Deferreds.
-        /// </summary>
-        /// <param name="doneFilter">
-        /// doneFilter An optional function that is called when the Deferred is resolved.
-        /// </param>
-        /// <param name="failFilter">
-        /// failFilter An optional function that is called when the Deferred is rejected.
-        /// </param>
-        /// <returns>
-        /// The deferred.pipe() method returns a new promise that filters the status and values of a deferred through a function. The doneFilter and failFilter functions filter the original deferred's resolved / rejected status and values. These filter functions can return a new value to be passed along to the piped promise's done() or fail() callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is null, or not specified, the piped promise will be resolved or rejected with the same values as the original.
-        /// </returns>
-        /// <example>
-        /// Filter resolve value:
-        /// <code>
-        /// var defer = $.Deferred(),
-        ///     filtered = defer.pipe(function( value ) {
-        ///       return value * 2;
-        ///     });
-        ///
-        /// defer.resolve( 5 );
-        /// filtered.done(function( value ) {
-        ///   alert( "Value is ( 2*5 = ) 10: " + value );
-        /// });        
-        /// </code>
-        /// Filter reject value:
-        /// <code>
-        /// var defer = $.Deferred(),
-        ///    filtered = defer.pipe( null, function( value ) {
-        ///      return value * 3;
-        ///     });
-        ///
-        /// defer.reject( 6 );
-        /// filtered.fail(function( value ) {
-        ///   alert( "Value is ( 3*6 = ) 18: " + value );
-        /// });        
-        /// </code>
-        /// Chain tasks:
-        /// <code>
-        /// var request = $.ajax( url, { dataType: "json" } ),
-        ///     chained = request.pipe(function( data ) {
-        ///       return $.ajax( url2, { data: { user: data.userId } } );
-        ///     });
-        ///
-        /// chained.done(function( data ) {
-        ///   // data retrieved from url2 as provided by the first request
-        /// });        
-        /// </code>
-        /// </example>
-        public jQueryPromise pipe(JsFunc<object> doneFilter, JsFunc<object> failFilter) { return null; }
+        public Promise pipe(JsFunc<object> doneFilter, JsFunc<object> failFilter) { return null; }
         /// <summary>
         /// Add handlers to be called when the Deferred object is resolved or rejected.
         /// <list type="bullet">
@@ -3216,6 +3283,17 @@ namespace SharpKit.jQuery
         public Deferred then(JsAction doneCallbacks, JsAction failCallbacks) { return null; }
 
     }
+    #endregion
+    #region TopLeft
+    [JsType(JsMode.Json)]
+    public partial class TopLeft
+    {
+        public JsNumber top { get; set; }
+        public JsNumber left { get; set; }
+    }
+
+    #endregion
+    #region NamespaceDoc
 
     /// <summary>
     /// SharpKit.jQuery namespace contains all jQuery core framework APIs
@@ -3223,14 +3301,6 @@ namespace SharpKit.jQuery
     class NamespaceDoc
     {
     }
-
-
+    #endregion
 }
 
-/// <summary>
-/// SharpKit interface for jQuery.
-/// jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript.
-/// </summary>
-class AssemblyDoc
-{
-}
