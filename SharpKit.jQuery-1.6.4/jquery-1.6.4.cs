@@ -2548,7 +2548,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// A function to be used to handle the raw response data of XMLHttpRequest.This is a pre-filtering function to sanitize the response. You should return the sanitized data. The function accepts two arguments: The raw data returned from the server and the 'dataType' parameter.
         /// </summary>
-        public JsAction<object, JsString> dataFilter { get; set; }
+        public JsFunc<object, JsString, JsString> dataFilter { get; set; }
         /// <summary>
         /// Default: Intelligent Guess (xml, json, script, or html)
         /// The type of data that you're expecting back from the server. If none is specified, jQuery will try to infer it based on the MIME type of the response (an XML MIME type will yield XML, in 1.4 JSON will yield a JavaScript object, in 1.4 script will execute the script, and anything else will be returned as a string). The available types (and the result passed as the first argument to your success callback) are:
