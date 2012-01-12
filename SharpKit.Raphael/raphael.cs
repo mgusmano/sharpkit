@@ -330,18 +330,19 @@ namespace SharpKit.Raphael
         /// </summary>
         public static Paper paper { get; set; }
         ///<example>
-        usage
-        <code>
-        Raphael.el.cross = function () {
-    this.attr({fill: "red"});
-    this.paper.path("M10,10L50,50M50,10L10,50")
-        .attr({stroke: "red"});
-        </code>
-        </example>
+        ///usage
+        ///<code>
+        ///Raphael.el.cross = function () {
+    ///this.attr({fill: "red"});
+    ///this.paper.path("M10,10L50,50M50,10L10,50")
+       /// .attr({stroke: "red"});
+       /// </code>
+       /// </example>
+       
 
-}
-
-
+        
+       
+        public static Next next { get; set; }
 
         /// <summary>
         /// Stops animation of the element with ability to resume it later on.
@@ -652,5 +653,9 @@ namespace SharpKit.Raphael
     public class Paper
     {
     }
+    public class Next
+    {
+    }
+
 
 }
