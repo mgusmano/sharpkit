@@ -428,10 +428,8 @@ namespace SharpKit.Raphael
         /// <summary>
         /// Gets or sets the status of animation of the element.
         /// </summary>
-        /// <param name="anim">animation object</param>
-        /// <param name="value">0 – 1. If specified, method works like a setter and sets the status of a given animation to the value. This will cause animation to jump to the given position.</param>
-        /// <returns>status</returns>
-        public static JsNumber status(object anim, JsNumber value)
+        /// <returns>status if anim is not specified. Array of objects in format:</returns>
+        public static JsArray<AnimationStatus> status()
         {
             return null;
         }
@@ -439,13 +437,31 @@ namespace SharpKit.Raphael
         /// Gets or sets the status of animation of the element.
         /// </summary>
         /// <param name="anim">animation object</param>
-        /// <param name="value">0 – 1. If specified, method works like a setter and sets the status of a given animation to the value. This will cause animation to jump to the given position.</param>
         /// <returns>status if anim is not specified. Array of objects in format:</returns>
-        public static array status(object anim, JsNumber value)
+        public static AnimationStatus status(Animation anim)
         {
             return null;
         }
 
+        /// <summary>
+        /// Gets or sets the status of animation of the element.
+        /// </summary>
+        /// <param name="anim">animation object</param>
+        /// <param name="value">0 – 1. If specified, method works like a setter and sets the status of a given animation to the value. This will cause animation to jump to the given position.</param>
+        /// <returns>status</returns>
+        public static JsNumber status(Animation anim, JsNumber value)
+        {
+            return null;
+        }
+
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class AnimationStatus
+    {
+        public Animation anim { get; set; }
+        public JsNumber status { get; set; }
     }
 
     [JsType(JsMode.Json)]
