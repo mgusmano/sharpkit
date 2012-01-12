@@ -453,6 +453,201 @@ namespace SharpKit.Raphael
         {
             return null;
         }
+        /// <summary>
+        /// Stops animation of the element.
+        /// </summary>
+        /// <param name="anim">animation object</param>
+        /// <returns>original element</returns>
+        public static object stop(object anim)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Moves the element so it is the furthest from the viewer’s eyes, behind other elements.
+        /// </summary>
+        /// <returns></returns>
+        public static object toBack()
+        {
+            return null;
+        }
+        /// <summary>
+        /// Moves the element so it is the closest to the viewer’s eyes, on top of other elements.
+        /// </summary>
+        /// <returns></returns>
+        public static object toFront()
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds event handler for touchcancel for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object touchcancel(JsFunction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds event handler for touchend for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object touchend(JsFunction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds event handler for touchmove for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object touchmove(JsFunction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds event handler for touchstart for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object touchstart(JsFunction handler)
+        {
+            return null;
+        }
+
+        // Element.transform([tstr])??
+
+        /// <summary>
+        /// Adds translation by given amount to the list of transformations of the element.
+        /// </summary>
+        /// <param name="dx">horisontal shift</param>
+        /// <param name="dy">vertical shift</param>
+        /// <returns></returns>
+        public static object translate(JsNumber dx, JsNumber dy)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Removes event handler for click for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object unclick(JsFunction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Removes event handler for double click for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object undblclick(JsFunction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Removes event handlers for hover for the element.
+        /// </summary>
+        /// <param name="f_in">handler for hover in</param>
+        /// <param name="f_out">handler for hover out</param>
+        /// <returns></returns>
+        public static object unhover(JsFunction f_in, JsFunction f_out)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Removes all drag event handlers from given element.
+        /// </summary>
+        public static void undrag () {}
+
+        /// <summary>
+        /// Removes event handler for mousedown for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object unmousedown(JsFunction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        ///Removes event handler for mousemove for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object unmousemove(JsFunction handler)
+        {
+            return null;
+        }
+        /// <summary>
+        //Removes event handler for mouseout for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object unmouseout(JsFunction handler)
+        {
+            return null;
+        }
+
+        /// <summary>
+        //Removes event handler for unmouseover for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object unmouseover(JsFunction handler)
+        {
+            return null;
+        }
+
+        /// <summary>
+        //Removes event handler for unmouseup for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object unmouseup(JsFunction handler)
+        {
+            return null;
+        }
+
+        /// <summary>
+        //Removes event handler for untouchcancel for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object untouchcancel(JsFunction handler)
+        {
+            return null;
+        }
+
+        /// <summary>
+        //Removes event handler for untouchend for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object untouchend(JsFunction handler)
+        {
+            return null;
+        }
+
+        /// <summary>
+        //Removes event handler for untouchmove for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object untouchmove(JsFunction handler)
+        {
+            return null;
+        }
+
+        /// <summary>
+        //Removes event handler for untouchstart for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object untouchstart(JsFunction handler)
+        {
+            return null;
+        }
+
 
 
     }
@@ -699,6 +894,164 @@ namespace SharpKit.Raphael
         /// glow colour, default is black
         /// </summary>
         public string color { get; set; }
+
+
+
+    }
+    [JsType(JsMode.Prototype)]
+    public class Matrix
+    {
+        /// <summary>
+        /// Adds given matrix to existing one.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="d"></param>
+        /// <param name="e"></param>
+        /// <param name="f"></param>
+        /// <param name="matrix"></param>
+        public static void add(JsNumber a, JsNumber b, JsNumber c, JsNumber d, JsNumber e, JsNumber f, object matrix) { }
+        /// <summary>
+        /// Returns copy of the matrix
+        /// </summary>
+        /// <returns></returns>
+        public static object clone()
+        {
+            return null;
+        }
+        /// <summary>
+        /// Returns inverted version of the matrix
+        /// </summary>
+        /// <returns></returns>
+        public static object invert()
+        {
+            return null;
+        }
+        /// <summary>
+        /// Rotates the matrix
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public static void rotate(JsNumber a, JsNumber x, JsNumber y) { }
+        /// <summary>
+        /// Scales the matrix
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="cx"></param>
+        /// <param name="cy"></param>
+        public static void scale(JsNumber x, JsNumber y, JsNumber cx, JsNumber cy) { }
+
+        public static object split()
+        {
+            return null;
+        }
+        /// <summary>
+        /// Return transform string that represents given matrix
+        /// </summary>
+        /// <returns></returns>
+        public static string toTransformString()
+        {
+            return null;
+        }
+        
+        /// <summary>
+        /// translate the matrix
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public static void translate (JsNumber x, JsNumber y) { }
+        /// <summary>
+        /// Return x coordinate for given point after transformation described by the matrix. See also Matrix.y
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns>x</returns>
+        public static JsNumber x (JsNumber x, JsNumber y)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Return x coordinate for given point after transformation described by the matrix. See also Matrix.y
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns>y</returns>
+        public static JsNumber y(JsNumber x, JsNumber y)
+        {
+            return null;
+        }
+
+}
+    [JsType(JsMode.Prototype)]
+    public class splitOptions
+    {
+        /// <summary>
+        /// translation by x
+        /// </summary>
+        public JsNumber dx { get; set; }
+        /// <summary>
+        /// translation by y
+        /// </summary>
+        public JsNumber dy { get; set; }
+        /// <summary>
+        /// scale by x
+        /// </summary>
+        public JsNumber scalex { get; set; }
+        /// <summary>
+        /// scale by y
+        /// </summary>
+        public JsNumber scaley { get; set; }
+        /// <summary>
+        /// shear
+        /// </summary>
+        public JsNumber shear { get; set; }
+        /// <summary>
+        /// rotation in deg
+        /// </summary>
+        public JsNumber rotate { get; set; }
+        /// <summary>
+        /// could it be represented via simple transformations
+        /// </summary>
+        public bool isSimple { get; set; }
+
+        }
+    [JsType(JsMode.Prototype)]
+    public class paper
+    {
+        /// <summary>d<attributes>}s
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns>resulting set of imported elements</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// paper.add([
+        /// {
+        /// type: "circle",
+        /// cx: 10,
+        /// cy: 10,
+        /// r: 5
+        /// },
+        /// {
+        /// type: "rect",
+        /// x: 10,
+       y: 10,
+        width: 10,
+        height: 10,
+        fill: "#fc0"
+    }
+]);
+        /// </code>
+        /// </example>
+        public static object add(Array json)
+        {
+            return null;
+        }
+
+
     }
     public class Raphael
     {
