@@ -335,6 +335,55 @@ namespace SharpKit.Raphael
             return null;
         }
 
+        //element.paper?!
+
+        //Element.prev?!
+        //Element.raphael?!
+        public static Raphael rapheal {get;get;}
+
+        /// <summary>
+        /// Resumes animation if it was paused with Element.pause method.
+        /// </summary>
+        /// <param name="key">animation object</param>
+        /// <returns></returns>
+        public static object removeData(string key)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds rotation by given angle around given point to the list of transformations of the element.
+        /// </summary>
+        /// <param name="deg">angle in degrees</param>
+        /// <param name="cx">x coordinate of the centre of rotation</param>
+        /// <param name="cy">y coordinate of the centre of rotation</param>
+        /// <returns></returns>
+        public static object rotate(JsNumber deg, JsNumber cx, JsNumber cy)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Adds scale by given amount relative to given point to the list of transformations of the element.
+        /// </summary>
+        /// <param name="sx">horisontal scale amount</param>
+        /// <param name="sy">vertical scale amount</param>
+        /// <param name="cx">x coordinate of the centre of scale</param>
+        /// <param name="cy">y coordinate of the centre of scale</param>
+        /// <returns></returns>
+        public static object scale(JsNumber sx, JsNumber sy, JsNumber cx, JsNumber cy)
+        {
+            return null;
+        }
+        //If cx & cy aren’t specified centre of the shape is used instead.
+        /// <summary>
+        /// Sets the status of animation of the element in milliseconds. Similar to Element.status method.
+        /// </summary>
+        /// <param name="anim">animation object</param>
+        /// <param name="value">number of milliseconds from the beginning of the animation</param>
+        /// <returns>number of milliseconds from the beginning of the animation</returns>
+        public static object setTime(object anim, JsNumber value)
+        {
+            return null;
+        }
 
     }
 
@@ -573,6 +622,9 @@ namespace SharpKit.Raphael
         /// glow colour, default is black
         /// </summary>
         public string color { get; set; }
+    }
+    public class Raphael
+    {
     }
 
 }
