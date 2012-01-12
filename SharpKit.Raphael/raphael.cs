@@ -339,7 +339,7 @@ namespace SharpKit.Raphael
 
         //Element.prev?!
         //Element.raphael?!
-        public static Raphael rapheal {get;get;}
+        public static Raphael rapheal {get;set;}
 
         /// <summary>
         /// Resumes animation if it was paused with Element.pause method.
