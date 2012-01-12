@@ -1038,18 +1038,51 @@ namespace SharpKit.Raphael
         /// {
         /// type: "rect",
         /// x: 10,
-       y: 10,
-        width: 10,
-        height: 10,
-        fill: "#fc0"
-    }
-]);
+        /// y: 10,
+        /// width: 10,
+        /// height: 10,
+        /// fill: "#fc0"
+        /// }
+        /// ]);
         /// </code>
         /// </example>
         public static object add(Array json)
         {
             return null;
         }
+        /// <summary>
+        /// Points to the bottom element on the paper
+        /// </summary>
+        public static void bottom() { }
+        
+        //paper ca?
+
+        /// <summary>
+        /// Draws a circle.
+        /// </summary>
+        /// <param name="x">x coordinate of the centre</param>
+        /// <param name="y">y coordinate of the centre</param>
+        /// <param name="r">radius</param>
+        /// <returns>Raphaël element object with type “circle”</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var c = paper.circle(50, 50, 40);
+        /// </code>
+        /// </example>
+        public static object circle(JsNumber x, JsNumber y, JsNumber r)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Clears the paper, i.e. removes all the elements.
+        /// </summary>
+        public static void clear() { }
+
+        //paper.customAttributes?!?!
+
+        public static 
+
 
 
     }
