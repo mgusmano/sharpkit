@@ -1239,9 +1239,211 @@ namespace SharpKit.Raphael
         /// <summary>
         /// Points to the Raphael object/function
         /// </summary>
-        public static void raphael() { }
-        // duble check with danel
         public static Raphael rapheal { get; set; }
+        /// <summary>
+        /// Draws a rectangle.
+        /// </summary>
+        /// <param name="x">x coordinate of the top left corner</param>
+        /// <param name="y">y coordinate of the top left corner</param>
+        /// <param name="width">width</param>
+        /// <param name="height">height</param>
+        /// <param name="r">radius for rounded corners, default is 0</param>
+        /// <returns>Raphaël element object with type “rect”</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // regular rectangle
+        /// var c = paper.rect(10, 10, 50, 50);
+        /// // rectangle with rounded corners
+        /// var c = paper.rect(40, 40, 50, 50, 10);
+        /// </code>
+        /// </example>
+        public static object rect(JsNumber x, JsNumber y, JsNumber width, JsNumber height, JsNumber r)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Removes the paper from the DOM.
+        /// </summary>
+        public static void remove() { }
+        /// <summary>
+        /// Fixes the issue of Firefox and IE9 regarding subpixel rendering. If paper is dependant on other elements after reflow it could shift half pixel which cause for lines to lost their crispness. This method fixes the issue.
+        /// </summary>
+        public static void renderfix() { }
+        /// <summary>
+        /// There is an inconvenient rendering bug in Safari (WebKit): sometimes the rendering should be forced. This method should help with dealing with this bug.
+        /// </summary>
+        public static void safari() { }
+        /// <summary>
+        /// Creates array-like object to keep and operate several elements at once. Warning: it doesn’t create any elements for itself in the page, it just groups existing elements. Sets act as pseudo elements — all methods available to an element can be used on a set.
+        /// </summary>
+        /// <returns>array-like object that represents set of elements</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var st = paper.set();
+        /// st.push(
+        /// paper.circle(10, 10, 5),
+        /// paper.circle(30, 10, 5)
+        /// );
+        /// st.attr({fill: "red"}); // changes the fill of both circles
+        /// </code>
+        /// </example>
+        public static object set ()
+        {
+            return null;
+        }
+        /// <summary>
+        /// See Paper.setStart. This method finishes catching and returns resulting set.
+        /// </summary>
+        /// <returns>set</returns>
+        public static object setFinish ()
+        {
+            return null;
+        }
+        /// <summary>
+        /// If you need to change dimensions of the canvas call this method
+        /// </summary>
+        /// <param name="width">new width of the canvas</param>
+        /// <param name="height">new height of the canvas</param>
+        public static void setSize (JsNumber width, JsNumber height) { }
+        /// <summary>
+        /// Creates Paper.set. All elements that will be created after calling this method and before calling Paper.setFinish will be added to the set.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// paper.setStart();
+        /// paper.circle(10, 10, 5),
+        /// paper.circle(30, 10, 5)
+        /// var st = paper.setFinish();
+        /// st.attr({fill: "red"}); // changes the fill of both circles
+        /// </code>
+        /// </example>
+        public static void setStart() { }
+        /// <summary>
+        /// Sets the view box of the paper. Practically it gives you ability to zoom and pan whole paper surface by specifying new boundaries.
+        /// </summary>
+        /// <param name="x">new x position, default is 0</param>
+        /// <param name="y">new y position, default is 0</param>
+        /// <param name="w">new width of the canvas</param>
+        /// <param name="h">new height of the canvas</param>
+        /// <param name="fit">true if you want graphics to fit into new boundary box</param>
+        public static void setViewBox(JsNumber x, JsNumber y, JsNumber w, JsNumber h, bool fit) { }
+        /// <summary>
+        /// Draws a text string. If you need line breaks, put “\n” in the string.
+        /// </summary>
+        /// <param name="x">x coordinate position</param>
+        /// <param name="y">y coordinate position</param>
+        /// <param name="text">The text string to draw</param>
+        /// <returns>Raphaël element object with type “text”</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var t = paper.text(50, 50, "Raphaël\nkicks\nbutt!");
+        /// </code>
+        /// </example>
+        public static object text (JsNumber x, JsNumber y, string text)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Points to the topmost element on the paper
+        /// </summary>
+        public static Top top { get; set; }
+    }
+
+    [JsType(JsMode.Prototype)]
+    public class Raphael
+    {
+
+        //raphael (...) ?!?!
+
+        /// <summary>
+        /// Returns angle between two or three points
+        /// </summary>
+        /// <param name="x1">x coord of first point</param>
+        /// <param name="y1">y coord of first point</param>
+        /// <param name="x2">x coord of second point</param>
+        /// <param name="y2">y coord of second point</param>
+        /// <param name="x3">x coord of third point</param>
+        /// <param name="y3">y coord of third point</param>
+        /// <returns>angle in degrees.</returns>
+        public static JsNumber angle(JsNumber x1, JsNumber y1, JsNumber x2, JsNumber y2, JsNumber x3, JsNumber y3)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Creates an animation object that can be passed to the Element.animate or Element.animateWith methods. See also Animation.delay and Animation.repeat methods.
+        /// </summary>
+        /// <param name="params">final attributes for the element, see also Element.attr</param>
+        /// <param name="ms">number of milliseconds for animation to run</param>
+        /// <param name="easing">easing type. Accept one of Raphael.easing_formulas or CSS format: cubic‐bezier(XX, XX, XX, XX)</param>
+        /// <param name="callback">callback function. Will be called at the end of animation.</param>
+        /// <returns>Animation</returns>
+        public static object animation(object @params, JsNumber ms, string easing, JsFunction callback)
+        {
+            return null;
+        }
+        //dubble check @params
+
+        /// <summary>
+        /// Parses the color string and returns object with all values for the given color.
+        /// </summary>
+        /// <param name="clr">color string in one of the supported formats (see Raphael.getRGB)</param>
+        /// <returns>Combined RGB & HSB object in format:</returns>
+        public static object color(string clr)
+        {
+            return null;
+        }
+    }
+
+    [JsType(JsMode.Prototype)]
+    public class colorOptions
+        /// <summary>
+        /// red
+        /// </summary>
+        public JsNumber r { get; set; }
+        /// <summary>
+        /// green
+        /// </summary>
+        public JsNumber  g { get; set; }
+        /// <summary>
+        /// blue
+        /// </summary>
+        public JsNumber  b { get; set; }
+        /// <summary>
+        /// color in HTML/CSS format: #••••••,
+        /// </summary>
+        public string hex { get; set; }
+        /// <summary>
+        /// true if string can’t be parsed,
+        /// </summary>
+        public bool error { get; set; }
+        /// <summary>
+        /// hue
+        /// </summary>
+        public JsNumber  h { get; set; }
+        /// <summary>
+        /// saturation
+        /// </summary>
+        public JsNumber s { get; set; }
+        /// <summary>
+        /// value (brightness),
+        /// </summary>
+        public JsNumber  v { get; set; }
+        /// <summary>
+        /// lightness
+        /// </summary>
+        public JsNumber  l { get; set; }
+    }
+      
+    
+
+
+
+
+
 
 
 
@@ -1264,7 +1466,7 @@ namespace SharpKit.Raphael
     public class Node
     {
     }
-
-
-
+    public class Top
+    {
+    }
 }
