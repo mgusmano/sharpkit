@@ -327,8 +327,7 @@ namespace SharpKit.Raphael
         public static void OnDragOver(JsAction F) { }
         /// <summary>
         /// Internal reference to “paper” where object drawn. Mainly for use in plugins and element extensions.
-        /// </summary>
-        public static Paper paper { get; set; }
+        /// </summary> 
         ///<example>
         ///usage
         ///<code>
@@ -338,11 +337,24 @@ namespace SharpKit.Raphael
        /// .attr({stroke: "red"});
        /// </code>
        /// </example>
-       
-
-        
-       
+        public static Paper paper { get; set; }
+       /// <summary>
+        /// Reference to the next element in the hierarchy.
+       /// </summary>
         public static Next next { get; set; }
+        /// <summary>
+        /// Gives you a reference to the DOM object, so you can assign event handlers or just mess around. Note: Don’t mess with it.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // draw a circle at coordinate 10,10 with radius of 10
+        /// var c = paper.circle(10, 10, 10);
+        /// c.node.onclick = function () {
+        /// c.attr("fill", "red");};
+        /// </code>
+        /// </example>
+        public static Node node { get; set; }
 
         /// <summary>
         /// Stops animation of the element with ability to resume it later on.
@@ -402,6 +414,34 @@ namespace SharpKit.Raphael
         /// <param name="value">number of milliseconds from the beginning of the animation</param>
         /// <returns>number of milliseconds from the beginning of the animation</returns>
         public static object setTime(object anim, JsNumber value)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Makes element visible. See Element.hide.
+        /// </summary>
+        /// <returns></returns>
+        public static object show()
+        {
+            return null;
+        }
+        /// <summary>
+        /// Gets or sets the status of animation of the element.
+        /// </summary>
+        /// <param name="anim">animation object</param>
+        /// <param name="value">0 – 1. If specified, method works like a setter and sets the status of a given animation to the value. This will cause animation to jump to the given position.</param>
+        /// <returns>status</returns>
+        public static JsNumber status(object anim, JsNumber value)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Gets or sets the status of animation of the element.
+        /// </summary>
+        /// <param name="anim">animation object</param>
+        /// <param name="value">0 – 1. If specified, method works like a setter and sets the status of a given animation to the value. This will cause animation to jump to the given position.</param>
+        /// <returns>status if anim is not specified. Array of objects in format:</returns>
+        public static array status(object anim, JsNumber value)
         {
             return null;
         }
@@ -656,6 +696,10 @@ namespace SharpKit.Raphael
     public class Next
     {
     }
+    public class Node
+    {
+    }
+
 
 
 }
