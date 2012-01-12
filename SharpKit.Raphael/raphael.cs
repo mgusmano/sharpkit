@@ -150,7 +150,7 @@ namespace SharpKit.Raphael
         /// <returns></returns>
         /// <example>
         /// <code>
-        /// for (var i = 0, i < 5, i++) {
+        /// for (var i = 0, i &lt; 5, i++) {
         /// paper.circle(10 + 15 * i, 10, 10)
         /// .attr({fill: "#000"})
         /// .data("i", i)
@@ -321,7 +321,7 @@ namespace SharpKit.Raphael
             return null;
         }
         /// <summary>
-        /// Shortcut for assigning event handler for drag.over.<id> event, where id is id of the element (see Element.id).
+        /// Shortcut for assigning event handler for drag.over.[id] event, where id is id of the element (see Element.id).
         /// </summary>
         /// <param name="F">handler for event, first argument would be the element you are dragging over</param>
         public static void OnDragOver(JsAction F) { }
