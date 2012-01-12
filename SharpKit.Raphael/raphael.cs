@@ -326,6 +326,24 @@ namespace SharpKit.Raphael
         /// <param name="F">handler for event, first argument would be the element you are dragging over</param>
         public static void OnDragOver(JsAction F) { }
         /// <summary>
+        /// Internal reference to “paper” where object drawn. Mainly for use in plugins and element extensions.
+        /// </summary>
+        public static Paper paper { get; set; }
+        ///<example>
+        usage
+        <code>
+        Raphael.el.cross = function () {
+    this.attr({fill: "red"});
+    this.paper.path("M10,10L50,50M50,10L10,50")
+        .attr({stroke: "red"});
+        </code>
+        </example>
+
+}
+
+
+
+        /// <summary>
         /// Stops animation of the element with ability to resume it later on.
         /// </summary>
         /// <param name="anim">animation object</param>
@@ -334,11 +352,13 @@ namespace SharpKit.Raphael
         {
             return null;
         }
-
-        //element.paper?!
-
-        //Element.prev?!
-        //Element.raphael?!
+        /// <summary>
+        /// Reference to the previous element in the hierarchy.
+        /// </summary>
+        public static Prev prev { get; set; }
+        /// <summary>
+        /// Internal reference to Raphael object. In case it is not available.
+        /// </summary>
         public static Raphael rapheal {get;set;}
 
         /// <summary>
@@ -624,6 +644,12 @@ namespace SharpKit.Raphael
         public string color { get; set; }
     }
     public class Raphael
+    {
+    }
+    public class Prev
+    {
+    }
+    public class Paper
     {
     }
 
