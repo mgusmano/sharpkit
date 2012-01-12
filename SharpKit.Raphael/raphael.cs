@@ -1356,7 +1356,21 @@ namespace SharpKit.Raphael
     [JsType(JsMode.Prototype)]
     public class Raphael
     {
-
+        /// <summary>
+        /// Creates a canvas object on which to draw. You must do this first, as all future calls to drawing methods from this instance will be bound to this canvas.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="callback">callback function which is going to be executed in the context of newly created paper</param>
+        public Raphael(JsNumber x, JsNumber y, JsNumber width, JsNumber height, JsFunction callback) { }
+        /// <summary>
+        /// Creates a canvas object on which to draw. You must do this first, as all future calls to drawing methods from this instance will be bound to this canvas.
+        /// </summary>
+        /// <param name="all">(first 3 or 4 elements in the array are equal to [containerID, width, height] or [x, y, width, height]. The rest are element descriptions in format {type: type, <attributes>}). See Paper.add.</param>
+        /// <param name="callback">callback function which is going to be executed in the context of newly created paper</param>
+        public Raphael(Array all, JsFunction callback) { }
         //raphael (...) ?!?!
 
         /// <summary>
@@ -1396,6 +1410,244 @@ namespace SharpKit.Raphael
         {
             return null;
         }
+        /// <summary>
+        /// Returns RFC4122, version 4 ID
+        /// </summary>
+        public static void createUUID() { }
+        /// <summary>
+        /// Transform angle to degrees
+        /// </summary>
+        /// <param name="deg">angle in radians</param>
+        /// <returns>angle in radians</returns>
+        public static JsNumber deg(JsNumber deg)
+        {
+            return null;
+        }
+
+        //Raphael.easing_formulas (?!)
+        /// <summary>
+        /// You can add your own method to elements. This is usefull when you want to hack default functionality or want to wrap some common transformation or attributes in one method. In difference to canvas methods, you can redefine element method at any time. Expending element methods wouldn’t affect set.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// Raphael.el.red = function () {
+        /// this.attr({fill: "#f00"});
+        /// };
+        /// // then use it
+        /// paper.circle(100, 100, 20).red();
+        /// </code>
+        /// </example>
+        public object  el { get; set; }
+
+        /// <summary>
+        /// Utility method Find dot coordinates on the given cubic bezier curve at the given t.
+        /// </summary>
+        /// <param name="p1x">x of the first point of the curve</param>
+        /// <param name="p1y">y of the first point of the curve</param>
+        /// <param name="c1x">x of the first anchor of the curve</param>
+        /// <param name="c1y">y of the first anchor of the curve</param>
+        /// <param name="c2x">x of the second anchor of the curve</param>
+        /// <param name="c2y">y of the second anchor of the curve</param>
+        /// <param name="p2x">x of the second point of the curve</param>
+        /// <param name="p2y">y of the second point of the curve</param>
+        /// <param name="t">position on the curve (0..1)</param>
+        /// <returns>point information in format:</returns>
+        public static object findDotsAtSegment(JsNumber p1x, JsNumber p1y, JsNumber c1x, JsNumber c1y, JsNumber c2x, JsNumber c2y, JsNumber p2x, JsNumber p2y, JsNumber t)
+        {
+            return null;
+        }
+        //grey box information (?)
+        /// <summary>
+        /// You can add your own method to the canvas. For example if you want to draw a pie chart, you can create your own pie chart function and ship it as a Raphaël plugin. To do this you need to extend the Raphael.fn object. You should modify the fn object before a Raphaël instance is created, otherwise it will take no effect. Please note that the ability for namespaced plugins was removed in Raphael 2.0. It is up to the plugin to ensure any namespacing ensures proper context.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// Raphael.fn.arrow = function (x1, y1, x2, y2, size) {
+        /// return this.path( ... );
+        /// };
+        /// // or create namespace
+        /// Raphael.fn.mystuff = {
+        /// arrow: function () {…},
+        /// star: function () {…},
+        /// // etc…
+        /// };
+        /// var paper = Raphael(10, 10, 630, 480);
+        /// // then use it
+        /// paper.arrow(10, 10, 30, 30, 5).attr({fill: "#f00"});
+        /// paper.mystuff.arrow();
+        /// paper.mystuff.star();
+        /// </code>
+        /// </example>
+        public object  fn { get; set; }
+
+
+        //Raphael.format(token, …) what should i do with "..."?
+
+        /// <summary>
+        /// A little bit more advanced format function than Raphael.format. Replaces construction of type “{<name>}” to the corresponding argument.
+        /// </summary>
+        /// <param name="token">string to format</param>
+        /// <param name="json">object which properties will be used as a replacement</param>
+        /// <returns>formated string</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // this will draw a rectangular shape equivalent to "M10,20h40v50h-40z"
+        /// paper.path(Raphael.format("M{x},{y}h{dim.width}v{dim.height}h{dim['negative width']}z", {
+        /// x: 10,
+        /// y: 20,
+        /// dim: {
+        /// width: 40,
+        /// height: 50,
+        /// "negative width": -40
+        /// }
+        /// }));
+        /// </code>
+        /// </example>
+        public static string fullfill(string token, object json)
+        {
+            return null;
+        }
+        
+        /// <summary>
+        /// On each call returns next colour in the spectrum. To reset it back to red call Raphael.getColor.reset
+        /// </summary>
+        /// <param name="value">brightness, default is 0.75</param>
+        /// <returns>hex representation of the colour.</returns>
+        public static string getColor(JsNumber value)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Resets spectrum position for Raphael.getColor back to red
+        /// </summary>
+        /// [JsProperty(Name = "'getColor.reset'")]
+        public static void getColor_reset() { }
+        //dubble chack with danel
+
+        /// <summary>
+        /// Return coordinates of the point located at the given length on the given path.
+        /// </summary>
+        /// <param name="path">SVG path string</param>
+        /// <param name="length"></param>
+        /// <returns>representation of the point:</returns>
+        public static object getPointAtLength(string path, JsNumber length)
+        {
+            return null;
+        }
+
+        //Raphael.getRGB(colour) (?!)
+
+        /// <summary>
+        /// Return subpath of a given path from given length to given length.
+        /// </summary>
+        /// <param name="path">SVG path string</param>
+        /// <param name="from">position of the start of the segment</param>
+        /// <param name="to">position of the end of the segment</param>
+        /// <returns>pathstring for the segment</returns>
+        public static string getSubpath(string path, JsNumber from, JsNumber to)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Returns length of the given path in pixels.
+        /// </summary>
+        /// <param name="path">SVG path string.</param>
+        /// <returns>length.</returns>
+        public static JsNumber getTotalLength(string path)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Converts HSB values to hex representation of the colour.
+        /// </summary>
+        /// <param name="h">hue</param>
+        /// <param name="s">saturation</param>
+        /// <param name="b">value or brightness</param>
+        /// <returns>hex representation of the colour.</returns>
+        public static string hsb(JsNumber h, JsNumber s, JsNumber b)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Converts HSB values to RGB object.
+        /// </summary>
+        /// <param name="h">hue</param>
+        /// <param name="s">saturation</param>
+        /// <param name="v">value or brightness</param>
+        /// <returns>RGB object in format:</returns>
+        public static object hsb2rgb(JsNumber h, JsNumber s, JsNumber v)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Converts HSL values to hex representation of the colour.
+        /// </summary>
+        /// <param name="h">hue</param>
+        /// <param name="s">saturation</param>
+        /// <param name="l">luminosity</param>
+        /// <returns>hex representation of the colour.</returns>
+        public static string hsl(JsNumber h, JsNumber s, JsNumber l)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Converts HSL values to RGB object.
+        /// </summary>
+        /// <param name="h">hue</param>
+        /// <param name="s">saturation</param>
+        /// <param name="l">luminosity</param>
+        /// <returns>RGB object in format:</returns>
+        public static object hsl2rgb(JsNumber h, JsNumber s, JsNumber l)
+        {
+            return null;
+        }
+
+        //Raphael.is(o, type) (is is not good+what should i do with the "..."
+
+        /// <summary>
+        /// Utility method Returns matrix based on given parameters.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="d"></param>
+        /// <param name="e"></param>
+        /// <param name="f"></param>
+        /// <returns>Matrix</returns>
+        public static object matrix(JsNumber a, JsNumber b, JsNumber c, JsNumber d, JsNumber e, JsNumber f)
+        {
+            return null;
+        }
+        /// <summary>
+        /// If you want to leave no trace of Raphaël (Well, Raphaël creates only one global variable Raphael, but anyway.) You can use ninja method. Beware, that in this case plugins could stop working, because they are depending on global variable existance.
+        /// </summary>
+        /// <returns>Raphael object</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// (function (local_raphael) {
+        /// var paper = local_raphael(10, 10, 320, 200);
+        /// …
+        /// })(Raphael.ninja());
+        /// </code>
+        /// </example>
+        public static object ninja()
+        {
+            return null;
+        }
+
+       
+
+
+
+
+
+
+        
+
     }
 
     [JsType(JsMode.Prototype)]
@@ -1439,6 +1691,65 @@ namespace SharpKit.Raphael
         public JsNumber l { get; set; }
     }
 
+    [JsType(JsMode.Prototype)]
+    public class getPointAtLengthOptions
+    {
+        /// <summary>
+        /// x coordinate
+        /// </summary>
+        public JsNumber x { get; set; }
+        /// <summary>
+        /// y coordinate
+        /// </summary>
+        public JsNumber y { get; set; }
+        /// <summary>
+        /// angle of derivative
+        /// </summary>
+        public JsNumber alpha { get; set; }
+    }
+
+
+    [JsType(JsMode.Prototype)]
+    public class hsb2rgbOptions
+    {
+        /// <summary>
+        /// red
+        /// </summary>
+        public JsNumber r { get; set; }
+        /// <summary>
+        /// green
+        /// </summary>
+        public JsNumber g { get; set; }
+        /// <summary>
+        /// blue
+        /// </summary>
+        public JsNumber b { get; set; }
+        /// <summary>
+        /// color in HTML/CSS format: #••••••
+        /// </summary>
+        public string hex { get; set; }
+    }
+
+    [JsType(JsMode.Prototype)]
+    public class hsl2rgbOptions
+    {
+        /// <summary>
+        /// red
+        /// </summary>
+        public JsNumber r { get; set; }
+        /// <summary>
+        /// green
+        /// </summary>
+        public JsNumber g { get; set; }
+        /// <summary>
+        /// blue
+        /// </summary>
+        public JsNumber b { get; set; }
+        /// <summary>
+        /// color in HTML/CSS format: #••••••
+        /// </summary>
+        public string hex { get; set; }
+    }
 
 
     public class Prev
