@@ -332,15 +332,15 @@ namespace SharpKit.Raphael
         ///usage
         ///<code>
         ///Raphael.el.cross = function () {
-    ///this.attr({fill: "red"});
-    ///this.paper.path("M10,10L50,50M50,10L10,50")
-       /// .attr({stroke: "red"});
-       /// </code>
-       /// </example>
+        ///this.attr({fill: "red"});
+        ///this.paper.path("M10,10L50,50M50,10L10,50")
+        /// .attr({stroke: "red"});
+        /// </code>
+        /// </example>
         public static Paper paper { get; set; }
-       /// <summary>
+        /// <summary>
         /// Reference to the next element in the hierarchy.
-       /// </summary>
+        /// </summary>
         public static Next next { get; set; }
         /// <summary>
         /// Gives you a reference to the DOM object, so you can assign event handlers or just mess around. Note: Don’t mess with it.
@@ -372,7 +372,7 @@ namespace SharpKit.Raphael
         /// <summary>
         /// Internal reference to Raphael object. In case it is not available.
         /// </summary>
-        public static Raphael rapheal {get;set;}
+        public static Raphael rapheal { get; set; }
 
         /// <summary>
         /// Resumes animation if it was paused with Element.pause method.
@@ -558,7 +558,7 @@ namespace SharpKit.Raphael
         /// <summary>
         /// Removes all drag event handlers from given element.
         /// </summary>
-        public static void undrag () {}
+        public static void undrag() { }
 
         /// <summary>
         /// Removes event handler for mousedown for the element.
@@ -956,20 +956,20 @@ namespace SharpKit.Raphael
         {
             return null;
         }
-        
+
         /// <summary>
         /// translate the matrix
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public static void translate (JsNumber x, JsNumber y) { }
+        public static void translate(JsNumber x, JsNumber y) { }
         /// <summary>
         /// Return x coordinate for given point after transformation described by the matrix. See also Matrix.y
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns>x</returns>
-        public static JsNumber x (JsNumber x, JsNumber y)
+        public static JsNumber x(JsNumber x, JsNumber y)
         {
             return null;
         }
@@ -984,7 +984,7 @@ namespace SharpKit.Raphael
             return null;
         }
 
-}
+    }
     [JsType(JsMode.Prototype)]
     public class splitOptions
     {
@@ -1017,7 +1017,7 @@ namespace SharpKit.Raphael
         /// </summary>
         public bool isSimple { get; set; }
 
-        }
+    }
     [JsType(JsMode.Prototype)]
     public class paper
     {
@@ -1057,7 +1057,7 @@ namespace SharpKit.Raphael
         /// <summary>
         /// Shortcut for Paper.customAttributes
         /// </summary>
-        public static JsObject<JsFunc<object, JsNumber>> ca {get;set;}
+        public static JsObject<JsFunc<object, JsNumber>> ca { get; set; }
 
         /// <summary>
         /// Draws a circle.
@@ -1105,7 +1105,7 @@ namespace SharpKit.Raphael
         ///c.animate({hsb: [1, 0, 0.5]}, 1e3);
         /// </code>
         /// </example>
-        public static JsObject<JsFunc<object, JsNumber>> customAttributes {get;set;}
+        public static JsObject<JsFunc<object, JsNumber>> customAttributes { get; set; }
 
 
         /// <summary>
@@ -1289,7 +1289,7 @@ namespace SharpKit.Raphael
         /// st.attr({fill: "red"}); // changes the fill of both circles
         /// </code>
         /// </example>
-        public static object set ()
+        public static object set()
         {
             return null;
         }
@@ -1297,7 +1297,7 @@ namespace SharpKit.Raphael
         /// See Paper.setStart. This method finishes catching and returns resulting set.
         /// </summary>
         /// <returns>set</returns>
-        public static object setFinish ()
+        public static object setFinish()
         {
             return null;
         }
@@ -1306,7 +1306,7 @@ namespace SharpKit.Raphael
         /// </summary>
         /// <param name="width">new width of the canvas</param>
         /// <param name="height">new height of the canvas</param>
-        public static void setSize (JsNumber width, JsNumber height) { }
+        public static void setSize(JsNumber width, JsNumber height) { }
         /// <summary>
         /// Creates Paper.set. All elements that will be created after calling this method and before calling Paper.setFinish will be added to the set.
         /// </summary>
@@ -1343,7 +1343,7 @@ namespace SharpKit.Raphael
         /// var t = paper.text(50, 50, "Raphaël\nkicks\nbutt!");
         /// </code>
         /// </example>
-        public static object text (JsNumber x, JsNumber y, string text)
+        public static object text(JsNumber x, JsNumber y, string text)
         {
             return null;
         }
@@ -1399,7 +1399,8 @@ namespace SharpKit.Raphael
     }
 
     [JsType(JsMode.Prototype)]
-    public class colorOptions
+    public class ColorOptions
+    {
         /// <summary>
         /// red
         /// </summary>
@@ -1407,11 +1408,11 @@ namespace SharpKit.Raphael
         /// <summary>
         /// green
         /// </summary>
-        public JsNumber  g { get; set; }
+        public JsNumber g { get; set; }
         /// <summary>
         /// blue
         /// </summary>
-        public JsNumber  b { get; set; }
+        public JsNumber b { get; set; }
         /// <summary>
         /// color in HTML/CSS format: #••••••,
         /// </summary>
@@ -1423,7 +1424,7 @@ namespace SharpKit.Raphael
         /// <summary>
         /// hue
         /// </summary>
-        public JsNumber  h { get; set; }
+        public JsNumber h { get; set; }
         /// <summary>
         /// saturation
         /// </summary>
@@ -1431,29 +1432,15 @@ namespace SharpKit.Raphael
         /// <summary>
         /// value (brightness),
         /// </summary>
-        public JsNumber  v { get; set; }
+        public JsNumber v { get; set; }
         /// <summary>
         /// lightness
         /// </summary>
-        public JsNumber  l { get; set; }
+        public JsNumber l { get; set; }
     }
-      
-    
 
 
 
-
-
-
-
-
-
-
-
-    }
-    public class Raphael
-    {
-    }
     public class Prev
     {
     }
