@@ -1054,8 +1054,10 @@ namespace SharpKit.Raphael
         /// Points to the bottom element on the paper
         /// </summary>
         public static void bottom() { }
-        
-        //paper ca?
+        /// <summary>
+        /// Shortcut for Paper.customAttributes
+        /// </summary>
+        public static JsObject<JsFunc<object, JsNumber>> ca {get;set;}
 
         /// <summary>
         /// Draws a circle.
@@ -1078,10 +1080,171 @@ namespace SharpKit.Raphael
         /// Clears the paper, i.e. removes all the elements.
         /// </summary>
         public static void clear() { }
+        /// <summary>
+        /// If you have a set of attributes that you would like to represent as a function of some number you can do it easily with custom attributes
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// paper.customAttributes.hue = function (num) {
+        /// num = num % 1;
+        /// return {fill: "hsb(" + num + ", 0.75, 1)"};
+        /// };
+        /// // Custom attribute “hue” will change fill
+        /// // to be given hue with fixed saturation and brightness.
+        /// // Now you can use it like this:
+        ///var c = paper.circle(10, 10, 10).attr({hue: .45});
+        /// // or even like this:
+        ///c.animate({hue: 1}, 1e3);
+        /// // You could also create custom attribute
+        /// // with multiple parameters:
+        ///paper.customAttributes.hsb = function (h, s, b) {
+        ///return {fill: "hsb(" + [h, s, b].join(",") + ")"};
+        ///};
+        ///c.attr({hsb: "0.5 .8 1"});
+        ///c.animate({hsb: [1, 0, 0.5]}, 1e3);
+        /// </code>
+        /// </example>
+        public static JsObject<JsFunc<object, JsNumber>> customAttributes {get;set;}
 
-        //paper.customAttributes?!?!
 
-        public static 
+        /// <summary>
+        /// Draws an ellipse.
+        /// </summary>
+        /// <param name="x">x coordinate of the centre</param>
+        /// <param name="y">y coordinate of the centre</param>
+        /// <param name="rx">horizontal radius</param>
+        /// <param name="ry">vertical radius</param>
+        /// <returns>Raphaël element object with type “ellipse”</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var c = paper.ellipse(50, 50, 40, 20);
+        /// </code>
+        /// </example>
+        public static object ellipse(JsNumber x, JsNumber y, JsNumber rx, JsNumber ry)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Executes given function for each element on the paper
+        /// If callback function returns false it will stop loop running.
+        /// </summary>
+        /// <param name="callback">function to run</param>
+        /// <param name="thisArg">context object for the callback</param>
+        /// <returns>Paper object</returns>
+        public static object forEach(JsFunction callback, object thisArg)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Returns you element by its internal ID.
+        /// </summary>
+        /// <param name="id">id</param>
+        /// <returns>Raphaël element object</returns>
+        public static object getById(JsNumber id)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Returns you topmost element under given point.
+        /// </summary>
+        /// <param name="x">x coordinate from the top left corner of the window</param>
+        /// <param name="y">y coordinate from the top left corner of the window</param>
+        /// <returns>Raphaël element object</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// paper.getElementByPoint(mouseX, mouseY).attr({stroke: "#f00"});
+        /// </code>
+        /// </example>
+        public static object getElementByPoint(JsNumber x, JsNumber y)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Finds font object in the registered fonts by given parameters. You could specify only one word from the font name, like “Myriad” for “Myriad Pro”.
+        /// </summary>
+        /// <param name="family">font family name or any word from it</param>
+        /// <param name="weight">font weight</param>
+        /// <param name="style">font style</param>
+        /// <param name="stretch">font stretch</param>
+        /// <returns>the font object</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// paper.print(100, 100, "Test string", paper.getFont("Times", 800), 30);
+        /// </code>
+        /// </example>
+        public static object getFont(string family, string weight, string style, string stretch)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Embeds an image into the surface.
+        /// </summary>
+        /// <param name="src">URI of the source image</param>
+        /// <param name="x">x coordinate position</param>
+        /// <param name="y">y coordinate position</param>
+        /// <param name="width">width of the image</param>
+        /// <param name="height">height of the image</param>
+        /// <returns>Raphaël element object with type “image”</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var c = paper.image("apple.png", 10, 10, 80, 80);
+        /// </code>
+        /// </example>
+        public static object image(string src, JsNumber x, JsNumber y, JsNumber width, JsNumber height)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Creates a path element by given path data string.
+        /// </summary>
+        /// <param name="pathString">path string in SVG format.</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// "M10,20L30,40"
+        /// </code>
+        /// </example>
+        /// 
+        public static void path(string pathString) { }
+        // not done!!!! 
+
+        /// <summary>
+        /// Creates set of shapes to represent given font at given position with given size. Result of the method is set object (see Paper.set) which contains each letter as separate path object.
+        /// </summary>
+        /// <param name="x">x position of the text</param>
+        /// <param name="y">y position of the text</param>
+        /// <param name="text">text to print</param>
+        /// <param name="font">font object, see Paper.getFont</param>
+        /// <param name="size">size of the font, default is 16</param>
+        /// <param name="origin">could be "baseline" or "middle", default is "middle"</param>
+        /// <param name="letter_spacing">number in range -1..1, default is 0</param>
+        /// <returns>resulting set of letters</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var txt = r.print(10, 50, "print", r.getFont("Museo"), 30).attr({fill: "#fff"});
+        /// // following line will paint first letter in red
+        /// txt[0].attr({fill: "#f00"});
+        /// </code>
+        /// </example>
+        public static object print(JsNumber x, JsNumber y, string text, object font, JsNumber size, string origin, JsNumber letter_spacing)
+        {
+            return null;
+        }
+        /// <summary>
+        /// Points to the Raphael object/function
+        /// </summary>
+        public static void raphael() { }
+        // duble check with danel
+        public static Raphael rapheal { get; set; }
+
+
+
 
 
 
