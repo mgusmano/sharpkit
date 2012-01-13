@@ -6,6 +6,8 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.Raphael
 {
+    #region Animation
+
     [JsType(JsMode.Prototype)]
     public class Animation
     {
@@ -29,6 +31,10 @@ namespace SharpKit.Raphael
         /// <returns>new altered Animation object</returns>
         public static object repeat(JsNumber repeat) { return null; }
     }
+
+    #endregion
+
+    #region Element
 
     [JsType(JsMode.Prototype)]
     public class Element
@@ -651,6 +657,9 @@ namespace SharpKit.Raphael
 
 
     }
+    #endregion
+
+    #region AnimationStatus
 
     [JsType(JsMode.Json)]
     public class AnimationStatus
@@ -658,6 +667,9 @@ namespace SharpKit.Raphael
         public Animation anim { get; set; }
         public JsNumber status { get; set; }
     }
+    #endregion
+
+    #region ElementAttributes
 
     [JsType(JsMode.Json)]
     public class ElementAttributes
@@ -780,9 +792,12 @@ namespace SharpKit.Raphael
         public JsNumber y { get; set; }
 
     }
+    #endregion
+
+    #region dragOptions
 
     [JsType(JsMode.Json)]
-    public class dragOptions
+    public class DragOptions
     {
         /// <summary>
         /// x position of the mouse
@@ -793,9 +808,12 @@ namespace SharpKit.Raphael
         /// </summary>
         public object JsEvent { get; set; }
     }
+    #endregion
+
+    #region DragOptions2
 
     [JsType(JsMode.Json)]
-    public class dragOptions2
+    public class DragOptions2
     {
         /// <summary>
         /// shift by x from the start point
@@ -818,18 +836,24 @@ namespace SharpKit.Raphael
         /// </summary>
         public object JsEvent { get; set; }
     }
+    #endregion
+
+    #region DragOptions3
 
     [JsType(JsMode.Json)]
-    public class dragOptions3
+    public class DragOptions3
     {
         /// <summary>
         /// DOM event object
         /// </summary>
         public object JsEvent { get; set; }
     }
+    #endregion
+
+    #region GetBBoxOptions
 
     [JsType(JsMode.Json)]
-    public class getBBoxOptions
+    public class GetBBoxOptions
     {
         /// <summary>
         /// top left corner x
@@ -848,9 +872,12 @@ namespace SharpKit.Raphael
         /// </summary>
         public JsNumber height { get; set; }
     }
+    #endregion
+
+    #region GetPointAtLengthOptions
 
     [JsType(JsMode.Json)]
-    public class getPointAtLengthOptions
+    public class GetPointAtLengthOptions
     {
         /// <summary>
         /// x coordinate
@@ -865,9 +892,12 @@ namespace SharpKit.Raphael
         /// </summary>
         public JsNumber alpha { get; set; }
     }
+    #endregion
+
+    #region GlowOptions
 
     [JsType(JsMode.Json)]
-    public class glowOptions
+    public class GlowOptions
     {
         /// <summary>
         /// size of the glow, default is 10
@@ -898,6 +928,10 @@ namespace SharpKit.Raphael
 
 
     }
+    #endregion
+
+    #region Matrix
+
     [JsType(JsMode.Prototype)]
     public class Matrix
     {
@@ -985,8 +1019,12 @@ namespace SharpKit.Raphael
         }
 
     }
+    #endregion
+
+    #region SplitOptions
+
     [JsType(JsMode.Prototype)]
-    public class splitOptions
+    public class SplitOptions
     {
         /// <summary>
         /// translation by x
@@ -1018,8 +1056,12 @@ namespace SharpKit.Raphael
         public bool isSimple { get; set; }
 
     }
+    #endregion
+
+    #region Paper
+
     [JsType(JsMode.Prototype)]
-    public class paper
+    public class Paper
     {
         /// <summary>d<attributes>}s
         /// </summary>
@@ -1352,6 +1394,9 @@ namespace SharpKit.Raphael
         /// </summary>
         public static Top top { get; set; }
     }
+    #endregion
+
+    #region Raphael
 
     [JsType(JsMode.Prototype)]
     public class Raphael
@@ -1438,7 +1483,7 @@ namespace SharpKit.Raphael
         /// paper.circle(100, 100, 20).red();
         /// </code>
         /// </example>
-        public object  el { get; set; }
+        public object el { get; set; }
 
         /// <summary>
         /// Utility method Find dot coordinates on the given cubic bezier curve at the given t.
@@ -1480,7 +1525,7 @@ namespace SharpKit.Raphael
         /// paper.mystuff.star();
         /// </code>
         /// </example>
-        public object  fn { get; set; }
+        public object fn { get; set; }
 
 
         //Raphael.format(token, …) what should i do with "..."?
@@ -1510,7 +1555,7 @@ namespace SharpKit.Raphael
         {
             return null;
         }
-        
+
         /// <summary>
         /// On each call returns next colour in the spectrum. To reset it back to red call Raphael.getColor.reset
         /// </summary>
@@ -1639,16 +1684,19 @@ namespace SharpKit.Raphael
             return null;
         }
 
-       
 
 
 
 
 
 
-        
+
+
 
     }
+    #endregion
+
+    #region ColorOptions
 
     [JsType(JsMode.Prototype)]
     public class ColorOptions
@@ -1690,27 +1738,14 @@ namespace SharpKit.Raphael
         /// </summary>
         public JsNumber l { get; set; }
     }
+    #endregion
 
-    [JsType(JsMode.Prototype)]
-    public class getPointAtLengthOptions
-    {
-        /// <summary>
-        /// x coordinate
-        /// </summary>
-        public JsNumber x { get; set; }
-        /// <summary>
-        /// y coordinate
-        /// </summary>
-        public JsNumber y { get; set; }
-        /// <summary>
-        /// angle of derivative
-        /// </summary>
-        public JsNumber alpha { get; set; }
-    }
+
+    #region Hsb2RgbOptions
 
 
     [JsType(JsMode.Prototype)]
-    public class hsb2rgbOptions
+    public class Hsb2RgbOptions
     {
         /// <summary>
         /// red
@@ -1729,9 +1764,12 @@ namespace SharpKit.Raphael
         /// </summary>
         public string hex { get; set; }
     }
+    #endregion
+
+    #region Hsl2RgbOptions
 
     [JsType(JsMode.Prototype)]
-    public class hsl2rgbOptions
+    public class Hsl2RgbOptions
     {
         /// <summary>
         /// red
@@ -1750,12 +1788,12 @@ namespace SharpKit.Raphael
         /// </summary>
         public string hex { get; set; }
     }
+    #endregion
+
+    #region Animation
 
 
     public class Prev
-    {
-    }
-    public class Paper
     {
     }
     public class Next
@@ -1767,4 +1805,5 @@ namespace SharpKit.Raphael
     public class Top
     {
     }
+    #endregion
 }
