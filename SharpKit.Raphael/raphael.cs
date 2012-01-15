@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
+using SharpKit.Html4;
 
 namespace SharpKit.Raphael
 {
@@ -47,7 +48,7 @@ namespace SharpKit.Raphael
         /// <param name="easing"></param>
         /// <param name="callback"></param>
         /// <returns>original element</returns>
-        public static object animate(object @params, JsNumber ms, string easing, JsFunction callback)
+        public static object animate(object @params, JsNumber ms, string easing, JsAction callback)
         {
             return null;
         }
@@ -73,7 +74,7 @@ namespace SharpKit.Raphael
         /// <param name="easing">easing type. Accept on of Raphael.easing_formulas or CSS format: cubic‐bezier(XX, XX, XX, XX)</param>
         /// <param name="callback">callback function. Will be called at the end of animation.</param>
         /// <returns></returns>
-        public static object animateWith(object element, object anim, object @params, JsNumber ms, string easing, JsFunction callback)
+        public static object animateWith(object element, object anim, object @params, JsNumber ms, string easing, JsAction callback)
         {
             return null;
         }
@@ -489,7 +490,7 @@ namespace SharpKit.Raphael
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object touchcancel(JsFunction handler)
+        public static object touchcancel(JsAction handler)
         {
             return null;
         }
@@ -498,7 +499,7 @@ namespace SharpKit.Raphael
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object touchend(JsFunction handler)
+        public static object touchend(JsAction handler)
         {
             return null;
         }
@@ -507,7 +508,7 @@ namespace SharpKit.Raphael
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object touchmove(JsFunction handler)
+        public static object touchmove(JsAction handler)
         {
             return null;
         }
@@ -516,7 +517,7 @@ namespace SharpKit.Raphael
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object touchstart(JsFunction handler)
+        public static object touchstart(JsAction handler)
         {
             return null;
         }
@@ -538,7 +539,7 @@ namespace SharpKit.Raphael
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object unclick(JsFunction handler)
+        public static object unclick(JsAction handler)
         {
             return null;
         }
@@ -547,7 +548,7 @@ namespace SharpKit.Raphael
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object undblclick(JsFunction handler)
+        public static object undblclick(JsAction handler)
         {
             return null;
         }
@@ -557,7 +558,7 @@ namespace SharpKit.Raphael
         /// <param name="f_in">handler for hover in</param>
         /// <param name="f_out">handler for hover out</param>
         /// <returns></returns>
-        public static object unhover(JsFunction f_in, JsFunction f_out)
+        public static object unhover(JsAction f_in, JsAction f_out)
         {
             return null;
         }
@@ -571,7 +572,7 @@ namespace SharpKit.Raphael
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object unmousedown(JsFunction handler)
+        public static object unmousedown(JsAction handler)
         {
             return null;
         }
@@ -580,76 +581,76 @@ namespace SharpKit.Raphael
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object unmousemove(JsFunction handler)
+        public static object unmousemove(JsAction handler)
         {
             return null;
         }
         /// <summary>
-        //Removes event handler for mouseout for the element.
+        /// Removes event handler for mouseout for the element.
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object unmouseout(JsFunction handler)
-        {
-            return null;
-        }
-
-        /// <summary>
-        //Removes event handler for unmouseover for the element.
-        /// </summary>
-        /// <param name="handler">handler for the event</param>
-        /// <returns></returns>
-        public static object unmouseover(JsFunction handler)
+        public static object unmouseout(JsAction handler)
         {
             return null;
         }
 
         /// <summary>
-        //Removes event handler for unmouseup for the element.
+        /// Removes event handler for unmouseover for the element.
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object unmouseup(JsFunction handler)
+        public static object unmouseover(JsAction handler)
         {
             return null;
         }
 
         /// <summary>
-        //Removes event handler for untouchcancel for the element.
+        /// Removes event handler for unmouseup for the element.
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object untouchcancel(JsFunction handler)
+        public static object unmouseup(JsAction handler)
         {
             return null;
         }
 
         /// <summary>
-        //Removes event handler for untouchend for the element.
+        /// Removes event handler for untouchcancel for the element.
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object untouchend(JsFunction handler)
+        public static object untouchcancel(JsAction handler)
         {
             return null;
         }
 
         /// <summary>
-        //Removes event handler for untouchmove for the element.
+        /// Removes event handler for untouchend for the element.
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object untouchmove(JsFunction handler)
+        public static object untouchend(JsAction handler)
         {
             return null;
         }
 
         /// <summary>
-        //Removes event handler for untouchstart for the element.
+        /// Removes event handler for untouchmove for the element.
         /// </summary>
         /// <param name="handler">handler for the event</param>
         /// <returns></returns>
-        public static object untouchstart(JsFunction handler)
+        public static object untouchmove(JsAction handler)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Removes event handler for untouchstart for the element.
+        /// </summary>
+        /// <param name="handler">handler for the event</param>
+        /// <returns></returns>
+        public static object untouchstart(JsAction handler)
         {
             return null;
         }
@@ -794,10 +795,10 @@ namespace SharpKit.Raphael
     }
     #endregion
 
-    #region dragOptions
+    #region DragEventArgs
 
     [JsType(JsMode.Json)]
-    public class DragOptions
+    public class DragStartEventArgs
     {
         /// <summary>
         /// x position of the mouse
@@ -806,14 +807,11 @@ namespace SharpKit.Raphael
         /// <summary>
         /// DOM event object
         /// </summary>
-        public object JsEvent { get; set; }
+        public HtmlDomEventArgs @event { get; set; }
     }
-    #endregion
-
-    #region DragOptions2
 
     [JsType(JsMode.Json)]
-    public class DragOptions2
+    public class DragMoveEventArgs
     {
         /// <summary>
         /// shift by x from the start point
@@ -834,19 +832,16 @@ namespace SharpKit.Raphael
         /// <summary>
         /// DOM event object
         /// </summary>
-        public object JsEvent { get; set; }
+        public HtmlDomEventArgs @event { get; set; }
     }
-    #endregion
-
-    #region DragOptions3
 
     [JsType(JsMode.Json)]
-    public class DragOptions3
+    public class DragEndEventArgs
     {
         /// <summary>
         /// DOM event object
         /// </summary>
-        public object JsEvent { get; set; }
+        public HtmlDomEventArgs @event { get; set; }
     }
     #endregion
 
@@ -1063,7 +1058,8 @@ namespace SharpKit.Raphael
     [JsType(JsMode.Prototype)]
     public class Paper
     {
-        /// <summary>d<attributes>}s
+        /// <summary>
+        /// Imports elements in JSON array in format {type: type, [attributes]}
         /// </summary>
         /// <param name="json"></param>
         /// <returns>resulting set of imported elements</returns>
@@ -1100,7 +1096,6 @@ namespace SharpKit.Raphael
         /// Shortcut for Paper.customAttributes
         /// </summary>
         public static JsObject<JsFunc<object, JsNumber>> ca { get; set; }
-
         /// <summary>
         /// Draws a circle.
         /// </summary>
@@ -1148,8 +1143,6 @@ namespace SharpKit.Raphael
         /// </code>
         /// </example>
         public static JsObject<JsFunc<object, JsNumber>> customAttributes { get; set; }
-
-
         /// <summary>
         /// Draws an ellipse.
         /// </summary>
@@ -1175,7 +1168,7 @@ namespace SharpKit.Raphael
         /// <param name="callback">function to run</param>
         /// <param name="thisArg">context object for the callback</param>
         /// <returns>Paper object</returns>
-        public static object forEach(JsFunction callback, object thisArg)
+        public static object forEach(JsAction callback, object thisArg)
         {
             return null;
         }
@@ -1409,13 +1402,13 @@ namespace SharpKit.Raphael
         /// <param name="width"></param>
         /// <param name="height"></param>
         /// <param name="callback">callback function which is going to be executed in the context of newly created paper</param>
-        public Raphael(JsNumber x, JsNumber y, JsNumber width, JsNumber height, JsFunction callback) { }
+        public Raphael(JsNumber x, JsNumber y, JsNumber width, JsNumber height, JsAction callback) { }
         /// <summary>
         /// Creates a canvas object on which to draw. You must do this first, as all future calls to drawing methods from this instance will be bound to this canvas.
         /// </summary>
-        /// <param name="all">(first 3 or 4 elements in the array are equal to [containerID, width, height] or [x, y, width, height]. The rest are element descriptions in format {type: type, <attributes>}). See Paper.add.</param>
+        /// <param name="all">(first 3 or 4 elements in the array are equal to [containerID, width, height] or [x, y, width, height]. The rest are element descriptions in format {type: type, [attributes]}). See Paper.add.</param>
         /// <param name="callback">callback function which is going to be executed in the context of newly created paper</param>
-        public Raphael(Array all, JsFunction callback) { }
+        public Raphael(Array all, JsAction callback) { }
         //raphael (...) ?!?!
 
         /// <summary>
@@ -1440,7 +1433,7 @@ namespace SharpKit.Raphael
         /// <param name="easing">easing type. Accept one of Raphael.easing_formulas or CSS format: cubic‐bezier(XX, XX, XX, XX)</param>
         /// <param name="callback">callback function. Will be called at the end of animation.</param>
         /// <returns>Animation</returns>
-        public static object animation(object @params, JsNumber ms, string easing, JsFunction callback)
+        public static object animation(object @params, JsNumber ms, string easing, JsAction callback)
         {
             return null;
         }
@@ -1450,7 +1443,7 @@ namespace SharpKit.Raphael
         /// Parses the color string and returns object with all values for the given color.
         /// </summary>
         /// <param name="clr">color string in one of the supported formats (see Raphael.getRGB)</param>
-        /// <returns>Combined RGB & HSB object in format:</returns>
+        /// <returns>Combined RGB &amp; HSB object in format:</returns>
         public static object color(string clr)
         {
             return null;
@@ -1531,7 +1524,7 @@ namespace SharpKit.Raphael
         //Raphael.format(token, …) what should i do with "..."?
 
         /// <summary>
-        /// A little bit more advanced format function than Raphael.format. Replaces construction of type “{<name>}” to the corresponding argument.
+        /// A little bit more advanced format function than Raphael.format. Replaces construction of type “{[name]}” to the corresponding argument.
         /// </summary>
         /// <param name="token">string to format</param>
         /// <param name="json">object which properties will be used as a replacement</param>
@@ -1683,16 +1676,6 @@ namespace SharpKit.Raphael
         {
             return null;
         }
-
-
-
-
-
-
-
-
-
-
     }
     #endregion
 
@@ -1739,7 +1722,6 @@ namespace SharpKit.Raphael
         public JsNumber l { get; set; }
     }
     #endregion
-
 
     #region Hsb2RgbOptions
 
@@ -1790,9 +1772,7 @@ namespace SharpKit.Raphael
     }
     #endregion
 
-    #region Animation
-
-
+    #region TODO
     public class Prev
     {
     }
