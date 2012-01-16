@@ -86,6 +86,10 @@ namespace Ext.app
         /// The scope to execute the launch function in. ...
         /// </summary>
         public object scope{get;set;}
+        /// <summary>
+        /// Called automatically when the page has completely loaded. This is an empty function that should be overridden by each application that needs to take action on page load
+        /// </summary>
+        public JsAction launch { get; set; }
     }
     #endregion
     #region ApplicationEvents
