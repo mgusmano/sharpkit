@@ -72,7 +72,7 @@ namespace Ext.layout.container
         public JsNumber columns{get;set;}
         /// <summary>
         /// An object containing properties which are added to the DomHelper specification
-        /// used to create the layout's &lt;table&...
+        /// used to create the layout's table...
         /// </summary>
         public object tableAttrs{get;set;}
         /// <summary>

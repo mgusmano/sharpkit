@@ -3,6 +3,7 @@
 //* SharpKit
 //***************************************************
 using SharpKit.JavaScript;
+using Ext.Unknown;
 #region Ext.form.field
 namespace Ext.form.field
 {

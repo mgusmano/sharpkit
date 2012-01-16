@@ -64,7 +64,7 @@ namespace Ext.grid.plugin
         /// <summary>
         /// Start editing the specified record, using the specified Column definition to define which field is being edited. ...
         /// </summary>
-        public new object startEdit(Ext.data.Model record, Ext.data.Model columnHeader){return null;}
+        public object startEdit(Ext.data.Model record, Ext.data.Model columnHeader){return null;}
         /// <summary>
         /// Starts editing by position (row/column) ...
         /// </summary>

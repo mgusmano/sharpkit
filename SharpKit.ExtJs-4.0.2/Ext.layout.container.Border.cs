@@ -3,6 +3,7 @@
 //* SharpKit
 //***************************************************
 using SharpKit.JavaScript;
+using Ext.panel;
 #region Ext.layout.container
 namespace Ext.layout.container
 {

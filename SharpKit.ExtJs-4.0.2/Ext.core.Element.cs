@@ -3,6 +3,7 @@
 //* SharpKit
 //***************************************************
 using SharpKit.JavaScript;
+using Ext.Unknown;
 #region Ext.core
 namespace Ext.core
 {

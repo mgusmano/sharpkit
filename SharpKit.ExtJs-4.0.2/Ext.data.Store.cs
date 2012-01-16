@@ -3,6 +3,7 @@
 //* SharpKit
 //***************************************************
 using SharpKit.JavaScript;
+using Ext.util;
 #region Ext.data
 namespace Ext.data
 {
@@ -269,7 +270,7 @@ namespace Ext.data
         /// <summary>
         /// Loads data into the Store via the configured proxy. ...
         /// </summary>
-        public new object load() { return null; }
+        public object load() { return null; }
         /// <summary>
         /// Loads an array of data straight into the Store ...
         /// </summary>

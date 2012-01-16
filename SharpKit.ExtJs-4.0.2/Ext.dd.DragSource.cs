@@ -3,6 +3,7 @@
 //* SharpKit
 //***************************************************
 using SharpKit.JavaScript;
+using Ext.direct;
 #region Ext.dd
 namespace Ext.dd
 {

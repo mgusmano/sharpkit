@@ -3,6 +3,7 @@
 //* SharpKit
 //***************************************************
 using SharpKit.JavaScript;
+using Ext.Unknown;
 #region Ext.tip
 namespace Ext.tip
 {
@@ -85,7 +86,7 @@ namespace Ext.tip
         /// <summary>
         /// Shows this tooltip at the current event target XY position. ...
         /// </summary>
-        public object show(){return null;}
+        public new object show(){return null;}
         /// <summary>
         /// When a ToolTip is configured with the delegate
         /// option to cause selected child elements of the target
