@@ -15,10 +15,10 @@
     <table id="MyGrid" class="Grid">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Phone Number</th>
-                <th>Description</th>
+                <th onclick="SortBy(this, 'Name');">Name</th>
+                <th onclick="SortBy(this, 'Age');">Age</th>
+                <th onclick="SortBy(this, 'PhoneNumber');">Phone Number</th>
+                <th onclick="SortBy(this, 'Description');">Description</th>
             </tr>
         </thead>
         <tbody style="display: none">
