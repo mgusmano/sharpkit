@@ -515,7 +515,7 @@ namespace SharpKit.JavaScript
     public partial class JsArray : IEnumerable<object>
     {
         public JsArray() { }
-        public JsArray(JsArray array) { }
+        //public JsArray(JsArray array) { }
         public JsArray(JsNumber size) { }
         public JsArray(params object[] items) { }
         public static implicit operator JsArray(Array array) { return default(JsArray); }
@@ -585,6 +585,18 @@ namespace SharpKit.JavaScript
         [JsMethod(NativeOverloads = true)]
         public JsArray slice(JsNumber start, JsNumber end) { return default(JsArray); }
         ///<summary>
+        ///Returns a section of an array.
+        ///</summary>
+        ///<param name="start">Required. The index to the beginning of the specified portion of the array.</param>
+        ///<param name="end">Optional. The index to the end of the specified portion of the array.</param>
+        ///<remarks>
+        ///The slice method returns an Array object containing the specified portion of the array.
+        ///The slice method copies up to, but not including, the element indicated by end. If start is negative, it is treated as length + start where length is the length of the array. If end is negative, it is treated as length + end where length is the length of the array. If end is omitted, extraction continues to the end of the array. If end occurs before start, no elements are copied to the new array.
+        ///</remarks>
+        ///<returns></returns>
+        [JsMethod(NativeOverloads = true)]
+        public JsArray slice(JsNumber start) { return default(JsArray); }
+        ///<summary>
         ///Returns an Array object with the elements reversed.
         ///</summary>
         ///<returns></returns>
@@ -610,13 +622,13 @@ namespace SharpKit.JavaScript
         [JsMethod(NativeOverloads = true)]
         public object unshift(params object[] newItems) { return default(object); }
         ///<summary>
-        ///Returns an Array object with the elements sorted.
+        ///Returns an Array object with the elements sorted. Warning: array itself is sorted internally
         ///</summary>
         ///<param name="sortFunction">Optional. OriginalValue of the function used to determine the order of the elements.</param>
         [JsMethod(NativeOverloads = true)]
         public JsArray sort(Func<object, object, JsNumber> sortFunction) { return default(JsArray); }
         ///<summary>
-        ///Returns an Array object with the elements sorted.
+        ///Returns an Array object with the elements sorted. Warning: array itself is sorted internally
         ///</summary>
         ///<param name="sortFunction">Optional. OriginalValue of the function used to determine the order of the elements.</param>
         public JsArray sort(JsFunction sortFunction) { return default(JsArray); }
@@ -642,8 +654,8 @@ namespace SharpKit.JavaScript
         public static implicit operator JsArray<T>(T[] array) { return default(JsArray<T>); }
         [JsMethod(IgnoreGenericArguments = true)]
         public JsArray() { }
-        [JsMethod(IgnoreGenericArguments = true)]
-        public JsArray(JsArray<T> array) { }
+        //[JsMethod(IgnoreGenericArguments = true)]
+        //public JsArray(JsArray<T> array) { }
         [JsMethod(IgnoreGenericArguments = true)]
         public JsArray(JsNumber size) { }
         [JsMethod(IgnoreGenericArguments = true)]
@@ -703,6 +715,17 @@ namespace SharpKit.JavaScript
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
         public JsArray<T> slice(JsNumber start, JsNumber end) { return default(JsArray<T>); }
         ///<summary>
+        ///Returns a section of an array.
+        ///</summary>
+        ///<param name="start">Required. The index to the beginning of the specified portion of the array.</param>
+        ///<remarks>
+        ///The slice method returns an Array object containing the specified portion of the array.
+        ///The slice method copies up to, but not including, the element indicated by end. If start is negative, it is treated as length + start where length is the length of the array. If end is negative, it is treated as length + end where length is the length of the array. If end is omitted, extraction continues to the end of the array. If end occurs before start, no elements are copied to the new array.
+        ///</remarks>
+        ///<returns></returns>
+        [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
+        public JsArray<T> slice(JsNumber start) { return default(JsArray<T>); }
+        ///<summary>
         ///Returns an Array object with the elements reversed.
         ///</summary>
         ///<returns></returns>
@@ -728,16 +751,16 @@ namespace SharpKit.JavaScript
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
         public JsNumber unshift(params T[] newItems) { return default(JsNumber); }
         ///<summary>
-        ///Returns an Array object with the elements sorted.
+        ///Returns an Array object with the elements sorted. Warning: Array itself is sorted internally
         ///</summary>
         ///<param name="sortFunction">Optional. OriginalValue of the function used to determine the order of the elements.</param>
         [JsMethod(NativeOverloads = true, NativeDelegates = true)]
-        public void sort(Func<T, T, JsNumber> sortFunction) { }
+        public JsArray<T> sort(Func<T, T, JsNumber> sortFunction) { return null; }
         ///<summary>
-        ///Returns an Array object with the elements sorted.
+        ///Returns an Array object with the elements sorted. Warning: Array itself is sorted internally
         ///</summary>
         [JsMethod(NativeOverloads = true)]
-        public void sort() { }
+        public JsArray<T> sort() { return null; }
         public IEnumerator<T> GetEnumerator() { return default(IEnumerator<T>); }
         IEnumerator IEnumerable.GetEnumerator() { return default(IEnumerator); }
         ///<summary>
@@ -2466,6 +2489,8 @@ namespace SharpKit.JavaScript
         public static JsString operator +(JsString x, JsString y) { return default(JsString); }
         public static JsString operator +(JsString x, string y) { return default(JsString); }
         public static JsString operator +(string x, JsString y) { return default(JsString); }
+        public static bool operator >(JsString x, JsString y) { return false; }
+        public static bool operator <(JsString x, JsString y) { return false; }
         ///<summary>
         ///Returns the last occurrence of a substring within a String object.
         ///</summary>
