@@ -457,7 +457,11 @@ namespace SharpKit.JavaScript
         public string Name { get; set; }
     }
     #endregion
-
+    //[AttributeUsage(AttributeTargets.Struct)]
+    //public class JsStructAttribute : Attribute
+    //{
+    //    public bool IsClass { get; set; }
+    //}
     #endregion
 
     #region JsArguments
