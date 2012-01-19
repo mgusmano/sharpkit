@@ -251,115 +251,118 @@ public partial class Base
 }
 #endregion
 #region ExtClass
-[JsType(JsMode.Prototype, Export=false)]
-public partial class ExtClass
+namespace Ext
 {
-    public ExtClass(){}
-    /// <summary>
-    /// @private
-    /// @param Class
-    /// @param classData
-    /// @param onClassCreated
-    /// </summary>
-    public static void create(object Class){}
-    public static void getConfigNameMap(object name){}
-    /// <summary>
-    /// Retrieve the array stack of default pre-processors
-    /// @private
-    /// @return {Function} defaultPreprocessors
-    /// </summary>
-    public static JsAction getDefaultPreprocessors(){return null;}
-    /// <summary>
-    /// Retrieve a pre-processor callback function by its name, which has been registered before
-    /// *
-    /// @private
-    /// @param {String} name
-    /// @return {Function} preprocessor
-    /// </summary>
-    public static JsAction getPreprocessor(JsString name){return null;}
-    /// <summary>
-    /// @private
-    /// </summary>
-    public static void getPreprocessors(){}
-    /// <summary>
-    /// @private
-    /// @param Class
-    /// @param data
-    /// @param hooks
-    /// </summary>
-    public static void onBeforeCreated(object Class, object data, object hooks){}
-    /// <summary>
-    /// @private
-    /// @param Class
-    /// @param data
-    /// @param onCreated
-    /// </summary>
-    public static void process(object Class, object data, object onCreated){}
-    /// <summary>
-    /// Register a new pre-processor to be used during the class creation process
-    /// *
-    /// @member Ext.Class registerPreprocessor
-    /// @param {String} name The pre-processor's name
-    /// @param {Function} fn The callback function to be executed. Typical format:
-    /// function(cls, data, fn) {
-    /// // Your code here
-    /// // Execute this when the processing is finished.
-    /// // Asynchronous processing is perfectly ok
-    /// if (fn) {
-    /// fn.call(this, cls, data);
-    /// }
-    /// });
-    /// Passed arguments for this function are:
-    /// *
-    /// - `{Function} cls`: The created class
-    /// - `{Object} data`: The set of properties passed in {@link Ext.Class} constructor
-    /// - `{Function} fn`: The callback function that <b>must</b> to be executed when this pre-processor finishes,
-    /// regardless of whether the processing is synchronous or aynchronous
-    /// *
-    /// @private
-    /// @return {Ext.Class} this
-    /// @markdown
-    /// </summary>
-    public static void registerPreprocessor(JsString name, JsAction fn, object properties, object position, object relativeTo){}
-    /// <summary>
-    /// Insert this pre-processor at a specific position in the stack, optionally relative to
-    /// any existing pre-processor. For example:
-    /// Ext.Class.registerPreprocessor('debug', function(cls, data, fn) {
-    /// // Your code here
-    /// if (fn) {
-    /// fn.call(this, cls, data);
-    /// }
-    /// }).insertDefaultPreprocessor('debug', 'last');
-    /// @private
-    /// @param {String} name The pre-processor name. Note that it needs to be registered with
-    /// {@link Ext#registerPreprocessor registerPreprocessor} before this
-    /// @param {String} offset The insertion position. Four possible values are:
-    /// 'first', 'last', or: 'before', 'after' (relative to the name provided in the third argument)
-    /// @param {String} relativeName
-    /// @return {Ext.Class} this
-    /// @markdown
-    /// </summary>
-    public static void setDefaultPreprocessorPosition(JsString name, JsString offset, JsString relativeName){}
-    /// <summary>
-    /// Set the default array stack of default pre-processors
-    /// *
-    /// @private
-    /// @param {Array} preprocessors
-    /// @return {Ext.Class} this
-    /// </summary>
-    public static void setDefaultPreprocessors(JsArray preprocessors){}
-    /// <summary>
-    /// Retrieve the array stack of default pre-processors
-    /// @private
-    /// @return {Function} defaultPreprocessors
-    /// Set the default array stack of default pre-processors
-    /// *
-    /// @private
-    /// @param {Array} preprocessors
-    /// @return {Ext.Class} this
-    /// </summary>
-    [JsProperty]
-    public JsAction DefaultPreprocessors{[JsMethod(Name="getDefaultPreprocessors")]get;[JsMethod(Name="setDefaultPreprocessors")]set;}
+    [JsType(JsMode.Prototype, Export = false)]
+    public partial class ExtClass
+    {
+        public ExtClass() { }
+        /// <summary>
+        /// @private
+        /// @param Class
+        /// @param classData
+        /// @param onClassCreated
+        /// </summary>
+        public static void create(object Class) { }
+        public static void getConfigNameMap(object name) { }
+        /// <summary>
+        /// Retrieve the array stack of default pre-processors
+        /// @private
+        /// @return {Function} defaultPreprocessors
+        /// </summary>
+        public static JsAction getDefaultPreprocessors() { return null; }
+        /// <summary>
+        /// Retrieve a pre-processor callback function by its name, which has been registered before
+        /// *
+        /// @private
+        /// @param {String} name
+        /// @return {Function} preprocessor
+        /// </summary>
+        public static JsAction getPreprocessor(JsString name) { return null; }
+        /// <summary>
+        /// @private
+        /// </summary>
+        public static void getPreprocessors() { }
+        /// <summary>
+        /// @private
+        /// @param Class
+        /// @param data
+        /// @param hooks
+        /// </summary>
+        public static void onBeforeCreated(object Class, object data, object hooks) { }
+        /// <summary>
+        /// @private
+        /// @param Class
+        /// @param data
+        /// @param onCreated
+        /// </summary>
+        public static void process(object Class, object data, object onCreated) { }
+        /// <summary>
+        /// Register a new pre-processor to be used during the class creation process
+        /// *
+        /// @member Ext.Class registerPreprocessor
+        /// @param {String} name The pre-processor's name
+        /// @param {Function} fn The callback function to be executed. Typical format:
+        /// function(cls, data, fn) {
+        /// // Your code here
+        /// // Execute this when the processing is finished.
+        /// // Asynchronous processing is perfectly ok
+        /// if (fn) {
+        /// fn.call(this, cls, data);
+        /// }
+        /// });
+        /// Passed arguments for this function are:
+        /// *
+        /// - `{Function} cls`: The created class
+        /// - `{Object} data`: The set of properties passed in {@link Ext.Class} constructor
+        /// - `{Function} fn`: The callback function that <b>must</b> to be executed when this pre-processor finishes,
+        /// regardless of whether the processing is synchronous or aynchronous
+        /// *
+        /// @private
+        /// @return {Ext.Class} this
+        /// @markdown
+        /// </summary>
+        public static void registerPreprocessor(JsString name, JsAction fn, object properties, object position, object relativeTo) { }
+        /// <summary>
+        /// Insert this pre-processor at a specific position in the stack, optionally relative to
+        /// any existing pre-processor. For example:
+        /// Ext.Class.registerPreprocessor('debug', function(cls, data, fn) {
+        /// // Your code here
+        /// if (fn) {
+        /// fn.call(this, cls, data);
+        /// }
+        /// }).insertDefaultPreprocessor('debug', 'last');
+        /// @private
+        /// @param {String} name The pre-processor name. Note that it needs to be registered with
+        /// {@link Ext#registerPreprocessor registerPreprocessor} before this
+        /// @param {String} offset The insertion position. Four possible values are:
+        /// 'first', 'last', or: 'before', 'after' (relative to the name provided in the third argument)
+        /// @param {String} relativeName
+        /// @return {Ext.Class} this
+        /// @markdown
+        /// </summary>
+        public static void setDefaultPreprocessorPosition(JsString name, JsString offset, JsString relativeName) { }
+        /// <summary>
+        /// Set the default array stack of default pre-processors
+        /// *
+        /// @private
+        /// @param {Array} preprocessors
+        /// @return {Ext.Class} this
+        /// </summary>
+        public static void setDefaultPreprocessors(JsArray preprocessors) { }
+        /// <summary>
+        /// Retrieve the array stack of default pre-processors
+        /// @private
+        /// @return {Function} defaultPreprocessors
+        /// Set the default array stack of default pre-processors
+        /// *
+        /// @private
+        /// @param {Array} preprocessors
+        /// @return {Ext.Class} this
+        /// </summary>
+        [JsProperty]
+        public JsAction DefaultPreprocessors { [JsMethod(Name = "getDefaultPreprocessors")]get; [JsMethod(Name = "setDefaultPreprocessors")]set; }
+    }
 }
 #endregion
 #region Loader
@@ -2886,7 +2889,6 @@ namespace Ext
     [JsType(JsMode.Prototype, Export=false, Name="Ext")]
     public partial class ExtClass
     {
-        public ExtClass(){}
         /// <summary>
         /// Loads Ext.app.Application class and starts it up with given configuration after the page is ready.
         /// See Ext.app.Application for details.
