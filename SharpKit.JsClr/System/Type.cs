@@ -157,6 +157,10 @@ namespace SharpKit.JavaScript.Private
 			VerifyProperty(name);
 			return _PropertiesByName[name].As<JsImplPropertyInfo>();
 		}
+        internal JsImplPropertyInfo GetProperty(string name, Type returnType)
+        {
+            throw new NotImplementedException();
+        }
 
 		bool allPropertiesVerified;
 		void VerifyProperty(string name)

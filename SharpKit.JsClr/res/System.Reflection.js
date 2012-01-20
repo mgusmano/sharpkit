@@ -322,10 +322,14 @@ var System$Type=
                 this.FillProperty(def,setterName,true);
             return this._PropertiesByName[name] != null;
         },
-        GetProperty:function(name)
+        GetProperty$$String:function(name)
         {
             this.VerifyProperty(name);
             return this._PropertiesByName[name];
+        },
+        GetProperty$$String$$Type:function(name,returnType)
+        {
+            throw new System.NotImplementedException.ctor();
         },
         VerifyProperty:function(name)
         {
@@ -343,7 +347,7 @@ var System$Type=
             var baseType=this.get_BaseType();
             if(baseType != null)
             {
-                var pe=baseType.GetProperty(name);
+                var pe=baseType.GetProperty$$String(name);
                 this._PropertiesByName[name] = pe;
                 this._Properties.push(pe);
                 return;
@@ -522,7 +526,7 @@ var System$Type=
             }
             else if(memberType == "property")
             {
-                return this.GetProperty(memberName);
+                return this.GetProperty$$String(memberName);
             }
             else
                 throw new System.NotImplementedException.ctor$$String("GetAttributeTarget not supported yet for memberType: " + memberType);
