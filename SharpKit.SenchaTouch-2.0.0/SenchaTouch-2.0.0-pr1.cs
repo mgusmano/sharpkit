@@ -510,7 +510,7 @@ namespace Ext
 {
     #region AbstractComponent
     [JsType(JsMode.Prototype, Export=false)]
-    public partial class AbstractComponent
+    public partial class AbstractComponent : EventedBase
     {
         public AbstractComponent(){}
         /// <summary>
@@ -1484,7 +1484,7 @@ namespace Ext
     #endregion
     #region Component
     [JsType(JsMode.Prototype, Export=false)]
-    public partial class Component
+    public partial class Component : AbstractComponent
     {
         public Component(){}
         public Component(ComponentConfig config){}
@@ -1914,7 +1914,7 @@ namespace Ext
         /// <summary>
         /// @deprecated 2.0.0 Please use Ext.Viewport.add instead
         /// </summary>
-        public bool fullscren{get;set;}
+        public bool fullscreen{get;set;}
         /// <summary>
         /// The height of this component in pixels.
         /// @accessor
@@ -2193,7 +2193,7 @@ namespace Ext
     #endregion
     #region Container
     [JsType(JsMode.Prototype, Export=false)]
-    public partial class Container
+    public partial class Container : Component
     {
         public Container(){}
         public Container(ContainerConfig config){}
@@ -2470,7 +2470,7 @@ namespace Ext
     #endregion
     #region ContainerConfig
     [JsType(JsMode.Json, Export=false)]
-    public partial class ContainerConfig
+    public partial class ContainerConfig : ComponentConfig
     {
         public ContainerConfig(){}
         /// <summary>
@@ -2875,7 +2875,7 @@ namespace Ext
     #endregion
     #region EventedBase
     [JsType(JsMode.Prototype, Export=false)]
-    public partial class EventedBase
+    public partial class EventedBase : Base
     {
         public EventedBase(){}
         public EventedBase(object config){}
@@ -2915,6 +2915,10 @@ namespace Ext
         /// @return {Object} clone
         /// </summary>
         public static object clone(object item){return null;}
+        /// <summary>
+        /// Instantiate a class by either full name, alias or alternate name. ...
+        /// </summary>
+        public static object create(JsString name, object args) { return null; }
         /// <summary>
         /// @method
         /// Defines a class or override. A basic class is defined like this:
@@ -4633,6 +4637,13 @@ namespace Ext
         /// </summary>
         public bool isPanel{get;set;}
         public JsString xtype{get;set;}
+    }
+    #endregion
+    #region PanelConfig
+    [JsType(JsMode.Json, Export = false)]
+    public partial class PanelConfig : Ext.ContainerConfig
+    {
+        public PanelConfig() { }
     }
     #endregion
     #region pass
@@ -6484,6 +6495,7 @@ namespace Ext.app
         /// instance.
         /// </summary>
         public object scope{get;set;}
+        public JsAction launch { get; set; }
     }
     #endregion
     #region Controller
@@ -24553,7 +24565,7 @@ namespace Ext.tab
     #endregion
     #region Panel
     [JsType(JsMode.Prototype, Export=false)]
-    public partial class Panel
+    public partial class Panel : Ext.Container
     {
         public Panel(Ext.tab.PanelConfig config){}
         public Panel(){}
@@ -24643,7 +24655,7 @@ namespace Ext.tab
     #endregion
     #region PanelConfig
     [JsType(JsMode.Json, Export=false)]
-    public partial class PanelConfig
+    public partial class PanelConfig : Ext.ContainerConfig
     {
         public PanelConfig(){}
         /// <summary>
