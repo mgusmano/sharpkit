@@ -28,6 +28,7 @@ public partial class CSSStyleDeclaration
 	public JsString backgroundImage {get; set; }
 	public JsString backgroundPosition {get; set; }
 	public JsString backgroundRepeat {get; set; }
+	public JsString backgroundSize { get; set; }
 	public JsString border {get; set; }
 	public JsString borderCollapse {get; set; }
 	public JsString borderColor {get; set; }
