@@ -14,6 +14,7 @@ public partial class Location
 	public void assign(string url) {}
 	public void replace(string url) {}
 	public void reload() {}
+	public void reload(bool forceGet) { }
 	public JsString protocol {get; set; }
 	public JsString host {get; set; }
 	public JsString hostname {get; set; }
