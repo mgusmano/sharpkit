@@ -371,11 +371,15 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Returns value at named data store for the first element in the jQuery collection, as set by data(name, value).
 		/// </summary>
-		public JsObject data(JsString key) { return null; }
+		public object data(JsString key) { return null; }
 		/// <summary>
 		/// Store arbitrary data associated with the matched elements.
 		/// </summary>
 		public jQuery data(JsString key, JsObject value) { return null; }
+		/// <summary>
+		/// Store arbitrary data associated with the matched elements.
+		/// </summary>
+		public jQuery data(JsString key, object value) { return null; }
 		/// <summary>
 		/// Bind an event handler to the "dblclick" JavaScript event, or trigger that event on an element.
 		/// </summary>
@@ -1855,15 +1859,19 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Returns value at named data store for the element, as set by jQuery.data(element, name, value), or the full data store for the element.
 		/// </summary>
-		public static JsObject data(HtmlElement element) { return null; }
+		public static object data(HtmlElement element) { return null; }
 		/// <summary>
 		/// Returns value at named data store for the element, as set by jQuery.data(element, name, value), or the full data store for the element.
 		/// </summary>
-		public static JsObject data(HtmlElement element, JsString key) { return null; }
+		public static object data(HtmlElement element, JsString key) { return null; }
 		/// <summary>
 		/// Store arbitrary data associated with the specified element.
 		/// </summary>
 		public static jQuery data(HtmlElement element, JsString key, JsObject value) { return null; }
+		/// <summary>
+		/// Store arbitrary data associated with the specified element.
+		/// </summary>
+		public static jQuery data(HtmlElement element, JsString key, object value) { return null; }
 		/// <summary>
 		/// Execute the next function on the queue for the matched element.
 		/// </summary>
