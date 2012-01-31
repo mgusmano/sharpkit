@@ -809,17 +809,17 @@ namespace SharpKit.jQuery
         ///This event is triggered when dragging starts.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent start { get; set; }
+				public DraggableEvent start { get; set; }
         ///<summary>
         ///This event is triggered when the mouse is moved during the dragging.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent drag { get; set; }
+				public DraggableEvent drag { get; set; }
         ///<summary>
         ///This event is triggered when dragging stops.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent stop { get; set; }
+				public DraggableEvent stop { get; set; }
     }
     #endregion
     #region Droppable
@@ -892,27 +892,27 @@ namespace SharpKit.jQuery
         ///This event is triggered any time an accepted draggable starts dragging. This can be useful if you want to make the droppable 'light up' when it can be dropped on.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent activate { get; set; }
+				public DroppableEvent activate { get; set; }
         ///<summary>
         ///This event is triggered any time an accepted draggable stops dragging.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent deactivate { get; set; }
+				public DroppableEvent deactivate { get; set; }
         ///<summary>
         ///This event is triggered as an accepted draggable is dragged 'over' (within the tolerance of) this droppable.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent over { get; set; }
+				public DroppableEvent over { get; set; }
         ///<summary>
         ///This event is triggered when an accepted draggable is dragged out (within the tolerance of) this droppable.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent @out { get; set; }
+				public DroppableEvent @out { get; set; }
         ///<summary>
         ///This event is triggered when an accepted draggable is dropped 'over' (within the tolerance of) this droppable. In the callback, $(this) represents the droppable the draggable is dropped on. ui.draggable represents the draggable.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent drop { get; set; }
+				public DroppableEvent drop { get; set; }
     }
     #endregion
     #region Effect
@@ -2030,7 +2030,33 @@ namespace SharpKit.jQuery
     [JsDelegate(NativeDelegates = true)]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void jQueryUIEvent(Event e, object ui);
-}
+
+		[JsDelegate(NativeDelegates = true)]
+		[JsType(JsMode.Json, OmitCasts = true, Export = false)]
+		public delegate void DraggableEvent(Event e, DraggableUIObject ui);
+
+		[JsDelegate(NativeDelegates = true)]
+		[JsType(JsMode.Json, OmitCasts = true, Export = false)]
+		public delegate void DroppableEvent(Event e, DroppableUIObject ui);
+
+		[JsType(JsMode.Json)]
+    public partial class DroppableUIObject
+    {
+			public jQuery draggable;
+			public jQuery helper;
+			public TopLeft position;
+			public TopLeft offset;
+		}
+
+		[JsType(JsMode.Json)]
+		public partial class DraggableUIObject
+		{
+			public jQuery helper;
+			public TopLeft position;
+			public TopLeft offset;
+		}
+
+	}
 
 
 
