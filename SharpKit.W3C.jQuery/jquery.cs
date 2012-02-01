@@ -189,7 +189,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Set one or more attributes for the set of matched elements.
 		/// </summary>
-		public jQuery attr(Map map) { return null; }
+		public jQuery attr(AttrMap map) { return null; }
 		/// <summary>
 		/// Set one or more attributes for the set of matched elements.
 		/// </summary>
@@ -2504,6 +2504,21 @@ namespace SharpKit.jQuery
 		///Opacity (supported by Mozilla Gecko and Apple WebKit)
 		///</summary>
 		public double opacity { get; set; }
+	}
+
+	[JsType(JsMode.Json, Export = false)]
+	public partial class AttrMap
+	{
+		public JsString width { get; set; }
+		public JsString height { get; set; }
+		public JsString src { get; set; }
+		public JsString href { get; set; }
+		public JsString target { get; set; }
+		public JsString style { get; set; }
+		public JsString title { get; set; }
+		public JsString id { get; set; }
+		[JsProperty(Name = "class")]
+		public JsString Class { get; set; }
 	}
 
 	[JsType(JsMode.Json)]
