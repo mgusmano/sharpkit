@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 
 //Generated from ExtJs 4.0.2 help files
 [assembly: AssemblyVersion("4.0.2.0")]
-[assembly: AssemblyFileVersion("4.24.2000")]
+[assembly: AssemblyFileVersion("4.24.3000")]
 
 
 
