@@ -2584,7 +2584,6 @@ namespace SharpKit.JavaScript
         ///<param name="regExp">An instance of a Regular Expression object containing the regular expression pattern and applicable flags. </param>
         ///<param name="replaceText">Required. A String object or string literal containing the text to replace for every successful match of rgExp in stringObj. In JScript 5.5 or later, the replaceText argument can also be a function that returns the replacement text. </param>
         ///<returns>The result of the replace method is a copy of stringObj after the specified replacements have been made. </returns>
-        [JsMethod(NativeOverloads = true)]
         public JsString replace(JsRegExp regExp, string replaceText) { return default(JsString); }
         ///<summary>
         ///Returns a copy of a string with text replaced using a regular expression or search string. 
@@ -2592,8 +2591,50 @@ namespace SharpKit.JavaScript
         ///<param name="searchText">String object or literal that is converted to a string, and an exact search is made for the results; no attempt is made to convert the string into a regular expression. </param>
         ///<param name="replaceText">Required. A String object or string literal containing the text to replace for every successful match of rgExp in stringObj. In JScript 5.5 or later, the replaceText argument can also be a function that returns the replacement text. </param>
         ///<returns>The result of the replace method is a copy of stringObj after the specified replacements have been made. </returns>
-        [JsMethod(NativeOverloads = true)]
         public JsString replace(string searchText, string replaceText) { return default(string); }
+
+        ///<summary>
+        ///Returns a copy of a string with text replaced using a regular expression or search string. 
+        ///Replace function with no params
+        ///</summary>
+        ///<param name="regExp">An instance of a Regular Expression object containing the regular expression pattern and applicable flags. </param>
+        ///<param name="replaceFunction">You can specify a function as the second parameter. In this case, the function will be invoked after the match has been performed. The function's result (return value) will be used as the replacement string. (Note: the above-mentioned special replacement patterns do not apply in this case.) Note that the function will be invoked multiple times for each full match to be replaced if the regular expression in the first parameter is global.</param>
+        ///<returns>The result of the replace method is a copy of stringObj after the specified replacements have been made. </returns>
+        public JsString replace(JsRegExp regExp, JsFunc<JsString, JsNumber, JsString, JsString> replaceFunction) { return default(JsString); }
+        ///<summary>
+        ///Returns a copy of a string with text replaced using a regular expression or search string. 
+        ///Replace function with no params
+        ///</summary>
+        ///<param name="searchText">String object or literal that is converted to a string, and an exact search is made for the results; no attempt is made to convert the string into a regular expression. </param>
+        ///<param name="replaceFunction">You can specify a function as the second parameter. In this case, the function will be invoked after the match has been performed. The function's result (return value) will be used as the replacement string. (Note: the above-mentioned special replacement patterns do not apply in this case.) Note that the function will be invoked multiple times for each full match to be replaced if the regular expression in the first parameter is global.</param>
+        ///<returns>The result of the replace method is a copy of stringObj after the specified replacements have been made. </returns>
+        public JsString replace(string searchText, JsFunc<JsString, JsNumber, JsString, JsString> replaceFunction) { return default(string); }
+
+        /// <summary>
+        ///Replace function with 1 param
+        /// </summary>
+        public JsString replace(string searchText, JsFunc<JsString, JsNumber, JsString, JsString, JsString> replaceFunction) { return default(string); }
+        /// <summary>
+        ///Replace function with 2 params
+        /// </summary>
+        public JsString replace(string searchText, JsFunc<JsString, JsNumber, JsString, JsString, JsString, JsString> replaceFunction) { return default(string); }
+        /// <summary>
+        ///Replace function with 3 params
+        /// </summary>
+        public JsString replace(string searchText, JsFunc<JsString, JsNumber, JsString, JsString, JsString, JsString, JsString> replaceFunction) { return default(string); }
+        /// <summary>
+        ///Replace function with 1 params
+        /// </summary>
+        public JsString replace(JsRegExp regExp, JsFunc<JsString, JsNumber, JsString, JsString, JsString> replaceFunction) { return default(string); }
+        /// <summary>
+        ///Replace function with 2 params
+        /// </summary>
+        public JsString replace(JsRegExp regExp, JsFunc<JsString, JsNumber, JsString, JsString, JsString, JsString> replaceFunction) { return default(string); }
+        /// <summary>
+        ///Replace function with 3 params
+        /// </summary>
+        public JsString replace(JsRegExp regExp, JsFunc<JsString, JsNumber, JsString, JsString, JsString, JsString, JsString> replaceFunction) { return default(string); }
+
         ///<summary>
         ///Returns the length of a String object.
         ///</summary>
@@ -2720,6 +2761,7 @@ namespace SharpKit.JavaScript
     #endregion
 
     #region Delegates
+
     /// <summary>
     /// A delegate for native javascript
     /// </summary>
