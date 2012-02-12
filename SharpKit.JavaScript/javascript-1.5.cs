@@ -457,6 +457,13 @@ namespace SharpKit.JavaScript
         public string Name { get; set; }
     }
     #endregion
+
+    [AttributeUsage(AttributeTargets.Assembly)]
+    public class JsNamespaceAttribute : Attribute
+    {
+        public string Namespace { get; set; }
+        public string JsNamespace { get; set; }
+    }
     //[AttributeUsage(AttributeTargets.Struct)]
     //public class JsStructAttribute : Attribute
     //{
