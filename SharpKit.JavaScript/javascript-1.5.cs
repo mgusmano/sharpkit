@@ -458,7 +458,7 @@ namespace SharpKit.JavaScript
     }
     #endregion
 
-    [AttributeUsage(AttributeTargets.Assembly)]
+    [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
     public class JsNamespaceAttribute : Attribute
     {
         public string Namespace { get; set; }
