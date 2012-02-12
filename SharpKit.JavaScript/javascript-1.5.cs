@@ -457,11 +457,19 @@ namespace SharpKit.JavaScript
         public string Name { get; set; }
     }
     #endregion
-
+    /// <summary>
+    /// Allows mapping and replacement between C# and JavaScript namespace. Useful for creating shorter namespaces in JavaScript
+    /// </summary>
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
     public class JsNamespaceAttribute : Attribute
     {
+        /// <summary>
+        /// The C# namespace to be mapped (cannot be null or empty)
+        /// </summary>
         public string Namespace { get; set; }
+        /// <summary>
+        /// The JavaScript namespace that should be replaced (can be empty, not recommended)
+        /// </summary>
         public string JsNamespace { get; set; }
     }
     //[AttributeUsage(AttributeTargets.Struct)]
