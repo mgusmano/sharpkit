@@ -1092,7 +1092,7 @@ namespace SharpKit.JavaScript
         ///</summary>
         ///<param name="value">A value to convert into a string.</param>
         ///<returns>An string value</returns>
-        public static string String(object value) { return null; }
+        public static JsString String(object value) { return null; }
         /// <summary>
         /// Allows writing direct JavaScript code - calling this method will generate only the code inside the string parameter
         /// </summary>
@@ -1386,7 +1386,7 @@ namespace SharpKit.JavaScript
         ///</summary>
         ///<param name="value">A value to convert into a string.</param>
         ///<returns>An string value</returns>
-        protected static string String(object value) { return null; }
+        protected static JsString String(object value) { return null; }
         /// <summary>
         /// Allows writing direct JavaScript code - calling this method will generate only the code inside the string parameter
         /// </summary>
