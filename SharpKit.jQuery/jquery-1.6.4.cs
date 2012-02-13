@@ -2518,7 +2518,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// A function to be called when the request finishes (after success and error callbacks are executed). The function gets passed two arguments: The jqXHR (in jQuery 1.4.x, XMLHTTPRequest) object and a string categorizing the status of the request ("success", "notmodified", "error", "timeout", "abort", or "parsererror"). As of jQuery 1.5, the complete setting can accept an array of functions. Each function will be called in turn. This is an Ajax Event
         /// </summary>
-        public JsAction<jqXHR, JsString> complete { get; set; }
+        public JsAction<jqXHR, AjaxStatus> complete { get; set; }
         /// <summary>
         /// A map of string/regular-expression pairs that determine how jQuery will parse the response, given its content type.
         /// </summary>
@@ -2667,6 +2667,18 @@ namespace SharpKit.jQuery
         /// </list>
         /// </example>
         public object xhrFields { get; set; }
+    }
+    
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames=true)]
+    public enum AjaxStatus
+    {
+        success, 
+        notmodified, 
+        error, 
+        timeout, 
+        abort, 
+        parsererror,
     }
     #endregion
     #region Event
