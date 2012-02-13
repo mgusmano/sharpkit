@@ -2408,7 +2408,7 @@ namespace SharpKit.JavaScript
     }
     #endregion
     #region JsObject<T>
-    [JsType(JsMode.Prototype, Export = false, Name = "Object", NativeEnumerator=true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Object", NativeEnumerator = true)]
     public partial class JsObject<T> : JsObjectBase, IEnumerable<JsString>
     {
         public static implicit operator JsObject(JsObject<T> obj) { return null; }
@@ -2494,7 +2494,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///Allows manipulation and formatting of text strings and determination and location of substrings within strings.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "String", NativeEnumerator=false, NativeArrayEnumerator=true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "String", NativeEnumerator = false, NativeArrayEnumerator = true)]
     public partial class JsString : JsObjectBase
     {
         public JsString() { }
@@ -2996,6 +2996,7 @@ namespace SharpKit.JavaScript
 
     #endregion
 
+
     #region Namespace Documentation
     /// <summary>
     /// Contains all SharpKit compiler attributes used to customize JavaScript output
@@ -3027,4 +3028,119 @@ namespace SharpKit.JavaScript
     }
 
     #endregion
+}
+
+namespace SharpKit.JavaScript.Server
+{
+    using System.Reflection;
+    using System.Linq;
+    /// <summary>
+    /// Server side javascript helper, helps binding from C# / aspx files to JavaScript methods
+    /// Method names are cached
+    /// </summary>
+    public class Js
+    {
+        static object MethodsEntrance = new object();
+        static Dictionary<MethodInfo, string> Methods = new Dictionary<MethodInfo, string>();
+        /// <summary>
+        /// Returns javascript code that compiles all jsclr classes (exactly like JsCompiler.Compile() or JsRuntime.Start())
+        /// </summary>
+        /// <returns></returns>
+        public static string JsClrCompile()
+        {
+            return "Compile();";
+        }
+        public static string ActionOf(Action action)
+        {
+            return MethodOf(action.Method);
+        }
+        public static string jReady(Action action)
+        {
+            return String.Format("$({0});", ActionOf(action));
+        }
+        public static string InvokeAction(Action action)
+        {
+            return String.Format("{0}();", ActionOf(action));
+        }
+        public static string HandleEvent(Action action)
+        {
+            return InvokeAction(action);
+        }
+        static T GetAttribute<T>(MemberInfo mi) where T : Attribute
+        {
+            var list = mi.GetCustomAttributes(typeof(T), true);
+            if (list.Length == 0)
+                return default(T);
+            return (T)list[0];
+        }
+        public static string MethodOf(MethodInfo me)
+        {
+            string name;
+            if (!Methods.TryGetValue(me, out name))
+            {
+                lock (MethodsEntrance)
+                {
+                    if (!Methods.TryGetValue(me, out name))
+                    {
+                        name = MethodOfNoCache(me);
+                        Methods[me] = name;
+                    }
+                }
+            }
+            return name;
+        }
+        static string MethodOfNoCache(MethodInfo me)
+        {
+            var att = GetAttribute<JsMethodAttribute>(me);
+            var meName = me.Name;
+            var ceName = me.DeclaringType.FullName;
+            var isGlobal = false;
+            if (att != null)
+            {
+                if (att.Name != null)
+                    meName = att.Name;
+                if (att.Global)
+                    isGlobal = true;
+                if (att.GlobalCode)
+                    throw new Exception("Cannot get method name of global code");
+            }
+            if(isGlobal)
+            {
+                return meName;
+            }
+            else
+            {
+                var att2 = GetAttribute<JsTypeAttribute>(me.DeclaringType);
+                if (att2 != null)
+                {
+                    if (att2.GlobalObject || att2.Mode==JsMode.Global)
+                        isGlobal = true;
+                    if (att2.Name != null)
+                        ceName = att2.Name;
+                }
+                if (isGlobal || String.IsNullOrEmpty(ceName))
+                    return meName;
+
+                if (att2 == null || att2.Name == null)
+                {
+                    var atts = me.DeclaringType.Assembly.GetCustomAttributes(typeof(JsNamespaceAttribute), true).OfType<JsNamespaceAttribute>().OrderByDescending(t => t.Namespace.Length).ToList();
+                    foreach (var att3 in atts)
+                    {
+                        if (ceName.StartsWith(att3.Namespace))
+                        {
+                            if (String.IsNullOrEmpty(att3.JsNamespace))
+                                ceName = ceName.Replace(att3.Namespace + ".", att3.JsNamespace);
+                            else
+                                ceName = ceName.Replace(att3.Namespace, att3.JsNamespace);
+                            break;
+                        }
+                    }
+                }
+                if (String.IsNullOrEmpty(ceName))
+                    return meName;
+                return String.Format("{0}.{1}", ceName, meName);
+            }
+        }
+    }
+
 }

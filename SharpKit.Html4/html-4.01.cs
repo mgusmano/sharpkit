@@ -6094,10 +6094,21 @@ namespace SharpKit.Html4.Elements
 
 }
 
-/// <summary>
-/// SharpKit interface for HTML 4.01.
-/// In order to use later browser features like HTML5 please refer to <c>SharpKit.W3C.DOM</c> assembly.
-/// </summary>
-class AssemblyDoc
+namespace SharpKit.Html4.Server
 {
+    using System.Reflection;
+    using SharpKit.Html4;
+
+    public class Js : SharpKit.JavaScript.Server.Js
+    {
+        public static string HandleEvent(Action<HtmlDomEventArgs> handler)
+        {
+            return MethodOf(handler.Method) + "(event);";
+        }
+        public static string HandleEvent(Action<object, HtmlDomEventArgs> handler)
+        {
+            return MethodOf(handler.Method) + "(this, event);";
+        }
+    }
+
 }
