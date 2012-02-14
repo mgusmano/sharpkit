@@ -6099,13 +6099,13 @@ namespace SharpKit.Html4.Server
     using System.Reflection;
     using SharpKit.Html4;
 
-    public class Js : SharpKit.JavaScript.Server.Js
+    public class JsBinder : SharpKit.JavaScript.Server.JsBinder
     {
-        public static string HandleEvent(Action<HtmlDomEventArgs> handler)
+        public string HandleEvent(Action<HtmlDomEventArgs> handler)
         {
             return MethodOf(handler.Method) + "(event);";
         }
-        public static string HandleEvent(Action<object, HtmlDomEventArgs> handler)
+        public string HandleEvent(Action<object, HtmlDomEventArgs> handler)
         {
             return MethodOf(handler.Method) + "(this, event);";
         }
