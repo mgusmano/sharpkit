@@ -1040,7 +1040,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.
         /// </summary>
-        public jQuery map(JsAction<JsNumber, HtmlElement> callback) { return null; }
+        public jQuery map(Func<JsNumber, HtmlElement, object> callback) { return null; }
         /// <summary>
         /// Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -2016,7 +2016,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Translate all items in an array or array-like object to another array of items.
         /// </summary>
-        public static JsArray map(JsArray array, JsAction<JsNumber, HtmlElement> callback) { return null; }
+        public static JsArray map(JsArray array, Func<JsNumber, object, object> callback) { return null; }
         /// <summary>
         /// Merge the contents of two arrays together into the first array.
         /// </summary>
