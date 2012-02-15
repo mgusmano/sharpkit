@@ -1887,12 +1887,6 @@ namespace SharpKit.JavaScript.Private
 			return new JsImplOfTypeIterator<TResult>(source);
 		}
 
-		//private static IEnumerable<TResult> OfTypeIterator<TResult>(IEnumerable source)
-		//{
-		//  _Iterator_d__a9<TResult> _a = new _Iterator_d__a9<TResult>(-2);
-		//  _a.__3__source = source;
-		//  return _a;
-		//}
 
 		//public static IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
 		//{
@@ -1978,18 +1972,10 @@ namespace SharpKit.JavaScript.Private
 			return new JsImplSelectIterator<TSource, TResult>(source, selector);
 		}
 
-		//public static IEnumerable<TResult> Select<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, int, TResult> selector)
-		//{
-		//  if (source == null)
-		//  {
-		//    throw Error.ArgumentNull("source");
-		//  }
-		//  if (selector == null)
-		//  {
-		//    throw Error.ArgumentNull("selector");
-		//  }
-		//  return SelectIterator<TSource, TResult>(source, selector);
-		//}
+        public static IEnumerable<TResult> Select<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, int, TResult> selector)
+        {
+            throw new NotImplementedException();
+        }
 
 		//private static IEnumerable<TResult> SelectIterator<TSource, TResult>(IEnumerable<TSource> source, Func<TSource, TResult> selector)
 		//{
@@ -2654,22 +2640,6 @@ namespace SharpKit.JavaScript.Private
 			}
 			return arr.As<TSource[]>();
 		}
-
-		//public static List<TSource> ToList<TSource>(this IEnumerable<TSource> source)
-		//{
-		//  if (source == null)
-		//  {
-		//    throw Error.ArgumentNull("source");
-		//  }
-		//  var arr = new JsArray();
-		//  foreach (var obj in source)
-		//  {
-		//    arr.push(obj);
-		//  }
-		//  return arr.As<List<TSource>>();
-		//}
-
-
 
 		//public static Dictionary<TKey, TSource> ToDictionary<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
 		//{

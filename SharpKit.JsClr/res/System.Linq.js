@@ -364,7 +364,7 @@ var System$Linq$Enumerable=
             }
             return new System.Linq.OfTypeIterator.ctor(TResult,source);
         },
-        Select$2:function(TSource,TResult,source,selector)
+        Select$2$$IEnumerable$1$$Func$2:function(TSource,TResult,source,selector)
         {
             if(source == null)
             {
@@ -375,6 +375,10 @@ var System$Linq$Enumerable=
                 throw System.Linq.Error.ArgumentNull("selector");
             }
             return new System.Linq.SelectIterator.ctor(TSource,TResult,source,selector);
+        },
+        Select$2$$IEnumerable$1$$Func$3:function(TSource,TResult,source,selector)
+        {
+            throw new System.NotImplementedException.ctor();
         },
         Take$1:function(TSource,source,count)
         {
