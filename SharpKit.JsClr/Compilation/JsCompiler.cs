@@ -64,8 +64,8 @@ namespace SharpKit.JavaScript.Compilation
                 }
                 else if (jsType.Kind == JsTypeKind.Struct)
                 {
-                    if (type.baseTypeName == null)
-                        type.baseTypeName = "System.ValueType";
+                    if (jsType.baseTypeName == null)
+                        jsType.baseTypeName = "System.ValueType";
                 }
 
             }

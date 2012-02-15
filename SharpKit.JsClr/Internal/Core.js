@@ -1160,8 +1160,8 @@ var SharpKit$Html4$HtmlDomEventHandler=
 JsTypes.push(SharpKit$Html4$HtmlDomEventHandler);
 JsRuntime = function()
 {
-}
+};
 JsRuntime.Start = function()
 {
     Compile();
-}
+};
