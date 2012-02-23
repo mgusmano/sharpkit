@@ -5,15 +5,15 @@ if(typeof(SharpKit.Html) == "undefined")
     SharpKit.Html = {};
 SharpKit.Html.Extensions = function()
 {
-}
+};
 SharpKit.Html.Extensions.Descendents = function(el)
 {
     return new SharpKit.Html.HtmlElementEnumerator(el,true,false);
-}
+};
 SharpKit.Html.Extensions.Children = function(el)
 {
     return new SharpKit.Html.HtmlElementEnumerator(el,false,false);
-}
+};
 SharpKit.Html.HtmlElementEnumerator = function(root,includeDescendents,includeSelf)
 {
     this.IncludeDescendents = false;
@@ -29,17 +29,17 @@ SharpKit.Html.HtmlElementEnumerator = function(root,includeDescendents,includeSe
         this.Stack = new Array();
         this.Stack.push(this.Root);
     }
-}
+};
 SharpKit.Html.HtmlElementEnumerator.prototype.get_Current = function()
 {
     return this._Current;
-}
+};
 SharpKit.Html.HtmlElementEnumerator.prototype.Dispose = function()
 {
     this.Root = null;
     this._Current = null;
     this.Stack = null;
-}
+};
 SharpKit.Html.HtmlElementEnumerator.prototype.MoveNext = function()
 {
     if(!this.IncludeDescendents)
@@ -76,7 +76,7 @@ SharpKit.Html.HtmlElementEnumerator.prototype.MoveNext = function()
         this.Stack.push(this._Current);
         return true;
     }
-}
+};
 SharpKit.Html.HtmlElementEnumerator.prototype.Reset = function()
 {
     if(this.IncludeDescendents)
@@ -85,8 +85,8 @@ SharpKit.Html.HtmlElementEnumerator.prototype.Reset = function()
         this.Stack.push(this.Root);
     }
     this._Current = null;
-}
+};
 SharpKit.Html.HtmlElementEnumerator.prototype.GetEnumerator = function()
 {
     return this;
-}
+};

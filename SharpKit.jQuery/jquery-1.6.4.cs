@@ -7,8 +7,8 @@ using SharpKit.Html4;
 namespace SharpKit.jQuery
 {
     #region jQuery
-    [JsType(JsMode.Prototype, Export = false, Name = "$")]
-    public partial class jQuery
+    [JsType(JsMode.Prototype, Export = false, Name = "$", NativeArrayEnumerator=true, NativeEnumerator=false)]
+    public partial class jQuery : IJsArrayEnumerable<HtmlElement>
     {
 
         /// <summary>
@@ -1040,7 +1040,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.
         /// </summary>
-        public jQuery map(Func<JsNumber, HtmlElement, object> callback) { return null; }
+        public jQuery map(JsFunc<JsNumber, HtmlElement, object> callback) { return null; }
         /// <summary>
         /// Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -2016,7 +2016,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Translate all items in an array or array-like object to another array of items.
         /// </summary>
-        public static JsArray map(JsArray array, Func<JsNumber, object, object> callback) { return null; }
+        public static JsArray map(JsArray array, JsFunc<JsNumber, object, object> callback) { return null; }
         /// <summary>
         /// Merge the contents of two arrays together into the first array.
         /// </summary>
@@ -2287,6 +2287,20 @@ namespace SharpKit.jQuery
         /// </summary>
         /// <returns></returns>
         public static Deferred Deferred(JsAction<Deferred> callback) { return null; }
+
+        #region IEnumerable<HtmlElement> Members
+
+        public IEnumerator<HtmlElement> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 
     #endregion

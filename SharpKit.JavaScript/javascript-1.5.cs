@@ -527,7 +527,7 @@ namespace SharpKit.JavaScript
     ///The Array object provides support for creation of arrays of any data type.
     ///</summary>
     [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator = true)]
-    public partial class JsArray : IEnumerable<object>
+    public partial class JsArray : IJsArrayEnumerable<object>
     {
         public JsArray() { }
         //public JsArray(JsArray array) { }
@@ -662,7 +662,7 @@ namespace SharpKit.JavaScript
     ///</summary>
     ///<typeparam name="T"></typeparam>
     [JsType(JsMode.Prototype, Name = "Array", NativeEnumerator = false, Export = false, IgnoreGenericTypeArguments = true, NativeArrayEnumerator = true)]
-    public partial class JsArray<T> : IEnumerable<T>
+    public partial class JsArray<T> : IJsArrayEnumerable<T>
     {
         public static implicit operator JsArray(JsArray<T> x) { return null; }
         public static implicit operator T[](JsArray<T> x) { return default(T[]); }
@@ -2996,6 +2996,15 @@ namespace SharpKit.JavaScript
 
     #endregion
 
+    [JsType(JsMode.Prototype, NativeEnumerator = false, NativeArrayEnumerator = true)]
+    public interface IJsArrayEnumerable<T> : IEnumerable<T>
+    {
+        [JsProperty(NativeIndexer = true)]
+        T this[JsNumber index] { get; }
+        [JsProperty(NativeField = true)]
+        JsNumber length { get; }
+
+    }
 
     #region Namespace Documentation
     /// <summary>

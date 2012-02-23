@@ -127,6 +127,58 @@ namespace SharpKit.jQuery
         public jQueryUIEvent changestart { get; set; }
     }
     #endregion
+    #region Autocomplete
+    ///<summary>
+    ///Make the selected elements Autocomplete widgets. Semantic requirements:
+    ///The markup of your autocomplete container needs pairs of headers and content panels. By default, the header elements are anchors, assuming the following structure:
+    ///<div id="autocomplete">
+    ///    <a href="#">First header</a>
+    ///    <div>First content</div>
+    ///    <a href="#">Second header</a>
+    ///    <div>Second content</div>
+    ///</div>If you use a different element for the header, specify the header-option with an appropriate selector, eg. header: 'h3'. The content element must be always next to its header.
+    ///If you have links inside the autocomplete content and use a-elements as headers, add a class to them and use that as the header, eg. header: 'a.header'.
+    ///Use activate(Number) to change the active content programmatically.
+    ///[edit]NOTE: If you want multiple sections open at once, don't use an autocomplete
+    ///An autocomplete doesn't allow more than one content panel to be open at the same time, and it takes a lot of effort to do that. If you are looking for a widget that allows more than one content panel to be open, don't use this. Usually it can be written with a few lines of jQuery instead, something like this:
+    ///jQuery(document).ready(function(){
+    ///	$('.autocomplete .head').click(function() {
+    ///		$(this).next().toggle();
+    ///		return false;
+    ///	}).next().hide();
+    ///});Or animated:
+    ///jQuery(document).ready(function(){
+    ///	$('.autocomplete .head').click(function() {
+    ///		$(this).next().toggle('slow');
+    ///		return false;
+    ///	}).next().hide();
+    ///});
+    ///</summary>
+    public static partial class AutocompleteExtension
+    {
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery autocomplete(this jQuery query) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery autocomplete(this jQuery query, AutocompleteOptions options) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery autocomplete(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+    }
+    #endregion
+    #region AutocompleteOptions
+    ///<summary>
+    ///Options JSON object for Autocomplete
+    ///</summary>
+    [JsType(JsMode.Json)]
+    public partial class AutocompleteOptions
+    {
+        public object source { get; set; }
+        public jQueryUIEvent change { get; set; }
+        public jQueryUIEvent select { get; set; }
+        public JsNumber delay { get; set; }
+        public JsNumber minLength { get; set; }
+    }
+    #endregion
+
     #region AddClass
     ///<summary>
     ///[edit]addClass( class, [duration] )
@@ -2088,10 +2140,3 @@ namespace SharpKit.jQuery
 
 
 
-/// <summary>
-/// SharpKit interface for jQuery UI.
-/// jQuery UI provides abstractions for low-level interaction and animation, advanced effects and high-level, themeable widgets, built on top of the jQuery JavaScript Library, that you can use to build highly interactive web applications.
-/// </summary>
-class AssemblyDoc : SharpKit.jQuery.jQueryContext
-{
-}

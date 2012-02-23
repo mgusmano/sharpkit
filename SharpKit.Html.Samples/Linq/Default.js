@@ -8,7 +8,7 @@ function Descendents(e)
         var node=$it1.get_Current();
         WriteLine(node.nodeName);
     }
-}
+};
 function Children(e)
 {
     var divTest=document.getElementById("divTest");
@@ -18,10 +18,10 @@ function Children(e)
         var node=$it2.get_Current();
         WriteLine(node.nodeName);
     }
-}
+};
 function WriteLine(s)
 {
     var div=document.createElement("div");
     div.appendChild(document.createTextNode(s));
     document.body.appendChild(div);
-}
+};
