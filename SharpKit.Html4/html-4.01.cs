@@ -1179,7 +1179,7 @@ namespace SharpKit.Html4
         ///<param name="handler"></param>
         [JsMethod(NativeOverloads = true, NativeDelegates = true)]
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9)]
-        public void attachEvent(JsString eventName, HtmlDomEventHandler handler) { }
+        public JsBoolean attachEvent(JsString eventName, HtmlDomEventHandler handler) { return null; }
         ///<summary>
         ///Binds the specified function to an event, so that the function gets called whenever the event fires on the object.
         ///</summary>
