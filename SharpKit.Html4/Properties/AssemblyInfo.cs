@@ -33,7 +33,7 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("4.0.1.0")]
-[assembly: AssemblyFileVersion("4.24.3000")]
+[assembly: AssemblyFileVersion("4.23.4000")]
 /// <summary>
 /// SharpKit interface for HTML 4.01.
 /// In order to use later browser features like HTML5 please refer to <c>SharpKit.W3C.DOM</c> assembly.

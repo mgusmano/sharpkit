@@ -33,7 +33,7 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("4.24.3000")]
+[assembly: AssemblyFileVersion("4.23.4000")]
 /// <summary>
 /// SharpKit interface for jQuery UI.
 /// jQuery UI provides abstractions for low-level interaction and animation, advanced effects and high-level, themeable widgets, built on top of the jQuery JavaScript Library, that you can use to build highly interactive web applications.
