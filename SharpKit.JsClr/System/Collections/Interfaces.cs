@@ -27,18 +27,18 @@ namespace SharpKit.JavaScript.Private
 
 
 	[JsType(Name = "System.Collections.IEnumerable", Filename = "~/Internal/Core.js")]
-	internal interface JsImplIEnumerable
+    public interface JsImplIEnumerable
 	{
 	}
 
 
 	[JsType(Name = "System.Collections.IEnumerator", Filename = "~/Internal/Core.js")]
-	internal interface JsImplIEnumerator
+	public interface JsImplIEnumerator
 	{
 	}
 
 	[JsType(Name = "System.Collections.ICollection", Filename = "~/Internal/Core.js")]
-	internal interface JsImplICollection : JsImplIEnumerable
+    public interface JsImplICollection : JsImplIEnumerable
 	{
 	}
 

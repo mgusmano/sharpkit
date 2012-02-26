@@ -882,6 +882,8 @@ var System$Collections$Generic$ICollection$1={fullname:"System.Collections.Gener
 JsTypes.push(System$Collections$Generic$ICollection$1);
 var System$Collections$Generic$IDictionary$2={fullname:"System.Collections.Generic.IDictionary$2",baseTypeName:"System.Object",assemblyName:"SharpKit.JsClr",Kind:"Interface"};
 JsTypes.push(System$Collections$Generic$IDictionary$2);
+var System$Collections$Generic$ISet$1={fullname:"System.Collections.Generic.ISet$1",baseTypeName:"System.Object",assemblyName:"SharpKit.JsClr",interfaceNames:["System.Collections.Generic.ICollection$1","System.Collections.Generic.IEnumerable$1","System.Collections.IEnumerable"],Kind:"Interface"};
+JsTypes.push(System$Collections$Generic$ISet$1);
 var System$Collections$IDictionary={fullname:"System.Collections.IDictionary",baseTypeName:"System.Object",assemblyName:"SharpKit.JsClr",interfaceNames:["System.Collections.ICollection","System.Collections.IEnumerable"],Kind:"Interface"};
 JsTypes.push(System$Collections$IDictionary);
 var System$Collections$IEnumerable={fullname:"System.Collections.IEnumerable",baseTypeName:"System.Object",assemblyName:"SharpKit.JsClr",Kind:"Interface"};
@@ -3932,6 +3934,124 @@ var System$Collections$Generic$Dictionary$2=
     }
 };
 JsTypes.push(System$Collections$Generic$Dictionary$2);
+var System$Collections$Generic$HashSet$1=
+{
+    fullname:"System.Collections.Generic.HashSet$1",
+    baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr",
+    interfaceNames:["System.Collections.Generic.ISet$1","System.Collections.Generic.ICollection$1","System.Collections.Generic.IEnumerable$1","System.Collections.IEnumerable"],
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(T)
+        {
+            this.T = T;
+            this.Hashtable = new Object();
+            this._Count = 0;
+            System.Object.ctor.call(this);
+        },
+        GetHashKey:function(obj)
+        {
+            return JsCompiler.GetHashKey(obj);
+        },
+        Add:function(item)
+        {
+            var key=this.GetHashKey(item);
+            if(this.Hashtable[key] === item)
+                return false;
+            this.Hashtable[key] = item;
+            this._Count++;
+            return true;
+        },
+        UnionWith:function(other)
+        {
+            throw new System.NotImplementedException.ctor();
+        },
+        IntersectWith:function(other)
+        {
+            throw new System.NotImplementedException.ctor();
+        },
+        ExceptWith:function(other)
+        {
+            throw new System.NotImplementedException.ctor();
+        },
+        SymmetricExceptWith:function(other)
+        {
+            throw new System.NotImplementedException.ctor();
+        },
+        IsSubsetOf:function(other)
+        {
+            throw new System.NotImplementedException.ctor();
+        },
+        IsSupersetOf:function(other)
+        {
+            throw new System.NotImplementedException.ctor();
+        },
+        IsProperSupersetOf:function(other)
+        {
+            throw new System.NotImplementedException.ctor();
+        },
+        IsProperSubsetOf:function(other)
+        {
+            throw new System.NotImplementedException.ctor();
+        },
+        Overlaps:function(other)
+        {
+            throw new System.NotImplementedException.ctor();
+        },
+        SetEquals:function(other)
+        {
+            throw new System.NotImplementedException.ctor();
+        },
+        Count$$:"System.Int32",
+        get_Count:function()
+        {
+            return this._Count;
+        },
+        IsReadOnly$$:"System.Boolean",
+        get_IsReadOnly:function()
+        {
+            return false;
+        },
+        Clear:function()
+        {
+            this.Hashtable = new Object();
+            this._Count = 0;
+        },
+        Contains:function(item)
+        {
+            var key=this.GetHashKey(item);
+            if(this.Hashtable[key] === item)
+                return true;
+            return false;
+        },
+        CopyTo:function(array,arrayIndex)
+        {
+            throw new System.NotImplementedException.ctor();
+        },
+        Remove:function(item)
+        {
+            var key=this.GetHashKey(item);
+            if(this.Hashtable[key] === item)
+            {
+                delete this.Hashtable[key];
+                this._Count--;
+                return true;
+            }
+            return false;
+        },
+        GetEnumerator:function()
+        {
+            var array=new Array();
+            for(var hashKey in this.Hashtable)
+            {
+                array.push(this.Hashtable[hashKey]);
+            }
+            return new System.Collections.Generic.JsArrayEnumerator$1.ctor(this.T,array);
+        }
+    }
+};
+JsTypes.push(System$Collections$Generic$HashSet$1);
 var System$Collections$Generic$KeyValuePair$2=
 {
     fullname:"System.Collections.Generic.KeyValuePair$2",
@@ -4013,6 +4133,47 @@ var System$Collections$Generic$Stack$1=
     }
 };
 JsTypes.push(System$Collections$Generic$Stack$1);
+var System$Collections$Generic$JsArrayEnumerator$1=
+{
+    fullname:"System.Collections.Generic.JsArrayEnumerator$1",
+    baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr",
+    interfaceNames:["System.Collections.Generic.IEnumerator$1"],
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(T,list)
+        {
+            this.T = T;
+            this.List = null;
+            this.Index = 0;
+            this.ListCount = 0;
+            System.Object.ctor.call(this);
+            this.List = list;
+            this.Index = -1;
+            this.ListCount = list.length;
+        },
+        Current$$:"T",
+        get_Current:function()
+        {
+            return this.List[this.Index];
+        },
+        Dispose:function()
+        {
+            this.List = null;
+        },
+        MoveNext:function()
+        {
+            this.Index++;
+            return this.Index < this.ListCount;
+        },
+        Reset:function()
+        {
+            this.Index = -1;
+        }
+    }
+};
+JsTypes.push(System$Collections$Generic$JsArrayEnumerator$1);
 var System$Collections$Generic$List$1=
 {
     fullname:"System.Collections.Generic.List$1",

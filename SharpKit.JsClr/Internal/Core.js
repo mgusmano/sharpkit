@@ -72,6 +72,8 @@ var System$Collections$Generic$ICollection$1={fullname:"System.Collections.Gener
 JsTypes.push(System$Collections$Generic$ICollection$1);
 var System$Collections$Generic$IDictionary$2={fullname:"System.Collections.Generic.IDictionary$2",baseTypeName:"System.Object",assemblyName:"SharpKit.JsClr",Kind:"Interface"};
 JsTypes.push(System$Collections$Generic$IDictionary$2);
+var System$Collections$Generic$ISet$1={fullname:"System.Collections.Generic.ISet$1",baseTypeName:"System.Object",assemblyName:"SharpKit.JsClr",interfaceNames:["System.Collections.Generic.ICollection$1","System.Collections.Generic.IEnumerable$1","System.Collections.IEnumerable"],Kind:"Interface"};
+JsTypes.push(System$Collections$Generic$ISet$1);
 var System$Collections$IDictionary={fullname:"System.Collections.IDictionary",baseTypeName:"System.Object",assemblyName:"SharpKit.JsClr",interfaceNames:["System.Collections.ICollection","System.Collections.IEnumerable"],Kind:"Interface"};
 JsTypes.push(System$Collections$IDictionary);
 var System$Collections$IEnumerable={fullname:"System.Collections.IEnumerable",baseTypeName:"System.Object",assemblyName:"SharpKit.JsClr",Kind:"Interface"};
