@@ -11,7 +11,7 @@ public partial class HtmlDocument
 
 	// HTMLDocument
 	public Location location {get; set; }
-	public JsString uRL {get; private set; }
+	public JsString URL {get; private set; }
 	public JsString domain {get; set; }
 	public JsString referrer {get; private set; }
 	public JsString cookie {get; set; }
