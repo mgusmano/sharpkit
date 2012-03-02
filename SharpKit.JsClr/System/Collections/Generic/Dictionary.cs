@@ -23,8 +23,19 @@ namespace SharpKit.JavaScript.Private
 			this._version = 0;
 		}
 
+        public JsImplDictionary(IEqualityComparer<TKey> comparer)
+        {
+            this._table = new JsObject();
+            this._keys = new JsObject();
+            this._version = 0;
+            Comparer = comparer;
+        }
+
+        IEqualityComparer<TKey> Comparer;
 		protected virtual string GetHashKey(TKey key)
 		{
+            if (Comparer != null)
+                return Comparer.GetHashCode(key).As<string>();
 			return Js.GetHashKey(key);
 		}
 
