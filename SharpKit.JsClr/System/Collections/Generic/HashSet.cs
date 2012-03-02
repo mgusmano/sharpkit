@@ -4,6 +4,8 @@ using System.Runtime.Serialization;
 using System.Security;
 using System.Security.Permissions;
 using SharpKit.JavaScript;
+using System.Collections.Generic;
+using SharpKit.JavaScript.Utils;
 namespace SharpKit.JavaScript.Private
 {
     /// <summary>Represents a set of values.</summary>
@@ -11,17 +13,27 @@ namespace SharpKit.JavaScript.Private
     [JsType(JsMode.Clr, Name = "System.Collections.Generic.HashSet$1", Filename = "~/res/System.Collections.js")]
     public class JsImplHashSet<T> : JsImplISet<T>, JsImplICollection<T>, JsImplIEnumerable<T>, JsImplIEnumerable
     {
+        public JsImplHashSet()
+        {
+        }
+        public JsImplHashSet(IEqualityComparer<T> comparer)
+        {
+            Comparer = comparer;
+        }
         JsObject<T> Hashtable = new JsObject<T>();
         #region JsImplISet<T> Members
 
-        JsString GetHashKey(T obj)
+        IEqualityComparer<T> Comparer;
+        protected virtual string GetHashKey(T key)
         {
-            return SharpKit.JavaScript.Compilation.JsCompiler.GetHashKey(obj);
+            if (Comparer != null)
+                return Comparer.GetHashCode(key).As<string>();
+            return Js.GetHashKey(key);
         }
         public bool Add(T item)
         {
             var key = GetHashKey(item);
-            if (Hashtable[key].ExactEquals(item))
+            if (Hashtable[key]!=null)
                 return false;
             Hashtable[key] = item;
             _Count++;

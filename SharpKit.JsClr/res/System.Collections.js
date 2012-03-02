@@ -160,17 +160,29 @@ var System$Collections$Generic$HashSet$1=
         {
             this.T = T;
             this.Hashtable = new Object();
+            this.Comparer = null;
             this._Count = 0;
             System.Object.ctor.call(this);
         },
-        GetHashKey:function(obj)
+        ctor$$IEqualityComparer$1:function(T,comparer)
         {
-            return JsCompiler.GetHashKey(obj);
+            this.T = T;
+            this.Hashtable = new Object();
+            this.Comparer = null;
+            this._Count = 0;
+            System.Object.ctor.call(this);
+            this.Comparer = comparer;
+        },
+        GetHashKey:function(key)
+        {
+            if(this.Comparer != null)
+                return this.Comparer.GetHashCode$$T(key);
+            return SharpKit.JavaScript.Utils.Js.GetHashKey(key);
         },
         Add:function(item)
         {
             var key=this.GetHashKey(item);
-            if(this.Hashtable[key] === item)
+            if(this.Hashtable[key] != null)
                 return false;
             this.Hashtable[key] = item;
             this._Count++;
