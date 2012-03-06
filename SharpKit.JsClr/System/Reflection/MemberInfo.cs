@@ -100,6 +100,7 @@ namespace SharpKit.JavaScript.Private
 	{
 		internal bool _IsStatic;
 
+        public bool IsStatic { get { return _IsStatic; } }
 		public override object Invoke(object obj, object[] parameters)
 		{
 			JsFunction func;
