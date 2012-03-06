@@ -1169,6 +1169,17 @@ var System$DateTime=
         get_Today:function()
         {
             return new System.DateTime.ctor$$Date(SharpKit.JavaScript.Private.Extensions.removeTime(new Date()));
+        },
+        Subtract$$DateTime:function(value)
+        {
+            var diff=this.date.valueOf() - value.date.valueOf();
+            return new System.TimeSpan.ctor$$Int64(diff * System.TimeSpan.TicksPerMillisecond);
+        },
+        Subtract$$TimeSpan:function(value)
+        {
+            var newDate=new Date(this.date.valueOf());
+            newDate.setMilliseconds(this.date.getMilliseconds() + value.get_TotalMilliseconds());
+            return new System.DateTime.ctor$$Date(newDate);
         }
     }
 };
@@ -1920,6 +1931,280 @@ var System$StringComparison=
     Kind:"Enum"
 };
 JsTypes.push(System$StringComparison);
+var System$TimeSpan=
+{
+    fullname:"System.TimeSpan",
+    baseTypeName:"System.Object",
+    staticDefinition:
+    {
+        cctor:function()
+        {
+            System.TimeSpan.Zero = new System.TimeSpan.ctor$$Int64(0);
+            System.TimeSpan.MaxValue = new System.TimeSpan.ctor$$Int64(9223372036854775807);
+            System.TimeSpan.MinValue = new System.TimeSpan.ctor$$Int64(-9223372036854775808);
+        },
+        TicksPerMillisecond:10000,
+        MillisecondsPerTick:0.0001,
+        TicksPerSecond:10000000,
+        SecondsPerTick:1E-07,
+        TicksPerMinute:600000000,
+        MinutesPerTick:1.6666666666666667E-09,
+        TicksPerHour:36000000000,
+        HoursPerTick:2.7777777777777777E-11,
+        TicksPerDay:864000000000,
+        DaysPerTick:1.1574074074074074E-12,
+        MillisPerSecond:1000,
+        MillisPerMinute:60000,
+        MillisPerHour:3600000,
+        MillisPerDay:86400000,
+        MaxSeconds:922337203685,
+        MinSeconds:-922337203685,
+        MaxMilliSeconds:922337203685477,
+        MinMilliSeconds:-922337203685477,
+        TicksPerTenthSecond:1000000,
+        Compare:function(t1,t2)
+        {
+            if(t1._ticks > t2._ticks)
+            {
+                return 1;
+            }
+            if(t1._ticks < t2._ticks)
+            {
+                return -1;
+            }
+            return 0;
+        },
+        FromDays:function(value)
+        {
+            return System.TimeSpan.Interval(value,86400000);
+        },
+        Equals$$TimeSpan$$TimeSpan:function(t1,t2)
+        {
+            return t1._ticks == t2._ticks;
+        },
+        FromHours:function(value)
+        {
+            return System.TimeSpan.Interval(value,3600000);
+        },
+        Interval:function(value,scale)
+        {
+            if(System.Double.IsNaN(value))
+            {
+                throw new System.ArgumentException.ctor$$String("Arg_CannotBeNaN");
+            }
+            var num=value * scale;
+            var num2=num + ((value >= 0.0)?0.5:-0.5);
+            if(num2 > 922337203685477.0 || num2 < -922337203685477.0)
+            {
+                throw new System.OverflowException.ctor$$String("Overflow_TimeSpanTooLong");
+            }
+            return new System.TimeSpan.ctor$$Int64((num2 * 10000));
+        },
+        FromMilliseconds:function(value)
+        {
+            return System.TimeSpan.Interval(value,1);
+        },
+        FromMinutes:function(value)
+        {
+            return System.TimeSpan.Interval(value,60000);
+        },
+        FromSeconds:function(value)
+        {
+            return System.TimeSpan.Interval(value,1000);
+        },
+        FromTicks:function(value)
+        {
+            return new System.TimeSpan.ctor$$Int64(value);
+        },
+        TimeToTicks:function(hour,minute,second)
+        {
+            var num=hour * 3600 + minute * 60 + second;
+            if(num > 922337203685 || num < -922337203685)
+            {
+                throw new System.ArgumentOutOfRangeException.ctor$$String$$String(null,"Overflow_TimeSpanTooLong");
+            }
+            return num * 10000000;
+        }
+    },
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor$$Int64:function(ticks)
+        {
+            this._ticks = 0;
+            System.Object.ctor.call(this);
+            this._ticks = ticks;
+        },
+        Ticks$$:"System.Int64",
+        get_Ticks:function()
+        {
+            return this._ticks;
+        },
+        Days$$:"System.Int32",
+        get_Days:function()
+        {
+            return (this._ticks / 864000000000);
+        },
+        Hours$$:"System.Int32",
+        get_Hours:function()
+        {
+            return (this._ticks / 36000000000 % 24);
+        },
+        Milliseconds$$:"System.Int32",
+        get_Milliseconds:function()
+        {
+            return (this._ticks / 10000 % 1000);
+        },
+        Minutes$$:"System.Int32",
+        get_Minutes:function()
+        {
+            return (this._ticks / 600000000 % 60);
+        },
+        Seconds$$:"System.Int32",
+        get_Seconds:function()
+        {
+            return (this._ticks / 10000000 % 60);
+        },
+        TotalDays$$:"System.Double",
+        get_TotalDays:function()
+        {
+            return this._ticks * 1.1574074074074074E-12;
+        },
+        TotalHours$$:"System.Double",
+        get_TotalHours:function()
+        {
+            return this._ticks * 2.7777777777777777E-11;
+        },
+        TotalMilliseconds$$:"System.Double",
+        get_TotalMilliseconds:function()
+        {
+            var num=this._ticks * 0.0001;
+            if(num > 922337203685477.0)
+            {
+                return 922337203685477.0;
+            }
+            if(num < -922337203685477.0)
+            {
+                return -922337203685477.0;
+            }
+            return num;
+        },
+        TotalMinutes$$:"System.Double",
+        get_TotalMinutes:function()
+        {
+            return this._ticks / System.TimeSpan.TicksPerMillisecond / 1000 / 60;
+        },
+        TotalSeconds$$:"System.Double",
+        get_TotalSeconds:function()
+        {
+            return this._ticks * 1E-07;
+        },
+        ctor$$Int32$$Int32$$Int32:function(hours,minutes,seconds)
+        {
+            this._ticks = 0;
+            System.Object.ctor.call(this);
+            this._ticks = System.TimeSpan.TimeToTicks(hours,minutes,seconds);
+        },
+        ctor$$Int32$$Int32$$Int32$$Int32:function(days,hours,minutes,seconds)
+        {
+            this._ticks = 0;
+            System.TimeSpan.ctor$$Int32$$Int32$$Int32$$Int32$$Int32.call(this,days,hours,minutes,seconds,0);
+        },
+        ctor$$Int32$$Int32$$Int32$$Int32$$Int32:function(days,hours,minutes,seconds,milliseconds)
+        {
+            this._ticks = 0;
+            System.Object.ctor.call(this);
+            var num=(days * 3600 * 24 + hours * 3600 + minutes * 60 + seconds) * 1000 + milliseconds;
+            if(num > 922337203685477 || num < -922337203685477)
+            {
+                throw new System.ArgumentOutOfRangeException.ctor$$String$$String(null,"Overflow_TimeSpanTooLong");
+            }
+            this._ticks = num * 10000;
+        },
+        Add:function(ts)
+        {
+            var num=this._ticks + ts._ticks;
+            if(this._ticks >> 63 == ts._ticks >> 63 && this._ticks >> 63 != num >> 63)
+            {
+                throw new System.OverflowException.ctor$$String("Overflow_TimeSpanTooLong");
+            }
+            return new System.TimeSpan.ctor$$Int64(num);
+        },
+        CompareTo$$Object:function(value)
+        {
+            if(value == null)
+            {
+                return 1;
+            }
+            if(!(Is(value,System.TimeSpan)))
+            {
+                throw new System.ArgumentException.ctor$$String("Arg_MustBeTimeSpan");
+            }
+            var ticks=(Cast(value,System.TimeSpan))._ticks;
+            if(this._ticks > ticks)
+            {
+                return 1;
+            }
+            if(this._ticks < ticks)
+            {
+                return -1;
+            }
+            return 0;
+        },
+        CompareTo$$TimeSpan:function(value)
+        {
+            var ticks=value._ticks;
+            if(this._ticks > ticks)
+            {
+                return 1;
+            }
+            if(this._ticks < ticks)
+            {
+                return -1;
+            }
+            return 0;
+        },
+        Duration:function()
+        {
+            if(this.get_Ticks() == System.TimeSpan.MinValue.get_Ticks())
+            {
+                throw new System.OverflowException.ctor$$String("Overflow_Duration");
+            }
+            return new System.TimeSpan.ctor$$Int64((this._ticks >= 0)?this._ticks:(-this._ticks));
+        },
+        Equals$$Object:function(value)
+        {
+            return Is(value,System.TimeSpan) && this._ticks == (Cast(value,System.TimeSpan))._ticks;
+        },
+        Equals$$TimeSpan:function(obj)
+        {
+            return this._ticks == obj._ticks;
+        },
+        GetHashCode:function()
+        {
+            return (this._ticks ^ (this._ticks >> 32));
+        },
+        Negate:function()
+        {
+            if(this.get_Ticks() == System.TimeSpan.MinValue.get_Ticks())
+            {
+                throw new System.OverflowException.ctor$$String("Overflow_NegateTwosCompNum");
+            }
+            return new System.TimeSpan.ctor$$Int64(-this._ticks);
+        },
+        Subtract:function(ts)
+        {
+            var num=this._ticks - ts._ticks;
+            if(this._ticks >> 63 != ts._ticks >> 63 && this._ticks >> 63 != num >> 63)
+            {
+                throw new System.OverflowException.ctor$$String("Overflow_TimeSpanTooLong");
+            }
+            return new System.TimeSpan.ctor$$Int64(num);
+        }
+    }
+};
+JsTypes.push(System$TimeSpan);
 var System$Uri=
 {
     fullname:"System.Uri",

@@ -197,6 +197,19 @@ this.date = System.DateTime.MinValue.date;
 			}
 		}
 
+        public TimeSpan Subtract(DateTime value)
+        {
+            var diff = date.valueOf()-value.As<JsImplDateTime>().date.valueOf();
+            return new TimeSpan(diff*TimeSpan.TicksPerMillisecond);
+        }
+        // System.DateTime
+        public JsImplDateTime Subtract(TimeSpan value)
+        {
+            var newDate = new JsDate(date.valueOf());
+            newDate.setMilliseconds(date.getMilliseconds() + value.TotalMilliseconds);
+            return new JsImplDateTime(newDate);
+        }
+
 		public string ToString(string format)
 		{
 			format = format.Replace("yyyy", Year.ToString("0000"));
