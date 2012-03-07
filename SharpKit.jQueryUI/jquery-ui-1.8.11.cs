@@ -1,6 +1,12 @@
 ﻿using SharpKit.JavaScript;
 namespace SharpKit.jQuery
 {
+    [JsType(JsMode.Prototype, Export=false)]
+    public static partial class jQueryUI
+    {
+        [JsMethod(Name="bind", ExtensionImplementedInInstance=true)]
+        public static void bindUI(this jQuery jquery, JsString eventName, jQueryUIEvent handler) {  }
+    }
     #region Accordion
     ///<summary>
     ///Make the selected elements Accordion widgets. Semantic requirements:
