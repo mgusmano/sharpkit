@@ -16,7 +16,7 @@ using System.ComponentModel;
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "Trim", Name = "trim")]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "Substring", Name = "substr", NativeOverloads = true)]
 
-[assembly: JsType(JsMode.Prototype, TargetType = typeof(Array), NativeArrayEnumerator = true, NativeEnumerator = false)]
+[assembly: JsType(JsMode.Prototype, TargetType = typeof(Array), NativeArrayEnumerator = true, NativeEnumerator = false, Export=false)]
 [assembly: JsMethod(TargetType = typeof(Array), TargetMethod = "get_Length", Name = "length", OmitParanthesis = true)]
 
 
@@ -2996,7 +2996,7 @@ namespace SharpKit.JavaScript
 
     #endregion
 
-    [JsType(JsMode.Prototype, NativeEnumerator = false, NativeArrayEnumerator = true)]
+    [JsType(JsMode.Prototype, NativeEnumerator = false, NativeArrayEnumerator = true, Export=false)]
     public interface IJsArrayEnumerable<T> : IEnumerable<T>
     {
         [JsProperty(NativeIndexer = true)]
