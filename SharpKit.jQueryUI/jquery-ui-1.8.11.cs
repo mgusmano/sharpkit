@@ -692,6 +692,10 @@ namespace SharpKit.jQuery
         ///Default: null
         ///</summary>
         public jQueryUIEvent close { get; set; }
+        ///<summary>
+        ///This event is triggered when dialog is created.
+        ///</summary>
+        public jQueryUIEvent create { get; set; }
     }
     #endregion
     #region Draggable
