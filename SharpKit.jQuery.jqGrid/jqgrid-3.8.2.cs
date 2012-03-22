@@ -2,21 +2,15 @@
 
 namespace SharpKit.jQuery
 {
-    public partial class jQuery
+    [JsType(JsMode.Prototype, Export=false)]
+    public static partial class jQGridPlugin
     {
-        public jQuery jqGrid(jQGridOptions options)
-        {
-            return null; 
-        }
-        public jQuery jqGrid(object options)
-        {
-            return null;
-        }
-
-        internal jQuery jqGrid(object p1, params object[] otherObjects)
-        {
-            return null;
-        }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery jqGrid(this jQuery query) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery jqGrid(this jQuery query, jQGridOptions options) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery jqGrid(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
 
     [JsType(JsMode.Json)]
