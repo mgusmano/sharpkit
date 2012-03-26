@@ -260,8 +260,8 @@ namespace SharpKit.KnockoutJs
 
         public static KnockoutUtils utils { get; private set; }
 	}
-    [JsType(JsMode.Prototype, Export=false)]
-    public class KnockoutUtils
+    [JsType(JsMode.Prototype, Export = false, Name = "ko.utils")]
+    public partial class KnockoutUtils
     {
         /// <summary>
         /// If the provided value is an observable, return its value, otherwise just pass it through.
