@@ -7,17 +7,21 @@ using SharpKit.JavaScript;
 using System.ComponentModel;
 
 [assembly: JsMethod(TargetType = typeof(object), TargetMethod = "ToString", Name = "toString")]
+
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToUpper", Name = "toUpperCase")]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToLower", Name = "toLowerCase")]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "IndexOf", Name = "indexOf", NativeOverloads = true)]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "LastIndexOf", Name = "lastIndexOf", NativeOverloads = true)]
-[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "get_Chars", Name = "charAt")]
-[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "get_Length", Name = "length", OmitParanthesis = true)]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "Trim", Name = "trim")]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "Substring", Name = "substr", NativeOverloads = true)]
+[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "get_Chars", Name = "charAt")]
+//[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "get_Length", Name = "length", OmitParanthesis = true)]
+//[assembly: JsProperty(TargetType = typeof(string), TargetProperty = "Chars", Name = "charAt", NativeField = true)]
+[assembly: JsProperty(TargetType = typeof(string), TargetProperty = "Length", Name = "length", NativeField=true)]
 
-[assembly: JsType(JsMode.Prototype, TargetType = typeof(Array), NativeArrayEnumerator = true, NativeEnumerator = false, Export=false)]
-[assembly: JsMethod(TargetType = typeof(Array), TargetMethod = "get_Length", Name = "length", OmitParanthesis = true)]
+[assembly: JsType(JsMode.Prototype, TargetType = typeof(Array), NativeArrayEnumerator = true, NativeEnumerator = false, Export = false)]
+//[assembly: JsMethod(TargetType = typeof(Array), TargetMethod = "get_Length", Name = "length", OmitParanthesis = true)]
+[assembly: JsProperty(TargetType = typeof(Array), TargetProperty = "Length", Name = "length", NativeField=true)]
 
 
 namespace SharpKit.JavaScript
@@ -73,6 +77,11 @@ namespace SharpKit.JavaScript
         /// This feature should be used when trying to describe classes on external assemblies that has no SharpKit support
         /// </summary>
         public Type TargetType { get; set; }
+        /// <summary>
+        /// When used as assembly attribute, indicates the type for which to apply this attribute on.
+        /// This feature should be used when trying to describe classes on external assemblies that has no SharpKit support
+        /// </summary>
+        public string TargetTypeName { get; set; }
 
         ///<summary>
         ///Indicates that all delegate parameters in all members are native javascript functions
@@ -178,6 +187,7 @@ namespace SharpKit.JavaScript
         /// Specifies whether or not to declare inheritance of a class to a base class
         /// </summary>
         public bool OmitInheritance { get; set; }
+        public bool OmitDefaultConstructor { get; set; }
 
     }
     #endregion
@@ -292,6 +302,10 @@ namespace SharpKit.JavaScript
         /// Applies the attribute externally on a type
         /// </summary>
         public Type TargetType { get; set; }
+        /// <summary>
+        /// Applies the attribute externally on a type
+        /// </summary>
+        public string TargetTypeName { get; set; }
 
         ///<summary>
         ///Tells the compiler to omit calls to this method and assume that it was invoked
@@ -362,13 +376,21 @@ namespace SharpKit.JavaScript
         /// Omits the new operator when creating new instances on a consutrctor
         /// </summary>
         public bool OmitNewOperator { get; set; }
+
+        public bool InstanceImplementedAsExtension { get; set; }
+        public string ArgumentsPrefix { get; set; }
+        public string ArgumentsSuffix { get; set; }
+        public object InsertArg0 { get; set; }
+        public object InsertArg1 { get; set; }
+        public object InsertArg2 { get; set; }
+        public bool OmitCommas { get; set; }
     }
     #endregion
     #region JsPropertyAttribute
     ///<summary>
     /// Specifies custom instructions for SharpKit for a property, this information is used when exporting the member, and when using it.
     ///</summary>
-    [AttributeUsage(AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Assembly, AllowMultiple=true)]
     public partial class JsPropertyAttribute : Attribute
     {
         ///<summary>
@@ -387,6 +409,21 @@ namespace SharpKit.JavaScript
         /// </summary>
         public bool Export { get; set; }
         public string Name { get; set; }
+
+        /// <summary>
+        /// Applies the attribute externally on a property
+        /// </summary>
+        public string TargetProperty { get; set; }
+
+        /// <summary>
+        /// Applies the attribute externally on a type
+        /// </summary>
+        public Type TargetType { get; set; }
+        /// <summary>
+        /// Applies the attribute externally on a type
+        /// </summary>
+        public string TargetTypeName { get; set; }
+
     }
     #endregion
     #region JsEventAttribute
@@ -436,6 +473,11 @@ namespace SharpKit.JavaScript
         /// This feature should be used when trying to describe classes on external assemblies that has no SharpKit support
         /// </summary>
         public Type TargetType { get; set; }
+        /// <summary>
+        /// When used as assembly attribute, indicates the type for which to apply this attribute on.
+        /// This feature should be used when trying to describe classes on external assemblies that has no SharpKit support
+        /// </summary>
+        public string TargetTypeName { get; set; }
     }
 
     #endregion
@@ -2996,7 +3038,7 @@ namespace SharpKit.JavaScript
 
     #endregion
 
-    [JsType(JsMode.Prototype, NativeEnumerator = false, NativeArrayEnumerator = true, Export=false)]
+    [JsType(JsMode.Prototype, NativeEnumerator = false, NativeArrayEnumerator = true, Export = false)]
     public interface IJsArrayEnumerable<T> : IEnumerable<T>
     {
         [JsProperty(NativeIndexer = true)]
