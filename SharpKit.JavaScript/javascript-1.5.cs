@@ -696,6 +696,9 @@ namespace SharpKit.JavaScript
         public void sort() { }
         public IEnumerator<object> GetEnumerator() { return default(IEnumerator<object>); }
         IEnumerator IEnumerable.GetEnumerator() { return default(IEnumerator); }
+        [JsMethod(Name = "push")]
+        public void Add(object item) { }
+
     }
     #endregion
     #region JsArray<T>
@@ -832,6 +835,9 @@ namespace SharpKit.JavaScript
         ///</summary>
         [JsProperty(NativeField = true)]
         public JsNumber length { get; set; }
+
+        [JsMethod(Name="push")]
+        public void Add(T item) { }
 
     }
     #endregion
@@ -1996,6 +2002,7 @@ namespace SharpKit.JavaScript
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static new bool ReferenceEquals(object objA, object objB) { return object.ReferenceEquals(objA, objB); }
         #endregion
+        public JsString toString() { return default(JsString); }
 
     }
     #endregion
