@@ -629,6 +629,7 @@ namespace SharpKit.Html4
         ///<returns></returns>
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8AsIE7 | BrowserTypes.IE8 | BrowserTypes.IE9 | BrowserTypes.FireFox2 | BrowserTypes.FireFox3 | BrowserTypes.FireFox3_5 | BrowserTypes.FireFox4 | BrowserTypes.Chrome2 | BrowserTypes.Chrome3 | BrowserTypes.Chrome4 | BrowserTypes.Chrome5 | BrowserTypes.Saf3Win | BrowserTypes.Saf3_1Win | BrowserTypes.Saf4Win | BrowserTypes.Opera9 | BrowserTypes.Opera10 | BrowserTypes.Konqueror3_57)]
         public HtmlElement createElement(JsString name) { return null; }
+        public CSSStyleSheet createCSSStyleSheet(string title, string media) { return default(CSSStyleSheet); }
         /// <summary>
         ///Creates a new HtmlElement
         /// </summary>
@@ -5843,6 +5844,61 @@ namespace SharpKit.Html4
 
     #endregion
 
+
+    #region CSS
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+public partial class CSSRule
+{
+
+	// CSSRule
+	public static short STYLE_RULE = 1;
+	public static short IMPORT_RULE = 3;
+	public static short MEDIA_RULE = 4;
+	public static short FONT_FACE_RULE = 5;
+	public static short PAGE_RULE = 6;
+	public static short NAMESPACE_RULE = 10;
+	public short type {get; private set; }
+	public JsString cssText {get; set; }
+	public CSSRule parentRule {get; private set; }
+	public CSSStyleSheet parentStyleSheet {get; private set; }
+}
+[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+public partial class CSSStyleSheet : StyleSheet
+{
+
+	// CSSStyleSheet
+	public CSSRule ownerRule {get; private set; }
+	public CSSRule cssRules {get; private set; }
+	public int insertRule(string rule, int index) { return default(int); }
+	public void deleteRule(int index) {}
+}
+[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+public partial class MediaList
+{
+
+	// MediaList
+	public JsString mediaText {get; set; }
+	public int length {get; private set; }
+	[JsProperty(NativeIndexer = true)]
+	public JsString this[int index] {get { return default(JsString); } }
+	public void appendMedium(string medium) {}
+	public void deleteMedium(string medium) {}
+}
+[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+public partial class StyleSheet
+{
+
+	// StyleSheet
+	public JsString type {get; private set; }
+	public JsString href {get; private set; }
+	public HtmlNode ownerNode {get; private set; }
+	public StyleSheet parentStyleSheet {get; private set; }
+	public JsString title {get; private set; }
+	public MediaList media {get; set; }
+	public bool disabled {get; set; }
+}
+
+    #endregion
 }
 
 namespace SharpKit.Html4.Elements
