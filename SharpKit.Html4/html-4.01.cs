@@ -323,6 +323,8 @@ namespace SharpKit.Html4
     [JsType(JsMode.Global, Export = false)]
     public partial class HtmlContext : JsContext
     {
+        public static Console console { get; private set; }
+
         ///<summary>
         ///Displays a dialog box containing an application-defined message. 
         ///</summary>
@@ -403,6 +405,8 @@ namespace SharpKit.Html4
     [JsType(JsMode.Global, Export = false)]
     public partial class HtmlContextBase : JsContextBase
     {
+        protected static Console console { get; private set; }
+
         ///<summary>
         ///Displays a dialog box containing an application-defined message. 
         ///</summary>
@@ -4832,6 +4836,7 @@ namespace SharpKit.Html4
     [JsType(JsMode.Json, Export = false)]
     public partial class HtmlWindow
     {
+        public Console console { get; private set; }
         public HtmlWindowNavigator navigator { get; private set; }
         //[SupportedBrowsers(BrowserTypes.IE5_5 | BrowserTypes.IE6 | BrowserTypes.IE7 | BrowserTypes.IE8 | BrowserTypes.IE8AsIE7, "Use event handler's argument")]
         public HtmlDomEventArgs @event { get; set; }
@@ -5847,58 +5852,84 @@ namespace SharpKit.Html4
 
     #region CSS
     [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class CSSRule
-{
+    public partial class CSSRule
+    {
 
-	// CSSRule
-	public static short STYLE_RULE = 1;
-	public static short IMPORT_RULE = 3;
-	public static short MEDIA_RULE = 4;
-	public static short FONT_FACE_RULE = 5;
-	public static short PAGE_RULE = 6;
-	public static short NAMESPACE_RULE = 10;
-	public short type {get; private set; }
-	public JsString cssText {get; set; }
-	public CSSRule parentRule {get; private set; }
-	public CSSStyleSheet parentStyleSheet {get; private set; }
-}
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class CSSStyleSheet : StyleSheet
-{
+        // CSSRule
+        public static short STYLE_RULE = 1;
+        public static short IMPORT_RULE = 3;
+        public static short MEDIA_RULE = 4;
+        public static short FONT_FACE_RULE = 5;
+        public static short PAGE_RULE = 6;
+        public static short NAMESPACE_RULE = 10;
+        public short type { get; private set; }
+        public JsString cssText { get; set; }
+        public CSSRule parentRule { get; private set; }
+        public CSSStyleSheet parentStyleSheet { get; private set; }
+    }
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+    public partial class CSSStyleSheet : StyleSheet
+    {
 
-	// CSSStyleSheet
-	public CSSRule ownerRule {get; private set; }
-	public CSSRule cssRules {get; private set; }
-	public int insertRule(string rule, int index) { return default(int); }
-	public void deleteRule(int index) {}
-}
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class MediaList
-{
+        // CSSStyleSheet
+        public CSSRule ownerRule { get; private set; }
+        public CSSRule cssRules { get; private set; }
+        public int insertRule(string rule, int index) { return default(int); }
+        public void deleteRule(int index) { }
+    }
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+    public partial class MediaList
+    {
 
-	// MediaList
-	public JsString mediaText {get; set; }
-	public int length {get; private set; }
-	[JsProperty(NativeIndexer = true)]
-	public JsString this[int index] {get { return default(JsString); } }
-	public void appendMedium(string medium) {}
-	public void deleteMedium(string medium) {}
-}
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class StyleSheet
-{
+        // MediaList
+        public JsString mediaText { get; set; }
+        public int length { get; private set; }
+        [JsProperty(NativeIndexer = true)]
+        public JsString this[int index] { get { return default(JsString); } }
+        public void appendMedium(string medium) { }
+        public void deleteMedium(string medium) { }
+    }
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+    public partial class StyleSheet
+    {
 
-	// StyleSheet
-	public JsString type {get; private set; }
-	public JsString href {get; private set; }
-	public HtmlNode ownerNode {get; private set; }
-	public StyleSheet parentStyleSheet {get; private set; }
-	public JsString title {get; private set; }
-	public MediaList media {get; set; }
-	public bool disabled {get; set; }
-}
+        // StyleSheet
+        public JsString type { get; private set; }
+        public JsString href { get; private set; }
+        public HtmlNode ownerNode { get; private set; }
+        public StyleSheet parentStyleSheet { get; private set; }
+        public JsString title { get; private set; }
+        public MediaList media { get; set; }
+        public bool disabled { get; set; }
+    }
 
     #endregion
+    [JsType(JsMode.Prototype, Export = false)]
+    public partial class Console
+    {
+
+        // Console
+        public void log(object format, params object[] arguments) { }
+        public void debug(object format, params object[] arguments) { }
+        public void info(object format, params object[] arguments) { }
+        public void warn(object format, params object[] arguments) { }
+        public void error(object format, params object[] arguments) { }
+        public void _assert(bool expression, params object[] arguments) { }
+        public void dir(object obj) { }
+        public void dirxml(HtmlNode node) { }
+        public void trace() { }
+        public void group(object format, params object[] arguments) { }
+        public void groupCollapsed(object format, params object[] arguments) { }
+        public void groupEnd() { }
+        public void time(string name) { }
+        public void timeEnd(string name) { }
+        public void profile() { }
+        public void profile(string title) { }
+        public void profileEnd() { }
+        public void count() { }
+        public void count(string title) { }
+    }
+
 }
 
 namespace SharpKit.Html4.Elements
