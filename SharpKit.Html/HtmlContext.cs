@@ -6,6 +6,7 @@ namespace SharpKit.Html
     public class HtmlContext : JsContext
     {
         #region Window
+        public static Console console { get; private set; }
         public static Window window { get; private set; }
         public static Window self { get; private set; }
         public static JsString name { get; set; }

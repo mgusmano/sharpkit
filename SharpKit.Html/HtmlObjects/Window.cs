@@ -8,7 +8,7 @@ namespace SharpKit.Html
     [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
     public partial class Window : EventTarget
     {
-
+        public Console console { get; private set; }
         // Window
         public Window window { get; private set; }
         public Window self { get; private set; }
