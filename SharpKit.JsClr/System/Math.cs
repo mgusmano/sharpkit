@@ -263,7 +263,8 @@ namespace SharpKit.JavaScript.Private
 		}
 		public static decimal Round(decimal d, int decimals)
 		{
-			return JsMath.round(d).As<decimal>();
+			var pow = JsMath.pow(10, decimals);
+			return JsMath.round(d * pow) / pow;
 		}
 		public static decimal Round(decimal d, MidpointRounding mode)
 		{
@@ -271,7 +272,8 @@ namespace SharpKit.JavaScript.Private
 		}
 		public static double Round(double value, int digits)
 		{
-			throw new NotImplementedException();
+			var pow = JsMath.pow(10, digits);
+			return JsMath.round(value * pow) / pow;
 		}
 		public static double Round(double value, MidpointRounding mode)
 		{
