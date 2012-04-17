@@ -17,13 +17,13 @@ namespace SharpKit.JavaScript.Private
 		public JsImplSystemException()
 			: base(JsImplEnvironment.GetResourceString("Arg_SystemException"))
 		{
-			base.SetErrorCode(-2146233087);
+			SetErrorCode(-2146233087);
 		}
 
 		public JsImplSystemException(string message)
 			: base(message)
 		{
-			base.SetErrorCode(-2146233087);
+			SetErrorCode(-2146233087);
 		}
 
 		//protected JsImplSystemException(SerializationInfo info, StreamingContext context)
@@ -34,7 +34,7 @@ namespace SharpKit.JavaScript.Private
 		public JsImplSystemException(string message, Exception innerException)
 			: base(message, innerException)
 		{
-			base.SetErrorCode(-2146233087);
+			SetErrorCode(-2146233087);
 		}
 	}
 
@@ -49,13 +49,13 @@ namespace SharpKit.JavaScript.Private
 		public JsImplArgumentException()
 			: base(JsImplEnvironment.GetResourceString("Arg_ArgumentException"))
 		{
-			base.SetErrorCode(-2147024809);
+			SetErrorCode(-2147024809);
 		}
 
 		public JsImplArgumentException(string message)
 			: base(message)
 		{
-			base.SetErrorCode(-2147024809);
+			SetErrorCode(-2147024809);
 		}
 
 		//protected JsImplArgumentException(SerializationInfo info, StreamingContext context)
@@ -67,21 +67,21 @@ namespace SharpKit.JavaScript.Private
 		public JsImplArgumentException(string message, Exception innerException)
 			: base(message, innerException)
 		{
-			//base.SetErrorCode(-2147024809);
+			//SetErrorCode(-2147024809);
 		}
 
 		public JsImplArgumentException(string message, string paramName)
 			: base(message)
 		{
 			this.m_paramName = paramName;
-			base.SetErrorCode(-2147024809);
+			SetErrorCode(-2147024809);
 		}
 
 		public JsImplArgumentException(string message, string paramName, Exception innerException)
 			: base(message, innerException)
 		{
 			this.m_paramName = paramName;
-			base.SetErrorCode(-2147024809);
+			SetErrorCode(-2147024809);
 		}
 
 		//[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
@@ -144,7 +144,7 @@ namespace SharpKit.JavaScript.Private
 		public JsImplNotSupportedException()
 			: base("Arg_NotSupportedException")
 		{
-			//base.SetErrorCode(-2146233067);
+			//SetErrorCode(-2146233067);
 		}
 
 		/// <summary>Initializes a new instance of the <see cref="T:System.NotSupportedException" /> class with a specified error message.</summary>
@@ -152,7 +152,7 @@ namespace SharpKit.JavaScript.Private
 		public JsImplNotSupportedException(string message)
 			: base(message)
 		{
-			//base.SetErrorCode(-2146233067);
+			//SetErrorCode(-2146233067);
 		}
 
 		///// <summary>Initializes a new instance of the <see cref="T:System.NotSupportedException" /> class with serialized data.</summary>
@@ -169,7 +169,7 @@ namespace SharpKit.JavaScript.Private
 		public JsImplNotSupportedException(string message, Exception innerException)
 			: base(message, innerException)
 		{
-			//base.SetErrorCode(-2146233067);
+			//SetErrorCode(-2146233067);
 		}
 	}
 
@@ -186,13 +186,13 @@ namespace SharpKit.JavaScript.Private
 		public JsImplArgumentOutOfRangeException()
 			: base("Arg_ArgumentOutOfRangeException")
 		{
-			base.SetErrorCode(-2146233086);
+			SetErrorCode(-2146233086);
 		}
 
 		public JsImplArgumentOutOfRangeException(string paramName)
 			: base("Arg_ArgumentOutOfRangeException", paramName)
 		{
-			base.SetErrorCode(-2146233086);
+			SetErrorCode(-2146233086);
 		}
 
 		//protected JsImplArgumentOutOfRangeException(SerializationInfo info, StreamingContext context)
@@ -204,20 +204,20 @@ namespace SharpKit.JavaScript.Private
 		public JsImplArgumentOutOfRangeException(string message, Exception innerException)
 			: base(message, innerException)
 		{
-			base.SetErrorCode(-2146233086);
+			SetErrorCode(-2146233086);
 		}
 
 		public JsImplArgumentOutOfRangeException(string paramName, string message)
 			: base(message, paramName)
 		{
-			base.SetErrorCode(-2146233086);
+			SetErrorCode(-2146233086);
 		}
 
 		public JsImplArgumentOutOfRangeException(string paramName, object actualValue, string message)
 			: base(message, paramName)
 		{
 			this.m_actualValue = actualValue;
-			base.SetErrorCode(-2146233086);
+			SetErrorCode(-2146233086);
 		}
 
 		//[SecurityPermission(SecurityAction.LinkDemand, Flags=SecurityPermissionFlag.SerializationFormatter)]

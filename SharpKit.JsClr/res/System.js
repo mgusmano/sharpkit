@@ -1599,17 +1599,17 @@ var System$SystemException=
         ctor:function()
         {
             System.Exception.ctor$$String.call(this,System.Environment.GetResourceString("Arg_SystemException"));
-            System.Exception.commonPrototype.SetErrorCode.call(this,-2146233087);
+            this.SetErrorCode(-2146233087);
         },
         ctor$$String:function(message)
         {
             System.Exception.ctor$$String.call(this,message);
-            System.Exception.commonPrototype.SetErrorCode.call(this,-2146233087);
+            this.SetErrorCode(-2146233087);
         },
         ctor$$String$$Exception:function(message,innerException)
         {
             System.Exception.ctor$$String$$Exception.call(this,message,innerException);
-            System.Exception.commonPrototype.SetErrorCode.call(this,-2146233087);
+            this.SetErrorCode(-2146233087);
         }
     }
 };
@@ -1626,13 +1626,13 @@ var System$ArgumentException=
         {
             this.m_paramName = null;
             System.SystemException.ctor$$String.call(this,System.Environment.GetResourceString("Arg_ArgumentException"));
-            System.Exception.commonPrototype.SetErrorCode.call(this,-2147024809);
+            this.SetErrorCode(-2147024809);
         },
         ctor$$String:function(message)
         {
             this.m_paramName = null;
             System.SystemException.ctor$$String.call(this,message);
-            System.Exception.commonPrototype.SetErrorCode.call(this,-2147024809);
+            this.SetErrorCode(-2147024809);
         },
         ctor$$String$$Exception:function(message,innerException)
         {
@@ -1644,14 +1644,14 @@ var System$ArgumentException=
             this.m_paramName = null;
             System.SystemException.ctor$$String.call(this,message);
             this.m_paramName = paramName;
-            System.Exception.commonPrototype.SetErrorCode.call(this,-2147024809);
+            this.SetErrorCode(-2147024809);
         },
         ctor$$String$$String$$Exception:function(message,paramName,innerException)
         {
             this.m_paramName = null;
             System.SystemException.ctor$$String$$Exception.call(this,message,innerException);
             this.m_paramName = paramName;
-            System.Exception.commonPrototype.SetErrorCode.call(this,-2147024809);
+            this.SetErrorCode(-2147024809);
         },
         ParamName$$:"System.String",
         get_ParamName:function()
@@ -1722,32 +1722,32 @@ var System$ArgumentOutOfRangeException=
         {
             this.m_actualValue = null;
             System.ArgumentException.ctor$$String.call(this,"Arg_ArgumentOutOfRangeException");
-            System.Exception.commonPrototype.SetErrorCode.call(this,-2146233086);
+            this.SetErrorCode(-2146233086);
         },
         ctor$$String:function(paramName)
         {
             this.m_actualValue = null;
             System.ArgumentException.ctor$$String$$String.call(this,"Arg_ArgumentOutOfRangeException",paramName);
-            System.Exception.commonPrototype.SetErrorCode.call(this,-2146233086);
+            this.SetErrorCode(-2146233086);
         },
         ctor$$String$$Exception:function(message,innerException)
         {
             this.m_actualValue = null;
             System.ArgumentException.ctor$$String$$Exception.call(this,message,innerException);
-            System.Exception.commonPrototype.SetErrorCode.call(this,-2146233086);
+            this.SetErrorCode(-2146233086);
         },
         ctor$$String$$String:function(paramName,message)
         {
             this.m_actualValue = null;
             System.ArgumentException.ctor$$String$$String.call(this,message,paramName);
-            System.Exception.commonPrototype.SetErrorCode.call(this,-2146233086);
+            this.SetErrorCode(-2146233086);
         },
         ctor$$String$$Object$$String:function(paramName,actualValue,message)
         {
             this.m_actualValue = null;
             System.ArgumentException.ctor$$String$$String.call(this,message,paramName);
             this.m_actualValue = actualValue;
-            System.Exception.commonPrototype.SetErrorCode.call(this,-2146233086);
+            this.SetErrorCode(-2146233086);
         },
         ActualValue$$:"System.Object",
         get_ActualValue:function()
