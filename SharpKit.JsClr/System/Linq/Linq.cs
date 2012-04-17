@@ -266,7 +266,8 @@ namespace SharpKit.JavaScript.Private
 		{
 			if (comparer == null)
 			{
-				comparer = EqualityComparer<TSource>.Default;
+                return source.Contains(value);
+				//comparer = EqualityComparer<TSource>.Default;
 			}
 			if (source == null)
 			{

@@ -22,14 +22,16 @@ namespace SharpKit.JavaScript.Compilation
                 for (var i = 0; i < delOriginal.delegates.length; i++)
                 {
                     var del2 = delOriginal.delegates[i];
-                    if (del2 == delToRemove)
+                    if (del2 != delToRemove)
                     {
-                        del.delegates = delOriginal.delegates.splice(i, 1);
-                        break;
+                        if (del.delegates == null)
+                            del.delegates = new JsArray<JsDelegateFunction>();
+                        del.delegates.push(del2);
                     }
                 }
                 if (del.delegates == null)
-                    del.delegates = delOriginal.delegates.splice(0, 0);//clone
+                    return null;
+                    //del.delegates = delOriginal.delegates.splice(0, 0);//clone
                 if (del.delegates.length == 1)
                     return del.delegates[0];
                 return del;
