@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using SharpKit.JavaScript;
 using System.ComponentModel;
 
+[assembly: JsType(TargetType = typeof(object), OmitCasts = true)]
 [assembly: JsMethod(TargetType = typeof(object), TargetMethod = "ToString", Name = "toString")]
 
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToUpper", Name = "toUpperCase")]
@@ -14,14 +15,14 @@ using System.ComponentModel;
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "LastIndexOf", Name = "lastIndexOf", NativeOverloads = true)]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "Trim", Name = "trim")]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "Substring", Name = "substr", NativeOverloads = true)]
-[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "get_Chars", Name = "charAt")]
+[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "get_Chars", Name = "charAt", NativeOverloads = true)]
 //[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "get_Length", Name = "length", OmitParanthesis = true)]
 //[assembly: JsProperty(TargetType = typeof(string), TargetProperty = "Chars", Name = "charAt", NativeField = true)]
-[assembly: JsProperty(TargetType = typeof(string), TargetProperty = "Length", Name = "length", NativeField=true)]
+[assembly: JsProperty(TargetType = typeof(string), TargetProperty = "Length", Name = "length", NativeField = true)]
 
 [assembly: JsType(JsMode.Prototype, TargetType = typeof(Array), NativeArrayEnumerator = true, NativeEnumerator = false, Export = false)]
 //[assembly: JsMethod(TargetType = typeof(Array), TargetMethod = "get_Length", Name = "length", OmitParanthesis = true)]
-[assembly: JsProperty(TargetType = typeof(Array), TargetProperty = "Length", Name = "length", NativeField=true)]
+[assembly: JsProperty(TargetType = typeof(Array), TargetProperty = "Length", Name = "length", NativeField = true)]
 
 
 namespace SharpKit.JavaScript
@@ -58,6 +59,7 @@ namespace SharpKit.JavaScript
             Filename = filename;
         }
 
+        public bool NativeParams { get; set; }
         /// <summary>
         /// Js code that will be written before exporting the type
         /// </summary>
@@ -261,6 +263,11 @@ namespace SharpKit.JavaScript
         /// </summary>
         public string DefaultFilename { get; set; }
 
+        /// <summary>
+        /// Specifies to inject ALL SharpKit javascript code into a single separate file, this feature is supported by SharpKit 5 only.
+        /// </summary>
+        public string CodeInjectionFilename { get; set; }
+
     }
     #endregion
     #region JsMergedFileAttribute
@@ -293,6 +300,8 @@ namespace SharpKit.JavaScript
     [AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
     public partial class JsMethodAttribute : Attribute
     {
+        public bool NativeParams { get; set; }
+
         /// <summary>
         /// Applies the attribute externally on a method, if the method has overloads, attribute will be applied on all of them
         /// </summary>
@@ -390,7 +399,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     /// Specifies custom instructions for SharpKit for a property, this information is used when exporting the member, and when using it.
     ///</summary>
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Assembly, AllowMultiple=true)]
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Assembly, AllowMultiple = true)]
     public partial class JsPropertyAttribute : Attribute
     {
         ///<summary>
@@ -574,7 +583,9 @@ namespace SharpKit.JavaScript
         public JsArray() { }
         //public JsArray(JsArray array) { }
         public JsArray(JsNumber size) { }
-        public JsArray(params object[] items) { }
+        public JsArray(object item) { }
+        public JsArray(object item1, object item2) { }
+        public JsArray(object item1, object item2, params object[] items) { }
         public static implicit operator JsArray(Array array) { return default(JsArray); }
         public static implicit operator Array(JsArray array) { return default(Array); }
         public static implicit operator JsArray(object[] array) { return default(JsArray); }
@@ -590,8 +601,9 @@ namespace SharpKit.JavaScript
         ///Appends new elements to an array, and returns the new length of the array.
         ///</summary>
         ///<param name="items">Optional. New elements of the Array.</param>
-        [JsMethod(NativeOverloads = true)]
-        public void push(params object[] items) { }
+        public void push(object item) { }
+        public void push(object item1, object item2) { }
+        public void push(object item1, object item2, params object[] items) { }
         [JsMethod(NativeOverloads = true)]
         public object peek() { return default(object); }
         ///<summary>
@@ -836,7 +848,7 @@ namespace SharpKit.JavaScript
         [JsProperty(NativeField = true)]
         public JsNumber length { get; set; }
 
-        [JsMethod(Name="push")]
+        [JsMethod(Name = "push")]
         public void Add(T item) { }
 
     }
@@ -1465,7 +1477,15 @@ namespace SharpKit.JavaScript
     public partial class JsDate : JsObjectBase
     {
         public static JsNumber operator -(JsDate date1, JsDate date2) { return default(JsNumber); }
-        public JsDate(params object[] prms) { }
+        public JsDate() { }
+        public JsDate(int value) { }
+        public JsDate(JsString value) { }
+        public JsDate(int year, int month, int date) { }
+        public JsDate(int year, int month, int date, int hours) { }
+        public JsDate(int year, int month, int date, int hours, int minutes) { }
+        public JsDate(int year, int month, int date, int hours, int minutes, int seconds) { }
+        public JsDate(int year, int month, int date, int hours, int minutes, int seconds, int ms) { }
+
         ///<summary>
         ///Returns the year value in the Date object using local time.
         ///</summary>
