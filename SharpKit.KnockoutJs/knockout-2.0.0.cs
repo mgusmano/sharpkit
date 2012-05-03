@@ -40,55 +40,27 @@ namespace SharpKit.KnockoutJs
 	/// </summary>
 	/// <typeparam name="T">The type of the contained value.</typeparam>
     [JsType(JsMode.Prototype, Export=false)]
-    public partial class DependentObservable<T>
+    public partial class DependentObservable<T>: Observable<T>
 	{
 		protected DependentObservable()
 		{
 		}
 
-        /// <summary>
-        /// Gets the current computed value.
-        /// </summary>
-        public T Value
-        {
-            [JsMethod(Name = "")]
-            get { return default(T); }
-            [JsMethod(Name = "")]
-            private set { }
-        }
-
 		/// <summary>
-		/// Subscribes to change notifications raised when the value changes.
+		/// Gets count of dependencies
 		/// </summary>
-		/// <param name="changeCallback">The callback to invoke.</param>
-		/// <returns>A subscription cookie that can be disposed to unsubscribe.</returns>
-		public IDisposable subscribe(JsAction<T> changeCallback)
+		public int DependeciesCount
 		{
-			return null;
+			[JsMethod(Name = "getDependenciesCount")]
+			get { return default(int); }
 		}
 	}
-
-    [JsType(JsMode.Prototype, Export = false)]
-    public partial class ComputedObservable<T> : DependentObservable<T>
-    {
-        /// <summary>
-        /// Gets the current computed value.
-        /// </summary>
-        public new T Value
-        {
-            [JsMethod(Name = "")]
-            get { return default(T); }
-            [JsMethod(Name = "")]
-            set { }
-        }
-
-    }
 
 	/// <summary>
 	/// Provides advanced options for defining a dependent observable.
 	/// </summary>
 	/// <typeparam name="T">The type of the observable value.</typeparam>
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Json, Export=false)]
     public partial class DependentObservableOptions<T>
 	{
 		/// <summary>
@@ -109,6 +81,14 @@ namespace SharpKit.KnockoutJs
 			set;
 		}
 		/// <summary>
+		/// Gets or sets the function to accept the new value.
+		/// </summary>
+		public JsAction<T> write
+		{
+			get;
+			set;
+		}
+		/// <summary>
 		/// Gets the model instance which acts as 'this' in the get value function.
 		/// </summary>
         public object owner
@@ -117,15 +97,12 @@ namespace SharpKit.KnockoutJs
 			set;
 		}
 	}
-    public partial class ComputedObservableOptions<T> : DependentObservableOptions<T>
-    {
-    }
 
 	/// <summary>
 	/// Provides Knockout functionality.
 	/// </summary>
     [JsType(JsMode.Prototype, Name="ko")]
-    public class Knockout
+    public static class Knockout
 	{
         /// <summary>
         /// Converts a model into the equivalent JSON representation.
@@ -225,7 +202,7 @@ namespace SharpKit.KnockoutJs
         /// <param name="func">A function to compute the value.</param>
         /// <returns>A new dependent observable instance.</returns>
         [JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
-        public static ComputedObservable<T> computed<T>(JsFunc<T> func)
+		public static DependentObservable<T> computed<T>(JsFunc<T> func)
         {
             return null;
         }
@@ -235,7 +212,7 @@ namespace SharpKit.KnockoutJs
         /// <typeparam name="T">The type of the observable value.</typeparam>
         /// <param name="options">Options for the dependent observable.</param>
         [JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
-        public static ComputedObservable<T> computed<T>(ComputedObservableOptions<T> options)
+		public static DependentObservable<T> computed<T>(DependentObservableOptions<T> options)
         {
             return null;
         }
@@ -244,6 +221,23 @@ namespace SharpKit.KnockoutJs
 		/// </summary>
 		/// <param name="value">The value to check.</param>
 		public static bool isObservable(object value)
+		{
+			return false;
+		}
+		/// <summary>
+		/// Returns true if the value is an writable observable, false otherwise.
+		/// </summary>
+		/// <param name="value">The value to check.</param>
+		public static bool isWriteableObservable(object value)
+		{
+			return false;
+		}
+		/// <summary>
+		/// Returns true if the value is an writable observable, false otherwise.
+		/// </summary>
+		/// <param name="value">The value to check.</param>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true)]
+		public static bool isWriteableObservable<T>(this Observable<T> value)
 		{
 			return false;
 		}
@@ -291,6 +285,29 @@ namespace SharpKit.KnockoutJs
 		}
 
         public static KnockoutUtils utils { get; private set; }
+		
+		/// <summary>
+		/// Delegate for use as an observable extender
+		/// </summary>
+		/// <param name="target">Target observable to extend.</param>
+		/// <param name="options">Options of the extender.</param>
+		/// <returns>Extended observable.</returns>
+		public delegate Observable<object> ExtenderHandler(Observable<object> target, object options);
+
+		public static JsObject<JsString, ExtenderHandler> extenders { get; private set; }
+
+		/// <summary>
+		/// Extends the observable with the extenders.
+		/// </summary>
+		/// <typeparam name="TObservable">Type of the observable.</typeparam>
+		/// <param name="observable">Observable instance to extend.</param>
+		/// <param name="extenders">Object with the extenders.</param>
+		/// <returns>Extended observable instance.</returns>
+		[JsMethod(IgnoreGenericArguments = true, ExtensionImplementedInInstance = true)]
+		public static TObservable extend<TObservable>(this TObservable observable, object extenders) where TObservable: IObservable
+		{
+			return default(TObservable);
+		}
 	}
     [JsType(JsMode.Prototype, Export = false, Name = "ko.utils")]
     public partial class KnockoutUtils
@@ -384,14 +401,20 @@ namespace SharpKit.KnockoutJs
 		{
 		}
 	}
+
+	[JsType(JsMode.Prototype, Export = false)]
+	public interface IObservable
+	{
+	}
+
 	/// <summary>
 	/// Represents an object containing an observable value.
 	/// </summary>
 	/// <typeparam name="T">The type of the contained value.</typeparam>
     [JsType(JsMode.Prototype, Export=false)]
-    public sealed class Observable<T>
+	public partial class Observable<T> : IObservable
 	{
-		private Observable()
+		protected Observable()
 		{
 		}
         /// <summary>
@@ -430,6 +453,14 @@ namespace SharpKit.KnockoutJs
 		{
 			return null;
 		}
+		/// <summary>
+		/// Gets subscriptions count of the observable.
+		/// </summary>
+		public int SubscriptionsCount
+		{
+			[JsMethod(Name = "getSubscriptionsCount")]
+			get { return default(int); }
+		}
 	}
 	/// <summary>
 	/// Represents an array of items that can be observed for changes to the set of
@@ -437,9 +468,9 @@ namespace SharpKit.KnockoutJs
 	/// </summary>
 	/// <typeparam name="T">The type of the contained values.</typeparam>
     [JsType(JsMode.Prototype, Export=false)]
-    public sealed class ObservableArray<T>
+	public partial class ObservableArray<T> : Observable<JsArray<T>>
 	{
-		private ObservableArray()
+		protected ObservableArray()
 		{
 		}
 		/// <summary>
@@ -463,17 +494,6 @@ namespace SharpKit.KnockoutJs
 		public void destroyAll(params T[] values)
 		{
 		}
-
-        /// <summary>
-        /// Gets the underlying items within the observable array.
-        /// </summary>
-        public JsArray<T> Value
-        {
-            [JsMethod(Name = "")]
-            get { return null; }
-            [JsMethod(Name = "")]
-            private set { }
-        }
 
         ///// <summary>
         ///// Gets the underlying items within the observable array.
@@ -573,15 +593,6 @@ namespace SharpKit.KnockoutJs
 		/// </summary>
 		public void sort()
 		{
-		}
-		/// <summary>
-		/// Subscribes to change notifications raised when the value changes.
-		/// </summary>
-		/// <param name="changeCallback">The callback to invoke.</param>
-		/// <returns>A subscription cookie that can be disposed to unsubscribe.</returns>
-		public IDisposable subscribe(JsAction<T> changeCallback)
-		{
-			return null;
 		}
 		/// <summary>
 		/// Performs a sort using the comparator function.
