@@ -3,9 +3,15 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.KnockoutJs
 {
+	/// <summary>
+	/// Represent a token to unsubscribe from observable subscription
+	/// </summary>
     [JsType(JsMode.Prototype, Export = false)]
     public interface IDisposable
     {
+		/// <summary>
+		/// Unsubscribe from observable subscription.
+		/// </summary>
         void dispose();
     }
 	/// <summary>
@@ -42,6 +48,9 @@ namespace SharpKit.KnockoutJs
     [JsType(JsMode.Prototype, Export=false)]
     public partial class DependentObservable<T>: Observable<T>
 	{
+		/// <summary>
+		/// Protected constructor.
+		/// </summary>
 		protected DependentObservable()
 		{
 		}
@@ -133,6 +142,9 @@ namespace SharpKit.KnockoutJs
 		/// </summary>
         public static KnockoutMapping mapping{get;private set;}
 
+		/// <summary>
+		/// Provide access to 'this'.
+		/// </summary>
 		public static object @this
 		{
 			get
@@ -284,6 +296,9 @@ namespace SharpKit.KnockoutJs
 			return null;
 		}
 
+		/// <summary>
+		/// Provide access to utilities methods of the KnockoutJS
+		/// </summary>
         public static KnockoutUtils utils { get; private set; }
 		
 		/// <summary>
@@ -294,6 +309,9 @@ namespace SharpKit.KnockoutJs
 		/// <returns>Extended observable.</returns>
 		public delegate Observable<object> ExtenderHandler(Observable<object> target, object options);
 
+		/// <summary>
+		/// Provide access to extenders of observables.
+		/// </summary>
 		public static JsObject<JsString, ExtenderHandler> extenders { get; private set; }
 
 		/// <summary>
@@ -309,6 +327,9 @@ namespace SharpKit.KnockoutJs
 			return default(TObservable);
 		}
 	}
+	/// <summary>
+	/// Provide access to utilities methods of the KnockoutJS
+	/// </summary>
     [JsType(JsMode.Prototype, Export = false, Name = "ko.utils")]
     public partial class KnockoutUtils
     {
@@ -321,7 +342,181 @@ namespace SharpKit.KnockoutJs
 		{
 			return default(T);
 		}
-    }
+
+		/// <summary>
+		/// Iterates and invokes the <paramref name="action"/> over each item in <paramref name="array"/>.
+		/// </summary>
+		/// <param name="array">Array for iteration.</param>
+		/// <param name="action">Action to invoke on each item.</param>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static void arrayForEach(JsArray array, JsAction<object> action) { }
+		/// <summary>
+		/// Iterates and invokes the <paramref name="action"/> over each item in <paramref name="array"/>.
+		/// </summary>
+		/// <typeparam name="T">Type of the array element.</typeparam>
+		/// <param name="array">Array for iteration.</param>
+		/// <param name="action">Action to invoke on each item.</param>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static void arrayForEach<T>(JsArray<T> array, JsAction<T> action) { }
+		
+		/// <summary>
+		/// Finds index of the <paramref name="item"/> in the <paramref name="array"/>.
+		/// </summary>
+		/// <param name="array">Array to find in.</param>
+		/// <param name="item">Item to find.</param>
+		/// <returns>Zero-based index of the item in array; -1 if item was not finded.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static int arrayIndexOf(JsArray array, object item) { return default(int); }
+		/// <summary>
+		/// Finds index of the <paramref name="item"/> in the <paramref name="array"/>.
+		/// </summary>
+		/// <typeparam name="T">Type of the array element.</typeparam>
+		/// <param name="array">Array to find in.</param>
+		/// <param name="item">Item to find.</param>
+		/// <returns>Zero-based index of the item in array; -1 if item was not finded.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static int arrayIndexOf<T>(JsArray<T> array, T item) { return default(int); }
+
+		/// <summary>
+		/// Finds first element in the <paramref name="array"/> that matches the <paramref name="predicate"/>.
+		/// </summary>
+		/// <param name="array">Array to find in.</param>
+		/// <param name="predicate">Predicate to match; called in context of <paramref name="predicateOwner"/></param>
+		/// <param name="predicateOwner">Context for invoke the <paramref name="predicate"/>.</param>
+		/// <returns>First matched element or null overwise.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true, OmitOptionalParameters = true)]
+		public static object arrayFirst(JsArray array, JsFunc<object, bool> predicate, object predicateOwner = null) { return null; }
+		/// <summary>
+		/// Finds first element in the <paramref name="array"/> that matches the <paramref name="predicate"/>.
+		/// </summary>
+		/// <typeparam name="T">Type of the array element.</typeparam>
+		/// <param name="array">Array to find in.</param>
+		/// <param name="predicate">Predicate to match; called in context of <paramref name="predicateOwner"/></param>
+		/// <param name="predicateOwner">Context for invoke the <paramref name="predicate"/>.</param>
+		/// <returns>First matched element or null overwise.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static T arrayFirst<T>(JsArray<T> array, JsFunc<T, bool> predicate, object predicateOwner = null) { return default(T); }
+
+		/// <summary>
+		/// Removes the <paramref name="itemToRemove"/> from the <paramref name="array"/>.
+		/// </summary>
+		/// <param name="array">Array to remove item from.</param>
+		/// <param name="itemToRemove">Item to remove.</param>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static void arrayRemoveItem(JsArray array, object itemToRemove) { }
+		/// <summary>
+		/// Removes the <paramref name="itemToRemove"/> from the <paramref name="array"/>.
+		/// </summary>
+		/// <typeparam name="T">Type of the array element.</typeparam>
+		/// <param name="array">Array to remove item from.</param>
+		/// <param name="itemToRemove">Item to remove.</param>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static void arrayRemoveItem<T>(JsArray<T> array, T itemToRemove) { }
+
+		/// <summary>
+		/// Create a new array with distinct values of the <paramref name="array"/>.
+		/// </summary>
+		/// <param name="array">Array to filter duplicates.</param>
+		/// <returns>New array with distinct values.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static JsArray arrayGetDistinctValues(JsArray array) { return null; }
+		/// <summary>
+		/// Create a new array with distinct values of the <paramref name="array"/>.
+		/// </summary>
+		/// <typeparam name="T">Type of the array element.</typeparam>
+		/// <param name="array">Array to filter duplicates.</param>
+		/// <returns>New array with distinct values.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static JsArray<T> arrayGetDistinctValues<T>(JsArray<T> array) { return null; }
+
+		/// <summary>
+		/// Maps each value of the <paramref name="array"/> to new value of new array using <paramref name="mapping"/> function.
+		/// </summary>
+		/// <param name="array">Source array to map from.</param>
+		/// <param name="mapping">Mapping function; it takes the source item value and returns new mapped value.</param>
+		/// <returns>New array with mapped values</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static JsArray arrayMap(JsArray array, JsFunc<object, object> mapping) { return null; }
+		/// <summary>
+		/// Maps each value of the <paramref name="array"/> to new value of new array using <paramref name="mapping"/> function.
+		/// </summary>
+		/// <typeparam name="T">Type of the source array item.</typeparam>
+		/// <typeparam name="R">Type of the result array item.</typeparam>
+		/// <param name="array">Source array to map from.</param>
+		/// <param name="mapping">Mapping function; it takes the source item value and returns new mapped value.</param>
+		/// <returns>New array with mapped values</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static JsArray<R> arrayMap<T, R>(JsArray<T> array, JsFunc<T, R> mapping) { return null; }
+
+		/// <summary>
+		/// Filters values from the <paramref name="array"/> using <paramref name="predicate"/>.
+		/// </summary>
+		/// <param name="array">Source array to filter.</param>
+		/// <param name="predicate">Predicate function.</param>
+		/// <returns>New array with matched values.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static JsArray arrayFilter(JsArray array, JsFunc<object, bool> predicate) { return null; }
+		/// <summary>
+		/// Filters values from the <paramref name="array"/> using <paramref name="predicate"/>.
+		/// </summary>
+		/// <typeparam name="T">Type of the array element.</typeparam>
+		/// <param name="array">Source array to filter.</param>
+		/// <param name="predicate">Predicate function.</param>
+		/// <returns>New array with matched values.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static JsArray<T> arrayFilter<T>(JsArray<T> array, JsFunc<T, bool> predicate) { return null; }
+
+		/// <summary>
+		/// Pushes values from the <paramref name="valuesToPush"/> to the <paramref name="array"/>.
+		/// </summary>
+		/// <param name="array">Array to push in.</param>
+		/// <param name="valuesToPush">Array of elements to push.</param>
+		/// <returns>The source array with pushed values.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static JsArray arrayPushAll(JsArray array, JsArray valuesToPush) { return null; }
+		/// <summary>
+		/// Pushes values from the <paramref name="valuesToPush"/> to the <paramref name="array"/>.
+		/// </summary>
+		/// <typeparam name="T">Type of the array element.</typeparam>
+		/// <param name="array">Array to push in.</param>
+		/// <param name="valuesToPush">Array of elements to push.</param>
+		/// <returns>The source array with pushed values.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static JsArray<T> arrayPushAll<T>(JsArray<T> array, JsArray<T> valuesToPush) { return null; }
+
+		/// <summary>
+		/// Extends the <paramref name="target"/> object with properties from <paramref name="source"/> object.
+		/// </summary>
+		/// <typeparam name="TObject">Type of the target object.</typeparam>
+		/// <param name="target">Object to extend.</param>
+		/// <param name="source">Object to extend with.</param>
+		/// <returns>Extended target object.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static TObject extend<TObject>(TObject target, object source) { return default(TObject); }
+
+		/// <summary>
+		/// Parses the <paramref name="jsonString"/> string as JSON-encoded format.
+		/// </summary>
+		/// <param name="jsonString">Source string to parse.</param>
+		/// <returns>Parsed object.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static object parseJson(JsString jsonString) { return null; }
+		/// <summary>
+		/// Parses the <paramref name="jsonString"/> string as JSON-encoded format.
+		/// </summary>
+		/// <typeparam name="T">Type of result object.</typeparam>
+		/// <param name="jsonString">Source string to parse.</param>
+		/// <returns>Parsed object.</returns>
+		[JsMethod(IgnoreGenericArguments = true, NativeOverloads = true, NativeDelegates = true)]
+		public static T parseJson<T>(JsString jsonString) { return default(T); }
+
+		/// <summary>
+		/// Convert the <paramref name="data"/> object to JSON-encoded string.
+		/// </summary>
+		/// <param name="data">Object to encode.</param>
+		/// <returns>JSON-encoded string.</returns>
+		public static JsString stringifyJson(object data) { return null; }
+	}
 	/// <summary>
 	/// Provides functionality for mapping between knockout models and JSON or
 	/// vanilla script objects.
@@ -402,6 +597,9 @@ namespace SharpKit.KnockoutJs
 		}
 	}
 
+	/// <summary>
+	/// Marker interface for observables.
+	/// </summary>
 	[JsType(JsMode.Prototype, Export = false)]
 	public interface IObservable
 	{
@@ -414,6 +612,9 @@ namespace SharpKit.KnockoutJs
     [JsType(JsMode.Prototype, Export=false)]
 	public partial class Observable<T> : IObservable
 	{
+		/// <summary>
+		/// Protected constructor.
+		/// </summary>
 		protected Observable()
 		{
 		}
@@ -470,6 +671,9 @@ namespace SharpKit.KnockoutJs
     [JsType(JsMode.Prototype, Export=false)]
 	public partial class ObservableArray<T> : Observable<JsArray<T>>
 	{
+		/// <summary>
+		/// Protected constructor.
+		/// </summary>
 		protected ObservableArray()
 		{
 		}
