@@ -146,12 +146,6 @@ namespace SharpKit.JavaScript.Compilation
             return obj;
         }
 
-        private static object NewAtServer(JsType type, params object[] args)
-        {
-            throw new NotImplementedException();
-            //return RemotingServices.DefaultProxy.CreateInstance(type.assemblyName, type.get_FullName(), JsCompilerArguments.from(JsContext.arguments, 1).As<object[]>());
-        }
-
         private static object As(object obj, string typeOrName)
         {
             if (obj == null)

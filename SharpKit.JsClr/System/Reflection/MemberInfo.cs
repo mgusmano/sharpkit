@@ -85,13 +85,7 @@ namespace SharpKit.JavaScript.Private
 	[JsType(Name = "System.Reflection.MethodBase", Filename = "~/res/System.Reflection.js")]
 	internal abstract class JsImplMethodBase : JsImplMemberInfo
 	{
-
 		public abstract object Invoke(object obj, object[] parameters);
-
- 
-
- 
-
 	}
 
 

@@ -16,10 +16,12 @@ using System.Collections;
 
 
 [assembly: JsType(JsMode.Json, TargetTypeName = "System.Collections.Generic.Dictionary`2", Name = "Object", NativeEnumerator = true)]
-[assembly: JsMethod(TargetTypeName = "System.Collections.Generic.Dictionary`2", TargetMethod = "Remove", Name = "delete", OmitParanthesis=true, InstanceImplementedAsExtension=true, InsertArg0="[", InsertArg1="]", OmitCommas=true)]
+[assembly: JsProperty(TargetTypeName = "System.Collections.Generic.Dictionary`2", TargetProperty = "Item", NativeIndexer = true)]
+[assembly: JsMethod(TargetTypeName = "System.Collections.Generic.Dictionary`2", TargetMethod = "Remove", Name = "delete", OmitParanthesis = true, InstanceImplementedAsExtension = true, InsertArg0 = "[", InsertArg1 = "]", OmitCommas = true)]
 [assembly: JsProperty(TargetTypeName = "System.Collections.Generic.Dictionary`2", TargetProperty = "Keys", Name = "", NativeField = true)]
 
 [assembly: JsType(JsMode.Json, TargetTypeName = "System.Collections.Generic.Dictionary`2+KeyCollection", NativeEnumerator = true)]
+
 
 //[assembly: JsType(JsMode.Json, TargetTypeName = "System.Collections.Generic.KeyValuePair`2", NativeEnumerator = true)]
 //[assembly: JsProperty(TargetTypeName = "System.Collections.Generic.KeyValuePair`2", TargetProperty = "Key", Name="", NativeField=true)]

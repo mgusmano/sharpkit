@@ -29,6 +29,8 @@ namespace SharpKit.JavaScript.NoClr.Samples
         }
         static void btnTest_click(HtmlDomEventArgs e)
         {
+            var xxxx = @"hello
+world";
             new Contact().Call();
             var s = "asdsa";
             var xx = s[6];

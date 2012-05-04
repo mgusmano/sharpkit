@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 
 //Generated from ExtJs 4.0.2 help files
 [assembly: AssemblyVersion("4.0.2.0")]
-[assembly: AssemblyFileVersion("4.24.6000")]
+[assembly: AssemblyFileVersion("4.26.0000")]
 
 
 

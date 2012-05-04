@@ -71,9 +71,9 @@
     <Compile Include="DefaultClient.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\THREE\THREE.csproj">
+    <ProjectReference Include="..\Sharpkit.ThreeJS\THREE.csproj">
       <Project>{81629E38-8C0B-4EC1-8AAF-7B86F39D8A22}</Project>
-      <Name>ThreeJS</Name>
+      <Name>THREE</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -85,7 +85,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>47883</DevelopmentServerPort>
+          <DevelopmentServerPort>27167</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E85B2A11-D0D0-4879-92D6-3D6A12CFD14B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharpKit.Yui</RootNamespace>
+    <AssemblyName>SharpKit.Yui</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <TargetFrameworkVersion Condition="'$(Configuration)' == 'v3.5'">v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(Configuration)' == 'v4.0'">v4.0</TargetFrameworkVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SharpKit.JavaScript, Version=1.5.0.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assembly.cs" />
+    <Compile Include="SharpKit\Attributes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YUI_\Anim.cs" />
+    <Compile Include="YUI_\App.cs" />
+    <Compile Include="YUI_\App_\Base.cs" />
+    <Compile Include="YUI_\App_\Transitions.cs" />
+    <Compile Include="YUI_\App_\TransitionsNative.cs" />
+    <Compile Include="YUI_\AreaSeries.cs" />
+    <Compile Include="YUI_\AreaSplineSeries.cs" />
+    <Compile Include="YUI_\Array.cs" />
+    <Compile Include="YUI_\ArrayList.cs" />
+    <Compile Include="YUI_\ArraySort.cs" />
+    <Compile Include="YUI_\AsyncQueue.cs" />
+    <Compile Include="YUI_\Attribute.cs" />
+    <Compile Include="YUI_\AttributeCore.cs" />
+    <Compile Include="YUI_\AttributeEvents.cs" />
+    <Compile Include="YUI_\AttributeExtras.cs" />
+    <Compile Include="YUI_\AttributeLite.cs" />
+    <Compile Include="YUI_\AutoComplete.cs" />
+    <Compile Include="YUI_\AutoCompleteBase.cs" />
+    <Compile Include="YUI_\AutoCompleteFilters.cs" />
+    <Compile Include="YUI_\AutoCompleteHighlighters.cs" />
+    <Compile Include="YUI_\AutoCompleteList.cs" />
+    <Compile Include="YUI_\Axis.cs" />
+    <Compile Include="YUI_\AxisType.cs" />
+    <Compile Include="YUI_\BarSeries.cs" />
+    <Compile Include="YUI_\Base.cs" />
+    <Compile Include="YUI_\BaseCore.cs" />
+    <Compile Include="YUI_\BottomAxisLayout.cs" />
+    <Compile Include="YUI_\Button.cs" />
+    <Compile Include="YUI_\ButtonCore.cs" />
+    <Compile Include="YUI_\ButtonGroup.cs" />
+    <Compile Include="YUI_\ButtonPlugin.cs" />
+    <Compile Include="YUI_\Cache.cs" />
+    <Compile Include="YUI_\CacheOffline.cs" />
+    <Compile Include="YUI_\Calendar.cs" />
+    <Compile Include="YUI_\CalendarBase.cs" />
+    <Compile Include="YUI_\CanvasCircle.cs" />
+    <Compile Include="YUI_\CanvasDrawing.cs" />
+    <Compile Include="YUI_\CanvasEllipse.cs" />
+    <Compile Include="YUI_\CanvasGraphic.cs" />
+    <Compile Include="YUI_\CanvasPath.cs" />
+    <Compile Include="YUI_\CanvasPieSlice.cs" />
+    <Compile Include="YUI_\CanvasRect.cs" />
+    <Compile Include="YUI_\CanvasShape.cs" />
+    <Compile Include="YUI_\CartesianChart.cs" />
+    <Compile Include="YUI_\CartesianSeries.cs" />
+    <Compile Include="YUI_\CategoryAxis.cs" />
+    <Compile Include="YUI_\Chart.cs" />
+    <Compile Include="YUI_\ChartBase.cs" />
+    <Compile Include="YUI_\ChartLegend.cs" />
+    <Compile Include="YUI_\Circle.cs" />
+    <Compile Include="YUI_\ClassNameManager.cs" />
+    <Compile Include="YUI_\ClickableRail.cs" />
+    <Compile Include="YUI_\ColumnSeries.cs" />
+    <Compile Include="YUI_\ComboSeries.cs" />
+    <Compile Include="YUI_\ComboSplineSeries.cs" />
+    <Compile Include="YUI_\config.cs" />
+    <Compile Include="YUI_\Console.cs" />
+    <Compile Include="YUI_\Controller.cs" />
+    <Compile Include="YUI_\Cookie.cs" />
+    <Compile Include="YUI_\CurveUtil.cs" />
+    <Compile Include="YUI_\CustomEvent.cs" />
+    <Compile Include="YUI_\DataSchema_\Array.cs" />
+    <Compile Include="YUI_\DataSchema_\Base.cs" />
+    <Compile Include="YUI_\DataSchema_\JSON.cs" />
+    <Compile Include="YUI_\DataSchema_\Text.cs" />
+    <Compile Include="YUI_\DataSchema_\XML.cs" />
+    <Compile Include="YUI_\DataSourceArraySchema.cs" />
+    <Compile Include="YUI_\DataSourceCache.cs" />
+    <Compile Include="YUI_\DataSourceCacheExtension.cs" />
+    <Compile Include="YUI_\DataSourceJSONSchema.cs" />
+    <Compile Include="YUI_\DataSourceTextSchema.cs" />
+    <Compile Include="YUI_\DataSourceXMLSchema.cs" />
+    <Compile Include="YUI_\DataSource_\Function.cs" />
+    <Compile Include="YUI_\DataSource_\Get.cs" />
+    <Compile Include="YUI_\DataSource_\IO.cs" />
+    <Compile Include="YUI_\DataSource_\Local.cs" />
+    <Compile Include="YUI_\DataTable.cs" />
+    <Compile Include="YUI_\DataTable_\Base.cs" />
+    <Compile Include="YUI_\DataTable_\BodyView.cs" />
+    <Compile Include="YUI_\DataTable_\ColumnWidths.cs" />
+    <Compile Include="YUI_\DataTable_\Core.cs" />
+    <Compile Include="YUI_\DataTable_\HeaderView.cs" />
+    <Compile Include="YUI_\DataTable_\Message.cs" />
+    <Compile Include="YUI_\DataTable_\Mutable.cs" />
+    <Compile Include="YUI_\DataTable_\Scrollable.cs" />
+    <Compile Include="YUI_\DataTable_\Sortable.cs" />
+    <Compile Include="YUI_\DataType_\Date.cs" />
+    <Compile Include="YUI_\DataType_\Date_\Locale.cs" />
+    <Compile Include="YUI_\DataType_\Number.cs" />
+    <Compile Include="YUI_\DataType_\XML.cs" />
+    <Compile Include="YUI_\DD_\DDM.cs" />
+    <Compile Include="YUI_\DD_\Delegate.cs" />
+    <Compile Include="YUI_\DD_\Drag.cs" />
+    <Compile Include="YUI_\DD_\Drop.cs" />
+    <Compile Include="YUI_\DD_\Plugin_\DDWindowScroll.cs" />
+    <Compile Include="YUI_\DD_\Scroll.cs" />
+    <Compile Include="YUI_\Dial.cs" />
+    <Compile Include="YUI_\Do.cs" />
+    <Compile Include="YUI_\DOM.cs" />
+    <Compile Include="YUI_\DOMEventFacade.cs" />
+    <Compile Include="YUI_\Do_\AlterArgs.cs" />
+    <Compile Include="YUI_\Do_\AlterReturn.cs" />
+    <Compile Include="YUI_\Do_\Error.cs" />
+    <Compile Include="YUI_\Do_\Halt.cs" />
+    <Compile Include="YUI_\Do_\Method.cs" />
+    <Compile Include="YUI_\Do_\Prevent.cs" />
+    <Compile Include="YUI_\Drawing.cs" />
+    <Compile Include="YUI_\Easing.cs" />
+    <Compile Include="YUI_\EditorBase.cs" />
+    <Compile Include="YUI_\EditorSelection.cs" />
+    <Compile Include="YUI_\Ellipse.cs" />
+    <Compile Include="YUI_\EllipseGroup.cs" />
+    <Compile Include="YUI_\Escape.cs" />
+    <Compile Include="YUI_\Event.cs" />
+    <Compile Include="YUI_\EventFacade.cs" />
+    <Compile Include="YUI_\EventHandle.cs" />
+    <Compile Include="YUI_\EventTarget.cs" />
+    <Compile Include="YUI_\ExecCommand.cs" />
+    <Compile Include="YUI_\Features.cs" />
+    <Compile Include="YUI_\File.cs" />
+    <Compile Include="YUI_\FileFlash.cs" />
+    <Compile Include="YUI_\FileHTML5.cs" />
+    <Compile Include="YUI_\Fills.cs" />
+    <Compile Include="YUI_\Frame.cs" />
+    <Compile Include="YUI_\Get.cs" />
+    <Compile Include="YUI_\GetNodeJS.cs" />
+    <Compile Include="YUI_\Get_\Transaction.cs" />
+    <Compile Include="YUI_\Graph.cs" />
+    <Compile Include="YUI_\Graphic.cs" />
+    <Compile Include="YUI_\GraphicBase.cs" />
+    <Compile Include="YUI_\Gridlines.cs" />
+    <Compile Include="YUI_\GroupCircle.cs" />
+    <Compile Include="YUI_\GroupDiamond.cs" />
+    <Compile Include="YUI_\GroupRect.cs" />
+    <Compile Include="YUI_\Handlebars.cs" />
+    <Compile Include="YUI_\Highlight.cs" />
+    <Compile Include="YUI_\Histogram.cs" />
+    <Compile Include="YUI_\HistoryBase.cs" />
+    <Compile Include="YUI_\HistoryHash.cs" />
+    <Compile Include="YUI_\HistoryHTML5.cs" />
+    <Compile Include="YUI_\HorizontalLegendLayout.cs" />
+    <Compile Include="YUI_\ImgLoadGroup.cs" />
+    <Compile Include="YUI_\ImgLoadImgObj.cs" />
+    <Compile Include="YUI_\Intl.cs" />
+    <Compile Include="YUI_\IO.cs" />
+    <Compile Include="YUI_\json.cs" />
+    <Compile Include="YUI_\JSONPRequest.cs" />
+    <Compile Include="YUI_\Lang.cs" />
+    <Compile Include="YUI_\LeftAxisLayout.cs" />
+    <Compile Include="YUI_\Lines.cs" />
+    <Compile Include="YUI_\LineSeries.cs" />
+    <Compile Include="YUI_\Loader.cs" />
+    <Compile Include="YUI_\MarkerSeries.cs" />
+    <Compile Include="YUI_\Matrix.cs" />
+    <Compile Include="YUI_\Model.cs" />
+    <Compile Include="YUI_\ModelList.cs" />
+    <Compile Include="YUI_\Node.cs" />
+    <Compile Include="YUI_\NodeList.cs" />
+    <Compile Include="YUI_\NumericAxis.cs" />
+    <Compile Include="YUI_\Overlay.cs" />
+    <Compile Include="YUI_\Panel.cs" />
+    <Compile Include="YUI_\Parallel.cs" />
+    <Compile Include="YUI_\Path.cs" />
+    <Compile Include="YUI_\PieChart.cs" />
+    <Compile Include="YUI_\PieSeries.cs" />
+    <Compile Include="YUI_\Pjax.cs" />
+    <Compile Include="YUI_\PjaxBase.cs" />
+    <Compile Include="YUI_\Plots.cs" />
+    <Compile Include="YUI_\Plugin_\Align.cs" />
+    <Compile Include="YUI_\Plugin_\AutoComplete.cs" />
+    <Compile Include="YUI_\Plugin_\Base.cs" />
+    <Compile Include="YUI_\Plugin_\Cache.cs" />
+    <Compile Include="YUI_\Plugin_\CalendarNavigator.cs" />
+    <Compile Include="YUI_\Plugin_\ConsoleFilters.cs" />
+    <Compile Include="YUI_\Plugin_\CreateLinkBase.cs" />
+    <Compile Include="YUI_\Plugin_\DataTableDataSource.cs" />
+    <Compile Include="YUI_\Plugin_\DDConstrained.cs" />
+    <Compile Include="YUI_\Plugin_\DDNodeScroll.cs" />
+    <Compile Include="YUI_\Plugin_\DDProxy.cs" />
+    <Compile Include="YUI_\Plugin_\Drag.cs" />
+    <Compile Include="YUI_\Plugin_\Drop.cs" />
+    <Compile Include="YUI_\Plugin_\EditorBidi.cs" />
+    <Compile Include="YUI_\Plugin_\EditorBR.cs" />
+    <Compile Include="YUI_\Plugin_\EditorLists.cs" />
+    <Compile Include="YUI_\Plugin_\EditorPara.cs" />
+    <Compile Include="YUI_\Plugin_\EditorParaBase.cs" />
+    <Compile Include="YUI_\Plugin_\EditorParaIE.cs" />
+    <Compile Include="YUI_\Plugin_\EditorTab.cs" />
+    <Compile Include="YUI_\Plugin_\ExecCommand.cs" />
+    <Compile Include="YUI_\Plugin_\Flick.cs" />
+    <Compile Include="YUI_\Plugin_\Host.cs" />
+    <Compile Include="YUI_\Plugin_\NodeFocusManager.cs" />
+    <Compile Include="YUI_\Plugin_\NodeFX.cs" />
+    <Compile Include="YUI_\Plugin_\NodeMenuNav.cs" />
+    <Compile Include="YUI_\Plugin_\Pjax.cs" />
+    <Compile Include="YUI_\Plugin_\Resize.cs" />
+    <Compile Include="YUI_\Plugin_\ResizeConstrained.cs" />
+    <Compile Include="YUI_\Plugin_\ResizeProxy.cs" />
+    <Compile Include="YUI_\Plugin_\ScrollViewList.cs" />
+    <Compile Include="YUI_\Plugin_\ScrollViewPaginator.cs" />
+    <Compile Include="YUI_\Plugin_\ScrollViewScrollbars.cs" />
+    <Compile Include="YUI_\Plugin_\Shim.cs" />
+    <Compile Include="YUI_\Plugin_\SortScroll.cs" />
+    <Compile Include="YUI_\Plugin_\WidgetAnim.cs" />
+    <Compile Include="YUI_\Pollable.cs" />
+    <Compile Include="YUI_\Profiler.cs" />
+    <Compile Include="YUI_\QueryString.cs" />
+    <Compile Include="YUI_\Queue.cs" />
+    <Compile Include="YUI_\Record.cs" />
+    <Compile Include="YUI_\Recordset.cs" />
+    <Compile Include="YUI_\RecordsetFilter.cs" />
+    <Compile Include="YUI_\RecordsetIndexer.cs" />
+    <Compile Include="YUI_\RecordsetSort.cs" />
+    <Compile Include="YUI_\Rect.cs" />
+    <Compile Include="YUI_\Renderer.cs" />
+    <Compile Include="YUI_\Resize.cs" />
+    <Compile Include="YUI_\RightAxisLayout.cs" />
+    <Compile Include="YUI_\Router.cs" />
+    <Compile Include="YUI_\ScrollView.cs" />
+    <Compile Include="YUI_\Selector.cs" />
+    <Compile Include="YUI_\Shape.cs" />
+    <Compile Include="YUI_\ShapeGroup.cs" />
+    <Compile Include="YUI_\Slider.cs" />
+    <Compile Include="YUI_\SliderBase.cs" />
+    <Compile Include="YUI_\SliderValueRange.cs" />
+    <Compile Include="YUI_\Sortable.cs" />
+    <Compile Include="YUI_\SplineSeries.cs" />
+    <Compile Include="YUI_\StackedAreaSeries.cs" />
+    <Compile Include="YUI_\StackedAreaSplineSeries.cs" />
+    <Compile Include="YUI_\StackedAxis.cs" />
+    <Compile Include="YUI_\StackedBarSeries.cs" />
+    <Compile Include="YUI_\StackedColumnSeries.cs" />
+    <Compile Include="YUI_\StackedComboSeries.cs" />
+    <Compile Include="YUI_\StackedComboSplineSeries.cs" />
+    <Compile Include="YUI_\StackedLineSeries.cs" />
+    <Compile Include="YUI_\StackedMarkerSeries.cs" />
+    <Compile Include="YUI_\StackedSplineSeries.cs" />
+    <Compile Include="YUI_\StackingUtil.cs" />
+    <Compile Include="YUI_\State.cs" />
+    <Compile Include="YUI_\StyleSheet.cs" />
+    <Compile Include="YUI_\Subscriber.cs" />
+    <Compile Include="YUI_\SVGCircle.cs" />
+    <Compile Include="YUI_\SVGDrawing.cs" />
+    <Compile Include="YUI_\SVGEllipse.cs" />
+    <Compile Include="YUI_\SVGGraphic.cs" />
+    <Compile Include="YUI_\SVGPath.cs" />
+    <Compile Include="YUI_\SVGPieSlice.cs" />
+    <Compile Include="YUI_\SVGRect.cs" />
+    <Compile Include="YUI_\SVGShape.cs" />
+    <Compile Include="YUI_\SWF.cs" />
+    <Compile Include="YUI_\SWFDetect.cs" />
+    <Compile Include="YUI_\SyntheticEvent.cs" />
+    <Compile Include="YUI_\SyntheticEvent_\Notifier.cs" />
+    <Compile Include="YUI_\SynthRegistry.cs" />
+    <Compile Include="YUI_\Tab.cs" />
+    <Compile Include="YUI_\TabView.cs" />
+    <Compile Include="YUI_\Test.cs" />
+    <Compile Include="YUI_\Test_\ArrayAssert.cs" />
+    <Compile Include="YUI_\Test_\Assert.cs" />
+    <Compile Include="YUI_\Test_\AssertionError.cs" />
+    <Compile Include="YUI_\Test_\ComparisonFailure.cs" />
+    <Compile Include="YUI_\Test_\Console.cs" />
+    <Compile Include="YUI_\Test_\CoverageFormat_\CoverageFormat.cs" />
+    <Compile Include="YUI_\Test_\DateAssert.cs" />
+    <Compile Include="YUI_\Test_\EventTarget.cs" />
+    <Compile Include="YUI_\Test_\Mock_\Mock.cs" />
+    <Compile Include="YUI_\Test_\Mock_\Value.cs" />
+    <Compile Include="YUI_\Test_\ObjectAssert.cs" />
+    <Compile Include="YUI_\Test_\Reporter.cs" />
+    <Compile Include="YUI_\Test_\Results.cs" />
+    <Compile Include="YUI_\Test_\Runner.cs" />
+    <Compile Include="YUI_\Test_\ShouldError.cs" />
+    <Compile Include="YUI_\Test_\ShouldFail.cs" />
+    <Compile Include="YUI_\Test_\TestCase.cs" />
+    <Compile Include="YUI_\Test_\TestFormat.cs" />
+    <Compile Include="YUI_\Test_\TestNode.cs" />
+    <Compile Include="YUI_\Test_\TestRunner.cs" />
+    <Compile Include="YUI_\Test_\TestSuite.cs" />
+    <Compile Include="YUI_\Test_\UnexpectedError.cs" />
+    <Compile Include="YUI_\Test_\UnexpectedValue.cs" />
+    <Compile Include="YUI_\Test_\Wait.cs" />
+    <Compile Include="YUI_\Text_\AccentFold.cs" />
+    <Compile Include="YUI_\Text_\WordBreak.cs" />
+    <Compile Include="YUI_\TimeAxis.cs" />
+    <Compile Include="YUI_\ToggleButton.cs" />
+    <Compile Include="YUI_\TopAxisLayout.cs" />
+    <Compile Include="YUI_\Transition.cs" />
+    <Compile Include="YUI_\UA.cs" />
+    <Compile Include="YUI_\Uploader.cs" />
+    <Compile Include="YUI_\UploaderFlash.cs" />
+    <Compile Include="YUI_\UploaderHTML5.cs" />
+    <Compile Include="YUI_\Uploader_\Queue.cs" />
+    <Compile Include="YUI_\ValueChange.cs" />
+    <Compile Include="YUI_\VerticalLegendLayout.cs" />
+    <Compile Include="YUI_\View.cs" />
+    <Compile Include="YUI_\View_\NodeMap.cs" />
+    <Compile Include="YUI_\VMLCircle.cs" />
+    <Compile Include="YUI_\VMLDrawing.cs" />
+    <Compile Include="YUI_\VMLEllipse.cs" />
+    <Compile Include="YUI_\VMLGraphic.cs" />
+    <Compile Include="YUI_\VMLPath.cs" />
+    <Compile Include="YUI_\VMLPieSlice.cs" />
+    <Compile Include="YUI_\VMLRect.cs" />
+    <Compile Include="YUI_\VMLShape.cs" />
+    <Compile Include="YUI_\Widget.cs" />
+    <Compile Include="YUI_\WidgetAutohide.cs" />
+    <Compile Include="YUI_\WidgetButtons.cs" />
+    <Compile Include="YUI_\WidgetChild.cs" />
+    <Compile Include="YUI_\WidgetModality.cs" />
+    <Compile Include="YUI_\WidgetParent.cs" />
+    <Compile Include="YUI_\WidgetPosition.cs" />
+    <Compile Include="YUI_\WidgetPositionAlign.cs" />
+    <Compile Include="YUI_\WidgetPositionConstrain.cs" />
+    <Compile Include="YUI_\WidgetStack.cs" />
+    <Compile Include="YUI_\WidgetStdMod.cs" />
+    <Compile Include="YUI_\YQL.cs" />
+    <Compile Include="YUI_\YQLRequest.cs" />
+    <Compile Include="YUI_\YUI.cs" />
+    <Compile Include="YUI_\YuiObject.cs" />
+    <Compile Include="YUI_\YUI_substitute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SharpKit.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
