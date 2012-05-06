@@ -26,8 +26,10 @@
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="rx.aggregates.cs" />
+    <Compile Include="rx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SharpKit.RxJS.cs" />
+    <Compile Include="rx.time.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpKit.Html4\SharpKit.Html4.csproj">
