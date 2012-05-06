@@ -270,6 +270,19 @@ namespace SharpKit.JavaScript
         /// </summary>
         public string CodeInjectionFilename { get; set; }
 
+        /// <summary>
+        /// Instructs SharpKit to use '===' and '!==' (exact equals/not equals) instead of '==' / '!=' when checking equality between objects.
+        /// Custom exact equality can be achieved by using the extension method JsContext.ExactEquals
+        /// <example>
+        /// <code>
+        /// var x = "true";
+        /// var y = true;
+        /// var b = x.ExactEquals(y);
+        /// </code>
+        /// </example>
+        /// </summary>
+        public bool UseExactEquals { get; set; }
+
     }
     #endregion
     #region JsMergedFileAttribute
