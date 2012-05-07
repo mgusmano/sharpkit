@@ -293,7 +293,7 @@ namespace SharpKit.Rx
 		/// <param name="action">Function to run asynchronously.</param>
 		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
 		/// <return>Function returning an observable sequence that will produce the result of calling the original function, or an error object if an error occurred.</return>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+		[JsMethod(NativeOverloads = true)]
 		public static JsFunc<IObservable<Unit>> toAsync(JsAction action, IScheduler scheduler = null) { return null; }
 
 		/// <summary>
@@ -302,7 +302,7 @@ namespace SharpKit.Rx
 		/// <param name="action">Function to run asynchronously.</param>
 		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
 		/// <return>Function returning an observable sequence that will produce the result of calling the original function, or an error object if an error occurred.</return>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+		[JsMethod(NativeOverloads = true)]
 		public static JsFunc<T1, IObservable<Unit>> toAsync<T1>(JsAction<T1> action, IScheduler scheduler = null) { return null; }
 
 		/// <summary>
@@ -311,7 +311,7 @@ namespace SharpKit.Rx
 		/// <param name="action">Function to run asynchronously.</param>
 		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
 		/// <return>Function returning an observable sequence that will produce the result of calling the original function, or an error object if an error occurred.</return>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+		[JsMethod(NativeOverloads = true)]
 		public static JsFunc<T1, T2, IObservable<Unit>> toAsync<T1, T2>(JsAction<T1, T2> action, IScheduler scheduler = null) { return null; }
 
 		/// <summary>
@@ -320,7 +320,7 @@ namespace SharpKit.Rx
 		/// <param name="action">Function to run asynchronously.</param>
 		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
 		/// <return>Function returning an observable sequence that will produce the result of calling the original function, or an error object if an error occurred.</return>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+		[JsMethod(NativeOverloads = true)]
 		public static JsFunc<T1, T2, T3, IObservable<Unit>> toAsync<T1, T2, T3>(JsAction<T1, T2, T3> action, IScheduler scheduler = null) { return null; }
 
 		/// <summary>
@@ -329,7 +329,7 @@ namespace SharpKit.Rx
 		/// <param name="action">Function to run asynchronously.</param>
 		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
 		/// <return>Function returning an observable sequence that will produce the result of calling the original function, or an error object if an error occurred.</return>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+		[JsMethod(NativeOverloads = true)]
 		public static JsFunc<T1, T2, T3, T4, IObservable<Unit>> toAsync<T1, T2, T3, T4>(JsAction<T1, T2, T3, T4> action, IScheduler scheduler = null) { return null; }
 
 		/// <summary>
@@ -338,7 +338,7 @@ namespace SharpKit.Rx
 		/// <param name="action">Function to run asynchronously.</param>
 		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
 		/// <return>Function returning an observable sequence that will produce the result of calling the original function, or an error object if an error occurred.</return>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+		[JsMethod(NativeOverloads = true)]
 		public static JsFunc<IObservable<TResult>> toAsync<TResult>(JsFunc<TResult> action, IScheduler scheduler = null) { return null; }
 
 		/// <summary>
@@ -347,7 +347,7 @@ namespace SharpKit.Rx
 		/// <param name="action">Function to run asynchronously.</param>
 		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
 		/// <return>Function returning an observable sequence that will produce the result of calling the original function, or an error object if an error occurred.</return>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+		[JsMethod(NativeOverloads = true)]
 		public static JsFunc<T1, IObservable<TResult>> toAsync<T1, TResult>(JsFunc<T1, TResult> action, IScheduler scheduler = null) { return null; }
 
 		/// <summary>
@@ -356,7 +356,7 @@ namespace SharpKit.Rx
 		/// <param name="action">Function to run asynchronously.</param>
 		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
 		/// <return>Function returning an observable sequence that will produce the result of calling the original function, or an error object if an error occurred.</return>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+		[JsMethod(NativeOverloads = true)]
 		public static JsFunc<T1, T2, IObservable<TResult>> toAsync<T1, T2, TResult>(JsFunc<T1, T2, TResult> action, IScheduler scheduler = null) { return null; }
 
 		/// <summary>
@@ -365,7 +365,7 @@ namespace SharpKit.Rx
 		/// <param name="action">Function to run asynchronously.</param>
 		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
 		/// <return>Function returning an observable sequence that will produce the result of calling the original function, or an error object if an error occurred.</return>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+		[JsMethod(NativeOverloads = true)]
 		public static JsFunc<T1, T2, T3, IObservable<TResult>> toAsync<T1, T2, T3, TResult>(JsFunc<T1, T2, T3, TResult> action, IScheduler scheduler = null) { return null; }
 
 		/// <summary>
@@ -374,7 +374,7 @@ namespace SharpKit.Rx
 		/// <param name="action">Function to run asynchronously.</param>
 		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
 		/// <return>Function returning an observable sequence that will produce the result of calling the original function, or an error object if an error occurred.</return>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+		[JsMethod(NativeOverloads = true)]
 		public static JsFunc<T1, T2, T3, T4, IObservable<TResult>> toAsync<T1, T2, T3, T4, TResult>(JsFunc<T1, T2, T3, T4, TResult> action, IScheduler scheduler = null) { return null; }
 
 		#endregion
@@ -1134,7 +1134,7 @@ namespace SharpKit.Rx
 		/// <param name="source">An observable sequence whose identity to hide.</param>
 		/// <returns>An observable sequence that hides the identity of the source sequence.</returns>
 		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-		public static IObservable<TSource> AsObservable<TSource>(this IObservable<TSource> source) { return null; }
+		public static IObservable<TSource> asObservable<TSource>(this IObservable<TSource> source) { return null; }
 
 		/// <summary>
 		/// Projects each element of an observable sequence into zero or more windows which are produced based on element count information.
@@ -1697,7 +1697,7 @@ namespace SharpKit.Rx
 		/// <typeparam name="TSource">The type of source.</typeparam>
 		/// <param name="sources">Observable sources competing to react first.</param>
 		/// <returns>An observable sequence that surfaces any of the given sequences, whichever reacted first.</returns>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true, NativeParams = true)]
+		[JsMethod(NativeOverloads = true, NativeParams = true)]
 		public static IObservable<TSource> amb<TSource>(params IObservable<TSource>[] sources) { return null; }
 
 		/// <summary>
@@ -2422,7 +2422,7 @@ namespace SharpKit.Rx
 		/// <param name="observer">The observer used to publish messages to the subject.</param>
 		/// <param name="observable">The observable used to subscribe to messages sent from the subject.</param>
 		/// <returns>Subject implemented using the given observer and observable.</returns>
-		public static ISubject<TSource, TResult> Create<TSource, TResult>(IObserver<TSource> observer, IObservable<TResult> observable) { return null; }
+		public static ISubject<TSource, TResult> create<TSource, TResult>(IObserver<TSource> observer, IObservable<TResult> observable) { return null; }
 	}
 
 	/// <summary>

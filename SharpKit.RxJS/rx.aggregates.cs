@@ -94,6 +94,7 @@ namespace SharpKit.Rx
 		/// </summary>
 		/// <param name="source">Source sequence to sum.</param>
 		/// <returns>An observable sequence containing a single element with the sum of the values in the sequence.</returns>
+		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
 		public static IObservable<JsNumber> sum(this IObservable<JsNumber> source) { return null; }
 
 		/// <summary>
@@ -101,6 +102,7 @@ namespace SharpKit.Rx
 		/// </summary>
 		/// <param name="source">Source sequence to sum.</param>
 		/// <returns>An observable sequence containing a single element with the sum of the values in the sequence.</returns>
+		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
 		public static IObservable<int> sum(this IObservable<int> source) { return null; }
 
 		/// <summary>
@@ -108,6 +110,7 @@ namespace SharpKit.Rx
 		/// </summary>
 		/// <param name="source">Source sequence to sum.</param>
 		/// <returns>An observable sequence containing a single element with the sum of the values in the sequence.</returns>
+		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
 		public static IObservable<long> sum(this IObservable<long> source) { return null; }
 
 		/// <summary>
@@ -115,6 +118,7 @@ namespace SharpKit.Rx
 		/// </summary>
 		/// <param name="source">Source sequence to sum.</param>
 		/// <returns>An observable sequence containing a single element with the sum of the values in the sequence.</returns>
+		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
 		public static IObservable<decimal> sum(this IObservable<decimal> source) { return null; }
 
 		/// <summary>
@@ -122,6 +126,7 @@ namespace SharpKit.Rx
 		/// </summary>
 		/// <param name="source">Source sequence to sum.</param>
 		/// <returns>An observable sequence containing a single element with the sum of the values in the sequence.</returns>
+		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
 		public static IObservable<float> sum(this IObservable<float> source) { return null; }
 
 		/// <summary>
@@ -129,6 +134,7 @@ namespace SharpKit.Rx
 		/// </summary>
 		/// <param name="source">Source sequence to sum.</param>
 		/// <returns>An observable sequence containing a single element with the sum of the values in the sequence.</returns>
+		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
 		public static IObservable<double> sum(this IObservable<double> source) { return null; }
 
 		#endregion

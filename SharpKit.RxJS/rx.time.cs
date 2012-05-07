@@ -285,7 +285,7 @@ namespace SharpKit.Rx
 		/// <param name="timeSelector">Time selector function to control the speed of values being produced each iteration, returning Date values.</param>
 		/// <param name="scheduler">Scheduler on which to run the generator loop. If not specified, the timeout scheduler is used.</param>
 		/// <returns>The generated sequence.</returns>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+		[JsMethod(NativeOverloads = true)]
 		public static IObservable<TResult> generateWithAbsoluteTime<TState, TResult>(TState initialState, JsFunc<TState, bool> condition,
 			JsFunc<TState, TState> iterate, JsFunc<TState, TResult> resultSelector, JsFunc<TState, JsDate> timeSelector, IScheduler scheduler = null) { return null; }
 
@@ -301,7 +301,7 @@ namespace SharpKit.Rx
 		/// <param name="timeSelector">Time selector function to control the speed of values being produced each iteration, returning integer values denoting milliseconds.</param>
 		/// <param name="scheduler">Scheduler on which to run the generator loop. If not specified, the timeout scheduler is used.</param>
 		/// <returns>The generated sequence.</returns>
-		[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+		[JsMethod(NativeOverloads = true)]
 		public static IObservable<TResult> generateWithRelativeTime<TState, TResult>(TState initialState, JsFunc<TState, bool> condition,
 			JsFunc<TState, TState> iterate, JsFunc<TState, TResult> resultSelector, JsFunc<TState, long> timeSelector, IScheduler scheduler = null) { return null; }
 
