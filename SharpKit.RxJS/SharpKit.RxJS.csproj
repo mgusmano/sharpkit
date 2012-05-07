@@ -27,6 +27,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="rx.aggregates.cs" />
+    <Compile Include="rx.coincidence.cs" />
     <Compile Include="rx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rx.time.cs" />
