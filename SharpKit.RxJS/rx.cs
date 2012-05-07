@@ -283,7 +283,69 @@ namespace SharpKit.Rx
 		[JsMethod(ExtensionImplementedInInstance = true)]
 		public static IObservable<TSource> refCount<TSource>(this IConnectableObservable<TSource> source) { return null; }
 
-		// todo: start
+		#region start
+
+		/// <summary>
+		/// Invokes a function on the given instance and with the given arguments on the specified scheduler, producing the result through an observable sequence.
+		/// </summary>
+		/// <param name="action">Function to run asynchronously.</param>
+		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
+		/// <return type="Observable">Observable sequence that will produce the result of calling the function, or an error object if an error occurred.</return>
+		[JsMethod(NativeOverloads = true, InsertArg1 = "undefined", InsertArg2 = "undefined")]
+		public static IObservable<Unit> start(JsAction action, IScheduler scheduler = null) { return null; }
+
+		/// <summary>
+		/// Invokes a function on the given instance and with the given arguments on the specified scheduler, producing the result through an observable sequence.
+		/// </summary>
+		/// <param name="action">Function to run asynchronously.</param>
+		/// <param name="instance">Object instance to invoke the function on.</param>
+		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
+		/// <return type="Observable">Observable sequence that will produce the result of calling the function, or an error object if an error occurred.</return>
+		[JsMethod(NativeOverloads = true, InsertArg2 = "undefined")]
+		public static IObservable<Unit> start(JsAction action, object instance, IScheduler scheduler = null) { return null; }
+
+		/// <summary>
+		/// Invokes a function on the given instance and with the given arguments on the specified scheduler, producing the result through an observable sequence.
+		/// </summary>
+		/// <param name="action">Function to run asynchronously.</param>
+		/// <param name="instance">Object instance to invoke the function on.</param>
+		/// <param name="arguments">Arguments to pass to the function.</param>
+		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
+		/// <return type="Observable">Observable sequence that will produce the result of calling the function, or an error object if an error occurred.</return>
+		[JsMethod(NativeOverloads = true)]
+		public static IObservable<Unit> start(JsAction action, object instance, JsArray arguments, IScheduler scheduler = null) { return null; }
+
+		/// <summary>
+		/// Invokes a function on the given instance and with the given arguments on the specified scheduler, producing the result through an observable sequence.
+		/// </summary>
+		/// <param name="func">Function to run asynchronously.</param>
+		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
+		/// <return type="Observable">Observable sequence that will produce the result of calling the function, or an error object if an error occurred.</return>
+		[JsMethod(NativeOverloads = true, InsertArg1 = "undefined", InsertArg2 = "undefined")]
+		public static IObservable<TResult> start<TResult>(JsFunc<TResult> func, IScheduler scheduler = null) { return null; }
+
+		/// <summary>
+		/// Invokes a function on the given instance and with the given arguments on the specified scheduler, producing the result through an observable sequence.
+		/// </summary>
+		/// <param name="func">Function to run asynchronously.</param>
+		/// <param name="instance">Object instance to invoke the function on.</param>
+		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
+		/// <return type="Observable">Observable sequence that will produce the result of calling the function, or an error object if an error occurred.</return>
+		[JsMethod(NativeOverloads = true, InsertArg2 = "undefined")]
+		public static IObservable<TResult> start<TResult>(JsFunc<TResult> func, object instance, IScheduler scheduler = null) { return null; }
+
+		/// <summary>
+		/// Invokes a function on the given instance and with the given arguments on the specified scheduler, producing the result through an observable sequence.
+		/// </summary>
+		/// <param name="func">Function to run asynchronously.</param>
+		/// <param name="instance">Object instance to invoke the function on.</param>
+		/// <param name="arguments">Arguments to pass to the function.</param>
+		/// <param name="scheduler">Scheduler to run the function on. If not specified, the timeout scheduler is used.</param>
+		/// <return type="Observable">Observable sequence that will produce the result of calling the function, or an error object if an error occurred.</return>
+		[JsMethod(NativeOverloads = true)]
+		public static IObservable<TResult> start<TResult>(JsFunc<TResult> func, object instance, JsArray arguments, IScheduler scheduler = null) { return null; }
+
+		#endregion
 
 		#region toAsync
 
