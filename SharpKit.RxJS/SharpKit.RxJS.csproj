@@ -30,6 +30,7 @@
     <Compile Include="rx.coincidence.cs" />
     <Compile Include="rx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rx.experimental.cs" />
     <Compile Include="rx.joinpatterns.cs" />
     <Compile Include="rx.time.cs" />
   </ItemGroup>
