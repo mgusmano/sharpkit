@@ -17,11 +17,5 @@ namespace Y_
     }
     partial class YUI : YUIContext
     {
-        public YUI use(object modules, JsAction<YUI> callback) { return null; }
-
-        public void use(string[] p, JsAction<YUI> jsAction)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
