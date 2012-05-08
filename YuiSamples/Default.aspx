@@ -9,5 +9,6 @@
 </head>
 <body>
 <button id="close-button">asd</button>
+<div id="editor"></div>
 </body>
 </html>

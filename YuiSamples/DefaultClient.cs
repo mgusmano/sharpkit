@@ -1,7 +1,6 @@
 ﻿using SharpKit.JavaScript;
 using SharpKit.Html4;
-using YUI_.Plugin_;
-using YUI_;
+using Y_;
 
 namespace YuiSamples
 {
@@ -10,10 +9,16 @@ namespace YuiSamples
     {
         static DefaultClient()
         {
-            new YUI().use(new []{"node", "event"}, y=>
-            {
-                y.one("#close-button").on("click", () => alert("Hello"));
-            });
+            YUI.Current = new YUI();
+
+            YUI.Current.use(new[] { "editor", "node", "event" }, OnLoad);
+
+        }
+        static void OnLoad()
+        {
+            var x = new EditorBase { content = "asdfadsf" };
+            x.render("#editor");
+            YUI.Current.one("#close-button").on("click", () => alert("Hello"));
         }
     }
 }
