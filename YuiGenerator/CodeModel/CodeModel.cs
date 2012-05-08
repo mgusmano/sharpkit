@@ -212,7 +212,11 @@ namespace SharpKit.ExtJs4.Generator
 
         public static bool HasEmptyConstructor(this Class ce)
         {
-            return ce.Members.OfType<Method>().Where(t => t.IsConstructor && t.Parameters.Count == 0).FirstOrDefault() != null;
+            return ce.GetEmptyConstructor()!=null;
+        }
+        public static Method GetEmptyConstructor(this Class ce)
+        {
+            return ce.Members.OfType<Method>().Where(t => t.IsConstructor && t.Parameters.Count == 0 && !t.IsStatic).FirstOrDefault();
         }
         public static bool HasAnyConstructor(this Class ce)
         {

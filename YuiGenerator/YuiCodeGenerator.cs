@@ -101,6 +101,9 @@ namespace YuiGenerator
                 return;
             }
             var className = node.Get<string>("class");
+            if (name == "content" && className.Contains("EditorBase"))
+            {
+            }
             var type = node.Get<string>("type");
             var ce = FindClass(className);
             if (ce == null)
@@ -114,8 +117,9 @@ namespace YuiGenerator
                 var isReadOnly = node.Get<string>("readonly") != null;
                 if (type.IsNullOrEmpty())
                 {
-                    Console.WriteLine("Warning: type is null: " + className + "." + name);
-                    return;
+                    type = "object";
+                    Console.WriteLine("Warning: type is null: " + className + "." + name + " assuming object");
+                    //return;
                 }
                 var pe = new Property
                 {
@@ -135,6 +139,29 @@ namespace YuiGenerator
                 }
 
                 ce.Members.Add(pe);
+                if (itemType == "attribute")
+                {
+                    var ctor = ce.GetEmptyConstructor();
+                    if (ctor == null)
+                    {
+                        ctor = new Method
+                        {
+                            IsConstructor = true,
+                            Name=".ctor",
+                        };
+                        ce.Members.Add(ctor);
+                    }
+                    var att = ctor.Attributes.Where(t => t.Name == "JsMethod").FirstOrDefault();
+                    if (att == null)
+                    {
+                        att = new SharpKit.ExtJs4.Generator.Attribute
+                        {
+                            Name = "JsMethod",
+                            NamedParamters = new Dictionary<string, string> { { "JsonInitializers", "true" } },
+                        };
+                        ctor.Attributes.Add(att);
+                    }
+                }
                 me2 = pe;
             }
             else if (itemType == "method")
@@ -245,6 +272,12 @@ namespace YuiGenerator
 
             Assembly.Classes.ForEach(t => t.Members.ForEach(m => m.DeclaringClass = t));
 
+            Assembly.GetClass("YUI").Attributes.Add(new SharpKit.ExtJs4.Generator.Attribute
+            {
+                Name="JsType", 
+                Parameters = new List<string>{"JsMode.Prototype"},
+                NamedParamters=new Dictionary<string,string>{{"Name", "\"YUI\""}},
+            });
             var ceYuiObj = Assembly.GetClass("Object");
             ceYuiObj.Name = "YuiObject";
             ReplaceType(ceYuiObj, ObjectClass);
@@ -252,11 +285,11 @@ namespace YuiGenerator
             var dicNs = new Dictionary<string, string>();
             foreach (var ce in Assembly.Classes)
             {
-                var ns = ce.Namespace;
                 if (ce.Namespace.IsNullOrEmpty())
-                    ce.Namespace = "YUI";
+                    ce.Namespace = "Y";
                 else
-                    ce.Namespace = "YUI." + ce.Namespace;
+                    ce.Namespace = "Y." + ce.Namespace;
+                var ns = ce.Namespace;
 
                 ce.Namespace = ce.Namespace.Split('.').Select(t => t + "_").StringConcat(".");
                 dicNs[ce.Namespace] = ns;
@@ -303,7 +336,7 @@ namespace YuiGenerator
                     NamedParamters = new Dictionary<string, string> { { "Namespace", StringLiteral(ns.Key) }, { "JsNamespace", StringLiteral(ns.Value ?? "") } }
                 });
             }
-            Assembly.Classes = Assembly.Classes.OrderBy(t=>t.Name).ToList();
+            Assembly.Classes = Assembly.Classes.OrderBy(t => t.Name).ToList();
             foreach (var ce in Assembly.AllClasses)
             {
                 ce.Members = ce.Members.OrderBy(t => t.GetType().Name).ThenBy(t => t.UniqueName).ToList();
@@ -318,7 +351,7 @@ namespace YuiGenerator
         public void Save(string outDir)
         {
             //var writer = new StringWriter();
-            new CodeModelExporter { Assembly = Assembly, OutputDir=outDir}.Export();
+            new CodeModelExporter { Assembly = Assembly, OutputDir = outDir }.Export();
             //File.WriteAllText(outFilename, writer.GetStringBuilder().ToString());
 
         }
