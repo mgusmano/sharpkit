@@ -408,6 +408,12 @@ namespace SharpKit.JavaScript
         public object InsertArg1 { get; set; }
         public object InsertArg2 { get; set; }
         public bool OmitCommas { get; set; }
+        /// <summary>
+        /// Sends initializers to constructor as a parameter:
+        /// Collection initializers as Json arrays
+        /// Object initializers as a Json object
+        /// </summary>
+        public bool JsonInitializers { get; set; }
     }
     #endregion
     #region JsPropertyAttribute
@@ -739,7 +745,7 @@ namespace SharpKit.JavaScript
         public static implicit operator JsArray(JsArray<T> x) { return null; }
         public static implicit operator T[](JsArray<T> x) { return default(T[]); }
         public static implicit operator JsArray<T>(T[] array) { return default(JsArray<T>); }
-        [JsMethod(IgnoreGenericArguments = true)]
+        //[JsMethod(IgnoreGenericArguments = true, JsonInitializers=true, OmitNewOperator=true, OmitParanthesis=true, Name="")]
         public JsArray() { }
         //[JsMethod(IgnoreGenericArguments = true)]
         //public JsArray(JsArray<T> array) { }
@@ -1190,6 +1196,7 @@ namespace SharpKit.JavaScript
         /// <returns></returns>
         [JsMethod(OmitParanthesis = true, Name = "")]
         public static object JsCode(JsCode code) { return null; }
+
     }
     #endregion
     #region JsContextBase
@@ -2845,6 +2852,17 @@ namespace SharpKit.JavaScript
         /// <param name="rgExp">Required. A string literal containing the regular expression pattern and flags. </param>
         /// <returns></returns>
         public JsRegExpResult match(JsString rgExp) { return null; }
+
+        /// <summary>
+        /// Returns a section of a string.
+        /// </summary>
+        /// <returns></returns>
+        public JsString slice(int start, int end) { return null; }
+        /// <summary>
+        /// Returns a section of a string.
+        /// </summary>
+        /// <returns></returns>
+        public JsString slice(int start) { return null; }
     }
     /// <summary>
     /// A special class, when used as a method parameter, can be assigned as string, and generates the native js code inside the string
