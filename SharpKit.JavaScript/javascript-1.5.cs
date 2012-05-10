@@ -412,6 +412,7 @@ namespace SharpKit.JavaScript
         /// Sends initializers to constructor as a parameter:
         /// Collection initializers as Json arrays
         /// Object initializers as a Json object
+        /// Important note: a new json / array object will ALWAYS be passed to the constructor, even if no object initializers are passed.
         /// </summary>
         public bool JsonInitializers { get; set; }
     }
@@ -601,6 +602,7 @@ namespace SharpKit.JavaScript
     [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator = true)]
     public partial class JsArray : IJsArrayEnumerable<object>
     {
+        [JsMethod(JsonInitializers = true, OmitNewOperator = true, OmitParanthesis = true, Name = "")]
         public JsArray() { }
         //public JsArray(JsArray array) { }
         public JsArray(JsNumber size) { }
@@ -745,7 +747,7 @@ namespace SharpKit.JavaScript
         public static implicit operator JsArray(JsArray<T> x) { return null; }
         public static implicit operator T[](JsArray<T> x) { return default(T[]); }
         public static implicit operator JsArray<T>(T[] array) { return default(JsArray<T>); }
-        //[JsMethod(IgnoreGenericArguments = true, JsonInitializers=true, OmitNewOperator=true, OmitParanthesis=true, Name="")]
+        [JsMethod(IgnoreGenericArguments = true, JsonInitializers=true, OmitNewOperator=true, OmitParanthesis=true, Name="")]
         public JsArray() { }
         //[JsMethod(IgnoreGenericArguments = true)]
         //public JsArray(JsArray<T> array) { }
