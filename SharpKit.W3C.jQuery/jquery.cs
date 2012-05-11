@@ -72,7 +72,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Creates a jQuery element by tagName
 		/// </summary>
-		[JsMethod(Name = "$", Global=true, ArgumentsPrefix = "document.createElement(", ArgumentsSuffix = ")")]
+		[JsMethod(Name = "$", Global = true, ArgumentsPrefix = "document.createElement(", ArgumentsSuffix = ")")]
 		public static jQuery createElement(string tagName) { return null; }
 
 		/// <summary>
