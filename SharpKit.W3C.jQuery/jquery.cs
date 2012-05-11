@@ -157,10 +157,6 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
 		/// </summary>
-		public jQuery append(JsAction<JsNumber, HtmlElement> function) { return null; }
-		/// <summary>
-		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
-		/// </summary>
 		public jQuery append(JsString content) { return null; }
 		/// <summary>
 		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
@@ -170,6 +166,22 @@ namespace SharpKit.jQuery
 		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
 		/// </summary>
 		public jQuery append(jQuery content) { return null; }
+		/// <summary>
+		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
+		/// </summary>
+		public jQuery append(object content) { return null; }
+		/// <summary>
+		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
+		/// </summary>
+		public jQuery append(JsAction<JsNumber, HtmlElement> function) { return null; }
+		/// <summary>
+		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
+		/// </summary>
+		public jQuery append(JsFunc<JsNumber, HtmlElement, JsString> function) { return null; }
+		/// <summary>
+		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
+		/// </summary>
+		public jQuery append(JsFunc<JsNumber, JsString, JsString> function) { return null; }
 		/// <summary>
 		/// Insert every element in the set of matched elements to the end of the target.
 		/// </summary>
@@ -2003,7 +2015,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Determine if the argument passed is a Javascript function object.
 		/// </summary>
-		public static bool isFunction(JsObject obj) { return false; }
+		public static bool isFunction(object obj) { return false; }
 		/// <summary>
 		/// Check to see if an object is a plain object (created using "{}" or "new Object").
 		/// </summary>
