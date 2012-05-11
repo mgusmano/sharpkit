@@ -193,6 +193,11 @@ namespace SharpKit.JavaScript
         public bool OmitInheritance { get; set; }
         public bool OmitDefaultConstructor { get; set; }
 
+        /// <summary>
+        /// Targets the attribute for a specific SharpKit version, this attribute will be ignored if the current 
+        /// SharpKit version isn't in the range of the value specified
+        /// </summary>
+        public string SharpKitVersion { get; set; }
     }
     #endregion
     #region JsMode
@@ -415,6 +420,11 @@ namespace SharpKit.JavaScript
         /// Important note: a new json / array object will ALWAYS be passed to the constructor, even if no object initializers are passed.
         /// </summary>
         public bool JsonInitializers { get; set; }
+        /// <summary>
+        /// Targets the attribute for a specific SharpKit version, this attribute will be ignored if the current 
+        /// SharpKit version isn't in the range of the value specified
+        /// </summary>
+        public string SharpKitVersion { get; set; }
     }
     #endregion
     #region JsPropertyAttribute
@@ -602,7 +612,7 @@ namespace SharpKit.JavaScript
     [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator = true)]
     public partial class JsArray : IJsArrayEnumerable<object>
     {
-        [JsMethod(JsonInitializers = true, OmitNewOperator = true, OmitParanthesis = true, Name = "")]
+        [JsMethod(JsonInitializers = true, OmitNewOperator = true, OmitParanthesis = true, Name = "", SharpKitVersion="5+")]
         public JsArray() { }
         //public JsArray(JsArray array) { }
         public JsArray(JsNumber size) { }
@@ -747,7 +757,7 @@ namespace SharpKit.JavaScript
         public static implicit operator JsArray(JsArray<T> x) { return null; }
         public static implicit operator T[](JsArray<T> x) { return default(T[]); }
         public static implicit operator JsArray<T>(T[] array) { return default(JsArray<T>); }
-        [JsMethod(IgnoreGenericArguments = true, JsonInitializers=true, OmitNewOperator=true, OmitParanthesis=true, Name="")]
+        [JsMethod(IgnoreGenericArguments = true, JsonInitializers=true, OmitNewOperator=true, OmitParanthesis=true, Name="", SharpKitVersion="5+")]
         public JsArray() { }
         //[JsMethod(IgnoreGenericArguments = true)]
         //public JsArray(JsArray<T> array) { }
