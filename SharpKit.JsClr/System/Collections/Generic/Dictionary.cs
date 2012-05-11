@@ -121,6 +121,7 @@ namespace SharpKit.JavaScript.Private
 		}
 
 		#region IDictionary<TKey,TValue> Members
+        [JsMethod(Export=false)]
 		public bool TryGetValue(TKey key, out TValue value)
 		{
 			throw new NotImplementedException();

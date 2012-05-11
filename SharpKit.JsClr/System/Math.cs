@@ -97,11 +97,13 @@ namespace SharpKit.JavaScript.Private
 		{
 			throw new NotImplementedException();
 		}
+        [JsMethod(Export=false)]
 		public static int DivRem(int a, int b, out int result)
 		{
 			throw new NotImplementedException();
 		}
-		public static long DivRem(long a, long b, out long result)
+        [JsMethod(Export = false)]
+        public static long DivRem(long a, long b, out long result)
 		{
 			throw new NotImplementedException();
 		}
