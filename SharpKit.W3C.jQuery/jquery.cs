@@ -14,6 +14,62 @@ namespace SharpKit.jQuery
 	{
 
 		/// <summary>
+		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
+		/// </summary>
+		[JsMethod(Name = "$", OmitNewOperator=true)]
+		public jQuery(object obj) { }
+		/// <summary>
+		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
+		/// </summary>
+		[JsMethod(Name = "$", OmitNewOperator = true)]
+		public jQuery(HtmlElement element) { }
+		/// <summary>
+		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
+		/// </summary>
+		[JsMethod(Name = "$", OmitNewOperator = true)]
+		public jQuery(JsArray elementArray) { }
+		/// <summary>
+		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
+		/// </summary>
+		[JsMethod(Name = "$", OmitNewOperator = true)]
+		public jQuery(jQuery jQuery_object) { }
+		/// <summary>
+		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
+		/// </summary>
+		[JsMethod(Name = "$", OmitNewOperator = true)]
+		public jQuery() { }
+		/// <summary>
+		/// Creates DOM elements on the fly from the provided string of raw HTML.
+		/// </summary>
+		[JsMethod(Name = "$", OmitNewOperator = true)]
+		public jQuery(JsString html, HtmlDocument ownerDocument) { }
+		/// <summary>
+		/// Creates DOM elements on the fly from the provided string of raw HTML.
+		/// </summary>
+		[JsMethod(Name = "$", OmitNewOperator = true)]
+		public jQuery(JsString html, JsObject props) { }
+		/// <summary>
+		/// Binds a function to be executed when the DOM has finished loading.
+		/// </summary>
+		[JsMethod(Name = "$", OmitNewOperator = true)]
+		public jQuery(JsAction callback) { }
+		/// <summary>
+		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
+		/// </summary>
+		[JsMethod(Name = "$", OmitNewOperator = true)]
+		public jQuery(JsString selector, HtmlElement context) { }
+		/// <summary>
+		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
+		/// </summary>
+		[JsMethod(Name = "$", OmitNewOperator = true)]
+		public jQuery(JsString selector, jQuery context) { }
+		/// <summary>
+		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
+		/// </summary>
+		[JsMethod(Name = "$", OmitNewOperator = true)]
+		public jQuery(JsString selector) { }
+
+		/// <summary>
 		/// Add elements to the set of matched elements.
 		/// </summary>
 		public jQuery add<T>() where T : HtmlElement { return null; }
