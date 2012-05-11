@@ -16,7 +16,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
 		/// </summary>
-		[JsMethod(Name = "$", OmitNewOperator=true)]
+		[JsMethod(Name = "$", OmitNewOperator = true)]
 		public jQuery(object obj) { }
 		/// <summary>
 		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
@@ -68,6 +68,12 @@ namespace SharpKit.jQuery
 		/// </summary>
 		[JsMethod(Name = "$", OmitNewOperator = true)]
 		public jQuery(JsString selector) { }
+
+		/// <summary>
+		/// Creates a jQuery element by tagName
+		/// </summary>
+		[JsMethod(Name = "$", Global=true, ArgumentsPrefix = "document.createElement(", ArgumentsSuffix = ")")]
+		public static jQuery createElement(string tagName) { return null; }
 
 		/// <summary>
 		/// Add elements to the set of matched elements.
