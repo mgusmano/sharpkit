@@ -5,8 +5,8 @@ namespace SharpKit.Html
 
 using SharpKit.JavaScript;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class HtmlIFrameElement : HtmlElement
+    [JsType(JsMode.Json, Export = false, Name = "IFRAME")]
+    public partial class HtmlIFrameElement : HtmlElement
 {
 
 	// HTMLIFrameElement

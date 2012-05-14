@@ -5,8 +5,8 @@ namespace SharpKit.Html
 
 using SharpKit.JavaScript;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class HtmlDivElement : HtmlElement
+    [JsType(JsMode.Json, Export = false, Name = "DIV")]
+    public partial class HtmlDivElement : HtmlElement
 {
 
 	// HTMLDivElement

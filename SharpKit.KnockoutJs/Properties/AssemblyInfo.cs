@@ -33,7 +33,7 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.0.0.0")]
-[assembly: AssemblyFileVersion("4.26.0000")]
+[assembly: AssemblyFileVersion("4.26.6000")]
 
 /// <summary>
 /// SharpKit interface for KnockoutJs library.

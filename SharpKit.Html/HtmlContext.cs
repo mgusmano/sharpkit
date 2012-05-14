@@ -154,6 +154,20 @@ namespace SharpKit.Html
         #endregion
 
         ///<summary>
+        ///Encodes String objects so they can be read on all computers.
+        ///</summary>
+        ///<param name="s">String object or literal to be encoded.</param>
+        ///<returns>A JsString value (in Unicode format) that contains the contents of charstring. All spaces, punctuation, accented characters, and any other non-ASCII characters are replaced with %xx encoding, where xx is equivalent to the hexadecimal number representing the character. For example, a space is returned as "%20."</returns>
+        public static JsString escape(JsString s) { return null; }
+        ///<summary>
+        ///Returns the unencoded version of an encoded component of a Uniform Resource Identifier (URI). 
+        ///</summary>
+        ///<param name="encodedURIString">A value representing an encoded URI component.</param>
+        ///<returns>The required encodedURIString argument is a value representing an encoded 
+        ///URI component.A URIComponent is part of a complete URI. If the encodedURIString is 
+        ///not valid, a URIError occurs.</returns>
+        public static JsString decodeURIComponent(JsString encodedURIString) { return null; }
+        ///<summary>
         ///Encodes a text JsString as a valid component of a Uniform Resource Identifier (URI).
         ///</summary>
         ///<param name="encodedURIString">A value representing an encoded URI component.</param>
@@ -164,6 +178,24 @@ namespace SharpKit.Html
         ///not be valid if sent as a request to a web server. Use the encodeURI method if the 
         ///JsString contains more than a single URI component.</returns>
         public static JsString encodeURIComponent(JsString encodedURIString) { return null; }
+        ///<summary>
+        ///Encodes a text JsString as a valid Uniform Resource Identifier (URI) 
+        ///</summary>
+        ///<param name="URIString">A value representing an encoded URI.</param>
+        ///<returns>n encoded URI. If you pass the result to decodeURI, the original JsString is returned. The encodeURI method does not encode the following characters: ":", "/", ";", and "?". Use encodeURIComponent to encode these characters.</returns>
+        public static JsString encodeURI(JsString URIString) { return null; }
+        ///<summary>
+        ///Returns the unencoded version of an encoded Uniform Resource Identifier (URI). 
+        ///</summary>
+        ///<param name="URIString"></param>
+        ///<returns></returns>
+        public static JsString decodeURI(JsString URIString) { return null; }
+        ///<summary>
+        ///Decodes String objects encoded with the escape method.
+        ///</summary>
+        ///<param name="charString">String object or literal to be decoded.</param>
+        ///<returns>A JsString value that contains the contents of charstring. All characters encoded with the %xx hexadecimal form are replaced by their ASCII character set equivalents.</returns>
+        public static JsString unescape(JsString charString) { return null; }
 
 
     }

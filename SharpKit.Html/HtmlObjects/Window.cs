@@ -143,11 +143,11 @@ namespace SharpKit.Html
         public int outerHeight { get; private set; }
 
         // WindowTimers
-        public int setTimeout(object handler) { return default(int); }
-        public int setTimeout(object handler, object timeout, params object[] args) { return default(int); }
+        public int setTimeout(JsAction handler) { return default(int); }
+        public int setTimeout(JsAction handler, object timeout, params object[] args) { return default(int); }
         public void clearTimeout(int handle) { }
-        public int setInterval(object handler) { return default(int); }
-        public int setInterval(object handler, object timeout, params object[] args) { return default(int); }
+        public int setInterval(JsAction handler) { return default(int); }
+        public int setInterval(JsAction handler, object timeout, params object[] args) { return default(int); }
         public void clearInterval(int handle) { }
 
         // WindowDatabase

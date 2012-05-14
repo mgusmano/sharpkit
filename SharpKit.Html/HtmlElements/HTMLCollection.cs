@@ -12,9 +12,9 @@ public partial class HtmlCollection
 	// HTMLCollection
 	public int length {get; private set; }
 	[JsProperty(NativeIndexer = true)]
-	public object this[int index] {get { return default(object); } }
+    public HtmlElement this[int index] { get { return default(HtmlElement); } }
 	[JsProperty(NativeIndexer = true)]
-	public object this[string name] {get { return default(object); } }
+    public HtmlElement this[string name] { get { return default(HtmlElement); } }
 }
 
 }

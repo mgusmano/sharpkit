@@ -8,7 +8,25 @@ namespace SharpKit.Html
         public new HtmlElement documentElement { get; private set; }
         public new HtmlElement createElement(string tagName) { return default(HtmlElement); }
         public new HtmlElement getElementById(string elementId) { return default(HtmlElement); }
+        public DOMEvent createEvent(string eventInterface) { return default(DOMEvent); }
 
+    }
+
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+    public partial class HtmlCollection<T> where T: HtmlElement
+    {
+
+        // HTMLCollection
+        public int length { get; private set; }
+        [JsProperty(NativeIndexer = true)]
+        public T this[int index] { get { return default(T); } }
+        [JsProperty(NativeIndexer = true)]
+        public T this[string name] { get { return default(T); } }
+    }
+
+    partial class HtmlElement
+    {
+        public new HtmlDocument ownerDocument { get; set; }
     }
     partial class EventSource : EventTarget
     {

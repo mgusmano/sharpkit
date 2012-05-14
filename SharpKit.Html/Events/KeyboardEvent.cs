@@ -24,7 +24,8 @@ public partial class KeyboardEvent : UIEvent
 	public bool metaKey {get; private set; }
 	public bool repeat {get; private set; }
 	public bool getModifierState(string keyArg) { return default(bool); }
-	public void initKeyboardEvent(string typeArg, bool canBubbleArg, bool cancelableArg, AbstractView viewArg, string keyArg, int locationArg, string modifiersListArg, bool repeat) {}
+    public string locale { get; private set; }
+    public void initKeyboardEvent(string typeArg, bool canBubbleArg, bool cancelableArg, AbstractView viewArg, string keyArg, int locationArg, string modifiersListArg, bool repeat, string locale) { }
 }
 
 }

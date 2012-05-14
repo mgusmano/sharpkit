@@ -5,7 +5,7 @@ namespace SharpKit.Html
 
 using SharpKit.JavaScript;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+[JsType(JsMode.Json, Export = false, Name="TABLE")]
 public partial class HtmlTableElement : HtmlElement
 {
 
@@ -19,9 +19,9 @@ public partial class HtmlTableElement : HtmlElement
 	public HtmlTableSectionElement tFoot {get; set; }
 	public HtmlElement createTFoot() { return default(HtmlElement); }
 	public void deleteTFoot() {}
-	public HtmlCollection tBodies {get; private set; }
+    public HtmlCollection<HtmlTableSectionElement> tBodies { get; private set; }
 	public HtmlElement createTBody() { return default(HtmlElement); }
-	public HtmlCollection rows {get; private set; }
+	public HtmlCollection<HtmlTableRowElement> rows {get; private set; }
 	public HtmlElement insertRow() { return default(HtmlElement); }
 	public HtmlElement insertRow(int index) { return default(HtmlElement); }
 	public void deleteRow(int index) {}

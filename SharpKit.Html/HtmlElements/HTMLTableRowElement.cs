@@ -12,7 +12,7 @@ public partial class HtmlTableRowElement : HtmlElement
 	// HTMLTableRowElement
 	public int rowIndex {get; private set; }
 	public int sectionRowIndex {get; private set; }
-	public HtmlCollection cells {get; private set; }
+	public HtmlCollection<HtmlTableCellElement> cells {get; private set; }
 	public HtmlElement insertCell() { return default(HtmlElement); }
 	public HtmlElement insertCell(int index) { return default(HtmlElement); }
 	public void deleteCell(int index) {}
