@@ -121,6 +121,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YuiGenerator", "YuiGenerato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YuiSamples", "YuiSamples\YuiSamples.csproj", "{D2F9866F-BCD9-4D02-89A4-7408E22EE949}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.Web", "SharpKit.Web\SharpKit.Web.csproj", "{22F5644B-56DB-4B81-8027-7E0736092A70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.BackboneJs", "SharpKit.BackboneJs\SharpKit.BackboneJs.csproj", "{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -1069,6 +1073,46 @@ Global
 		{D2F9866F-BCD9-4D02-89A4-7408E22EE949}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D2F9866F-BCD9-4D02-89A4-7408E22EE949}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
 		{D2F9866F-BCD9-4D02-89A4-7408E22EE949}.v4.0|x86.ActiveCfg = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.Release|x86.ActiveCfg = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.v3.5|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.v3.5|Mixed Platforms.Build.0 = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.v3.5|x86.ActiveCfg = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
+		{22F5644B-56DB-4B81-8027-7E0736092A70}.v4.0|x86.ActiveCfg = Release|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.Debug|Any CPU.ActiveCfg = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.Debug|Any CPU.Build.0 = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.Debug|Mixed Platforms.ActiveCfg = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.Debug|Mixed Platforms.Build.0 = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.Debug|x86.ActiveCfg = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.Release|Any CPU.ActiveCfg = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.Release|Any CPU.Build.0 = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.Release|Mixed Platforms.ActiveCfg = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.Release|Mixed Platforms.Build.0 = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.Release|x86.ActiveCfg = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.v3.5|Any CPU.ActiveCfg = v3.5|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.v3.5|Any CPU.Build.0 = v3.5|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.v3.5|Mixed Platforms.ActiveCfg = v3.5|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.v3.5|Mixed Platforms.Build.0 = v3.5|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.v3.5|x86.ActiveCfg = v3.5|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.v4.0|Any CPU.ActiveCfg = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.v4.0|Any CPU.Build.0 = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.v4.0|Mixed Platforms.ActiveCfg = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.v4.0|Mixed Platforms.Build.0 = v4.0|Any CPU
+		{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}.v4.0|x86.ActiveCfg = v4.0|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
