@@ -6,7 +6,7 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.BackboneJs
 {
-    [JsType(JsMode.Clr, Export=false, IgnoreGenericMethodArguments=true, IgnoreGenericTypeArguments=true)]
+    [JsType(JsMode.Clr, Export=false, IgnoreGenericMethodArguments=true, IgnoreGenericTypeArguments=true, NativeOverloads=true, AutomaticPropertiesAsFields=true)]
     public class BackboneModel<T>
     {
         public T defaults { get; set; }
