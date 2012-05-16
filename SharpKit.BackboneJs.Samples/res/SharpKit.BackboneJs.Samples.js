@@ -15,9 +15,9 @@ var SharpKit$BackboneJs$Todo=
         },
         initialize:function()
         {
-            if(!this.get$1("title"))
+            if(!this.get("title"))
             {
-                this.set$1({title:this.get_defaults().title});
+                this.set({title:this.defaults.title});
             }
         }
     }
