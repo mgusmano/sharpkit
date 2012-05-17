@@ -276,6 +276,15 @@ namespace SharpKit.JavaScript
         public string CodeInjectionFilename { get; set; }
 
         /// <summary>
+        /// Specifies to generate chrome source maps, which enables debugging of JavaScript in C#.
+        /// To enable this feature you must add a handler in your web.config file:
+        /// <code>
+        /// &lt;add name="SourceMapsHandler" type="SharpKit.Web.Server.Handlers.SourceMapsHandler, SharpKit.Web" verb="*" path="SourceMaps.ashx" /&gt;
+        /// </code>
+        /// And enable source maps in chrome: show development bar, click options wheel, check enable source maps.
+        /// </summary>
+        public bool GenerateSourceMaps { get; set; }
+        /// <summary>
         /// Instructs SharpKit to use '===' and '!==' (exact equals/not equals) instead of '==' / '!=' when checking equality between objects.
         /// Custom exact equality can be achieved by using the extension method JsContext.ExactEquals
         /// <example>
@@ -3265,5 +3274,7 @@ namespace SharpKit.JavaScript.Server
             }
         }
     }
+
+
 
 }
