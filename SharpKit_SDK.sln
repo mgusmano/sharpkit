@@ -127,6 +127,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.BackboneJs", "Shar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.BackboneJs.Samples", "SharpKit.BackboneJs.Samples\SharpKit.BackboneJs.Samples.csproj", "{888590CE-D786-4304-A79F-BE9390540DC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKitSourceMappingSample", "SharpKitSourceMappingSample\SharpKitSourceMappingSample.csproj", "{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -1135,6 +1137,26 @@ Global
 		{888590CE-D786-4304-A79F-BE9390540DC6}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{888590CE-D786-4304-A79F-BE9390540DC6}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
 		{888590CE-D786-4304-A79F-BE9390540DC6}.v4.0|x86.ActiveCfg = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.Release|x86.ActiveCfg = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.v3.5|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.v3.5|Mixed Platforms.Build.0 = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.v3.5|x86.ActiveCfg = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
+		{7E96F42E-22BC-4E05-AAB7-96E99CE69DF1}.v4.0|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
