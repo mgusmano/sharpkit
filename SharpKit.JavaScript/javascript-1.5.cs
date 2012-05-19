@@ -663,8 +663,15 @@ namespace SharpKit.JavaScript
         ///<param name="items">Optional. Additional items to add to the end of the current array.</param>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true)]
-        public JsArray concat(params object[] items) { return default(JsArray); }
-        ///<summary>
+				public JsArray concat(params JsArray[] items) { return default(JsArray); }
+				///<summary>
+				///Returns a new array consisting of a combination of the current array and any additional items.
+				///</summary>
+				///<param name="items">Optional. Additional items to add to the end of the current array.</param>
+				///<returns></returns>
+				[JsMethod(NativeOverloads = true)]
+				public JsArray concat(params object[] items) { return default(JsArray); }				
+				///<summary>
         ///Returns a JsString value consisting of all the elements of an array concatenated together and separated by the specified separator character.
         ///</summary>
         ///<param name="separator">Required. A JsString that is used to separate one element of an array from the next in the resulting String object. If omitted, the array elements are separated with a comma.</param>
@@ -803,8 +810,15 @@ namespace SharpKit.JavaScript
         ///<param name="items">Optional. Additional items to add to the end of the current array.</param>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public JsArray<T> concat(params T[] items) { return default(JsArray<T>); }
-        ///<summary>
+				public JsArray<T> concat(params JsArray<T>[] items) { return default(JsArray<T>); }        
+				///<summary>
+				///Returns a new array consisting of a combination of the current array and any additional items.
+				///</summary>
+				///<param name="items">Optional. Additional items to add to the end of the current array.</param>
+				///<returns></returns>
+				[JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
+				public JsArray<T> concat(params T[] items) { return default(JsArray<T>); }
+				///<summary>
         ///Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements. Returns the elements removed from the array.
         ///</summary>
         ///<param name="start">Required. The zero-based location in the array from which to start removing elements.</param>
