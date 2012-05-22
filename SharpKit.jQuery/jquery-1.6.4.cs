@@ -10,6 +10,61 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Prototype, Export = false, Name = "$", NativeArrayEnumerator=true, NativeEnumerator=false)]
     public partial class jQuery : IJsArrayEnumerable<HtmlElement>
     {
+        /// <summary>
+        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
+        /// </summary>
+        [JsMethod(OmitNewOperator = true)]
+        public  jQuery(object obj) {  }
+        /// <summary>
+        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
+        /// </summary>
+        [JsMethod(OmitNewOperator = true)]
+        public  jQuery(HtmlElement element) {  }
+        /// <summary>
+        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
+        /// </summary>
+        [JsMethod(OmitNewOperator = true)]
+        public  jQuery(JsArray elementArray) {  }
+        /// <summary>
+        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
+        /// </summary>
+        [JsMethod(OmitNewOperator = true)]
+        public  jQuery(jQuery jQuery_object) {  }
+        /// <summary>
+        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
+        /// </summary>
+        [JsMethod(OmitNewOperator = true)]
+        public  jQuery() {  }
+        /// <summary>
+        /// Creates DOM elements on the fly from the provided string of raw HTML.
+        /// </summary>
+        [JsMethod(OmitNewOperator = true)]
+        public  jQuery(JsString html, HtmlDocument ownerDocument) {  }
+        /// <summary>
+        /// Creates DOM elements on the fly from the provided string of raw HTML.
+        /// </summary>
+        [JsMethod(OmitNewOperator = true)]
+        public  jQuery(JsString html, object props) {  }
+        /// <summary>
+        /// Binds a function to be executed when the DOM has finished loading.
+        /// </summary>
+        [JsMethod(OmitNewOperator = true)]
+        public  jQuery(JsAction callback) {  }
+        /// <summary>
+        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
+        /// </summary>
+        [JsMethod(OmitNewOperator = true)]
+        public  jQuery(JsString selector, HtmlElement context) {  }
+        /// <summary>
+        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
+        /// </summary>
+        [JsMethod(OmitNewOperator = true)]
+        public  jQuery(JsString selector, jQuery context) {  }
+        /// <summary>
+        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
+        /// </summary>
+        [JsMethod(OmitNewOperator = true)]
+        public  jQuery(JsString selector) {  }
 
         /// <summary>
         /// Add elements to the set of matched elements.
