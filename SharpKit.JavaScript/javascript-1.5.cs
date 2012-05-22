@@ -474,6 +474,8 @@ namespace SharpKit.JavaScript
         /// </summary>
         public string TargetTypeName { get; set; }
 
+        public bool Global { get; set; }
+
     }
     #endregion
     #region JsEventAttribute
