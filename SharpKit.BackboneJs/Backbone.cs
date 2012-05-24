@@ -6,11 +6,12 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.BackboneJs
 {
-    [JsType(JsMode.Clr, Export=false, IgnoreGenericMethodArguments=true, IgnoreGenericTypeArguments=true, NativeOverloads=true, AutomaticPropertiesAsFields=true)]
+    [JsType(JsMode.Clr, Export = false, IgnoreGenericMethodArguments = true, IgnoreGenericTypeArguments = true, NativeOverloads = true, AutomaticPropertiesAsFields = true, Name = "Backbone.Model")]
     public class BackboneModel<T>
     {
         public T defaults { get; set; }
-        [JsMethod(Name="defaults")]
+
+        [JsMethod(Name = "defaults")]
         public virtual T createDefaults()
         {
             return default(T);
@@ -18,13 +19,58 @@ namespace SharpKit.BackboneJs
         public virtual void initialize()
         {
         }
-        public virtual void save()
+        public virtual void save(T obj)
         {
         }
         public P get<P>(JsString name) { return default(P); }
-        public void set<T>(T values) {  }
+        public void set<T>(T values) { }
+
+        public virtual void bind(JsString eventName, Func<object> function, object @this)
+        {
+
+        }
     }
 
+    [JsType(JsMode.Clr, Export = false, IgnoreGenericMethodArguments = true, IgnoreGenericTypeArguments = true, NativeOverloads = true, AutomaticPropertiesAsFields = true, Name = "Backbone.Collection")]
+    public class BackboneCollection<T>
+    {
+       
+    }
+
+    [JsType(JsMode.Clr, Export = false, IgnoreGenericMethodArguments = true, IgnoreGenericTypeArguments = true, NativeOverloads = true, AutomaticPropertiesAsFields = true, Name = "Backbone.View")]
+    public class BackboneView<T>
+    {
+        public T defaults { get; set; }
+        [JsMethod(Name = "defaults")]
+        public virtual T createDefaults()
+        {
+            return default(T);
+        }
+
+        //public virtual JsString tagName { get; set; }
+
+        public virtual void initialize()
+        {
+        }
+        public virtual void save(T obj)
+        {
+        }
+        public P get<P>(JsString name) { return default(P); }
+        public void set<T>(T values) { }
+
+
+
+
+        public virtual T render()
+        {
+            return default(T);
+        }
+
+        public virtual T remove()
+        {
+            return default(T);
+        }
+    }
 }
 
 /*
