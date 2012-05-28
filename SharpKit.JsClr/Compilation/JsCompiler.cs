@@ -59,8 +59,8 @@ namespace SharpKit.JavaScript.Compilation
                 {
                     if (jsType.baseTypeName == null)
                         jsType.baseTypeName = "System.Object";
-                    if (jsType.definition["ToString"] == null)
-                        jsType.definition["ToString"] = new JsFunction("return this._Name;");
+                    if (jsType.definition["toString"] == JsCode("Object.prototype.toString"))
+                        jsType.definition["toString"] = new JsFunction("return this._Name;");
                 }
                 else if (jsType.Kind == JsTypeKind.Struct)
                 {
