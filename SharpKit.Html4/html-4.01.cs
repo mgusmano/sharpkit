@@ -2477,6 +2477,9 @@ namespace SharpKit.Html4
         /// color. Up to four color names or RGB values in the Color Table. 
         /// </summary>
         public JsString borderColor { get; set; }
+
+        public JsString clip { get; set; }
+
         ///<summary>
         ///Returns the optional priority, "important".
         ///</summary>
