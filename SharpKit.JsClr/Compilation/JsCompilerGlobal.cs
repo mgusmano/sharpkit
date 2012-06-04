@@ -11,7 +11,7 @@ namespace SharpKit.JavaScript.Compilation
     {
         internal static JsDelegateFunction RemoveDelegate(JsDelegateFunction delOriginal, JsDelegateFunction delToRemove)
         {
-            if (delToRemove == null)
+            if (delToRemove == null || delOriginal==null)
                 return delOriginal;
 
             if (delOriginal.isMulticastDelegate)
@@ -31,7 +31,7 @@ namespace SharpKit.JavaScript.Compilation
                 }
                 if (del.delegates == null)
                     return null;
-                    //del.delegates = delOriginal.delegates.splice(0, 0);//clone
+                //del.delegates = delOriginal.delegates.splice(0, 0);//clone
                 if (del.delegates.length == 1)
                     return del.delegates[0];
                 return del;
