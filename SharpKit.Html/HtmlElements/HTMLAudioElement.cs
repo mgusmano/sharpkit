@@ -3,13 +3,13 @@
 namespace SharpKit.Html
 {
 
-using SharpKit.JavaScript;
+	using SharpKit.JavaScript;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class HtmlAudioElement : HtmlMediaElement
-{
+	[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true, Name = "Audio")]
+	public partial class HtmlAudioElement : HtmlMediaElement
+	{
 
-	// HTMLAudioElement
-}
+		// HTMLAudioElement
+	}
 
 }
