@@ -6,6 +6,7 @@ using SharpKit.JavaScript.Private;
 
 namespace SharpKit.JavaScript.Compilation
 {
+
     [JsType(JsMode.Global, Filename = "JsCompiler.js", OrderInFile = -1)]
     public class JsCompilerGlobal : BrowserContext
     {
@@ -95,6 +96,8 @@ namespace SharpKit.JavaScript.Compilation
             return JsTypeHelper.GetDelegate(target, func).As<JsDelegateFunction>(); //TODO: support delegate.getType()
         }
 
+        
+        [JsProperty(Export=false, NativeField=true)]//avoid initialization to null
         public static JsArray<JsType> JsTypes { get; set; }
 
         private static JsImplType Typeof(object jsTypeOrName)

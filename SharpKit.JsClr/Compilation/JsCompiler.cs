@@ -409,12 +409,6 @@ namespace SharpKit.JavaScript.Compilation
             return obj.As<JsObject>().toString();
         }
 
-        [JsMethod(GlobalCode = true)]
-        static void Global4()
-        {
-            AfterCompilation(() => JsTypeHelper.GetTypeIgnoreNamespace_Cache = new JsObject());
-        }
-
     }
 }
 

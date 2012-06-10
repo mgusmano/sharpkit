@@ -143,7 +143,6 @@ namespace SharpKit.JavaScript.Compilation
         {
             return type.name;
         }
-        public static JsObject GetTypeIgnoreNamespace_Cache { get; set; }
         public static JsString getMemberTypeName(JsObject instance, JsString memberName)
         {
             var signature = instance[memberName + "$$"].As<JsString>();
