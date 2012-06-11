@@ -198,6 +198,20 @@ namespace SharpKit.JavaScript
         /// SharpKit version isn't in the range of the value specified
         /// </summary>
         public string SharpKitVersion { get; set; }
+
+        /// <summary>
+        /// Allows to customize the 'prototype' token for instance method, by default, this value is: "prototype"
+        /// This property is useful for creating jQuery plugins
+        /// class MyClass
+        /// {
+        ///     public void foo()
+        /// }
+        /// 
+        /// MyClass.prototype.foo = function()
+        /// {
+        /// }
+        /// </summary>
+        public string PrototypeName { get; set; }
     }
     #endregion
     #region JsMode
