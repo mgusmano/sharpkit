@@ -7,13 +7,13 @@ using SharpKit.JavaScript;
 
 namespace jQuerySamples
 {
-    [JsType(JsMode.Prototype, Name = "jQuery.fn", OmitInheritance = true, OmitDefaultConstructor = true)]
-    class MyPlugin : jQueryPlugin
+    [JsType(JsMode.Prototype, Name = "jQuery", PrototypeName="fn", OmitInheritance = true, OmitDefaultConstructor = true)]
+    class MyPlugin : jQuery
     {
-        public static jQuery myPlugin()
+        public jQuery myPlugin()
         {
-            @this.append("Hello world, this is my SharpKit jQuery plugin!<br/>");
-            return @this;
+            this.append("Hello world, this is my SharpKit jQuery plugin!<br/>");
+            return this;
         }
     }
 

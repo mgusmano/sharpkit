@@ -6,7 +6,7 @@ namespace SharpKit.Html
     using SharpKit.JavaScript;
 
     [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-    public partial class Window : EventTarget
+    public partial class Window : AbstractView
     {
         public Console console { get; private set; }
         // Window
@@ -16,7 +16,7 @@ namespace SharpKit.Html
         public Location location { get; set; }
         public History history { get; private set; }
         public UndoManager undoManager { get; private set; }
-        public Selection selection { get; private set; }
+        public Selection getSelection(){return null;}// { get; private set; }
         public object locationbar { get; set; }
         public object menubar { get; set; }
         public object personalbar { get; set; }

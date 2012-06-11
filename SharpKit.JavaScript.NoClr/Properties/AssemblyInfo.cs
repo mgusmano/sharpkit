@@ -34,7 +34,7 @@ using SharpKit.JavaScript;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("4.26.6000")]
+[assembly: AssemblyFileVersion("4.27.9000")]
 
 
 [assembly:JsExport(DefaultFilename="res/noclr.js")]
