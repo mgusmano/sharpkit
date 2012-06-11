@@ -394,13 +394,14 @@ namespace SharpKit.JavaScript
     [AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
     public partial class JsMethodAttribute : Attribute
     {
+        /// <summary>
+        /// When set to true, SharpKit will ignore the params[] keyword on the method parameter
+        /// </summary>
         public bool NativeParams { get { return _NativeParams.GetValueOrDefault(); } set { _NativeParams = value; } } public bool? _NativeParams;
-
         /// <summary>
         /// Applies the attribute externally on a method, if the method has overloads, attribute will be applied on all of them
         /// </summary>
         public string TargetMethod { get; set; }
-
         /// <summary>
         /// Applies the attribute externally on a type
         /// </summary>
@@ -409,7 +410,6 @@ namespace SharpKit.JavaScript
         /// Applies the attribute externally on a type
         /// </summary>
         public string TargetTypeName { get; set; }
-
         ///<summary>
         ///Tells the compiler to omit calls to this method and assume that it was invoked
         ///Extension methods:  s.DoSomething() ==> s
@@ -479,13 +479,39 @@ namespace SharpKit.JavaScript
         /// Omits the new operator when creating new instances on a consutrctor
         /// </summary>
         public bool OmitNewOperator { get { return _OmitNewOperator.GetValueOrDefault(); } set { _OmitNewOperator = value; } } public bool? _OmitNewOperator;
-
+        /// <summary>
+        /// Allows an instance method to be invoke like an extension method
+        /// x.Call() -> Call(x)
+        /// </summary>
         public bool InstanceImplementedAsExtension { get { return _InstanceImplementedAsExtension.GetValueOrDefault(); } set { _InstanceImplementedAsExtension = value; } } public bool? _InstanceImplementedAsExtension;
+        /// <summary>
+        /// Sets a custom string to be inserted before arguments are written when invoking a function
+        /// This is useful for method optimizations
+        /// x.Call(a,b,c) -> x.Call("MyCustomCode",a,b,c);
+        /// </summary>
         public string ArgumentsPrefix { get; set; }
+        /// <summary>
+        /// Sets a custom string to be appended after arguments are written when invoking a function
+        /// This is useful for method optimizations
+        /// x.Call(a,b,c) -> x.Call(a,b,c,"MyCustomCode");
+        /// </summary>
         public string ArgumentsSuffix { get; set; }
+        /// <summary>
+        /// Inserts a custom argument when invoking the function
+        /// </summary>
         public object InsertArg0 { get; set; }
+        /// <summary>
+        /// Inserts a custom argument when invoking the function
+        /// </summary>
         public object InsertArg1 { get; set; }
+        /// <summary>
+        /// Inserts a custom argument when invoking the function
+        /// </summary>
         public object InsertArg2 { get; set; }
+        /// <summary>
+        /// Causes the function to be invoked without any commas between arguments:
+        /// x.Call(a,b,c) -> x.Call(abc);
+        /// </summary>
         public bool OmitCommas { get { return _OmitCommas.GetValueOrDefault(); } set { _OmitCommas = value; } } public bool? _OmitCommas;
         /// <summary>
         /// Sends initializers to constructor as a parameter:
@@ -525,12 +551,10 @@ namespace SharpKit.JavaScript
         /// </summary>
         public bool Export { get { return _Export.GetValueOrDefault(true); } set { _Export = value; } } public bool? _Export;
         public string Name { get; set; }
-
         /// <summary>
         /// Applies the attribute externally on a property
         /// </summary>
         public string TargetProperty { get; set; }
-
         /// <summary>
         /// Applies the attribute externally on a type
         /// </summary>
@@ -539,9 +563,10 @@ namespace SharpKit.JavaScript
         /// Applies the attribute externally on a type
         /// </summary>
         public string TargetTypeName { get; set; }
-
+        /// <summary>
+        /// Sets a static property as a global property - omits the class name when declaring and invoking the property
+        /// </summary>
         public bool Global { get { return _Global.GetValueOrDefault(); } set { _Global = value; } } public bool? _Global;
-
     }
     #endregion
 
