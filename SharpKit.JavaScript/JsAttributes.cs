@@ -674,4 +674,22 @@ namespace SharpKit.JavaScript
     //    public bool IsClass { get; set; }
     //}
     #endregion
+
+    [AttributeUsage(AttributeTargets.Assembly, AllowMultiple=true)]
+    public partial class JsEmbeddedResourceAttribute : Attribute
+    {
+        public JsEmbeddedResourceAttribute()
+        {
+        }
+        public JsEmbeddedResourceAttribute(string filename)
+        {
+            Filename = filename;
+        }
+        public JsEmbeddedResourceAttribute(string filename, string resourceName)
+        {
+            ResourceName = resourceName;
+        }
+        public string Filename { get; set; }
+        public string ResourceName { get; set; }
+    }
 }

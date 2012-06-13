@@ -23,7 +23,7 @@ using System.ComponentModel;
 [assembly: JsType(JsMode.Prototype, TargetType = typeof(Array), NativeArrayEnumerator = true, NativeEnumerator = false, Export = false)]
 //[assembly: JsMethod(TargetType = typeof(Array), TargetMethod = "get_Length", Name = "length", OmitParanthesis = true)]
 [assembly: JsProperty(TargetType = typeof(Array), TargetProperty = "Length", Name = "length", NativeField = true)]
-[assembly: JsMethod(TargetTypeName = "System.Delegate", TargetMethod = "Combine", Name = "$CombineDelegates", Global = true, NativeOverloads=true)]
+[assembly: JsMethod(TargetTypeName = "System.Delegate", TargetMethod = "Combine", Name = "$CombineDelegates", Global = true, NativeOverloads = true)]
 [assembly: JsMethod(TargetTypeName = "System.Delegate", TargetMethod = "Remove", Name = "$RemoveDelegate", Global = true, NativeOverloads = true)]
 
 
@@ -80,7 +80,7 @@ namespace SharpKit.JavaScript
     [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator = true)]
     public partial class JsArray : IJsArrayEnumerable<object>
     {
-        [JsMethod(JsonInitializers = true, OmitNewOperator = true, OmitParanthesis = true, Name = "", SharpKitVersion="5+")]
+        [JsMethod(JsonInitializers = true, OmitNewOperator = true, OmitParanthesis = true, Name = "", SharpKitVersion = "5+")]
         public JsArray() { }
         //public JsArray(JsArray array) { }
         public JsArray(JsNumber size) { }
@@ -122,15 +122,15 @@ namespace SharpKit.JavaScript
         ///<param name="items">Optional. Additional items to add to the end of the current array.</param>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true)]
-				public JsArray concat(params JsArray[] items) { return default(JsArray); }
-				///<summary>
-				///Returns a new array consisting of a combination of the current array and any additional items.
-				///</summary>
-				///<param name="items">Optional. Additional items to add to the end of the current array.</param>
-				///<returns></returns>
-				[JsMethod(NativeOverloads = true)]
-				public JsArray concat(params object[] items) { return default(JsArray); }				
-				///<summary>
+        public JsArray concat(params JsArray[] items) { return default(JsArray); }
+        ///<summary>
+        ///Returns a new array consisting of a combination of the current array and any additional items.
+        ///</summary>
+        ///<param name="items">Optional. Additional items to add to the end of the current array.</param>
+        ///<returns></returns>
+        [JsMethod(NativeOverloads = true)]
+        public JsArray concat(params object[] items) { return default(JsArray); }
+        ///<summary>
         ///Returns a JsString value consisting of all the elements of an array concatenated together and separated by the specified separator character.
         ///</summary>
         ///<param name="separator">Required. A JsString that is used to separate one element of an array from the next in the resulting String object. If omitted, the array elements are separated with a comma.</param>
@@ -232,7 +232,7 @@ namespace SharpKit.JavaScript
         public static implicit operator JsArray(JsArray<T> x) { return null; }
         public static implicit operator T[](JsArray<T> x) { return default(T[]); }
         public static implicit operator JsArray<T>(T[] array) { return default(JsArray<T>); }
-        [JsMethod(IgnoreGenericArguments = true, JsonInitializers=true, OmitNewOperator=true, OmitParanthesis=true, Name="", SharpKitVersion="5+")]
+        [JsMethod(IgnoreGenericArguments = true, JsonInitializers = true, OmitNewOperator = true, OmitParanthesis = true, Name = "", SharpKitVersion = "5+")]
         public JsArray() { }
         //[JsMethod(IgnoreGenericArguments = true)]
         //public JsArray(JsArray<T> array) { }
@@ -269,15 +269,15 @@ namespace SharpKit.JavaScript
         ///<param name="items">Optional. Additional items to add to the end of the current array.</param>
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-				public JsArray<T> concat(params JsArray<T>[] items) { return default(JsArray<T>); }        
-				///<summary>
-				///Returns a new array consisting of a combination of the current array and any additional items.
-				///</summary>
-				///<param name="items">Optional. Additional items to add to the end of the current array.</param>
-				///<returns></returns>
-				[JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-				public JsArray<T> concat(params T[] items) { return default(JsArray<T>); }
-				///<summary>
+        public JsArray<T> concat(params JsArray<T>[] items) { return default(JsArray<T>); }
+        ///<summary>
+        ///Returns a new array consisting of a combination of the current array and any additional items.
+        ///</summary>
+        ///<param name="items">Optional. Additional items to add to the end of the current array.</param>
+        ///<returns></returns>
+        [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
+        public JsArray<T> concat(params T[] items) { return default(JsArray<T>); }
+        ///<summary>
         ///Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements. Returns the elements removed from the array.
         ///</summary>
         ///<param name="start">Required. The zero-based location in the array from which to start removing elements.</param>
@@ -1773,7 +1773,11 @@ namespace SharpKit.JavaScript
     [JsType(JsMode.Prototype, Export = false, Name = "Number")]
     public partial class JsNumber : JsObjectBase, IConvertible, IComparable, IComparable<JsNumber>, IEquatable<JsNumber>, IFormattable
     {
-        public JsNumber(double d) { }
+        double _Value;
+        public JsNumber(double d)
+        {
+            _Value = d;
+        }
         public static implicit operator double(JsNumber number) { return default(double); }
         public static implicit operator decimal(JsNumber number) { return default(decimal); }
         public static implicit operator int(JsNumber number) { return default(int); }
@@ -1782,7 +1786,7 @@ namespace SharpKit.JavaScript
         public static implicit operator JsNumber(double d) { return default(JsNumber); }
         public static implicit operator JsNumber(sbyte d) { return default(JsNumber); }
         public static implicit operator JsNumber(int d) { return default(JsNumber); }
-        public static JsBoolean operator ==(JsNumber x, JsNumber y) { return default(JsBoolean); }
+        public static JsBoolean operator ==(JsNumber x, JsNumber y) { return new JsBoolean(x._Value==y._Value); }
         public static JsBoolean operator !=(JsNumber x, JsNumber y) { return default(JsBoolean); }
         public static JsNumber operator ++(JsNumber x) { return default(JsNumber); }
         public static JsNumber operator --(JsNumber x) { return default(JsNumber); }
@@ -1793,7 +1797,7 @@ namespace SharpKit.JavaScript
         //[EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() { return default(int); }
         //[EditorBrowsable(EditorBrowsableState.Never)]
-        public override string ToString() { return default(string); }
+        public override string ToString() { return _Value.ToString(); }
         int IComparable.CompareTo(object obj) { return default(int); }
         static int Compare(JsNumber x, JsNumber y) { return default(int); }
         TypeCode IConvertible.GetTypeCode() { return default(TypeCode); }
@@ -2083,11 +2087,32 @@ namespace SharpKit.JavaScript
     public partial class JsString : JsObjectBase
     {
         public JsString() { }
-        public JsString(object obj) { }
-        public static implicit operator JsString(string s) { return default(JsString); }
-        public static implicit operator string(JsString s) { return default(string); }
-        public static JsString operator +(JsString x, JsString y) { return default(JsString); }
-        public static JsString operator +(JsString x, string y) { return default(JsString); }
+        public JsString(object obj)
+        {
+            if (obj != null)
+                _Value = obj.ToString();
+        }
+        string _Value;
+        public static implicit operator JsString(string s)
+        {
+            return new JsString(s);
+        }
+        public static implicit operator string(JsString s)
+        {
+            return s._Value;
+        }
+        public static JsString operator +(JsString x, JsString y)
+        {
+            return new JsString(x._Value + y._Value);
+        }
+        public static JsString operator +(JsString x, string y)
+        {
+            return new JsString(x._Value + y);
+        }
+        public override string ToString()
+        {
+            return _Value;
+        }
         public static JsString operator +(string x, JsString y) { return default(JsString); }
         public static bool operator >(JsString x, JsString y) { return false; }
         public static bool operator <(JsString x, JsString y) { return false; }
