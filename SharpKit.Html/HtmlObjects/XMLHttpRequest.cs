@@ -5,7 +5,7 @@ namespace SharpKit.Html
 
 using SharpKit.JavaScript;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true, Name = "XMLHttpRequest")]
 public partial class XMLHttpRequest : XMLHttpRequestEventTarget
 {
 
