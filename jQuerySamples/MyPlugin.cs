@@ -7,7 +7,13 @@ using SharpKit.JavaScript;
 
 namespace jQuerySamples
 {
-    [JsType(JsMode.Prototype, Name = "jQuery", PrototypeName="fn", OmitInheritance = true, OmitDefaultConstructor = true)]
+    [JsType(JsMode.Prototype, 
+        Name = "jQuery", 
+        PrototypeName="fn", 
+        OmitInheritance = true, 
+        OmitDefaultConstructor = true, 
+        NativeArrayEnumerator = true, 
+        NativeEnumerator = false)]
     class MyPlugin : jQuery
     {
         public jQuery myPlugin()
