@@ -98,7 +98,7 @@ JsTypes.push(
     }
 },staticDefinition:
 {
-    Equals$$Object: function(x, y)
+    Equals$$Object$$Object: function (x, y)
     {
     //TODO: check value types for valueOf()
         return x == y;
