@@ -115,7 +115,9 @@ namespace SharpKit.JavaScript.Private
             }
         }
 
-        public JsImplTimeSpan(long ticks)
+				public JsImplTimeSpan() {
+				}
+				public JsImplTimeSpan(long ticks)
         {
             _ticks = ticks;
         }
