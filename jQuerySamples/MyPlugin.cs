@@ -23,12 +23,6 @@ namespace jQuerySamples
         }
     }
 
-    [JsType(JsMode.Global, Export=false)]
-    class jQueryPlugin
-    {
-        public static jQuery @this { get; set; }
-    }
-
     [JsType(JsMode.Prototype, Export=false)]
     public static class MyPluginExtension
     {
