@@ -735,26 +735,27 @@ namespace SharpKit.JavaScript.Private
 			return num;
 		}
 
-		//public static int Count<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
-		//{
-		//  if (source == null)
-		//  {
-		//    throw Error.ArgumentNull("source");
-		//  }
-		//  if (predicate == null)
-		//  {
-		//    throw Error.ArgumentNull("predicate");
-		//  }
-		//  int num = 0;
-		//  foreach (TSource local in source)
-		//  {
-		//    if (predicate(local))
-		//    {
-		//      num++;
-		//    }
-		//  }
-		//  return num;
-		//}
+
+        public static int Count<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull("source");
+            }
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull("predicate");
+            }
+            int num = 0;
+            foreach (TSource local in source)
+            {
+                if (predicate(local))
+                {
+                    num++;
+                }
+            }
+            return num;
+        }
 
 		//public static IEnumerable<TSource> DefaultIfEmpty<TSource>(this IEnumerable<TSource> source)
 		//{
