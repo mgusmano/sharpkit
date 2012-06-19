@@ -639,6 +639,9 @@ JsTypes.push({fullname:"System.String", baseTypeName:"System.Object", definition
     {
         return System.String.Format.apply(null, arguments); //TODO: make native
     },
+    Format$$String$$Object$$Object$$Object: function (s, obj1, obj2,obj3) {
+        return this.Format(s, obj1, obj2,obj3);
+    },
     Format$$String$$Object$$Object: function(s, obj1, obj2)
     {
         return this.Format(s, obj1, obj2);
