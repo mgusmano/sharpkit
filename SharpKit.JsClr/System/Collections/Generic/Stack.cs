@@ -43,6 +43,14 @@ namespace SharpKit.JavaScript.Private
 				throw new JsError("Cannot pop from stack - stack is empty").As<Exception>();
 			return this._list.pop();
 		}
+
+        public object Peek()
+        {
+            if (this._list.length == 0)
+                throw new JsError("Cannot peek in stack - stack is empty").As<Exception>();
+            return this._list.peek();
+        }
+		
 		public bool Contains(T item)
 		{
 			return this._list.contains(item);
