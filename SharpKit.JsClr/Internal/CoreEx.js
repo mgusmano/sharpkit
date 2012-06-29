@@ -180,7 +180,10 @@ JsTypes.push({fullname:"Array", baseTypeName:"Object",definition:
         var index = this.indexOf(item);
         return (index >= 0);
     },
-    Contains$$Object: function(item)
+    Contains$$Object: function(item) {
+        return Contains(item);
+    },
+    Contains: function(item)
     {
         var index = this.indexOf(item);
         return (index >= 0);
