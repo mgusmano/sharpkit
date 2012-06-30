@@ -704,11 +704,11 @@ Arguments.Range = function(argsObject, start, end)
     }
     return list;
 }
-Arguments.Contains = function(arguments, object)
+Arguments.Contains = function(args, object)
 {
-    for (var i = 0; i < arguments.length; i++)
+	for (var i = 0; i < args.length; i++)
     {
-        if (arguments[i] == object)
+    	if (args[i] == object)
             return true;
     }
     return false;
