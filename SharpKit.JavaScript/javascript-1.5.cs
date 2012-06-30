@@ -1474,7 +1474,9 @@ namespace SharpKit.JavaScript
     public partial class JsError : Exception
     {
         public JsError() { }
-        public JsError(JsString s) { }
+        public JsError(JsString msg) { }
+        //public JsError(JsString msg, JsString filename) { }
+        //public JsError(JsString msg, JsString filename, JsNumber lineNumber) { }
         ///<summary>
         ///Returns or sets the descriptive JsString associated with a specific error.
         ///</summary>
@@ -1539,8 +1541,15 @@ namespace SharpKit.JavaScript
         public static new bool ReferenceEquals(object objA, object objB) { return object.ReferenceEquals(objA, objB); }
         #endregion
         public JsString toString() { return default(JsString); }
-
     }
+
+    [JsType(JsMode.Prototype, Export = false, Name = "Error", PropertiesAsFields = true, NativeError = true)]
+    public partial class JsNativeError : JsError
+    {
+        public JsNativeError() : base() { }
+        public JsNativeError(JsString msg) : base(msg) { }
+    }
+
     #endregion
     #region JsFunction
     [JsType(JsMode.Prototype, Export = false, Name = "Function")]
@@ -1786,7 +1795,7 @@ namespace SharpKit.JavaScript
         public static implicit operator JsNumber(double d) { return default(JsNumber); }
         public static implicit operator JsNumber(sbyte d) { return default(JsNumber); }
         public static implicit operator JsNumber(int d) { return default(JsNumber); }
-        public static JsBoolean operator ==(JsNumber x, JsNumber y) { return new JsBoolean(x._Value==y._Value); }
+        public static JsBoolean operator ==(JsNumber x, JsNumber y) { return new JsBoolean(x._Value == y._Value); }
         public static JsBoolean operator !=(JsNumber x, JsNumber y) { return default(JsBoolean); }
         public static JsNumber operator ++(JsNumber x) { return default(JsNumber); }
         public static JsNumber operator --(JsNumber x) { return default(JsNumber); }

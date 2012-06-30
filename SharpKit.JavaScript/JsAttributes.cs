@@ -193,6 +193,10 @@ namespace SharpKit.JavaScript
         /// </summary>
         public string PrototypeName { get; set; }
 
+        /// <summary>
+        /// Treats the class as a native "Error" object and prevents smart exception throwing
+        /// </summary>
+        public bool NativeError { get { return _NativeError.GetValueOrDefault(); } set { _NativeError = value; } } public bool? _NativeError;
         private void GoNative()
         {
             if (_NativeOverloads == null)
