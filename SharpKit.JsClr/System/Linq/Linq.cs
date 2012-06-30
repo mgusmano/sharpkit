@@ -254,13 +254,18 @@ namespace SharpKit.JavaScript.Private
 
 		public static bool Contains<TSource>(this IEnumerable<TSource> source, TSource value)
 		{
-			ICollection<TSource> is2 = source as ICollection<TSource>;
+            if (source == null)
+                throw Error.ArgumentNull("source");
+            ICollection<TSource> is2 = source as ICollection<TSource>;
 			if (is2 != null)
-			{
 				return is2.Contains(value);
-			}
-			return source.Contains<TSource>(value, null);
-		}
+            foreach (TSource local in source)
+            {
+                if (local.As<object>()==value.As<object>())
+                    return true;
+            }
+            return false;
+        }
 
 		public static bool Contains<TSource>(this IEnumerable<TSource> source, TSource value, IEqualityComparer<TSource> comparer)
 		{
