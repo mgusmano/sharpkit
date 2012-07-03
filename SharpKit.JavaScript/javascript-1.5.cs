@@ -77,7 +77,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///The Array object provides support for creation of arrays of any data type.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator = true, NativeCasts=true)]
     public partial class JsArray : IJsArrayEnumerable<object>
     {
         [JsMethod(JsonInitializers = true, OmitNewOperator = true, OmitParanthesis = true, Name = "", SharpKitVersion = "5+")]
@@ -226,7 +226,7 @@ namespace SharpKit.JavaScript
     ///The Array object provides support for creation of arrays of any data type.
     ///</summary>
     ///<typeparam name="T"></typeparam>
-    [JsType(JsMode.Prototype, Name = "Array", NativeEnumerator = false, Export = false, IgnoreGenericTypeArguments = true, NativeArrayEnumerator = true)]
+    [JsType(JsMode.Prototype, Name = "Array", NativeEnumerator = false, Export = false, IgnoreGenericTypeArguments = true, NativeArrayEnumerator = true, NativeCasts=true)]
     public partial class JsArray<T> : IJsArrayEnumerable<T>
     {
         public static implicit operator JsArray(JsArray<T> x) { return null; }
@@ -369,7 +369,7 @@ namespace SharpKit.JavaScript
     }
     #endregion
     #region JsBoolean
-    [JsType(JsMode.Prototype, Name = "Boolean", Export = false)]
+    [JsType(JsMode.Prototype, Name = "Boolean", Export = false, NativeCasts = true)]
     public partial class JsBoolean
     {
         public JsBoolean(object boolValue) { }
@@ -989,7 +989,7 @@ namespace SharpKit.JavaScript
     #endregion
 
     #region JsDate
-    [JsType(Export = false, Name = "Date", NativeConstructors = true)]
+    [JsType(Export = false, Name = "Date", NativeConstructors = true, NativeCasts = true)]
     public partial class JsDate : JsObjectBase
     {
         public static JsNumber operator -(JsDate date1, JsDate date2) { return default(JsNumber); }
@@ -1470,7 +1470,7 @@ namespace SharpKit.JavaScript
 
     #endregion
     #region JsError
-    [JsType(JsMode.Prototype, Export = false, Name = "Error", PropertiesAsFields = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Error", PropertiesAsFields = true, NativeCasts = true)]
     public partial class JsError : Exception
     {
         public JsError() { }
@@ -1552,7 +1552,7 @@ namespace SharpKit.JavaScript
 
     #endregion
     #region JsFunction
-    [JsType(JsMode.Prototype, Export = false, Name = "Function")]
+    [JsType(JsMode.Prototype, Export = false, Name = "Function", NativeCasts = true)]
     public partial class JsFunction : JsObjectBase
     {
         public JsFunction(params JsString[] prmsAndBody) { }
@@ -1779,7 +1779,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///An object representation of the number data type and placeholder for numeric constants.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "Number")]
+    [JsType(JsMode.Prototype, Export = false, Name = "Number", NativeCasts=true)]
     public partial class JsNumber : JsObjectBase, IConvertible, IComparable, IComparable<JsNumber>, IEquatable<JsNumber>, IFormattable
     {
         double _Value;
@@ -1992,7 +1992,7 @@ namespace SharpKit.JavaScript
         public static new bool ReferenceEquals(object objA, object objB) { return object.ReferenceEquals(objA, objB); }
         #endregion
     }
-    [JsType(JsMode.Prototype, Export = false, Name = "Object", NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Object", NativeEnumerator = true, NativeCasts = true)]
     public partial class JsObject : JsObjectBase, IEnumerable<JsString>
     {
         public JsObject() { }
@@ -2006,7 +2006,7 @@ namespace SharpKit.JavaScript
     }
     #endregion
     #region JsObject<T>
-    [JsType(JsMode.Prototype, Export = false, Name = "Object", NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Object", NativeEnumerator = true, NativeCasts = true)]
     public partial class JsObject<T> : JsObjectBase, IEnumerable<JsString>
     {
         public static implicit operator JsObject(JsObject<T> obj) { return null; }
@@ -2020,7 +2020,7 @@ namespace SharpKit.JavaScript
     #endregion
     #region JsObject<K, T>
 
-    [JsType(JsMode.Prototype, Export = false, Name = "Object", IgnoreGenericTypeArguments = true, NativeEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Object", IgnoreGenericTypeArguments = true, NativeEnumerator = true, NativeCasts = true)]
     public class JsObject<K, T> : JsObjectBase, IEnumerable<K>
     {
         public static implicit operator JsObject(JsObject<K, T> obj) { return null; }
@@ -2092,7 +2092,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///Allows manipulation and formatting of text strings and determination and location of substrings within strings.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "String", NativeEnumerator = false, NativeArrayEnumerator = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "String", NativeEnumerator = false, NativeArrayEnumerator = true, NativeCasts = true)]
     public partial class JsString : JsObjectBase
     {
         public JsString() { }

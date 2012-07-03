@@ -194,6 +194,11 @@ namespace SharpKit.JavaScript
         public string PrototypeName { get; set; }
 
         /// <summary>
+        /// When set to true, casting/as/is will be generated using the native "instanceof" keyword
+        /// </summary>
+        public bool NativeCasts { get { return _NativeCasts.GetValueOrDefault(); } set { _NativeCasts = value; } } public bool? _NativeCasts;
+
+        /// <summary>
         /// Treats the class as a native "Error" object and prevents smart exception throwing
         /// </summary>
         public bool NativeError { get { return _NativeError.GetValueOrDefault(); } set { _NativeError = value; } } public bool? _NativeError;
