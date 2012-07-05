@@ -724,7 +724,7 @@ namespace SharpKit.jQuery
         /// <summary>
         ///  the jQuery object representing the helper that's being dragged
         /// </summary>
-        public HtmlElement helper { get; set; }
+        public jQuery helper { get; set; }
         /// <summary>
         /// ui.position - current position of the helper as { top, left } object, relative to the offset element
         /// </summary>
@@ -1596,6 +1596,35 @@ namespace SharpKit.jQuery
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery sortable(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
+    [JsType(JsMode.Json)]
+    public class UISortable
+    {
+        /// <summary>
+        ///  the jQuery object representing the helper that's being dragged
+        /// </summary>
+        public jQuery helper { get; set; }
+        /// <summary>
+        /// ui.item - the current dragged element
+        /// </summary>
+        public jQuery item { get; set; }
+        /// <summary>
+        /// ui.placeholder - the placeholder
+        /// </summary>
+        public jQuery placeholder { get; set; }
+        /// <summary>
+        /// ui.sender - the sortable where the item comes from (only exists if you move from one connected list to another)
+        /// </summary>
+        public jQuery sender { get; set; }
+        /// <summary>
+        /// ui.position - current position of the helper as { top, left } object, relative to the offset element
+        /// </summary>
+        public TopLeft position { get; set; }
+        /// <summary>
+        /// ui.offset - current absolute position of the helper as { top, left } object, relative to page
+        /// </summary>
+        public TopLeft offset { get; set; }
+    }
+
     #endregion
     #region SortableOptions
     ///<summary>
@@ -1733,62 +1762,62 @@ namespace SharpKit.jQuery
         ///This event is triggered when sorting starts.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent start { get; set; }
+        public jQueryUIEvent<UISortable> start { get; set; }
         ///<summary>
         ///This event is triggered during sorting.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent sort { get; set; }
+        public jQueryUIEvent<UISortable> sort { get; set; }
         ///<summary>
         ///This event is triggered during sorting, but only when the DOM position has changed.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent change { get; set; }
+        public jQueryUIEvent<UISortable> change { get; set; }
         ///<summary>
         ///This event is triggered when sorting stops, but when the placeholder/helper is still available.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent beforeStop { get; set; }
+        public jQueryUIEvent<UISortable> beforeStop { get; set; }
         ///<summary>
         ///This event is triggered when sorting has stopped.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent stop { get; set; }
+        public jQueryUIEvent<UISortable> stop { get; set; }
         ///<summary>
         ///This event is triggered when the user stopped sorting and the DOM position has changed.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent update { get; set; }
+        public jQueryUIEvent<UISortable> update { get; set; }
         ///<summary>
         ///This event is triggered when a connected sortable list has received an item from another list.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent receive { get; set; }
+        public jQueryUIEvent<UISortable> receive { get; set; }
         ///<summary>
         ///This event is triggered when a sortable item has been dragged out from the list and into another.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent remove { get; set; }
+        public jQueryUIEvent<UISortable> remove { get; set; }
         ///<summary>
         ///This event is triggered when a sortable item is moved into a connected list.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent over { get; set; }
+        public jQueryUIEvent<UISortable> over { get; set; }
         ///<summary>
         ///This event is triggered when a sortable item is moved away from a connected list.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent @out { get; set; }
+        public jQueryUIEvent<UISortable> @out { get; set; }
         ///<summary>
         ///This event is triggered when using connected lists, every connected list on drag start receives it.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent activate { get; set; }
+        public jQueryUIEvent<UISortable> activate { get; set; }
         ///<summary>
         ///This event is triggered when sorting was stopped, is propagated to all possible connected lists.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent deactivate { get; set; }
+        public jQueryUIEvent<UISortable> deactivate { get; set; }
     }
     #endregion
     #region SwitchClass
