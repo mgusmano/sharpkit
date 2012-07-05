@@ -1,4 +1,5 @@
 ﻿using SharpKit.JavaScript;
+using SharpKit.Html4;
 namespace SharpKit.jQuery
 {
     [JsType(JsMode.Prototype, Export=false)]
@@ -716,6 +717,24 @@ namespace SharpKit.jQuery
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery draggable(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
+
+    [JsType(JsMode.Json)]
+    public class UIDraggable
+    {
+        /// <summary>
+        ///  the jQuery object representing the helper that's being dragged
+        /// </summary>
+        public HtmlElement helper { get; set; }
+        /// <summary>
+        /// ui.position - current position of the helper as { top, left } object, relative to the offset element
+        /// </summary>
+        public TopLeft position { get; set; }
+        /// <summary>
+        /// ui.offset - current absolute position of the helper as { top, left } object, relative to page
+        /// </summary>
+        public TopLeft offset { get; set; }
+    }
+
     #endregion
     #region DraggableOptions
     ///<summary>
@@ -871,17 +890,17 @@ namespace SharpKit.jQuery
         ///This event is triggered when dragging starts.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent start { get; set; }
+        public jQueryUIEvent<UIDraggable> start { get; set; }
         ///<summary>
         ///This event is triggered when the mouse is moved during the dragging.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent drag { get; set; }
+        public jQueryUIEvent<UIDraggable> drag { get; set; }
         ///<summary>
         ///This event is triggered when dragging stops.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent stop { get; set; }
+        public jQueryUIEvent<UIDraggable> stop { get; set; }
     }
     #endregion
     #region Droppable
@@ -2146,6 +2165,10 @@ namespace SharpKit.jQuery
     [JsDelegate(NativeDelegates = true)]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void jQueryUIEvent(Event e, object ui);
+
+    [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
+    public delegate void jQueryUIEvent<T>(Event e, T ui);
 }
 
 
