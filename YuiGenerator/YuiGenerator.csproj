@@ -49,6 +49,7 @@
     <Compile Include="CodeModel\CodeModel.cs" />
     <Compile Include="CodeModel\CodeModelExporter.cs" />
     <Compile Include="CodeModel\Extensions.cs" />
+    <Compile Include="Utils\JsonNavigator.cs" />
     <Compile Include="YuiCodeGenerator.cs" />
     <Compile Include="Utils\Extensions\System.Collections.Generic.cs" />
     <Compile Include="Utils\Extensions\System.cs" />
