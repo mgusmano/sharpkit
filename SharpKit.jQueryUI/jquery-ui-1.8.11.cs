@@ -2,11 +2,11 @@
 using SharpKit.Html4;
 namespace SharpKit.jQuery
 {
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     public static partial class jQueryUI
     {
-        [JsMethod(Name="bind", ExtensionImplementedInInstance=true)]
-        public static void bindUI(this jQuery jquery, JsString eventName, jQueryUIEvent handler) {  }
+        [JsMethod(Name = "bind", ExtensionImplementedInInstance = true)]
+        public static void bindUI(this jQuery jquery, JsString eventName, jQueryUIEvent handler) { }
     }
     #region Accordion
     ///<summary>
@@ -43,6 +43,30 @@ namespace SharpKit.jQuery
         public static jQuery accordion(this jQuery query, AccordionOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery accordion(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+    }
+
+    [JsType(JsMode.Json)]
+    public class UIAccordion
+    {
+        /// <summary>
+        /// ui.newHeader // jQuery object, activated header
+        /// </summary>
+        public jQuery newHeader { get; set; }
+
+        /// <summary>
+        /// ui.oldHeader // jQuery object, previous header
+        /// </summary>
+        public jQuery oldHeader { get; set; }
+
+        /// <summary>
+        /// ui.newContent // jQuery object, activated content
+        /// </summary>
+        public jQuery newContent { get; set; }
+
+        /// <summary>
+        /// ui.oldContent // jQuery object, previous content
+        /// </summary>
+        public jQuery oldContent { get; set; }
     }
     #endregion
     #region AccordionOptions
@@ -722,13 +746,15 @@ namespace SharpKit.jQuery
     public class UIDraggable
     {
         /// <summary>
-        ///  the jQuery object representing the helper that's being dragged
+        /// ui.helper - the jQuery object representing the helper that's being dragged
         /// </summary>
         public jQuery helper { get; set; }
+
         /// <summary>
         /// ui.position - current position of the helper as { top, left } object, relative to the offset element
         /// </summary>
         public TopLeft position { get; set; }
+
         /// <summary>
         /// ui.offset - current absolute position of the helper as { top, left } object, relative to page
         /// </summary>
@@ -921,6 +947,30 @@ namespace SharpKit.jQuery
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery droppable(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
+
+    [JsType(JsMode.Json)]
+    public class UIDroppable
+    {
+        /// <summary>
+        /// ui.draggable - current draggable element, a jQuery object
+        /// </summary>
+        public jQuery draggable { get; set; }
+
+        /// <summary>
+        /// ui.helper - the jQuery object containing the helper element
+        /// </summary>
+        public jQuery helper { get; set; }
+
+        /// <summary>
+        /// ui.position - current position of the helper as { top, left } object, relative to the offset element
+        /// </summary>
+        public TopLeft position { get; set; }
+
+        /// <summary>
+        /// ui.offset - current absolute position of the helper as { top, left } object, relative to page
+        /// </summary>
+        public TopLeft offset { get; set; }
+    }
     #endregion
     #region DroppableOptions
     ///<summary>
@@ -1082,7 +1132,7 @@ namespace SharpKit.jQuery
     }
 
     [JsType(JsMode.Json)]
-    [JsEnum(ValuesAsNames=true)]
+    [JsEnum(ValuesAsNames = true)]
     public enum EffectType
     {
         blind,
@@ -1235,6 +1285,35 @@ namespace SharpKit.jQuery
         public static jQuery resizable(this jQuery query, ResizableOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery resizable(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+    }
+
+    [JsType(JsMode.Json)]
+    public class UIResizable
+    {
+        /// <summary>
+        /// ui.helper - the jQuery object containing the helper element
+        /// </summary>
+        public jQuery helper { get; set; }
+
+        /// <summary>
+        /// ui.originalPosition - {top, left} before resizing started
+        /// </summary>
+        public TopLeft originalPosition { get; set; }
+
+        /// <summary>
+        /// ui.originalSize - {width, height} before resizing started
+        /// </summary>
+        public Size originalSize { get; set; }
+
+        /// <summary>
+        /// ui.position - current position of the helper as { top, left } object, relative to the offset element
+        /// </summary>
+        public TopLeft position { get; set; }
+
+        /// <summary>
+        /// ui.size - {width, height} current size
+        /// </summary>
+        public Size size { get; set; }
     }
     #endregion
     #region ResizableOptions
@@ -1504,6 +1583,20 @@ namespace SharpKit.jQuery
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery slider(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
+
+    [JsType(JsMode.Json)]
+    public class UISlider
+    {
+        /// <summary>
+        /// ui.handle: DOMElement - the current focused handle
+        /// </summary>
+        public HtmlElement handle { get; set; }
+
+        /// <summary>
+        /// ui.value: Integer - the current handle's value
+        /// </summary>
+        public JsNumber value { get; set; }
+    }
     #endregion
     #region SliderOptions
     ///<summary>
@@ -1596,29 +1689,35 @@ namespace SharpKit.jQuery
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery sortable(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
+
     [JsType(JsMode.Json)]
     public class UISortable
     {
         /// <summary>
-        ///  the jQuery object representing the helper that's being dragged
+        /// ui.helper - the jQuery object containing the helper element
         /// </summary>
         public jQuery helper { get; set; }
+
         /// <summary>
         /// ui.item - the current dragged element
         /// </summary>
         public jQuery item { get; set; }
+
         /// <summary>
         /// ui.placeholder - the placeholder
         /// </summary>
         public jQuery placeholder { get; set; }
+
         /// <summary>
         /// ui.sender - the sortable where the item comes from (only exists if you move from one connected list to another)
         /// </summary>
         public jQuery sender { get; set; }
+
         /// <summary>
         /// ui.position - current position of the helper as { top, left } object, relative to the offset element
         /// </summary>
         public TopLeft position { get; set; }
+
         /// <summary>
         /// ui.offset - current absolute position of the helper as { top, left } object, relative to page
         /// </summary>
@@ -1979,6 +2078,25 @@ namespace SharpKit.jQuery
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery tabs(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
+
+    [JsType(JsMode.Json)]
+    public class UITabs
+    {
+        /// <summary>
+        ///  ui.tab - anchor element of the selected (clicked) tab
+        /// </summary>
+        public HtmlElement tab { get; set; }
+
+        /// <summary>
+        /// ui.panel - element, that contains the selected/clicked tab contents
+        /// </summary>
+        public HtmlElement panel { get; set; }
+
+        /// <summary>
+        /// ui.index - zero-based index of the selected (clicked) tab
+        /// </summary>
+        public JsNumber index { get; set; }
+    }
     #endregion
     #region TabsOptions
     ///<summary>
@@ -2199,6 +2317,3 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void jQueryUIEvent<T>(Event e, T ui);
 }
-
-
-
