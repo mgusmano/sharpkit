@@ -1315,6 +1315,13 @@ namespace SharpKit.jQuery
         /// </summary>
         public Size size { get; set; }
     }
+
+    [JsType(JsMode.Json)]
+    public class Size
+    {
+        public JsNumber width { get; set; }
+        public JsNumber height { get; set; }
+    }
     #endregion
     #region ResizableOptions
     ///<summary>
