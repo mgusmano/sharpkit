@@ -143,7 +143,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtJsSamples", "ExtJsSample
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.jQueryUI.NestedSortable", "SharpKit.jQueryUI.NestedSortable\SharpKit.jQueryUI.NestedSortable.csproj", "{AF96B319-A09E-4997-820D-18B65D57E1A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.JsClr.Test", "SharpKit.JsClr.Test\SharpKit.JsClr.Test.csproj", "{E18669CC-D615-47BA-8C07-3A3F01B86A2D}"
+EndProject
 Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -1287,6 +1293,26 @@ Global
 		{AF96B319-A09E-4997-820D-18B65D57E1A0}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{AF96B319-A09E-4997-820D-18B65D57E1A0}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
 		{AF96B319-A09E-4997-820D-18B65D57E1A0}.v4.0|x86.ActiveCfg = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.Release|x86.ActiveCfg = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v3.5|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v3.5|Mixed Platforms.Build.0 = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v3.5|x86.ActiveCfg = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v4.0|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1299,6 +1325,7 @@ Global
 		{C640DD67-36F3-47AD-8349-FB756C95113E} = {784BBD3F-6D5B-4A2E-A51C-15F8E5599403}
 		{7170C3A4-CD48-4D99-8048-E04AFA8BCA99} = {E3A371D2-E3B3-4D47-AF2A-E003E7EC9A89}
 		{5842DE63-647F-4D54-AE72-36CCC04105A6} = {E3A371D2-E3B3-4D47-AF2A-E003E7EC9A89}
+		{E18669CC-D615-47BA-8C07-3A3F01B86A2D} = {E3A371D2-E3B3-4D47-AF2A-E003E7EC9A89}
 		{5A90FAC8-67DA-4823-B114-91F5A26B2FE9} = {3D92915D-EDA8-4B77-BE52-4BC2F18673C9}
 		{CA9F3459-A825-4F8C-BAA6-D30F12076A6F} = {3D92915D-EDA8-4B77-BE52-4BC2F18673C9}
 		{5D1BD899-6B11-47D6-8222-69333482C3F5} = {3D92915D-EDA8-4B77-BE52-4BC2F18673C9}
@@ -1345,9 +1372,5 @@ Global
 		{D2F9866F-BCD9-4D02-89A4-7408E22EE949} = {D64BCC9D-7AE1-4232-98A4-24E2AFE7D7A5}
 		{D596377C-43EF-42E6-9EC7-8F5CC7346D9B} = {008CB224-EE02-4F60-B7B0-58A675C9E4C6}
 		{85D7E841-77BB-4AB9-8E64-DAB28FEAA657} = {008CB224-EE02-4F60-B7B0-58A675C9E4C6}
-	EndGlobalSection
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

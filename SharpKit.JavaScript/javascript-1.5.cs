@@ -2600,6 +2600,12 @@ namespace SharpKit.JavaScript
             return false;
         }
 
+        [JsMethod(OmitDotOperator = true, OmitParanthesis = true, Export = false, NativeOverloads = true, Name = "instanceof", ExtensionImplementedInInstance = true)]
+        public static bool instanceof(this object obj, JsFunction ctor)
+        {
+            return false;
+        }
+
         /// <summary>
         /// A C# extension for '===' operator
         /// </summary>

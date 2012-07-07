@@ -246,7 +246,22 @@ namespace SharpKit.JavaScript.Compilation
             var type = JsTypeHelper.GetType(typeOrName.As<string>(), true);
             //var type = typeCtor._type;
             if (type == null)
+            {
+                if (type == null && JsTypeOf(typeOrName) == JavaScript.JsTypes.function)
+                {
+                    var ctor = typeOrName.As<JsFunction>();
+                    var i = 0;
+                    while (ctor != null && i<20) //avoid circular base types (infinite loop)
+                    {
+                        if (obj.instanceof(ctor))
+                            return true;
+                        ctor = ctor.As<JsObject>()["$baseCtor"].As<JsFunction>();
+                        i++;
+                    }
+                    return false;
+                }
                 throw new JsError("type expected").As<Exception>();
+            }
             var objType = GetObjectType(obj);
             var isIt = TypeIs(objType, type);
             //Profiler.Data.push([1, new Date().getTime(), true, 1]);
