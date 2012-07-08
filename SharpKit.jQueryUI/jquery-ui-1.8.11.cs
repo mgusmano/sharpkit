@@ -558,6 +558,13 @@ namespace SharpKit.jQuery
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery dialog(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
+
+    [JsType(JsMode.Json)]
+    public class DialogButton
+    {
+        public JsString text { get; set; }
+        public JsAction click { get; set; }
+    }
     #endregion
     #region DialogOptions
     ///<summary>
@@ -580,7 +587,13 @@ namespace SharpKit.jQuery
         ///Specifies which buttons should be displayed on the dialog. The property key is the text of the button. The value is the callback function for when the button is clicked. The context of the callback is the dialog element; if you need access to the button, it is available as the target of the event object. 
         ///Default: { }
         ///</summary>
-        public object buttons { get; set; }
+        public JsArray<DialogButton> buttons { get; set; }
+        ///<summary>
+        ///Specifies which buttons should be displayed on the dialog. The property key is the text of the button. The value is the callback function for when the button is clicked. The context of the callback is the dialog element; if you need access to the button, it is available as the target of the event object. 
+        ///Default: { }
+        ///</summary>
+        [JsProperty(Name="buttons")]
+        public JsObject<JsAction> buttonsClicks { get; set; }
         ///<summary>
         ///Specifies whether the dialog should close when it has focus and the user presses the esacpe (ESC) key.
         ///Default: true
