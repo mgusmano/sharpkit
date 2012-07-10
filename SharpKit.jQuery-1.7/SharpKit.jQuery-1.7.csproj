@@ -24,9 +24,7 @@
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="jQuery-1.7.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="jQuery-1.7.2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
