@@ -104,19 +104,13 @@ namespace SharpKit.Raphael
         /// </summary>
         /// <param name="params">object of name/value pairs</param>
         /// <returns></returns>
-        public Element attr(object @params)
-        {
-            return null;
-        }
+        public Element attr(object @params) { return null; }
         /// <summary>
         /// Sets the attributes of the element
         /// </summary>
         /// <param name="params">object of name/value pairs</param>
         /// <returns></returns>
-        public Element attr(ElementAttributes @params)
-        {
-            return null;
-        }
+        public Element attr(ElementAttributes @params) { return null; }
         /// <summary>
         /// Sets the attributes of the element
         /// </summary>
@@ -170,7 +164,7 @@ namespace SharpKit.Raphael
         {
             return null;
         }
-        //there is anathor return for specipic case. how should i write it? olso there is a function for exemple - what should i do with it?
+        //TODO: there is anathor return for specipic case. how should i write it?
         /// <summary>
         /// Adds event handler for double click for the element.
         /// </summary>
@@ -194,7 +188,7 @@ namespace SharpKit.Raphael
         {
             return null;
         }
-        //there are some X&Y stuff what should i do with them?
+        //TODO: there are some X&Y stuff what should i do with them?
         /// <summary>
         /// Return bounding box for a given element
         /// </summary>
@@ -212,11 +206,11 @@ namespace SharpKit.Raphael
         /// </summary>
         /// <param name="length"></param>
         /// <returns></returns>
-        public object getPointAtLength(JsNumber length)
+        public GetPointAtLength getPointAtLength(JsNumber length)
         {
             return null;
         }
-        //grey box
+        //TODO: D.check
         /// <summary>
         /// Return subpath of a given element from given length to given length. Only works for element of “path” type.
         /// </summary>
@@ -244,7 +238,6 @@ namespace SharpKit.Raphael
         {
             return null;
         }
-        // grey box
         /// <summary>
         /// Makes element invisible. See Element.show.
         /// </summary>
@@ -265,7 +258,12 @@ namespace SharpKit.Raphael
         {
             return null;
         }
-        //elemnt.id?!?!
+        /// <summary>
+        /// Unique id of the element. Especially usesful when you want to listen to events of the element,
+        /// because all events are fired in format <module>.<action>.<id>. Also useful for Paper.getById method.
+        /// </summary>
+        public JsNumber id { get; set; }
+        //TODO: D.check
         /// <summary>
         /// Inserts current object after the given one.
         /// </summary>
@@ -282,6 +280,17 @@ namespace SharpKit.Raphael
         {
             return null;
         }
+        /// <summary>
+        /// Determine if given point is inside this element’s shape
+        /// </summary>
+        /// <param name="x">x coordinate of the point</param>
+        /// <param name="y">y coordinate of the point</param>
+        /// <returns>true if point inside the shape</returns>
+        public bool isPointInside(JsNumber x, JsNumber y) { return false; }
+        /// <summary>
+        /// Keeps Matrix object, which represents element transformatio
+        /// </summary>
+        public object matrix { get; set; }
         /// <summary>
         /// Adds event handler for mousedown for the element.
         /// </summary>
@@ -408,7 +417,7 @@ namespace SharpKit.Raphael
         /// <param name="sy">vertical scale amount</param>
         /// <param name="cx">x coordinate of the centre of scale</param>
         /// <param name="cy">y coordinate of the centre of scale</param>
-        /// <returns></returns>
+        /// <returns>Element</returns>
         public object scale(JsNumber sx, JsNumber sy, JsNumber cx, JsNumber cy)
         {
             return null;
@@ -521,8 +530,73 @@ namespace SharpKit.Raphael
         {
             return null;
         }
-
-        // Element.transform([tstr])??
+        /// <summary>
+        /// Adds transformation to the element which is separate to other attributes, i.e.
+        /// translation doesn’t change x or y of the rectange. The format of transformation string is similar to the path string syntax:
+        /// "t100,100r30,100,100s2,2,100,100r45s1.5"
+        /// Each letter is a command. There are four commands: t is for translate, r is for rotate, s is for scale and m is for matrix.
+        /// There are also alternative “absolute” translation, rotation and scale: T, R and S.
+        /// They will not take previous transformation into account. For example, ...T100,0 will always move element 100 px horisontally,
+        /// while ...t100,0 could move it vertically if there is r90 before. Just compare results of r90t100,0 and r90T100,0.
+        /// So, the example line above could be read like “translate by 100, 100; rotate 30° around 100, 100;
+        /// scale twice around 100, 100; rotate 45° around centre; scale 1.5 times relative to centre”.
+        /// As you can see rotate and scale commands have origin coordinates as optional parameters, the default is the centre point of the element.
+        /// Matrix accepts six parameters.
+        /// </summary>
+        /// <param name="tstr"></param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var el = paper.rect(10, 20, 300, 200);
+        /// // translate 100, 100, rotate 45°, translate -100, 0
+        /// el.transform("t100,100r45t-100,0");
+        /// // if you want you can append or prepend transformations
+        /// el.transform("...t50,50");
+        /// el.transform("s2...");
+        /// // or even wrap
+        /// el.transform("t50,50...t-50-50");
+        /// // to reset transformation call method with empty string
+        /// el.transform("");
+        /// // to get current value call it without parameters
+        /// console.log(el.transform());
+        /// </code>
+        /// </example>
+        public JsString transform(JsString tstr) { return null; }
+        //TODO: D.check
+        ///// <summary>
+        ///// Adds transformation to the element which is separate to other attributes, i.e.
+        ///// translation doesn’t change x or y of the rectange. The format of transformation string is similar to the path string syntax:
+        ///// "t100,100r30,100,100s2,2,100,100r45s1.5"
+        ///// Each letter is a command. There are four commands: t is for translate, r is for rotate, s is for scale and m is for matrix.
+        ///// There are also alternative “absolute” translation, rotation and scale: T, R and S.
+        ///// They will not take previous transformation into account. For example, ...T100,0 will always move element 100 px horisontally,
+        ///// while ...t100,0 could move it vertically if there is r90 before. Just compare results of r90t100,0 and r90T100,0.
+        ///// So, the example line above could be read like “translate by 100, 100; rotate 30° around 100, 100;
+        ///// scale twice around 100, 100; rotate 45° around centre; scale 1.5 times relative to centre”.
+        ///// As you can see rotate and scale commands have origin coordinates as optional parameters, the default is the centre point of the element.
+        ///// Matrix accepts six parameters.
+        ///// </summary>
+        ///// <param name="tstr"></param>
+        ///// <returns>ELEMENT OR STRING</returns>
+        ///// <example>
+        ///// usage
+        ///// <code>
+        ///// var el = paper.rect(10, 20, 300, 200);
+        ///// // translate 100, 100, rotate 45°, translate -100, 0
+        ///// el.transform("t100,100r45t-100,0");
+        ///// // if you want you can append or prepend transformations
+        ///// el.transform("...t50,50");
+        ///// el.transform("s2...");
+        ///// // or even wrap
+        ///// el.transform("t50,50...t-50-50");
+        ///// // to reset transformation call method with empty string
+        ///// el.transform("");
+        ///// // to get current value call it without parameters
+        ///// console.log(el.transform());
+        ///// </code>
+        ///// </example>
+        //public object transform(JsString tstr) { return null; } 
 
         /// <summary>
         /// Adds translation by given amount to the list of transformations of the element.
@@ -940,7 +1014,7 @@ namespace SharpKit.Raphael
         /// <param name="e"></param>
         /// <param name="f"></param>
         /// <returns>Matrix</returns>
-        [JsMethod(OmitNewOperator=true, Name="Raphael.matrix", Global=true)]
+        [JsMethod(OmitNewOperator = true, Name = "Raphael.matrix", Global = true)]
         public Matrix(JsNumber a, JsNumber b, JsNumber c, JsNumber d, JsNumber e, JsNumber f)
         {
         }
@@ -1261,7 +1335,7 @@ namespace SharpKit.Raphael
         /// </example>
         /// 
         public void path(string pathString) { }
-        // not done!!!! 
+        //TODO: not done!!!! 
 
         /// <summary>
         /// Creates set of shapes to represent given font at given position with given size. Result of the method is set object (see Paper.set) which contains each letter as separate path object.
@@ -1496,7 +1570,7 @@ namespace SharpKit.Raphael
         /// <param name="onReadyCallback">function that is going to be called on DOM ready event. You can also subscribe to this event via Eve’s “DOMLoad” event. In this case method returns undefined.</param>
         [JsMethod(Global = true, Name = "Raphael")]
         public static Paper Create(JsAction onReadyCallback) { return null; }
-        //raphael (...) ?!?!
+        //TODO: raphael (...) ?!?!
 
         /// <summary>
         /// Returns angle between two or three points
@@ -1524,7 +1598,7 @@ namespace SharpKit.Raphael
         {
             return null;
         }
-        //dubble check @params
+        //TODO: dubble check @params
 
         /// <summary>
         /// Parses the color string and returns object with all values for the given color.
@@ -1549,7 +1623,7 @@ namespace SharpKit.Raphael
             return null;
         }
 
-        //Raphael.easing_formulas (?!)
+        //TODO: Raphael.easing_formulas
         /// <summary>
         /// You can add your own method to elements. This is usefull when you want to hack default functionality or want to wrap some common transformation or attributes in one method. In difference to canvas methods, you can redefine element method at any time. Expending element methods wouldn’t affect set.
         /// </summary>
@@ -1582,7 +1656,7 @@ namespace SharpKit.Raphael
         {
             return null;
         }
-        //grey box information (?)
+        //TODO: grey box information
         /// <summary>
         /// You can add your own method to the canvas. For example if you want to draw a pie chart, you can create your own pie chart function and ship it as a Raphaël plugin. To do this you need to extend the Raphael.fn object. You should modify the fn object before a Raphaël instance is created, otherwise it will take no effect. Please note that the ability for namespaced plugins was removed in Raphael 2.0. It is up to the plugin to ensure any namespacing ensures proper context.
         /// </summary>
@@ -1608,7 +1682,7 @@ namespace SharpKit.Raphael
         public object fn { get; set; }
 
 
-        //Raphael.format(token, …) what should i do with "..."?
+        //TODO: Raphael.format(token, …) what should i do with "..."?
 
         /// <summary>
         /// A little bit more advanced format function than Raphael.format. Replaces construction of type “{[name]}” to the corresponding argument.
@@ -1663,8 +1737,21 @@ namespace SharpKit.Raphael
             return null;
         }
 
-        //Raphael.getRGB(colour) (?!)
-
+        /// <summary>
+        /// Parses colour string as RGB object
+        /// </summary>
+        /// <param name="colour">colour string in one of formats:
+        /// Colour name (“red”, “green”, “cornflowerblue”, etc)
+        /// #••• — shortened HTML colour: (“#000”, “#fc0”, etc)
+        /// #•••••• — full length HTML colour: (“#000000”, “#bd2300”)
+        /// rgb(•••, •••, •••) — red, green and blue channels’ values: (“rgb(200, 100, 0)”)
+        /// rgb(•••%, •••%, •••%) — same as above, but in %: (“rgb(100%, 175%, 0%)”)
+        /// hsb(•••, •••, •••) — hue, saturation and brightness values: (“hsb(0.5, 0.25, 1)”)
+        /// hsb(•••%, •••%, •••%) — same as above, but in %
+        /// hsl(•••, •••, •••) — same as hsb
+        /// hsl(•••%, •••%, •••%) — same as hsb</param>
+        /// <returns></returns>
+        public GetRGB getRGB(JsString colour) { return null; }
         /// <summary>
         /// Return subpath of a given path from given length to given length.
         /// </summary>
@@ -1763,7 +1850,342 @@ namespace SharpKit.Raphael
         {
             return null;
         }
+        /// <summary>
+        /// Utility method Parses given path string into an array of arrays of path segments.
+        /// </summary>
+        /// <param name="pathString">path string or array of segments (in the last case it will be returned straight away)</param>
+        /// <returns>array of segments.</returns>
+        public JsArray parsePathString(JsString pathString) { return null; }
+        /// <summary>
+        /// Utility method Parses given path string into an array of arrays of path segments.
+        /// </summary>
+        /// <param name="pathString">path string or array of segments (in the last case it will be returned straight away)</param>
+        /// <returns>array of segments.</returns>
+        public JsArray parsePathString(JsArray pathString) { return null; }
+        /// <summary>
+        /// Utility method Parses given path string into an array of transformations.
+        /// </summary>
+        /// <param name="TString">Utility method Parses given path string into an array of transformations.</param>
+        /// <returns>Utility method Parses given path string into an array of transformations.</returns>
+        public JsArray parseTransformString(JsString TString) { return null; }
+        /// <summary>
+        /// Utility method Parses given path string into an array of transformations.
+        /// </summary>
+        /// <param name="TString">Utility method Parses given path string into an array of transformations.</param>
+        /// <returns>Utility method Parses given path string into an array of transformations.</returns>
+        public JsArray parseTransformString(JsArray TString) { return null; }
+        /// <summary>
+        /// Utility method Converts path to a new path where all segments are cubic bezier curves.
+        /// </summary>
+        /// <param name="pathString">path string or array of segments</param>
+        /// <returns>array of segments.</returns>
+        public JsArray path2curve(JsString pathString) { return null; }
+        /// <summary>
+        /// Utility method Converts path to a new path where all segments are cubic bezier curves.
+        /// </summary>
+        /// <param name="pathString">path string or array of segments</param>
+        /// <returns>array of segments.</returns>
+        public JsArray path2curve(JsArray pathString) { return null; }
+        /// <summary>
+        /// Utility method Return bounding box of a given path
+        /// </summary>
+        /// <param name="path">path string </param>
+        /// <returns>bounding box</returns>
+        public BoundingBox pathBBox(JsString path) { return null; }
+        /// <summary>
+        /// Utility method Finds intersections of two paths
+        /// </summary>
+        /// <param name="path1">path string</param>
+        /// <param name="path2">path string</param>
+        /// <returns>dots of intersection</returns>
+        public PathIntersection pathIntersection(JsString path1, JsString path2) { return null; }
+        //TODO: D.check id ok
+        /// <summary>
+        /// Utility method Converts path to relative form
+        /// </summary>
+        /// <param name="pathString">path string or array of segmentS</param>
+        /// <returns>array of segments.</returns>
+        public JsArray pathToRelative(JsString pathString) { return null; }
+        /// <summary>
+        /// Utility method Converts path to relative form
+        /// </summary>
+        /// <param name="pathString">path string or array of segmentS</param>
+        /// <returns>array of segments.</returns>
+        public JsArray pathToRelative(JsArray pathString) { return null; }
+        /// <summary>
+        /// Transform angle to radians
+        /// </summary>
+        /// <param name="deg">angle in degrees</param>
+        /// <returns>angle in radians.</returns>
+        public JsNumber rad(JsNumber deg) { return null; }
+        /// <summary>
+        /// Adds given font to the registered set of fonts for Raphaël.
+        /// Should be used as an internal call from within Cufón’s font file.
+        /// Returns original parameter, so it could be used with chaining.
+        /// </summary>
+        /// <param name="font">the font to register</param>
+        /// <returns>the font you passed in</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// Cufon.registerFont(Raphael.registerFont({…}));
+        /// </code>
+        /// </example>
+        public object registerFont(object font) { return null; }
+        /// <summary>
+        /// Converts RGB values to hex representation of the colour.
+        /// </summary>
+        /// <param name="r">red</param>
+        /// <param name="g">green</param>
+        /// <param name="b">blue</param>
+        /// <returns>hex representation of the colour</returns>
+        public JsString rgb(JsNumber r, JsNumber g, JsNumber b) { return null; }
+        /// <summary>
+        ///Converts RGB values to HSB object.
+        /// </summary>
+        /// <param name="r">red</param>
+        /// <param name="g">green</param>
+        /// <param name="b">blue</param>
+        /// <returns>HSB object in format:</returns>
+        public Rgb2Hsb rgb2hsb(JsNumber r, JsNumber g, JsNumber b) { return null; }
+        /// <summary>
+        ///Converts RGB values to HSL object.
+        /// </summary>
+        /// <param name="r">red</param>
+        /// <param name="g">green</param>
+        /// <param name="b">blue</param>
+        /// <returns>HSL object in format:</returns>
+        public Rgb2Hsl rgb2hsl(JsNumber r, JsNumber g, JsNumber b) { return null; }
+        /// <summary>
+        /// Used when you need to draw in <iframe>. Switched window to the iframe one.
+        /// </summary>
+        /// <param name="newwin">new window object</param>
+        public void setWindow(HtmlWindow newwin) { }
+        /// <summary>
+        /// Snaps given value to given grid.
+        /// </summary>
+        /// <param name="values">given array of values or step of the grid</param>
+        /// <param name="value">value to adjust</param>
+        /// <param name="tolerance">tolerance for snapping. Default is 10.</param>
+        /// <returns>adjusted value</returns>
+        public JsNumber snapTo(JsArray values, JsNumber value, JsNumber tolerance) { return null; }
+        /// <summary>
+        /// Snaps given value to given grid.
+        /// </summary>
+        /// <param name="values">given array of values or step of the grid</param>
+        /// <param name="value">value to adjust</param>
+        /// <param name="tolerance">tolerance for snapping. Default is 10.</param>
+        /// <returns>adjusted value</returns>
+        public JsNumber snapTo(JsNumber values, JsNumber value, JsNumber tolerance) { return null; }
+        /// <summary>
+        /// You can add your own method to elements and sets. It is wise to add a set method for each element method you added,
+        /// so you will be able to call the same method on sets too. See also Raphael.el.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// Raphael.el.red = function () {
+        /// this.attr({fill: "#f00"});
+        /// };
+        /// Raphael.st.red = function () {
+        /// this.forEach(function (el) {
+        /// el.red();
+        /// });
+        /// };
+        /// then use it
+        ///paper.set(paper.circle(100, 100, 20), paper.circle(110, 100, 20)).red();
+        /// </code>
+        /// </example>
+        public object st { get; set; }
+        /// <summary>
+        /// true if browser supports SVG.
+        /// </summary>
+        public JsBoolean svg { get; set; }
+        /// <summary>
+        /// Utility method Returns matrix of transformations applied to a given path
+        /// </summary>
+        /// <param name="path">path string</param>
+        /// <param name="transform">transformation string</param>
+        /// <returns>Matrix</returns>
+        public object toMatrix(JsString path, JsString transform) { return null; }
+        /// <summary>
+        /// Utility method Returns matrix of transformations applied to a given path
+        /// </summary>
+        /// <param name="path">path string</param>
+        /// <param name="transform">transformation string</param>
+        /// <returns>Matrix</returns>
+        public object toMatrix(JsString path, JsArray transform) { return null; }
+        /// <summary>
+        /// Utility method Returns path transformed by a given transformation
+        /// </summary>
+        /// <param name="path">path string</param>
+        /// <param name="transform">transformation string</param>
+        /// <returns>path</returns>
+        public object transformPath(JsString path, JsString transform) { return null; }
+        /// <summary>
+        /// Utility method Returns path transformed by a given transformation
+        /// </summary>
+        /// <param name="path">path string</param>
+        /// <param name="transform">transformation string</param>
+        /// <returns>path</returns>
+        public object transformPath(JsString path, JsArray transform) { return null; }
+        /// <summary>
+        /// Can be “SVG”, “VML” or empty, depending on browser support.
+        /// </summary>
+        public JsString type { get; set; }
+        /// <summary>
+        /// Can be “SVG”, “VML” or empty, depending on browser support.
+        /// </summary>
+        public JsBoolean vml { get; set; }
     }
+    #endregion
+
+    #region Set
+
+    [JsType(JsMode.Prototype)]
+    public class Set
+    {
+        /// <summary>
+        /// Removeds all elements from the set
+        /// </summary>
+        public static void clear () { }
+        //TODO: duble check
+
+        /// <summary>
+        /// Removes given element from the set
+        /// </summary>
+        /// <param name="element">element to remove</param>
+        /// <returns>true if object was found & removed from the set</returns>
+        public JsBoolean exclude(object element) { return null; }
+        /// <summary>
+        /// Executes given function for each element in the set.
+        /// If function returns false it will stop loop running.
+        /// </summary>
+        /// <param name="callback">function to run</param>
+        /// <param name="thisArg">context object for the callback</param>
+        /// <returns>Set object</returns>
+        public object forEach(JsFunction callback, object thisArg) { return null; }
+        /// <summary>
+        /// Removes last element and returns it.
+        /// </summary>
+        /// <returns>element</returns>
+        public object pop() { return null; }
+        /// <summary>
+        /// Adds each argument to the current set.
+        /// </summary>
+        /// <returns>original element</returns>
+        public object push() { return null; }
+        /// <summary>
+        /// Removes given element from the set
+        /// </summary>
+        /// <param name="index">position of the deletion</param>
+        /// <param name="count">number of element to remove</param>
+        /// <param name="insertion">elements to insert</param>
+        /// <returns>set elements that were deleted</returns>
+        public object splice(JsNumber index, JsNumber count, object insertion) { return null; }
+    }
+
+    #endregion
+
+    #region eve
+
+    [JsType(JsMode.Prototype)]
+    public class eve
+    {
+        /// <summary>
+        /// Fires event with given name, given scope and other parameters.
+        /// </summary>
+        /// <param name="name">name of the event, dot (.) or slash (/) separated</param>
+        /// <param name="scope">context for the event handlers</param>
+        /// <param name="varargs">the rest of arguments will be sent to event handlers</param>
+        /// <returns>array of returned values from the listeners</returns>
+        [JsMethod(Name="")]
+        public static object fire(JsString name, object scope, object varargs) { return null; }
+        //TODO: #3 object= "..."
+
+        /// <summary>
+        /// Internal method which gives you array of all event handlers that will be triggered by the given name.
+        /// </summary>
+        /// <param name="name">name of the event, dot (.) or slash (/) separated</param>
+        /// <returns>array of event handlers</returns>
+        public JsArray listeners(JsString name) { return null; }
+
+        /// <summary>
+        /// Could be used inside event handler to figure out actual name of the eve
+        /// </summary>
+        /// <param name="subname">subname of the event</param>
+        /// <returns>true, if current event’s name contains subname</returns>
+        public bool nt(JsString subname) { return false; }
+
+        ///// <summary>
+        ///// Could be used inside event handler to figure out actual name of the eve
+        ///// </summary>
+        ///// <param name="subname">subname of the event</param>
+        ///// <returns>name of the event, if subname is not specified</returns>
+        //public JsString nt(JsString subname) { return null; }
+
+        /// <summary>
+        /// Removes given function from the list of event listeners assigned to given name.
+        /// </summary>
+        /// <param name="name">name of the event, dot (.) or slash (/) separated, with optional wildcard</param>
+        /// <param name="f">event handler function</param>
+        public void off(JsString name, JsFunction f) { }
+
+        /// <summary>
+        /// Binds given event handler with a given name. You can use wildcards “*” for the names:
+        /// eve.on("*.under.*", f);
+        /// eve("mouse.under.floor"); // triggers f
+        /// Use eve to trigger the listener.
+        /// </summary>
+        /// <param name="name">name of the event, dot (.) or slash (/) separated, with optional wildcards</param>
+        /// <param name="f">event handler function</param>
+        /// <returns>returned function accepts a single numeric parameter that represents z-index of the handler.
+        /// It is an optional feature and only used when you need to ensure that some subset of handlers will be invoked in a given order,
+        /// despite of the order of assignmen</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// eve.on("mouse", eat)(2);
+        /// eve.on("mouse", scream);
+        /// eve.on("mouse", catch)(1);
+        /// This will ensure that catch function will be called before eat. If you want to put your handler before non-indexed handlers, specify a negative value.
+        /// Note: I assume most of the time you don’t need to worry about z-index, but it’s nice to have this feature “just in case”.
+        /// </code>
+        /// </example>
+        public JsFunction on(JsString name, JsFunction f) { return null; }
+
+        /// <summary>
+        /// Binds given event handler with a given name to only run once then unbind itself.
+        /// eve.once("login", f);
+        /// eve("login"); // triggers f
+        /// eve("login"); // no listeners
+        /// Use eve to trigger the listener.
+        /// </summary>
+        /// <param name="name">name of the event, dot (.) or slash (/) separated, with optional wildcards</param>
+        /// <param name="f">event handler function</param>
+        /// <returns>same return function as eve.on</returns>
+        public JsFunction once(JsString name, JsFunction f) { return null; }
+
+        /// <summary>
+        /// Is used inside an event handler to stop the event, preventing any subsequent listeners from firing.
+        /// </summary>
+        public static void stop() { }
+        //TODO: duble chack
+
+        /// <summary>
+        /// See eve.off
+        /// </summary>
+        public static void unbind() { }
+        //TODO: duble chack
+
+        /// <summary>
+        /// Current version of the library.
+        /// </summary>
+        public JsString version { get; set; }
+
+
+    }
+
     #endregion
 
     #region ColorOptions
@@ -1873,4 +2295,161 @@ namespace SharpKit.Raphael
     {
     }
     #endregion
+
+    #region BoundingBox
+    [JsType(JsMode.Prototype)]
+    public class BoundingBox
+    {
+        /// <summary>
+        /// x coordinate of the left top point of the box
+        /// </summary>
+        public JsNumber x { get; set; }
+        /// <summary>
+        /// y coordinate of the left top point of the box
+        /// </summary>
+        public JsNumber y { get; set; }
+        /// <summary>
+        /// x coordinate of the right bottom point of the box
+        /// </summary>
+        public JsNumber x2 { get; set; }
+        /// <summary>
+        /// x coordinate of the right bottom point of the box
+        /// </summary>
+        public JsNumber y2 { get; set; }
+        /// <summary>
+        /// width of the box
+        /// </summary>
+        public JsNumber width { get; set; }
+        /// <summary>
+        /// height of the box
+        /// </summary>
+        public JsNumber height { get; set; }
+    }
+    #endregion
+
+    #region PathIntersection
+    [JsType(JsMode.Prototype)]
+    public class PathIntersection
+    {
+        /// <summary>
+        /// x coordinate of the left top point
+        /// </summary>
+        public JsNumber x { get; set; }
+        /// <summary>
+        /// y coordinate of the left top point
+        /// </summary>
+        public JsNumber y { get; set; }
+        /// <summary>
+        /// t value for segment of path1
+        /// </summary>
+        public JsNumber t1 { get; set; }
+        /// <summary>
+        /// t value for segment of path2
+        /// </summary>
+        public JsNumber t2 { get; set; }
+        /// <summary>
+        /// order number for segment of path1
+        /// </summary>
+        public JsNumber segment1 { get; set; }
+        /// <summary>
+        /// order number for segment of path2
+        /// </summary>
+        public JsNumber segment2 { get; set; }
+        /// <summary>
+        /// eight coordinates representing beziér curve for the segment of path1
+        /// </summary>
+        public JsArray bez1 { get; set; }
+        /// <summary>
+        /// eight coordinates representing beziér curve for the segment of path2
+        /// </summary>
+        public JsArray bez2 { get; set; }
+    }
+    #endregion
+
+    #region Rgb2Hsb
+    [JsType(JsMode.Prototype)]
+    public class Rgb2Hsb
+    {
+        /// <summary>
+        /// hue
+        /// </summary>
+        public JsNumber h { get; set; }
+        /// <summary>
+        /// saturation
+        /// </summary>
+        public JsNumber s { get; set; }
+        /// <summary>
+        /// brightness
+        /// </summary>
+        public JsNumber b { get; set; }
+
+    }
+    #endregion
+
+    #region Rgb2Hsl
+    [JsType(JsMode.Prototype)]
+    public class Rgb2Hsl
+        {
+            /// <summary>
+            /// hue
+            /// </summary>
+            public JsNumber h { get; set; }
+            /// <summary>
+            /// saturation
+            /// </summary>
+            public JsNumber s { get; set; }
+            /// <summary>
+            /// brightness
+            /// </summary>
+            public JsNumber b { get; set; }
+
+        }
+    #endregion
+
+    #region GetPointAtLength
+    [JsType(JsMode.Prototype)]
+        public class GetPointAtLength
+        {
+            /// <summary>
+            /// x coordinate
+            /// </summary>
+            public JsNumber x { get; set; }
+            /// <summary>
+            /// y coordinate
+            /// </summary>
+            public JsNumber y { get; set; }
+            /// <summary>
+            /// angle of derivative
+            /// </summary>
+            public JsNumber alpha { get; set; }
+
+        }
+    #endregion
+
+    #region GetRGB
+    [JsType(JsMode.Prototype)]
+        public class GetRGB
+        {
+            /// <summary>
+            /// red
+            /// </summary>
+            public JsNumber r { get; set; }
+            /// <summary>
+            /// green
+            /// </summary>
+            public JsNumber g { get; set; }
+            /// <summary>
+            /// blue
+            /// </summary>
+            public JsNumber b { get; set; }
+            /// <summary>
+            /// color in HTML/CSS format: #••••••,
+            /// </summary>
+            public JsString hex { get; set; }
+            /// <summary>
+            /// true if string can’t be parsed
+            /// </summary>
+            public bool error { get; set; }
+        }
+        #endregion
 }
