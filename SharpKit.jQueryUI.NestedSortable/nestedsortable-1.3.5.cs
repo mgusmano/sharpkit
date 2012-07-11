@@ -64,8 +64,7 @@ namespace SharpKit.jQuery
         /// You can specify a custom function to verify if a drop location is allowed. 
         /// Default: function(parent, item) { return true; } 
         /// </summary>
-        //TODO: Correct signature for => 'isAllowed: function(item, parent) { return true; }'
-
+        public JsAction isAllowed { get; set; }
         ///<summary>
         ///Defines where the helper that moves with the mouse is being appended to during the drag (for example, to resolve overlap/zIndex issues).
         ///Default: 'parent'

@@ -31,6 +31,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,7 +54,9 @@
     <Content Include="documentation\readme.html" />
     <Content Include="res\nestedSortable-1.3.5.js" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="SharpKit.snk" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpKit.Html4\SharpKit.Html4.csproj">
       <Project>{AA74777B-DB40-4DCF-A69A-9DE5A6B2C380}</Project>
