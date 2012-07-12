@@ -2,6 +2,8 @@
 using SharpKit.JavaScript;
 using SharpKit.Html4;
 
+//TODO: Add all enums, finish accelerometer, fix whitespaces and escape chars in code examples ('&gt;' = '>')
+
 namespace SharpKit.PhoneGap
 {
     /// <summary>
@@ -50,8 +52,8 @@ namespace SharpKit.PhoneGap
         /// destinationType: Camera.DestinationType.DATA_URL
         /// }); 
         /// function onSuccess(imageData) {
-        /// var image = document.getElementById('myImage');
-        /// image.src = "data:image/jpeg;base64," + imageData;
+        ///     var image = document.getElementById('myImage');
+        ///     image.src = "data:image/jpeg;base64," + imageData;
         /// }
         /// function onFail(message) {
         /// alert('Failed because: ' + message);
@@ -138,7 +140,7 @@ namespace SharpKit.PhoneGap
         ///};
         /// </code>
         /// </example>
-        public JsNumber destinationType { get; set; }
+        public CameraDestinationType destinationType { get; set; }
         /// <summary>
         /// Set the source of the picture. Defined in nagivator.camera.PictureSourceType (Number)
         /// </summary>
@@ -202,6 +204,21 @@ namespace SharpKit.PhoneGap
         /// iOS only options to specify popover location in iPad. Defined in CameraPopoverOptions
         /// </summary>
         public CameraPopoverOptions popoverOptions { get; set; }
+    }
+
+    /// <summary>
+    /// Choose the format of the return value. Defined in navigator.camera.DestinationType (Number)
+    /// </summary>
+    public enum CameraDestinationType
+    {
+        /// <summary>
+        ///  Return image as base64 encoded string
+        /// </summary>
+        DATA_URL = 0,
+        /// <summary>
+        /// Return image file URI
+        /// </summary>
+        FILE_URI = 1,
     }
 
     /// <summary>
@@ -490,7 +507,16 @@ namespace SharpKit.PhoneGap
         ///  One of the pre-defined error codes listed below
         /// </summary>
         public JsNumber code { get; set; }
+
+        /// <summary>
+        /// Camera or microphone failed to capture image or sound.
+        /// </summary>
+        public const CaptureError CAPTURE_INTERNAL_ERR = null;
+
+
     }
+
+
     //TODO: CaptureError.CAPTURE_INTERNAL_ERR: Camera or microphone failed to capture image or sound.
     //CaptureError.CAPTURE_APPLICATION_BUSY: Camera application or audio capture application is currently serving other capture request.
     //CaptureError.CAPTURE_INVALID_ARGUMENT: Invalid use of the API (e.g. limit parameter has value less than one).
