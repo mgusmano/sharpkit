@@ -145,6 +145,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.jQueryUI.NestedSor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.JsClr.Test", "SharpKit.JsClr.Test\SharpKit.JsClr.Test.csproj", "{E18669CC-D615-47BA-8C07-3A3F01B86A2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.PhoneGap", "SharpKit.PhoneGap\SharpKit.PhoneGap.csproj", "{69B3304A-E390-4686-A876-F6ADB10E7293}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -1313,6 +1315,26 @@ Global
 		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
 		{E18669CC-D615-47BA-8C07-3A3F01B86A2D}.v4.0|x86.ActiveCfg = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.Release|x86.ActiveCfg = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.v3.5|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.v3.5|Mixed Platforms.Build.0 = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.v3.5|x86.ActiveCfg = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
+		{69B3304A-E390-4686-A876-F6ADB10E7293}.v4.0|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
