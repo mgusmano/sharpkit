@@ -2,7 +2,8 @@
 using SharpKit.JavaScript;
 using SharpKit.Html4;
 
-//TODO: Add all enums, finish accelerometer, fix whitespaces and escape chars in code examples ('&gt;' = '>')
+
+
 
 namespace SharpKit.PhoneGap
 {
@@ -12,7 +13,9 @@ namespace SharpKit.PhoneGap
     public class Accelerometer
     {
         public object getCurrentAcceleration(JsAction<Acceleration> onSuccess, JsAction onError) { return null; }
+
     }
+    // TODO: FINISH Accelerometer
 
     public class AccelerometerOptions
     {
@@ -49,14 +52,14 @@ namespace SharpKit.PhoneGap
         /// usage
         /// <code>
         /// navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-        /// destinationType: Camera.DestinationType.DATA_URL
+        ///     destinationType: Camera.DestinationType.DATA_URL
         /// }); 
         /// function onSuccess(imageData) {
         ///     var image = document.getElementById('myImage');
         ///     image.src = "data:image/jpeg;base64," + imageData;
         /// }
         /// function onFail(message) {
-        /// alert('Failed because: ' + message);
+        ///     alert('Failed because: ' + message);
         /// }
         /// </code>
         /// </example>
@@ -131,30 +134,11 @@ namespace SharpKit.PhoneGap
         /// <summary>
         ///  Choose the format of the return value. Defined in navigator.camera.DestinationType
         /// </summary>
-        /// <example>
-        /// usage
-        /// <code> 
-        ///Camera.DestinationType = {
-        ///DATA_URL : 0,                // Return image as base64 encoded string
-        ///FILE_URI : 1                 // Return image file URI
-        ///};
-        /// </code>
-        /// </example>
         public CameraDestinationType destinationType { get; set; }
         /// <summary>
         /// Set the source of the picture. Defined in nagivator.camera.PictureSourceType (Number)
         /// </summary>
-        /// <example>
-        /// usage
-        /// <code>
-        /// Camera.PictureSourceType = {
-        /// PHOTOLIBRARY : 0,
-        /// CAMERA : 1,
-        /// SAVEDPHOTOALBUM : 2
-        /// };
-        /// </code>
-        /// </example>
-        public JsNumber sourceType { get; set; }
+        public CameraPictureSourceType sourceType { get; set; }
         /// <summary>
         /// Allow simple editing of image before selection
         /// </summary>
@@ -162,15 +146,7 @@ namespace SharpKit.PhoneGap
         /// <summary>
         /// Choose the encoding of the returned image file. Defined in navigator.camera.EncodingType
         /// </summary>
-        /// <example>
-        /// usage
-        /// <code>
-        /// Camera.EncodingType = {
-        /// JPEG : 0,               // Return JPEG encoded image
-        /// PNG : 1                 // Return PNG encoded image
-        /// };
-        /// </code></example>
-        public JsNumber encodingType { get; set; }
+        public CameraEncodingType encodingType { get; set; }
         /// <summary>
         /// Width in pixels to scale image. Must be used with targetHeight. Aspect ratio is maintained.
         /// </summary>
@@ -180,18 +156,9 @@ namespace SharpKit.PhoneGap
         /// </summary>
         public JsNumber targetHeight { get; set; }
         /// <summary>
-        /// Set the type of media to select from. Only works when PictureSourceType is PHOTOLIBRARY or SAVEDPHOTOALBUM. Defined in nagivator.camera.MediaTyp
+        /// Set the type of media to select from. Only works when PictureSourceType is PHOTOLIBRARY or SAVEDPHOTOALBUM. Defined in nagivator.camera.MediaType
         /// </summary>
-        /// <example>
-        /// usage
-        /// <code>
-        /// Camera.MediaType = { 
-        /// PICTURE: 0,             // allow selection of still pictures only. DEFAULT. Will return format specified via DestinationType
-        /// VIDEO: 1,               // allow selection of video only, WILL ALWAYS RETURN FILE_URI
-        /// ALLMEDIA : 2            // allow selection from all media types
-        /// </code>
-        /// </example>
-        public JsNumber mediaType { get; set; }
+        public CameraMediaType mediaType { get; set; }
         /// <summary>
         /// Rotate the image to correct for the orientation of the device during capture
         /// </summary>
@@ -220,6 +187,42 @@ namespace SharpKit.PhoneGap
         /// </summary>
         FILE_URI = 1,
     }
+
+    public enum CameraPictureSourceType
+    {
+        PHOTOLIBRARY = 0,
+        CAMERA = 1,
+        SAVEDPHOTOALBUM = 2
+    }
+
+    public enum CameraEncodingType
+    {
+        /// <summary>
+        /// Return JPEG encoded image
+        /// </summary>
+        JPEG = 0,
+        /// <summary>
+        /// Return PNG encoded image
+        /// </summary>
+        PNG = 1,
+    }
+
+    public enum CameraMediaType
+    {
+        /// <summary>
+        /// allow selection of still pictures only. DEFAULT. Will return format specified via DestinationType
+        /// </summary>
+        PICTURE = 0,
+        /// <summary>
+        /// allow selection of video only, WILL ALWAYS RETURN FILE_URI
+        /// </summary>
+        VIDEO = 1,
+        /// <summary>
+        /// allow selection from all media types
+        /// </summary>
+        ALLMEDIA = 2,
+    }
+
 
     /// <summary>
     /// Parameters only used by iOS to specify the anchor element location and arrow direction
@@ -253,25 +256,24 @@ namespace SharpKit.PhoneGap
         /// <summary>
         ///  height, in pixels, of the element on the screen to anchor popover onto
         /// </summary>
-        public JsNumber height { get; set; }
+        public CameraPopoverArrowDirection height { get; set; }
         /// <summary>
         /// Direction the arrow on the popover should point. Defined in Camera.PopoverArrowDirection
         /// </summary>
-        /// <example>
-        /// usage
-        /// <code>
-        ///Camera.PopoverArrowDirection = {
-        ///ARROW_UP : 1,        // matches iOS UIPopoverArrowDirection constants
-        ///ARROW_DOWN : 2,
-        ///ARROW_LEFT : 4,
-        ///ARROW_RIGHT : 8,
-        ///ARROW_ANY : 15
-        ///};
-        /// </code>
-        /// </example>
         public JsNumber arrowDir { get; set; }
     }
-    //TODO: d.check
+
+    public enum CameraPopoverArrowDirection
+    {
+        /// <summary>
+        /// matches iOS UIPopoverArrowDirection constants
+        /// </summary>
+        ARROW_UP = 1,
+        ARROW_DOWN = 2,
+        ARROW_LEFT = 4,
+        ARROW_RIGHT = 8,
+        ARROW_ANY = 15
+    }
 
     /// <summary>
     /// Provides access to the audio, image, and video capture capabilities of the device.
@@ -330,7 +332,6 @@ namespace SharpKit.PhoneGap
         /// </code>
         /// </example>
         public void captureImage(CaptureCB captureSuccess, CaptureErrorCB captureError, CaptureImageOptions options) { }
-        //TODO: something went wrong with the usage (not all green) 
 
 
         /// <summary>
@@ -345,7 +346,7 @@ namespace SharpKit.PhoneGap
         /// // capture callback
         /// var captureSuccess = function(mediaFiles) {
         /// var i, path, len;
-        /// for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+        /// for (i = 0, len = mediaFiles.length; i &lt; len; i += 1) {
         /// path = mediaFiles[i].fullPath;
         /// // do something interesting with the file
         /// }
@@ -359,7 +360,6 @@ namespace SharpKit.PhoneGap
         /// </code>
         /// </example>
         public void captureImage(CaptureCB captureSuccess, CaptureErrorCB captureError) { }
-        //TODO: something went wrong with the usage (not all green)
 
         /// <summary>
         /// Start the video recorder application and return information about captured video clip file(s).
@@ -374,7 +374,7 @@ namespace SharpKit.PhoneGap
         /// // capture callback
         /// var captureSuccess = function(mediaFiles) {
         /// var i, path, len;
-        /// for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+        /// for (i = 0, len = mediaFiles.length; i &lt; len; i += 1) {
         /// path = mediaFiles[i].fullPath;
         /// // do something interesting with the file
         /// }
@@ -388,7 +388,6 @@ namespace SharpKit.PhoneGap
         /// </code>
         /// </example>
         public void captureVideo(CaptureCB captureSuccess, CaptureErrorCB captureError, CaptureVideoOptions options) { }
-        //TODO: something went wrong with the usage (not all green)
 
         /// <summary>
         /// Start the video recorder application and return information about captured video clip file(s).
@@ -402,7 +401,7 @@ namespace SharpKit.PhoneGap
         /// // capture callback
         /// var captureSuccess = function(mediaFiles) {
         /// var i, path, len;
-        /// for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+        /// for (i = 0, len = mediaFiles.length; i &lt; len; i += 1) {
         /// path = mediaFiles[i].fullPath;
         /// // do something interesting with the file
         /// }
@@ -416,7 +415,7 @@ namespace SharpKit.PhoneGap
         /// </code>
         /// </example>
         public void captureVideo(CaptureCB captureSuccess, CaptureErrorCB captureError) { }
-        //TODO: something went wrong with the usage (not all green)
+
     }
 
     /// <summary>
@@ -446,7 +445,6 @@ namespace SharpKit.PhoneGap
         /// </summary>
         public JsNumber mode { get; set; }
     }
-    //TODO: MediaFile.getFormatData
 
     public delegate void MediaFileDataSuccessCB(MediaFileData mediaFileData);
     public delegate void MediaFileDataErrorCB();
@@ -514,14 +512,28 @@ namespace SharpKit.PhoneGap
         public const CaptureError CAPTURE_INTERNAL_ERR = null;
 
 
+        /// <summary>
+        /// Camera application or audio capture application is currently serving other capture request.
+        /// </summary>
+        public const CaptureError CAPTURE_APPLICATION_BUSY = null;
+
+        /// <summary>
+        /// Invalid use of the API (e.g. limit parameter has value less than one).
+        /// </summary>
+        public const CaptureError CAPTURE_INVALID_ARGUMENT = null;
+
+        /// <summary>
+        /// User exited camera application or audio capture application before capturing anything.
+        /// </summary>
+        public const CaptureError CAPTURE_NO_MEDIA_FILES = null;
+
+        /// <summary>
+        /// he requested capture operation is not supported.
+        /// </summary>
+        public const CaptureError CAPTURE_NOT_SUPPORTED = null;
+
     }
 
-
-    //TODO: CaptureError.CAPTURE_INTERNAL_ERR: Camera or microphone failed to capture image or sound.
-    //CaptureError.CAPTURE_APPLICATION_BUSY: Camera application or audio capture application is currently serving other capture request.
-    //CaptureError.CAPTURE_INVALID_ARGUMENT: Invalid use of the API (e.g. limit parameter has value less than one).
-    //CaptureError.CAPTURE_NO_MEDIA_FILES: User exited camera application or audio capture application before capturing anything.
-    //CaptureError.CAPTURE_NOT_SUPPORTED: The requested capture operation is not supported.
 
     /// <summary>
     /// Invoked upon a successful media capture operation.
@@ -532,14 +544,13 @@ namespace SharpKit.PhoneGap
     /// // capture callback
     /// function captureSuccess(mediaFiles) {
     /// var i, path, len;
-    /// for (i = 0, len = mediaFiles.length; i < len; i += 1){
+    /// for (i = 0, len = mediaFiles.length; i &lt; len; i += 1){
     /// path = mediaFiles[i].fullPath;
     /// do something interesting with the file
     /// }
     /// };
     /// </code></example>
     public delegate void CaptureCB(JsArray<MediaFile> mediaFiles);
-    //TODO: something went wrong with the usage (not all green) 
 
     /// <summary>
     /// Invoked if an error occurs during a media capture operation.
@@ -656,5 +667,138 @@ namespace SharpKit.PhoneGap
         /// </summary>
         public JsNumber duration { get; set; }
     }
+
+    public class Compass
+    {
+
+
+        /// <summary>
+        /// The compass is a sensor that detects the direction or heading that the device is pointed. It measures the heading in degrees from 0 to 359.99.
+        /// The compass heading information is returned via a CompassHeading object using the compassSuccess callback function.
+        /// </summary>
+        /// <param name="compassSuccess">onSuccess callback function that provides the compass heading information via a compassHeading object.</param>
+        /// <param name="compassError">onError callback function for compass functions.</param>
+        /// <param name="compassOptions">An optional parameter to customize the retrieval of the compass.</param>
+        /// <example>
+        /// uage
+        /// <code>
+        /// function onSuccess(heading) {
+        /// //    alert('Heading: ' + heading.magneticHeading);
+        /// //};
+        /// //function onError(error) {
+        /// //    alert('CompassError: ' + error.code);
+        /// //};
+        /// //navigator.compass.getCurrentHeading(onSuccess, onError);
+        /// </code>
+        /// </example>
+        public void getCurrentHeading(CompassSuccess compassSuccess, CompassError compassError, CompassOptions compassOptions) { }
+        /// <summary>
+        /// At a regular interval, get the compass heading in degrees.
+        /// </summary>
+        /// <param name="compassSuccess">onSuccess callback function that provides the compass heading information via a compassHeading object.</param>
+        /// <param name="compassError">onError callback function for compass functions.</param>
+        /// <param name="compassOptions">An optional parameter to customize the retrieval of the compass.</param>
+        /// <example>
+        /// uage
+        /// <code>
+        /// function onSuccess(heading) {
+        ///    var element = document.getElementById('heading');
+        ///    element.innerHTML = 'Heading: ' + heading.magneticHeading;
+        ///};
+        ///function onError(compassError) {
+        ///        alert('Compass error: ' + compassError.code);
+        ///};
+        ///var options = { frequency: 3000 };  // Update every 3 seconds
+        ///var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
+        /// </code>
+        /// </example>
+        public JsString watchHeading(CompassSuccess compassSuccess, CompassError compassError, CompassOptions compassOptions){return null;}
+        /// <summary>
+        /// Stop watching the compass referenced by the watch ID parameter.
+        /// </summary>
+        /// <param name="watchID"> The ID returned by compass.watchHeading.</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
+        /// // ... later on ...
+        /// navigator.compass.clearWatch(watchID);
+        /// </code>
+        /// </example>
+        public void clearWatch(JsString watchID) { }
+        //TODO: really not sure about this one
+
+    }
+    //TODO: inside
+
+    /// <summary>
+    /// A CompassHeading object is returned to the compassSuccess callback function when an error occurs
+    /// </summary>
+    public class CompassHeading
+    {
+        /// <summary>
+        ///  The heading in degrees from 0 - 359.99 at a single moment in time.
+        /// </summary>
+        public JsNumber magneticHeading { get; set; }
+        /// <summary>
+        /// The heading relative to the geographic North Pole in degrees 0 - 359.99 at a single moment in time.
+        /// A negative value indicates that the true heading could not be determined.
+        /// </summary>
+        public JsNumber trueHeading { get; set; }
+        /// <summary>
+        ///  The deviation in degrees between the reported heading and the true heading.
+        /// </summary>
+        public JsNumber headingAccuracy { get; set; }
+        /// <summary>
+        /// The time at which this heading was determined. (milliseconds)
+        /// </summary>
+        public JsNumber timestamp { get; set; }
+    }
+    public delegate void CompassSuccess(JsArray<CompassHeading> error);
+    public delegate void compassError(JsArray<CompassError> error);
+
+    /// <summary>
+    /// A CompassError object is returned to the compassError callback function when an error occurs.
+    /// </summary>
+    public class CompassError
+    {
+        /// <summary>
+        /// One of the predefined error codes listed below.
+        /// </summary>
+        public JsCode code { get; set; }
+        public const CompassError COMPASS_INTERNAL_ERR = null;
+        public const CompassError COMPASS_NOT_SUPPORTED = null;
+    }
+
+    /// <summary>
+    /// An optional parameter to customize the retrieval of the compass.
+    /// </summary>
+    public class CompassOptions
+    {
+        /// <summary>
+        ///  How often to retrieve the compass heading in milliseconds.(Default: 100)
+        /// </summary>
+        public JsNumber frequency { get; set; }
+        /// <summary>
+        ///  The change in degrees required to initiate a watchHeading success callback
+        /// </summary>
+        public JsNumber filter { get; set; }
+
+}
+
+    public class Connection
+    {
+        public Connection type { get; set; }
+        public const Connection UNKNOWN = null;
+        public const Connection ETHERNET = null;
+        public const Connection WIFI = null;
+        public const Connection CELL_2G = null;
+        public const Connection CELL_3G = null;
+        public const Connection CELL_4G = null;
+        public const Connection NONE = null;
+
+    }
+
+
 
 }
