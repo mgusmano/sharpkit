@@ -1779,7 +1779,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///An object representation of the number data type and placeholder for numeric constants.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "Number", NativeCasts=true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Number", NativeCasts=true, NativeOperatorOverloads=true)]
     public partial class JsNumber : JsObjectBase, IConvertible, IComparable, IComparable<JsNumber>, IEquatable<JsNumber>, IFormattable
     {
         double _Value;
@@ -2092,7 +2092,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///Allows manipulation and formatting of text strings and determination and location of substrings within strings.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "String", NativeEnumerator = false, NativeArrayEnumerator = true, NativeCasts = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "String", NativeEnumerator = false, NativeArrayEnumerator = true, NativeCasts = true, NativeOperatorOverloads=true)]
     public partial class JsString : JsObjectBase
     {
         public JsString() { }
@@ -2395,7 +2395,7 @@ namespace SharpKit.JavaScript
     /// <summary>
     /// A special class, when used as a method parameter, can be assigned as string, and generates the native js code inside the string
     /// </summary>
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Export = false, NativeOperatorOverloads=true)]
     public partial class JsCode
     {
         protected JsCode() { }

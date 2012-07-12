@@ -7,8 +7,17 @@ namespace SharpKit.JavaScript.Private
 {
 	[JsType(Name = "System.Collections.Generic.List$1", Filename = "~/res/System.Collections.js")]
 	//[Remotable]
-	internal class JsImplList<T> : IList<T>, IList
+	internal partial class JsImplList<T> : IList<T>, IList
 	{
+        //[JsType(Name = "System.Collections.Generic.List.Enumerator$1", Filename = "~/res/System.Collections.js")]
+        //class Enumerator : IListEnumerator<T>
+        //{
+        //    public Enumerator(List<T> list)
+        //        : base(list)
+        //    {
+        //    }
+        //}
+
 		public JsImplList()
 		{
 			this._list = new JsExtendedArray();

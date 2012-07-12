@@ -71,6 +71,25 @@
     <Compile Include="System\Exceptions.cs" />
     <Compile Include="System\IDisposable.cs" />
     <Compile Include="System\IO\Path.cs" />
+    <Compile Include="System\Linq\Enumerable.Iterator.cs" />
+    <Compile Include="System\Linq\Enumerable.WhereArrayIterator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Linq\Enumerable.WhereEnumerableIterator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Linq\Enumerable.WhereListIterator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Linq\Enumerable.WhereSelectArrayIterator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Linq\Enumerable.WhereSelectEnumerableIterator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Linq\Enumerable.WhereSelectListIterator.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="System\Linq\Linq.cs" />
     <Compile Include="System\Linq\LinqIterators.cs" />
     <Compile Include="System\Math.cs" />

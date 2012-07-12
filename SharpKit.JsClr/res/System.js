@@ -2046,6 +2046,50 @@ var System$TimeSpan=
                 throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String$$String(null,"Overflow_TimeSpanTooLong"),new Error());
             }
             return num * 10000000;
+        },
+        op_UnaryNegation:function(t)
+        {
+            if(t._ticks == System.TimeSpan.MinValue._ticks)
+            {
+                throw $CreateException(new System.OverflowException.ctor$$String("Overflow_NegateTwosCompNum"),new Error());
+            }
+            return new System.TimeSpan.ctor$$Int64(-t._ticks);
+        },
+        op_Subtraction:function(t1,t2)
+        {
+            return t1.Subtract(t2);
+        },
+        op_UnaryPlus:function(t)
+        {
+            return t;
+        },
+        op_Addition:function(t1,t2)
+        {
+            return t1.Add(t2);
+        },
+        op_Equality:function(t1,t2)
+        {
+            return t1._ticks == t2._ticks;
+        },
+        op_Inequality:function(t1,t2)
+        {
+            return t1._ticks != t2._ticks;
+        },
+        op_LessThan:function(t1,t2)
+        {
+            return t1._ticks < t2._ticks;
+        },
+        op_LessThanOrEqual:function(t1,t2)
+        {
+            return t1._ticks <= t2._ticks;
+        },
+        op_GreaterThan:function(t1,t2)
+        {
+            return t1._ticks > t2._ticks;
+        },
+        op_GreaterThanOrEqual:function(t1,t2)
+        {
+            return t1._ticks >= t2._ticks;
         }
     },
     assemblyName:"SharpKit.JsClr",
@@ -2475,7 +2519,10 @@ JsTypes.push({fullname:"Array", baseTypeName:"Object",definition:
         var index = this.indexOf(item);
         return (index >= 0);
     },
-    Contains$$Object: function(item)
+    Contains$$Object: function(item) {
+        return Contains(item);
+    },
+    Contains: function(item)
     {
         var index = this.indexOf(item);
         return (index >= 0);
@@ -2996,11 +3043,11 @@ Arguments.Range = function(argsObject, start, end)
     }
     return list;
 }
-Arguments.Contains = function(arguments, object)
+Arguments.Contains = function(args, object)
 {
-    for (var i = 0; i < arguments.length; i++)
+	for (var i = 0; i < args.length; i++)
     {
-        if (arguments[i] == object)
+    	if (args[i] == object)
             return true;
     }
     return false;

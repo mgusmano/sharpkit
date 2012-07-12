@@ -13,7 +13,7 @@ namespace SharpKit.JavaScript.Private
 {
 
 	[JsType(Name = "System.Linq.Enumerable", Filename = "~/res/System.Linq.js")]
-	internal static class Enumerable
+	internal static partial class Enumerable
 	{
 		public static TSource First<TSource>(this IEnumerable<TSource> source)
 		{
@@ -227,16 +227,28 @@ namespace SharpKit.JavaScript.Private
 
 		public static IEnumerable<TSource> Where<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
 		{
-			if (source == null)
-			{
-				throw Error.ArgumentNull("source");
-			}
-			if (predicate == null)
-			{
-				throw Error.ArgumentNull("predicate");
-			}
-			return new WhereIterator<TSource>(source, predicate);
-		}
+            if (source == null)
+            {
+                throw Error.ArgumentNull("source");
+            }
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull("predicate");
+            }
+            if (source is Enumerable.Iterator<TSource>)
+            {
+                return ((Enumerable.Iterator<TSource>)source).Where(predicate);
+            }
+            if (source is TSource[])
+            {
+                return new Enumerable.WhereArrayIterator<TSource>((TSource[])source, predicate);
+            }
+            if (source is List<TSource>)
+            {
+                return new Enumerable.WhereListIterator<TSource>((List<TSource>)source, predicate);
+            }
+            return new Enumerable.WhereEnumerableIterator<TSource>(source, predicate);
+        }
 
 		public static IEnumerable<TSource> Where<TSource>(this IEnumerable<TSource> source, Func<TSource, int, bool> predicate)
 		{
@@ -1968,16 +1980,28 @@ namespace SharpKit.JavaScript.Private
 
 		public static IEnumerable<TResult> Select<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, TResult> selector)
 		{
-			if (source == null)
-			{
-				throw Error.ArgumentNull("source");
-			}
-			if (selector == null)
-			{
-				throw Error.ArgumentNull("selector");
-			}
-			return new JsImplSelectIterator<TSource, TResult>(source, selector);
-		}
+            if (source == null)
+            {
+                throw Error.ArgumentNull("source");
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull("selector");
+            }
+            if (source is Enumerable.Iterator<TSource>)
+            {
+                return ((Enumerable.Iterator<TSource>)source).Select<TResult>(selector);
+            }
+            if (source is TSource[])
+            {
+                return new Enumerable.WhereSelectArrayIterator<TSource, TResult>((TSource[])source, null, selector);
+            }
+            if (source is List<TSource>)
+            {
+                return new Enumerable.WhereSelectListIterator<TSource, TResult>((List<TSource>)source, null, selector);
+            }
+            return new Enumerable.WhereSelectEnumerableIterator<TSource, TResult>(source, null, selector);
+        }
 
         public static IEnumerable<TResult> Select<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, int, TResult> selector)
         {
