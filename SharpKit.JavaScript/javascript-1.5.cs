@@ -7,9 +7,13 @@ using SharpKit.JavaScript;
 using System.ComponentModel;
 
 [assembly: JsType(TargetType = typeof(object), OmitCasts = true)]
+[assembly: JsMethod(TargetType = typeof(object), TargetMethod = "ToString", Name = "toString")]
+
+[assembly: JsType(TargetType = typeof(Type), NativeOperatorOverloads = true)]
+
+
 [assembly: JsType(TargetType = typeof(Delegate), NativeOperatorOverloads = true)]
 [assembly: JsType(TargetType = typeof(MulticastDelegate), NativeOperatorOverloads = true)]
-[assembly: JsMethod(TargetType = typeof(object), TargetMethod = "ToString", Name = "toString")]
 
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToUpper", Name = "toUpperCase")]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToLower", Name = "toLowerCase")]
