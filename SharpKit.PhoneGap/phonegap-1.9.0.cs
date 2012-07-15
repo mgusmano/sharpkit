@@ -1342,12 +1342,257 @@ namespace SharpKit.PhoneGap
         /// </summary>
         public FileSystem filesystem { get; set; }
 
+        /// <summary>
+        /// Look up metadata about a directory.
+        /// </summary>
+        /// <param name="successCallback"> A callback that is called with a Metadata object.</param>
+        /// <param name="errorCallback"> A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.</param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success(metadata) {
+        ///    console.log("Last Modified: " + metadata.modificationTime);
+        ///}
+        ///function fail(error) {
+        ///    alert(error.code);
+        ///}
+        /// // Request the metadata object for this entry
+        ///entry.getMetadata(success, fail);
+        /// </code></example>
+        public object getMetadata(JsFunction successCallback, JsFunction errorCallback) { return null; }
+        //TODO: I guessed the return type
+        /// <summary>
+        /// Set metadata on a directory. Only works on iOS currently - this will set the extended attributes of a directory.
+        /// </summary>
+        /// <param name="successCallback">A callback that is called when the metadata was successfully set.</param>
+        /// <param name="errorCallback"> A callback that is called when the metadata was not successfully set</param>
+        /// <param name="metadataObject">An object that contains the metadata keys and values</param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success() {
+        ///    console.log("The metadata was successfully set.");
+        ///}
+        ///function fail() {
+        ///    alert("There was an error in setting the metadata");
+        ///}
+        /// // Set the metadata
+        ///entry.setMetadata(success, fail, { "com.apple.MobileBackup": 1});
+        /// </code>
+        /// </example>
+        public object setMetadata(JsFunction successCallback, JsFunction errorCallback, object metadataObject) { return null; }
+        //TODO: I guessed the return type
+        /// <summary>
+        /// Move a directory to a different location on the file system. It is an error to attempt to:
+        ///move a directory inside itself or to any child at any depth;
+        ///move a directory into its parent if a name different from its current one is not provided;
+        ///move a directory to a path occupied by a file;
+        ///move a directory to a path occupied by a directory which is not empty.
+        ///In addition, an attempt to move a directory on top of an existing empty directory must attempt to delete and replace that directory.
+        /// </summary>
+        /// <param name="parent">The parent directory to which to move the directory.</param>
+        /// <param name="newName"> The new name of the directory. Defaults to the current name if unspecified</param>
+        /// <param name="successCallback">A callback that is called with the DirectoryEntry object of the new directory</param>
+        /// <param name="errorCallback">A callback that is called if an error occurs when attempting to move the directory. Invoked with a FileError object.</param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success(entry) {
+        ///    console.log("New Path: " + entry.fullPath);
+        ///}
+        ///function fail(error) {
+        ///    alert(error.code);
+        ///}
+        ///function moveDir(entry) {
+        ///    var parent = document.getElementById('parent').value,
+        ///        parentName = parent.substring(parent.lastIndexOf('/')+1),
+        ///        newName = document.getElementById('newName').value,
+        ///        parentEntry = new DirectoryEntry(parentName, parent);
+        ///    // move the directory to a new directory and rename it
+        ///    entry.moveTo(parentEntry, newName, success, fail);
+        ///}
+        /// </code>
+        /// </example>
+        public object moveTo(DirectoryEntry parent, JsString newName, JsFunction successCallback, JsFunction errorCallback) { return null; }
+        //TODO: I guessed the return type
+        /// <summary>
+        /// Copy a directory to a different location on the file system. It is an error to attempt to:
+        /// copy a directory inside itself at any depth;
+        /// copy a directory into its parent if a name different from its current one is not provided.
+        /// Directory copies are always recursive - that is, they copy all contents of the directory.
+        /// </summary>
+        /// <param name="parent">The parent directory to which to copy the directory.</param>
+        /// <param name="newName">The new name of the directory. Defaults to the current name if unspecified.</param>
+        /// <param name="successCallback">A callback that is called with the DirectoryEntry object of the new directory.</param>
+        /// <param name="errorCallback"> A callback that is called if an error occurs when attempting to copy the underlying directory. Invoked with a FileError object</param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function win(entry) {
+        ///    console.log("New Path: " + entry.fullPath);
+        ///}
+        ///function fail(error) {
+        ///    alert(error.code);
+        ///}
+        ///function copyDir(entry) {
+        ///    var parent = document.getElementById('parent').value,
+        ///        parentName = parent.substring(parent.lastIndexOf('/')+1),
+        ///        newName = document.getElementById('newName').value,
+        ///        parentEntry = new DirectoryEntry(parentName, parent);
+        ///    // copy the directory to a new directory and rename it
+        ///    entry.copyTo(parentEntry, newName, success, fail);
+        ///}
+        /// </code>
+        /// </example>
+        public object copyTo(DirectoryEntry parent, JsString newName, JsFunction successCallback, JsFunction errorCallback) { return null; }
+        //TODO: I guessed the return type
+
+        //TODO:toURL Returns a URL that can be used to locate the directory.
+
+        /// <summary>
+        /// Deletes a directory. It is an error to attempt to:
+        /// delete a directory that is not empty;
+        /// delete the root directory of a filesystem.
+        /// </summary>
+        /// <param name="successCallback"> A callback that is called after the directory has been deleted. Invoked with no parameters</param>
+        /// <param name="errorCallback">A callback that is called if an error occurs when attempting to delete the directory. Invoked with a FileError object</param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success(entry) {
+        ///     console.log("Removal succeeded");
+        /// }
+        /// function fail(error) {
+        ///     alert('Error removing directory: ' + error.code);
+        /// }
+        /// remove this directory
+        /// entry.remove(success, fail);
+        /// </code>
+        /// </example>
+        public object remove(JsFunction successCallback, JsFunction errorCallback) { return null; }
+        //TODO: I guessed the return type
+        /// <summary>
+        /// Look up the parent DirectoryEntry containing the directory.
+        /// </summary>
+        /// <param name="successCallback">A callback that is called with the directory's parent DirectoryEntry.</param>
+        /// <param name="errorCallback"> A callback that is called if an error occurs when attempting to retrieve the parent DirectoryEntry. Invoked with a FileError object</param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success(parent) {
+        ///    console.log("Parent Name: " + parent.name);
+        ///}
+        ///function fail(error) {
+        ///    alert('Failed to get parent directory: ' + error.code);
+        ///}
+        /// // Get the parent DirectoryEntry
+        ///entry.getParent(success, fail);
+        /// </code>
+        /// </example>
+        public object getParent (JsFunction successCallback, JsFunction errorCallback) { return null; }
+        //TODO: I guessed the return type
+        /// <summary>
+        /// Creates a new DirectoryReader to read entries in a directory.
+        /// </summary>
+        /// <returns></returns>
+        public object createReader() { return null; }
+        //TODO: I guessed the return type
+        /// <summary>
+        /// Creates or looks up an existing directory. It is an error to attempt to create a directory whose immediate parent does not yet exist.
+        /// </summary>
+        /// <param name="path">The path to the directory to be looked up or created. Either an absolute path, or a relative path from this DirectoryEntry.</param>
+        /// <param name="options">Options to specify whether the directory is created if it doesn't exist.</param>
+        /// <param name="successCallback">A callback that is invoked with a DirectoryEntry object. </param>
+        /// <param name="errorCallback"> A callback that is called if an error occurs creating or looking up the directory. Invoked with a FileError object.</param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success(parent) {
+        ///    console.log("Parent Name: " + parent.name);
+        ///}
+        ///function fail(error) {
+        ///    alert("Unable to create new directory: " + error.code);
+        ///}
+        /// // Retrieve an existing directory, or create it if it does not already exist
+        ///entry.getDirectory("newDir", {create: true, exclusive: false}, success, fail);
+        /// </code>
+        /// </example>
+        public object getDirectory(JsString path, Flags options, JsFunction successCallback, JsFunction errorCallback) { return null; }
+        //TODO: I guessed the return type
+        /// <summary>
+        /// Creates or looks up a file. It is an error to attempt to create a file whose immediate parent does not yet exist.
+        /// </summary>
+        /// <param name="path">The path to the file to be looked up or created. Either an absolute path, or a relative path from this DirectoryEntry.</param>
+        /// <param name="options">Options to specify whether the file is created if it doesn't exist.</param>
+        /// <param name="successCallback"> A callback that is invoked with a FileEntry object.</param>
+        /// <param name="errorCallback">- A callback that is called if an error occurs creating or looking up the file. Invoked with a FileError object.</param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success(parent) {
+        ///    console.log("Parent Name: " + parent.name);
+        ///}
+        ///function fail(error) {
+        ///    alert("Failed to retrieve file: " + error.code);
+        ///}
+        /// // Retrieve an existing file, or create it if it does not exist
+        ///entry.getFile("newFile.txt", {create: true, exclusive: false}, success, fail);
+        /// </code>
+        /// </example>
+        public object getFile(JsString path, Flags options, JsFunction successCallback, JsFunction errorCallback) { return null; }
+        //TODO: I guessed the return type
+        /// <summary>
+        /// Deletes a directory and all of its contents. In the event of an error (e.g. trying to delete a directory that contains a file that cannot be removed), some of the contents of the directory may be deleted.
+        /// It is an error to attempt to delete the root directory of a filesystem.
+        /// </summary>
+        /// <param name="successCallback"> A callback that is called after the DirectoryEntry has been deleted. Invoked with no parameters.</param>
+        /// <param name="errorCallback">A callback that is called if an error occurs when attempting to delete the DirectoryEntry. Invoked with a FileError object</param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success(parent) {
+        ///    console.log("Remove Recursively Succeeded");
+        ///}
+        ///function fail(error) {
+        ///    alert("Failed to remove directory or it's contents: " + error.code);
+        ///}
+        /// // remove the directory and all it's contents
+        ///entry.removeRecursively(success, fail);
+        /// </code>
+        /// </example>
+        public object removeRecursively(JsFunction successCallback, JsFunction errorCallback) { return null; }
+        //TODO: I guessed the return type
     }
+
+    /// <summary>
+    /// This object is used to supply arguments to the DirectoryEntry getFile and getDirectory methods, which look up or create files and directories, respectively.
+    /// </summary>
+    public class Flags
+    {
+        /// <summary>
+        /// Used to indicate that the file or directory should be created, if it does not exist
+        /// </summary>
+        public bool create { get; set; }
+        /// <summary>
+        ///  By itself, exclusive has no effect. Used with create, it causes the file or directory creation to fail if the target path already exists.
+        /// </summary>
+        public bool exclusive { get; set; }
+    }
+
 
     /// <summary>
     /// This object represents a file system.
     /// </summary>
-    public class FileSystem
+     public class FileSystem
     {
         /// <summary>
         /// The name of the file system
@@ -1358,4 +1603,6 @@ namespace SharpKit.PhoneGap
         /// </summary>
         public DirectoryEntry root { get; set; }
     }
+
+     //DirectoryReader
 }
