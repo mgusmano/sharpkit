@@ -668,7 +668,10 @@ namespace SharpKit.PhoneGap
         public JsNumber duration { get; set; }
     }
 
-    public class Compass
+    /// <summary>
+    /// Obtains the direction that the device is pointing.
+    /// </summary>
+    public class Compass    
     {
 
 
@@ -691,7 +694,7 @@ namespace SharpKit.PhoneGap
         /// //navigator.compass.getCurrentHeading(onSuccess, onError);
         /// </code>
         /// </example>
-        public void getCurrentHeading(CompassSuccess compassSuccess, CompassError compassError, CompassOptions compassOptions) { }
+        public void getCurrentHeading(compassSuccess compassSuccess, CompassError compassError, compassOptions compassOptions) { }
         /// <summary>
         /// At a regular interval, get the compass heading in degrees.
         /// </summary>
@@ -712,7 +715,7 @@ namespace SharpKit.PhoneGap
         ///var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
         /// </code>
         /// </example>
-        public JsString watchHeading(CompassSuccess compassSuccess, CompassError compassError, CompassOptions compassOptions){return null;}
+        public JsString watchHeading(compassSuccess compassSuccess, CompassError compassError, compassOptions compassOptions){return null;}
         /// <summary>
         /// Stop watching the compass referenced by the watch ID parameter.
         /// </summary>
@@ -726,7 +729,7 @@ namespace SharpKit.PhoneGap
         /// </code>
         /// </example>
         public void clearWatch(JsString watchID) { }
-        //TODO: really not sure about this one
+        //TODO: really not sure about this one Danel must check
 
     }
     //TODO: inside
@@ -734,7 +737,7 @@ namespace SharpKit.PhoneGap
     /// <summary>
     /// A CompassHeading object is returned to the compassSuccess callback function when an error occurs
     /// </summary>
-    public class CompassHeading
+    public class compassHeading
     {
         /// <summary>
         ///  The heading in degrees from 0 - 359.99 at a single moment in time.
@@ -754,7 +757,7 @@ namespace SharpKit.PhoneGap
         /// </summary>
         public JsNumber timestamp { get; set; }
     }
-    public delegate void CompassSuccess(JsArray<CompassHeading> error);
+    public delegate void compassSuccess(JsArray<compassHeading> heading);
     public delegate void compassError(JsArray<CompassError> error);
 
     /// <summary>
@@ -773,7 +776,7 @@ namespace SharpKit.PhoneGap
     /// <summary>
     /// An optional parameter to customize the retrieval of the compass.
     /// </summary>
-    public class CompassOptions
+    public class compassOptions
     {
         /// <summary>
         ///  How often to retrieve the compass heading in milliseconds.(Default: 100)
@@ -786,6 +789,9 @@ namespace SharpKit.PhoneGap
 
 }
 
+    /// <summary>
+    /// The connection object gives access to the device's cellular and wifi connection information.
+    /// </summary>
     public class Connection
     {
         public Connection type { get; set; }
@@ -799,6 +805,557 @@ namespace SharpKit.PhoneGap
 
     }
 
+    /// <summary>
+    /// Contains properties that describe a contact, such as a user's personal or business contact
+    /// </summary>
+    public class Contact
+    {
+        /// <summary>
+        /// A globally unique identifier
+        /// </summary>
+        public JsString id { get; set; }
+        /// <summary>
+        /// The name of this Contact, suitable for display to end-users.
+        /// </summary>
+        public JsString displayName { get; set; }
+        /// <summary>
+        ///  An object containing all components of a persons name.
+        /// </summary>
+        public ContactName name { get; set; }
+        /// <summary>
+        ///  A casual name to address the contact by
+        /// </summary>
+        public JsString nickname { get; set; }
+        /// <summary>
+        ///  An array of all the contact's phone numbers.
+        /// </summary>
+        public JsArray<ContactField> phoneNumbers { get; set; }
+        /// <summary>
+        /// An array of all the contact's email addresses
+        /// </summary>
+        public JsArray<ContactField> emails { get; set; }
+        /// <summary>
+        /// An array of all the contact's addresses
+        /// </summary>
+        public JsArray<ContactAddress> addresses { get; set; }
+        /// <summary>
+        ///  An array of all the contact's IM addresses
+        /// </summary>
+        public JsArray<ContactField> ims { get; set; }
+        /// <summary>
+        /// An array of all the contact's organizations.
+        /// </summary>
+        public JsArray<ContactOrganization> organizations { get; set; }
+        /// <summary>
+        /// The birthday of the contact.
+        /// </summary>
+        public JsDate birthday { get; set; }
+        /// <summary>
+        /// A note about the contact.
+        /// </summary>
+        public JsString note { get; set; }
+        /// <summary>
+        ///  An array of the contact's photos.
+        /// </summary>
+        public JsArray<ContactField> photos { get; set; }
+        /// <summary>
+        /// An array of all the contacts user defined categories.
+        /// </summary>
+        public JsArray<ContactField> categories { get; set; }
+        /// <summary>
+        /// An array of web pages associated to the contact.
+        /// </summary>
+        public JsArray<ContactField> urls { get; set; }
+        /// <summary>
+        /// Returns a new Contact object that is a deep copy of the calling object, with the id property set to null.
+        /// </summary>
+        /// <returns></returns>
+        public Contact clone() { return null; }
+        /// <summary>
+        /// Removes the contact from the device contacts database. An error callback is called with a ContactError object if the removal is unsuccessful.
+        /// </summary>
+        public void remove() { }
+        /// <summary>
+        /// Saves a new contact to the device contacts database, or updates an existing contact if a contact with the same id already exists.
+        /// </summary>
+        public void save() { }
 
 
+
+    }
+
+    /// <summary>
+    /// Contains name properties of a Contact object
+    /// </summary>
+    /// <example>
+    /// usage
+    /// <code>
+    /// function onSuccess(contacts) {
+    ///    for (var i=0; i &lt;contacts.length; i++) {
+    ///        alert("Formatted: " + contacts[i].name.formatted + "\n" + 
+    ///                "Family Name: "  + contacts[i].name.familyName + "\n" + 
+    ///                "Given Name: "  + contacts[i].name.givenName + "\n" + 
+    ///                "Middle Name: "  + contacts[i].name.middleName + "\n" + 
+    ///                "Suffix: "  + contacts[i].name.honorificSuffix + "\n" + 
+    ///                "Prefix: "  + contacts[i].name.honorificSuffix);
+    ///    }
+    ///};
+    ///function onError(contactError) {
+    ///    alert('onError!');
+    ///};
+    ///var options = new ContactFindOptions();
+    ///options.filter="";
+    ///filter = ["displayName","name"];
+    ///navigator.contacts.find(filter, onSuccess, onError, options);
+    /// </code>
+    /// </example>
+    public class ContactName
+    {
+        /// <summary>
+        /// The complete name of the contact.
+        /// </summary>
+        public JsString formatted { get; set; }
+        /// <summary>
+        ///  The contacts family name.
+        /// </summary>
+        public JsString familyName { get; set; }
+        /// <summary>
+        ///  The contacts given name
+        /// </summary>
+        public JsString givenName { get; set; }
+        /// <summary>
+        /// The contacts middle name.
+        /// </summary>
+        public JsString middleName { get; set; }
+        /// <summary>
+        /// The contacts prefix (example Mr. or Dr.)
+        /// </summary>
+        public JsString honorificPrefix { get; set; }
+        /// <summary>
+        ///  The contacts suffix (example Esq.).
+        /// </summary>
+        public JsString honorificSuffix { get; set; }
+
+    }
+
+    /// <summary>
+    /// Supports generic fields in a Contact object. Some properties that are stored as ContactField objects include email addresses, phone numbers, and urls.
+    /// </summary>
+    /// <example>
+    /// usage
+    /// <code>
+    /// // create a new contact
+    ///var contact = navigator.contacts.create();
+    /// // store contact phone numbers in ContactField[]
+    ///var phoneNumbers = [];
+    ///phoneNumbers[0] = new ContactField('work', '212-555-1234', false);
+    ///phoneNumbers[1] = new ContactField('mobile', '917-555-5432', true); // preferred number
+    ///phoneNumbers[2] = new ContactField('home', '203-555-7890', false);
+    ///contact.phoneNumbers = phoneNumbers;
+    /// // save the contact
+    ///contact.save();
+    /// </code>
+    /// </example>
+    public class ContactField
+    {
+        /// <summary>
+        /// A string that tells you what type of field this is (example: 'home'). 
+        /// </summary>
+        public JsString type { get; set; }
+        /// <summary>
+        /// The value of the field (such as a phone number or email address).
+        /// </summary>
+        public JsString value { get; set; }
+        /// <summary>
+        /// Set to true if this ContactField contains the user's preferred value.
+        /// </summary>
+        public bool pref { get; set; }
+    }
+    //TODO: bool
+
+    /// <summary>
+    /// Contains address properties for a Contact object.
+    /// </summary>
+    /// <example>
+    /// usage
+    /// <code>
+    /// // display the address information for all contacts
+    ///function onSuccess(contacts) {
+    ///    for (var i=0; i &lt;contacts.length; i++) {
+    ///        for (var j=0; j &lt;contacts[i].addresses.length; j++) {
+    ///            alert("Pref: " + contacts[i].addresses[j].pref + "\n" +
+    ///                    "Type: " + contacts[i].addresses[j].type + "\n" +
+    ///                    "Formatted: " + contacts[i].addresses[j].formatted + "\n" + 
+    ///                    "Street Address: "  + contacts[i].addresses[j].streetAddress + "\n" + 
+    ///                    "Locality: "  + contacts[i].addresses[j].locality + "\n" + 
+    ///                    "Region: "  + contacts[i].addresses[j].region + "\n" + 
+    ///                    "Postal Code: "  + contacts[i].addresses[j].postalCode + "\n" + 
+    ///                    "Country: "  + contacts[i].addresses[j].country);
+    ///        }
+    ///    }
+    ///};
+    ///function onError(contactError) {
+    ///    alert('onError!');
+    ///};
+    /// // find all contacts
+    ///var options = new ContactFindOptions();
+    ///options.filter=""; 
+    ///var filter = ["displayName","addresses"];
+    ///navigator.contacts.find(filter, onSuccess, onError, options);
+    /// </code>
+    /// </example>
+    public class ContactAddress
+    {
+        /// <summary>
+        /// Set to true if this ContactAddress contains the user's preferred value.
+        /// </summary>
+        public bool pref { get; set; }
+        /// <summary>
+        ///  A string that tells you what type of field this is (example: 'home')
+        /// </summary>
+        public JsString type { get; set; }
+        /// <summary>
+        /// The full address formatted for display
+        /// </summary>
+        public JsString formatted { get; set; }
+        /// <summary>
+        /// The full street address.
+        /// </summary>
+        public JsString streetAddress { get; set; }
+        /// <summary>
+        /// The city or locality
+        /// </summary>
+        public JsString locality { get; set; }
+        /// <summary>
+        /// The state or region.
+        /// </summary>
+        public JsString region { get; set; }
+        /// <summary>
+        ///  The zip code or postal code.
+        /// </summary>
+        public JsString postalCode { get; set; }
+        /// <summary>
+        /// The country name.
+        /// </summary>
+        public JsString country { get; set; }
+
+    }
+    //TODO: bool
+
+    /// <summary>
+    /// Contains organization properties of a Contact object.
+    /// </summary>
+    /// <example>
+    /// usage
+    /// <code>
+    /// function onSuccess(contacts) {
+    ///    for (var i=0; i &lt;contacts.length; i++) {
+    ///        for (var j=0; j&lt;contacts[i].organizations.length; j++) {
+    ///            alert("Pref: " + contacts[i].organizations[j].pref + "\n" +
+    ///                    "Type: " + contacts[i].organizations[j].type + "\n" +
+    ///                    "Name: " + contacts[i].organizations[j].name + "\n" + 
+    ///                    "Department: "  + contacts[i].organizations[j].department + "\n" + 
+    ///                    "Title: "  + contacts[i].organizations[j].title);
+    ///        }
+    ///    }
+    ///};
+    ///function onError(contactError) {
+    ///    alert('onError!');
+    ///};
+    ///var options = new ContactFindOptions();
+    ///options.filter="";
+    ///filter = ["displayName","organizations"];
+    ///navigator.contacts.find(filter, onSuccess, onError, options);
+    /// </code>
+    /// </example>
+    public class ContactOrganization
+    {
+        /// <summary>
+        /// Set to true if this ContactOrganization contains the user's preferred value.
+        /// </summary>
+        public bool pref { get; set; }
+        /// <summary>
+        ///  A string that tells you what type of field this is (example: 'home').
+        /// </summary>
+        public JsString type { get; set; }
+        /// <summary>
+        /// The name of the organization
+        /// </summary>
+        public JsString name { get; set; }
+        /// <summary>
+        /// The department the contract works for.
+        /// </summary>
+        public JsString department { get; set; }
+        /// <summary>
+        /// The contacts title at the organization. 
+        /// </summary>
+        public JsString title { get; set; }
+    }
+
+    /// <summary>
+    /// Contains properties that can be used to filter the results of a contacts.find operation.
+    /// </summary>
+    /// <example>
+    /// usage
+    /// <code>
+    /// // success callback
+    ///function onSuccess(contacts) {
+    ///    for (var i=0; i &lt;contacts.length; i++) {
+    ///        alert(contacts[i].displayName);
+    ///    }
+    ///};
+    /// // error callback
+    ///function onError(contactError) {
+    ///    alert('onError!');
+    ///};
+    /// // specify contact search criteria
+    ///var options = new ContactFindOptions();
+    ///options.filter="";          // empty search string returns all contacts
+    ///options.multiple=true;      // return multiple results
+    ///filter = ["displayName"];   // return contact.displayName field
+    /// // find contacts
+    ///navigator.contacts.find(filter, onSuccess, onError, options);
+    /// </code>
+    /// </example>
+    public class ContactFindOptions
+    {
+        /// <summary>
+        /// The search string used to find contacts.(Default: "")
+        /// </summary>
+        public JsString filter { get; set; }
+        /// <summary>
+        ///  Determines if the find operation should return multiple contacts. (Default: false)
+        /// </summary>
+        public bool multiple { get; set; }
+
+    }
+
+    /// <summary>
+    /// A ContactError object is returned to the contactError callback when an error occurs.
+    /// </summary>
+    public class ContactError
+    {
+        /// <summary>
+        /// One of the predefined error codes listed below.
+        /// </summary>
+        public JsCode code { get; set; }
+
+        public const ContactError UNKNOWN_ERROR = null;
+
+        public const ContactError INVALID_ARGUMENT_ERROR = null;
+
+        public const ContactError TIMEOUT_ERROR = null;
+
+        public const ContactError PENDING_OPERATION_ERROR = null;
+
+        public const ContactError IO_ERROR = null;
+
+        public const ContactError NOT_SUPPORTED_ERROR = null;
+
+        public const ContactError PERMISSION_DENIED_ERROR = null;
+
+
+    }
+    /// <summary>
+    /// The contact array resulting from a find operation. (Contact)
+    /// </summary>
+    /// <param name="contacts"></param>
+    public delegate void contactSuccess(JsArray<Contact> contacts);
+    /// <summary>
+    /// Error callback function for contact functions.
+    /// </summary>
+    /// <param name="error"></param>
+    public delegate void contactError(JsArray<CompassError> error);
+
+    public class contactFields
+    {
+    }
+    //TODO: empty. 
+
+    /// <summary>
+    /// Optional parameter of the contacts.find method. Use this parameter to filter the contacts returned from the contacts database.
+    /// </summary>
+    public class contactFindOptions
+    {
+        /// <summary>
+        /// The search string used to filter contacts. (Default: "")
+        /// </summary>
+        public JsString filter { get; set; }
+        /// <summary>
+        /// Determines if the find operation should return multiple contacts. (Default: false)
+        /// </summary>
+        public bool multiple { get; set; }
+    }
+
+    /// <summary>
+    /// The contacts object provides access to the device contacts database.
+    /// </summary>
+    public class Contacts
+    {
+        /// <summary>
+        /// contacts.create is a synchronous function that returns a new Contact object.
+        /// This method does not persist the Contact object to the device contacts database. To persist the Contact object to the device, invoke the Contact.save method.
+        /// </summary>
+        /// <param name="properties"></param>
+        /// <returns>Contains properties that describe a contact, such as a user's personal or business contact</returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var myContact = navigator.contacts.create({"displayName": "Test User"});
+        /// </code>
+        /// </example>
+        public Contact create(object properties) { return null; }
+        //TODO: not sure it is object
+
+        /// <summary>
+        /// Queries the device contacts database and returns one or more Contact objects, each containing the fields specified.
+        /// </summary>
+        /// <param name="contactFields">Contact fields to be used as search qualifier. Only these fields will have values in the resulting Contact objects. [Required]</param>
+        /// <param name="contactSuccess">Success callback function that is invoked with the contacts returned from the contacts database. [Required]</param>
+        /// <param name="contactError">Error callback function. Invoked when error occurs. [Optional]</param>
+        /// <param name="contactFindOptions">Search options to filter contacts. [Optional]</param>
+        /// <returns>Contains properties that describe a contact, such as a user's personal or business contact.</returns>
+        public Contact find(JsArray<JsString> contactFields, contactSuccess contactSuccess, ContactError ContactError, contactFindOptions contactFindOptions) { return null; }
+        //TODO: danel must check. i guss all the types
+    }
+    //TODO: inside
+
+    /// <summary>
+    /// The device object describes the device's hardware and software.
+    /// </summary>
+    public class Device
+    {
+        /// <summary>
+        /// Get the device's model name.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Android:    Nexus One       returns "Passion" (Nexus One code name)
+        /// //             Motorola Droid  returns "voles"
+        /// // BlackBerry: Torch 9800      returns "9800"
+        /// // iPhone:     All devices     returns a name set by iTunes e.g. "Joe's iPhone"
+        /// //
+        ///var name = device.name;
+        /// </code>
+        /// </example>
+        public JsString name { get; set; }
+
+        /// <summary>
+        /// Get the version of Cordova running on the device.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var name = device.cordova;
+        /// </code>
+        /// </example>
+        public JsString cordova { get; set; }
+
+        /// <summary>
+        /// Get the device's operating system name.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Depending on the device, a few examples are:
+        /// //   - "Android"
+        /// //   - "BlackBerry"
+        /// //   - "iPhone"
+        /// //   - "webOS"
+        /// //   - "WinCE"
+        ///var devicePlatform = device.platform;
+        /// </code>
+        /// </example>
+        public JsString platform { get; set; }
+
+        /// <summary>
+        /// Get the device's Universally Unique Identifier (UUID=Universally unique identifier).
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Android: Returns a random 64-bit integer (as a string, again!)
+        /// //          The integer is generated on the device's first boot
+        /// //
+        /// // BlackBerry: Returns the PIN number of the device
+        /// //             This is a nine-digit unique integer (as a string, though!)
+        /// //
+        /// // iPhone: (Paraphrased from the UIDevice Class documentation)
+        /// //         Returns a string of hash values created from multiple hardware identifies.
+        /// //         It is guaranteed to be unique for every device and cannot be tied
+        /// //         to the user account.
+        /// // Windows Phone 7 : Returns a hash of device+current user, 
+        /// // if the user is not defined, a guid is generated and will persist until the app is uninstalled
+        /// // 
+        /// // webOS: returns the device NDUID
+        ///var deviceID = device.uuid;
+        /// </code>
+        /// </example>
+        public JsString uuid { get; set; }
+
+        /// <summary>
+        /// Get the operating system version
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Android:    Froyo OS would return "2.2"
+        /// //             Eclair OS would return "2.1", "2.0.1", or "2.0"
+        /// //             Version can also return update level "2.1-update1" 
+        /// //
+        /// // BlackBerry: Torch 9800 using OS 6.0 would return "6.0.0.600"
+        /// //
+        /// // iPhone:     iOS 3.2 returns "3.2"
+        /// //
+        /// // Windows Phone 7: returns current OS version number, ex. on Mango returns 7.10.7720
+        /// // webOS: webOS 2.2.4 return 2.2.4
+        ///var deviceVersion = device.version;
+        /// </code>
+        /// </example>
+        public JsString version { get; set; }
+
+
+
+    }
+
+    public class DirectoryEntry
+    {
+        /// <summary>
+        /// Always false.
+        /// </summary>
+        public bool isFile { get; set; }
+        /// <summary>
+        /// Always true.
+        /// </summary>
+        public bool isDirectory { get; set; }
+        /// <summary>
+        /// The name of the DirectoryEntry, excluding the path leading to it.
+        /// </summary>
+        public JsString name { get; set; }
+        /// <summary>
+        /// The full absolute path from the root to the DirectoryEntry. 
+        /// </summary>
+        public JsString fullPath { get; set; }
+        /// <summary>
+        ///  The file system on which the DirectoryEntry resides.
+        /// </summary>
+        public FileSystem filesystem { get; set; }
+
+    }
+
+    /// <summary>
+    /// This object represents a file system.
+    /// </summary>
+    public class FileSystem
+    {
+        /// <summary>
+        /// The name of the file system
+        /// </summary>
+        public JsString name { get; set; }
+        /// <summary>
+        /// The root directory of the file system.
+        /// </summary>
+        public DirectoryEntry root { get; set; }
+    }
 }
