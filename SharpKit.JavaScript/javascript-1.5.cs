@@ -29,8 +29,8 @@ using System.ComponentModel;
 [assembly: JsType(JsMode.Prototype, TargetType = typeof(Array), NativeArrayEnumerator = true, NativeEnumerator = false, Export = false)]
 //[assembly: JsMethod(TargetType = typeof(Array), TargetMethod = "get_Length", Name = "length", OmitParanthesis = true)]
 [assembly: JsProperty(TargetType = typeof(Array), TargetProperty = "Length", Name = "length", NativeField = true)]
-[assembly: JsMethod(TargetTypeName = "System.Delegate", TargetMethod = "Combine", Name = "$CombineDelegates", Global = true, NativeOverloads = true)]
-[assembly: JsMethod(TargetTypeName = "System.Delegate", TargetMethod = "Remove", Name = "$RemoveDelegate", Global = true, NativeOverloads = true)]
+[assembly: JsMethod(TargetType = typeof(Delegate), TargetMethod = "Combine", Name = "$CombineDelegates", Global = true, NativeOverloads = true)]
+[assembly: JsMethod(TargetType = typeof(Delegate), TargetMethod = "Remove", Name = "$RemoveDelegate", Global = true, NativeOverloads = true)]
 
 
 namespace SharpKit.JavaScript
