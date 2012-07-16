@@ -1167,10 +1167,13 @@ namespace SharpKit.PhoneGap
     /// <param name="error"></param>
     public delegate void contactError(JsArray<CompassError> error);
 
+    /// <summary>
+    /// Required parameter of the contacts.find method. Use this parameter to specify which fields should be included in the Contact objects resulting from a find operation.
+    /// </summary>
     public class contactFields
     {
     }
-    //TODO: empty. 
+    //TODO: empty. needs to be done, don't know how
 
     /// <summary>
     /// Optional parameter of the contacts.find method. Use this parameter to filter the contacts returned from the contacts database.
@@ -1319,7 +1322,10 @@ namespace SharpKit.PhoneGap
 
     }
 
-    public class DirectoryEntry
+    /// <summary>
+    /// This object represents a directory on a file system. It is defined in the W3C Directories and Systems specification.
+    /// </summary>
+    public class DirectoryEntry :Entry
     {
         /// <summary>
         /// Always false.
@@ -1604,5 +1610,972 @@ namespace SharpKit.PhoneGap
         public DirectoryEntry root { get; set; }
     }
 
-     //DirectoryReader
+    /// <summary>
+     /// An object that lists files and directories in a directory. Defined in the Directories and Systems specification.
+    /// </summary>
+     public class DirectoryReader
+     {
+         /// <summary>
+         /// Read the entries in this directory.
+         /// </summary>
+         /// <param name="successCallback">- A callback that is passed an array of FileEntry and DirectoryEntry objects</param>
+         /// <param name="errorCallback">A callback that is called if an error occurs retrieving the directory listing. Invoked with a FileError object.</param>
+         /// <example>
+         /// usage
+         /// <code>
+         /// function success(entries) {
+         ///    var i;
+         ///    for (i=0; i &lt;entries.length; i++) {
+         ///        console.log(entries[i].name);
+         ///    }
+         ///}
+         ///function fail(error) {
+         ///    alert("Failed to list directory contents: " + error.code);
+         ///}
+         /// // Get a directory reader
+         ///var directoryReader = dirEntry.createReader();
+         /// // Get a list of all the entries in the directory
+         ///directoryReader.readEntries(success,fail);
+         /// </code>
+         /// </example>
+         public void readEntries(ReadEntriesSuccessCallback successCallback, ReadEntriesErrorCallback errorCallback) { }
+
+     }
+
+     public class Entry
+     {
+     }
+    /// <summary>
+     /// A callback that is passed an array of FileEntry and DirectoryEntry objects. (Function)
+    /// </summary>
+    /// <param name="entries"></param>
+
+     public delegate void ReadEntriesSuccessCallback(JsArray<Entry> entries);
+
+    /// <summary>
+     /// A callback that is called if an error occurs retrieving the directory listing. Invoked with a FileError object.
+    /// </summary>
+    /// <param name="error"></param>
+     public delegate void ReadEntriesErrorCallback(FileError error);
+
+    /// <summary>
+     /// A 'FileError' object is set when an error occurs in any of the File API methods.
+    /// </summary>
+     public class FileError
+     {
+         /// <summary>
+         ///  One of the pre-defined error codes listed below
+         /// </summary>
+         public JsNumber code { get; set; }
+
+         public const FileError NOT_FOUND_ERR = null;
+
+         public const FileError SECURITY_ERR = null;
+
+         public const FileError ABORT_ERR = null;
+
+         public const FileError NOT_READABLE_ERR = null;
+
+         public const FileError ENCODING_ERR = null;
+
+         public const FileError NO_MODIFICATION_ALLOWED_ERR = null;
+
+         public const FileError INVALID_STATE_ERR = null;
+
+         public const FileError SYNTAX_ERR = null;
+
+         public const FileError INVALID_MODIFICATION_ERR = null;
+
+         public const FileError QUOTA_EXCEEDED_ERR = null;
+
+         public const FileError TYPE_MISMATCH_ERR = null;
+
+         public const FileError PATH_EXISTS_ERR = null;
+
+
+
+
+
+
+     }
+
+    /// <summary>
+     /// The File object contains attributes of a single file. You can get an instance of a File object by calling the file method of a FileEntry object.
+    /// </summary>
+     public class File
+     {
+         /// <summary>
+         ///  The name of the file. 
+         /// </summary>
+         public JsString name { get; set; }
+         /// <summary>
+         ///  The full path of the file including the file name
+         /// </summary>
+         public JsString fullPath { get; set; }
+         /// <summary>
+         ///  The mime type of the file. 
+         /// </summary>
+         public JsString type { get; set; }
+         /// <summary>
+         /// The last time the file was modified.
+         /// </summary>
+         public JsDate lastModifiedDate { get; set; }
+         /// <summary>
+         /// The size of the file in bytes.
+         /// </summary>
+         public long size { get; set; }
+     }
+
+    /// <summary>
+     /// This object represents a file on a file system. It is defined in the W3C Directories and Systems specification.
+    /// </summary>
+     public class FileEntry
+     {
+         /// <summary>
+         /// Always true.
+         /// </summary>
+         public bool isFile { get; set; }
+
+         /// <summary>
+         /// Always false.
+         /// </summary>
+         public bool isDirectory { get; set; }
+
+         /// <summary>
+         /// The name of the FileEntry, excluding the path leading to it.
+         /// </summary>
+         public JsString name { get; set; }
+
+         /// <summary>
+         ///  The full absolute path from the root to the FileEntry.
+         /// </summary>
+         public JsString fullPath { get; set; }
+
+         /// <summary>
+         ///  The file system on which the FileEntry resides.
+         /// </summary>
+         public FileSystem filesystem { get; set; }
+
+         /// <summary>
+         /// Look up metadata about a file.
+         /// </summary>
+         /// <param name="successCallback"> A callback that is called with a Metadata object.</param>
+         /// <param name="errorCallback"> A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.</param>
+         /// <example>
+         /// <code>
+         /// function success(metadata) {
+         ///    console.log("Last Modified: " + metadata.modificationTime);
+         ///}
+         ///function fail(error) {
+         ///    alert(error.code);
+         ///}
+         /// // Request the metadata object for this entry
+         ///entry.getMetadata(success, fail);
+         /// </code>
+         /// </example>
+         public void getMetadata(GetMetadataSuccessCallback successCallback, GetMetadataErrorCallback errorCallback) { }
+
+         /// <summary>
+         /// Set metadata on a file. Only works on iOS currently - this will set the extended attributes of a file.
+         /// </summary>
+         /// <param name="successCallback">A callback that is called when the metadata was successfully set.</param>
+         /// <param name="errorCallback">A callback that is called when the metadata was not successfully set.</param>
+         /// <param name="metadataObject">An object that contains the metadata keys and values. </param>
+         /// <returns></returns>
+         /// <example>
+         /// usage
+         /// <code>
+         /// function success() {
+         ///    console.log("The metadata was successfully set.");
+         ///}
+         ///function fail() {
+         ///    alert("There was an error in setting the metadata");
+         ///}
+         /// // Set the metadata
+         ///entry.setMetadata(success, fail, { "com.apple.MobileBackup": 1});
+         /// </code>
+         /// </example>
+         public File setMetadata(SetMetadataSuccessCallback successCallback, SetMetadataErrorCallback errorCallback, object metadataObject) { return null; }
+
+         /// <summary>
+         /// Move a file to a different location on the file system. It is an error to attempt to:
+         ///move a file into its parent if a name different from its current one isn't provided;
+         ///move a file to a path occupied by a directory;
+         ///In addition, an attempt to move a file on top of an existing file must attempt to delete and replace that file.
+         /// </summary>
+         /// <param name="parent"> The parent directory to which to move the file.</param>
+         /// <param name="newName"> The new name of the file. Defaults to the current name if unspecified.</param>
+         /// <param name="successCallback">A callback that is called with the FileEntry object of the new file.</param>
+         /// <param name="errorCallback">A callback that is called if an error occurs when attempting to move the file. Invoked with a FileError object.</param>
+         /// <returns></returns>
+         /// <example>
+         /// usage
+         /// <code>
+         /// function success(entry) {
+         ///    console.log("New Path: " + entry.fullPath);
+         ///}
+         ///function fail(error) {
+         ///    alert(error.code);
+         ///}
+         ///function moveFile(entry) {
+         ///    var parent = document.getElementById('parent').value,
+         ///        parentName = parent.substring(parent.lastIndexOf('/')+1),
+         ///        parentEntry = new DirectoryEntry(parentName, parent);
+         ///    // move the file to a new directory and rename it
+         ///    entry.moveTo(parentEntry, "newFile.txt", success, fail);
+         ///}
+         /// </code>
+         /// </example>
+         public object moveTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) { return null; }
+         //TODO: I gussed the return type
+
+         /// <summary>
+         ///Copy a file to a new location on the file system. It is an error to attempt to:
+         ///copy a file into its parent if a name different from its current one is not provided.
+         /// </summary>
+         /// <param name="parent"> The parent directory to which to copy the file.</param>
+         /// <param name="newName"> The new name of the file. Defaults to the current name if unspecified.</param>
+         /// <param name="successCallback">A callback that is called with the FileEntry object of the new file.</param>
+         /// <param name="errorCallback">A callback that is called if an error occurs when attempting to copy the file. Invoked with a FileError object.</param>
+         /// <returns></returns>
+         /// <example>
+         /// usage
+         /// <code>
+         ///function win(entry) {
+         ///    console.log("New Path: " + entry.fullPath);
+         ///}
+         ///function fail(error) {
+         ///    alert(error.code);
+         ///}
+         ///function copyFile(entry) {
+         ///    var parent = document.getElementById('parent').value,
+         ///        parentName = parent.substring(parent.lastIndexOf('/')+1),
+         ///        parentEntry = new DirectoryEntry(parentName, parent);
+         ///    // copy the file to a new directory and rename it
+         ///    entry.copyTo(parentEntry, "file.copy", success, fail);
+         ///}
+         /// </code>
+         /// </example>
+         public object copyTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) { return null; }
+         //TODO: I gussed the return type
+
+         /// <summary>
+         /// Returns a URL that can be used to locate the file.
+         /// </summary>
+         /// <returns></returns>
+         /// <example>
+         /// usage
+         /// <code>
+         /// // Request the URL for this entry
+         ///var fileURL = entry.toURL();
+         ///console.log(fileURL);
+         /// </code>
+         /// </example>
+         public JsString toURL() { return null; }
+
+         /// <summary>
+         /// Deletes a file.
+         /// </summary>
+         /// <param name="successCallback">A callback that is called after the file has been deleted. Invoked with no parameters. </param>
+         /// <param name="errorCallback"> A callback that is called if an error occurs when attempting to delete the file. Invoked with a FileError object</param>
+         /// <example>
+         /// usage
+         /// <code>
+         /// function success(entry) {
+         ///    console.log("Removal succeeded");
+         ///}
+         ///function fail(error) {
+         ///    alert('Error removing file: ' + error.code);
+         ///}
+         /// // remove the file
+         ///entry.remove(success, fail);
+         /// </code>
+         /// </example>
+         public void remove(RemoveSuccessCallback successCallback, RemoveErrorCallback errorCallback) { }
+
+         /// <summary>
+         /// Look up the parent DirectoryEntry containing the file.
+         /// </summary>
+         /// <param name="successCallback">A callback that is called with the file's parent DirectoryEntry. </param>
+         /// <param name="errorCallback">A callback that is called if an error occurs when attempting to retrieve the parent DirectoryEntry. Invoked with a FileError object</param>
+         /// <example>
+         /// usage
+         /// <code>
+         /// function success(parent) {
+         ///    console.log("Parent Name: " + parent.name);
+         ///}
+         ///function fail(error) {
+         ///    alert(error.code);
+         ///}
+         /// // Get the parent DirectoryEntry
+         ///entry.getParent(success, fail);
+         /// </code>
+         /// </example>
+         public void getParent(GetParentSuccessCallback successCallback, GetParentErrorCallback errorCallback) { }
+
+         /// <summary>
+         /// Create a FileWriter object associated with the file that the FileEntry represents.
+         /// </summary>
+         /// <param name="successCallback">A callback that is called with a FileWriter object.</param>
+         /// <param name="errorCallback">A callback that is called if an error occurs while attempting to create the FileWriter. Invoked with a FileError object.</param>
+         /// <example>
+         /// usage
+         /// <code>
+         /// function success(writer) {
+         ///    writer.write("Some text to the file");
+         ///}
+         ///function fail(error) {
+         ///    alert(error.code);
+         ///}
+         /// // create a FileWriter to write to the file
+         ///entry.createWriter(success, fail);
+         /// </code>
+         /// </example>
+         public void createWriter(CreateWriterSuccessCallback successCallback, CreateWriterErrorCallback errorCallback) { }
+
+         /// <summary>
+         /// Return a File object that represents the current state of the file that this FileEntry represents.
+         /// </summary>
+         /// <param name="successCallback">A callback that is called with a File object.</param>
+         /// <param name="errorCallback"> A callback that is called if an error occurs when creating the File object (e.g. the underlying file no longer exists).
+         /// Invoked with a FileError object.</param>
+         /// <returns></returns>
+         public File file(FileSuccessCallback successCallback, FileErrorCallback errorCallback) { return null; }
+
+
+     }
+
+    /// <summary>
+     /// This interface supplies information about the state of a file or directory.
+    /// </summary>
+    /// <example>
+    /// usage
+    /// <code>
+    /// function win(metadata) {
+    ///    console.log("Last Modified: " + metadata.modificationTime);
+    ///}
+    /// // Request the metadata object for this entry
+    ///entry.getMetadata(win, null);
+    /// </code>
+    /// </example>
+     public class Metadata
+     {
+         /// <summary>
+         ///  This is the time at which the file or directory was last modified.
+         /// </summary>
+         public JsDate modificationTime { get; set; }
+     }
+
+    /// <summary>
+    ///  A callback that is called with a Metadata object. 
+    /// </summary>
+    /// <param name="metadata"></param>
+    public delegate void GetMetadataSuccessCallback(Metadata metadata);
+    /// <summary>
+    /// A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.
+    /// </summary>
+    /// <param name="error"></param>
+    public delegate void GetMetadataErrorCallback(FileError error);
+
+    /// <summary>
+    /// A callback that is called when the metadata was successfully set. 
+    /// </summary>
+    public delegate void SetMetadataSuccessCallback();
+    /// <summary>
+    ///  A callback that is called when the metadata was not successfully set.
+    /// </summary>
+    public delegate void SetMetadataErrorCallback();
+    
+    /// <summary>
+    /// A callback that is called with the FileEntry object of the new file.
+    /// </summary>
+    /// <param name="entry"></param>
+    public delegate void MoveToSuccessCallback (FileEntry entry);
+    /// <summary>
+    /// A callback that is called if an error occurs when attempting to move the file. Invoked with a FileError object.
+    /// </summary>
+    /// <param name="error"></param>
+    public delegate void MoveToErrorCallback(FileError error);
+
+    /// <summary>
+    /// A callback that is called with the FileEntry object of the new file.
+    /// </summary>
+    /// <param name="entry"></param>
+    public delegate void CopyToSuccessCallback(FileEntry entry);
+    /// <summary>
+    /// A callback that is called if an error occurs when attempting to copy the file. Invoked with a FileError object.
+    /// </summary>
+    /// <param name="error"></param>
+    public delegate void CopyToErrorCallback(FileError error);
+
+    /// <summary>
+    ///  A callback that is called after the file has been deleted.  (?)Invoked with no parameters(?)
+    /// </summary>
+    /// <param name="entry"></param>
+    public delegate void RemoveSuccessCallback(Entry entry);
+    /// <summary>
+    ///A callback that is called if an error occurs when attempting to delete the file. Invoked with a FileError object.
+    /// </summary>
+    /// <param name="error"></param>
+    public delegate void RemoveErrorCallback(FileError error);
+
+    /// <summary>
+    ///  A callback that is called with the file's parent DirectoryEntry
+    /// </summary>
+    /// <param name="parent"></param>
+    public delegate void GetParentSuccessCallback(DirectoryEntry parent);
+    /// <summary>
+    ///A callback that is called if an error occurs when attempting to retrieve the parent DirectoryEntry. Invoked with a FileError object.
+    /// </summary>
+    /// <param name="error"></param>
+    public delegate void GetParentErrorCallback(FileError error);
+
+    /// <summary>
+    /// FileWriter is an object that allows one to write a file.
+    /// </summary>
+    public class FileWriter
+    {
+        /// <summary>
+        /// One of the three states the reader can be in INIT, WRITING or DONE.
+        /// </summary>
+        public FileWriterReadyState readyState { get; set; }
+        //TODO: not sure if needed, didn't know how to conect to the "public enum readyState"
+
+        /// <summary>
+        ///  The name of the file to be written.
+        /// </summary>
+        public JsString fileName { get; set; }
+
+        /// <summary>
+        ///  The length of the file to be written.
+        /// </summary>
+        public long length { get; set; }
+
+        /// <summary>
+        /// The current position of the file pointer.
+        /// </summary>
+        public long position { get; set; }
+
+        /// <summary>
+        /// An object containing errors
+        /// </summary>
+        public FileError error { get; set; }
+
+        /// <summary>
+        /// Called when the write starts.
+        /// </summary>
+        public JsFunction onwritestart { get; set; }
+
+        /// <summary>
+        /// Called while writing the file, reports progress (progess.loaded/progress.total).-NOT SUPPORTED
+        /// </summary>
+        public JsFunction onprogress { get; set; }
+
+        /// <summary>
+        /// Called when the request has completed successfully. 
+        /// </summary>
+        public JsFunction onwrite { get; set; }
+
+        /// <summary>
+        ///  Called when the write has been aborted. For instance, by invoking the abort() method. 
+        /// </summary>
+        public JsFunction onabort { get; set; }
+
+        /// <summary>
+        /// Called when the write has failed.
+        /// </summary>
+        public JsFunction onerror { get; set; }
+
+        /// <summary>
+        /// Called when the request has completed (either in success or failure).
+        /// </summary>
+        public JsFunction onwriteend { get; set; }
+
+        /// <summary>
+        /// Aborts writing file.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function win(writer) {
+        ///    writer.onwrite = function(evt) {
+        ///        console.log("write success");
+        ///    };
+        ///    writer.write("some sample text");
+        ///    writer.abort();
+        ///};
+        ///var fail = function(evt) {
+        ///    console.log(error.code);
+        ///};
+        ///entry.createWriter(win, fail);
+        /// </code>
+        /// </example>
+        public void abort() { }
+
+        /// <summary>
+        ///  Moves the file pointer to the byte specified.
+        /// </summary>
+        /// <param name="location"></param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function win(writer) {
+        ///    // fast forwards file pointer to end of file
+        ///    writer.seek(writer.length); 
+        ///};
+        ///var fail = function(evt) {
+        ///    console.log(error.code);
+        ///};
+        ///entry.createWriter(win, fail);
+        /// </code>
+        /// </example>
+        public void seek(JsNumber location) { }
+        
+        /// <summary>
+        /// : Shortens the file to the length specified.
+        /// </summary>
+        /// <param name="length"></param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function win(writer) {
+        ///    writer.truncate(10);    
+        ///};
+        ///var fail = function(evt) {
+        ///    console.log(error.code);
+        ///};
+        ///entry.createWriter(win, fail);
+        /// </code>
+        /// </example>
+        public void truncate(JsNumber length) { }
+
+        /// <summary>
+        /// Writes data to the file with a UTF-8 encoding.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function win(writer) {
+        ///    writer.onwrite = function(evt) {
+        ///        console.log("write success");
+        ///    };
+        ///    writer.write("some sample text");
+        ///};
+        ///var fail = function(evt) {
+        ///    console.log(error.code);
+        ///};
+        ///entry.createWriter(win, fail);
+        /// </code>
+        /// </example>
+        public void write(JsString s) { }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="s"></param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function win(writer) {
+        ///    writer.onwrite = function(evt) {
+        ///        console.log("write success");
+        ///    };
+        ///    writer.seek(writer.length);
+        ///    writer.write("appended text");
+        ///};
+        ///var fail = function(evt) {
+        ///    console.log(error.code);
+        ///};
+        ///entry.createWriter(win, fail);
+        /// </code>
+        /// </example>
+        public void append(JsString s) { }
+
+    }
+
+    /// <summary>
+    /// One of the three states the reader can be in INIT, WRITING or DONE.
+    /// </summary>
+    public enum FileWriterReadyState
+    {
+        INIT,
+        WRITING, 
+        DONE,
+    }
+
+    /// <summary>
+    ///  A callback that is called with the file's parent DirectoryEntry
+    /// </summary>
+    /// <param name="writer"></param>
+    public delegate void CreateWriterSuccessCallback(FileWriter writer);
+    /// <summary>
+    ///A callback that is called if an error occurs when attempting to retrieve the parent DirectoryEntry. Invoked with a FileError object.
+    /// </summary>
+    /// <param name="error"></param>
+    public delegate void CreateWriterErrorCallback(FileError error);
+
+    /// <summary>
+    /// A callback that is called with a File object
+    /// </summary>
+    /// <param name="file"></param>
+    public delegate void FileSuccessCallback(File file);
+    /// <summary>
+    ///A callback that is called if an error occurs when creating the File object (e.g. the underlying file no longer exists). Invoked with a FileError object.
+    /// </summary>
+    /// <param name="error"></param>
+    public delegate void FileErrorCallback(FileError error);
+
+    /// <summary>
+    ///  One of the three states the reader can be in EMPTY, LOADING or DONE.
+    /// </summary>
+    public enum FileReaderreadyState
+    {
+        EMPTY,
+        LOADING,
+        DONE,
+    }
+
+    /// <summary>
+    /// FileReader is an object that allows one to read a file.
+    /// </summary>
+    public class FileReader
+    {
+        public FileReaderreadyState readyState { get; set; }
+        //TODO: not sure if needed, didn't know how to conect to the "public enum readyState"
+
+        /// <summary>
+        /// The contents of the file that has been read.
+        /// </summary>
+        public JsString result { get; set; }
+
+        /// <summary>
+        /// An object containing errors. 
+        /// </summary>
+        public FileError error { get; set; }
+
+        /// <summary>
+        /// Called when the read starts.
+        /// </summary>
+        public JsFunction onloadstart { get; set; }
+
+        /// <summary>
+        ///  Called while reading the file, reports progress (progess.loaded/progress.total).-NOT SUPPORTED
+        /// </summary>
+        public JsFunction onprogress { get; set; }
+
+        /// <summary>
+        ///  Called when the read has successfully completed.
+        /// </summary>
+        public JsFunction onload { get; set; }
+
+        /// <summary>
+        /// Called when the read has been aborted. For instance, by invoking the abort() method.
+        /// </summary>
+        public JsFunction onabort { get; set; }
+
+        /// <summary>
+        /// Called when the read has failed.
+        /// </summary>
+        public JsFunction onerror { get; set; }
+
+        /// <summary>
+        /// Called when the request has completed (either in success or failure).
+        /// </summary>
+        public JsFunction onloadend { get; set; }
+
+        /// <summary>
+        /// Aborts reading file.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function win(file) {
+        ///    var reader = new FileReader();
+        ///    reader.onloadend = function(evt) {
+        ///        console.log("read success");
+        ///        console.log(evt.target.result);
+        ///    };
+        ///    reader.readAsText(file);
+        ///    reader.abort();
+        ///};
+        ///function fail(error) {
+        ///    console.log(error.code);
+        ///}
+        ///entry.file(win, fail);
+        /// </code>
+        /// </example>
+        public void abort() { }
+
+        /// <summary>
+        /// Read file and return data as a base64 encoded data url.
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function win(file) {
+        ///    var reader = new FileReader();
+        ///    reader.onloadend = function(evt) {
+        ///        console.log("read success");
+        ///        console.log(evt.target.result);
+        ///    };
+        ///    reader.readAsDataURL(file);
+        ///};
+        ///var fail = function(evt) {
+        ///    console.log(error.code);
+        ///};
+        ///entry.file(win, fail);
+        /// </code>
+        /// </example>
+        public JsString readAsText(File file) { return null; }
+
+        /// <summary>
+        /// Reads text file
+        /// </summary>
+        /// <param name="file">the file object to read</param>
+        /// <param name="encoding">the encoding to use to encode the file's content. Default is UTF8.</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function win(file) {
+        ///    var reader = new FileReader();
+        ///    reader.onloadend = function(evt) {
+        ///        console.log("read success");
+        ///        console.log(evt.target.result);
+        ///    };
+        ///    reader.readAsText(file);
+        ///};
+        ///var fail = function(evt) {
+        ///    console.log(error.code);
+        ///};
+        ///entry.file(win, fail);
+        /// </code>
+        /// </example>
+        public void readAsText(File file, JsString encoding) { }
+
+    }
+
+    /// <summary>
+    /// FileTransfer is an object that allows you to upload files to a server or download files from a server.
+    /// The FileTransfer object provides a way to upload files to a remote server using an HTTP multi-part POST request.
+    /// Both HTTP and HTTPS protocols are supported. Optional parameters can be specified by passing a FileUploadOptions object to the upload method.
+    /// On successful upload, the success callback will be called with a FileUploadResult object.
+    /// If an error occurs, the error callback will be invoked with a FileTransferError object.
+    /// It is also possible to download a file from remote and save it on the device (only iOS and Android).
+    /// </summary>
+    public class FileTransfer
+    {
+        /// <summary>
+        ///  sends a file to a server.
+        /// </summary>
+        /// <param name="filePath">Full path of the file on the device</param>
+        /// <param name="server">URL of the server to receive the file</param>
+        /// <param name="successCallback"> A callback that is called with a Metadata object.</param>
+        /// <param name="errorCallback">- A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.</param>
+        /// <param name="options">Optional parameters such as file name and mimetype</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // !! Assumes variable fileURI contains a valid URI to a  text file on the device
+        ///var win = function(r) {
+        ///    console.log("Code = " + r.responseCode);
+        ///    console.log("Response = " + r.response);
+        ///    console.log("Sent = " + r.bytesSent);
+        ///}
+        ///var fail = function(error) {
+        ///    alert("An error has occurred: Code = " + error.code);
+        ///    console.log("upload error source " + error.source);
+        ///    console.log("upload error target " + error.target);
+        ///}
+        ///var options = new FileUploadOptions();
+        ///options.fileKey="file";
+        ///options.fileName=fileURI.substr(fileURI.lastIndexOf('/')+1);
+        ///options.mimeType="text/plain";
+        ///var params = new Object();
+        ///params.value1 = "test";
+        ///params.value2 = "param";
+        ///options.params = params;
+        ///var ft = new FileTransfer();
+        ///ft.upload(fileURI, "http://some.server.com/upload.php", win, fail, options);
+        /// </code>
+        /// </example>
+        public void upload(JsString filePath, JsString server, UploadSuccessCallback successCallback, UploadErrorCallback errorCallback, FileUploadOptions options) { }
+
+        /// <summary>
+        /// downloads a file from server.
+        /// </summary>
+        /// <param name="source">URL of the server to receive the file</param>
+        /// <param name="target"> Full path of the file on the device</param>
+        /// <param name="successCallback"> A callback that is called with a FileEntry object. </param>
+        /// <param name="errorCallback"> A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.</param>
+        public void download(JsString source, JsString target, DownloadSuccessCallback successCallback, DownloadErrorCallback errorCallback) { }
+    }
+
+    /// <summary>
+    ///  A callback that is called with a Metadata object. 
+    /// </summary>
+    /// <param name="successCallback "></param>
+    public delegate void UploadSuccessCallback (FileUploadResult successCallback  );
+    //TODO: CHECK if the parameters are correct. " On successful upload, the success callback will be called with a FileUploadResult object."(from the sammary of filetransfer) 
+    /// <summary>
+    /// A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.
+    /// </summary>
+    /// <param name="error"></param>
+    public delegate void UploadErrorCallback(FileTransferError error);
+     //TODO: CHECK if the parameters are correct. "  If an error occurs, the error callback will be invoked with a FileTransferError object"(from the sammary of filetransfer) 
+
+    /// <summary>
+    ///   A callback that is called with a FileEntry object 
+    /// </summary>
+    /// <param name="successCallback "></param>
+    public delegate void DownloadSuccessCallback (FileEntry successCallback );
+    /// <summary>
+    ///  A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.
+    /// </summary>
+    /// <param name="error"></param>
+    public delegate void DownloadErrorCallback(FileError error);
+
+    /// <summary>
+    /// A FileUploadOptions object can be passed to the FileTransfer objects upload method in order to specify additional parameters to the upload script.
+    /// </summary>
+    public class FileUploadOptions
+    {
+        /// <summary>
+        /// The name of the form element. If not set defaults to "file". 
+        /// </summary>
+        public JsString fileKey { get; set; }
+
+        /// <summary>
+        /// The file name you want the file to be saved as on the server. If not set defaults to "image.jpg".
+        /// </summary>
+        public JsString fileName { get; set; }
+
+        /// <summary>
+        /// The mime type of the data you are uploading. If not set defaults to "image/jpeg".
+        /// </summary>
+        public JsString mimeType { get; set; }
+
+        /// <summary>
+        ///  A set of optional key/value pairs to be passed along in the HTTP request.
+        /// </summary>
+        public object @params { get; set; }
+
+        /// <summary>
+        /// Should the data be uploaded in chunked streaming mode. If not set defaults to "true". 
+        /// </summary>
+        public bool chunkedMode { get; set; }
+
+    }
+
+    /// <summary>
+    /// A FileUploadResult object is returned via the success callback of the FileTransfer upload method.
+    /// </summary>
+    public class FileUploadResult
+    {
+        /// <summary>
+        ///  The number of bytes sent to the server as part of the upload.
+        /// </summary>
+        public long bytesSent { get; set; }
+
+        /// <summary>
+        /// The HTTP response code returned by the server.
+        /// </summary>
+        public long responseCode { get; set; }
+
+        /// <summary>
+        /// The HTTP response returned by the server. 
+        /// </summary>
+        public JsString response { get; set; }
+    }
+
+    /// <summary>
+    /// A FileTransferError object is returned via the error callback when an error occurs.
+    /// </summary>
+    public class FileTransferError
+    {
+        /// <summary>
+        /// One of the predefined error codes listed below.
+        /// </summary>
+        public JsNumber code { get; set; }
+
+        /// <summary>
+        ///  URI to the source 
+        /// </summary>
+        public JsString source { get; set; }
+        
+        /// <summary>
+        ///  URI to the target  
+        /// </summary>
+        public JsString target { get; set; }
+
+        /// <summary>
+        ///  HTTP status code. This attribute is only available when a response code is received from the HTTP connection. 
+        /// </summary>
+        public JsNumber http_status  { get; set; }
+
+        public const FileTransferError FILE_NOT_FOUND_ERR= null;
+
+        public const FileTransferError INVALID_URL_ERR= null;
+
+        public const FileTransferError CONNECTION_ERR= null;
+
+
+
+    }
+
+    /// <summary>
+    /// This object provides a way to obtain root file systems.
+    /// </summary>
+    public class LocalFileSystem
+    {
+        /// <summary>
+        /// Requests a filesystem.
+        /// </summary>
+        /// <param name="fileSystem"></param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function onSuccess(fileSystem) {
+        ///    console.log(fileSystem.name);
+        ///}
+        /// // request the persistent file system
+        ///window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onSuccess, onError);
+        /// </code>
+        /// </example>
+        public void requestFileSystem(JsFunction fileSystem) { }
+        //TODO: 90% wrong. danel must check
+
+        /// <summary>
+        ///  Retrieve a DirectoryEntry or FileEntry using local URI.
+        /// </summary>
+        /// <param name="entry"></param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function onSuccess(fileEntry) {
+        ///    console.log(fileEntry.name);
+        ///}
+        ///window.resolveLocalFileSystemURI("file:///example.txt", onSuccess, onError);
+        /// </code>
+        /// </example>
+        public void resolveLocalFileSystemURI(Entry entry) { }
+        //TODO: 90% wrong. danel must check
+
+        /// <summary>
+        /// Used for storage that should not be removed by the user agent without application or user permission.
+        /// </summary>
+        public const LocalFileSystem PERSISTENT = null;
+
+        /// <summary>
+        ///  Used for storage with no guarantee of persistence.
+        /// </summary>
+        public const LocalFileSystem TEMPORARY = null;
+    }
+
+ 
+
+
+
 }
