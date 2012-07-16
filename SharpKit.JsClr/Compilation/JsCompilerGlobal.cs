@@ -104,7 +104,11 @@ namespace SharpKit.JavaScript.Compilation
         {
             if (jsTypeOrName == null)
                 throw new JsError("Unknown type.").As<Exception>();
-            if (JsContext.@typeof(jsTypeOrName) == "string")
+            if (JsTypeOf(jsTypeOrName) == JavaScript.JsTypes.function)
+            {
+                jsTypeOrName = JsTypeHelper.GetType(jsTypeOrName);
+            }
+            if (JsTypeOf(jsTypeOrName) ==  JavaScript.JsTypes.@string)
                 return JsImplType.GetType(jsTypeOrName.As<string>(), true);
             return JsImplType._TypeOf(jsTypeOrName.As<JsType>());
         }

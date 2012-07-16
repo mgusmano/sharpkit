@@ -94,19 +94,19 @@ namespace SharpKit.JavaScript.Compilation
 
         }
         [JsMethod(Export = false, NativeOverloads = true)]
-        public static JsType GetType(string typeOrName)
+        public static JsType GetType(object typeOrNameOrCtor)
         {
             throw new NotImplementedException();
         }
-        public static JsType GetType(string typeOrName, bool throwIfNotFound)
+        public static JsType GetType(object typeOrNameOrCtor, bool throwIfNotFound)
         {
-            if (JsContext.@typeof(typeOrName) != "string")
+            if (JsContext.@typeof(typeOrNameOrCtor) != "string")
             {
-                if (JsContext.@typeof(typeOrName) == "function")
-                    return typeOrName.As<JsCompilerFunction>()._type;
-                return typeOrName.As<JsType>();
+                if (JsContext.@typeof(typeOrNameOrCtor) == "function")
+                    return typeOrNameOrCtor.As<JsCompilerFunction>()._type;
+                return typeOrNameOrCtor.As<JsType>();
             }
-            var name = typeOrName;
+            var name = typeOrNameOrCtor.As<JsString>();
             var gti = name.As<JsString>().indexOf("`");
             if (gti != -1)
             {
