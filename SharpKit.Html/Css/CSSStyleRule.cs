@@ -3,15 +3,16 @@
 namespace SharpKit.Html
 {
 
-using SharpKit.JavaScript;
+	using SharpKit.JavaScript;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class CSSStyleRule : CSSRule
-{
+	[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+	public partial class CSSStyleRule : CSSRule
+	{
 
-	// CSSStyleRule
-	public JsString selectorText {get; set; }
-	public CSSStyleDeclaration style {get; private set; }
-}
+		// CSSStyleRule
+		public JsString selectorText { get; set; }
+		public CSSStyleDeclaration style { get; private set; }
+
+	}
 
 }

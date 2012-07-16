@@ -3,17 +3,17 @@
 namespace SharpKit.Html
 {
 
-using SharpKit.JavaScript;
+	using SharpKit.JavaScript;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class CSSStyleSheet : StyleSheet
-{
+	[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+	public partial class CSSStyleSheet : StyleSheet
+	{
 
-	// CSSStyleSheet
-	public CSSRule ownerRule {get; private set; }
-	public CSSRule cssRules {get; private set; }
-	public int insertRule(string rule, int index) { return default(int); }
-	public void deleteRule(int index) {}
-}
+		// CSSStyleSheet
+		public CSSRule ownerRule { get; private set; }
+		public CSSRuleList cssRules { get; private set; }
+		public int insertRule(string rule, int index) { return default(int); }
+		public void deleteRule(int index) { }
+	}
 
 }
