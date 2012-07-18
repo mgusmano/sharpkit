@@ -2574,8 +2574,1032 @@ namespace SharpKit.PhoneGap
         public const LocalFileSystem TEMPORARY = null;
     }
 
- 
+    /// <summary>
+    /// The geolocation object provides access to the device's GPS sensor.
+    /// </summary>
+    public class Geolocation
+    {
+        /// <summary>
+        /// geolocation.getCurrentPositon is an asynchronous function. It returns the device's current position to the
+        /// geolocationSuccess callback with a Position object as the parameter.
+        /// If there is an error, the geolocationError callback is invoked with a PositionError object.
+        /// </summary>
+        /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
+        /// <param name="geolocationError">The callback that is called if there was an error.</param>
+        /// <param name="geolocationOptions"> The geolocation options.</param>
+        /// <returns>Contains Position coordinates and timestamp, created by the geolocation API.</returns>
+        public Position getCurrentPosition (GeolocationSuccess geolocationSuccess, GeolocationError geolocationError, GeolocationOptions geolocationOptions) {return null;}
+
+                /// <summary>
+        /// geolocation.getCurrentPositon is an asynchronous function. It returns the device's current position to the
+        /// geolocationSuccess callback with a Position object as the parameter.
+        /// If there is an error, the geolocationError callback is invoked with a PositionError object.
+        /// </summary>
+        /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
+        /// <param name="geolocationError">The callback that is called if there was an error.</param>
+        /// <returns>Contains Position coordinates and timestamp, created by the geolocation API.</returns>
+        public Position getCurrentPosition (GeolocationSuccess geolocationSuccess, GeolocationError geolocationError) {return null;}
+
+                /// <summary>
+        /// geolocation.getCurrentPositon is an asynchronous function. It returns the device's current position to the
+        /// geolocationSuccess callback with a Position object as the parameter.
+        /// If there is an error, the geolocationError callback is invoked with a PositionError object.
+        /// </summary>
+        /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
+        /// <param name="geolocationOptions"> The geolocation options.</param>
+        /// <returns>Contains Position coordinates and timestamp, created by the geolocation API.</returns>
+        public Position getCurrentPosition (GeolocationSuccess geolocationSuccess, GeolocationOptions geolocationOptions) {return null;}
+
+                /// <summary>
+        /// geolocation.getCurrentPositon is an asynchronous function. It returns the device's current position to the
+        /// geolocationSuccess callback with a Position object as the parameter.
+        /// If there is an error, the geolocationError callback is invoked with a PositionError object.
+        /// </summary>
+        /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
+        /// <returns>Contains Position coordinates and timestamp, created by the geolocation API.</returns>
+        public Position getCurrentPosition (GeolocationSuccess geolocationSuccess) {return null;}
+
+
+        /// <summary>
+        /// Watches for changes to the device's current position.
+        /// </summary>
+        /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
+        /// <param name="geolocationError">The callback that is called if there was an error.</param>
+        /// <param name="geolocationOptions"> The geolocation options.</param>
+        /// <returns>returns a watch id that references the watch position interval. The watch id should be used with geolocation.clearWatch to stop watching for changes in position.</returns>
+        public JsString watchPosition (GeolocationSuccess geolocationSuccess, GeolocationError geolocationError, GeolocationOptions geolocationOptions) {return null;}
+
+        /// <summary>
+        /// Watches for changes to the device's current position.
+        /// </summary>
+        /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
+        /// <param name="geolocationError">The callback that is called if there was an error.</param>
+        /// <returns>returns a watch id that references the watch position interval. The watch id should be used with geolocation.clearWatch to stop watching for changes in position.</returns>
+        public JsString watchPosition (GeolocationSuccess geolocationSuccess, GeolocationError geolocationError) {return null;}
+
+        /// <summary>
+        /// Watches for changes to the device's current position.
+        /// </summary>
+        /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
+        /// <param name="geolocationOptions"> The geolocation options.</param>
+        /// <returns>returns a watch id that references the watch position interval. The watch id should be used with geolocation.clearWatch to stop watching for changes in position.</returns>
+        public JsString watchPosition (GeolocationSuccess geolocationSuccess, GeolocationOptions geolocationOptions) {return null;}
+
+        /// <summary>
+        /// Watches for changes to the device's current position.
+        /// </summary>
+        /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
+        /// <returns>returns a watch id that references the watch position interval. The watch id should be used with geolocation.clearWatch to stop watching for changes in position.</returns>
+        public JsString watchPosition (GeolocationSuccess geolocationSuccess) {return null;}
+
+        /// <summary>
+        /// Stop watching for changes to the device's location referenced by the watchID parameter.
+        /// </summary>
+        /// <param name="watchID">The id of the watchPosition interval to clear. </param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Options: watch for changes in position, and use the most
+        /// // accurate position acquisition method available.
+        /// //
+        ///var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
+        /// // ...later on...
+        ///navigator.geolocation.clearWatch(watchID);
+        /// </code>
+        /// </example>
+        public void clearWatch (JsString watchID) {}
+
+    }
+
+    public class Position
+    {
+        /// <summary>
+        /// A set of geographic coordinates.
+        /// </summary>
+        public Coordinates coords { get;private set; }
+
+        /// <summary>
+        ///  Creation timestamp for coords. 
+        /// </summary>
+        public JsDate timestamp { get;private set; }
+
+    }
+
+    /// <summary>
+    /// A set of properties that describe the geographic coordinates of a position.
+    /// </summary>
+    public class Coordinates
+    {
+        /// <summary>
+        ///  Latitude in decimal degrees. 
+        /// </summary>
+        public JsNumber latitude { get;private set; }
+
+        /// <summary>
+        ///  Longitude in decimal degrees.
+        /// </summary>
+        public JsNumber longitude { get;private set; }
+
+        /// <summary>
+        ///  Height of the position in meters above the ellipsoid.
+        /// </summary>
+        public JsNumber altitude { get;private set; }
+
+        /// <summary>
+        /// Accuracy level of the latitude and longitude coordinates in meters.
+        /// </summary>
+        public JsNumber accuracy { get;private set; }
+
+        /// <summary>
+        ///  Accuracy level of the altitude coordinate in meters.
+        /// </summary>
+        public JsNumber altitudeAccuracy { get;private set; }
+
+        /// <summary>
+        /// Direction of travel, specified in degrees counting clockwise relative to the true north.
+        /// </summary>
+        public JsNumber heading { get;private set; }
+
+        /// <summary>
+        /// Current ground speed of the device, specified in meters per second.
+        /// </summary>
+        public JsNumber speed { get;private set; }
+    }
+
+    /// <summary>
+    /// A PositionError object is returned to the geolocationError callback when an error occurs.
+    /// </summary>
+    public class PositionError
+    {
+        /// <summary>
+        /// One of the predefined error codes listed below.
+        /// </summary>
+        public JsNumber code { get;private set; }
+
+        /// <summary>
+        /// Error message describing the details of the error encountered.
+        /// </summary>
+        public JsString message { get;private set; }
+        //TODO: Check type
+
+        /// <summary>
+        /// Returned when the user does not allow your application to retrieve position information. This is dependent on the platform.
+        /// </summary>
+        public static PositionError PERMISSION_DENIED { get;private set; }
+
+        /// <summary>
+        /// Returned when the device was unable to retrieve a position. In general this means the device has no network connectivity and/or cannot get a satellite fix.
+        /// </summary>
+        public static PositionError POSITION_UNAVAILABLE { get;private set; }
+
+        /// <summary>
+        /// Returned when the device was unable to retrieve a position within the time specified in the geolocationOptions' timeout property.
+        /// When using in conjunction with geolocation.
+        /// watchPosition, this error could be called into the geolocationError callback every timeout milliseconds.
+        /// </summary>
+        public static PositionError TIMEOUT { get;private set; }
+
+    }
+
+    /// <summary>
+    /// The user's callback function that is called when a geolocation position becomes available
+    /// (when using with geolocation.getCurrentPosition), or when the position changes (when using with geolocation.watchPosition).
+    /// </summary>
+    /// <param name="position">The geolocation position returned by the device.</param>
+    public delegate void GeolocationSuccess (Position position);
+
+    /// <summary>
+    /// The user's callback function that is called when there is an error for geolocation functions.
+    /// </summary>
+    /// <param name="error">The error returned by the device.</param>
+    public delegate void GeolocationError (PositionError error);
+
+    /// <summary>
+    /// Optional parameters to customize the retrieval of the geolocation Position.
+    /// </summary>
+    /// <example>
+    /// usge
+    /// <code>
+    /// { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
+    /// </code>
+    /// </example>
+    public class GeolocationOptions
+    {
+        /// <summary>
+        /// Provides a hint that the application would like to receive the best possible results. By default, the device will attempt to retrieve a Position using network-based methods.
+        /// Setting this property to true tells the framework to use more accurate methods, such as satellite positioning.
+        /// </summary>
+        public bool enableHighAccuracy { get; set; }
+
+        /// <summary>
+        /// The maximum length of time (milliseconds) that is allowed to pass from the call to geolocation.getCurrentPosition or geolocation.watchPosition
+        /// until the corresponding geolocationSuccess callback is invoked. If the geolocationSuccess callback is not invoked within this time,
+        /// the geolocationError callback will be invoked with a PositionError.TIMEOUT error code. NOTE: when used in conjunction with geolocation.watchPosition,
+        /// the geolocationError callback could be called on an interval every timeout milliseconds!
+        /// </summary>
+        public JsNumber timeout { get; set; }
+
+        /// <summary>
+        ///  Accept a cached position whose age is no greater than the specified time in milliseconds.
+        /// </summary>
+        public JsNumber maximumAge { get; set; }
+    }
+
+    /// <summary>
+    /// The Media object provides the ability to record and play back audio files on a device.
+    /// </summary>
+    public class Media
+    {
+        /// <summary>
+        /// The Media object provides the ability to record and play back audio files on a device.
+        /// </summary>
+        /// <param name="src">A URI containing the audio content.</param>
+        public Media (JsString src)
+        {
+        }
+
+        /// <summary>
+        /// The Media object provides the ability to record and play back audio files on a device.
+        /// </summary>
+        /// <param name="src">A URI containing the audio content</param>
+        /// <param name="mediaSuccess"> (Optional) The callback that is invoked after a Media object has completed the current play/record or stop action.</param>
+        public Media(JsString src, JsAction mediaSuccess)
+        {
+        }
+
+        /// <summary>
+        /// The Media object provides the ability to record and play back audio files on a device.
+        /// </summary>
+        /// <param name="src">A URI containing the audio content</param>
+        /// <param name="mediaSuccess"> (Optional) The callback that is invoked after a Media object has completed the current play/record or stop action.</param>
+        /// <param name="mediaError"> (Optional) The callback that is invoked if there was an error.</param>
+        public Media(JsString src, JsAction mediaSuccess, MediaError mediaError)
+        {
+        }
+
+        /// <summary>
+        /// The Media object provides the ability to record and play back audio files on a device.
+        /// </summary>
+        /// <param name="src">A URI containing the audio content</param>
+        /// <param name="mediaSuccess"> (Optional) The callback that is invoked after a Media object has completed the current play/record or stop action.</param>
+        /// <param name="mediaError"> (Optional) The callback that is invoked if there was an error.</param>
+        /// <param name="mediaStatus">(Optional) The callback that is invoked to indicate status changes</param>
+        public Media(JsString src, JsAction mediaSuccess, MediaError mediaError, JsAction mediaStatus)
+        {
+        }
+
+        /// <summary>
+        /// Returns the current position within an audio file.
+        /// </summary>
+        /// <param name="mediaSuccess">The callback that is called with the current position in seconds.</param>
+        /// <param name="mediaError">The callback that is called if there was an error.</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Audio player
+        /// //
+        ///var my_media = new Media(src, onSuccess, onError);
+        /// // Update media position every second
+        ///var mediaTimer = setInterval(function() {
+        ///    // get media position
+        ///    my_media.getCurrentPosition(
+        ///        // success callback
+        ///        function(position) {
+        ///            if (position > -1) {
+        ///                console.log((position) + " sec");
+        ///            }
+        ///        },
+        ///        // error callback
+        ///        function(e) {
+        ///            console.log("Error getting pos=" + e);
+        ///        }
+        ///    );
+        ///}, 1000);
+        /// </code>
+        /// </example>
+        public void getCurrentPosition(JsFunction mediaSuccess, MediaError mediaError) { }
+
+        /// <summary>
+        /// Returns the current position within an audio file.
+        /// </summary>
+        /// <param name="mediaSuccess">The callback that is called with the current position in seconds.</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Audio player
+        /// //
+        ///var my_media = new Media(src, onSuccess, onError);
+        /// // Update media position every second
+        ///var mediaTimer = setInterval(function() {
+        ///    // get media position
+        ///    my_media.getCurrentPosition(
+        ///        // success callback
+        ///        function(position) {
+        ///            if (position > -1) {
+        ///                console.log((position) + " sec");
+        ///            }
+        ///        },
+        ///        // error callback
+        ///        function(e) {
+        ///            console.log("Error getting pos=" + e);
+        ///        }
+        ///    );
+        ///}, 1000);
+        /// </code>
+        /// </example>
+        public void getCurrentPosition(JsFunction mediaSuccess) { }
+
+        /// <summary>
+        /// Returns the duration of an audio file.
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getDuration() { return null; }
+
+        /// <summary>
+        /// Starts or resumes playing an audio file.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Play audio
+        /// //
+        ///function playAudio(url) {
+        ///    // Play the audio file at url
+        ///    var my_media = new Media(url,
+        ///        // success callback
+        ///        function() {
+        ///            console.log("playAudio():Audio Success");
+        ///        },
+        ///        // error callback
+        ///        function(err) {
+        ///            console.log("playAudio():Audio Error: "+err);
+        ///    });
+        ///    // Play audio
+        ///    my_media.play();
+        ///}
+        /// </code>
+        /// </example>
+        public void play() { }
+
+        /// <summary>
+        /// Pauses playing an audio file.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Play audio
+        /// //
+        ///function playAudio(url) {
+        ///    // Play the audio file at url
+        ///    var my_media = new Media(url,
+        ///        // success callback
+        ///        function() {
+        ///            console.log("playAudio():Audio Success");
+        ///        },
+        ///        // error callback
+        ///        function(err) {
+        ///            console.log("playAudio():Audio Error: "+err);
+        ///    });
+        ///    // Play audio
+        ///    my_media.play();
+        ///    // Pause after 10 seconds
+        ///    setTimeout(function() {
+        ///        media.pause();
+        ///    }, 10000);        
+        ///}
+        /// </code>
+        /// </example>
+        public void pause() { }
+
+        /// <summary>
+        /// Releases the underlying operating systems audio resources.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Audio player
+        /// //
+        ///var my_media = new Media(src, onSuccess, onError);
+        ///my_media.play();
+        ///my_media.stop();
+        ///my_media.release();
+        /// </code>
+        /// </example>
+        public void release() { }
+
+        /// <summary>
+        /// Sets the current position within an audio file.
+        /// </summary>
+        /// <param name="milliseconds">The position to set the playback position within the audio in milliseconds. .</param>
+        /// <example>
+        /// usage
+        /// <code>
+        ///     // Audio player
+        /// //
+        ///var my_media = new Media(src, onSuccess, onError);
+        ///my_media.play();
+        /// // SeekTo to 10 seconds after 5 seconds
+        ///setTimeout(function() {
+        ///    my_media.seekTo(10000);
+        ///}, 5000);
+        /// </code>
+        /// </example>
+        public void seekTo(JsNumber milliseconds) { }
+
+        /// <summary>
+        /// Starts recording an audio file.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Record audio
+        ///        // 
+        ///        function recordAudio() {
+        ///    var src = "myrecording.mp3";
+        ///    var mediaRec = new Media(src,
+        ///        // success callback
+        ///        function() {
+        ///            console.log("recordAudio():Audio Success");
+        ///        },
+        ///        // error callback
+        ///        function(err) {
+        ///            console.log("recordAudio():Audio Error: "+ err.code);
+        ///        });
+        ///    // Record audio
+        ///    mediaRec.startRecord();
+        ///}
+        /// </code>
+        /// </example>
+        public void startRecord() { }
+
+        /// <summary>
+        /// Stops recording an audio file.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Record audio
+        ///        // 
+        ///        function recordAudio() {
+        ///    var src = "myrecording.mp3";
+        ///    var mediaRec = new Media(src,
+        ///        // success callback
+        ///        function() {
+        ///            console.log("recordAudio():Audio Success");
+        ///        },
+        ///        // error callback
+        ///        function(err) {
+        ///            console.log("recordAudio():Audio Error: "+ err.code);
+        ///        });
+        ///    // Record audio
+        ///    mediaRec.startRecord();
+        ///    // Stop recording after 10 seconds
+        ///    setTimeout(function() {
+        ///        mediaRec.stopRecord();
+        ///    }, 10000);
+        ///}
+        /// </code>
+        /// </example>
+        public void stopRecord() { }
+
+        /// <summary>
+        /// Stops playing an audio file.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Play audio
+        /// //
+        ///function playAudio(url) {
+        ///    // Play the audio file at url
+        ///    var my_media = new Media(url,
+        ///        // success callback
+        ///        function() {
+        ///            console.log("playAudio():Audio Success");
+        ///        },
+        ///        // error callback
+        ///        function(err) {
+        ///            console.log("playAudio():Audio Error: "+err);
+        ///    });
+        ///    // Play audio
+        ///    my_media.play();
+        ///    // Pause after 10 seconds
+        ///    setTimeout(function() {
+        ///        my_media.stop();
+        ///    }, 10000);        
+        ///}
+        /// </code>
+        /// </example>
+        public void stop() { }
+
+        /// <summary>
+        /// The position within the audio playback in seconds. Not automatically updated during play, call getCurrentPosition to update.
+        /// </summary>
+        public Position position { get;private set; }
+        /// <summary>
+        ///  The duration of the media in seconds.
+        /// </summary>
+        public JsNumber duration { get; private set; }
+
+    }
+
+    public class MediaError
+    {
+        /// <summary>
+        /// One of the predefined error codes listed below.
+        /// </summary>
+        public JsNumber code { get; set; }
+        
+        /// <summary>
+        ///  Error message describing the details of the error.
+        /// </summary>
+        public object message { get; set; }
+        //TODO: chack TYPE
+
+        public const MediaError MEDIA_ERR_ABORTED=null;
+
+        public const MediaError MEDIA_ERR_NETWORK=null;
+
+        public const MediaError MEDIA_ERR_DECODE=null;
+
+        public const MediaError MEDIA_ERR_NONE_SUPPORTED=null;
+
+    }
+
+    public class Notification
+    {
+        /// <summary>
+        /// Most Cordova implementations use a native dialog box for this feature.
+        /// However, some platforms simply use the browser's alert function, which is typically less customizable.
+        /// </summary>
+        /// <param name="message">Dialog message</param>
+        /// <param name="alertCallback">Callback to invoke when alert dialog is dismissed. </param>
+        /// <param name="title">Dialog title (Optional, Default: "Alert")</param>
+        /// <param name="buttonName">Button name (Optional, Default: "OK")</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Android / BlackBerry WebWorks (OS 5.0 and higher) / iPhone
+        /// //
+        ///function alertDismissed() {
+        ///    // do something
+        ///}
+        ///navigator.notification.alert(
+        ///    'You are the winner!',  // message
+        ///    alertDismissed,         // callback
+        ///    'Game Over',            // title
+        ///    'Done'                  // buttonName
+        ///);
+        /// </code>
+        /// </example>
+        public void alert(JsString message, JsAction alertCallback, JsString title, JsString buttonName) { }
+
+        /// <summary>
+        /// Most Cordova implementations use a native dialog box for this feature.
+        /// However, some platforms simply use the browser's alert function, which is typically less customizable.
+        /// </summary>
+        /// <param name="message">Dialog message</param>
+        /// <param name="alertCallback">Callback to invoke when alert dialog is dismissed. </param>
+        /// <param name="title">Dialog title (Optional, Default: "Alert")</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Android / BlackBerry WebWorks (OS 5.0 and higher) / iPhone
+        /// //
+        ///function alertDismissed() {
+        ///    // do something
+        ///}
+        ///navigator.notification.alert(
+        ///    'You are the winner!',  // message
+        ///    alertDismissed,         // callback
+        ///    'Game Over',            // title
+        ///    'Done'                  // buttonName
+        ///);
+        /// </code>
+        /// </example>
+        public void alert(JsString message, JsAction alertCallback, JsString title) { }
+
+        /////// <summary>
+        /////// Most Cordova implementations use a native dialog box for this feature.
+        /////// However, some platforms simply use the browser's alert function, which is typically less customizable.
+        /////// </summary>
+        /////// <param name="message">Dialog message</param>
+        /////// <param name="alertCallback">Callback to invoke when alert dialog is dismissed. </param>
+        /////// <param name="buttonName">Button name (Optional, Default: "OK")</param>
+        /////// <example>
+        /////// usage
+        /////// <code>
+        /////// // Android / BlackBerry WebWorks (OS 5.0 and higher) / iPhone
+        /////// //
+        ///////function alertDismissed() {
+        ///////    // do something
+        ///////}
+        ///////navigator.notification.alert(
+        ///////    'You are the winner!',  // message
+        ///////    alertDismissed,         // callback
+        ///////    'Game Over',            // title
+        ///////    'Done'                  // buttonName
+        ///////);
+        /////// </code>
+        /////// </example>
+        ////public void alert(JsString message, JsAction alertCallback, JsString buttonName) { }
+
+
+        /// <summary>
+        /// Shows a customizable confirmation dialog box.
+        /// </summary>
+        /// <param name="message">Dialog message</param>
+        /// <param name="confirmCallback">Callback to invoke with index of button pressed (1, 2 or 3).</param>
+        /// <param name="title">Dialog title (Optional, Default: "Confirm")</param>
+        /// <param name="buttonLabels"> Comma separated string with button labels (Optional, Default: "OK,Cancel")</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // process the confirmation dialog result
+        ///function onConfirm(buttonIndex) {
+        ///    alert('You selected button ' + buttonIndex);
+        ///}
+        /// // Show a custom confirmation dialog
+        /// //
+        ///function showConfirm() {
+        ///    navigator.notification.confirm(
+        ///        'You are the winner!',  // message
+        ///        onConfirm,              // callback to invoke with index of button pressed
+        ///        'Game Over',            // title
+        ///        'Restart,Exit'          // buttonLabels
+        ///    );
+        ///}
+        /// </code>
+        /// </example>
+        public void confirm(JsString message, ConfirmCallback confirmCallback, JsString title, JsString buttonLabels) { }
+
+        /// <summary>
+        /// Shows a customizable confirmation dialog box.
+        /// </summary>
+        /// <param name="message">Dialog message</param>
+        /// <param name="confirmCallback">Callback to invoke with index of button pressed (1, 2 or 3).</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // process the confirmation dialog result
+        ///function onConfirm(buttonIndex) {
+        ///    alert('You selected button ' + buttonIndex);
+        ///}
+        /// // Show a custom confirmation dialog
+        /// //
+        ///function showConfirm() {
+        ///    navigator.notification.confirm(
+        ///        'You are the winner!',  // message
+        ///        onConfirm,              // callback to invoke with index of button pressed
+        ///        'Game Over',            // title
+        ///        'Restart,Exit'          // buttonLabels
+        ///    );
+        ///}
+        /// </code>
+        /// </example>
+        public void confirm(JsString message, ConfirmCallback confirmCallback) { }
+
+        /// <summary>
+        /// Shows a customizable confirmation dialog box.
+        /// </summary>
+        /// <param name="message">Dialog message</param>
+        /// <param name="confirmCallback">Callback to invoke with index of button pressed (1, 2 or 3).</param>
+        /// <param name="title">Dialog title (Optional, Default: "Confirm")</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // process the confirmation dialog result
+        ///function onConfirm(buttonIndex) {
+        ///    alert('You selected button ' + buttonIndex);
+        ///}
+        /// // Show a custom confirmation dialog
+        /// //
+        ///function showConfirm() {
+        ///    navigator.notification.confirm(
+        ///        'You are the winner!',  // message
+        ///        onConfirm,              // callback to invoke with index of button pressed
+        ///        'Game Over',            // title
+        ///        'Restart,Exit'          // buttonLabels
+        ///    );
+        ///}
+        /// </code>
+        /// </example>
+        public void confirm(JsString message, ConfirmCallback confirmCallback, JsString title) { }
+
+        /////// <summary>
+        /////// Shows a customizable confirmation dialog box.
+        /////// </summary>
+        /////// <param name="message">Dialog message</param>
+        /////// <param name="confirmCallback">Callback to invoke with index of button pressed (1, 2 or 3).</param>
+        /////// <param name="buttonLabels"> Comma separated string with button labels (Optional, Default: "OK,Cancel")</param>
+        /////// <example>
+        /////// usage
+        /////// <code>
+        /////// // process the confirmation dialog result
+        ///////function onConfirm(buttonIndex) {
+        ///////    alert('You selected button ' + buttonIndex);
+        ///////}
+        /////// // Show a custom confirmation dialog
+        /////// //
+        ///////function showConfirm() {
+        ///////    navigator.notification.confirm(
+        ///////        'You are the winner!',  // message
+        ///////        onConfirm,              // callback to invoke with index of button pressed
+        ///////        'Game Over',            // title
+        ///////        'Restart,Exit'          // buttonLabels
+        ///////    );
+        ///////}
+        /////// </code>
+        /////// </example>
+        ////public void confirm(JsString message, ConfirmCallback confirmCallback, JsString buttonLabels) { }
+
+        /// <summary>
+        /// The device will play a beep sound.
+        /// </summary>
+        /// <param name="times">The number of times to repeat the beep </param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Beep twice!
+        ///navigator.notification.beep(2);
+        /// </code>
+        /// </example>
+        public void beep(JsNumber times) { }
+
+        /// <summary>
+        /// Vibrates the device for the specified amount of time.
+        /// </summary>
+        /// <param name="times"> Milliseconds to vibrate the device. 1000 milliseconds equals 1 second</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Vibrate for 2.5 seconds
+        /// //
+        ///navigator.notification.vibrate(2500);
+        /// </code>
+        /// </example>
+        public void vibrate(JsNumber times) { }
+    }
+
+    /// <summary>
+    ///  Callback to invoke with index of button pressed (1, 2 or 3)
+    /// </summary>
+    /// <param name="index">(1, 2 or 3)</param>
+    public delegate void ConfirmCallback(JsNumber index);
+
+    /// <summary>
+    /// Contains methods that allow the user to manipulate the Database
+    /// </summary>
+    public class Database
+    {
+        /// <summary>
+        /// Runs a database transaction.
+        /// </summary>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function populateDB(tx) {
+        ///     tx.executeSql('DROP TABLE IF EXISTS DEMO');
+        ///     tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+        ///     tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
+        ///     tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+        ///}
+        ///function errorCB(err) {
+        ///    alert("Error processing SQL: "+err.code);
+        ///}
+        ///function successCB() {
+        ///    alert("success!");
+        ///}
+        ///var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+        ///db.transaction(populateDB, errorCB, successCB);
+        /// </code>
+        /// </example>
+        public JsAction transaction() { return null; }
+        //TODO: Check return type
+
+        /// <summary>
+        /// method allows scripts to atomically verify the version number and change it at the same time as doing a schema update.
+        /// </summary>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+        ///db.changeVersion("1.0", "1.1");
+        /// </code>
+        /// </example>
+        public JsNumber changeVersion() { return null; }
+        //TODO: Check return type
+    }
+
+    /// <summary>
+    /// Contains methods that allow the user to execute SQL statements against the Database.
+    /// </summary>
+    public class SQLTransaction
+    {
+        /// <summary>
+        /// executes a SQL statement
+        /// </summary>
+        /// <returns></returns>
+        public SQLResultSet executeSql() { return null; }
+        //TODO: Check return type
+    }
+
+    /// <summary>
+    /// When the executeSql method of a SQLTransaction is called it will invoke it's callback with a SQLResultSet.
+    /// </summary>
+    /// <example>
+    /// usage
+    /// <code>
+    /// function queryDB(tx) {
+    ///    tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+    ///}
+    ///function querySuccess(tx, results) {
+    ///console.log("Returned rows = " + results.rows.length);
+    /// // this will be true since it was a select statement and so rowsAffected was 0
+    ///if (!resultSet.rowsAffected) {
+    ///  console.log('No rows affected!');
+    ///  return false;
+    ///}
+    /// // for an insert statement, this property will return the ID of the last inserted row
+    ///console.log("Last inserted row ID = " + results.insertId);
+    ///}
+    ///function errorCB(err) {
+    ///    alert("Error processing SQL: "+err.code);
+    ///}
+    ///var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    ///db.transaction(queryDB, errorCB);
+    /// </code>
+    /// </example>
+    public class SQLResultSet
+    {
+        /// <summary>
+        /// the row ID of the row that the SQLResultSet object's SQL statement inserted into the database
+        /// </summary>
+        public JsNumber insertId { get; set; }
+
+        /// <summary>
+        /// the number of rows that were changed by the SQL statement. If the statement did not affect any rows then it is set to 0.
+        /// </summary>
+        public JsNumber rowsAffected { get; set; }
+
+        /// <summary>
+        ///  a SQLResultSetRowList representing the rows returned. If no rows are returned the object will be empty.
+        /// </summary>
+        public SQLResultSetList rows { get; set; }
+    }
+    //TODO: DANEL MUST CHECK
+
+    /// <summary>
+    /// One of the properties of the SQLResultSet containing the rows returned from a SQL query.
+    /// </summary>
+    /// <example>
+    /// usage
+    /// <code>
+    /// function queryDB(tx) {
+    ///    tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+    ///}
+    ///function querySuccess(tx, results) {
+    ///    var len = results.rows.length;
+    ///    console.log("DEMO table: " + len + " rows found.");
+    ///    for (var i=0; i<len; i++){
+    ///        console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
+    ///    }
+    ///}
+    ///function errorCB(err) {
+    ///    alert("Error processing SQL: "+err.code);
+    ///}
+    ///var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    ///db.transaction(queryDB, errorCB);
+    /// </code>
+    /// </example>
+    public class SQLResultSetList
+    {
+        /// <summary>
+        /// the number of rows returned by the SQL query
+        /// </summary>
+        public JsNumber length { get; set; }
+
+        /// <summary>
+        /// returns the row at the specified index represented by a JavaScript object.
+        /// </summary>
+        public object item { get; set; }
+    }
+
+    /// <summary>
+    /// A SQLError object is thrown when an error occurs.
+    /// </summary>
+    public class SQLError
+    {
+        /// <summary>
+        /// One of the predefined error codes listed below
+        /// </summary>
+        public JsNumber code { get; set; }
+
+        /// <summary>
+        ///  A description of the error.
+        /// </summary>
+        public object message { get; set; }
+
+        public const SQLError UNKNOWN_ERR = null;
+        public const SQLError DATABASE_ERR = null;
+        public const SQLError VERSION_ERR = null;
+        public const SQLError TOO_LARGE_ERR = null;
+        public const SQLError QUOTA_ERR = null;
+        public const SQLError SYNTAX_ERR = null;
+        public const SQLError CONSTRAINT_ERR = null;
+        public const SQLError TIMEOUT_ERR = null;
+
+
+    }
+
+    /// <summary>
+    /// Provides access to a W3C Storage interface (http://dev.w3.org/html5/webstorage/#the-localstorage-attribute)
+    /// </summary>
+    public class LocalStorage
+    {
+        /// <summary>
+        /// Returns the name of the key at the position specified.
+        /// </summary>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var keyName = window.localStorage.key(0);
+        /// </code>
+        /// </example>
+        public object key() { return null; }
+
+        /// <summary>
+        /// Returns the item identified by it's key.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// var value = window.localStorage.getItem("key");
+        /// // value is now equal to "value"
+        /// </code>
+        /// </example>
+        public object getItem(JsString key) { return null; }
+
+        /// <summary>
+        /// Saves and item at the key provided.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// window.localStorage.setItem("key", "value");
+        /// </code>
+        /// </example>
+        public void setItem(JsString key, JsString value) { }
+
+        /// <summary>
+        /// Removes the item identified by it's key.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// window.localStorage.removeItem("key");
+        /// </code>
+        /// </example>
+        public void removeItem(JsString key) { }
+
+        /// <summary>
+        ///  Removes all of the key value pairs.
+        /// </summary>
+        /// <example>
+        /// usage
+        /// <code>
+        /// window.localStorage.clear();
+        /// </code>
+        /// </example>
+        public void clear() { }
 
 
 
+    }
+    //TODO: DANEL MUST CHECK
+
+    /// <summary>
+    /// Provides access to the devices storage options.
+    /// </summary>
+    public class Storage
+    {
+        /// <summary>
+        /// This method will create a new SQL Lite Database and return a Database object. Use the Database Object to manipulate the data.
+        /// </summary>
+        /// <param name="database_name">The name of the database.</param>
+        /// <param name="database_version">The version of the database.</param>
+        /// <param name="database_displayname">The display name of the database.</param>
+        /// <param name="database_size">The size of the database in bytes.</param>
+        /// <returns></returns>
+        public Database openDatabase(JsString database_name, JsString database_version, JsString database_displayname, JsNumber database_size) { return null; }
+    }
 }
