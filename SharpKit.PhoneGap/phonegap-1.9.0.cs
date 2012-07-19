@@ -1,6 +1,5 @@
 ﻿using System;
 using SharpKit.JavaScript;
-using SharpKit.Html4;
 
 [assembly: JsNamespace(Namespace = "SharpKit.PhoneGap", JsNamespace = "")]
 [assembly: JsType(JsMode.Prototype, Export = false)]
