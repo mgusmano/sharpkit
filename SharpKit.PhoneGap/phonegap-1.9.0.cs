@@ -3580,49 +3580,45 @@ namespace SharpKit.PhoneGap
             add
             {
             }
-            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"deviceready", InsertArg2 = "false")]
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"deviceready\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+        public event JsAction pause
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"pause\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"pause\"", InsertArg2 = "false")]
             remove
             {
             }
         }
 
 
-        //    /// <summary>
-        //    /// This is an event that fires when Cordova is fully loaded.
-        //    /// </summary>
-        //    public event JsAction deviceready
-        //    {
-        //        [JsMethod(Name = "addEventListener", InsertArg0 = "deviceready", InsertArg2 = "false")]
-        //        add
-        //        {
-        //        }
-        //        [JsMethod(Name = "removeEventListener", InsertArg0 = "deviceready", InsertArg2 = "false")]
-        //        remove
-        //        {
-        //        }
-        //    }
-
-        //}
-
-        //[JsType(JsMode.Json)]
-        //[JsEnum(ValuesAsNames=true)]
-        //public enum EventTypes
-        //{
-        //    deviceready,
-        //    pause,
-        //    resume,
-        //    online,
-        //    offline,
-        //    backbutton,
-        //    batterycritical,
-        //    batterylow,
-        //    batterystatus,
-        //    menubutton,
-        //    searchbutton,
-        //    startcallbutton,
-        //    endcallbutton,
-        //    volumedownbutton,
-        //    volumeupbutton,
-        //}
     }
+
+    //[JsType(JsMode.Json)]
+    //[JsEnum(ValuesAsNames=true)]
+    //public enum EventTypes
+    //{
+    //    deviceready,
+    //    pause,
+    //    resume,
+    //    online,
+    //    offline,
+    //    backbutton,
+    //    batterycritical,
+    //    batterylow,
+    //    batterystatus,
+    //    menubutton,
+    //    searchbutton,
+    //    startcallbutton,
+    //    endcallbutton,
+    //    volumedownbutton,
+    //    volumeupbutton,
+    //}
 }
