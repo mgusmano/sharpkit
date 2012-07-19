@@ -43,7 +43,7 @@ namespace SharpKit.PhoneGap
         public void clearWatch(object watchID) { }
 
     }
-    // TODO: FINISH Accelerometer
+
     /// <summary>
     /// An optional parameter to customize the retrieval of the accelerometer.
     /// </summary>
