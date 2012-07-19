@@ -3586,6 +3586,9 @@ namespace SharpKit.PhoneGap
             }
         }
 
+        /// <summary>
+        /// This is an event that fires when a Cordova application is put into the background.
+        /// </summary>
         public event JsAction pause
         {
             [JsMethod(Name = "addEventListener", InsertArg0 = "\"pause\"", InsertArg2 = "false")]
@@ -3598,8 +3601,247 @@ namespace SharpKit.PhoneGap
             }
         }
 
+        /// <summary>
+        /// This is an event that fires when a Cordova application is retrieved from the background.
+        /// </summary>
+        public event JsAction resume
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"resume\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"resume\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
 
+        /// <summary>
+        /// This is an event that fires when a Cordova application is online (connected to the Internet).
+        /// </summary>
+        public event JsAction online
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"online\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"online\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+        /// <summary>
+        /// This is an event that fires when a Cordova application is offline (not connected to the Internet).
+        /// </summary>
+        public event JsAction offline
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"offline\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"offline\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+        /// <summary>
+        /// This is an event that fires when the user presses the back button.
+        /// </summary>
+        public event JsAction backbutton
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"backbutton\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"backbutton\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+        /// <summary>
+        /// This is an event that fires when a Cordova application detects the battery has reached the critical level threshold.
+        /// </summary>
+        public event JsAction<BatteryCritical> batterycritical
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"batterycritical\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"batterycritical\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+        /// <summary>
+        /// This is an event that fires when a Cordova application detects the battery has reached the low level threshold.
+        /// </summary>
+        public event JsAction<Batterylow> batterylow
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"batterylow\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"batterylow\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+        /// <summary>
+        /// This is an event that fires when a Cordova application detects the battery has reached the low level threshold.
+        /// </summary>
+        public event JsAction<Batterylow> batterystatus
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"batterystatus\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"batterystatus\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+        /// <summary>
+        /// This is an event that fires when the user presses the menu button.
+        /// </summary>
+        public event JsAction menubutton
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"menubutton\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"menubutton\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+        /// <summary>
+        /// This is an event that fires when the user presses the menu button.
+        /// </summary>
+        public event JsAction searchbutton
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"searchbutton\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"searchbutton\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+        /// <summary>
+        /// This is an event that fires when the user presses the start call button.
+        /// </summary>
+        public event JsAction startcallbutton
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"startcallbutton\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"startcallbutton\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+        /// <summary>
+        /// This is an event that fires when the user presses the end call button.
+        /// </summary>
+        public event JsAction endcallbutton
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"endcallbutton\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"endcallbutton\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+        /// <summary>
+        /// This is an event that fires when the user presses the volume down button.
+        /// </summary>
+        public event JsAction volumedownbutton
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"volumedownbutton\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"volumedownbutton\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+        /// <summary>
+        /// This is an event that fires when the user presses the volume UP button.
+        /// </summary>
+        public event JsAction volumeupbutton
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"volumeupbutton\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"volumeupbutton\"", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
     }
+
+    /// <summary>
+    /// The batterycritical handler will be called with an object that contains two properties:
+    /// </summary>
+    public class BatteryCritical
+    {
+        /// <summary>
+        /// The percentage of battery (0-100).
+        /// </summary>
+        public JsNumber level { get; set; }
+        /// <summary>
+        ///  A boolean that represents whether or not the device is plugged in or not.
+        /// </summary>
+        public bool isPlugged { get; set; }
+    }
+
+    /// <summary>
+    /// The batterylow handler will be called with an object that contains two properties:
+    /// </summary>
+    public class Batterylow
+    {
+        /// <summary>
+        /// The percentage of battery (0-100).
+        /// </summary>
+        public JsNumber level { get; set; }
+        /// <summary>
+        ///  A boolean that represents whether or not the device is plugged in or not.
+        /// </summary>
+        public bool isPlugged { get; set; }
+    }
+
+    /// <summary>
+    /// The battery status handler will be called with an object that contains two properties:
+    /// </summary>
+    public class Batterystatus
+    {
+        /// <summary>
+        /// The percentage of battery (0-100).
+        /// </summary>
+        public JsNumber level { get; set; }
+        /// <summary>
+        ///  A boolean that represents whether or not the device is plugged in or not.
+        /// </summary>
+        public bool isPlugged { get; set; }
+    }
+
 
     //[JsType(JsMode.Json)]
     //[JsEnum(ValuesAsNames=true)]
