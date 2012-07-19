@@ -2,8 +2,8 @@
 using SharpKit.JavaScript;
 using SharpKit.Html4;
 
-[assembly: JsNamespace(Namespace="SharpKit.PhoneGap", JsNamespace="")]
-[assembly: JsType(JsMode.Prototype, Export=false)]
+[assembly: JsNamespace(Namespace = "SharpKit.PhoneGap", JsNamespace = "")]
+[assembly: JsType(JsMode.Prototype, Export = false)]
 
 namespace SharpKit.PhoneGap
 {
@@ -12,15 +12,57 @@ namespace SharpKit.PhoneGap
     /// </summary>
     public class Accelerometer
     {
+        /// <summary>
+        /// Get the current acceleration along the x, y, and z axis.
+        /// </summary>
+        /// <param name="onSuccess"></param>
+        /// <param name="onError"></param>
+        /// <returns></returns>
         public object getCurrentAcceleration(JsAction<Acceleration> onSuccess, JsAction onError) { return null; }
+
+        /// <summary>
+        /// At a regular interval, get the acceleration along the x, y, and z axis.
+        /// </summary>
+        /// <param name="accelerometerSuccess">onSuccess callback function that provides the Acceleration information.</param>
+        /// <param name="accelerometerError">onError callback function for acceleration functions.</param>
+        /// <param name="accelerometerOptions">An optional parameter to customize the retrieval of the accelerometer.</param>
+        /// <returns></returns>
+        public object watchAcceleration(AccelerometerSuccess accelerometerSuccess, AccelerometerError accelerometerError, AccelerometerOptions accelerometerOptions) { return null; }
+
+        /// <summary>
+        /// At a regular interval, get the acceleration along the x, y, and z axis.
+        /// </summary>
+        /// <param name="accelerometerSuccess">onSuccess callback function that provides the Acceleration information.</param>
+        /// <param name="accelerometerError">onError callback function for acceleration functions.</param>
+        /// <returns></returns>
+        public object watchAcceleration(AccelerometerSuccess accelerometerSuccess, AccelerometerError accelerometerError) { return null; }
+
+        /// <summary>
+        /// Stop watching the Acceleration referenced by the watch ID parameter.
+        /// </summary>
+        /// <param name="watchID"> The ID returned by accelerometer.watchAcceleration.</param>
+        public void clearWatch(object watchID) { }
 
     }
     // TODO: FINISH Accelerometer
+    /// <summary>
+    /// An optional parameter to customize the retrieval of the accelerometer.
+    /// </summary>
     [JsType(JsMode.Json)]
     public class AccelerometerOptions
     {
         public JsNumber frequency { get; set; }
     }
+    /// <summary>
+    /// onSuccess callback function that provides the Acceleration information.
+    /// </summary>
+    /// <param name="acceleration">The acceleration at a single moment in time</param>
+    public delegate void AccelerometerSuccess(Acceleration acceleration);
+
+    /// <summary>
+    /// onError callback function for acceleration functions.
+    /// </summary>
+    public delegate void AccelerometerError();
 
     /// <summary>
     /// Contains Accelerometer data captured at a specific point in time.
@@ -1345,7 +1387,7 @@ namespace SharpKit.PhoneGap
         /// // Request the metadata object for this entry
         ///entry.getMetadata(success, fail);
         /// </code></example>
-        public void getMetadata(JsAction<Metadata> successCallback, JsAction errorCallback) {}
+        public void getMetadata(JsAction<Metadata> successCallback, JsAction errorCallback) { }
 
         /// <summary>
         /// Set metadata on a directory. Only works on iOS currently - this will set the extended attributes of a directory.
@@ -1782,7 +1824,7 @@ namespace SharpKit.PhoneGap
         ///entry.setMetadata(success, fail, { "com.apple.MobileBackup": 1});
         /// </code>
         /// </example>
-        public void setMetadata(SetMetadataSuccessCallback successCallback, SetMetadataErrorCallback errorCallback, object metadataObject) {  }
+        public void setMetadata(SetMetadataSuccessCallback successCallback, SetMetadataErrorCallback errorCallback, object metadataObject) { }
 
         /// <summary>
         /// Move a file to a different location on the file system. It is an error to attempt to:
@@ -1813,7 +1855,7 @@ namespace SharpKit.PhoneGap
         ///}
         /// </code>
         /// </example>
-        public void moveTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) {  }
+        public void moveTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) { }
 
         /// <summary>
         ///Copy a file to a new location on the file system. It is an error to attempt to:
@@ -1842,7 +1884,7 @@ namespace SharpKit.PhoneGap
         ///}
         /// </code>
         /// </example>
-        public void copyTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) {  }
+        public void copyTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) { }
 
         /// <summary>
         /// Returns a URL that can be used to locate the file.
@@ -3301,7 +3343,7 @@ namespace SharpKit.PhoneGap
         ///db.transaction(populateDB, errorCB, successCB);
         /// </code>
         /// </example>
-        public void transaction(JsAction<SQLTransaction> action, JsAction<SQLError> errorCallback,  JsAction successCallback) {  }
+        public void transaction(JsAction<SQLTransaction> action, JsAction<SQLError> errorCallback, JsAction successCallback) { }
 
         /// <summary>
         /// method allows scripts to atomically verify the version number and change it at the same time as doing a schema update.
@@ -3441,7 +3483,7 @@ namespace SharpKit.PhoneGap
     /// </summary>
     public class LocalStorage
     {
-        [JsProperty(Global=true, Name="window.localStorage")]
+        [JsProperty(Global = true, Name = "window.localStorage")]
         public static LocalStorage Current { get; private set; }
 
         /// <summary>
@@ -3524,5 +3566,63 @@ namespace SharpKit.PhoneGap
         /// <param name="database_size">The size of the database in bytes.</param>
         /// <returns></returns>
         public Database openDatabase(JsString database_name, JsString database_version, JsString database_displayname, JsNumber database_size) { return null; }
+    }
+
+
+    public class DocumentEx
+    {
+        /// <summary>
+        /// This is an event that fires when Cordova is fully loaded.
+        /// </summary>
+        public event JsAction deviceready
+        {
+            [JsMethod(Name = "addEventListener", InsertArg0 = "\"deviceready\"", InsertArg2 = "false")]
+            add
+            {
+            }
+            [JsMethod(Name = "removeEventListener", InsertArg0 = "\"deviceready", InsertArg2 = "false")]
+            remove
+            {
+            }
+        }
+
+
+        //    /// <summary>
+        //    /// This is an event that fires when Cordova is fully loaded.
+        //    /// </summary>
+        //    public event JsAction deviceready
+        //    {
+        //        [JsMethod(Name = "addEventListener", InsertArg0 = "deviceready", InsertArg2 = "false")]
+        //        add
+        //        {
+        //        }
+        //        [JsMethod(Name = "removeEventListener", InsertArg0 = "deviceready", InsertArg2 = "false")]
+        //        remove
+        //        {
+        //        }
+        //    }
+
+        //}
+
+        //[JsType(JsMode.Json)]
+        //[JsEnum(ValuesAsNames=true)]
+        //public enum EventTypes
+        //{
+        //    deviceready,
+        //    pause,
+        //    resume,
+        //    online,
+        //    offline,
+        //    backbutton,
+        //    batterycritical,
+        //    batterylow,
+        //    batterystatus,
+        //    menubutton,
+        //    searchbutton,
+        //    startcallbutton,
+        //    endcallbutton,
+        //    volumedownbutton,
+        //    volumeupbutton,
+        //}
     }
 }
