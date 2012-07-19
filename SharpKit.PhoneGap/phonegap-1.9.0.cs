@@ -739,10 +739,7 @@ namespace SharpKit.PhoneGap
         /// </code>
         /// </example>
         public void clearWatch(JsString watchID) { }
-        //TODO: really not sure about this one Danel must check
-
     }
-    //TODO: inside
 
     /// <summary>
     /// A CompassHeading object is returned to the compassSuccess callback function when an error occurs
@@ -981,7 +978,6 @@ namespace SharpKit.PhoneGap
         /// </summary>
         public bool pref { get; set; }
     }
-    //TODO: bool
 
     /// <summary>
     /// Contains address properties for a Contact object.
@@ -1050,7 +1046,6 @@ namespace SharpKit.PhoneGap
         public JsString country { get; set; }
 
     }
-    //TODO: bool
 
     /// <summary>
     /// Contains organization properties of a Contact object.
@@ -1170,35 +1165,12 @@ namespace SharpKit.PhoneGap
     /// The contact array resulting from a find operation. (Contact)
     /// </summary>
     /// <param name="contacts"></param>
-    public delegate void contactSuccess(JsArray<Contact> contacts);
+    public delegate void ContactSuccess(JsArray<Contact> contacts);
     /// <summary>
     /// Error callback function for contact functions.
     /// </summary>
     /// <param name="error"></param>
-    public delegate void contactError(JsArray<CompassError> error);
-
-    /// <summary>
-    /// Required parameter of the contacts.find method. Use this parameter to specify which fields should be included in the Contact objects resulting from a find operation.
-    /// </summary>
-    public class contactFields
-    {
-    }
-    //TODO: empty. needs to be done, don't know how
-
-    /// <summary>
-    /// Optional parameter of the contacts.find method. Use this parameter to filter the contacts returned from the contacts database.
-    /// </summary>
-    public class contactFindOptions
-    {
-        /// <summary>
-        /// The search string used to filter contacts. (Default: "")
-        /// </summary>
-        public JsString filter { get; set; }
-        /// <summary>
-        /// Determines if the find operation should return multiple contacts. (Default: false)
-        /// </summary>
-        public bool multiple { get; set; }
-    }
+    public delegate void ContactErrorCB(JsArray<CompassError> error);
 
     /// <summary>
     /// The contacts object provides access to the device contacts database.
@@ -1218,7 +1190,6 @@ namespace SharpKit.PhoneGap
         /// </code>
         /// </example>
         public Contact create(object properties) { return null; }
-        //TODO: not sure it is object
 
         /// <summary>
         /// Queries the device contacts database and returns one or more Contact objects, each containing the fields specified.
@@ -1228,10 +1199,8 @@ namespace SharpKit.PhoneGap
         /// <param name="contactError">Error callback function. Invoked when error occurs. [Optional]</param>
         /// <param name="contactFindOptions">Search options to filter contacts. [Optional]</param>
         /// <returns>Contains properties that describe a contact, such as a user's personal or business contact.</returns>
-        public Contact find(JsArray<JsString> contactFields, contactSuccess contactSuccess, ContactError ContactError, contactFindOptions contactFindOptions) { return null; }
-        //TODO: danel must check. i guss all the types
+        public Contact find(JsArray<JsString> contactFields, ContactSuccess contactSuccess, ContactError contactError, ContactFindOptions contactFindOptions) { return null; }
     }
-    //TODO: inside
 
     /// <summary>
     /// The device object describes the device's hardware and software.
@@ -1376,8 +1345,8 @@ namespace SharpKit.PhoneGap
         /// // Request the metadata object for this entry
         ///entry.getMetadata(success, fail);
         /// </code></example>
-        public object getMetadata(JsFunction successCallback, JsFunction errorCallback) { return null; }
-        //TODO: I guessed the return type
+        public void getMetadata(JsAction<Metadata> successCallback, JsAction errorCallback) {}
+
         /// <summary>
         /// Set metadata on a directory. Only works on iOS currently - this will set the extended attributes of a directory.
         /// </summary>
@@ -1398,8 +1367,8 @@ namespace SharpKit.PhoneGap
         ///entry.setMetadata(success, fail, { "com.apple.MobileBackup": 1});
         /// </code>
         /// </example>
-        public object setMetadata(JsFunction successCallback, JsFunction errorCallback, object metadataObject) { return null; }
-        //TODO: I guessed the return type
+        public void setMetadata(JsAction successCallback, JsAction errorCallback, Metadata metadataObject) { }
+
         /// <summary>
         /// Move a directory to a different location on the file system. It is an error to attempt to:
         ///move a directory inside itself or to any child at any depth;
@@ -1432,8 +1401,8 @@ namespace SharpKit.PhoneGap
         ///}
         /// </code>
         /// </example>
-        public object moveTo(DirectoryEntry parent, JsString newName, JsFunction successCallback, JsFunction errorCallback) { return null; }
-        //TODO: I guessed the return type
+        public void moveTo(DirectoryEntry parent, JsString newName, JsAction<FileEntry> successCallback, JsAction errorCallback) { }
+
         /// <summary>
         /// Copy a directory to a different location on the file system. It is an error to attempt to:
         /// copy a directory inside itself at any depth;
@@ -1464,10 +1433,21 @@ namespace SharpKit.PhoneGap
         ///}
         /// </code>
         /// </example>
-        public object copyTo(DirectoryEntry parent, JsString newName, JsFunction successCallback, JsFunction errorCallback) { return null; }
-        //TODO: I guessed the return type
+        public void copyTo(DirectoryEntry parent, JsString newName, JsAction<FileEntry> successCallback, JsAction errorCallback) { }
 
-        //TODO:toURL Returns a URL that can be used to locate the directory.
+        /// <summary>
+        /// Returns a URL that can be used to locate the file.
+        /// </summary>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Request the URL for this entry
+        ///var fileURL = entry.toURL();
+        ///console.log(fileURL);
+        /// </code>
+        /// </example>
+        public JsString toURL() { return null; }
 
         /// <summary>
         /// Deletes a directory. It is an error to attempt to:
@@ -1490,8 +1470,8 @@ namespace SharpKit.PhoneGap
         /// entry.remove(success, fail);
         /// </code>
         /// </example>
-        public object remove(JsFunction successCallback, JsFunction errorCallback) { return null; }
-        //TODO: I guessed the return type
+        public void remove(JsAction successCallback, FileErrorCallback errorCallback) { }
+
         /// <summary>
         /// Look up the parent DirectoryEntry containing the directory.
         /// </summary>
@@ -1511,14 +1491,13 @@ namespace SharpKit.PhoneGap
         ///entry.getParent(success, fail);
         /// </code>
         /// </example>
-        public object getParent(JsFunction successCallback, JsFunction errorCallback) { return null; }
-        //TODO: I guessed the return type
+        public void getParent(JsAction<DirectoryEntry> successCallback, FileErrorCallback errorCallback) { }
+
         /// <summary>
         /// Creates a new DirectoryReader to read entries in a directory.
         /// </summary>
         /// <returns></returns>
-        public object createReader() { return null; }
-        //TODO: I guessed the return type
+        public DirectoryReader createReader() { return null; }
         /// <summary>
         /// Creates or looks up an existing directory. It is an error to attempt to create a directory whose immediate parent does not yet exist.
         /// </summary>
@@ -1540,8 +1519,7 @@ namespace SharpKit.PhoneGap
         ///entry.getDirectory("newDir", {create: true, exclusive: false}, success, fail);
         /// </code>
         /// </example>
-        public object getDirectory(JsString path, Flags options, JsFunction successCallback, JsFunction errorCallback) { return null; }
-        //TODO: I guessed the return type
+        public void getDirectory(JsString path, Flags options, JsAction<DirectoryEntry> successCallback, JsAction errorCallback) { }
         /// <summary>
         /// Creates or looks up a file. It is an error to attempt to create a file whose immediate parent does not yet exist.
         /// </summary>
@@ -1563,8 +1541,7 @@ namespace SharpKit.PhoneGap
         ///entry.getFile("newFile.txt", {create: true, exclusive: false}, success, fail);
         /// </code>
         /// </example>
-        public object getFile(JsString path, Flags options, JsFunction successCallback, JsFunction errorCallback) { return null; }
-        //TODO: I guessed the return type
+        public void getFile(JsString path, Flags options, JsAction<FileEntry> successCallback, JsAction errorCallback) { }
         /// <summary>
         /// Deletes a directory and all of its contents. In the event of an error (e.g. trying to delete a directory that contains a file that cannot be removed), some of the contents of the directory may be deleted.
         /// It is an error to attempt to delete the root directory of a filesystem.
@@ -1585,13 +1562,13 @@ namespace SharpKit.PhoneGap
         ///entry.removeRecursively(success, fail);
         /// </code>
         /// </example>
-        public object removeRecursively(JsFunction successCallback, JsFunction errorCallback) { return null; }
-        //TODO: I guessed the return type
+        public void removeRecursively(JsAction successCallback, JsAction errorCallback) { }
     }
 
     /// <summary>
     /// This object is used to supply arguments to the DirectoryEntry getFile and getDirectory methods, which look up or create files and directories, respectively.
     /// </summary>
+    [JsType(JsMode.Json)]
     public class Flags
     {
         /// <summary>
@@ -1805,7 +1782,7 @@ namespace SharpKit.PhoneGap
         ///entry.setMetadata(success, fail, { "com.apple.MobileBackup": 1});
         /// </code>
         /// </example>
-        public File setMetadata(SetMetadataSuccessCallback successCallback, SetMetadataErrorCallback errorCallback, object metadataObject) { return null; }
+        public void setMetadata(SetMetadataSuccessCallback successCallback, SetMetadataErrorCallback errorCallback, object metadataObject) {  }
 
         /// <summary>
         /// Move a file to a different location on the file system. It is an error to attempt to:
@@ -1836,8 +1813,7 @@ namespace SharpKit.PhoneGap
         ///}
         /// </code>
         /// </example>
-        public object moveTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) { return null; }
-        //TODO: I gussed the return type
+        public void moveTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) {  }
 
         /// <summary>
         ///Copy a file to a new location on the file system. It is an error to attempt to:
@@ -1866,8 +1842,7 @@ namespace SharpKit.PhoneGap
         ///}
         /// </code>
         /// </example>
-        public object copyTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) { return null; }
-        //TODO: I gussed the return type
+        public void copyTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) {  }
 
         /// <summary>
         /// Returns a URL that can be used to locate the file.
@@ -2049,7 +2024,6 @@ namespace SharpKit.PhoneGap
         /// One of the three states the reader can be in INIT, WRITING or DONE.
         /// </summary>
         public FileWriterReadyState readyState { get; set; }
-        //TODO: not sure if needed, didn't know how to conect to the "public enum readyState"
 
         /// <summary>
         ///  The name of the file to be written.
@@ -2239,7 +2213,7 @@ namespace SharpKit.PhoneGap
     /// <summary>
     ///  One of the three states the reader can be in EMPTY, LOADING or DONE.
     /// </summary>
-    public enum FileReaderreadyState
+    public enum FileReaderReadyState
     {
         EMPTY,
         LOADING,
@@ -2251,8 +2225,7 @@ namespace SharpKit.PhoneGap
     /// </summary>
     public class FileReader
     {
-        public FileReaderreadyState readyState { get; set; }
-        //TODO: not sure if needed, didn't know how to conect to the "public enum readyState"
+        public FileReaderReadyState readyState { get; set; }
 
         /// <summary>
         /// The contents of the file that has been read.
@@ -2428,13 +2401,11 @@ namespace SharpKit.PhoneGap
     /// </summary>
     /// <param name="successCallback "></param>
     public delegate void UploadSuccessCallback(FileUploadResult successCallback);
-    //TODO: CHECK if the parameters are correct. " On successful upload, the success callback will be called with a FileUploadResult object."(from the sammary of filetransfer) 
     /// <summary>
     /// A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.
     /// </summary>
     /// <param name="error"></param>
     public delegate void UploadErrorCallback(FileTransferError error);
-    //TODO: CHECK if the parameters are correct. "  If an error occurs, the error callback will be invoked with a FileTransferError object"(from the sammary of filetransfer) 
 
     /// <summary>
     ///   A callback that is called with a FileEntry object 
@@ -2554,8 +2525,7 @@ namespace SharpKit.PhoneGap
         ///window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onSuccess, onError);
         /// </code>
         /// </example>
-        public void requestFileSystem(JsFunction fileSystem) { }
-        //TODO: 90% wrong. danel must check
+        public static void requestFileSystem(LocalFileSystem fs, JsNumber x, JsAction<FileSystem> successCallback, JsAction errorCallback) { }
 
         /// <summary>
         ///  Retrieve a DirectoryEntry or FileEntry using local URI.
@@ -2570,8 +2540,7 @@ namespace SharpKit.PhoneGap
         ///window.resolveLocalFileSystemURI("file:///example.txt", onSuccess, onError);
         /// </code>
         /// </example>
-        public void resolveLocalFileSystemURI(Entry entry) { }
-        //TODO: 90% wrong. danel must check
+        public void resolveLocalFileSystemURI(JsString url, JsAction<Entry> successCallback, JsAction errorCallback) { }
 
         /// <summary>
         /// Used for storage that should not be removed by the user agent without application or user permission.
@@ -2750,7 +2719,6 @@ namespace SharpKit.PhoneGap
         /// Error message describing the details of the error encountered.
         /// </summary>
         public JsString message { get; private set; }
-        //TODO: Check type
 
         /// <summary>
         /// Returned when the user does not allow your application to retrieve position information. This is dependent on the platform.
@@ -3123,8 +3091,7 @@ namespace SharpKit.PhoneGap
         /// <summary>
         ///  Error message describing the details of the error.
         /// </summary>
-        public object message { get; set; }
-        //TODO: chack TYPE
+        public JsString message { get; set; }
 
         public static MediaError MEDIA_ERR_ABORTED { get; private set; }
 
@@ -3189,32 +3156,6 @@ namespace SharpKit.PhoneGap
         /// </example>
         public void alert(JsString message, JsAction alertCallback, JsString title) { }
 
-        /////// <summary>
-        /////// Most Cordova implementations use a native dialog box for this feature.
-        /////// However, some platforms simply use the browser's alert function, which is typically less customizable.
-        /////// </summary>
-        /////// <param name="message">Dialog message</param>
-        /////// <param name="alertCallback">Callback to invoke when alert dialog is dismissed. </param>
-        /////// <param name="buttonName">Button name (Optional, Default: "OK")</param>
-        /////// <example>
-        /////// usage
-        /////// <code>
-        /////// // Android / BlackBerry WebWorks (OS 5.0 and higher) / iPhone
-        /////// //
-        ///////function alertDismissed() {
-        ///////    // do something
-        ///////}
-        ///////navigator.notification.alert(
-        ///////    'You are the winner!',  // message
-        ///////    alertDismissed,         // callback
-        ///////    'Game Over',            // title
-        ///////    'Done'                  // buttonName
-        ///////);
-        /////// </code>
-        /////// </example>
-        ////public void alert(JsString message, JsAction alertCallback, JsString buttonName) { }
-
-
         /// <summary>
         /// Shows a customizable confirmation dialog box.
         /// </summary>
@@ -3274,7 +3215,9 @@ namespace SharpKit.PhoneGap
         /// </summary>
         /// <param name="message">Dialog message</param>
         /// <param name="confirmCallback">Callback to invoke with index of button pressed (1, 2 or 3).</param>
-        /// <param name="title">Dialog title (Optional, Default: "Confirm")</param>
+        /// <param name="titleOrButtonLabels">Dialog title (Optional, Default: "Confirm")
+        /// or
+        /// Comma separated string with button labels (Optional, Default: "OK,Cancel")</param>
         /// <example>
         /// usage
         /// <code>
@@ -3294,34 +3237,7 @@ namespace SharpKit.PhoneGap
         ///}
         /// </code>
         /// </example>
-        public void confirm(JsString message, ConfirmCallback confirmCallback, JsString title) { }
-
-        /////// <summary>
-        /////// Shows a customizable confirmation dialog box.
-        /////// </summary>
-        /////// <param name="message">Dialog message</param>
-        /////// <param name="confirmCallback">Callback to invoke with index of button pressed (1, 2 or 3).</param>
-        /////// <param name="buttonLabels"> Comma separated string with button labels (Optional, Default: "OK,Cancel")</param>
-        /////// <example>
-        /////// usage
-        /////// <code>
-        /////// // process the confirmation dialog result
-        ///////function onConfirm(buttonIndex) {
-        ///////    alert('You selected button ' + buttonIndex);
-        ///////}
-        /////// // Show a custom confirmation dialog
-        /////// //
-        ///////function showConfirm() {
-        ///////    navigator.notification.confirm(
-        ///////        'You are the winner!',  // message
-        ///////        onConfirm,              // callback to invoke with index of button pressed
-        ///////        'Game Over',            // title
-        ///////        'Restart,Exit'          // buttonLabels
-        ///////    );
-        ///////}
-        /////// </code>
-        /////// </example>
-        ////public void confirm(JsString message, ConfirmCallback confirmCallback, JsString buttonLabels) { }
+        public void confirm(JsString message, ConfirmCallback confirmCallback, JsString titleOrButtonLabels) { }
 
         /// <summary>
         /// The device will play a beep sound.
@@ -3385,8 +3301,7 @@ namespace SharpKit.PhoneGap
         ///db.transaction(populateDB, errorCB, successCB);
         /// </code>
         /// </example>
-        public JsAction transaction() { return null; }
-        //TODO: Check return type
+        public void transaction(JsAction<SQLTransaction> action, JsAction<SQLError> errorCallback,  JsAction successCallback) {  }
 
         /// <summary>
         /// method allows scripts to atomically verify the version number and change it at the same time as doing a schema update.
@@ -3399,8 +3314,7 @@ namespace SharpKit.PhoneGap
         ///db.changeVersion("1.0", "1.1");
         /// </code>
         /// </example>
-        public JsNumber changeVersion() { return null; }
-        //TODO: Check return type
+        public void changeVersion(JsString fromVersion, JsString toVersion) { }
     }
 
     /// <summary>
@@ -3412,8 +3326,7 @@ namespace SharpKit.PhoneGap
         /// executes a SQL statement
         /// </summary>
         /// <returns></returns>
-        public SQLResultSet executeSql() { return null; }
-        //TODO: Check return type
+        public SQLResultSet executeSql(JsString sql) { return null; }
     }
 
     /// <summary>
@@ -3459,7 +3372,6 @@ namespace SharpKit.PhoneGap
         /// </summary>
         public SQLResultSetList rows { get; set; }
     }
-    //TODO: DANEL MUST CHECK
 
     /// <summary>
     /// One of the properties of the SQLResultSet containing the rows returned from a SQL query.
@@ -3529,6 +3441,9 @@ namespace SharpKit.PhoneGap
     /// </summary>
     public class LocalStorage
     {
+        [JsProperty(Global=true, Name="window.localStorage")]
+        public static LocalStorage Current { get; private set; }
+
         /// <summary>
         /// Returns the name of the key at the position specified.
         /// </summary>
@@ -3539,13 +3454,12 @@ namespace SharpKit.PhoneGap
         /// var keyName = window.localStorage.key(0);
         /// </code>
         /// </example>
-        public object key() { return null; }
+        public JsString key(JsNumber position) { return null; }
 
         /// <summary>
         /// Returns the item identified by it's key.
         /// </summary>
         /// <param name="key"></param>
-        /// <param name="value"></param>
         /// <returns></returns>
         /// <example>
         /// usage
@@ -3554,7 +3468,7 @@ namespace SharpKit.PhoneGap
         /// // value is now equal to "value"
         /// </code>
         /// </example>
-        public object getItem(JsString key) { return null; }
+        public JsString getItem(JsString key) { return null; }
 
         /// <summary>
         /// Saves and item at the key provided.
@@ -3595,7 +3509,6 @@ namespace SharpKit.PhoneGap
 
 
     }
-    //TODO: DANEL MUST CHECK
 
     /// <summary>
     /// Provides access to the devices storage options.
