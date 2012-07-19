@@ -2,8 +2,8 @@
 using SharpKit.JavaScript;
 using SharpKit.Html4;
 
-
-
+[assembly: JsNamespace(Namespace="SharpKit.PhoneGap", JsNamespace="")]
+[assembly: JsType(JsMode.Prototype, Export=false)]
 
 namespace SharpKit.PhoneGap
 {
@@ -16,7 +16,7 @@ namespace SharpKit.PhoneGap
 
     }
     // TODO: FINISH Accelerometer
-
+    [JsType(JsMode.Json)]
     public class AccelerometerOptions
     {
         public JsNumber frequency { get; set; }
@@ -125,6 +125,7 @@ namespace SharpKit.PhoneGap
     /// saveToPhotoAlbum: false };
     /// </code>
     /// </example>
+    [JsType(JsMode.Json)]
     public class CameraOptions
     {
         /// <summary>
@@ -176,6 +177,7 @@ namespace SharpKit.PhoneGap
     /// <summary>
     /// Choose the format of the return value. Defined in navigator.camera.DestinationType (Number)
     /// </summary>
+    [JsType(JsMode.Json)]
     public enum CameraDestinationType
     {
         /// <summary>
@@ -188,6 +190,7 @@ namespace SharpKit.PhoneGap
         FILE_URI = 1,
     }
 
+    [JsType(JsMode.Json)]
     public enum CameraPictureSourceType
     {
         PHOTOLIBRARY = 0,
@@ -195,6 +198,7 @@ namespace SharpKit.PhoneGap
         SAVEDPHOTOALBUM = 2
     }
 
+    [JsType(JsMode.Json)]
     public enum CameraEncodingType
     {
         /// <summary>
@@ -207,6 +211,7 @@ namespace SharpKit.PhoneGap
         PNG = 1,
     }
 
+    [JsType(JsMode.Json)]
     public enum CameraMediaType
     {
         /// <summary>
@@ -239,6 +244,7 @@ namespace SharpKit.PhoneGap
     /// };
     /// </code>
     /// </example>
+    [JsType(JsMode.Json)]
     public class CameraPopoverOptions
     {
         /// <summary>
@@ -263,6 +269,7 @@ namespace SharpKit.PhoneGap
         public JsNumber arrowDir { get; set; }
     }
 
+    [JsType(JsMode.Json)]
     public enum CameraPopoverArrowDirection
     {
         /// <summary>
@@ -429,6 +436,7 @@ namespace SharpKit.PhoneGap
     /// navigator.device.capture.captureAudio(captureSuccess, captureError, options);
     /// </code>
     /// </example>
+    [JsType(JsMode.Json)]
     public class CaptureAudioOptions
     {
         /// <summary>
@@ -459,6 +467,7 @@ namespace SharpKit.PhoneGap
     /// var options = { limit: 3 };
     /// navigator.device.capture.captureImage(captureSuccess, captureError, options);
     /// </code></example>
+    [JsType(JsMode.Json)]
     public class CaptureImageOptions
     {
         /// <summary>
@@ -482,6 +491,7 @@ namespace SharpKit.PhoneGap
     /// var options = { limit: 3 };
     /// navigator.device.capture.captureVideo(captureSuccess, captureError, options);
     /// </code></example>
+    [JsType(JsMode.Json)]
     public class CaptureVideoOptions
     {
         /// <summary>
@@ -509,28 +519,28 @@ namespace SharpKit.PhoneGap
         /// <summary>
         /// Camera or microphone failed to capture image or sound.
         /// </summary>
-        public const CaptureError CAPTURE_INTERNAL_ERR = null;
+        public static CaptureError CAPTURE_INTERNAL_ERR { get; private set; }
 
 
         /// <summary>
         /// Camera application or audio capture application is currently serving other capture request.
         /// </summary>
-        public const CaptureError CAPTURE_APPLICATION_BUSY = null;
+        public static CaptureError CAPTURE_APPLICATION_BUSY { get; private set; }
 
         /// <summary>
         /// Invalid use of the API (e.g. limit parameter has value less than one).
         /// </summary>
-        public const CaptureError CAPTURE_INVALID_ARGUMENT = null;
+        public static CaptureError CAPTURE_INVALID_ARGUMENT { get; private set; }
 
         /// <summary>
         /// User exited camera application or audio capture application before capturing anything.
         /// </summary>
-        public const CaptureError CAPTURE_NO_MEDIA_FILES = null;
+        public static CaptureError CAPTURE_NO_MEDIA_FILES { get; private set; }
 
         /// <summary>
         /// he requested capture operation is not supported.
         /// </summary>
-        public const CaptureError CAPTURE_NOT_SUPPORTED = null;
+        public static CaptureError CAPTURE_NOT_SUPPORTED { get; private set; }
 
     }
 
@@ -671,7 +681,7 @@ namespace SharpKit.PhoneGap
     /// <summary>
     /// Obtains the direction that the device is pointing.
     /// </summary>
-    public class Compass    
+    public class Compass
     {
 
 
@@ -715,7 +725,7 @@ namespace SharpKit.PhoneGap
         ///var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
         /// </code>
         /// </example>
-        public JsString watchHeading(compassSuccess compassSuccess, CompassError compassError, compassOptions compassOptions){return null;}
+        public JsString watchHeading(compassSuccess compassSuccess, CompassError compassError, compassOptions compassOptions) { return null; }
         /// <summary>
         /// Stop watching the compass referenced by the watch ID parameter.
         /// </summary>
@@ -769,8 +779,8 @@ namespace SharpKit.PhoneGap
         /// One of the predefined error codes listed below.
         /// </summary>
         public JsCode code { get; set; }
-        public const CompassError COMPASS_INTERNAL_ERR = null;
-        public const CompassError COMPASS_NOT_SUPPORTED = null;
+        public static CompassError COMPASS_INTERNAL_ERR { get; private set; }
+        public static CompassError COMPASS_NOT_SUPPORTED { get; private set; }
     }
 
     /// <summary>
@@ -787,7 +797,7 @@ namespace SharpKit.PhoneGap
         /// </summary>
         public JsNumber filter { get; set; }
 
-}
+    }
 
     /// <summary>
     /// The connection object gives access to the device's cellular and wifi connection information.
@@ -795,13 +805,13 @@ namespace SharpKit.PhoneGap
     public class Connection
     {
         public Connection type { get; set; }
-        public const Connection UNKNOWN = null;
-        public const Connection ETHERNET = null;
-        public const Connection WIFI = null;
-        public const Connection CELL_2G = null;
-        public const Connection CELL_3G = null;
-        public const Connection CELL_4G = null;
-        public const Connection NONE = null;
+        public static Connection UNKNOWN { get; private set; }
+        public static Connection ETHERNET { get; private set; }
+        public static Connection WIFI { get; private set; }
+        public static Connection CELL_2G { get; private set; }
+        public static Connection CELL_3G { get; private set; }
+        public static Connection CELL_4G { get; private set; }
+        public static Connection NONE { get; private set; }
 
     }
 
@@ -1140,19 +1150,19 @@ namespace SharpKit.PhoneGap
         /// </summary>
         public JsCode code { get; set; }
 
-        public const ContactError UNKNOWN_ERROR = null;
+        public static ContactError UNKNOWN_ERROR { get; private set; }
 
-        public const ContactError INVALID_ARGUMENT_ERROR = null;
+        public static ContactError INVALID_ARGUMENT_ERROR { get; private set; }
 
-        public const ContactError TIMEOUT_ERROR = null;
+        public static ContactError TIMEOUT_ERROR { get; private set; }
 
-        public const ContactError PENDING_OPERATION_ERROR = null;
+        public static ContactError PENDING_OPERATION_ERROR { get; private set; }
 
-        public const ContactError IO_ERROR = null;
+        public static ContactError IO_ERROR { get; private set; }
 
-        public const ContactError NOT_SUPPORTED_ERROR = null;
+        public static ContactError NOT_SUPPORTED_ERROR { get; private set; }
 
-        public const ContactError PERMISSION_DENIED_ERROR = null;
+        public static ContactError PERMISSION_DENIED_ERROR { get; private set; }
 
 
     }
@@ -1325,7 +1335,7 @@ namespace SharpKit.PhoneGap
     /// <summary>
     /// This object represents a directory on a file system. It is defined in the W3C Directories and Systems specification.
     /// </summary>
-    public class DirectoryEntry :Entry
+    public class DirectoryEntry : Entry
     {
         /// <summary>
         /// Always false.
@@ -1501,7 +1511,7 @@ namespace SharpKit.PhoneGap
         ///entry.getParent(success, fail);
         /// </code>
         /// </example>
-        public object getParent (JsFunction successCallback, JsFunction errorCallback) { return null; }
+        public object getParent(JsFunction successCallback, JsFunction errorCallback) { return null; }
         //TODO: I guessed the return type
         /// <summary>
         /// Creates a new DirectoryReader to read entries in a directory.
@@ -1598,7 +1608,7 @@ namespace SharpKit.PhoneGap
     /// <summary>
     /// This object represents a file system.
     /// </summary>
-     public class FileSystem
+    public class FileSystem
     {
         /// <summary>
         /// The name of the file system
@@ -1611,342 +1621,342 @@ namespace SharpKit.PhoneGap
     }
 
     /// <summary>
-     /// An object that lists files and directories in a directory. Defined in the Directories and Systems specification.
+    /// An object that lists files and directories in a directory. Defined in the Directories and Systems specification.
     /// </summary>
-     public class DirectoryReader
-     {
-         /// <summary>
-         /// Read the entries in this directory.
-         /// </summary>
-         /// <param name="successCallback">- A callback that is passed an array of FileEntry and DirectoryEntry objects</param>
-         /// <param name="errorCallback">A callback that is called if an error occurs retrieving the directory listing. Invoked with a FileError object.</param>
-         /// <example>
-         /// usage
-         /// <code>
-         /// function success(entries) {
-         ///    var i;
-         ///    for (i=0; i &lt;entries.length; i++) {
-         ///        console.log(entries[i].name);
-         ///    }
-         ///}
-         ///function fail(error) {
-         ///    alert("Failed to list directory contents: " + error.code);
-         ///}
-         /// // Get a directory reader
-         ///var directoryReader = dirEntry.createReader();
-         /// // Get a list of all the entries in the directory
-         ///directoryReader.readEntries(success,fail);
-         /// </code>
-         /// </example>
-         public void readEntries(ReadEntriesSuccessCallback successCallback, ReadEntriesErrorCallback errorCallback) { }
+    public class DirectoryReader
+    {
+        /// <summary>
+        /// Read the entries in this directory.
+        /// </summary>
+        /// <param name="successCallback">- A callback that is passed an array of FileEntry and DirectoryEntry objects</param>
+        /// <param name="errorCallback">A callback that is called if an error occurs retrieving the directory listing. Invoked with a FileError object.</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success(entries) {
+        ///    var i;
+        ///    for (i=0; i &lt;entries.length; i++) {
+        ///        console.log(entries[i].name);
+        ///    }
+        ///}
+        ///function fail(error) {
+        ///    alert("Failed to list directory contents: " + error.code);
+        ///}
+        /// // Get a directory reader
+        ///var directoryReader = dirEntry.createReader();
+        /// // Get a list of all the entries in the directory
+        ///directoryReader.readEntries(success,fail);
+        /// </code>
+        /// </example>
+        public void readEntries(ReadEntriesSuccessCallback successCallback, ReadEntriesErrorCallback errorCallback) { }
 
-     }
+    }
 
-     public class Entry
-     {
-     }
+    public class Entry
+    {
+    }
     /// <summary>
-     /// A callback that is passed an array of FileEntry and DirectoryEntry objects. (Function)
+    /// A callback that is passed an array of FileEntry and DirectoryEntry objects. (Function)
     /// </summary>
     /// <param name="entries"></param>
 
-     public delegate void ReadEntriesSuccessCallback(JsArray<Entry> entries);
+    public delegate void ReadEntriesSuccessCallback(JsArray<Entry> entries);
 
     /// <summary>
-     /// A callback that is called if an error occurs retrieving the directory listing. Invoked with a FileError object.
+    /// A callback that is called if an error occurs retrieving the directory listing. Invoked with a FileError object.
     /// </summary>
     /// <param name="error"></param>
-     public delegate void ReadEntriesErrorCallback(FileError error);
+    public delegate void ReadEntriesErrorCallback(FileError error);
 
     /// <summary>
-     /// A 'FileError' object is set when an error occurs in any of the File API methods.
+    /// A 'FileError' object is set when an error occurs in any of the File API methods.
     /// </summary>
-     public class FileError
-     {
-         /// <summary>
-         ///  One of the pre-defined error codes listed below
-         /// </summary>
-         public JsNumber code { get; set; }
+    public class FileError
+    {
+        /// <summary>
+        ///  One of the pre-defined error codes listed below
+        /// </summary>
+        public JsNumber code { get; set; }
 
-         public const FileError NOT_FOUND_ERR = null;
+        public static FileError NOT_FOUND_ERR { get; private set; }
 
-         public const FileError SECURITY_ERR = null;
+        public static FileError SECURITY_ERR { get; private set; }
 
-         public const FileError ABORT_ERR = null;
+        public static FileError ABORT_ERR { get; private set; }
 
-         public const FileError NOT_READABLE_ERR = null;
+        public static FileError NOT_READABLE_ERR { get; private set; }
 
-         public const FileError ENCODING_ERR = null;
+        public static FileError ENCODING_ERR { get; private set; }
 
-         public const FileError NO_MODIFICATION_ALLOWED_ERR = null;
+        public static FileError NO_MODIFICATION_ALLOWED_ERR { get; private set; }
 
-         public const FileError INVALID_STATE_ERR = null;
+        public static FileError INVALID_STATE_ERR { get; private set; }
 
-         public const FileError SYNTAX_ERR = null;
+        public static FileError SYNTAX_ERR { get; private set; }
 
-         public const FileError INVALID_MODIFICATION_ERR = null;
+        public static FileError INVALID_MODIFICATION_ERR { get; private set; }
 
-         public const FileError QUOTA_EXCEEDED_ERR = null;
+        public static FileError QUOTA_EXCEEDED_ERR { get; private set; }
 
-         public const FileError TYPE_MISMATCH_ERR = null;
+        public static FileError TYPE_MISMATCH_ERR { get; private set; }
 
-         public const FileError PATH_EXISTS_ERR = null;
-
-
+        public static FileError PATH_EXISTS_ERR { get; private set; }
 
 
 
 
-     }
+
+
+    }
 
     /// <summary>
-     /// The File object contains attributes of a single file. You can get an instance of a File object by calling the file method of a FileEntry object.
+    /// The File object contains attributes of a single file. You can get an instance of a File object by calling the file method of a FileEntry object.
     /// </summary>
-     public class File
-     {
-         /// <summary>
-         ///  The name of the file. 
-         /// </summary>
-         public JsString name { get; set; }
-         /// <summary>
-         ///  The full path of the file including the file name
-         /// </summary>
-         public JsString fullPath { get; set; }
-         /// <summary>
-         ///  The mime type of the file. 
-         /// </summary>
-         public JsString type { get; set; }
-         /// <summary>
-         /// The last time the file was modified.
-         /// </summary>
-         public JsDate lastModifiedDate { get; set; }
-         /// <summary>
-         /// The size of the file in bytes.
-         /// </summary>
-         public long size { get; set; }
-     }
+    public class File
+    {
+        /// <summary>
+        ///  The name of the file. 
+        /// </summary>
+        public JsString name { get; set; }
+        /// <summary>
+        ///  The full path of the file including the file name
+        /// </summary>
+        public JsString fullPath { get; set; }
+        /// <summary>
+        ///  The mime type of the file. 
+        /// </summary>
+        public JsString type { get; set; }
+        /// <summary>
+        /// The last time the file was modified.
+        /// </summary>
+        public JsDate lastModifiedDate { get; set; }
+        /// <summary>
+        /// The size of the file in bytes.
+        /// </summary>
+        public long size { get; set; }
+    }
 
     /// <summary>
-     /// This object represents a file on a file system. It is defined in the W3C Directories and Systems specification.
+    /// This object represents a file on a file system. It is defined in the W3C Directories and Systems specification.
     /// </summary>
-     public class FileEntry
-     {
-         /// <summary>
-         /// Always true.
-         /// </summary>
-         public bool isFile { get; set; }
+    public class FileEntry
+    {
+        /// <summary>
+        /// Always true.
+        /// </summary>
+        public bool isFile { get; set; }
 
-         /// <summary>
-         /// Always false.
-         /// </summary>
-         public bool isDirectory { get; set; }
+        /// <summary>
+        /// Always false.
+        /// </summary>
+        public bool isDirectory { get; set; }
 
-         /// <summary>
-         /// The name of the FileEntry, excluding the path leading to it.
-         /// </summary>
-         public JsString name { get; set; }
+        /// <summary>
+        /// The name of the FileEntry, excluding the path leading to it.
+        /// </summary>
+        public JsString name { get; set; }
 
-         /// <summary>
-         ///  The full absolute path from the root to the FileEntry.
-         /// </summary>
-         public JsString fullPath { get; set; }
+        /// <summary>
+        ///  The full absolute path from the root to the FileEntry.
+        /// </summary>
+        public JsString fullPath { get; set; }
 
-         /// <summary>
-         ///  The file system on which the FileEntry resides.
-         /// </summary>
-         public FileSystem filesystem { get; set; }
+        /// <summary>
+        ///  The file system on which the FileEntry resides.
+        /// </summary>
+        public FileSystem filesystem { get; set; }
 
-         /// <summary>
-         /// Look up metadata about a file.
-         /// </summary>
-         /// <param name="successCallback"> A callback that is called with a Metadata object.</param>
-         /// <param name="errorCallback"> A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.</param>
-         /// <example>
-         /// <code>
-         /// function success(metadata) {
-         ///    console.log("Last Modified: " + metadata.modificationTime);
-         ///}
-         ///function fail(error) {
-         ///    alert(error.code);
-         ///}
-         /// // Request the metadata object for this entry
-         ///entry.getMetadata(success, fail);
-         /// </code>
-         /// </example>
-         public void getMetadata(GetMetadataSuccessCallback successCallback, GetMetadataErrorCallback errorCallback) { }
+        /// <summary>
+        /// Look up metadata about a file.
+        /// </summary>
+        /// <param name="successCallback"> A callback that is called with a Metadata object.</param>
+        /// <param name="errorCallback"> A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.</param>
+        /// <example>
+        /// <code>
+        /// function success(metadata) {
+        ///    console.log("Last Modified: " + metadata.modificationTime);
+        ///}
+        ///function fail(error) {
+        ///    alert(error.code);
+        ///}
+        /// // Request the metadata object for this entry
+        ///entry.getMetadata(success, fail);
+        /// </code>
+        /// </example>
+        public void getMetadata(GetMetadataSuccessCallback successCallback, GetMetadataErrorCallback errorCallback) { }
 
-         /// <summary>
-         /// Set metadata on a file. Only works on iOS currently - this will set the extended attributes of a file.
-         /// </summary>
-         /// <param name="successCallback">A callback that is called when the metadata was successfully set.</param>
-         /// <param name="errorCallback">A callback that is called when the metadata was not successfully set.</param>
-         /// <param name="metadataObject">An object that contains the metadata keys and values. </param>
-         /// <returns></returns>
-         /// <example>
-         /// usage
-         /// <code>
-         /// function success() {
-         ///    console.log("The metadata was successfully set.");
-         ///}
-         ///function fail() {
-         ///    alert("There was an error in setting the metadata");
-         ///}
-         /// // Set the metadata
-         ///entry.setMetadata(success, fail, { "com.apple.MobileBackup": 1});
-         /// </code>
-         /// </example>
-         public File setMetadata(SetMetadataSuccessCallback successCallback, SetMetadataErrorCallback errorCallback, object metadataObject) { return null; }
+        /// <summary>
+        /// Set metadata on a file. Only works on iOS currently - this will set the extended attributes of a file.
+        /// </summary>
+        /// <param name="successCallback">A callback that is called when the metadata was successfully set.</param>
+        /// <param name="errorCallback">A callback that is called when the metadata was not successfully set.</param>
+        /// <param name="metadataObject">An object that contains the metadata keys and values. </param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success() {
+        ///    console.log("The metadata was successfully set.");
+        ///}
+        ///function fail() {
+        ///    alert("There was an error in setting the metadata");
+        ///}
+        /// // Set the metadata
+        ///entry.setMetadata(success, fail, { "com.apple.MobileBackup": 1});
+        /// </code>
+        /// </example>
+        public File setMetadata(SetMetadataSuccessCallback successCallback, SetMetadataErrorCallback errorCallback, object metadataObject) { return null; }
 
-         /// <summary>
-         /// Move a file to a different location on the file system. It is an error to attempt to:
-         ///move a file into its parent if a name different from its current one isn't provided;
-         ///move a file to a path occupied by a directory;
-         ///In addition, an attempt to move a file on top of an existing file must attempt to delete and replace that file.
-         /// </summary>
-         /// <param name="parent"> The parent directory to which to move the file.</param>
-         /// <param name="newName"> The new name of the file. Defaults to the current name if unspecified.</param>
-         /// <param name="successCallback">A callback that is called with the FileEntry object of the new file.</param>
-         /// <param name="errorCallback">A callback that is called if an error occurs when attempting to move the file. Invoked with a FileError object.</param>
-         /// <returns></returns>
-         /// <example>
-         /// usage
-         /// <code>
-         /// function success(entry) {
-         ///    console.log("New Path: " + entry.fullPath);
-         ///}
-         ///function fail(error) {
-         ///    alert(error.code);
-         ///}
-         ///function moveFile(entry) {
-         ///    var parent = document.getElementById('parent').value,
-         ///        parentName = parent.substring(parent.lastIndexOf('/')+1),
-         ///        parentEntry = new DirectoryEntry(parentName, parent);
-         ///    // move the file to a new directory and rename it
-         ///    entry.moveTo(parentEntry, "newFile.txt", success, fail);
-         ///}
-         /// </code>
-         /// </example>
-         public object moveTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) { return null; }
-         //TODO: I gussed the return type
+        /// <summary>
+        /// Move a file to a different location on the file system. It is an error to attempt to:
+        ///move a file into its parent if a name different from its current one isn't provided;
+        ///move a file to a path occupied by a directory;
+        ///In addition, an attempt to move a file on top of an existing file must attempt to delete and replace that file.
+        /// </summary>
+        /// <param name="parent"> The parent directory to which to move the file.</param>
+        /// <param name="newName"> The new name of the file. Defaults to the current name if unspecified.</param>
+        /// <param name="successCallback">A callback that is called with the FileEntry object of the new file.</param>
+        /// <param name="errorCallback">A callback that is called if an error occurs when attempting to move the file. Invoked with a FileError object.</param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success(entry) {
+        ///    console.log("New Path: " + entry.fullPath);
+        ///}
+        ///function fail(error) {
+        ///    alert(error.code);
+        ///}
+        ///function moveFile(entry) {
+        ///    var parent = document.getElementById('parent').value,
+        ///        parentName = parent.substring(parent.lastIndexOf('/')+1),
+        ///        parentEntry = new DirectoryEntry(parentName, parent);
+        ///    // move the file to a new directory and rename it
+        ///    entry.moveTo(parentEntry, "newFile.txt", success, fail);
+        ///}
+        /// </code>
+        /// </example>
+        public object moveTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) { return null; }
+        //TODO: I gussed the return type
 
-         /// <summary>
-         ///Copy a file to a new location on the file system. It is an error to attempt to:
-         ///copy a file into its parent if a name different from its current one is not provided.
-         /// </summary>
-         /// <param name="parent"> The parent directory to which to copy the file.</param>
-         /// <param name="newName"> The new name of the file. Defaults to the current name if unspecified.</param>
-         /// <param name="successCallback">A callback that is called with the FileEntry object of the new file.</param>
-         /// <param name="errorCallback">A callback that is called if an error occurs when attempting to copy the file. Invoked with a FileError object.</param>
-         /// <returns></returns>
-         /// <example>
-         /// usage
-         /// <code>
-         ///function win(entry) {
-         ///    console.log("New Path: " + entry.fullPath);
-         ///}
-         ///function fail(error) {
-         ///    alert(error.code);
-         ///}
-         ///function copyFile(entry) {
-         ///    var parent = document.getElementById('parent').value,
-         ///        parentName = parent.substring(parent.lastIndexOf('/')+1),
-         ///        parentEntry = new DirectoryEntry(parentName, parent);
-         ///    // copy the file to a new directory and rename it
-         ///    entry.copyTo(parentEntry, "file.copy", success, fail);
-         ///}
-         /// </code>
-         /// </example>
-         public object copyTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) { return null; }
-         //TODO: I gussed the return type
+        /// <summary>
+        ///Copy a file to a new location on the file system. It is an error to attempt to:
+        ///copy a file into its parent if a name different from its current one is not provided.
+        /// </summary>
+        /// <param name="parent"> The parent directory to which to copy the file.</param>
+        /// <param name="newName"> The new name of the file. Defaults to the current name if unspecified.</param>
+        /// <param name="successCallback">A callback that is called with the FileEntry object of the new file.</param>
+        /// <param name="errorCallback">A callback that is called if an error occurs when attempting to copy the file. Invoked with a FileError object.</param>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        ///function win(entry) {
+        ///    console.log("New Path: " + entry.fullPath);
+        ///}
+        ///function fail(error) {
+        ///    alert(error.code);
+        ///}
+        ///function copyFile(entry) {
+        ///    var parent = document.getElementById('parent').value,
+        ///        parentName = parent.substring(parent.lastIndexOf('/')+1),
+        ///        parentEntry = new DirectoryEntry(parentName, parent);
+        ///    // copy the file to a new directory and rename it
+        ///    entry.copyTo(parentEntry, "file.copy", success, fail);
+        ///}
+        /// </code>
+        /// </example>
+        public object copyTo(DirectoryEntry parent, JsString newName, MoveToSuccessCallback successCallback, MoveToErrorCallback errorCallback) { return null; }
+        //TODO: I gussed the return type
 
-         /// <summary>
-         /// Returns a URL that can be used to locate the file.
-         /// </summary>
-         /// <returns></returns>
-         /// <example>
-         /// usage
-         /// <code>
-         /// // Request the URL for this entry
-         ///var fileURL = entry.toURL();
-         ///console.log(fileURL);
-         /// </code>
-         /// </example>
-         public JsString toURL() { return null; }
+        /// <summary>
+        /// Returns a URL that can be used to locate the file.
+        /// </summary>
+        /// <returns></returns>
+        /// <example>
+        /// usage
+        /// <code>
+        /// // Request the URL for this entry
+        ///var fileURL = entry.toURL();
+        ///console.log(fileURL);
+        /// </code>
+        /// </example>
+        public JsString toURL() { return null; }
 
-         /// <summary>
-         /// Deletes a file.
-         /// </summary>
-         /// <param name="successCallback">A callback that is called after the file has been deleted. Invoked with no parameters. </param>
-         /// <param name="errorCallback"> A callback that is called if an error occurs when attempting to delete the file. Invoked with a FileError object</param>
-         /// <example>
-         /// usage
-         /// <code>
-         /// function success(entry) {
-         ///    console.log("Removal succeeded");
-         ///}
-         ///function fail(error) {
-         ///    alert('Error removing file: ' + error.code);
-         ///}
-         /// // remove the file
-         ///entry.remove(success, fail);
-         /// </code>
-         /// </example>
-         public void remove(RemoveSuccessCallback successCallback, RemoveErrorCallback errorCallback) { }
+        /// <summary>
+        /// Deletes a file.
+        /// </summary>
+        /// <param name="successCallback">A callback that is called after the file has been deleted. Invoked with no parameters. </param>
+        /// <param name="errorCallback"> A callback that is called if an error occurs when attempting to delete the file. Invoked with a FileError object</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success(entry) {
+        ///    console.log("Removal succeeded");
+        ///}
+        ///function fail(error) {
+        ///    alert('Error removing file: ' + error.code);
+        ///}
+        /// // remove the file
+        ///entry.remove(success, fail);
+        /// </code>
+        /// </example>
+        public void remove(RemoveSuccessCallback successCallback, RemoveErrorCallback errorCallback) { }
 
-         /// <summary>
-         /// Look up the parent DirectoryEntry containing the file.
-         /// </summary>
-         /// <param name="successCallback">A callback that is called with the file's parent DirectoryEntry. </param>
-         /// <param name="errorCallback">A callback that is called if an error occurs when attempting to retrieve the parent DirectoryEntry. Invoked with a FileError object</param>
-         /// <example>
-         /// usage
-         /// <code>
-         /// function success(parent) {
-         ///    console.log("Parent Name: " + parent.name);
-         ///}
-         ///function fail(error) {
-         ///    alert(error.code);
-         ///}
-         /// // Get the parent DirectoryEntry
-         ///entry.getParent(success, fail);
-         /// </code>
-         /// </example>
-         public void getParent(GetParentSuccessCallback successCallback, GetParentErrorCallback errorCallback) { }
+        /// <summary>
+        /// Look up the parent DirectoryEntry containing the file.
+        /// </summary>
+        /// <param name="successCallback">A callback that is called with the file's parent DirectoryEntry. </param>
+        /// <param name="errorCallback">A callback that is called if an error occurs when attempting to retrieve the parent DirectoryEntry. Invoked with a FileError object</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success(parent) {
+        ///    console.log("Parent Name: " + parent.name);
+        ///}
+        ///function fail(error) {
+        ///    alert(error.code);
+        ///}
+        /// // Get the parent DirectoryEntry
+        ///entry.getParent(success, fail);
+        /// </code>
+        /// </example>
+        public void getParent(GetParentSuccessCallback successCallback, GetParentErrorCallback errorCallback) { }
 
-         /// <summary>
-         /// Create a FileWriter object associated with the file that the FileEntry represents.
-         /// </summary>
-         /// <param name="successCallback">A callback that is called with a FileWriter object.</param>
-         /// <param name="errorCallback">A callback that is called if an error occurs while attempting to create the FileWriter. Invoked with a FileError object.</param>
-         /// <example>
-         /// usage
-         /// <code>
-         /// function success(writer) {
-         ///    writer.write("Some text to the file");
-         ///}
-         ///function fail(error) {
-         ///    alert(error.code);
-         ///}
-         /// // create a FileWriter to write to the file
-         ///entry.createWriter(success, fail);
-         /// </code>
-         /// </example>
-         public void createWriter(CreateWriterSuccessCallback successCallback, CreateWriterErrorCallback errorCallback) { }
+        /// <summary>
+        /// Create a FileWriter object associated with the file that the FileEntry represents.
+        /// </summary>
+        /// <param name="successCallback">A callback that is called with a FileWriter object.</param>
+        /// <param name="errorCallback">A callback that is called if an error occurs while attempting to create the FileWriter. Invoked with a FileError object.</param>
+        /// <example>
+        /// usage
+        /// <code>
+        /// function success(writer) {
+        ///    writer.write("Some text to the file");
+        ///}
+        ///function fail(error) {
+        ///    alert(error.code);
+        ///}
+        /// // create a FileWriter to write to the file
+        ///entry.createWriter(success, fail);
+        /// </code>
+        /// </example>
+        public void createWriter(CreateWriterSuccessCallback successCallback, CreateWriterErrorCallback errorCallback) { }
 
-         /// <summary>
-         /// Return a File object that represents the current state of the file that this FileEntry represents.
-         /// </summary>
-         /// <param name="successCallback">A callback that is called with a File object.</param>
-         /// <param name="errorCallback"> A callback that is called if an error occurs when creating the File object (e.g. the underlying file no longer exists).
-         /// Invoked with a FileError object.</param>
-         /// <returns></returns>
-         public File file(FileSuccessCallback successCallback, FileErrorCallback errorCallback) { return null; }
+        /// <summary>
+        /// Return a File object that represents the current state of the file that this FileEntry represents.
+        /// </summary>
+        /// <param name="successCallback">A callback that is called with a File object.</param>
+        /// <param name="errorCallback"> A callback that is called if an error occurs when creating the File object (e.g. the underlying file no longer exists).
+        /// Invoked with a FileError object.</param>
+        /// <returns></returns>
+        public File file(FileSuccessCallback successCallback, FileErrorCallback errorCallback) { return null; }
 
 
-     }
+    }
 
     /// <summary>
-     /// This interface supplies information about the state of a file or directory.
+    /// This interface supplies information about the state of a file or directory.
     /// </summary>
     /// <example>
     /// usage
@@ -1958,13 +1968,13 @@ namespace SharpKit.PhoneGap
     ///entry.getMetadata(win, null);
     /// </code>
     /// </example>
-     public class Metadata
-     {
-         /// <summary>
-         ///  This is the time at which the file or directory was last modified.
-         /// </summary>
-         public JsDate modificationTime { get; set; }
-     }
+    public class Metadata
+    {
+        /// <summary>
+        ///  This is the time at which the file or directory was last modified.
+        /// </summary>
+        public JsDate modificationTime { get; set; }
+    }
 
     /// <summary>
     ///  A callback that is called with a Metadata object. 
@@ -1985,12 +1995,12 @@ namespace SharpKit.PhoneGap
     ///  A callback that is called when the metadata was not successfully set.
     /// </summary>
     public delegate void SetMetadataErrorCallback();
-    
+
     /// <summary>
     /// A callback that is called with the FileEntry object of the new file.
     /// </summary>
     /// <param name="entry"></param>
-    public delegate void MoveToSuccessCallback (FileEntry entry);
+    public delegate void MoveToSuccessCallback(FileEntry entry);
     /// <summary>
     /// A callback that is called if an error occurs when attempting to move the file. Invoked with a FileError object.
     /// </summary>
@@ -2130,7 +2140,7 @@ namespace SharpKit.PhoneGap
         /// </code>
         /// </example>
         public void seek(JsNumber location) { }
-        
+
         /// <summary>
         /// : Shortens the file to the length specified.
         /// </summary>
@@ -2200,7 +2210,7 @@ namespace SharpKit.PhoneGap
     public enum FileWriterReadyState
     {
         INIT,
-        WRITING, 
+        WRITING,
         DONE,
     }
 
@@ -2417,20 +2427,20 @@ namespace SharpKit.PhoneGap
     ///  A callback that is called with a Metadata object. 
     /// </summary>
     /// <param name="successCallback "></param>
-    public delegate void UploadSuccessCallback (FileUploadResult successCallback  );
+    public delegate void UploadSuccessCallback(FileUploadResult successCallback);
     //TODO: CHECK if the parameters are correct. " On successful upload, the success callback will be called with a FileUploadResult object."(from the sammary of filetransfer) 
     /// <summary>
     /// A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.
     /// </summary>
     /// <param name="error"></param>
     public delegate void UploadErrorCallback(FileTransferError error);
-     //TODO: CHECK if the parameters are correct. "  If an error occurs, the error callback will be invoked with a FileTransferError object"(from the sammary of filetransfer) 
+    //TODO: CHECK if the parameters are correct. "  If an error occurs, the error callback will be invoked with a FileTransferError object"(from the sammary of filetransfer) 
 
     /// <summary>
     ///   A callback that is called with a FileEntry object 
     /// </summary>
     /// <param name="successCallback "></param>
-    public delegate void DownloadSuccessCallback (FileEntry successCallback );
+    public delegate void DownloadSuccessCallback(FileEntry successCallback);
     /// <summary>
     ///  A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.
     /// </summary>
@@ -2504,7 +2514,7 @@ namespace SharpKit.PhoneGap
         ///  URI to the source 
         /// </summary>
         public JsString source { get; set; }
-        
+
         /// <summary>
         ///  URI to the target  
         /// </summary>
@@ -2513,13 +2523,13 @@ namespace SharpKit.PhoneGap
         /// <summary>
         ///  HTTP status code. This attribute is only available when a response code is received from the HTTP connection. 
         /// </summary>
-        public JsNumber http_status  { get; set; }
+        public JsNumber http_status { get; set; }
 
-        public const FileTransferError FILE_NOT_FOUND_ERR= null;
+        public static FileTransferError FILE_NOT_FOUND_ERR { get; private set; }
 
-        public const FileTransferError INVALID_URL_ERR= null;
+        public static FileTransferError INVALID_URL_ERR { get; private set; }
 
-        public const FileTransferError CONNECTION_ERR= null;
+        public static FileTransferError CONNECTION_ERR { get; private set; }
 
 
 
@@ -2566,12 +2576,12 @@ namespace SharpKit.PhoneGap
         /// <summary>
         /// Used for storage that should not be removed by the user agent without application or user permission.
         /// </summary>
-        public const LocalFileSystem PERSISTENT = null;
+        public static LocalFileSystem PERSISTENT { get; private set; }
 
         /// <summary>
         ///  Used for storage with no guarantee of persistence.
         /// </summary>
-        public const LocalFileSystem TEMPORARY = null;
+        public static LocalFileSystem TEMPORARY { get; private set; }
     }
 
     /// <summary>
@@ -2588,9 +2598,9 @@ namespace SharpKit.PhoneGap
         /// <param name="geolocationError">The callback that is called if there was an error.</param>
         /// <param name="geolocationOptions"> The geolocation options.</param>
         /// <returns>Contains Position coordinates and timestamp, created by the geolocation API.</returns>
-        public Position getCurrentPosition (GeolocationSuccess geolocationSuccess, GeolocationError geolocationError, GeolocationOptions geolocationOptions) {return null;}
+        public Position getCurrentPosition(GeolocationSuccess geolocationSuccess, GeolocationError geolocationError, GeolocationOptions geolocationOptions) { return null; }
 
-                /// <summary>
+        /// <summary>
         /// geolocation.getCurrentPositon is an asynchronous function. It returns the device's current position to the
         /// geolocationSuccess callback with a Position object as the parameter.
         /// If there is an error, the geolocationError callback is invoked with a PositionError object.
@@ -2598,9 +2608,9 @@ namespace SharpKit.PhoneGap
         /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
         /// <param name="geolocationError">The callback that is called if there was an error.</param>
         /// <returns>Contains Position coordinates and timestamp, created by the geolocation API.</returns>
-        public Position getCurrentPosition (GeolocationSuccess geolocationSuccess, GeolocationError geolocationError) {return null;}
+        public Position getCurrentPosition(GeolocationSuccess geolocationSuccess, GeolocationError geolocationError) { return null; }
 
-                /// <summary>
+        /// <summary>
         /// geolocation.getCurrentPositon is an asynchronous function. It returns the device's current position to the
         /// geolocationSuccess callback with a Position object as the parameter.
         /// If there is an error, the geolocationError callback is invoked with a PositionError object.
@@ -2608,16 +2618,16 @@ namespace SharpKit.PhoneGap
         /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
         /// <param name="geolocationOptions"> The geolocation options.</param>
         /// <returns>Contains Position coordinates and timestamp, created by the geolocation API.</returns>
-        public Position getCurrentPosition (GeolocationSuccess geolocationSuccess, GeolocationOptions geolocationOptions) {return null;}
+        public Position getCurrentPosition(GeolocationSuccess geolocationSuccess, GeolocationOptions geolocationOptions) { return null; }
 
-                /// <summary>
+        /// <summary>
         /// geolocation.getCurrentPositon is an asynchronous function. It returns the device's current position to the
         /// geolocationSuccess callback with a Position object as the parameter.
         /// If there is an error, the geolocationError callback is invoked with a PositionError object.
         /// </summary>
         /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
         /// <returns>Contains Position coordinates and timestamp, created by the geolocation API.</returns>
-        public Position getCurrentPosition (GeolocationSuccess geolocationSuccess) {return null;}
+        public Position getCurrentPosition(GeolocationSuccess geolocationSuccess) { return null; }
 
 
         /// <summary>
@@ -2627,7 +2637,7 @@ namespace SharpKit.PhoneGap
         /// <param name="geolocationError">The callback that is called if there was an error.</param>
         /// <param name="geolocationOptions"> The geolocation options.</param>
         /// <returns>returns a watch id that references the watch position interval. The watch id should be used with geolocation.clearWatch to stop watching for changes in position.</returns>
-        public JsString watchPosition (GeolocationSuccess geolocationSuccess, GeolocationError geolocationError, GeolocationOptions geolocationOptions) {return null;}
+        public JsString watchPosition(GeolocationSuccess geolocationSuccess, GeolocationError geolocationError, GeolocationOptions geolocationOptions) { return null; }
 
         /// <summary>
         /// Watches for changes to the device's current position.
@@ -2635,7 +2645,7 @@ namespace SharpKit.PhoneGap
         /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
         /// <param name="geolocationError">The callback that is called if there was an error.</param>
         /// <returns>returns a watch id that references the watch position interval. The watch id should be used with geolocation.clearWatch to stop watching for changes in position.</returns>
-        public JsString watchPosition (GeolocationSuccess geolocationSuccess, GeolocationError geolocationError) {return null;}
+        public JsString watchPosition(GeolocationSuccess geolocationSuccess, GeolocationError geolocationError) { return null; }
 
         /// <summary>
         /// Watches for changes to the device's current position.
@@ -2643,14 +2653,14 @@ namespace SharpKit.PhoneGap
         /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
         /// <param name="geolocationOptions"> The geolocation options.</param>
         /// <returns>returns a watch id that references the watch position interval. The watch id should be used with geolocation.clearWatch to stop watching for changes in position.</returns>
-        public JsString watchPosition (GeolocationSuccess geolocationSuccess, GeolocationOptions geolocationOptions) {return null;}
+        public JsString watchPosition(GeolocationSuccess geolocationSuccess, GeolocationOptions geolocationOptions) { return null; }
 
         /// <summary>
         /// Watches for changes to the device's current position.
         /// </summary>
         /// <param name="geolocationSuccess">The callback that is called with the current position.</param>
         /// <returns>returns a watch id that references the watch position interval. The watch id should be used with geolocation.clearWatch to stop watching for changes in position.</returns>
-        public JsString watchPosition (GeolocationSuccess geolocationSuccess) {return null;}
+        public JsString watchPosition(GeolocationSuccess geolocationSuccess) { return null; }
 
         /// <summary>
         /// Stop watching for changes to the device's location referenced by the watchID parameter.
@@ -2667,7 +2677,7 @@ namespace SharpKit.PhoneGap
         ///navigator.geolocation.clearWatch(watchID);
         /// </code>
         /// </example>
-        public void clearWatch (JsString watchID) {}
+        public void clearWatch(JsString watchID) { }
 
     }
 
@@ -2676,12 +2686,12 @@ namespace SharpKit.PhoneGap
         /// <summary>
         /// A set of geographic coordinates.
         /// </summary>
-        public Coordinates coords { get;private set; }
+        public Coordinates coords { get; private set; }
 
         /// <summary>
         ///  Creation timestamp for coords. 
         /// </summary>
-        public JsDate timestamp { get;private set; }
+        public JsDate timestamp { get; private set; }
 
     }
 
@@ -2693,37 +2703,37 @@ namespace SharpKit.PhoneGap
         /// <summary>
         ///  Latitude in decimal degrees. 
         /// </summary>
-        public JsNumber latitude { get;private set; }
+        public JsNumber latitude { get; private set; }
 
         /// <summary>
         ///  Longitude in decimal degrees.
         /// </summary>
-        public JsNumber longitude { get;private set; }
+        public JsNumber longitude { get; private set; }
 
         /// <summary>
         ///  Height of the position in meters above the ellipsoid.
         /// </summary>
-        public JsNumber altitude { get;private set; }
+        public JsNumber altitude { get; private set; }
 
         /// <summary>
         /// Accuracy level of the latitude and longitude coordinates in meters.
         /// </summary>
-        public JsNumber accuracy { get;private set; }
+        public JsNumber accuracy { get; private set; }
 
         /// <summary>
         ///  Accuracy level of the altitude coordinate in meters.
         /// </summary>
-        public JsNumber altitudeAccuracy { get;private set; }
+        public JsNumber altitudeAccuracy { get; private set; }
 
         /// <summary>
         /// Direction of travel, specified in degrees counting clockwise relative to the true north.
         /// </summary>
-        public JsNumber heading { get;private set; }
+        public JsNumber heading { get; private set; }
 
         /// <summary>
         /// Current ground speed of the device, specified in meters per second.
         /// </summary>
-        public JsNumber speed { get;private set; }
+        public JsNumber speed { get; private set; }
     }
 
     /// <summary>
@@ -2734,30 +2744,30 @@ namespace SharpKit.PhoneGap
         /// <summary>
         /// One of the predefined error codes listed below.
         /// </summary>
-        public JsNumber code { get;private set; }
+        public JsNumber code { get; private set; }
 
         /// <summary>
         /// Error message describing the details of the error encountered.
         /// </summary>
-        public JsString message { get;private set; }
+        public JsString message { get; private set; }
         //TODO: Check type
 
         /// <summary>
         /// Returned when the user does not allow your application to retrieve position information. This is dependent on the platform.
         /// </summary>
-        public static PositionError PERMISSION_DENIED { get;private set; }
+        public static PositionError PERMISSION_DENIED { get; private set; }
 
         /// <summary>
         /// Returned when the device was unable to retrieve a position. In general this means the device has no network connectivity and/or cannot get a satellite fix.
         /// </summary>
-        public static PositionError POSITION_UNAVAILABLE { get;private set; }
+        public static PositionError POSITION_UNAVAILABLE { get; private set; }
 
         /// <summary>
         /// Returned when the device was unable to retrieve a position within the time specified in the geolocationOptions' timeout property.
         /// When using in conjunction with geolocation.
         /// watchPosition, this error could be called into the geolocationError callback every timeout milliseconds.
         /// </summary>
-        public static PositionError TIMEOUT { get;private set; }
+        public static PositionError TIMEOUT { get; private set; }
 
     }
 
@@ -2766,13 +2776,13 @@ namespace SharpKit.PhoneGap
     /// (when using with geolocation.getCurrentPosition), or when the position changes (when using with geolocation.watchPosition).
     /// </summary>
     /// <param name="position">The geolocation position returned by the device.</param>
-    public delegate void GeolocationSuccess (Position position);
+    public delegate void GeolocationSuccess(Position position);
 
     /// <summary>
     /// The user's callback function that is called when there is an error for geolocation functions.
     /// </summary>
     /// <param name="error">The error returned by the device.</param>
-    public delegate void GeolocationError (PositionError error);
+    public delegate void GeolocationError(PositionError error);
 
     /// <summary>
     /// Optional parameters to customize the retrieval of the geolocation Position.
@@ -2814,7 +2824,7 @@ namespace SharpKit.PhoneGap
         /// The Media object provides the ability to record and play back audio files on a device.
         /// </summary>
         /// <param name="src">A URI containing the audio content.</param>
-        public Media (JsString src)
+        public Media(JsString src)
         {
         }
 
@@ -3095,7 +3105,7 @@ namespace SharpKit.PhoneGap
         /// <summary>
         /// The position within the audio playback in seconds. Not automatically updated during play, call getCurrentPosition to update.
         /// </summary>
-        public Position position { get;private set; }
+        public Position position { get; private set; }
         /// <summary>
         ///  The duration of the media in seconds.
         /// </summary>
@@ -3109,20 +3119,20 @@ namespace SharpKit.PhoneGap
         /// One of the predefined error codes listed below.
         /// </summary>
         public JsNumber code { get; set; }
-        
+
         /// <summary>
         ///  Error message describing the details of the error.
         /// </summary>
         public object message { get; set; }
         //TODO: chack TYPE
 
-        public const MediaError MEDIA_ERR_ABORTED=null;
+        public static MediaError MEDIA_ERR_ABORTED { get; private set; }
 
-        public const MediaError MEDIA_ERR_NETWORK=null;
+        public static MediaError MEDIA_ERR_NETWORK { get; private set; }
 
-        public const MediaError MEDIA_ERR_DECODE=null;
+        public static MediaError MEDIA_ERR_DECODE { get; private set; }
 
-        public const MediaError MEDIA_ERR_NONE_SUPPORTED=null;
+        public static MediaError MEDIA_ERR_NONE_SUPPORTED { get; private set; }
 
     }
 
@@ -3502,14 +3512,14 @@ namespace SharpKit.PhoneGap
         /// </summary>
         public object message { get; set; }
 
-        public const SQLError UNKNOWN_ERR = null;
-        public const SQLError DATABASE_ERR = null;
-        public const SQLError VERSION_ERR = null;
-        public const SQLError TOO_LARGE_ERR = null;
-        public const SQLError QUOTA_ERR = null;
-        public const SQLError SYNTAX_ERR = null;
-        public const SQLError CONSTRAINT_ERR = null;
-        public const SQLError TIMEOUT_ERR = null;
+        public static SQLError UNKNOWN_ERR { get; private set; }
+        public static SQLError DATABASE_ERR { get; private set; }
+        public static SQLError VERSION_ERR { get; private set; }
+        public static SQLError TOO_LARGE_ERR { get; private set; }
+        public static SQLError QUOTA_ERR { get; private set; }
+        public static SQLError SYNTAX_ERR { get; private set; }
+        public static SQLError CONSTRAINT_ERR { get; private set; }
+        public static SQLError TIMEOUT_ERR { get; private set; }
 
 
     }
