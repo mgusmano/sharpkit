@@ -883,6 +883,7 @@ namespace SharpKit.KineticJs
         /// </summary>
         /// <returns></returns>
         //public LineCap getLineCap() { return null; }
+        //don't know what happend here. shows an error 
 
         /// <summary>
         /// get points array
@@ -918,6 +919,7 @@ namespace SharpKit.KineticJs
 
 
     }
+
     /// <summary>
     /// dash array.
     /// </summary>
