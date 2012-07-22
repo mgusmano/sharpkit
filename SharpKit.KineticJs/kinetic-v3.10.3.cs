@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
+using SharpKit.Html4;
 
 namespace SharpKit.KineticJs
 {
@@ -31,16 +32,19 @@ namespace SharpKit.KineticJs
         /// </summary>
         /// <returns></returns>
         public JsNumber getAbsoluteAlpha() { return null; }
+
         /// <summary>
         /// get absolute position relative to stage
         /// </summary>
         /// <returns></returns>
         public XYProperty getAbsolutePosition() { return null; }
+
         /// <summary>
         /// get transform of the node while taking intoaccount the transforms of its parents
         /// </summary>
         /// <returns></returns>
         public object getAbsoluteTransform() { return null; }
+
         /// <summary>
         /// get absolute z-index by taking into accountall parent and sibling indices
         /// </summary>
@@ -58,147 +62,177 @@ namespace SharpKit.KineticJs
         /// </summary>
         /// <returns></returns>
         public object getAttrs() { return null; }
+
         /// <summary>
         /// get detection type
         /// </summary>
         /// <returns></returns>
         public DetectionType getDetectionType() { return null; }
+
         /// <summary>
         /// get drag bounds
         /// </summary>
         /// <returns></returns>
         public Bounds getDragBounds() { return null; }
+
         /// <summary>
         /// get drag constraint
         /// </summary>
         /// <returns></returns>
         public JsString getDragConstraint() { return null; }
+
         /// <summary>
         /// get draggable
         /// </summary>
         /// <returns></returns>
         public JsString getDraggable() { return null; }
+
         /// <summary>
         /// get id
         /// </summary>
         /// <returns></returns>
         public JsString getId() { return null; }
+
         /// <summary>
         /// get layer that contains the node
         /// </summary>
         /// <returns></returns>
-        public object getLayer() { return null; }
+        public Layer getLayer() { return null; }
+
         /// <summary>
         /// get node level in node tree
         /// </summary>
         /// <returns></returns>
         public object getLevel() { return null; }
+
         /// <summary>
         /// determine if listening to events or not
         /// </summary>
         /// <returns></returns>
         public bool getListening() { return false; }
+
         /// <summary>
         /// get name
         /// </summary>
         /// <returns></returns>
-        public object getName() { return null; }
+        public JsString getName() { return null; }
+
         /// <summary>
         /// get offset
         /// </summary>
         /// <returns></returns>
         public JsNumber getOffset() { return null; }
+
         /// <summary>
         /// get parent container
         /// </summary>
         /// <returns></returns>
         public object getParent() { return null; }
+
         /// <summary>
         /// get node position relative to container
         /// </summary>
         /// <returns></returns>
-        public object getPosition() { return null; }
+        public point getPosition() { return null; }
+
         /// <summary>
         /// get rotation in radians
         /// </summary>
         /// <returns></returns>
         public JsNumber getRotation() { return null; }
+
         /// <summary>
         /// get rotation in degrees
         /// </summary>
         /// <returns></returns>
         public JsNumber getRotationDeg() { return null; }
+
         /// <summary>
         /// get scale
         /// </summary>
         /// <returns></returns>
         public JsNumber getScale() { return null; }
+
         /// <summary>
         /// get stage that contains the node
         /// </summary>
         /// <returns></returns>
-        public object getStage() { return null; }
+        public Stage getStage() { return null; }
+
         /// <summary>
         /// get transform of the node while not takinginto account the transforms of its parents
         /// </summary>
         /// <returns></returns>
         public object getTransform() { return null; }
+
         /// <summary>
         /// get node x position
         /// </summary>
         /// <returns></returns>
         public JsNumber getX() { return null; }
+
         /// <summary>
         /// get node y position
         /// </summary>
         /// <returns></returns>
         public JsNumber getY() { return null; }
+
         /// <summary>
         /// get zIndex
         /// </summary>
         /// <returns></returns>
         public JsNumber getZIndex() { return null; }
+
         /// <summary>
         /// hide node
         /// </summary>
         public void hide() { }
+
         /// <summary>
         /// determine if node is currently in drag and drop mode
         /// </summary>
         public void isDragging() {}
+
         /// <summary>
         /// determine if shape is visible or not.
         /// Shape is visible onlyif it's visible and all of its ancestors are visible. If one ancestoris invisible, this means that the shape is also invisible
         /// </summary>
         public void isVisible() { }
+
         /// <summary>
         /// move node by an amount
         /// </summary>
         public void move() { }
+
         /// <summary>
         /// move node down
         /// </summary>
         public void moveDown() {}
+
         /// <summary>
         /// move node to another container
         /// </summary>
         /// <param name="newContainer"></param>
         /// <returns></returns>
         public object moveTo(Container newContainer) { return null; }
+
         /// <summary>
         /// move node to bottom
         /// </summary>
         public void moveToBottom() {}
+
         /// <summary>
         /// move node to top
         /// </summary>
         /// <returns></returns>
         public void moveToTop() {  }
+
         /// <summary>
         /// move node up
         /// </summary>
         /// <returns></returns>
         public void moveUp() { }
+
         /// <summary>
         /// remove event bindings from the node. Pass in a string ofevent types delimmited by a space to remove multiple eventbindings at once such as 'mousedown mouseup mousemove'.include a namespace to remove an event binding by namesuch as 'click.foobar'.
         /// </summary>
@@ -290,7 +324,7 @@ namespace SharpKit.KineticJs
         /// set node position
         /// </summary>
         /// <param name="point"></param>
-        public void setPosition(object point) { }
+        public void setPosition(point point) { }
 
         /// <summary>
         /// set node rotation in radians
@@ -348,7 +382,7 @@ namespace SharpKit.KineticJs
         /// </summary>
         /// <param name="config"></param>
         /// <returns></returns>
-        public object transitionTo(NodeConfig config) { return null; }
+        public Transition transitionTo(NodeConfig config) { return null; }
 
     }
 
@@ -876,26 +910,26 @@ namespace SharpKit.KineticJs
         /// get dash array
         /// </summary>
         /// <returns></returns>
-        public DashArray getDashArray() { return null; }
+        public JsArray<JsNumber> getDashArray() { return null; }
 
         /// <summary>
         /// get line cap
         /// </summary>
         /// <returns></returns>
-        //public LineCap getLineCap() { return null; }
+        public LineCap getLineCap() { return 0; }
         //don't know what happend here. shows an error 
 
         /// <summary>
         /// get points array
         /// </summary>
         /// <returns></returns>
-        public SetPointsNumbers getPoints() { return null; }
+        public point getPoints() { return null; }
 
         /// <summary>
         /// set dash array.
         /// </summary>
         /// <param name="dashArray"></param>
-        public void setDashArray(JsArray<DashArray> dashArray) { }
+        public void setDashArray(JsArray<JsNumber> dashArray) { }
 
         /// <summary>
         /// set line cap. Can be butt, round, or square
@@ -907,40 +941,13 @@ namespace SharpKit.KineticJs
         /// set points array
         /// </summary>
         /// <param name="can">be an array of point objects or an array of Numbers. e.g. [{x:1,y:2},{x:3,y:4}] or [1,2,3,4]</param>
-        public void setPoints(JsArray<SetPointsNumbers> can) { }
+        public void setPoints(JsArray<point> can) { }
 
         /// <summary>
         /// set points array
         /// </summary>
         /// <param name="can">be an array of point objects or an array of Numbers. e.g. [{x:1,y:2},{x:3,y:4}] or [1,2,3,4]</param>
-        public void setPoints(JsArray<SetPointsObjects> can) { }
-
-
-
-
-    }
-
-    /// <summary>
-    /// dash array.
-    /// </summary>
-    /// <example>
-    /// usage
-    /// <code>
-    /// [10, 5] dashes are 10px long and 5 pixels apart [10, 20, 0, 20] if using a round lineCap,
-    /// the line will be made up of alternating dashed lines that are 10px long and 20px apart,
-    /// and dots that have a radius of 5 and are 20px apart
-    /// </code>
-    /// </example>
-    public class DashArray
-    {
-        public JsNumber length { get; set; }
-
-        public JsNumber distance { get; set; }
-
-        public JsNumber dotsLength { get; set; }
-
-        public JsNumber dotsDistance { get; set; }
-
+        public void setPoints(JsArray<JsNumber> can) { }
     }
 
     public enum LineCap
@@ -950,23 +957,12 @@ namespace SharpKit.KineticJs
         square,
     }
 
-    public class SetPointsNumbers
+    public class point
     {
         public JsNumber x { get; set; }
         public JsNumber y { get; set; }
-        public JsNumber x2 { get; set; }
-        public JsNumber y2 { get; set; }
-
     }
 
-    public class SetPointsObjects
-    {
-        public object x { get; set; }
-        public object y { get; set; }
-        public object x2 { get; set; }
-        public object y2 { get; set; }
-
-    }
 
     public class Path : Shape
     {
@@ -1017,13 +1013,13 @@ namespace SharpKit.KineticJs
         /// get points array
         /// </summary>
         /// <returns></returns>
-        public SetPointsObjects getPoints() { return null; }
+        public point getPoints() { return null; }
 
         /// <summary>
         /// set points array
         /// </summary>
         /// <param name="can">be an array of point objects or an array of Numbers. e.g. [{x:1,y:2},{x:3,y:4}] or [1,2,3,4]</param>
-        public void setPoints(JsArray<SetPointsNumbers> can) { }
+        public void setPoints(JsArray<point> can) { }
 
     }
 
@@ -1204,7 +1200,7 @@ namespace SharpKit.KineticJs
 
     }
 
-    public class Stage : Shape //:Container
+    public class Stage : Shape
     {
         /// <summary>
         /// Stage constructor. A stage is used to contain multiple layers and handleanimations
@@ -1213,7 +1209,14 @@ namespace SharpKit.KineticJs
         /// <param name="width"></param>
         /// <param name="height"></param>
         public Stage (JsString cont, JsNumber width, JsNumber height){}
-        //TODO:"Container id or DOM element"
+
+        /// <summary>
+        /// Stage constructor. A stage is used to contain multiple layers and handleanimations
+        /// </summary>
+        /// <param name="cont">Container id or DOM element</param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        public Stage (HtmlElement cont, JsNumber width, JsNumber height){}
 
         /// <summary>
         /// Stage constructor. A stage is used to contain multiple layers and handleanimations
@@ -1234,7 +1237,7 @@ namespace SharpKit.KineticJs
         /// get container DOM element
         /// </summary>
         /// <returns></returns>
-        public Container getContainer () { return null; }
+        public HtmlElement getContainer () { return null; }
         //TODO: return type?
 
         /// <summary>
@@ -1255,14 +1258,13 @@ namespace SharpKit.KineticJs
         /// </summary>
         /// <param name="evt"></param>
         /// <returns></returns>
-        public object getMousePosition(object evt) { return null; }
-        //TODO: evt type was Event
+        public object getMousePosition(HtmlDomEventArgs evt) { return null; }
 
         /// <summary>
         /// return stage size
         /// </summary>
         /// <returns></returns>
-        public JsNumber getSize() { return null; }
+        public Size getSize() { return null; }
 
         /// <summary>
         /// get stage
@@ -1270,5 +1272,386 @@ namespace SharpKit.KineticJs
         /// <returns></returns>
         public object getStage() { return null; }
 
+        /// <summary>
+        /// get throttle
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getThrottle() { return null; }
+
+        /// <summary>
+        /// get touch position for mobile apps
+        /// </summary>
+        /// <param name="evt"></param>
+        /// <returns></returns>
+        public object getTouchPosition(HtmlDomEventArgs evt) { return null; }
+
+        /// <summary>
+        /// get user position (mouse position or touch position)
+        /// </summary>
+        /// <param name="evt"></param>
+        /// <returns></returns>
+        public object getUserPosition(HtmlDomEventArgs evt) { return null; }
+
+        /// <summary>
+        /// get width
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getWidth() { return null; }
+
+        /// <summary>
+        /// load stage with JSON string. De-serializtion does not generate custom shape drawing functions, images, or event handlers (this would make the	serialized object huge).
+        /// If your app uses custom shapes, images, and event handlers (it probably does),
+        /// then you need to select the appropriate shapes after loading the stage and set these properties via on(), setDrawFunc(), and setImage()
+        /// </summary>
+        /// <param name="JSON"></param>
+        public void load(JsString JSON) { }
+
+        /// <summary>
+        /// sets onFrameFunc for animation
+        /// </summary>
+        /// <param name="func"></param>
+        public void onFrame(JsFunction func) { }
+
+        /// <summary>
+        /// reset stage to default state
+        /// </summary>
+        public void reset() { }
+
+        /// <summary>
+        /// set height
+        /// </summary>
+        /// <param name="height"></param>
+        public void setHeight(JsNumber height) { }
+
+        /// <summary>
+        /// set stage size
+        /// </summary>
+        /// <param name="size"></param>
+        public void setSize(Size size) { }
+        //TODO: orginly no parameters
+
+        /// <summary>
+        /// set throttle. Increasing the throttle will increase the number of mousemove and touchmove event detections,
+        /// and decreasing the throttle will decrease the number of mousemove and touchmove events which improves performance
+        /// </summary>
+        /// <param name="throttle"></param>
+        public void setThrottle(JsNumber throttle) { }
+
+        /// <summary>
+        /// set width
+        /// </summary>
+        /// <param name="width"></param>
+        public void setWidth(JsNumber width) { }
+
+        /// <summary>
+        /// start animation
+        /// </summary>
+        public void start() { }
+
+        /// <summary>
+        /// stop  animation
+        /// </summary>
+        public void stop() { }
+
+        /// <summary>
+        /// Creates a composite data URL and passes it to a callback.
+        /// If MIME type is notspecified, then "image/png" will result. For "image/jpeg", specify a qualitylevel as quality (range 0.0 - 1.0)
+        /// </summary>
+        /// <param name="callback"></param>
+        /// <param name="mimeType"></param>
+        /// <param name="quality"></param>
+        public void toDataURL(ToDataURLCB callback, JsString mimeType, JsNumber quality) { }
+
+        /// <summary>
+        /// Creates a composite data URL and passes it to a callback.
+        /// If MIME type is notspecified, then "image/png" will result. For "image/jpeg", specify a qualitylevel as quality (range 0.0 - 1.0)
+        /// </summary>
+        /// <param name="callback"></param>
+        public void toDataURL(ToDataURLCB callback) { }
+
+        /// <summary>
+        /// serialize stage and children as a JSON object
+        /// </summary>
+        public void toJSON() { }
+
+    }
+
+    public delegate void ToDataURLCB(JsAction callback);
+    //TODO: danel chack
+
+    public class Star : Shape
+    {
+        /// <summary>
+        /// Star constructor
+        /// </summary>
+        /// <param name="config"></param>
+        public Star(object config) { }
+
+        /// <summary>
+        /// Star constructor
+        /// </summary>
+        public Star() { }
+
+        /// <summary>
+        /// get inner radius
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getInnerRadius() { return null; }
+
+        /// <summary>
+        /// get number of points
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getNumPoints() { return null; }
+
+        /// <summary>
+        /// get outer radius
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getOuterRadius() { return null; }
+
+        /// <summary>
+        /// set inner radius
+        /// </summary>
+        /// <param name="radius"></param>
+        public void setInnerRadius(JsNumber radius) { }
+
+        /// <summary>
+        /// set number of points
+        /// </summary>
+        /// <param name="points"></param>
+        public void setNumPoints(JsNumber points) { }
+
+        /// <summary>
+        /// set outer radius
+        /// </summary>
+        /// <param name="radius"></param>
+        public void setOuterRadius(JsNumber radius) { }
+    }
+
+    public class Transition
+    {
+        /// <summary>
+        /// Transition constructor. The transitionTo() Node method returns a reference to the transition object which you can use to stop, resume, or restart the transition
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="config"></param>
+        public Transition(Node node, object config) { }
+
+        /// <summary>
+        /// Transition constructor. The transitionTo() Node method returns a reference to the transition object which you can use to stop, resume, or restart the transition
+        /// </summary>
+        public Transition() { }
+        /// <summary>
+        /// resume transition
+        /// </summary>
+        public void resume() { }
+        /// <summary>
+        /// start transition
+        /// </summary>
+        public void start() { }
+        /// <summary>
+        /// stop transition
+        /// </summary>
+        public void stop() { }
+    }
+
+    public class Text : Shape
+    {
+        /// <summary>
+        /// get horizontal align
+        /// </summary>
+        /// <returns></returns>
+        public AlignOptions getAlign() { return 0; }
+        //TODO: { return 0; }?
+
+        /// <summary>
+        /// get box height
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getBoxHeight() { return null; }
+
+        /// <summary>
+        /// get box width
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getBoxWidth() { return null; }
+
+        /// <summary>
+        /// get font family
+        /// </summary>
+        /// <returns></returns>
+        public JsString getFontFamily() { return null; }
+
+        /// <summary>
+        /// get font size
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getFontSize() { return null; }
+
+        /// <summary>
+        /// get font style
+        /// </summary>
+        /// <returns></returns>
+        public FontStyle getFontStyle() { return 0; }
+        //TODO: { return 0; }?
+
+        /// <summary>
+        /// get height of text box
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getHeight() { return null; }
+
+        /// <summary>
+        /// get line height
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getLineHeight() { return null; }
+
+        /// <summary>
+        /// get padding
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getPadding() { return null; }
+
+        /// <summary>
+        /// get shadow of text or textbox
+        /// </summary>
+        /// <returns></returns>
+        public object getShadow() { return null; }
+
+        /// <summary>
+        /// get text
+        /// </summary>
+        /// <returns></returns>
+        public JsString getText() { return null; }
+
+        /// <summary>
+        /// get text fill color
+        /// </summary>
+        /// <returns></returns>
+        public JsString getTextFill() { return null; }
+
+        /// <summary>
+        /// get text height in pixels
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getTextHeight() { return null; }
+
+        /// <summary>
+        /// get text stroke color
+        /// </summary>
+        /// <returns></returns>
+        public JsString getTextStroke() { return null; }
+
+        /// <summary>
+        /// get text stroke width
+        /// </summary>
+        /// <returns></returns>
+        public JsString getTextStrokeWidth() { return null; }
+
+        /// <summary>
+        /// get text width in pixels
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getTextWidth() { return null; }
+
+        /// <summary>
+        /// get width of text box
+        /// </summary>
+        /// <returns></returns>
+        public JsString getWidth() { return null; }
+
+        /// <summary>
+        /// align can be 'left', 'center', or 'right'
+        /// </summary>
+        /// <param name="align"></param>
+        public void setAlign(AlignOptions align) { }
+
+        /// <summary>
+        /// set font family
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        public void setFontFamily(JsString fontFamily) { }
+
+        /// <summary>
+        /// set font size
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        public void setFontSize(JsNumber fontSize) { }
+
+        /// <summary>
+        /// set text stroke color
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        public void setFontStroke(JsString textStroke) { }
+
+        /// <summary>
+        /// set font style. Can be "normal", "italic", or "bold". "normal" is the default.
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        public void setFontStyle(FontStyle fontStyle) { }
+
+        /// <summary>
+        /// set height of text box
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        public void setHeight(JsNumber height) { }
+
+        /// <summary>
+        /// set line height
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        public void setLineHeight(JsNumber lineHeight) { }
+
+        /// <summary>
+        /// set padding
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        public void setPadding(JsNumber padding) { }
+
+        /// <summary>
+        /// set shadow of text or textbox
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        public void setShadow(object config) { }
+
+        /// <summary>
+        /// set text
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        public void setText(JsString text) { }
+
+        /// <summary>
+        /// set text fill color
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        public void setTextFill(JsString textFill) { }
+
+        /// <summary>
+        /// set text stroke width
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        public void setTextStrokeWidth(JsNumber textStrokeWidth) { }
+
+        /// <summary>
+        /// set width of text box
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        public void setWidth(JsNumber width) { }
+    }
+
+    public enum AlignOptions
+    {
+        left,
+        center,
+        right,
+    }
+
+    public enum FontStyle
+    {
+        normal,
+        italic,
+        ,
     }
 }
