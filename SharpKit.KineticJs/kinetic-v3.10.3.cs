@@ -12,7 +12,7 @@ namespace SharpKit.KineticJs
         /// Node constructor.  Nodes are entities that can be transformed, layered,and have events bound to them. They are the building blocks of a KineticJSapplication
         /// </summary>
         /// <param name="config"></param>
-        public Node(object config) { }
+        public Node(NodeConfig config) { }
         //TODO: danel did this one. whay not constructor?
 
         /// <summary>
@@ -344,14 +344,9 @@ namespace SharpKit.KineticJs
         /// </summary>
         /// <param name="config"></param>
         /// <returns></returns>
-        public object transitionTo(Config config) { return null; }
+        public object transitionTo(NodeConfig config) { return null; }
 
     }
-
-    public class Container
-    {
-    }
-    //TODO:   ADD: Node
 
     public class XYProperty
     {
@@ -385,7 +380,7 @@ namespace SharpKit.KineticJs
         public JsNumber bottom { get; set; }
     }
 
-    public class Config
+    public class NodeConfig
     {
         /// <summary>
         /// Optional. duration that the transition runs in seconds
@@ -410,4 +405,132 @@ namespace SharpKit.KineticJs
     /// <param name="callback"></param>
     public delegate void ConfigCB(JsAction callback);
     //TODO: danel chack
+
+    public class Container
+    {
+        /// <summary>
+        /// Container constructor.  Containers are used to contain nodes or other containers
+        /// </summary>
+        /// <param name="config"></param>
+        public Container(object config) { }
+
+        /// <summary>
+        /// add node to container
+        /// </summary>
+        /// <param name="child"></param>
+        public void add(Node child) { }
+
+        /// <summary>
+        /// return an array of nodes that match the selector. Use '#' for id selectionsand '.' for name selectionsex:var node = stage.get('#foo'); // selects node with id foovar nodes = layer.get('.bar'); // selects nodes with name bar inside layer
+        /// </summary>
+        /// <param name="selector"></param>
+        /// <returns></returns>
+        public JsArray get(JsString selector) { return null; }
+
+        /// <summary>
+        /// get children
+        /// </summary>
+        /// <returns></returns>
+        public object getChildren() { return null; }
+
+        /// <summary>
+        /// get shapes that intersect a point
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        public object getIntersections(object point) { return null; }
+
+        /// <summary>
+        /// determine if node is an ancestorof descendant
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public object isAncestorOf(Node node) { return null; }
+
+        /// <summary>
+        /// remove child from container
+        /// </summary>
+        /// <param name="child"></param>
+        /// <returns></returns>
+        public object remove(Node child) { return null; }
+
+        /// <summary>
+        /// remove all childrenremove all children
+        /// </summary>
+        public void removeChildren() { }
+    }
+    //TODO:   ADD: Node, add constructor
+
+    public class Shape
+    {
+        /// <summary>
+        /// Shape constructor. Shapes are used to objectify drawing bits of a KineticJSapplication
+        /// </summary>
+        /// <param name="config"></param>
+        public Shape(ShapeConfig config) { }
+        /// <summary>
+        /// helper method to set the line join of a shapebased on the lineJoin property
+        /// </summary>
+        public void applyLineJoin() { }
+
+        /// <summary>
+        /// helper method to draw an image and applya shadow if neede
+        /// </summary>
+        public void drawImage() { }
+
+        /// <summary>
+        /// helper method to fill the shape with a color, linear gradient,radial gradient, or pattern, and also apply shadows if needed
+        /// </summary>
+        public void fill() { }
+
+
+    }
+        
+    /// <summary>
+    /// Shape constructor. Shapes are used to objectify drawing bits of a KineticJSapplication
+    /// </summary>
+    public class ShapeConfig
+    {
+        /// <summary>
+        /// Optional. can be a string color, a linear gradient object, a radial gradient object, or a pattern object.
+        /// </summary>
+        public JsString fill  { get; set; }
+
+        /// <summary>
+        /// Optional. can be a string color, a linear gradient object, a radial gradient object, or a pattern object.
+        /// </summary>
+        public object fill { get; set; }
+
+        /// <summary>
+        /// Optional.stroke color
+        /// </summary>
+        public JsString stroke  { get; set; }
+
+        /// <summary>
+        /// Optional.stroke width
+        /// </summary>
+        public JsNumber strokeWidth  { get; set; }
+
+        /// <summary>
+        /// Optional.line join can be "miter", "round", or "bevel". The default is "miter"
+        /// </summary>
+        public LineJoinOptions lineJoin { get; set; }
+
+        /// <summary>
+        /// Optional.shadow object
+        /// </summary>
+        public object shadow { get; set; }
+
+        /// <summary>
+        /// Optional. shape detection type. Can be "path" or "pixel". The default is "path" because it performs better
+        /// </summary>
+        public Type detectionType  { get; set; }
+    }
+
+    public enum LineJoinOptions
+    {
+        miter,
+        round,
+        bevel,
+    }
 }
