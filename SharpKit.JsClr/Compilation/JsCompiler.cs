@@ -282,19 +282,20 @@ namespace SharpKit.JavaScript.Compilation
                     }
                     if (currentType.ctor == null && currentType.ctors != null)
                     {
-                        var createCtor = true;
-                        foreach (var p in currentType.ctors)
-                        {
-                            createCtor = false;
-                            break;
-                        }
-                        if (createCtor)
-                        {
+                        //create default ctor anyway for generic argument passing, etc...
+                        //var createCtor = true;
+                        //foreach (var p in currentType.ctors)
+                        //{
+                        //    createCtor = false;
+                        //    break;
+                        //}
+                        //if (createCtor)
+                        //{
                             if (currentType.baseType != null)
                                 currentType.ctor = CreateBaseCtor();
                             else
                                 currentType.ctor = CreateEmptyCtor();
-                        }
+                        //}
                     }
                     if (currentType.ctor != null)
                     {
