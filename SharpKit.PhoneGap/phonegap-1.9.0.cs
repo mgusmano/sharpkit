@@ -745,7 +745,7 @@ namespace SharpKit.PhoneGap
         /// //navigator.compass.getCurrentHeading(onSuccess, onError);
         /// </code>
         /// </example>
-        public void getCurrentHeading(compassSuccess compassSuccess, CompassError compassError, compassOptions compassOptions) { }
+        public void getCurrentHeading(compassSuccess compassSuccess, CompassError compassError, CompassOptions compassOptions) { }
         /// <summary>
         /// At a regular interval, get the compass heading in degrees.
         /// </summary>
@@ -766,7 +766,7 @@ namespace SharpKit.PhoneGap
         ///var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
         /// </code>
         /// </example>
-        public JsString watchHeading(compassSuccess compassSuccess, CompassError compassError, compassOptions compassOptions) { return null; }
+        public JsString watchHeading(compassSuccess compassSuccess, CompassError compassError, CompassOptions compassOptions) { return null; }
         /// <summary>
         /// Stop watching the compass referenced by the watch ID parameter.
         /// </summary>
@@ -824,7 +824,8 @@ namespace SharpKit.PhoneGap
     /// <summary>
     /// An optional parameter to customize the retrieval of the compass.
     /// </summary>
-    public class compassOptions
+    [JsType(JsMode.Json)]
+    public class CompassOptions
     {
         /// <summary>
         ///  How often to retrieve the compass heading in milliseconds.(Default: 100)
@@ -1163,6 +1164,7 @@ namespace SharpKit.PhoneGap
     ///navigator.contacts.find(filter, onSuccess, onError, options);
     /// </code>
     /// </example>
+    [JsType(JsMode.Json)]
     public class ContactFindOptions
     {
         /// <summary>
@@ -3567,9 +3569,20 @@ namespace SharpKit.PhoneGap
         public Database openDatabase(JsString database_name, JsString database_version, JsString database_displayname, JsNumber database_size) { return null; }
     }
 
-
-    public class DocumentEx
+    /// <summary>
+    /// All PhoneGap events, in order to use, invisibly cast a document object to this (Events) type:
+    /// <example>
+    /// <code>
+    /// var doc = HtmlContext.document.As&lt;Events&gt;();
+    /// doc.deviceready += () => HtmlContext.alert("Deviceready");
+    /// </code></example>
+    /// </summary>
+    public class Events
     {
+        [JsMethod(Name="document")]
+        public Events()
+        {
+        }
         /// <summary>
         /// This is an event that fires when Cordova is fully loaded.
         /// </summary>
@@ -3663,7 +3676,7 @@ namespace SharpKit.PhoneGap
         /// <summary>
         /// This is an event that fires when a Cordova application detects the battery has reached the critical level threshold.
         /// </summary>
-        public event JsAction<BatteryCritical> batterycritical
+        public event JsAction<BatteryStatus> batterycritical
         {
             [JsMethod(Name = "addEventListener", InsertArg0 = "\"batterycritical\"", InsertArg2 = "false")]
             add
@@ -3678,7 +3691,7 @@ namespace SharpKit.PhoneGap
         /// <summary>
         /// This is an event that fires when a Cordova application detects the battery has reached the low level threshold.
         /// </summary>
-        public event JsAction<Batterylow> batterylow
+        public event JsAction<BatteryStatus> batterylow
         {
             [JsMethod(Name = "addEventListener", InsertArg0 = "\"batterylow\"", InsertArg2 = "false")]
             add
@@ -3693,7 +3706,7 @@ namespace SharpKit.PhoneGap
         /// <summary>
         /// This is an event that fires when a Cordova application detects the battery has reached the low level threshold.
         /// </summary>
-        public event JsAction<Batterylow> batterystatus
+        public event JsAction<BatteryStatus> batterystatus
         {
             [JsMethod(Name = "addEventListener", InsertArg0 = "\"batterystatus\"", InsertArg2 = "false")]
             add
@@ -3797,39 +3810,9 @@ namespace SharpKit.PhoneGap
     }
 
     /// <summary>
-    /// The batterycritical handler will be called with an object that contains two properties:
-    /// </summary>
-    public class BatteryCritical
-    {
-        /// <summary>
-        /// The percentage of battery (0-100).
-        /// </summary>
-        public JsNumber level { get; set; }
-        /// <summary>
-        ///  A boolean that represents whether or not the device is plugged in or not.
-        /// </summary>
-        public bool isPlugged { get; set; }
-    }
-
-    /// <summary>
-    /// The batterylow handler will be called with an object that contains two properties:
-    /// </summary>
-    public class Batterylow
-    {
-        /// <summary>
-        /// The percentage of battery (0-100).
-        /// </summary>
-        public JsNumber level { get; set; }
-        /// <summary>
-        ///  A boolean that represents whether or not the device is plugged in or not.
-        /// </summary>
-        public bool isPlugged { get; set; }
-    }
-
-    /// <summary>
     /// The battery status handler will be called with an object that contains two properties:
     /// </summary>
-    public class Batterystatus
+    public class BatteryStatus
     {
         /// <summary>
         /// The percentage of battery (0-100).
@@ -3841,25 +3824,4 @@ namespace SharpKit.PhoneGap
         public bool isPlugged { get; set; }
     }
 
-
-    //[JsType(JsMode.Json)]
-    //[JsEnum(ValuesAsNames=true)]
-    //public enum EventTypes
-    //{
-    //    deviceready,
-    //    pause,
-    //    resume,
-    //    online,
-    //    offline,
-    //    backbutton,
-    //    batterycritical,
-    //    batterylow,
-    //    batterystatus,
-    //    menubutton,
-    //    searchbutton,
-    //    startcallbutton,
-    //    endcallbutton,
-    //    volumedownbutton,
-    //    volumeupbutton,
-    //}
 }
