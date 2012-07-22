@@ -149,6 +149,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.PhoneGap", "SharpK
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneGapSamples", "PhoneGapSamples\PhoneGapSamples.csproj", "{9AD749CD-B851-420F-AD71-D10CB7681065}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.KineticJs", "SharpKit.KineticJs\SharpKit.KineticJs.csproj", "{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -1357,6 +1359,26 @@ Global
 		{9AD749CD-B851-420F-AD71-D10CB7681065}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9AD749CD-B851-420F-AD71-D10CB7681065}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
 		{9AD749CD-B851-420F-AD71-D10CB7681065}.v4.0|x86.ActiveCfg = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.Release|x86.ActiveCfg = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v3.5|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v3.5|Mixed Platforms.Build.0 = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v3.5|x86.ActiveCfg = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
+		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v4.0|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
