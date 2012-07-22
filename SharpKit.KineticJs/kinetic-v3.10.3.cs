@@ -93,7 +93,7 @@ namespace SharpKit.KineticJs
         /// determine if listening to events or not
         /// </summary>
         /// <returns></returns>
-        public bool getListening() { return null; }
+        public bool getListening() { return false; }
         /// <summary>
         /// get name
         /// </summary>
@@ -348,9 +348,10 @@ namespace SharpKit.KineticJs
 
     }
 
-    public class Container : Node
+    public class Container
     {
     }
+    //TODO:   ADD: Node
 
     public class XYProperty
     {
