@@ -2985,77 +2985,77 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Returns whether event.stopImmediatePropagation() was ever called on this event object.
         /// </summary>
-        public static bool isImmediatePropagationStopped() { return false; }
+        public bool isImmediatePropagationStopped() { return false; }
         /// <summary>
         /// Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree.
         /// </summary>
-        public static void stopImmediatePropagation() { }
+        public void stopImmediatePropagation() { }
         /// <summary>
         /// Returns whether event.stopPropagation() was ever called on this event object.
         /// </summary>
-        public static bool isPropagationStopped() { return false; }
+        public bool isPropagationStopped() { return false; }
         /// <summary>
         /// Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
         /// </summary>
-        public static void stopPropagation() { }
+        public void stopPropagation() { }
         /// <summary>
         /// Returns whether event.preventDefault() was ever called on this event object.
         /// </summary>
-        public static bool isDefaultPrevented() { return false; }
+        public bool isDefaultPrevented() { return false; }
         /// <summary>
         /// If this method is called, the default action of the event will not be triggered.
         /// </summary>
-        public static void preventDefault() { }
+        public void preventDefault() { }
         /// <summary>
         /// The namespace specified when the event was triggered.
         /// </summary>
-        public static JsString @namespace { get; set; }
+        public JsString @namespace { get; set; }
         /// <summary>
         /// The difference in milliseconds between the time an event is triggered and January 1, 1970.
         /// </summary>
-        public static JsNumber timeStamp { get; set; }
+        public JsNumber timeStamp { get; set; }
         /// <summary>
         /// The last value returned by an event handler that was triggered by this event, unless the value was undefined.
         /// </summary>
-        public static object result { get; set; }
+        public object result { get; set; }
         /// <summary>
         /// For key or button events, this attribute indicates the specific button or key that was pressed.
         /// </summary>
-        public static JsNumber which { get; set; }
+        public JsNumber which { get; set; }
         /// <summary>
         /// The mouse position relative to the top edge of the document.
         /// </summary>
-        public static JsNumber pageY { get; set; }
+        public JsNumber pageY { get; set; }
         /// <summary>
         /// The mouse position relative to the left edge of the document.
         /// </summary>
-        public static JsNumber pageX { get; set; }
+        public JsNumber pageX { get; set; }
         /// <summary>
         /// The current DOM element within the event bubbling phase.
         /// </summary>
-        public static HtmlElement currentTarget { get; set; }
+        public HtmlElement currentTarget { get; set; }
         /// <summary>
         /// The other DOM element involved in the event, if any.
         /// </summary>
-        public static HtmlElement relatedTarget { get; set; }
+        public HtmlElement relatedTarget { get; set; }
         /// <summary>
         /// The optional data passed to jQuery.fn.bind when the current executing handler was bound.
         /// </summary>
-        public static object data { get; set; }
+        public object data { get; set; }
         /// <summary>
         /// The element where the currently-called jQuery event handler was attached.
         /// </summary>
-        public static object delegateTarget { get; set; }
+        public object delegateTarget { get; set; }
         //TODO: added by may
 
         /// <summary>
         /// The DOM element that initiated the event.
         /// </summary>
-        public static HtmlElement target { get; set; }
+        public HtmlElement target { get; set; }
         /// <summary>
         /// Describes the nature of the event.
         /// </summary>
-        public static JsString type { get; set; }
+        public JsString type { get; set; }
         /// <summary>
         /// Certain native events may have special properties that can be accessed as properties of the event.originalEvent object. To make special properties available in all event objects, we can add them to the jQuery.event.props array.
         /// </summary>
