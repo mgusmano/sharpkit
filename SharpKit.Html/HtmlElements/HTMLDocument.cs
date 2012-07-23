@@ -3,128 +3,128 @@
 namespace SharpKit.Html
 {
 
-using SharpKit.JavaScript;
+	using SharpKit.JavaScript;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
-public partial class HtmlDocument
-{
+	[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true)]
+	public partial class HtmlDocument
+	{
 
-	// HTMLDocument
-	public Location location {get; set; }
-	public JsString URL {get; private set; }
-	public JsString domain {get; set; }
-	public JsString referrer {get; private set; }
-	public JsString cookie {get; set; }
-	public JsString lastModified {get; private set; }
-	public JsString compatMode {get; private set; }
-	public JsString charset {get; set; }
-	public JsString characterSet {get; private set; }
-	public JsString defaultCharset {get; private set; }
-	public JsString readyState {get; private set; }
-	public object getElement(string name) { return default(object); }
-	public JsString title {get; set; }
-	public JsString dir {get; set; }
-	public HtmlElement body {get; set; }
-	public HtmlHeadElement head {get; private set; }
-	public HtmlCollection images {get; private set; }
-	public HtmlCollection embeds {get; private set; }
-	public HtmlCollection plugins {get; private set; }
-	public HtmlCollection links {get; private set; }
-	public HtmlCollection forms {get; private set; }
-	public HtmlCollection scripts {get; private set; }
-	public NodeList getElementsByName(string elementName) { return default(NodeList); }
-	public NodeList getElementsByClassName(string classNames) { return default(NodeList); }
-	public JsString innerHTML {get; set; }
-	public HtmlDocument open() { return default(HtmlDocument); }
-	public HtmlDocument open(string type) { return default(HtmlDocument); }
-	public HtmlDocument open(string type, string replace) { return default(HtmlDocument); }
-	public Window open(string url, string name, string features) { return default(Window); }
-	public Window open(string url, string name, string features, bool replace) { return default(Window); }
-	public void close() {}
-	public void write(params string[] text) {}
-	public void writeln(params string[] text) {}
-	public Selection selection {get; private set; }
-	public Element activeElement {get; private set; }
-	public bool hasFocus() { return default(bool); }
-	public JsString designMode {get; set; }
-	public bool execCommand(string commandId) { return default(bool); }
-	public bool execCommand(string commandId, bool showUI) { return default(bool); }
-	public bool execCommand(string commandId, bool showUI, string value) { return default(bool); }
-	public bool queryCommandEnabled(string commandId) { return default(bool); }
-	public bool queryCommandIndeterm(string commandId) { return default(bool); }
-	public bool queryCommandState(string commandId) { return default(bool); }
-	public bool queryCommandSupported(string commandId) { return default(bool); }
-	public JsString queryCommandValue(string commandId) { return default(JsString); }
-	public HtmlCollection commands {get; private set; }
-	public JsAction onabort {get; set; }
-	public JsAction onblur {get; set; }
-	public JsAction oncanplay {get; set; }
-	public JsAction oncanplaythrough {get; set; }
-	public JsAction onchange {get; set; }
-	public JsAction onclick {get; set; }
-	public JsAction oncontextmenu {get; set; }
-	public JsAction ondblclick {get; set; }
-	public JsAction ondrag {get; set; }
-	public JsAction ondragend {get; set; }
-	public JsAction ondragenter {get; set; }
-	public JsAction ondragleave {get; set; }
-	public JsAction ondragover {get; set; }
-	public JsAction ondragstart {get; set; }
-	public JsAction ondrop {get; set; }
-	public JsAction ondurationchange {get; set; }
-	public JsAction onemptied {get; set; }
-	public JsAction onended {get; set; }
-	public JsAction onerror {get; set; }
-	public JsAction onfocus {get; set; }
-	public JsAction onformchange {get; set; }
-	public JsAction onforminput {get; set; }
-	public JsAction oninput {get; set; }
-	public JsAction oninvalid {get; set; }
-	public JsAction onkeydown {get; set; }
-	public JsAction onkeypress {get; set; }
-	public JsAction onkeyup {get; set; }
-	public JsAction onload {get; set; }
-	public JsAction onloadeddata {get; set; }
-	public JsAction onloadedmetadata {get; set; }
-	public JsAction onloadstart {get; set; }
-	public JsAction onmousedown {get; set; }
-	public JsAction onmousemove {get; set; }
-	public JsAction onmouseout {get; set; }
-	public JsAction onmouseover {get; set; }
-	public JsAction onmouseup {get; set; }
-	public JsAction onmousewheel {get; set; }
-	public JsAction onpause {get; set; }
-	public JsAction onplay {get; set; }
-	public JsAction onplaying {get; set; }
-	public JsAction onprogress {get; set; }
-	public JsAction onratechange {get; set; }
-	public JsAction onreadystatechange {get; set; }
-	public JsAction onscroll {get; set; }
-	public JsAction onseeked {get; set; }
-	public JsAction onseeking {get; set; }
-	public JsAction onselect {get; set; }
-	public JsAction onshow {get; set; }
-	public JsAction onstalled {get; set; }
-	public JsAction onsubmit {get; set; }
-	public JsAction onsuspend {get; set; }
-	public JsAction ontimeupdate {get; set; }
-	public JsAction onvolumechange {get; set; }
-	public JsAction onwaiting {get; set; }
+		// HTMLDocument
+		public Location location { get; set; }
+		public JsString URL { get; private set; }
+		public JsString domain { get; set; }
+		public JsString referrer { get; private set; }
+		public JsString cookie { get; set; }
+		public JsString lastModified { get; private set; }
+		public JsString compatMode { get; private set; }
+		public JsString charset { get; set; }
+		public JsString characterSet { get; private set; }
+		public JsString defaultCharset { get; private set; }
+		public JsString readyState { get; private set; }
+		public object getElement(string name) { return default(object); }
+		public JsString title { get; set; }
+		public JsString dir { get; set; }
+		public HtmlElement body { get; set; }
+		public HtmlHeadElement head { get; private set; }
+		public HtmlCollection images { get; private set; }
+		public HtmlCollection embeds { get; private set; }
+		public HtmlCollection plugins { get; private set; }
+		public HtmlCollection links { get; private set; }
+		public HtmlCollection forms { get; private set; }
+		public HtmlCollection scripts { get; private set; }
+		public NodeList getElementsByName(string elementName) { return default(NodeList); }
+		public NodeList getElementsByClassName(string classNames) { return default(NodeList); }
+		public JsString innerHTML { get; set; }
+		public HtmlDocument open() { return default(HtmlDocument); }
+		public HtmlDocument open(string type) { return default(HtmlDocument); }
+		public HtmlDocument open(string type, string replace) { return default(HtmlDocument); }
+		public Window open(string url, string name, string features) { return default(Window); }
+		public Window open(string url, string name, string features, bool replace) { return default(Window); }
+		public void close() { }
+		public void write(params string[] text) { }
+		public void writeln(params string[] text) { }
+		public Selection selection { get; private set; }
+		public Element activeElement { get; private set; }
+		public bool hasFocus() { return default(bool); }
+		public JsString designMode { get; set; }
+		public bool execCommand(string commandId) { return default(bool); }
+		public bool execCommand(string commandId, bool showUI) { return default(bool); }
+		public bool execCommand(string commandId, bool showUI, string value) { return default(bool); }
+		public bool queryCommandEnabled(string commandId) { return default(bool); }
+		public bool queryCommandIndeterm(string commandId) { return default(bool); }
+		public bool queryCommandState(string commandId) { return default(bool); }
+		public bool queryCommandSupported(string commandId) { return default(bool); }
+		public JsString queryCommandValue(string commandId) { return default(JsString); }
+		public HtmlCollection commands { get; private set; }
+		public EventListener onabort { get; set; }
+		public EventListener onblur { get; set; }
+		public EventListener oncanplay { get; set; }
+		public EventListener oncanplaythrough { get; set; }
+		public EventListener onchange { get; set; }
+		public EventListener onclick { get; set; }
+		public EventListener oncontextmenu { get; set; }
+		public EventListener ondblclick { get; set; }
+		public EventListener ondrag { get; set; }
+		public EventListener ondragend { get; set; }
+		public EventListener ondragenter { get; set; }
+		public EventListener ondragleave { get; set; }
+		public EventListener ondragover { get; set; }
+		public EventListener ondragstart { get; set; }
+		public EventListener ondrop { get; set; }
+		public EventListener ondurationchange { get; set; }
+		public EventListener onemptied { get; set; }
+		public EventListener onended { get; set; }
+		public EventListener onerror { get; set; }
+		public EventListener onfocus { get; set; }
+		public EventListener onformchange { get; set; }
+		public EventListener onforminput { get; set; }
+		public EventListener oninput { get; set; }
+		public EventListener oninvalid { get; set; }
+		public EventListener onkeydown { get; set; }
+		public EventListener onkeypress { get; set; }
+		public EventListener onkeyup { get; set; }
+		public EventListener onload { get; set; }
+		public EventListener onloadeddata { get; set; }
+		public EventListener onloadedmetadata { get; set; }
+		public EventListener onloadstart { get; set; }
+		public EventListener onmousedown { get; set; }
+		public EventListener onmousemove { get; set; }
+		public EventListener onmouseout { get; set; }
+		public EventListener onmouseover { get; set; }
+		public EventListener onmouseup { get; set; }
+		public EventListener onmousewheel { get; set; }
+		public EventListener onpause { get; set; }
+		public EventListener onplay { get; set; }
+		public EventListener onplaying { get; set; }
+		public EventListener onprogress { get; set; }
+		public EventListener onratechange { get; set; }
+		public EventListener onreadystatechange { get; set; }
+		public EventListener onscroll { get; set; }
+		public EventListener onseeked { get; set; }
+		public EventListener onseeking { get; set; }
+		public EventListener onselect { get; set; }
+		public EventListener onshow { get; set; }
+		public EventListener onstalled { get; set; }
+		public EventListener onsubmit { get; set; }
+		public EventListener onsuspend { get; set; }
+		public EventListener ontimeupdate { get; set; }
+		public EventListener onvolumechange { get; set; }
+		public EventListener onwaiting { get; set; }
 
-	// HTMLDocument-36
-	public JsString fgColor {get; set; }
-	public JsString bgColor {get; set; }
-	public JsString linkColor {get; set; }
-	public JsString vlinkColor {get; set; }
-	public JsString alinkColor {get; set; }
-	public HtmlCollection anchors {get; private set; }
-	public HtmlCollection applets {get; private set; }
-	public void clear() {}
-	public HtmlAllCollection all {get; private set; }
+		// HTMLDocument-36
+		public JsString fgColor { get; set; }
+		public JsString bgColor { get; set; }
+		public JsString linkColor { get; set; }
+		public JsString vlinkColor { get; set; }
+		public JsString alinkColor { get; set; }
+		public HtmlCollection anchors { get; private set; }
+		public HtmlCollection applets { get; private set; }
+		public void clear() { }
+		public HtmlAllCollection all { get; private set; }
 
-	// HTMLDocument-37
-	public NodeList items {get; private set; }
-	public NodeList getItems(string typeNames) { return default(NodeList); }
-}
+		// HTMLDocument-37
+		public NodeList items { get; private set; }
+		public NodeList getItems(string typeNames) { return default(NodeList); }
+	}
 
 }
