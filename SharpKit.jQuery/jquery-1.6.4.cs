@@ -90,6 +90,14 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Add elements to the set of matched elements.
         /// </summary>
+        /// <param name="jqueryObject">An existing jQuery object to add to the set of matched elements.</param>
+        /// <returns></returns>
+        public jQuery add(jQuery jqueryObject) { return null; }
+        //TODO: added by may
+
+        /// <summary>
+        /// Add elements to the set of matched elements.
+        /// </summary>
         public jQuery add(JsString selector, HtmlElement context) { return null; }
         /// <summary>
         /// Adds the specified class(es) to each of the set of matched elements.
@@ -145,7 +153,7 @@ namespace SharpKit.jQuery
         /// <param name="handler">
         /// handler(options, originalOptions, jqXHR)A handler to set default values for future Ajax requests.
         /// </param>
-        public void ajaxPrefilter(JsAction<object, object, object> handler)
+        public static void ajaxPrefilter(JsAction<object, object, object> handler)
         {
         }
         /// <summary>
@@ -157,7 +165,7 @@ namespace SharpKit.jQuery
         /// <param name="handler">
         /// handler(options, originalOptions, jqXHR)A handler to set default values for future Ajax requests.
         /// </param>
-        public void ajaxPrefilter(JsString dataTypes, JsAction<object, object, object> handler)
+        public static void ajaxPrefilter(JsString dataTypes, JsAction<object, object, object> handler)
         {
         }
 
@@ -358,6 +366,17 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery clone(bool withDataAndEvents) { return null; }
         /// <summary>
+        ///  Create a deep copy of the set of matched elements.
+        /// </summary>
+        /// <param name="withDataAndEvents">A Boolean indicating whether event handlers and data should be copied along with the elements.
+        /// The default value is false. *In jQuery 1.5.0 the default value was incorrectly true; it was changed back to false in 1.5.1 and up.</param>
+        /// <param name="deepWithDataAndEvents">A Boolean indicating whether event handlers and data for all children of the cloned element should be copied.
+        /// By default its value matches the first argument's value (which defaults to false).</param>
+        /// <returns></returns>
+        public jQuery clone(bool withDataAndEvents, bool deepWithDataAndEvents) { return null; }
+        //TODO: added by may
+
+        /// <summary>
         /// Get the first ancestor element that matches the selector, beginning at the current element and progressing up through the DOM tree.
         /// </summary>
         public jQuery closest(JsString selector) { return null; }
@@ -460,6 +479,13 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery @delegate(JsString selector, JsString eventType, object eventData, JsAction<Event> handler) { return null; }
         /// <summary>
+        /// Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements.
+        /// </summary>
+        public jQuery @delegate(JsString selector, JsString events) { return null; }
+        //TODO: added by may
+
+
+        /// <summary>
         /// Provides a way to execute callback functions based on one or more objects, usually Deferred objects that represent asynchronous events.
         /// <list type="bullet">
         /// If a single Deferred is passed to jQuery.when, its Promise object (a subset of the Deferred methods) is returned by the method. Additional methods of the Promise object can be called to attach callbacks, such as deferred.then. When the Deferred is resolved or rejected, usually by the code that created the Deferred originally, the appropriate callbacks will be called.
@@ -509,7 +535,7 @@ namespace SharpKit.jQuery
         ///  .then(myFunc, myFailure);
         ///  </code>
         /// </example>
-        public Promise when(params Deferred[] defferds) { return null; }
+        public static Promise when(params Deferred[] defferds) { return null; }
         /// <summary>
         /// Execute the next function on the queue for the matched elements.
         /// </summary>
@@ -551,9 +577,19 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery end() { return null; }
         /// <summary>
+        ///  Reduce the set of matched elements to the one at the specified index.
+        /// </summary>
+        /// <param name="_index">An integer indicating the position of the element, counting backwards from the last element in the set.</param>
+        /// <returns></returns>
+        public jQuery eq(JsNumber _index) { return null; }
+        /// <summary>
         /// Reduce the set of matched elements to the one at the specified index.
         /// </summary>
-        public jQuery eq(JsNumber _index) { return null; }
+        /// <param name="index">An integer indicating the 0-based position of the element.</param>
+        /// <returns></returns>
+        //public jQuery eq(JsNumber index) { return null; }   
+        //TODO: Added by may
+
         /// <summary>
         /// Bind an event handler to the "error" JavaScript event.
         /// </summary>
@@ -646,6 +682,8 @@ namespace SharpKit.jQuery
         /// Adjust the opacity of the matched elements.
         /// </summary>
         public jQuery fadeTo(JsNumber opacity) { return null; }
+        //TODO: i think it needs to be deleted cuse duration is not optional (may)
+
         /// <summary>
         /// Adjust the opacity of the matched elements.
         /// </summary>
@@ -814,10 +852,14 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.
         /// </summary>
+        /// <param name="selector">A string containing a selector expression to match elements against.</param>
+        /// <returns></returns>
         public jQuery has(JsString selector) { return null; }
         /// <summary>
         /// Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.
         /// </summary>
+        /// <param name="contained">Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.</param>
+        /// <returns></returns>
         public jQuery has(HtmlElement contained) { return null; }
         /// <summary>
         /// Determine whether any of the matched elements are assigned the given class.
@@ -938,6 +980,50 @@ namespace SharpKit.jQuery
         /// Set the HTML contents of each element in the set of matched elements.
         /// </summary>
         public jQuery html(JsAction<JsNumber, HtmlElement> function) { return null; }
+
+        /// <summary>
+        /// Get the value of a property for the first element in the set of matched elements.
+        /// </summary>
+        /// <param name="propertyName">The name of the property to get.</param>
+        /// <returns></returns>
+        public JsString prop(object propertyName) { return null; }
+        /// <summary>
+        /// Set one or more properties for the set of matched elements.
+        /// </summary>
+        /// <param name="map">A map of property-value pairs to set.</param>
+        /// <returns></returns>
+        //public jQuery prop(object map) { return null; }
+        /// <summary>
+        /// Set one or more properties for the set of matched elements.
+        /// </summary>
+        /// <param name="propertyName">The name of the property to set.</param>
+        /// <param name="function">A function returning the value to set. Receives the index position of the element in the set and the old property value as arguments.
+        /// Within the function, the keyword this refers to the current element.</param>
+        /// <returns></returns>
+        public jQuery prop(JsString propertyName, JsAction<JsNumber, HtmlElement> function) { return null; }
+        /// <summary>
+        /// Set one or more properties for the set of matched elements
+        /// </summary>
+        /// <param name="propertyName">The name of the property to set.</param>
+        /// <param name="value">A value to set for the property.</param>
+        /// <returns></returns>
+        public jQuery prop(JsString propertyName, JsString value) { return null; }
+        /// <summary>
+        /// Set one or more properties for the set of matched elements
+        /// </summary>
+        /// <param name="propertyName">The name of the property to set.</param>
+        /// <param name="value">A value to set for the property.</param>
+        /// <returns></returns>
+        public jQuery prop(JsString propertyName, JsNumber value) { return null; }
+        /// <summary>
+        /// Set one or more properties for the set of matched elements
+        /// </summary>
+        /// <param name="propertyName">The name of the property to set.</param>
+        /// <param name="value">A value to set for the property.</param>
+        /// <returns></returns>
+        public jQuery prop(JsString propertyName, bool value) { return null; }
+        //TODO: added by may. d.check
+
         /// <summary>
         /// Holds or releases the execution of jQuery's ready event.
         /// <list type="bullet">
@@ -957,7 +1043,7 @@ namespace SharpKit.jQuery
         /// <param name="hold">
         /// Indicates whether the ready hold is being requested or released
         /// </param>
-        public void holdReady(JsAction hold)
+        public static void holdReady(JsAction hold)
         {
         }
         /// <summary>
@@ -1009,9 +1095,32 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery insertBefore(jQuery target) { return null; }
         /// <summary>
-        /// Check the current matched set of elements against a selector and return true if at least one of these elements matches the selector.
+        /// Check the current matched set of elements against a selector, element, or jQuery object and return true if at least one of these elements matches the given arguments.
         /// </summary>
+        /// <param name="selector">A string containing a selector expression to match elements against.</param>
+        /// <returns></returns>
         public bool @is(JsString selector) { return false; }
+        /// <summary>
+        /// Check the current matched set of elements against a selector, element, or jQuery object and return true if at least one of these elements matches the given arguments.
+        /// </summary>
+        /// <param name="function">A function used as a test for the set of elements.
+        /// It accepts one argument, index, which is the element's index in the jQuery collection.Within the function, this refers to the current DOM element.</param>
+        /// <returns></returns>
+        public jQuery @is(JsFunc<int, bool> function) { return null; }
+        /// <summary>
+        /// Check the current matched set of elements against a selector, element, or jQuery object and return true if at least one of these elements matches the given arguments.
+        /// </summary>
+        /// <param name="element">An element to match the current set of elements against.</param>
+        /// <returns></returns>
+        public jQuery @is(HtmlElement element) { return null; }
+        /// <summary>
+        /// Check the current matched set of elements against a selector, element, or jQuery object and return true if at least one of these elements matches the given arguments.
+        /// </summary>
+        /// <param name="jQueryObject">jQuery objectAn existing jQuery object to match the current set of elements against.</param>
+        /// <returns></returns>
+        public jQuery @is(jQuery jQueryObject) { return null; }
+        //TODO: added by may
+
         /// <summary>
         /// Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -1185,8 +1294,11 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery next() { return null; }
         /// <summary>
-        /// Get the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling only if it matches that selector.
+        ///  Get the immediately following sibling of each element in the set of matched elements.
+        ///  If a selector is provided, it retrieves the next sibling only if it matches that selector.
         /// </summary>
+        /// <param name="selector">A string containing a selector expression to match elements against.</param>
+        /// <returns></returns>
         public jQuery next(JsString selector) { return null; }
         /// <summary>
         /// Get all following siblings of each element in the set of matched elements, optionally filtered by a selector.
@@ -1201,9 +1313,29 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery nextUntil() { return null; }
         /// <summary>
-        /// Get all following siblings of each element up to but not including the element matched by the selector.
+        /// Get all following siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object passed.
         /// </summary>
-        public jQuery nextUntil(JsString selector) { return null; }
+        /// <param name="selector">A string containing a selector expression to indicate where to stop matching following sibling elements.</param>
+        /// <param name="filter">A string containing a selector expression to match elements against.</param>
+        /// <returns></returns>
+        public jQuery nextUntil(JsString selector, JsString filter) { return null; }
+        /// <summary>
+        ///  Get all following siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object passed.
+        /// </summary>
+        /// <param name="element">A DOM node or jQuery object indicating where to stop matching following sibling elements.</param>
+        /// <param name="filter">A string containing a selector expression to match elements against.</param>
+        /// <returns></returns>
+        public jQuery nextUntil(HtmlElement element, JsString filter) { return null; }
+        //TODO: added by may
+        /// <summary>
+        ///  Get all following siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object passed.
+        /// </summary>
+        /// <param name="element">A DOM node or jQuery object indicating where to stop matching following sibling elements.</param>
+        /// <param name="filter">A string containing a selector expression to match elements against.</param>
+        /// <returns></returns>
+        public jQuery nextUntil(jQuery element, JsString filter) { return null; }
+        //TODO: added by may
+
         /// <summary>
         /// Remove elements from the set of matched elements.
         /// </summary>
@@ -1216,6 +1348,14 @@ namespace SharpKit.jQuery
         /// Remove elements from the set of matched elements.
         /// </summary>
         public jQuery not(JsAction<Event> function) { return null; }
+        /// <summary>
+        /// Remove elements from the set of matched elements.
+        /// </summary>
+        /// <param name="jQueryObject">An existing jQuery object to match the current set of elements against.</param>
+        /// <returns></returns>
+        public jQuery not(jQuery jQueryObject) { return null; }
+        //TODO: added by may
+
         /// <summary>
         /// Get the current coordinates of the first element in the set of matched elements, relative to the document.
         /// </summary>
@@ -1281,6 +1421,23 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery parentsUntil(JsString selector) { return null; }
         /// <summary>
+        ///  Get the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector, DOM node, or jQuery object.
+        /// </summary>
+        /// <param name="element">A DOM node or jQuery object indicating where to stop matching following sibling elements.</param>
+        /// <param name="filter">A string containing a selector expression to match elements against.</param>
+        /// <returns></returns>
+        public jQuery parentsUntil(HtmlElement element, JsString filter) { return null; }
+        /// <summary>
+        ///  Get the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector, DOM node, or jQuery object.
+        /// </summary>
+        /// <param name="element">A DOM node or jQuery object indicating where to stop matching following sibling elements.</param>
+        /// <param name="filter">A string containing a selector expression to match elements against.</param>
+        /// <returns></returns>
+        //TODO: added by may
+        public jQuery parentsUntil(jQuery element, JsString filter) { return null; }
+        //TODO: added by may
+
+        /// <summary>
         /// Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.
         /// </summary>
         public TopLeft position() { return null; }
@@ -1336,6 +1493,24 @@ namespace SharpKit.jQuery
         /// Get all preceding siblings of each element up to but not including the element matched by the selector.
         /// </summary>
         public jQuery prevUntil(JsString selector) { return null; }
+        /// <summary>
+        ///   Get all preceding siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object.
+        /// </summary>
+        /// <param name="element">A DOM node or jQuery object indicating where to stop matching following sibling elements.</param>
+        /// <param name="filter">A string containing a selector expression to match elements against.</param>
+        /// <returns></returns>
+        public jQuery prevUntil(HtmlElement element, JsString filter) { return null; }
+        //TODO: added by may
+        /// <summary>
+        ///   Get all preceding siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object.
+        /// </summary>
+        /// <param name="element">A DOM node or jQuery object indicating where to stop matching following sibling elements.</param>
+        /// <param name="filter">A string containing a selector expression to match elements against.</param>
+        /// <returns></returns>
+        public jQuery prevUntil(jQuery element, JsString filter) { return null; }
+        //TODO: added by may
+
+
         /// <summary>
         /// Add a collection of DOM elements onto the jQuery stack.
         /// </summary>
@@ -1397,9 +1572,14 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery removeClass(JsAction<JsNumber, HtmlElement> function) { return null; }
         /// <summary>
+        /// Remove a property for the set of matched elements.
+        /// </summary>
+        public jQuery removeProp(JsString propertyName) { return null; }
+        //TODO: added by may
+        /// <summary>
         /// Remove a previously-stored piece of data.
         /// </summary>
-        public jQuery removeData() { return null; }
+        public static jQuery removeData() { return null; }
         /// <summary>
         /// Remove a previously-stored piece of data.
         /// </summary>
@@ -1785,6 +1965,12 @@ namespace SharpKit.jQuery
         /// </summary>
         public object triggerHandler(JsString eventType, JsArray extraParameters) { return null; }
         /// <summary>
+        /// Execute all handlers attached to an element for an event.
+        /// </summary>
+        public object triggerHandler(JsString eventType) { return null; }
+        //TODO: added by may
+
+        /// <summary>
         /// Remove a previously-attached event handler from the elements.
         /// </summary>
         public jQuery unbind() { return null; }
@@ -1820,6 +2006,22 @@ namespace SharpKit.jQuery
         /// Remove a handler from the event for all elements which match the current selector, now or in the future, based upon a specific set of root elements.
         /// </summary>
         public jQuery undelegate(JsString selector, JsString eventType, JsAction<Event> handler) { return null; }
+        /// <summary>
+        /// Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elemen
+        /// </summary>
+        /// <param name="selector">A selector which will be used to filter the event results.</param>
+        /// <param name="events">A map of one or more event types and previously bound functions to unbind from them.</param>
+        /// <returns></returns>
+        public jQuery undelegate(JsString selector, EventsMap events) { return null; }
+        //TODO: added by may
+        /// <summary>
+        ///  Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements.
+        /// </summary>
+        /// <param name="namespace">A string containing a namespace to unbind all events from.</param>
+        /// <returns></returns>
+        public jQuery undelegate(JsString @namespace) { return null; }
+        //TODO: added by may
+
         /// <summary>
         /// Bind an event handler to the "unload" JavaScript event.
         /// </summary>
@@ -1923,11 +2125,12 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Execute the next function on the queue for the matched element.
         /// </summary>
-        public static jQuery dequeue(HtmlElement element) { return null; }
+        public static void dequeue(HtmlElement element) { }
         /// <summary>
         /// Execute the next function on the queue for the matched element.
         /// </summary>
-        public static jQuery dequeue(HtmlElement element, JsString queueName) { return null; }
+        public static void dequeue(HtmlElement element, JsString queueName) { }
+
         /// <summary>
         /// A generic iterator function, which can be used to seamlessly iterate over both objects and arrays. Arrays and array-like objects with a length property (such as a function's arguments object) are iterated by numeric index, from 0 to length-1. Other objects are iterated via their named properties.
         /// </summary>
@@ -2053,6 +2256,14 @@ namespace SharpKit.jQuery
         /// </summary>
         public static bool isFunction(object obj) { return false; }
         /// <summary>
+        /// Determines whether its argument is a number.
+        /// </summary>
+        /// <param name="value">The value to be tested.</param>
+        /// <returns></returns>
+        public static bool isNumeric(object value) { return false; }
+        //TODO: added by may
+
+        /// <summary>
         /// Check to see if an object is a plain object (created using "{}" or "new object").
         /// </summary>
         public static bool isPlainObject(object @object) { return false; }
@@ -2072,6 +2283,8 @@ namespace SharpKit.jQuery
         /// Translate all items in an array or array-like object to another array of items.
         /// </summary>
         public static JsArray map(JsArray array, JsFunc<JsNumber, object, object> callback) { return null; }
+        //TODO: not full. http://api.jquery.com/jQuery.map/
+
         /// <summary>
         /// Merge the contents of two arrays together into the first array.
         /// </summary>
@@ -2083,15 +2296,28 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Relinquish jQuery's control of the $ variable.
         /// </summary>
+        /// <param name="removeAll">A Boolean indicating whether to remove all jQuery variables from the global scope (including jQuery itself).</param>
+        /// <returns></returns>
         public static object noConflict(bool removeAll) { return null; }
         /// <summary>
         /// An empty function.
         /// </summary>
         public static JsAction noop() { return null; }
+        //TODO: return type writhen is function (may)
+
+        /// <summary>
+        /// Return a number representing the current time.
+        /// </summary>
+        /// <returns></returns>
+        public static JsNumber now() { return null; }
+        //TODO: added by may
+
         /// <summary>
         /// Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
         /// </summary>
         public static JsString param(JsArray obj) { return null; }
+        //TODO: Should it be @param? may
+
         /// <summary>
         /// Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
         /// </summary>
@@ -2156,6 +2382,7 @@ namespace SharpKit.jQuery
         /// Takes a function and returns a new one that will always have a particular context.
         /// </summary>
         public static JsAction proxy(JsAction function, object context) { return null; }
+        //TODO: return type writhen is function (may)
         /// <summary>
         /// Takes a function and returns a new one that will always have a particular context.
         /// </summary>
@@ -2230,7 +2457,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// A collection of properties that represent the presence of different browser features or bugs.
         /// </summary>
-        public JsObject support { get; set; }
+        public static JsObject support { get; set; }
         public static jQueryFx fx { get; set; }
         /// <summary>
         /// There are two specific use cases for which jQuery.sub() was created. The first was for providing a painless way of overriding jQuery methods without completely destroying the original methods and another was for helping to do encapsulation and basic namespacing for jQuery plugins.
@@ -2314,6 +2541,7 @@ namespace SharpKit.jQuery
         /// </code>
         /// </summary>
         public static jQuery sub { get; set; }
+        //TODO: Is it a property?
         /// <summary>
         /// The jQuery.Event constructor is exposed and can be used when calling trigger. The new operator is optional.
         /// Check trigger‘s documentation to see how to combine it with your own event object.
@@ -2504,11 +2732,11 @@ namespace SharpKit.jQuery
         /// <summary>
         /// The rate (in milliseconds) at which animations fire.
         /// </summary>
-        public JsNumber interval { get; set; }
+        public static JsNumber interval { get; set; }
         /// <summary>
         /// Globally disable all animations.
         /// </summary>
-        public bool off { get; set; }
+        public static bool off { get; set; }
     }
 
     #endregion
@@ -2757,71 +2985,77 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Returns whether event.stopImmediatePropagation() was ever called on this event object.
         /// </summary>
-        public bool isImmediatePropagationStopped() { return false; }
+        public static bool isImmediatePropagationStopped() { return false; }
         /// <summary>
         /// Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree.
         /// </summary>
-        public void stopImmediatePropagation() { }
+        public static void stopImmediatePropagation() { }
         /// <summary>
         /// Returns whether event.stopPropagation() was ever called on this event object.
         /// </summary>
-        public bool isPropagationStopped() { return false; }
+        public static bool isPropagationStopped() { return false; }
         /// <summary>
         /// Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
         /// </summary>
-        public void stopPropagation() { }
+        public static void stopPropagation() { }
         /// <summary>
         /// Returns whether event.preventDefault() was ever called on this event object.
         /// </summary>
-        public bool isDefaultPrevented() { return false; }
+        public static bool isDefaultPrevented() { return false; }
         /// <summary>
         /// If this method is called, the default action of the event will not be triggered.
         /// </summary>
-        public void preventDefault() { }
+        public static void preventDefault() { }
         /// <summary>
         /// The namespace specified when the event was triggered.
         /// </summary>
-        public JsString @namespace { get; set; }
+        public static JsString @namespace { get; set; }
         /// <summary>
         /// The difference in milliseconds between the time an event is triggered and January 1, 1970.
         /// </summary>
-        public JsNumber timeStamp { get; set; }
+        public static JsNumber timeStamp { get; set; }
         /// <summary>
         /// The last value returned by an event handler that was triggered by this event, unless the value was undefined.
         /// </summary>
-        public object result { get; set; }
+        public static object result { get; set; }
         /// <summary>
         /// For key or button events, this attribute indicates the specific button or key that was pressed.
         /// </summary>
-        public JsNumber which { get; set; }
+        public static JsNumber which { get; set; }
         /// <summary>
         /// The mouse position relative to the top edge of the document.
         /// </summary>
-        public JsNumber pageY { get; set; }
+        public static JsNumber pageY { get; set; }
         /// <summary>
         /// The mouse position relative to the left edge of the document.
         /// </summary>
-        public JsNumber pageX { get; set; }
+        public static JsNumber pageX { get; set; }
         /// <summary>
         /// The current DOM element within the event bubbling phase.
         /// </summary>
-        public HtmlElement currentTarget { get; set; }
+        public static HtmlElement currentTarget { get; set; }
         /// <summary>
         /// The other DOM element involved in the event, if any.
         /// </summary>
-        public HtmlElement relatedTarget { get; set; }
+        public static HtmlElement relatedTarget { get; set; }
         /// <summary>
         /// The optional data passed to jQuery.fn.bind when the current executing handler was bound.
         /// </summary>
-        public object data { get; set; }
+        public static object data { get; set; }
+        /// <summary>
+        /// The element where the currently-called jQuery event handler was attached.
+        /// </summary>
+        public static object delegateTarget { get; set; }
+        //TODO: added by may
+
         /// <summary>
         /// The DOM element that initiated the event.
         /// </summary>
-        public HtmlElement target { get; set; }
+        public static HtmlElement target { get; set; }
         /// <summary>
         /// Describes the nature of the event.
         /// </summary>
-        public JsString type { get; set; }
+        public static JsString type { get; set; }
         /// <summary>
         /// Certain native events may have special properties that can be accessed as properties of the event.originalEvent object. To make special properties available in all event objects, we can add them to the jQuery.event.props array.
         /// </summary>
@@ -3383,5 +3617,11 @@ namespace SharpKit.jQuery
     {
     }
     #endregion
+
+    //TODO:
+    //http://api.jquery.com/off/
+    //http://api.jquery.com/on/
+    //http://api.jquery.com/one/ not full
+    //http://api.jquery.com/jQuery.parseXML/- didn't undersund return type
 }
 
