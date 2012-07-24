@@ -151,6 +151,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneGapSamples", "PhoneGap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.KineticJs", "SharpKit.KineticJs\SharpKit.KineticJs.csproj", "{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.KendoUI", "SharpKit.KendoUI\SharpKit.KendoUI.csproj", "{8E248098-C8F9-4ABB-91D5-896A198204F5}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -1379,6 +1381,26 @@ Global
 		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
 		{9C7E7FBD-1176-48AF-88DC-3E4286220DC6}.v4.0|x86.ActiveCfg = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.Release|x86.ActiveCfg = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.v3.5|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.v3.5|Mixed Platforms.Build.0 = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.v3.5|x86.ActiveCfg = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
+		{8E248098-C8F9-4ABB-91D5-896A198204F5}.v4.0|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
