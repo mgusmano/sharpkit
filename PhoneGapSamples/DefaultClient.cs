@@ -5,18 +5,18 @@ using SharpKit.PhoneGap;
 
 namespace PhoneGapSamples
 {
-    [JsType(JsMode.Global, Filename = "res/Default.js")]
+    [JsType(JsMode.Prototype, Filename = "res/Default.js")]
     public class DefaultClient : jQueryContextBase
     {
-        static void DefaultClient_Load()
+        void DefaultClient_Load()
         {
-            var doc = new DocumentEx();
+            var doc = HtmlContext.document.As<Events>();
             doc.deviceready += new JsAction(doc_deviceready);
+            doc.deviceready -= new JsAction(doc_deviceready);
         }
 
-        static void doc_deviceready()
+        void doc_deviceready()
         {
-            throw new System.NotImplementedException();
         }
     }
 }
