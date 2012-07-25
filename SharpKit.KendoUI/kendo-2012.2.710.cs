@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using SharpKit.JavaScript;
+﻿using SharpKit.JavaScript;
 using SharpKit.jQuery;
 using SharpKit.Html4;
+[assembly:JsType(JsMode.Prototype, Export=false)]
 
 namespace SharpKit.KendoUI
 {
