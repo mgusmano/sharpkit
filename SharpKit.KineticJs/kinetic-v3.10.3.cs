@@ -1652,6 +1652,5 @@ namespace SharpKit.KineticJs
     {
         normal,
         italic,
-        ,
     }
 }
