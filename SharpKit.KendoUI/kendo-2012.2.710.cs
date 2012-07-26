@@ -421,8 +421,6 @@ namespace SharpKit.KendoUI
         /// </summary>
         /// <param name="template">The template that will be compiled.</param>
         /// <param name="options">Template compilation options.</param>
-        /// <param name="paramName">The name of the parameter used by the generated function. Useful when useWithBlock is set to false.</param>
-        /// <param name="useWithBlock">Wraps the generated code in a with block.
         /// This allows the usage of unqualified fields in the template. Disabling the with block will improve the performance of the template.</param>
         /// <returns>(Function)the compiled template as a JavaScript function. When called this function will return the generated HTML string.</returns>
         /// <example>
@@ -432,14 +430,12 @@ namespace SharpKit.KendoUI
         ///var inlineData = { firstName: "John", lastName: "Doe" };
         ///$("#inline").html(inlineTemplate(inlineData));
         /// </code></example>
-        public JsString template(JsString template, object options, ObjectOptions paramName, ObjectOptions useWithBlock) { return null; }
+        public JsString template(JsString template, KendoObjectOptions options) { return null; }
         /// <summary>
         /// Compiles a template to a function that builds HTML. Useful when a template will be used several times.
         /// Templates offer way of creating HTML chunks. Options such as HTML encoding and compilation for optimal performance are available.
         /// </summary>
         /// <param name="template">The template that will be compiled.</param>
-        /// <param name="paramName">The name of the parameter used by the generated function. Useful when useWithBlock is set to false.</param>
-        /// <param name="useWithBlock">Wraps the generated code in a with block.
         /// This allows the usage of unqualified fields in the template. Disabling the with block will improve the performance of the template.</param>
         /// <returns>(Function)the compiled template as a JavaScript function. When called this function will return the generated HTML string.</returns>
         /// <example>
@@ -449,7 +445,7 @@ namespace SharpKit.KendoUI
         ///var inlineData = { firstName: "John", lastName: "Doe" };
         ///$("#inline").html(inlineTemplate(inlineData));
         /// </code></example>
-        public JsString template(JsString template, ObjectOptions paramName, ObjectOptions useWithBlock) { return null; }
+        public JsString template(JsString template) { return null; }
 
         /// <summary>
         /// Enables kinetic scrolling on touch devices
@@ -695,7 +691,6 @@ namespace SharpKit.KendoUI
 
 
     }
-
     public class ObservableObject
     {
         /// <summary>
@@ -721,7 +716,6 @@ namespace SharpKit.KendoUI
         /// <param name="name">The name of the field whose value is going to be returned.</param>
         /// <returns></returns>
         public object get(JsString name) {return null;}
-
 
         /// <summary>
         /// Returns the parent ObservableObject. If the current ObservableObject is not nested returns undefined;
@@ -810,8 +804,9 @@ namespace SharpKit.KendoUI
         public object toJSON () {return null;}
 
     }
+    //TODO: Configuration, Fields, Events
 
-    public class ObjectOptions
+    public class KendoObjectOptions
     {
         /// <summary>
         /// The name of the parameter used by the generated function. Useful when useWithBlock is set to false.
@@ -823,6 +818,7 @@ namespace SharpKit.KendoUI
         /// </summary>
         public bool useWithBlock  { get; set; }
     }
+    //TODO: fix all objectOptions and create new ObjectOptions for eace class
 
     public enum DeviceIdentificator
     {
@@ -929,6 +925,7 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public void cancelChanges() { }
+        //TODO: model ``
 
         /// <summary>
         /// Gets or sets the data of the DataSource.
@@ -956,12 +953,31 @@ namespace SharpKit.KendoUI
         /// If data is not available or remote operations are enabled data is requested through the transport, otherwise operations are executed over the available data.
         /// </summary>
         /// <param name="callback"></param>
-        public delegate void fetch(object callback);
+        public delegate void fetch();
+        //TODO: callback ``
 
         /// <summary>
         /// Get current filters or filter the data.
         /// </summary>
-        /// <param name="val">_optional, default: _</param>
+        /// <param name="val">Supported filter operators/aliases are:
+        ///Equal To
+        ///"eq", "==", "isequalto", "equals", "equalto", "equal"
+        ///Not Equal To
+        ///"neq", "!=", "isnotequalto", "notequals", "notequalto", "notequal", "ne"
+        ///Less Then
+        ///"lt", "&lt;", "islessthan", "lessthan", "less"
+        ///Less Then or Equal To
+        ///"lte", "&lt;=", "islessthanorequalto", "lessthanequal", "le"
+        ///Greater Then
+        ///"gt", ">", "isgreaterthan", "greaterthan", "greater"
+        ///Greater Then or Equal To
+        ///"gte", ">=", "isgreaterthanorequalto", "greaterthanequal", "ge"
+        ///Starts With
+        ///"startswith"
+        ///Ends With
+        ///"endswith"
+        ///Contains
+        ///"contains", "substringof"</param>
         /// <returns>Current filter descriptors</returns>
         ///<example>
         ///usage
@@ -985,7 +1001,25 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Get current filters or filter the data.
         /// </summary>
-        /// <param name="val">_optional, default: _</param>
+        /// <param name="val">Supported filter operators/aliases are:
+        ///Equal To
+        ///"eq", "==", "isequalto", "equals", "equalto", "equal"
+        ///Not Equal To
+        ///"neq", "!=", "isnotequalto", "notequals", "notequalto", "notequal", "ne"
+        ///Less Then
+        ///"lt", "&lt;", "islessthan", "lessthan", "less"
+        ///Less Then or Equal To
+        ///"lte", "&lt;=", "islessthanorequalto", "lessthanequal", "le"
+        ///Greater Then
+        ///"gt", ">", "isgreaterthan", "greaterthan", "greater"
+        ///Greater Then or Equal To
+        ///"gte", ">=", "isgreaterthanorequalto", "greaterthanequal", "ge"
+        ///Starts With
+        ///"startswith"
+        ///Ends With
+        ///"endswith"
+        ///Contains
+        ///"contains", "substringof"</param>
         /// <returns>Current filter descriptors</returns>
         ///<example>
         ///usage
@@ -1006,7 +1040,6 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public JsArray filter(JsArray val) { return null; }
-        //TODO: NOT done. stuff i don't understand
 
         /// <summary>
         /// Retrieves a Model instance by given id.
@@ -1100,7 +1133,7 @@ namespace SharpKit.KendoUI
         ///dataSource.query({ page: 1, pageSize: 20 });
         ///</code>
         ///</example>
-        public void query(ObjectOptions options) { }
+        public void query(KendoObjectOptions options) { }
 
         /// <summary>
         /// Read the data into the DataSource using the transport read definition
@@ -1118,6 +1151,7 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public void read() { }
+        //TODO: data ``
 
         /// <summary>
         /// Remove given Model instance from the DataSource.
@@ -1227,13 +1261,474 @@ namespace SharpKit.KendoUI
         ///</example>
         public JsArray view() { return null; }
     }
+    //TODO: Configuration, Events
 
-    //TODO: HierarchicalDataSource?
-
-    public class Model
+    /// <summary>
+    /// See the DataSource methods for all inherited methods.
+    /// The remove and getByUid methods are overridden and work with the hierarchical data (they will act on all child datasources that have been read).
+    /// </summary>
+    public class HierarchicalDataSource : DataSource
     {
+    }
+    //TODO: Configuration, Events
+
+    /// <summary>
+    /// The Model inherits from the ObservableObject and extends it with the ability to define schema - fields and methods.
+    /// The DataSource contains instances of the Model when the schema.model setting is specified.
+    /// </summary>
+    public class Model : ObservableObject
+    {
+        /// <summary>
+        /// Defines a new Model type using the provided options.
+        /// </summary>
+        /// <param name="options">Describes the configuration options of the new model type.</param>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var Product = kendo.data.Model.define( {
+        ///id: "id", // the identifier is the "id" field (declared below)
+        ///fields: {
+        ///    /* name of the field */ name: {
+        ///        type: "string", // the field is a string
+        ///        validation: { // validation rules
+        ///            required: true // the field is required
+        ///        },
+        ///        defaultValue: "&lt:empty>" // default field value
+        ///    },
+        ///    /* name of the field */ price: {
+        ///        type: "number", // the field is a number
+        ///        validation: { // validation rules
+        ///            required: true, // the field is required
+        ///            min: 1 // the minimum value is 1
+        ///        },
+        ///        defaultValue: 99.99 // default field value
+        ///    },
+        ///    /* name of the field */ id: {
+        ///        editable: false, // this field is not editable
+        ///        nullable: true // a default value will not be assigned
+        ///    }
+        ///}
+        ///</code>
+        ///</example>
+        public static Model define(ModelObjectOptions options) { return null; }
+
+        /// <summary>
+        /// Determines if the specified field is editable or not.
+        /// </summary>
+        /// <param name="field">The field to check.</param>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var Product = kendo.data.Model.define({
+        ///    fields: {
+        ///        id: {
+        ///            editable: false
+        ///        },
+        ///        name: {
+        ///            editable: true
+        ///        }
+        ///    }
+        ///});
+        ///var product = new Product();
+        ///console.log(product.editable("id")); // outputs "false"
+        ///console.log(product.editable("name")); // outputs "true"
+        ///</code>
+        ///</example>
+        public bool editable(JsString field) { return false; }
+
+        /// <summary>
+        /// Checks if the Model is new or not. The id field is used to determine if a model instance is new or existing one.
+        /// If the value of the field specified is equal to the default value (specifed through the fields configuration) the model is considered as new.
+        /// </summary>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var Product = kendo.data.Model.define({
+        ///    id: "productId",
+        ///    fields: {
+        ///        productId: {
+        ///            editable: false
+        ///        }
+        ///    }
+        ///});
+        ///var productOne = new Product();
+        ///console.log(productOne.isNew()); // outputs "true"
+        ///var productTwo = new Product({ productId: 1 });
+        ///console.log(productTwo.isNew()); // outputs "false" because productId is set to 1
+        ///</code>
+        ///</example>
+        public bool isNew() { return false; }
+    }
+    //TODO: Configuration, Fields, Events
+
+    public class FieldConfig
+    {
+        /// <summary>
+        /// Specifies the which will be used for the field when a new model instance is created.
+        /// Default settings depend on the type of the field. Default for "string" is "", for "number" is 0 and for "date" is new Date() (today).
+        /// </summary>
+        public JsString defaultValue { get; set; }
+        //TODO: type can be string number or date
+
+        /// <summary>
+        /// Specifies if the field is editable or not. The default value is true.
+        /// </summary>
+        public bool editable { get; set; }
+        /// <summary>
+        /// Specifies if the defaultValue setting should be used. The default is false.
+        /// </summary>
+        public bool nullable  { get; set; }
+
+        /// <summary>
+        /// Specifies the function which will parse the field value. If not set default parsers will be used.
+        /// </summary>
+        public JsFunction parse { get; set; }
+
+        /// <summary>
+        /// Specifies the the type of the field. The available options are "string", "number", "boolean", "date". The default is "string".
+        /// </summary>
+        public JsString type  { get; set; }
+        //TODO: type can be string number bool or date
+
+        /// <summary>
+        /// Specifies the validation options which will be used by Kendo Validator.
+        /// </summary>
+        public object validation { get; set; }
+
 
     }
+
+    public class ModelObjectOptions
+    {
+        /// <summary>
+        /// The name of the field which acts as an identifier of the model. The identifier is used to determine if a model instance is new or existing one.
+        /// If the value of the field specified is equal to the default value (specifed through the fields configuration) the model is considered as new.
+        /// </summary>
+        public JsString id { get; set; }
+
+        public JsObject<FieldConfig> fields { get; set; }
+    }
+
+    /// <summary>
+    /// The ObservableArray wrap an existing Array object with change tracking capabilities. It is used by Kendo MVVM and the Kendo DataSource.
+    /// </summary>
+    public class ObservableArray
+    {
+        /// <summary>
+        /// Attaches an event handler for the specified event.
+        /// </summary>
+        /// <param name="eventName">The name of the event.</param>
+        /// <param name="handler">The function which will be invoked when the event is raised.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+        ///observable.bind("change", function(e) {
+        ///    console.log(e.field); // will output the changed field once the event is raised
+        ///});
+        ///observable.set("name", "Jane Doe"); // raises the "change" event and the handler outputs "name"
+        ///        ///</code>
+        ///</example>
+        public void bind(JsString eventName, JsFunction handler) { }
+
+        /// <summary>
+        /// Joins all items of an ObservableArray into a string. Equivalent of Array.prototype.join.
+        /// </summary>
+        /// <param name="separator">Specifies the string to separate each item of the array. If omitted the array items are separated with a comma (,)</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([1, 2, 3]);
+        ///console.log(array.join("-")); // outputs "1-2-3"
+        ///</code>
+        ///</example>
+        public void join(JsString separator) { }
+
+        /// <summary>
+        /// Returns the parent ObservableObject. If the current ObservableArray is not nested returns undefined.
+        /// </summary>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([1, 2]);
+        ///console.log(array.parent()); // outputs "undefined"
+        ///var observable = kendo.observable({ numbers: [1, 2] });
+        ///var numbers = observable.get("numbers");
+        ///console.log(numbersperson.parent() === observable); // outputs "true"
+        ///</code>
+        ///</example>
+        public ObservableObject parent() { return null; }
+
+        /// <summary>
+        /// Removes the last item from an array and returns that item. Equivalent of Array.prototype.pop.
+        /// Important: The pop method raises the change event. The action field of the event argument is set to "remove". The items field of the event argument is the array that contains the removed item.
+        /// </summary>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([{ name: "John Doe" }]);
+        ///var result = array.pop();
+        ///console.log(array.length); // outputs "0"
+        ///console.log(result.get("name")); // outputs "John Doe"
+        ///</code>
+        ///</example>
+        public object pop() { return null; }
+
+        /// <summary>
+        /// Appends the given items to the array and returns the new length of the array.
+        /// Equivalent of Array.prototype.push. The new items are wrapped as ObservableObject if they are complex objects.
+        /// Important: The push method raises the change event. The action field of the event argument is set to "add". The items field of the event argument is the array that contains the appended items.
+        /// </summary>
+        /// <param name="item1">The item(s) to append to the array.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([{ name: "John Doe" }]);
+        ///var length = array.push({ name: "Jane Doe" });
+        ///console.log(length); // outputs "2"
+        ///console.log(array[1] instanceof kendo.data.ObservableObject); // outputs "true"
+        ///console.log(array[1].get("name")); // outputs "Jane Doe"
+        ///</code>
+        ///</example>
+        public void push(object item1) { }
+        /// <summary>
+        /// Appends the given items to the array and returns the new length of the array.
+        /// Equivalent of Array.prototype.push. The new items are wrapped as ObservableObject if they are complex objects.
+        /// Important: The push method raises the change event. The action field of the event argument is set to "add". The items field of the event argument is the array that contains the appended items.
+        /// </summary>
+        /// <param name="item1">The item(s) to append to the array.</param>
+        /// <param name="item2">The item(s) to append to the array.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([{ name: "John Doe" }]);
+        ///var length = array.push({ name: "Jane Doe" });
+        ///console.log(length); // outputs "2"
+        ///console.log(array[1] instanceof kendo.data.ObservableObject); // outputs "true"
+        ///console.log(array[1].get("name")); // outputs "Jane Doe"
+        ///</code>
+        ///</example>
+        public void push(object item1, object item2) { }
+        /// <summary>
+        /// Appends the given items to the array and returns the new length of the array.
+        /// Equivalent of Array.prototype.push. The new items are wrapped as ObservableObject if they are complex objects.
+        /// Important: The push method raises the change event. The action field of the event argument is set to "add". The items field of the event argument is the array that contains the appended items.
+        /// </summary>
+        /// <param name="item1">The item(s) to append to the array.</param>
+        /// <param name="item2">The item(s) to append to the array.</param>
+        /// <param name="items">The item(s) to append to the array.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([{ name: "John Doe" }]);
+        ///var length = array.push({ name: "Jane Doe" });
+        ///console.log(length); // outputs "2"
+        ///console.log(array[1] instanceof kendo.data.ObservableObject); // outputs "true"
+        ///console.log(array[1].get("name")); // outputs "Jane Doe"
+        ///</code>
+        ///</example>
+        public void push(object item1, object item2, params object[] items) { }
+
+        /// <summary>
+        /// Returns a one-level deep copy of a portion of an array. Equivalent of Array.prototype.slice.
+        /// The result of the slice method is not an instance of ObvservableArray. It is a regular JavaScript Array object.
+        /// Important: The slice method does not modify the original ObservableArray.
+        /// </summary>
+        /// <param name="begin">Zero-based index at which to begin extraction.</param>
+        /// <param name="end">Zero-based index at which to end extraction. If end is omitted, slice extracts to the end of the sequence.</param>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([1, 2, 3]);
+        ///var firstAndSecond = array.slice(0, 2);
+        ///console.log(firstAndSecond); // outputs [1, 2]
+        ///</code>
+        ///</example>
+        public JsArray slice(JsNumber begin, JsNumber end) { return null; }
+        //TODO:end is optional?
+
+        /// <summary>
+        /// Changes an ObservableArray, by adding new items while removing old items. Equivalent of Array.prototype.splice
+        /// Important: The splice method raises the change event once or twice depending on the change.The action field of the event argument is set to "add" (if items are added) or "remove (if items are removed).
+        /// The items field of the event argument is the array that contains the appended items or removed items.
+        /// In the above example the change event will be raised two times - first because "baseball" is removed and second because "tennis" and "hockey" are added.
+        /// </summary>
+        /// <param name="index">Index at which to start changing the array. If negative, will begin that many elements from the end.</param>
+        /// <param name="howMany">An integer indicating the number of items to remove. If howMany is 0, no items are removed. In this case, you should specify at least one new item.</param>
+        /// <param name="items">The item(s) to append to the array.</param>
+        /// <returns>An Array containing the removed items. The result of the splice method is not an instance of ObvservableArray.</returns>
+        public JsArray splice(JsNumber index, JsNumber howMany, params object[] items) { return null; }
+        //TODO:? are they optional?
+
+        /// <summary>
+        /// Removes the first item from an ObvservableArray and returns that item. Equivalent of Array.prototype.shift.
+        /// Important: The shift method raises the change event. The action field of the event argument is set to "remove".
+        /// The items field of the event argument is an array that contains the removed 
+        /// </summary>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([1, 2, 3]);
+        ///var removed = array.shift();
+        ///console.log(removed); // outputs "1"
+        ///console.log(array.length); // outputs "2"
+        ///</code>
+        ///</example>
+        public object shift() { return null; }
+
+        /// <summary>
+        /// Returns a JavaScript Array which represents the contents of the ObservableArray.
+        /// </summary>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var people = new kendo.data.ObservableArray([ { name: "John Doe" }, { name: "Jane Doe" }]);
+        ///var json = people.toJSON();
+        ///console.log(JSON.stringify(json)); // outputs [{"name":"John Doe"},{"name":"Jane Doe"}]
+        ///</code>
+        ///</example>
+        public JsArray toJSON() { return null; }
+
+        /// <summary>
+        /// Adds one or more items to the beginning of an ObservableArray and returns the new length. Equivalent of Array.prototype.unshift.
+        /// Important: The unshift method raises the change event. The action field of the event argument is set to "add". The items field of the event argument is an array that contains the new items.
+        /// </summary>
+        /// <param name="item1">The item(s) to append to the array.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([2, 3]);
+        ///var result = array.unshift(0, 1);
+        ///console.log(result); // outputs "4"
+        ///console.log(result); // outputs [0, 1, 2, 3]
+        ///</code>
+        ///</example>
+        public void unshift(object item1) { }
+        /// <summary>
+        /// Adds one or more items to the beginning of an ObservableArray and returns the new length. Equivalent of Array.prototype.unshift.
+        /// Important: The unshift method raises the change event. The action field of the event argument is set to "add". The items field of the event argument is an array that contains the new items.
+        /// </summary>
+        /// <param name="item1">The item(s) to append to the array.</param>
+        /// <param name="item2">The item(s) to append to the array.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([2, 3]);
+        ///var result = array.unshift(0, 1);
+        ///console.log(result); // outputs "4"
+        ///console.log(result); // outputs [0, 1, 2, 3]
+        ///</code>
+        ///</example>
+        public void unshift(object item1, object item2) { }
+        /// <summary>
+        /// Adds one or more items to the beginning of an ObservableArray and returns the new length. Equivalent of Array.prototype.unshift.
+        /// Important: The unshift method raises the change event. The action field of the event argument is set to "add". The items field of the event argument is an array that contains the new items.
+        /// </summary>
+        /// <param name="item1">The item(s) to append to the array.</param>
+        /// <param name="item2">The item(s) to append to the array.</param>
+        /// <param name="items">The item(s) to append to the array.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([2, 3]);
+        ///var result = array.unshift(0, 1);
+        ///console.log(result); // outputs "4"
+        ///console.log(result); // outputs [0, 1, 2, 3]
+        ///</code>
+        ///</example>
+        public void unshift(object item1, object item2, params object[] items) { }
+    }
+    //TODO: Configuration, Fields, Events. Make class generic
+
+
+    public class Drag
+    {
+        /// <summary>
+        /// Discard the current drag. Calling the cancel method will trigger the cancel event. The correct moment to call this method would be in the start event handler.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///new kendo.Drag($("#foo"), {
+        /// start: function(e) {
+        ///     e.cancel();
+        /// }
+        ///});
+        ///</code>
+        ///</example>
+        public void cancel() { }
+
+        /// <summary>
+        /// Capture the current drag, so that Drag listeners bound to parent elements will not trigger.
+        /// This method will not have any effect if the current drag instance is instantiated with the global option set to true.
+        /// </summary>
+        public void capture() { }
+    }
+    //TODO: Danel needs to chack
+
+    //TODO: DragAxis
+
+    public class Validator
+    {
+        /// <summary>
+        /// Get the error messages if any.
+        /// </summary>
+        /// <returns>Messages for the failed validation rules.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the validatable form
+        ///var validatable = $("#myform").kendoValidator().data("kendoValidator");
+        ///$("#save").click(function() {
+        ///    if (validatable.validate() === false) {
+        ///        // get the errors and write them out to the "errors" html container
+        ///        var errors = validatable.errors();
+        ///        $(errors).each(function() {
+        ///            $("#errors").html(this);
+        ///        });
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public JsArray errors() { return null; }
+
+        /// <summary>
+        /// Validates the input element(s) against the declared validation rules.
+        /// </summary>
+        /// <returns>Boolean true if all validation rules passed successfully.
+        /// Note that if a HTML form element is set as validation container, the form submits will be automatically prevented if validation fails.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the validatable form
+        ///var validatable = $("#myform").kendoValidator().data("kendoValidator");
+        /// // check validation on save button click
+        ///$("#save").click(function() {
+        ///    if (validatable.validate()) {
+        ///        save();
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public bool validate() { return false; }
+
+        /// <summary>
+        /// Validates the input element against the declared validation rules.
+        /// </summary>
+        /// <param name="input">Input element to be validated.</param>
+        /// <returns>Boolean true if all validation rules passed successfully.</returns>
+        public bool validateInput(HtmlElement input) { return false; }
+    }
+    //TODO: Configuration, kendo.ui.Validator means anything?
+
 
 
 
