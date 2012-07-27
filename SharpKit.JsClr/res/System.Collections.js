@@ -540,10 +540,10 @@ var System$Collections$Generic$List$1=
         },
         AddRange:function(items)
         {
-            var $it1=items.GetEnumerator();
-            while($it1.MoveNext())
+            var $it15=items.GetEnumerator();
+            while($it15.MoveNext())
             {
-                var item=$it1.get_Current();
+                var item=$it15.get_Current();
                 this.Add(item);
             }
         },

@@ -395,7 +395,7 @@ var System$Type=
                 if(baseType != null)
                 {
                     var props=baseType.GetProperties();
-                    for(var $i12=0,$l12=props.length,pe=props[$i12];$i12 < $l12;$i12++,pe = props[$i12])
+                    for(var $i11=0,$l11=props.length,pe=props[$i11];$i11 < $l11;$i11++,pe = props[$i11])
                     {
                         if(!this._PropertiesByName.hasOwnProperty(pe._Name))
                         {
@@ -544,7 +544,7 @@ var System$Type=
             {
                 var methodName=SharpKit.JavaScript.JsNamingHelper.JsFunctionNameToClrMethodName(memberName);
                 var methods=this.GetMethods$$String(methodName);
-                for(var $i14=0,$l14=methods.length,method=methods[$i14];$i14 < $l14;$i14++,method = methods[$i14])
+                for(var $i15=0,$l15=methods.length,method=methods[$i15];$i15 < $l15;$i15++,method = methods[$i15])
                 {
                     if(method.JsName == memberName)
                         return method;

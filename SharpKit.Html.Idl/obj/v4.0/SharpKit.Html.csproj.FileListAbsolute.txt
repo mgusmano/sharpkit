@@ -1,0 +1,5 @@
+D:\dotnet\sharpkit\sdk\bin\v4.0\javascript-1.5.cs
+D:\dotnet\sharpkit\sdk\bin\v4.0\SharpKit.Html.XML
+D:\dotnet\sharpkit\sdk\bin\v4.0\SharpKit.Html.dll
+D:\dotnet\sharpkit\sdk\src\SharpKit.Html\obj\v4.0\ResolveAssemblyReference.cache
+D:\dotnet\sharpkit\sdk\src\SharpKit.Html\obj\v4.0\SharpKit.Html.dll

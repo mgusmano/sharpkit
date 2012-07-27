@@ -61,6 +61,8 @@ var System$Activator=
     }
 };
 JsTypes.push(System$Activator);
+if(typeof(JsTypes) == "undefined")
+    var JsTypes=[];
 var System$Attribute=
 {
     fullname:"System.Attribute",

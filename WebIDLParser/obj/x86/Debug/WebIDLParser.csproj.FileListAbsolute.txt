@@ -1,0 +1,10 @@
+c:\users\sebastian.loncar\documents\visual studio 2010\Projects\WebIDL2Sharpkit\WebIDL2Sharpkit\bin\Debug\WebIDLParser.exe
+c:\users\sebastian.loncar\documents\visual studio 2010\Projects\WebIDL2Sharpkit\WebIDL2Sharpkit\bin\Debug\WebIDLParser.pdb
+c:\users\sebastian.loncar\documents\visual studio 2010\Projects\WebIDL2Sharpkit\WebIDL2Sharpkit\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\sebastian.loncar\documents\visual studio 2010\Projects\WebIDL2Sharpkit\WebIDL2Sharpkit\obj\x86\Debug\WebIDLParser.exe
+c:\users\sebastian.loncar\documents\visual studio 2010\Projects\WebIDL2Sharpkit\WebIDL2Sharpkit\obj\x86\Debug\WebIDLParser.pdb
+D:\dotnet\sharpkit\sdk\src\WebIDLParser\bin\Debug\WebIDLParser.exe
+D:\dotnet\sharpkit\sdk\src\WebIDLParser\bin\Debug\WebIDLParser.pdb
+D:\dotnet\sharpkit\sdk\src\WebIDLParser\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\dotnet\sharpkit\sdk\src\WebIDLParser\obj\x86\Debug\WebIDLParser.exe
+D:\dotnet\sharpkit\sdk\src\WebIDLParser\obj\x86\Debug\WebIDLParser.pdb

@@ -83,10 +83,10 @@ var SharpKit$Extensions2=
         {
             var sb=new System.Text.StringBuilder.ctor();
             var first=true;
-            var $it14=s.GetEnumerator();
-            while($it14.MoveNext())
+            var $it3=s.GetEnumerator();
+            while($it3.MoveNext())
             {
-                var c=$it14.get_Current();
+                var c=$it3.get_Current();
                 if(System.Char.IsUpper$$Char(c) && !first)
                 {
                     sb.Append$$Char(" ");
@@ -277,7 +277,7 @@ var SharpKit$JavaScript$JsNamingHelper=
         },
         ConvertParametersToJsFunctionName:function(prms,sb)
         {
-            for(var $i16=0,$l16=prms.length,prm=prms[$i16];$i16 < $l16;$i16++,prm = prms[$i16])
+            for(var $i7=0,$l7=prms.length,prm=prms[$i7];$i7 < $l7;$i7++,prm = prms[$i7])
             {
                 sb.Append$$String("$$");
                 sb.Append$$String(prm.get_ParameterType().get_Name());
