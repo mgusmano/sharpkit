@@ -1,32 +1,39 @@
 
-/****************************************************************************************************
+/*******************************************************************************************************
 
-  This file was auto generated with the tool 'WebIDLParser' at Fri, 27 Jul 2012 03:44:27 GMT
-  Author of the tool: Sebastian Loncar, http://loncar.de
+  This file was auto generated with the tool "WebIDLParser" at Sun, 29 Jul 2012 15:27:57 GMT
 
-  Content was generated from IDL file: http://trac.webkit.org/browser/trunk/Source/WebCore/Modules/filesystem/DataTransferItemFileSystem.idl
+  Content was generated from IDL file:
+	http://trac.webkit.org/browser/trunk/Source/WebCore/Modules/filesystem/DataTransferItemFileSystem.idl
 
   PLEASE DO *NOT* MODIFY THIS FILE! This file will be overridden next generation. If you need changes:
-  - All classes marked as 'partial'. Use the custom.cs in the root folder, to extend the classes.
+  - All classes marked as "partial". Use the custom.cs in the root folder, to extend the classes.
   - or regenerate the project with the newest IDL files.
   - or modifiy the WebIDLParser tool itself.
 
-*****************************************************************************************************
+********************************************************************************************************
 
-  This library is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or
-  (at your option) any later version.
+	Copyright (C) 2012 Sebastian Loncar
+	Copyright (C) 2009 Apple Inc. All Rights Reserved.
 
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+	MIT License:
 
-  You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+	associated documentation files (the "Software"), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute,
+	sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
 
-*****************************************************************************************************/
+	The above copyright notice and this permission notice shall be included in all copies or substantial
+	portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+	NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
+	OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*******************************************************************************************************/
 
 using System;
 

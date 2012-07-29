@@ -1,24 +1,26 @@
 ﻿
-/****************************************************************************************************
+/*******************************************************************************************************
 
-  Author of this tool: Sebastian Loncar, http://loncar.de
+	Copyright (C) 2012 Sebastian Loncar, http://loncar.de
 
-*****************************************************************************************************
+	MIT License:
 
-  This library is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or
-  (at your option) any later version.
+	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+	associated documentation files (the "Software"), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute,
+	sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
 
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+	The above copyright notice and this permission notice shall be included in all copies or substantial
+	portions of the Software.
 
-  You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+	NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
+	OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-*****************************************************************************************************/
+*******************************************************************************************************/
 
 using System;
 using System.Collections;
@@ -663,35 +665,42 @@ namespace WebIDLParser
 		public void write(System.Text.StringBuilder sb) {
 			var path = file.inFile.Replace(Program.idlInDirectory, "").Replace("\\", "/");
 			sb.Append(@"
-/****************************************************************************************************
+/*******************************************************************************************************
 
   This file was auto generated with the tool 'WebIDLParser' at {DATE}
-  Author of the tool: Sebastian Loncar, http://loncar.de
 
-  Content was generated from IDL file: http://trac.webkit.org/browser/trunk/Source/WebCore/{FILE}
+  Content was generated from IDL file:
+	http://trac.webkit.org/browser/trunk/Source/WebCore/{FILE}
 
   PLEASE DO *NOT* MODIFY THIS FILE! This file will be overridden next generation. If you need changes:
   - All classes marked as 'partial'. Use the custom.cs in the root folder, to extend the classes.
   - or regenerate the project with the newest IDL files.
   - or modifiy the WebIDLParser tool itself.
 
-*****************************************************************************************************
+********************************************************************************************************
 
-  This library is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or
-  (at your option) any later version.
+	Copyright (C) {YEAR} Sebastian Loncar
+	Copyright (C) 2009 Apple Inc. All Rights Reserved.
 
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+	MIT License:
 
-  You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+	associated documentation files (the 'Software'), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute,
+	sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
 
-*****************************************************************************************************/
-".Replace("{DATE}", DateTime.Now.ToString("r")).Replace("{FILE}", path));
+	The above copyright notice and this permission notice shall be included in all copies or substantial
+	portions of the Software.
+
+	THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+	NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
+	OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*******************************************************************************************************/
+".Replace("{DATE}", DateTime.Now.ToString("r")).Replace("{FILE}", path).Replace("'", "\"").Replace("{YEAR}", DateTime.Now.Year.ToString()));
 			sb.Append(Environment.NewLine);
 			sb.Append("using System;" + Environment.NewLine);
 			sb.Append(Environment.NewLine);
