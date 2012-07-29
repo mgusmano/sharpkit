@@ -231,7 +231,7 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
 		/// </summary>
-		public jQuery append(object content) { return null; }
+		public jQuery append(JsNumber content) { return null; }
 		/// <summary>
 		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
 		/// </summary>
