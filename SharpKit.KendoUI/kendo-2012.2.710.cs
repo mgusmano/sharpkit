@@ -1,7 +1,7 @@
 ﻿using SharpKit.JavaScript;
 using SharpKit.jQuery;
 using SharpKit.Html4;
-[assembly:JsType(JsMode.Prototype, Export=false)]
+[assembly: JsType(JsMode.Prototype, Export = false)]
 
 namespace SharpKit.KendoUI
 {
@@ -414,7 +414,7 @@ namespace SharpKit.KendoUI
         /// </code>
         /// </example>
         public void render(JsFunction template, JsArray data) { }
-        
+
         /// <summary>
         /// Compiles a template to a function that builds HTML. Useful when a template will be used several times.
         /// Templates offer way of creating HTML chunks. Options such as HTML encoding and compilation for optimal performance are available.
@@ -556,7 +556,7 @@ namespace SharpKit.KendoUI
                 /// <summary>
                 /// Returns the CSS prefix of the current browser proprietary transform properties. E.g. "-webkit-", "-moz-", "-o-", "-ms-"
                 /// </summary>
-                public JsString css  { get; set; }
+                public JsString css { get; set; }
 
                 /// <summary>
                 /// Returns the JavaScript prefix of the current browser proprietary transform properties. E.g. "webkit", "Moz", "O", "ms"
@@ -586,7 +586,7 @@ namespace SharpKit.KendoUI
                 /// <summary>
                 /// Returns the transition end event name in the current browser. E.g. "webkitTransitionEnd", "transitionend", "oTransitionEnd"
                 /// </summary>
-                public JsString @event  { get; set; }
+                public JsString @event { get; set; }
 
             }
             /// <summary>
@@ -662,7 +662,7 @@ namespace SharpKit.KendoUI
         /// kendo.unbind($("body"));
         /// </code>
         /// </example>
-        public void unbind (JsString element) {}
+        public void unbind(JsString element) { }
         /// <summary>
         /// Unbinds a tree of HTML elements from a View-Model.
         /// </summary>
@@ -674,7 +674,7 @@ namespace SharpKit.KendoUI
         /// kendo.unbind($("body"));
         /// </code>
         /// </example>
-        public void unbind (jQuery.jQuery element) {}
+        public void unbind(jQuery.jQuery element) { }
         /// <summary>
         /// Unbinds a tree of HTML elements from a View-Model.
         /// </summary>
@@ -686,13 +686,25 @@ namespace SharpKit.KendoUI
         /// kendo.unbind($("body"));
         /// </code>
         /// </example>
-        public void unbind (HtmlElement element) {}
+        public void unbind(HtmlElement element) { }
 
 
 
     }
     public class ObservableObject
     {
+        /// <summary>
+        /// The unique identifier of the ObservableObject.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+        ///console.log(observable.uid); // outputs "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" where "x" is a number or letter
+        ///</code>
+        ///</example>
+        public JsString uid { get; set; }
+
         /// <summary>
         /// Attaches an event handler for the specified event.
         /// </summary>
@@ -708,14 +720,14 @@ namespace SharpKit.KendoUI
         ///observable.set("name", "Jane Doe"); // raises the "change" event and the handler outputs "name"
         ///        ///</code>
         ///</example>
-        public void bind (JsString eventName, JsFunction handler) {}
+        public void bind(JsString eventName, JsFunction handler) { }
 
         /// <summary>
         /// Gets the value of the specified field.
         /// </summary>
         /// <param name="name">The name of the field whose value is going to be returned.</param>
         /// <returns></returns>
-        public object get(JsString name) {return null;}
+        public object get(JsString name) { return null; }
 
         /// <summary>
         /// Returns the parent ObservableObject. If the current ObservableObject is not nested returns undefined;
@@ -730,7 +742,7 @@ namespace SharpKit.KendoUI
         ///console.log(person.parent() === observable); // outputs "true"
         ///</code>
         ///</example>
-        public ObservableObject parent () {return null;}
+        public ObservableObject parent() { return null; }
 
         /// <summary>
         /// Sets the value of the specified field.
@@ -745,7 +757,7 @@ namespace SharpKit.KendoUI
         ///console.log(observable.get("name")); //outputs the new value "Jane Doe"
         ///</code>
         ///</example>
-        public void set (JsString name, JsNumber value ) {}
+        public void set(JsString name, JsNumber value) { }
         /// <summary>
         /// Sets the value of the specified field.
         /// </summary>
@@ -759,7 +771,7 @@ namespace SharpKit.KendoUI
         ///console.log(observable.get("name")); //outputs the new value "Jane Doe"
         ///</code>
         ///</example>
-        public void set (JsString name, JsString value ) {}
+        public void set(JsString name, JsString value) { }
         /// <summary>
         /// Sets the value of the specified field.
         /// </summary>
@@ -773,7 +785,7 @@ namespace SharpKit.KendoUI
         ///console.log(observable.get("name")); //outputs the new value "Jane Doe"
         ///</code>
         ///</example>
-        public void set (JsString name, JsDate value ) {}
+        public void set(JsString name, JsDate value) { }
         /// <summary>
         /// Sets the value of the specified field.
         /// </summary>
@@ -787,7 +799,7 @@ namespace SharpKit.KendoUI
         ///console.log(observable.get("name")); //outputs the new value "Jane Doe"
         ///</code>
         ///</example>
-        public void set (JsString name, object value ) {}
+        public void set(JsString name, object value) { }
 
         /// <summary>
         /// Creates a plain JavaScript object which contains all fields of the ObservableObject.
@@ -801,24 +813,77 @@ namespace SharpKit.KendoUI
         ///console.log(JSON.stringify(json)); // outputs {"person":{"name":"John Doe"}}
         ///</code>
         ///</example>
-        public object toJSON () {return null;}
+        public object toJSON() { return null; }
+
+        /// <summary>
+        /// Raised when a field value is updated via the set method.
+        /// </summary>
+        public event JsAction<ObservableObjectChangeEventData> changeEvent;
+        //TODO: event name?
+
+        /// <summary>
+        /// Raised when the get method is invoked.
+        /// </summary>
+        public event JsAction<ObservableObjectChangeEventData> getEvent;
+        //TODO: event name?
+
+        /// <summary>
+        /// Raised when the set method is invoked.
+        /// The set event is raised before the field value is updated. Calling the get method from the event handler will return the old value.
+        /// Calling e.preventDefault will prevent the update of the field and the change event will not be raised.
+        /// </summary>
+        public event JsAction<ObservableObjectSetEventData> setEvent;
+        //TODO: event name?
 
     }
-    //TODO: Configuration, Fields, Events
+    //TODO: Configuration, danel chack Events, and get/set meth
+
+    public class ObservableObjectChangeEventData
+            {
+                /// <summary>
+                /// The name of the field which has changed.
+                /// </summary>
+                public JsString field  { get; set; }
+            }
+    public class ObservableObjectGetEventData
+    {
+        /// <summary>
+        /// The name of the field which is retrieved.
+        /// </summary>
+        public JsString field { get; set; }
+    }
+    public class ObservableObjectSetEventData
+    {
+        /// <summary>
+        /// The name of the field which is retrieved.
+        /// </summary>
+        public JsString field { get; set; }
+
+        /// <summary>
+        /// The new value.
+        /// </summary>
+        public object value { get; set; }
+        //TODO: type can be Number|String|Data|Object
+
+        /// <summary>
+        /// A function which may prevent the update of the value. Can be used to perform validation.
+        /// </summary>
+        public JsFunction preventDefault { get; set; }
+    }
 
     public class KendoObjectOptions
     {
         /// <summary>
         /// The name of the parameter used by the generated function. Useful when useWithBlock is set to false.
         /// </summary>
-        public JsString paramName  { get; set; }
+        public JsString paramName { get; set; }
         /// <summary>
         /// Wraps the generated code in a with block.
         /// This allows the usage of unqualified fields in the template. Disabling the with block will improve the performance of the template.
         /// </summary>
-        public bool useWithBlock  { get; set; }
+        public bool useWithBlock { get; set; }
     }
-    //TODO: fix all objectOptions and create new ObjectOptions for eace class
+    //TODO: make sure there are no mistakes with ObjectOptions/KendoObjectOptions
 
     public enum DeviceIdentificator
     {
@@ -862,6 +927,10 @@ namespace SharpKit.KendoUI
 
     public class DataSource
     {
+        public DataSource() { }
+
+        public DataSource(DataSourceConfiguration DataSourceConfiguration) { }
+
         /// <summary>
         /// Adds a new Model instance to the DataSource
         /// </summary>
@@ -1260,8 +1329,884 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public JsArray view() { return null; }
+
+        /// <summary>
+        /// Fires when data is changed or read from the transport.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    change: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<DataSourceChangeEventData> change;
+
+        /// <summary>
+        /// Fires when an error occurs during data read or sync. The event arguments are the same as the ones of the error event of $.ajax().
+        /// Important: If schema.errors is specified and the server response contains that field then the error event will be raised.
+        /// The errors field of the event argument will contain the errors returned by the server.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    error: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<DataSourceErrorEventData> error;
+
+        /// <summary>
+        /// Fires when data request is to be made.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    requestStart: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<DataSourceRequestStartEventData> requestStart;
     }
-    //TODO: Configuration, Events
+    public class DataSourceChangeEventData
+    {
+    }
+    //TODO: empty (?) is it ok?
+    public class DataSourceErrorEventData
+    {
+    }
+    //TODO: empty (?) is it ok?
+    public class DataSourceRequestStartEventData
+    {
+        /// <summary>
+        /// Reference to the dataSource object instance.
+        /// </summary>
+        public DataSource sender { get; set; }
+    }
+
+    public class DataSourceConfiguration
+    {
+        /// <summary>
+        /// Sets fields on which initial aggregates should be calculated
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // calculates total sum of unitPrice field's values.
+        ///[{ field: "unitPrice", aggregate: "sum" }]
+        ///</code>
+        ///</example>
+        public object aggregate { get; set; }
+
+        /// <summary>
+        /// Specifies the local JavaScript object to use for the data source.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var orders = [ { orderId: 10248, customerName: "Paul Smith" }, { orderId: 10249, customerName: "Jane Jones" }];
+        ///var dataSource = new kendo.data.DataSource({
+        ///     data: orders
+        ///});
+        ///</code>
+        ///</example>
+        public JsArray data { get; set; }
+
+        /// <summary>
+        /// Sets initial filter
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // returns only data where orderId is equal to 10248
+        ///filter: { field: "orderId", operator: "eq", value: 10248 }
+        /// // returns only data where orderId is equal to 10248 and customerName starts with Paul
+        ///filter: [ { field: "orderId", operator: "eq", value: 10248 },
+        ///          { field: "customerName", operator: "startswith", value: "Paul" } ]
+        /// // returns data where orderId is equal to 10248 or customerName starts with Paul
+        ///filter: {
+        ///    logic: "or",
+        ///    filters: [
+        ///      { field: "orderId", operator: "eq", value: 10248 },
+        ///      { field: "customerName", operator: "startswith", value: "Paul" }
+        ///    ]
+        ///}
+        ///</code>
+        ///</example>
+        public object filter { get; set; }
+
+        /// <summary>
+        /// Sets initial grouping
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // groups data by orderId field
+        ///group: { field: "orderId" }
+        /// // groups data by orderId and customerName fields
+        ///group: [ { field: "orderId", dir: "desc" }, { field: "customerName", dir: "asc" } ]
+        ///</code>
+        ///</example>
+        public object group { get; set; }
+
+        /// <summary>
+        /// Sets the index of the displayed page of data.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    page: 2 // displays the second page of data in the bound widget
+        ///});
+        ///</code>
+        ///</example>
+        public JsNumber page { get; set; }
+
+        /// <summary>
+        /// Sets the number of records which contains a given page of data.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    pageSize: 5 // 5 records per page of data
+        ///});
+        ///</code>
+        ///</example>
+        public JsNumber pageSize { get; set; }
+
+        /// <summary>
+        /// Set the object responsible for describing the raw data format.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///     transport: {
+        ///         read: "Catalog/Titles",
+        ///     },
+        ///     schema: {
+        ///         errors: function(response) {
+        ///            return response.errors;
+        ///         },
+        ///         aggregates: function(response) {
+        ///            response.aggregates;
+        ///         },
+        ///         data: function(response) {
+        ///             return response.data;
+        ///         },
+        ///         total: function(response) {
+        ///             return response.totalCount;
+        ///         },
+        ///         parse: function(response) {
+        ///             return response.data;
+        ///         }
+        ///     }
+        ///});
+        ///</code>
+        ///</example>
+        public DataSourceSchemaConfiguration schema { get; set; }
+
+        public class DataSourceSchemaConfiguration
+        {
+            /// <summary>
+            /// Specifies the field from the response which contains the aggregate results.
+            /// If set to a function - the function will be called to return the aggregate results for the current response.
+            /// Result should have the following format:
+            /// {
+            ///FIEL1DNAME: {
+            ///    FUNCTON1NAME: FUNCTION1VALUE,
+            ///    FUNCTON2NAME: FUNCTION2VALUE
+            ///},
+            ///FIELD2NAME: {
+            ///    FUNCTON1NAME: FUNCTION1VALUE
+            ///}
+            ///}
+            ///i.e.:
+            ///{
+            ///unitPrice: {
+            ///max: 100,
+            ///min: 1
+            ///},
+            ///productName: {
+            ///count: 42
+            ///}
+            ///}
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///schema: {
+            ///    aggregates: "aggregates" // aggregate results are returned in the "aggregates" field of the response
+            ///}
+            ///</code>
+            ///</example>
+            public object aggregates { get; set; }
+            //TODO: type can be string or function
+
+            /// <summary>
+            /// Specifies the field from the response which contains the data items.
+            /// If set to a function - the function will be called to return the data items for the current response.
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///schema: {
+            ///    data: "items" // data items are returned in the "items" field of the response
+            ///}
+            ///</code>
+            ///</example>
+            public object data { get; set; }
+            //TODO: type can be string or function, Returns An Array which contains the data items from the response.
+
+            /// <summary>
+            /// Specifies the field from the response which contains any errors. If set to a function - the function will be called to return the errors for the current response (if present).
+            /// If there are any errors the error event of the DataSource will be raised.
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///schema: {
+            ///    errors: "exceptions" // errors are returned in the "exceptions" field of the response
+            ///}
+            ///</code>
+            ///</example>
+            public object errors { get; set; }
+            //TODO: type can be string or function
+
+            /// <summary>
+            /// Specifies the field from the response which contains the groups. If set to a function - the function will be called to return the groups for the current response.
+            ///Used instead of the schema.data setting if remote grouping operation is executed.
+            ///The result should have the following format:
+            ///[{
+            ///  aggregates: {
+            ///      FIEL1DNAME: {
+            ///          FUNCTON1NAME: FUNCTION1VALUE,
+            ///          FUNCTON2NAME: FUNCTION2VALUE
+            ///      },
+            ///      FIELD2NAME: {
+            ///          FUNCTON1NAME: FUNCTION1VALUE
+            ///      }
+            ///  },
+            ///  field: FIELDNAME, // the field name on which is grouped
+            ///  hasSubgroups: true, // false if there are not sub group items and this is the top most group
+            ///  items: [
+            ///  // either the inner group items (if hasSubgroups is true) or the data records
+            ///     {
+            ///         aggregates: {
+            ///             //nested group aggregates
+            ///         },
+            ///         field: NESTEDGROUPFIELDNAME,
+            ///         hasSubgroups: false,
+            ///         items: [
+            ///         // data records
+            ///         ],
+            ///         value: NESTEDGROUPVALUE
+            ///     },
+            ///     //nestedgroup2, nestedgroup3, etc.
+            ///  ],
+            ///  value: VALUE // value of the field on which is grouped
+            ///}
+            /// // group2, group3, etc.
+            ///]
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///schema: {
+            ///    groups: "groups" // groups are returned in the "groups" field of the response
+            ///}
+            ///</code>
+            ///</example>
+            public object groups { get; set; }
+            //TODO: type can be string or function
+
+            /// <summary>
+            /// Describes the Model of the DataSource. If set to Object the Model.define method will be used to create the model.
+            /// Check the documentation of Model.define for the available configuration options.
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///var dataSource = new kendo.data.DataSource({
+            ///     schema: {
+            ///         model: {
+            ///             id: "ProductID",
+            ///             fields: {
+            ///                  ProductID: {
+            ///                     //this field will not be editable (default value is true)
+            ///                     editable: false,
+            ///                     // a defaultValue will not be assigned (default value is false)
+            ///                     nullable: true
+            ///                  },
+            ///                  ProductName: {
+            ///                      validation: { //set validation rules
+            ///                          required: true
+            ///                      }
+            ///                  },
+            ///                  UnitPrice: {
+            ///                    //data type of the field {Number|String|Boolean|Date} default is String
+            ///                    type: "number",
+            ///                    // used when new model is created
+            ///                    defaultValue: 42,
+            ///                    validation: {
+            ///                        required: true,
+            ///                        min: 1
+            ///                    }
+            ///                }
+            ///            }
+            ///        }
+            ///    }
+            ///});
+            ///</code>
+            ///</example>
+            public Model model { get; set; }
+
+            /// <summary>
+            /// Executed before the server response is used. Appropriate for preprocessing or parsing of the server response.
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///schema: {
+            ///    parse: function(response) {
+            ///        // perform some processing over the response
+            ///        return processResponse(response);
+            ///    }
+            ///}
+            ///</code>
+            ///</example>
+            public JsFunction parse { get; set; }
+
+            /// <summary>
+            /// Specifies the field from the response which contains the total number of data items.
+            /// If set to a function - the function will be called to return the total number of data items for the current response.
+            /// Note: If schema.total is not specified the length of the Array returned by schema.data will be used.
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///schema: {
+            ///    total: "count" // total number of data items is returned in the "count" field of the response
+            ///}
+            ///</code>
+            ///</example>
+            public object total { get; set; }
+            //TODO: type can be string or function, Returns A Number which denotes the total number of data items.
+
+            /// <summary>
+            /// Specify the type of the response - XML or JSON. The only supported values are "xml" and "json".(default: "json")
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///schema: {
+            ///    type: "xml"
+            ///}
+            ///</code>
+            ///</example>
+            public SchemaResponseType type { get; set; }
+
+            public enum SchemaResponseType
+            {
+                XML,
+                JSON,
+            }
+        }
+
+        /// <summary>
+        /// Determines if aggregates are calculated on the server or not. By default aggregates are calculated client-side.(default: false)
+        /// Important: When serverAggregates is set to true the developer is responsible for calculating the aggregate results.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    transport: {
+        ///        read: "/orders"
+        ///    },
+        ///    serverAggregates: true,
+        ///    aggregate: { field: "orderId", operator: "eq", value: 10248 } // return only data where orderId equals 10248
+        ///});
+        ///</code>
+        ///</example>
+        public bool serverAggregates { get; set; }
+
+        /// <summary>
+        /// Determines if filtering of the data is handled on the server. By default filtering is performed client-side.
+        /// Important: When serverFiltering is set to true the developer is responsible for filtering the data.
+        /// By default, a filter object is sent to the server with the query string in the following form:
+        ///filter[logic]: and
+        ///filter[filters][0][field]: orderId
+        ///filter[filters][0][operator]: desc
+        ///filter[filters][0][value]: 10248
+        ///Possible values for operator include:
+        ///Equal To
+        ///"eq", "==", "isequalto", "equals", "equalto", "equal"
+        ///Not Equal To
+        ///"neq", "!=", "isnotequalto", "notequals", "notequalto", "notequal", "ne"
+        ///Less Then
+        ///"lt", "&lt;", "islessthan", "lessthan", "less"
+        ///Less Then or Equal To
+        ///"lte", "&lt;=", "islessthanorequalto", "lessthanequal", "le"
+        ///Greater Then
+        ///"gt", ">", "isgreaterthan", "greaterthan", "greater"
+        ///Greater Then or Equal To
+        ///"gte", ">=", "isgreaterthanorequalto", "greaterthanequal", "ge"
+        ///Starts With
+        ///"startswith"
+        ///Ends With
+        ///"endswith"
+        ///Contains
+        ///"contains"
+        ///It is possible to modify these parameters by using the parameterMap function found in the transport.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    transport: {
+        ///        read: "/orders"
+        ///    },
+        ///    serverFiltering: true,
+        ///    filter: { field: "orderId", operator: "eq", value: 10248 } // return only data where orderId equals 10248
+        ///});
+        ///</code>
+        ///</example>
+        public bool serverFiltering { get; set; }
+
+        /// <summary>
+        /// Determines if grouping of the data is handled on the server. By default grouping is performed client-side.
+        /// Important: When serverGrouping is set to true the developer is responsible for grouping the data.
+        /// By default, a group object is sent to the server with the query string in the following form:
+        ///group[0][field]: orderId
+        ///group[0][dir]: desc
+        ///It is possible to modify these parameters by using the parameterMap function found on the transport.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    transport: {
+        ///        read: "/orders"
+        ///    },
+        ///    serverGrouping: true,
+        ///    sort: { field: "orderId", dir: "asc" } // group by orderId descending
+        ///});
+        ///</code>
+        ///</example>
+        public bool serverGrouping { get; set; }
+
+        /// <summary>
+        /// Determines if paging of the data is on the server. By default paging is performed client-side.
+        /// If serverPaging is enabled the total number of data items should also be returned in the response. Use the schema.total setting to customize that.
+        /// Important: When serverPaging is set to true the developer is responsible for paging the data.
+        /// The following options are sent to the server as part of the query string by default:
+        ///take
+        ///contains the number of records to retreive
+        ///skip
+        ///how many records from the front of the dataset to begin reading
+        ///page
+        ///the index of the current page of data
+        ///pageSize
+        ///the number of records per page
+        ///It is possible to modify these parameters by using the parameterMap function found on the transport.
+        /// </summary>]
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    transport: {
+        ///        read: "/orders"
+        ///    },
+        ///    serverPaging: true,
+        ///    pageSize: 5 // 5 records per page
+        ///});
+        ///</code>
+        ///</example>
+        public bool serverPaging { get; set; }
+
+        /// <summary>
+        /// Determines if sorting of the data should is handled on the server. By default sorting is performed client-side.
+        /// Important: When serverSorting is set to true the developer is responsible for sorting the data.
+        /// By default, a sort object is sent to the server with the query string in the following form:
+        ///sort[0][field]: orderId
+        ///sort[0][dir]: asc
+        ///It is possible to modify these parameters by using the parameterMap function found on the transport.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    transport: {
+        ///        read: "/orders"
+        ///    },
+        ///    serverSorting: true,
+        ///    sort: { field: "orderId", dir: "asc" }
+        ///});
+        ///</code>
+        ///</example>
+        public bool serverSorting { get; set; }
+
+        /// <summary>
+        /// Sets initial sort order
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // sorts data ascending by orderId field
+        ///sort: { field: "orderId", dir: "asc" }
+        /// // sorts data ascending by orderId field and then descending by shipmentDate
+        ///sort: [ { field: "orderId", dir: "asc" }, { field: "shipmentDate", dir: "desc" } ]
+        ///</code>
+        ///</example>
+        public object sort { get; set; }
+
+        /// <summary>
+        /// Specifies the settings for loading and saving data. This can be a remote or local/in-memory data.
+        /// </summary>
+        public object transport { get; set; }
+
+        public class DataSourceTransportConfiguration
+        {
+            /// <summary>
+            /// Options for remote create data operation, or the URL of the remote service.
+            /// Important: The value of transport.create is passed to jQuery.ajax.
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///var dataSource = new kendo.data.DataSource({
+            ///    transport: {
+            ///        create: {
+            ///            url: "/orders/create",
+            ///            data: {
+            ///                orderId: $("#input").val() // sends the value of the input as the orderId
+            ///            }
+            ///        }
+            ///    }
+            ///});
+            ///</code>
+            ///</example>
+            public DataSourceTransportCreateConfiguration create { get; set; }
+
+            public class DataSourceTransportCreateConfiguration
+            {
+                /// <summary>
+                /// If set to false, it will force requested pages not to be cached by the browser.
+                /// Setting cache to false also appends a query string parameter, "_=[TIMESTAMP]", to the URL. Refer to the jQuery.ajax documentation for further info.
+                /// </summary>
+                ///<example>
+                ///usage
+                ///<code>
+                ///transport: {
+                ///    create: {
+                ///        cache: false
+                ///    }
+                ///}
+                ///</code>
+                ///</example>
+                public bool cache { get; set; }
+
+                /// <summary>
+                /// The content-type HTTP header sent to the server. Default is "application/x-www-form-urlencoded".
+                /// Use "application/json" if the content is JSON. Refer to the jQuery.ajax documentation for further info.
+                /// </summary>
+                ///<example>
+                ///usage
+                ///<code>
+                ///transport: {
+                ///    create: {
+                ///        contentType: "application/json"
+                ///    }
+                ///}
+                ///</code>
+                ///</example>
+                public JsString contentType { get; set; }
+
+                /// <summary>
+                /// Data to be send to the server. Refer to the jQuery.ajax documentation for further info.
+                /// </summary>
+                ///<example>
+                ///usage
+                ///<code>
+                ///transport: {
+                ///    create: {
+                ///        data: {
+                ///            id: 42,
+                ///            name: "John Doe"
+                ///        }
+                ///    }
+                ///}
+                ///</code>
+                ///</example>
+                public object data { get; set; }
+
+                /// <summary>
+                /// The type of data that you're expecting back from the server.
+                /// Commonly used values are "json" and "jsonp". Refer to the jQuery.ajax documentation for further info.
+                /// </summary>
+                ///<example>
+                ///usage
+                ///<code>
+                ///transport: {
+                ///    create: {
+                ///        dataType: "json"
+                ///    }
+                ///}
+                ///</code>
+                ///</example>
+                public JsString dataType { get; set; }
+
+                /// <summary>
+                /// The type of request to make ("POST", "GET", "PUT" or "DELETE"), default is "GET". Refer to the jQuery.ajax documentation for further info.
+                /// </summary>
+                ///<example>
+                ///usage
+                ///<code>
+                ///transport: {
+                ///    create: {
+                ///        type: "POST"
+                ///    }
+                ///}
+                ///</code>
+                ///</example>
+                public TransportType type { get; set; }
+
+                /// <summary>
+                /// The remote url to call when creating a new record.
+                /// </summary>
+                ///<example>
+                ///usage
+                ///<code>
+                ///transport: {
+                ///    create: {
+                ///        url: "/create"
+                ///    }
+                ///}
+                ///</code>
+                ///</example>
+                public JsString url { get; set; }
+
+            }
+
+            public enum TransportType
+            {
+                POST,
+                GET,
+                PUT,
+                DELETE,
+            }
+
+            /// <summary>
+            /// Options for remote destroy data operation, or the URL of the remote service.
+            /// Important: The value of transport.destroy is passed to jQuery.ajax.
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///var dataSource = new kendo.data.DataSource({
+            ///    transport: {
+            ///        destroy: {
+            ///            url: "/orders/destroy",
+            ///            data: {
+            ///                orderId: $("#input").val() // sends the value of the input as the orderId
+            ///            }
+            ///        }
+            ///    }
+            ///});
+            ///</code>
+            ///</example>
+            public DataSourceTransportDestroyeConfiguration destroy { get; set; }
+
+            public class DataSourceTransportDestroyeConfiguration : DataSourceTransportCreateConfiguration
+            {
+                ////    /// <summary>
+                ////    /// If set to false, it will force requested pages not to be cached by the browser.
+                ////    /// Setting cache to false also appends a query string parameter, "_=[TIMESTAMP]", to the URL. Refer to the jQuery.ajax documentation for further info.
+                ////    /// </summary>
+                ////    ///<example>
+                ////    ///usage
+                ////    ///<code>
+                ////    ///transport: {
+                ////    ///    destroy: {
+                ////    ///        cache: false
+                ////    ///    }
+                ////    ///}
+                ////    ///</code>
+                ////    ///</example>
+                ////    public bool cache { get; set; }
+
+                ////    /// <summary>
+                ////    /// The content-type HTTP header sent to the server. Default is "application/x-www-form-urlencoded".
+                ////    /// Use "application/json" if the content is JSON.Refer to the jQuery.ajax documentation for further info.
+                ////    /// </summary>
+                ////    ///<example>
+                ////    ///usage
+                ////    ///<code>
+                ////    ///transport: {
+                ////    ///    destroy: {
+                ////    ///        contentType: "application/json"
+                ////    ///    }
+                ////    ///}
+                ////    ///</code>
+                ////    ///</example>
+                ////    public JsString contentType { get; set; }
+
+                ////    /// <summary>
+                ////    /// Data to be send to the server. Refer to the jQuery.ajax documentation for further info.
+                ////    /// </summary>
+                ////    ///<example>
+                ////    ///usage
+                ////    ///<code>
+                ////    ///transport: {
+                ////    ///    destroy: {
+                ////    ///        data: {
+                ////    ///            id: 42,
+                ////    ///            name: "John Doe"
+                ////    ///        }
+                ////    ///    }
+                ////    ///}
+                ////    ///</code>
+                ////    ///</example>
+                ////    public object data { get; set; }
+
+                ////    /// <summary>
+                ////    /// The type of data that you're expecting back from the server.
+                ////    /// Commonly used values are "json" and "jsonp". Refer to the jQuery.ajax documentation for further info.
+                ////    /// </summary>
+                ////    ///<example>
+                ////    ///usage
+                ////    ///<code>
+                ////    ///transport: {
+                ////    ///    destroy: {
+                ////    ///        dataType: "json"
+                ////    ///    }
+                ////    ///}
+                ////    ///</code>
+                ////    ///</example>
+                ////    public JsString dataType { get; set; }
+
+                ////    /// <summary>
+                ////    /// The type of request to make ("POST", "GET", "PUT" or "DELETE"), default is "GET". Refer to the jQuery.ajax documentation for further info.
+                ////    /// </summary>
+                ////    ///<example>
+                ////    ///usage
+                ////    ///<code>
+                ////    ///transport: {
+                ////    ///    destroy: {
+                ////    ///        type: "POST"
+                ////    ///    }
+                ////    ///}
+                ////    ///</code>
+                ////    ///</example>
+                ////    public TransportType type { get; set; }
+
+                ////    /// <summary>
+                ////    /// The remote url to call when creating a new record.
+                ////    /// </summary>
+                ////    ///<example>
+                ////    ///usage
+                ////    ///<code>
+                ////    ///transport: {
+                ////    ///    destroy: {
+                ////    ///        url: "/destroy"
+                ////    ///    }
+                ////    ///}
+                ////    ///</code>
+                ////    ///</example>
+                ////    public JsString url { get; set; }
+            }
+
+            /// <summary>
+            /// Convert the request parameters from dataSource format to remote service specific format.
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///var dataSource = new kendo.data.DataSource({
+            ///    transport: {
+            ///      read: "Catalog/Titles",
+            ///      parameterMap: function(options, type) {
+            ///         return {
+            ///            pageIndex: options.page,
+            ///            size: options.pageSize,
+            ///            orderBy: convertSort(options.sort)
+            ///         }
+            ///      }
+            ///    }
+            ///});
+            ///</code>
+            ///</example>
+            public JsFunction parameterMap { get; set; }
+
+            /// <summary>
+            /// Options for remote read data operation, or the URL of the remote service.
+            /// Important: The value of transport.read is passed to jQuery.ajax.
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///var dataSource = new kendo.data.DataSource({
+            ///    transport: {
+            ///        read: {
+            ///            url: "/orders/read",
+            ///            data: {
+            ///                orderId: $("#input").val() // sends the value of the input as the orderId
+            ///            }
+            ///        }
+            ///    }
+            ///});
+            ///</code>
+            ///</example>
+            public DataSourceTransportReadConfiguration read { get; set; }
+
+            public class DataSourceTransportReadConfiguration : DataSourceTransportCreateConfiguration
+            {
+            }
+
+            /// <summary>
+            /// Options for remote update data operation, or the URL of the remote service.
+            /// Important: The value of transport.update is passed to jQuery.ajax.
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///var dataSource = new kendo.data.DataSource({
+            ///    transport: {
+            ///        update: {
+            ///            url: "/orders/update",
+            ///            data: {
+            ///                orderId: $("#input").val() // sends the value of the input as the orderId
+            ///            }
+            ///        }
+            ///    }
+            ///});
+            ///</code>
+            ///</example>
+            public DataSourceTransportUpdateConfiguration update { get; set; }
+
+            public class DataSourceTransportUpdateConfiguration : DataSourceTransportCreateConfiguration
+            {
+            }
+        }
+
+        /// <summary>
+        /// Loads transport with preconfigured settings. Currently supports only "odata" (Requires kendo.data.odata.js to be included).
+        /// </summary>
+        public JsString type { get; set; }
+
+
+    }
 
     /// <summary>
     /// See the DataSource methods for all inherited methods.
@@ -1269,8 +2214,74 @@ namespace SharpKit.KendoUI
     /// </summary>
     public class HierarchicalDataSource : DataSource
     {
+        public HierarchicalDataSource() { }
+
+        public HierarchicalDataSource(HierarchicalDataSourceConfiguration HierarchicalDataSourceConfiguration) { }
+
+        /// <summary>
+        /// Fires when data is changed. In addition to the standard change event,
+        /// the HierarchicalDataSource includes additional data when the event has been triggered from a child DataSource.
+        /// </summary>
+        public event JsAction<HierarchicalDataSourceChangeEventData> change;
+
     }
-    //TODO: Configuration, Events
+    //TODO: See the DataSource events for all inherited events.
+
+    public class HierarchicalDataSourceChangeEventData
+    {
+        /// <summary>
+        /// If the event was triggered by a child datasource, this field holds a reference to the parent node.
+        /// </summary>
+        public object node { get; set; }
+        //TODO: node type is Node
+    }
+
+    public class HierarchicalDataSourceConfiguration : DataSourceConfiguration
+    {
+        public class HierarchicalDataSourceSchemaModelConfiguration
+        {
+            /// <summary>
+            /// Specifies whether the model might have children and might be loaded.
+            /// Applicable when the rendering of a widget needs to have different states for items that have no children (e.g. the toggle button of the TreeView).
+            /// </summary>
+            public object hasChildren { get; set; }
+
+            /// <summary>
+            /// DataSource object or configuration for fetching child nodes. Through examples of that can be found in the Getting started section above.
+            /// For static HierarchicalDataSource (local data), this field may be a String, indicating which field holds the nested data.
+            /// </summary>
+            ///<example>
+            ///usage
+            ///<code>
+            ///var localDataSource = new kendo.data.HierarchicalDataSource({
+            ///    data: [ {
+            ///          categoryName: "SciFi",
+            ///          movies: [
+            ///            { title: "Star Wars: A New Hope", year: 1977 },
+            ///            { title: "Star Wars: The Empire Strikes Back", year: 1980 },
+            ///            { title: "Star Wars: Return of the Jedi", year: 1983 }
+            ///          ]
+            ///      }, {
+            ///          categoryName: "Drama",
+            ///          movies: [
+            ///            { title: "The Shawshenk Redemption", year: 1994 },
+            ///            { title: "Fight Club", year: 1999 },
+            ///            { title: "The Usual Suspects", year: 1995 }
+            ///          ]
+            ///      }
+            ///    ],
+            ///    schema: {
+            ///        model: {
+            ///            children: "movies"
+            ///        }
+            ///    }
+            ///});
+            ///</code>
+            ///</example>
+            public object children  { get; set; }
+        }
+    }
+    //TODO: danel must chack
 
     /// <summary>
     /// The Model inherits from the ObservableObject and extends it with the ability to define schema - fields and methods.
@@ -1380,7 +2391,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Specifies if the defaultValue setting should be used. The default is false.
         /// </summary>
-        public bool nullable  { get; set; }
+        public bool nullable { get; set; }
 
         /// <summary>
         /// Specifies the function which will parse the field value. If not set default parsers will be used.
@@ -1390,7 +2401,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Specifies the the type of the field. The available options are "string", "number", "boolean", "date". The default is "string".
         /// </summary>
-        public JsString type  { get; set; }
+        public JsString type { get; set; }
         //TODO: type can be string number bool or date
 
         /// <summary>
@@ -1645,9 +2656,68 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public void unshift(object item1, object item2, params object[] items) { }
-    }
-    //TODO: Configuration, Fields, Events. Make class generic
 
+        /// <summary>
+        /// An unsigned, 32-bit integer that specifies the number of items in an ObservableArray.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([1, 2, 3]);
+        ///for (var i = 0; i < array.length; i++) {
+        ///    console.log(array[i]); // outputs the current item
+        ///}
+        ///</code>
+        ///</example>
+        public JsNumber length { get; set; }
+
+        /// <summary>
+        /// Raised when the items of the ObservableArray change in some way.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([1, 2, 3]);
+        ///array.bind("change", function(e) {
+        ///    console.log(e.action, e.index, e.items);
+        ///});
+        ///array.push(4, 5); // outputs "add", 3, [4, 5]
+        ///array.pop(); // outputs "remove", 4, [5]
+        ///var people = new kendo.data.ObservableArray([{ name: "John Doe" }]);
+        ///people.bind("change", function(e) {
+        ///    console.log(e.action, e.field, e.items[0].get("name"));
+        ///});
+        ///people[0].set("name", "Jane Doe"); // outputs "itemchange", "name", "Jane Doe"
+        ///</code>
+        ///</example>
+        public event JsAction<ObservableArrayChangeEventData> change;
+
+    }
+    //TODO: Configuration. Make class generic
+
+    public class ObservableArrayChangeEventData
+    {
+        /// <summary>
+        /// Specifies the type of change. Possible values are: "add"- items are added to the ObservableArray,
+        /// "itemchange" - a field of an item changed, "remove" - items are removed from the ObservableArray.
+        /// </summary>
+        public JsString action { get; set; }
+
+        /// <summary>
+        /// The index at which items are removed or added. Set to undefined if e.action is "itemchange".
+        /// </summary>
+        public JsNumber index { get; set; }
+
+        /// <summary>
+        /// The items which were changed.
+        /// </summary>
+        public JsArray items  { get; set; }
+
+        /// <summary>
+        /// The name of the field of an item that changed. Available only when e.action is "itemchange".
+        /// </summary>
+        public JsString field { get; set; }
+    }
 
     public class Drag
     {
@@ -1678,6 +2748,10 @@ namespace SharpKit.KendoUI
 
     public class Validator
     {
+        public Validator() { }
+
+        public Validator(ValidatorConfiguration ValidatorConfiguration) { }
+
         /// <summary>
         /// Get the error messages if any.
         /// </summary>
@@ -1727,9 +2801,62 @@ namespace SharpKit.KendoUI
         /// <returns>Boolean true if all validation rules passed successfully.</returns>
         public bool validateInput(HtmlElement input) { return false; }
     }
-    //TODO: Configuration, kendo.ui.Validator means anything?
+    //TODO: kendo.ui.Validator means anything?
 
+    public class ValidatorConfiguration
+    {
+        /// <summary>
+        /// Set of messages (either strings or functions) which will be shown when given validation rule fails.
+        /// By setting already existing key the appropriate built-in message will be overridden.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#myform").kendoValidator({
+        ///     messages: {
+        ///         // defines a message for the 'custom' validation rule
+        ///         custom: "Please enter valid value for my custom rule",
+        ///         // overrides the built-in message for the required rule
+        ///         required: "My custom required message",
+        ///         // overrides the built-in message for the email rule
+        ///         // with a custom function that returns the actual message
+        ///         email: function(input) {
+        ///             return getMessage(input);
+        ///         }
+        ///     }
+        ///});
+        ///</code>
+        ///</example>
+        public object messages { get; set; }
+        //TODO: there is much more summary, is it importent?
 
+        /// <summary>
+        /// Set of custom validation rules. Those rules will extend the built-in ones.
+        /// This configuration can be tested live using this JSBin example.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#myform").kendoValidator({
+        ///     rules: {
+        ///         custom: function(input) {
+        ///             // Only "Tom" will be a valid value for the FirstName input
+        ///             return input.is("[name=firstname]") && input.val() === "Tom";
+        ///         },
+        ///         alsoCustom: function(input) {
+        ///            return $.trim(input.val()) !== "";
+        ///         }
+        ///     }
+        ///});
+        ///</code>
+        ///</example>
+        public object rules { get; set; }
+
+        /// <summary>
+        /// Determines if validation will be triggered when element loses focus. Default value is true.
+        /// </summary>
+        public bool validateOnBlur { get; set; }
+    }
 
 
 }
