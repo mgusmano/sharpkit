@@ -250,16 +250,15 @@ namespace SharpKit.KendoUI
         /// If there is no corresponding culture then the method will try to find culture which is equal to the country part of the culture name. If no culture is found the default one is used
         /// </summary>
         /// <param name="enGB"></param>
-        public void culture(object enGB) { }
-        //TODO: method is a mess. danel must chack
+        public void culture(JsString enGB) { }
 
         /// <summary>
         /// Sets or gets the current culture. Uses the passed culture name to select a culture from the culture scripts that you have included and then sets the current culture.
-        /// If there is no corresponding culture then the method will try to find culture which is equal to the country part of the culture name. If no culture is found the default one is used.
+        /// If there is no corresponding culture then the method will try to find culture which is equal to the country part of the culture name. If no culture is found the default one is used
         /// </summary>
-        /// <returns></returns>
-        public JsString getCurrentCulture() { return null; }
-        //TODO: method is a mess. danel must chack
+        /// <param name="enGB"></param>
+        public JsString culture() { return null; }
+
 
         /// <summary>
         /// Replaces each format item in a specified string with the text equivalent of a corresponding object's value.
@@ -506,148 +505,6 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// A range of useful supported by the current browser capabilities and features.
         /// </summary>
-        public class Support
-        {
-            /// <summary>
-            /// Return true if the browser supports touch events.
-            /// </summary>
-            public bool touch { get; set; }
-
-            /// <summary>
-            /// Return true if the browser supports pointer events (IE10 and Metro apps currently).
-            /// </summary>
-            public bool pointers { get; set; }
-
-            /// <summary>
-            /// Checks for the browser scrollbar width, returns scrollbar width in pixels, 0 if no scrollbars available (e.g. in mobile).
-            /// </summary>
-            public JsFunction scrollbar { get; set; }
-
-            /// <summary>
-            /// Return true if the browser supports 3D transitions and transforms.
-            /// </summary>
-            public bool hasHW3D { get; set; }
-
-            /// <summary>
-            /// Returns true if the browser supports overflow-scrolling CSS property (currently only iOS 5+).
-            /// </summary>
-            public bool hasNativeScrolling { get; set; }
-
-            /// <summary>
-            /// (default: 1) Returns the current device Device to Pixel Ratio - works only in Android.
-            /// </summary>
-            public JsNumber devicePixelRatio { get; set; }
-
-            /// <summary>
-            /// Retruns true if the browser supports input placeholders.
-            /// </summary>
-            public bool placeHolder { get; set; }
-
-            /// <summary>
-            /// (default: 1) Returns the current zoom level on a mobile browser (returns 1 on desktop).
-            /// </summary>
-            public JsNumber zoomLevel { get; set; }
-
-            /// <summary>
-            /// Returns a number of browser specific transformation properties
-            /// </summary>
-            public class Transforms
-            {
-                /// <summary>
-                /// Returns the CSS prefix of the current browser proprietary transform properties. E.g. "-webkit-", "-moz-", "-o-", "-ms-"
-                /// </summary>
-                public JsString css { get; set; }
-
-                /// <summary>
-                /// Returns the JavaScript prefix of the current browser proprietary transform properties. E.g. "webkit", "Moz", "O", "ms"
-                /// </summary>
-                public JsString prefix { get; set; }
-            }
-            /// <summary>
-            /// Returns a number of browser specific transformation properties
-            /// </summary>
-            public Transforms transforms { get; set; }
-
-            /// <summary>
-            /// Returns a number of browser specific transition properties
-            /// </summary>
-            public class Transitions
-            {
-                /// <summary>
-                /// Returns the CSS prefix of the current browser proprietary transform properties. E.g. "-webkit-", "-moz-", "-o-", "-ms-"
-                /// </summary>
-                public JsString css { get; set; }
-
-                /// <summary>
-                /// Returns the JavaScript prefix of the current browser proprietary transform properties. E.g. "webkit", "Moz", "O", "ms"
-                /// </summary>
-                public JsString prefix { get; set; }
-
-                /// <summary>
-                /// Returns the transition end event name in the current browser. E.g. "webkitTransitionEnd", "transitionend", "oTransitionEnd"
-                /// </summary>
-                public JsString @event { get; set; }
-
-            }
-            /// <summary>
-            /// Returns a number of browser specific transition properties
-            /// </summary>
-            public Transitions transitions { get; set; }
-
-            /// <summary>
-            /// Returns a number of properties that identify the current mobile browser. Parses navigator.userAgent to do it. Undefined on desktop.
-            /// </summary>
-            public class MobileOS
-            {
-                /// <summary>
-                /// Returns the current mobile device identificator, can be "fire", "android", "iphone", "ipad", "meego", "webos", "blackberry", "playbook", "winphone", "windows".
-                /// </summary>
-                public DeviceIdentificator device { get; set; }
-
-                /// <summary>
-                /// Returns the current tablet identificator or false if the current device is not a tablet, can be "fire", "ipad", "playbook" or false.
-                /// </summary>
-                public TabletIdentificator tablet { get; set; }
-
-                /// <summary>
-                /// Returns the current browser identificator or "default" if the browser is the native one, can be "omini", "omobile", "firefox", "mobilesafari", "webkit", "ie", "default".
-                /// </summary>
-                public BrowserIdentificator browser { get; set; }
-
-                /// <summary>
-                /// Returns the current os name identificator, can be "ios", "android", "blackberry", "windows", "webos", "meego".]
-                /// For convenience a property with the os name is also initialized, for instance:
-                /// </summary>
-                public NameIdentificator name { get; set; }
-
-                /// <summary>
-                /// The current OS major version, e.g. "5" in iOS 5.1.
-                /// </summary>
-                public JsString majorVersion { get; set; }
-
-                /// <summary>
-                /// The current OS minor versions, e.g. "1.1" in iOS 5.1.1.
-                /// </summary>
-                public JsString minorVersion { get; set; }
-
-                /// <summary>
-                /// A convenience property to allow easier version checks, for instance:
-                /// </summary>
-                public JsNumber flatVersion { get; set; }
-
-                /// <summary>
-                /// Returns true if running in application mode - pinned to desktop in iOS or running in PhoneGap/WebView.
-                /// </summary>
-                public bool appMode { get; set; }
-            }
-            /// <summary>
-            /// Returns a number of properties that identify the current mobile browser. Parses navigator.userAgent to do it. Undefined on desktop.
-            /// </summary>
-            public MobileOS mobileOS { get; set; }
-        }
-        /// <summary>
-        /// A range of useful supported by the current browser capabilities and features.
-        /// </summary>
         public Support support { get; set; }
         //TODO: really complicated. danel must check all support class
 
@@ -691,8 +548,157 @@ namespace SharpKit.KendoUI
 
 
     }
+
+    /// <summary>
+    /// A range of useful supported by the current browser capabilities and features.
+    /// </summary>
+    public class Support
+    {
+        /// <summary>
+        /// Return true if the browser supports touch events.
+        /// </summary>
+        public bool touch { get; set; }
+
+        /// <summary>
+        /// Return true if the browser supports pointer events (IE10 and Metro apps currently).
+        /// </summary>
+        public bool pointers { get; set; }
+
+        /// <summary>
+        /// Checks for the browser scrollbar width, returns scrollbar width in pixels, 0 if no scrollbars available (e.g. in mobile).
+        /// </summary>
+        public JsFunction scrollbar { get; set; }
+
+        /// <summary>
+        /// Return true if the browser supports 3D transitions and transforms.
+        /// </summary>
+        public bool hasHW3D { get; set; }
+
+        /// <summary>
+        /// Returns true if the browser supports overflow-scrolling CSS property (currently only iOS 5+).
+        /// </summary>
+        public bool hasNativeScrolling { get; set; }
+
+        /// <summary>
+        /// (default: 1) Returns the current device Device to Pixel Ratio - works only in Android.
+        /// </summary>
+        public JsNumber devicePixelRatio { get; set; }
+
+        /// <summary>
+        /// Retruns true if the browser supports input placeholders.
+        /// </summary>
+        public bool placeHolder { get; set; }
+
+        /// <summary>
+        /// (default: 1) Returns the current zoom level on a mobile browser (returns 1 on desktop).
+        /// </summary>
+        public JsNumber zoomLevel { get; set; }
+
+        /// <summary>
+        /// Returns a number of browser specific transformation properties
+        /// </summary>
+        public Transforms transforms { get; set; }
+
+        /// <summary>
+        /// Returns a number of browser specific transition properties
+        /// </summary>
+        public class Transitions
+        {
+            /// <summary>
+            /// Returns the CSS prefix of the current browser proprietary transform properties. E.g. "-webkit-", "-moz-", "-o-", "-ms-"
+            /// </summary>
+            public JsString css { get; set; }
+
+            /// <summary>
+            /// Returns the JavaScript prefix of the current browser proprietary transform properties. E.g. "webkit", "Moz", "O", "ms"
+            /// </summary>
+            public JsString prefix { get; set; }
+
+            /// <summary>
+            /// Returns the transition end event name in the current browser. E.g. "webkitTransitionEnd", "transitionend", "oTransitionEnd"
+            /// </summary>
+            public JsString @event { get; set; }
+
+        }
+        /// <summary>
+        /// Returns a number of browser specific transition properties
+        /// </summary>
+        public Transitions transitions { get; set; }
+
+        /// <summary>
+        /// Returns a number of properties that identify the current mobile browser. Parses navigator.userAgent to do it. Undefined on desktop.
+        /// </summary>
+        public MobileOS mobileOS { get; set; }
+    }
+
+    /// <summary>
+    /// Returns a number of properties that identify the current mobile browser. Parses navigator.userAgent to do it. Undefined on desktop.
+    /// </summary>
+    public class MobileOS
+    {
+        /// <summary>
+        /// Returns the current mobile device identificator, can be "fire", "android", "iphone", "ipad", "meego", "webos", "blackberry", "playbook", "winphone", "windows".
+        /// </summary>
+        public DeviceIdentificator device { get; set; }
+
+        /// <summary>
+        /// Returns the current tablet identificator or false if the current device is not a tablet, can be "fire", "ipad", "playbook" or false.
+        /// </summary>
+        public TabletIdentificator tablet { get; set; }
+
+        /// <summary>
+        /// Returns the current browser identificator or "default" if the browser is the native one, can be "omini", "omobile", "firefox", "mobilesafari", "webkit", "ie", "default".
+        /// </summary>
+        public BrowserIdentificator browser { get; set; }
+
+        /// <summary>
+        /// Returns the current os name identificator, can be "ios", "android", "blackberry", "windows", "webos", "meego".]
+        /// For convenience a property with the os name is also initialized, for instance:
+        /// </summary>
+        public NameIdentificator name { get; set; }
+
+        /// <summary>
+        /// The current OS major version, e.g. "5" in iOS 5.1.
+        /// </summary>
+        public JsString majorVersion { get; set; }
+
+        /// <summary>
+        /// The current OS minor versions, e.g. "1.1" in iOS 5.1.1.
+        /// </summary>
+        public JsString minorVersion { get; set; }
+
+        /// <summary>
+        /// A convenience property to allow easier version checks, for instance:
+        /// </summary>
+        public JsNumber flatVersion { get; set; }
+
+        /// <summary>
+        /// Returns true if running in application mode - pinned to desktop in iOS or running in PhoneGap/WebView.
+        /// </summary>
+        public bool appMode { get; set; }
+    }
+
+    /// <summary>
+    /// Returns a number of browser specific transformation properties
+    /// </summary>
+    public class Transforms
+    {
+        /// <summary>
+        /// Returns the CSS prefix of the current browser proprietary transform properties. E.g. "-webkit-", "-moz-", "-o-", "-ms-"
+        /// </summary>
+        public JsString css { get; set; }
+
+        /// <summary>
+        /// Returns the JavaScript prefix of the current browser proprietary transform properties. E.g. "webkit", "Moz", "O", "ms"
+        /// </summary>
+        public JsString prefix { get; set; }
+    }
+
     public class ObservableObject
     {
+        public ObservableObject(object Configurations) { }
+        public ObservableObject() { }
+
         /// <summary>
         /// The unique identifier of the ObservableObject.
         /// </summary>
@@ -836,15 +842,16 @@ namespace SharpKit.KendoUI
         //TODO: event name?
 
     }
-    //TODO: Configuration, danel chack Events, and get/set meth
+    //TODO:danel chack Events, get/set meth and the Configuration
 
     public class ObservableObjectChangeEventData
-            {
-                /// <summary>
-                /// The name of the field which has changed.
-                /// </summary>
-                public JsString field  { get; set; }
-            }
+    {
+        /// <summary>
+        /// The name of the field which has changed.
+        /// </summary>
+        public JsString field  { get; set; }
+    }
+
     public class ObservableObjectGetEventData
     {
         /// <summary>
@@ -2225,7 +2232,7 @@ namespace SharpKit.KendoUI
         public event JsAction<HierarchicalDataSourceChangeEventData> change;
 
     }
-    //TODO: See the DataSource events for all inherited events.
+    //TODO: "See the DataSource events for all inherited events." should i do something special with this information?
 
     public class HierarchicalDataSourceChangeEventData
     {
@@ -2373,7 +2380,7 @@ namespace SharpKit.KendoUI
         ///</example>
         public bool isNew() { return false; }
     }
-    //TODO: Configuration, Fields, Events
+    //TODO: Configuration, Fields (Inherited from ObservableObject) , Events (also Inherited from ObservableObject)
 
     public class FieldConfig
     {
