@@ -1523,212 +1523,6 @@ namespace SharpKit.KendoUI
         ///</example>
         public DataSourceSchemaConfiguration schema { get; set; }
 
-        public class DataSourceSchemaConfiguration
-        {
-            /// <summary>
-            /// Specifies the field from the response which contains the aggregate results.
-            /// If set to a function - the function will be called to return the aggregate results for the current response.
-            /// Result should have the following format:
-            /// {
-            ///FIEL1DNAME: {
-            ///    FUNCTON1NAME: FUNCTION1VALUE,
-            ///    FUNCTON2NAME: FUNCTION2VALUE
-            ///},
-            ///FIELD2NAME: {
-            ///    FUNCTON1NAME: FUNCTION1VALUE
-            ///}
-            ///}
-            ///i.e.:
-            ///{
-            ///unitPrice: {
-            ///max: 100,
-            ///min: 1
-            ///},
-            ///productName: {
-            ///count: 42
-            ///}
-            ///}
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///schema: {
-            ///    aggregates: "aggregates" // aggregate results are returned in the "aggregates" field of the response
-            ///}
-            ///</code>
-            ///</example>
-            public object aggregates { get; set; }
-            //TODO: type can be string or function
-
-            /// <summary>
-            /// Specifies the field from the response which contains the data items.
-            /// If set to a function - the function will be called to return the data items for the current response.
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///schema: {
-            ///    data: "items" // data items are returned in the "items" field of the response
-            ///}
-            ///</code>
-            ///</example>
-            public object data { get; set; }
-            //TODO: type can be string or function, Returns An Array which contains the data items from the response.
-
-            /// <summary>
-            /// Specifies the field from the response which contains any errors. If set to a function - the function will be called to return the errors for the current response (if present).
-            /// If there are any errors the error event of the DataSource will be raised.
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///schema: {
-            ///    errors: "exceptions" // errors are returned in the "exceptions" field of the response
-            ///}
-            ///</code>
-            ///</example>
-            public object errors { get; set; }
-            //TODO: type can be string or function
-
-            /// <summary>
-            /// Specifies the field from the response which contains the groups. If set to a function - the function will be called to return the groups for the current response.
-            ///Used instead of the schema.data setting if remote grouping operation is executed.
-            ///The result should have the following format:
-            ///[{
-            ///  aggregates: {
-            ///      FIEL1DNAME: {
-            ///          FUNCTON1NAME: FUNCTION1VALUE,
-            ///          FUNCTON2NAME: FUNCTION2VALUE
-            ///      },
-            ///      FIELD2NAME: {
-            ///          FUNCTON1NAME: FUNCTION1VALUE
-            ///      }
-            ///  },
-            ///  field: FIELDNAME, // the field name on which is grouped
-            ///  hasSubgroups: true, // false if there are not sub group items and this is the top most group
-            ///  items: [
-            ///  // either the inner group items (if hasSubgroups is true) or the data records
-            ///     {
-            ///         aggregates: {
-            ///             //nested group aggregates
-            ///         },
-            ///         field: NESTEDGROUPFIELDNAME,
-            ///         hasSubgroups: false,
-            ///         items: [
-            ///         // data records
-            ///         ],
-            ///         value: NESTEDGROUPVALUE
-            ///     },
-            ///     //nestedgroup2, nestedgroup3, etc.
-            ///  ],
-            ///  value: VALUE // value of the field on which is grouped
-            ///}
-            /// // group2, group3, etc.
-            ///]
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///schema: {
-            ///    groups: "groups" // groups are returned in the "groups" field of the response
-            ///}
-            ///</code>
-            ///</example>
-            public object groups { get; set; }
-            //TODO: type can be string or function
-
-            /// <summary>
-            /// Describes the Model of the DataSource. If set to Object the Model.define method will be used to create the model.
-            /// Check the documentation of Model.define for the available configuration options.
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///var dataSource = new kendo.data.DataSource({
-            ///     schema: {
-            ///         model: {
-            ///             id: "ProductID",
-            ///             fields: {
-            ///                  ProductID: {
-            ///                     //this field will not be editable (default value is true)
-            ///                     editable: false,
-            ///                     // a defaultValue will not be assigned (default value is false)
-            ///                     nullable: true
-            ///                  },
-            ///                  ProductName: {
-            ///                      validation: { //set validation rules
-            ///                          required: true
-            ///                      }
-            ///                  },
-            ///                  UnitPrice: {
-            ///                    //data type of the field {Number|String|Boolean|Date} default is String
-            ///                    type: "number",
-            ///                    // used when new model is created
-            ///                    defaultValue: 42,
-            ///                    validation: {
-            ///                        required: true,
-            ///                        min: 1
-            ///                    }
-            ///                }
-            ///            }
-            ///        }
-            ///    }
-            ///});
-            ///</code>
-            ///</example>
-            public Model model { get; set; }
-
-            /// <summary>
-            /// Executed before the server response is used. Appropriate for preprocessing or parsing of the server response.
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///schema: {
-            ///    parse: function(response) {
-            ///        // perform some processing over the response
-            ///        return processResponse(response);
-            ///    }
-            ///}
-            ///</code>
-            ///</example>
-            public JsFunction parse { get; set; }
-
-            /// <summary>
-            /// Specifies the field from the response which contains the total number of data items.
-            /// If set to a function - the function will be called to return the total number of data items for the current response.
-            /// Note: If schema.total is not specified the length of the Array returned by schema.data will be used.
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///schema: {
-            ///    total: "count" // total number of data items is returned in the "count" field of the response
-            ///}
-            ///</code>
-            ///</example>
-            public object total { get; set; }
-            //TODO: type can be string or function, Returns A Number which denotes the total number of data items.
-
-            /// <summary>
-            /// Specify the type of the response - XML or JSON. The only supported values are "xml" and "json".(default: "json")
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///schema: {
-            ///    type: "xml"
-            ///}
-            ///</code>
-            ///</example>
-            public SchemaResponseType type { get; set; }
-
-            public enum SchemaResponseType
-            {
-                XML,
-                JSON,
-            }
-        }
 
         /// <summary>
         /// Determines if aggregates are calculated on the server or not. By default aggregates are calculated client-side.(default: false)
@@ -1890,6 +1684,212 @@ namespace SharpKit.KendoUI
         public JsString type { get; set; }
 
 
+    }
+
+    public class DataSourceSchemaConfiguration
+    {
+        /// <summary>
+        /// Specifies the field from the response which contains the aggregate results.
+        /// If set to a function - the function will be called to return the aggregate results for the current response.
+        /// Result should have the following format:
+        /// {
+        ///FIEL1DNAME: {
+        ///    FUNCTON1NAME: FUNCTION1VALUE,
+        ///    FUNCTON2NAME: FUNCTION2VALUE
+        ///},
+        ///FIELD2NAME: {
+        ///    FUNCTON1NAME: FUNCTION1VALUE
+        ///}
+        ///}
+        ///i.e.:
+        ///{
+        ///unitPrice: {
+        ///max: 100,
+        ///min: 1
+        ///},
+        ///productName: {
+        ///count: 42
+        ///}
+        ///}
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    aggregates: "aggregates" // aggregate results are returned in the "aggregates" field of the response
+        ///}
+        ///</code>
+        ///</example>
+        public object aggregates { get; set; }
+        //TODO: type can be string or function
+
+        /// <summary>
+        /// Specifies the field from the response which contains the data items.
+        /// If set to a function - the function will be called to return the data items for the current response.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    data: "items" // data items are returned in the "items" field of the response
+        ///}
+        ///</code>
+        ///</example>
+        public object data { get; set; }
+        //TODO: Returns An Array which contains the data items from the response.
+
+        /// <summary>
+        /// Specifies the field from the response which contains any errors. If set to a function - the function will be called to return the errors for the current response (if present).
+        /// If there are any errors the error event of the DataSource will be raised.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    errors: "exceptions" // errors are returned in the "exceptions" field of the response
+        ///}
+        ///</code>
+        ///</example>
+        public object errors { get; set; }
+
+        /// <summary>
+        /// Specifies the field from the response which contains the groups. If set to a function - the function will be called to return the groups for the current response.
+        ///Used instead of the schema.data setting if remote grouping operation is executed.
+        ///The result should have the following format:
+        ///[{
+        ///  aggregates: {
+        ///      FIEL1DNAME: {
+        ///          FUNCTON1NAME: FUNCTION1VALUE,
+        ///          FUNCTON2NAME: FUNCTION2VALUE
+        ///      },
+        ///      FIELD2NAME: {
+        ///          FUNCTON1NAME: FUNCTION1VALUE
+        ///      }
+        ///  },
+        ///  field: FIELDNAME, // the field name on which is grouped
+        ///  hasSubgroups: true, // false if there are not sub group items and this is the top most group
+        ///  items: [
+        ///  // either the inner group items (if hasSubgroups is true) or the data records
+        ///     {
+        ///         aggregates: {
+        ///             //nested group aggregates
+        ///         },
+        ///         field: NESTEDGROUPFIELDNAME,
+        ///         hasSubgroups: false,
+        ///         items: [
+        ///         // data records
+        ///         ],
+        ///         value: NESTEDGROUPVALUE
+        ///     },
+        ///     //nestedgroup2, nestedgroup3, etc.
+        ///  ],
+        ///  value: VALUE // value of the field on which is grouped
+        ///}
+        /// // group2, group3, etc.
+        ///]
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    groups: "groups" // groups are returned in the "groups" field of the response
+        ///}
+        ///</code>
+        ///</example>
+        public object groups { get; set; }
+        //TODO: type can be string or function
+
+        /// <summary>
+        /// Describes the Model of the DataSource. If set to Object the Model.define method will be used to create the model.
+        /// Check the documentation of Model.define for the available configuration options.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///     schema: {
+        ///         model: {
+        ///             id: "ProductID",
+        ///             fields: {
+        ///                  ProductID: {
+        ///                     //this field will not be editable (default value is true)
+        ///                     editable: false,
+        ///                     // a defaultValue will not be assigned (default value is false)
+        ///                     nullable: true
+        ///                  },
+        ///                  ProductName: {
+        ///                      validation: { //set validation rules
+        ///                          required: true
+        ///                      }
+        ///                  },
+        ///                  UnitPrice: {
+        ///                    //data type of the field {Number|String|Boolean|Date} default is String
+        ///                    type: "number",
+        ///                    // used when new model is created
+        ///                    defaultValue: 42,
+        ///                    validation: {
+        ///                        required: true,
+        ///                        min: 1
+        ///                    }
+        ///                }
+        ///            }
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public Model model { get; set; }
+
+        /// <summary>
+        /// Executed before the server response is used. Appropriate for preprocessing or parsing of the server response.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    parse: function(response) {
+        ///        // perform some processing over the response
+        ///        return processResponse(response);
+        ///    }
+        ///}
+        ///</code>
+        ///</example>
+        public JsFunction parse { get; set; }
+
+        /// <summary>
+        /// Specifies the field from the response which contains the total number of data items.
+        /// If set to a function - the function will be called to return the total number of data items for the current response.
+        /// Note: If schema.total is not specified the length of the Array returned by schema.data will be used.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    total: "count" // total number of data items is returned in the "count" field of the response
+        ///}
+        ///</code>
+        ///</example>
+        public object total { get; set; }
+        //TODO: Returns A Number which denotes the total number of data items.
+
+        /// <summary>
+        /// Specify the type of the response - XML or JSON. The only supported values are "xml" and "json".(default: "json")
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    type: "xml"
+        ///}
+        ///</code>
+        ///</example>
+        public SchemaResponseType type { get; set; }
+
+        public enum SchemaResponseType
+        {
+            XML,
+            JSON,
+        }
     }
 
     public enum TransportType
@@ -2143,82 +2143,66 @@ namespace SharpKit.KendoUI
 
     }
 
-    class Test
-    {
-        void foo()
-        {
-            var ds = new DataSource();
-            ds.change += new JsAction<DataSourceChangeEventData>(ds_change);
-            var ds2 = new HierarchicalDataSource();
-            ds2.change += new JsAction<HierarchicalDataSourceChangeEventData>(ds2_change);
-        }
-
-        void ds_change(DataSourceChangeEventData arg)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        void ds2_change(HierarchicalDataSourceChangeEventData arg)
-        {
-            throw new System.NotImplementedException();
-        }
-    }
 
     public class HierarchicalDataSourceChangeEventData
     {
         /// <summary>
         /// If the event was triggered by a child datasource, this field holds a reference to the parent node.
         /// </summary>
-        public object node { get; set; }
-        //TODO: node type is Node
+        public HtmlNode node { get; set; }
     }
 
     public class HierarchicalDataSourceConfiguration : DataSourceConfiguration
     {
-        public class HierarchicalDataSourceSchemaModelConfiguration
-        {
-            /// <summary>
-            /// Specifies whether the model might have children and might be loaded.
-            /// Applicable when the rendering of a widget needs to have different states for items that have no children (e.g. the toggle button of the TreeView).
-            /// </summary>
-            public object hasChildren { get; set; }
-
-            /// <summary>
-            /// DataSource object or configuration for fetching child nodes. Through examples of that can be found in the Getting started section above.
-            /// For static HierarchicalDataSource (local data), this field may be a String, indicating which field holds the nested data.
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///var localDataSource = new kendo.data.HierarchicalDataSource({
-            ///    data: [ {
-            ///          categoryName: "SciFi",
-            ///          movies: [
-            ///            { title: "Star Wars: A New Hope", year: 1977 },
-            ///            { title: "Star Wars: The Empire Strikes Back", year: 1980 },
-            ///            { title: "Star Wars: Return of the Jedi", year: 1983 }
-            ///          ]
-            ///      }, {
-            ///          categoryName: "Drama",
-            ///          movies: [
-            ///            { title: "The Shawshenk Redemption", year: 1994 },
-            ///            { title: "Fight Club", year: 1999 },
-            ///            { title: "The Usual Suspects", year: 1995 }
-            ///          ]
-            ///      }
-            ///    ],
-            ///    schema: {
-            ///        model: {
-            ///            children: "movies"
-            ///        }
-            ///    }
-            ///});
-            ///</code>
-            ///</example>
-            public object children  { get; set; }
-        }
+        public new HierarchicalDataSourceSchemaConfiguration schema { get; set; }
     }
-    //TODO: danel must chack
+    public class HierarchicalDataSourceSchemaConfiguration : DataSourceSchemaConfiguration
+    {
+        public new HierarchicalDataSourceSchemaModelConfiguration model { get; set; }
+    }
+
+    public class HierarchicalDataSourceSchemaModelConfiguration : Model
+    {
+        /// <summary>
+        /// Specifies whether the model might have children and might be loaded.
+        /// Applicable when the rendering of a widget needs to have different states for items that have no children (e.g. the toggle button of the TreeView).
+        /// </summary>
+        public object hasChildren { get; set; }
+
+        /// <summary>
+        /// DataSource object or configuration for fetching child nodes. Through examples of that can be found in the Getting started section above.
+        /// For static HierarchicalDataSource (local data), this field may be a String, indicating which field holds the nested data.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var localDataSource = new kendo.data.HierarchicalDataSource({
+        ///    data: [ {
+        ///          categoryName: "SciFi",
+        ///          movies: [
+        ///            { title: "Star Wars: A New Hope", year: 1977 },
+        ///            { title: "Star Wars: The Empire Strikes Back", year: 1980 },
+        ///            { title: "Star Wars: Return of the Jedi", year: 1983 }
+        ///          ]
+        ///      }, {
+        ///          categoryName: "Drama",
+        ///          movies: [
+        ///            { title: "The Shawshenk Redemption", year: 1994 },
+        ///            { title: "Fight Club", year: 1999 },
+        ///            { title: "The Usual Suspects", year: 1995 }
+        ///          ]
+        ///      }
+        ///    ],
+        ///    schema: {
+        ///        model: {
+        ///            children: "movies"
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public object children { get; set; }
+    }
 
     /// <summary>
     /// The Model inherits from the ObservableObject and extends it with the ability to define schema - fields and methods.
@@ -2310,7 +2294,6 @@ namespace SharpKit.KendoUI
         ///</example>
         public bool isNew() { return false; }
     }
-    //TODO: Configuration, Fields (Inherited from ObservableObject) , Events (also Inherited from ObservableObject)
 
     public class FieldConfig
     {
@@ -2318,8 +2301,7 @@ namespace SharpKit.KendoUI
         /// Specifies the which will be used for the field when a new model instance is created.
         /// Default settings depend on the type of the field. Default for "string" is "", for "number" is 0 and for "date" is new Date() (today).
         /// </summary>
-        public JsString defaultValue { get; set; }
-        //TODO: type can be string number or date
+        public DefaultValueType defaultValue { get; set; }
 
         /// <summary>
         /// Specifies if the field is editable or not. The default value is true.
@@ -2339,7 +2321,6 @@ namespace SharpKit.KendoUI
         /// Specifies the the type of the field. The available options are "string", "number", "boolean", "date". The default is "string".
         /// </summary>
         public JsString type { get; set; }
-        //TODO: type can be string number bool or date
 
         /// <summary>
         /// Specifies the validation options which will be used by Kendo Validator.
@@ -2347,6 +2328,13 @@ namespace SharpKit.KendoUI
         public object validation { get; set; }
 
 
+    }
+
+    public enum DefaultValueType
+    {
+        @string,
+        number,
+        date,
     }
 
     public class ModelObjectOptions
@@ -2363,7 +2351,7 @@ namespace SharpKit.KendoUI
     /// <summary>
     /// The ObservableArray wrap an existing Array object with change tracking capabilities. It is used by Kendo MVVM and the Kendo DataSource.
     /// </summary>
-    public class ObservableArray
+    public class ObservableArray<T>
     {
         /// <summary>
         /// Attaches an event handler for the specified event.
@@ -2443,7 +2431,7 @@ namespace SharpKit.KendoUI
         ///console.log(array[1].get("name")); // outputs "Jane Doe"
         ///</code>
         ///</example>
-        public void push(object item1) { }
+        public void push(T item1) { }
         /// <summary>
         /// Appends the given items to the array and returns the new length of the array.
         /// Equivalent of Array.prototype.push. The new items are wrapped as ObservableObject if they are complex objects.
@@ -2461,7 +2449,7 @@ namespace SharpKit.KendoUI
         ///console.log(array[1].get("name")); // outputs "Jane Doe"
         ///</code>
         ///</example>
-        public void push(object item1, object item2) { }
+        public void push(T item1, T item2) { }
         /// <summary>
         /// Appends the given items to the array and returns the new length of the array.
         /// Equivalent of Array.prototype.push. The new items are wrapped as ObservableObject if they are complex objects.
@@ -2480,7 +2468,7 @@ namespace SharpKit.KendoUI
         ///console.log(array[1].get("name")); // outputs "Jane Doe"
         ///</code>
         ///</example>
-        public void push(object item1, object item2, params object[] items) { }
+        public void push(T item1, T item2, params T[] items) { }
 
         /// <summary>
         /// Returns a one-level deep copy of a portion of an array. Equivalent of Array.prototype.slice.
@@ -2499,7 +2487,23 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public JsArray slice(JsNumber begin, JsNumber end) { return null; }
-        //TODO:end is optional?
+        /// <summary>
+        /// Returns a one-level deep copy of a portion of an array. Equivalent of Array.prototype.slice.
+        /// The result of the slice method is not an instance of ObvservableArray. It is a regular JavaScript Array object.
+        /// Important: The slice method does not modify the original ObservableArray.
+        /// </summary>
+        /// <param name="begin">Zero-based index at which to begin extraction.</param>
+        /// <param name="end">Zero-based index at which to end extraction. If end is omitted, slice extracts to the end of the sequence.</param>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var array = new kendo.data.ObservableArray([1, 2, 3]);
+        ///var firstAndSecond = array.slice(0, 2);
+        ///console.log(firstAndSecond); // outputs [1, 2]
+        ///</code>
+        ///</example>
+        public JsArray slice(JsNumber begin) { return null; }
 
         /// <summary>
         /// Changes an ObservableArray, by adding new items while removing old items. Equivalent of Array.prototype.splice
@@ -2511,8 +2515,7 @@ namespace SharpKit.KendoUI
         /// <param name="howMany">An integer indicating the number of items to remove. If howMany is 0, no items are removed. In this case, you should specify at least one new item.</param>
         /// <param name="items">The item(s) to append to the array.</param>
         /// <returns>An Array containing the removed items. The result of the splice method is not an instance of ObvservableArray.</returns>
-        public JsArray splice(JsNumber index, JsNumber howMany, params object[] items) { return null; }
-        //TODO:? are they optional?
+        public JsArray splice(JsNumber index, JsNumber howMany, params T[] items) { return null; }
 
         /// <summary>
         /// Removes the first item from an ObvservableArray and returns that item. Equivalent of Array.prototype.shift.
@@ -2559,7 +2562,7 @@ namespace SharpKit.KendoUI
         ///console.log(result); // outputs [0, 1, 2, 3]
         ///</code>
         ///</example>
-        public void unshift(object item1) { }
+        public void unshift(T item1) { }
         /// <summary>
         /// Adds one or more items to the beginning of an ObservableArray and returns the new length. Equivalent of Array.prototype.unshift.
         /// Important: The unshift method raises the change event. The action field of the event argument is set to "add". The items field of the event argument is an array that contains the new items.
@@ -2575,7 +2578,7 @@ namespace SharpKit.KendoUI
         ///console.log(result); // outputs [0, 1, 2, 3]
         ///</code>
         ///</example>
-        public void unshift(object item1, object item2) { }
+        public void unshift(T item1, T item2) { }
         /// <summary>
         /// Adds one or more items to the beginning of an ObservableArray and returns the new length. Equivalent of Array.prototype.unshift.
         /// Important: The unshift method raises the change event. The action field of the event argument is set to "add". The items field of the event argument is an array that contains the new items.
@@ -2592,7 +2595,7 @@ namespace SharpKit.KendoUI
         ///console.log(result); // outputs [0, 1, 2, 3]
         ///</code>
         ///</example>
-        public void unshift(object item1, object item2, params object[] items) { }
+        public void unshift(T item1, T item2, params T[] items) { }
 
         /// <summary>
         /// An unsigned, 32-bit integer that specifies the number of items in an ObservableArray.
@@ -2627,12 +2630,11 @@ namespace SharpKit.KendoUI
         ///people[0].set("name", "Jane Doe"); // outputs "itemchange", "name", "Jane Doe"
         ///</code>
         ///</example>
-        public event JsAction<ObservableArrayChangeEventData> change { add { } remove { } }
+        public event JsAction<ObservableArrayChangeEventData<T>> change { add { } remove { } }
 
     }
-    //TODO: Configuration. Make class generic
 
-    public class ObservableArrayChangeEventData
+    public class ObservableArrayChangeEventData<T>
     {
         /// <summary>
         /// Specifies the type of change. Possible values are: "add"- items are added to the ObservableArray,
@@ -2648,7 +2650,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// The items which were changed.
         /// </summary>
-        public JsArray items  { get; set; }
+        public JsArray<T> items  { get; set; }
 
         /// <summary>
         /// The name of the field of an item that changed. Available only when e.action is "itemchange".
@@ -2658,31 +2660,157 @@ namespace SharpKit.KendoUI
 
     public class Drag
     {
-        /// <summary>
-        /// Discard the current drag. Calling the cancel method will trigger the cancel event. The correct moment to call this method would be in the start event handler.
-        /// </summary>
-        ///<example>
-        ///usage
-        ///<code>
-        ///new kendo.Drag($("#foo"), {
-        /// start: function(e) {
-        ///     e.cancel();
-        /// }
-        ///});
-        ///</code>
-        ///</example>
-        public void cancel() { }
+        public Drag(jQuery.jQuery el, DragConfiguration config)
+        {
+        }
+
+        ///// <summary>
+        ///// Discard the current drag. Calling the cancel method will trigger the cancel event. The correct moment to call this method would be in the start event handler.
+        ///// </summary>
+        /////<example>
+        /////usage
+        /////<code>
+        /////new kendo.Drag($("#foo"), {
+        ///// start: function(e) {
+        /////     e.cancel();
+        ///// }
+        /////});
+        /////</code>
+        /////</example>
+        //public void cancel() { }
+
+        ///// <summary>
+        ///// Capture the current drag, so that Drag listeners bound to parent elements will not trigger.
+        ///// This method will not have any effect if the current drag instance is instantiated with the global option set to true.
+        ///// </summary>
+        //public void capture() { }
+        //TODO: unmarke, move to the right place
 
         /// <summary>
-        /// Capture the current drag, so that Drag listeners bound to parent elements will not trigger.
-        /// This method will not have any effect if the current drag instance is instantiated with the global option set to true.
+        /// Fires when the drag is canceled. This when the cancel method is called.
         /// </summary>
-        public void capture() { }
+        public event JsAction<DragEventData> cancel { add { } remove { } }
+
+        /// <summary>
+        /// Fires when the drag ends.
+        /// </summary>
+        public event JsAction<DragEventData> end { add { } remove { } }
+
+        /// <summary>
+        /// Fires while dragging.
+        /// </summary>
+        public event JsAction<DragEventData> move { add { } remove { } }
+
+        /// <summary>
+        /// Fires when the user starts dragging the element.
+        /// </summary>
+        public event JsAction<DragEventData> start { add { } remove { } }
+
+        /// <summary>
+        /// Fires when the user presses and releases the element without any movement or with a movement below the threshold specified.
+        /// </summary>
+        public event JsAction<DragEventData> tap { add { } remove { } }
     }
-    //TODO: Danel needs to chack
 
-    //TODO: DragAxis
+    public class DragEventData
+    {
+        /// <summary>
+        /// Reference to the horizontal drag axis instance.
+        /// </summary>
+        public DragAxis x { get; set; }
 
+        /// <summary>
+        /// Reference to the vertical drag axis instance.
+        /// </summary>
+        public DragAxis y { get; set; }
+
+        /// <summary>
+        /// Reference to the jQuery event object.
+        /// </summary>
+        public object @event { get; set; }
+        //TODO: type is  jQueryEvent
+
+        /// <summary>
+        /// Reference to the DOM element from which the Drag started. It is different from the element only if filter option is specified.
+        /// </summary>
+        public HtmlElement target { get; set; }
+    }
+
+    public class DragEndEventData
+    {
+
+    }
+
+    public class DragConfiguration
+    {
+        /// <summary>
+        /// If set to true, the mousedown and selectstart events will not be prevented.
+        /// </summary>
+        public bool allowSelection  { get; set; }
+
+        /// <summary>
+        /// If passed, the filter limits the child elements that will trigger the event sequence.
+        /// </summary>
+        public JsString filter { get; set; }
+
+        /// <summary>
+        /// If set to true, the drag event will be tracked beyond the element boundaries.
+        /// </summary>
+        public bool global { get; set; }
+
+        /// <summary>
+        /// If set to true, the mousedown event propagation will stopped, disabling drag capturing at parent elements.
+        /// If set to false, dragging outside of the element boundaries will trigger the end event.
+        /// </summary>
+        public bool stopPropagation { get; set; }
+
+        /// <summary>
+        /// If set, the drag event will be tracked for the surface boundaries. By default, leaving the element boundaries will end the drag.
+        /// </summary>
+        public HtmlElement surface { get; set; }
+
+        /// <summary>
+        /// The minimum distance the mouse/touch should move before the event is triggered.
+        /// </summary>
+        public JsNumber threshold { get; set; }
+
+    }
+
+    /// <summary>
+    /// The DragAxis is used internally by the kendo.Drag component to store and calculate event data.
+    /// The Drag component contains two DragAxis instances: x for the horizontal coordinates, and y for the vertical.
+    /// The two DragAxis instances are available in each Drag event parameter.
+    /// </summary>
+    public class DragAxis
+    {
+        /// <summary>
+        ///  the offset of the mouse/touch relative to the entire document (pageX/Y);
+        /// </summary>
+        public JsNumber location { get; set; }
+
+        /// <summary>
+        /// the offset of the mouse/touch relative to the document when the drag started;
+        /// </summary>
+        public JsNumber startLocation { get; set; }
+
+        /// <summary>
+        /// the offset of the mouse/touch relative to the viewport (clientX/Y);
+        /// </summary>
+        public JsNumber client { get; set; }
+
+        /// <summary>
+        /// the change from the previous event location
+        /// </summary>
+        public JsNumber delta { get; set; }
+
+        /// <summary>
+        /// the pixels per millisecond speed of the current move.
+        /// For instance, the mobile ScrollView widget considers a drag with velocity below 0.8 a slow one, while velocity above 1.6 is a fast one.
+        /// </summary>
+        public JsNumber velocity { get; set; }
+    }
+
+    //TODO: kendo.ui.Validator means anything?
     public class Validator
     {
         public Validator() { }
@@ -2738,7 +2866,6 @@ namespace SharpKit.KendoUI
         /// <returns>Boolean true if all validation rules passed successfully.</returns>
         public bool validateInput(HtmlElement input) { return false; }
     }
-    //TODO: kendo.ui.Validator means anything?
 
     public class ValidatorConfiguration
     {
@@ -2765,7 +2892,6 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public object messages { get; set; }
-        //TODO: there is much more summary, is it importent?
 
         /// <summary>
         /// Set of custom validation rules. Those rules will extend the built-in ones.
