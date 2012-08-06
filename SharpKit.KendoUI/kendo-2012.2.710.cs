@@ -412,7 +412,7 @@ namespace SharpKit.KendoUI
         ///$("ul").html(kendo.render(template, data)); // sets the html to <li>John Doe</li><li>Jane Doe</li>
         /// </code>
         /// </example>
-        public void render(JsFunction template, JsArray data) { }
+        public void render(JsAction template, JsArray data) { }
 
         /// <summary>
         /// Compiles a template to a function that builds HTML. Useful when a template will be used several times.
@@ -451,7 +451,6 @@ namespace SharpKit.KendoUI
         /// </summary>
         /// <param name="element">The container element to enable scrolling for.</param>
         public void touchScroller(JsString element) { }
-        //TODO: element type?
 
         /// <summary>
         /// Formats a Number or Date using the specified format and the current culture.
@@ -506,7 +505,6 @@ namespace SharpKit.KendoUI
         /// A range of useful supported by the current browser capabilities and features.
         /// </summary>
         public Support support { get; set; }
-        //TODO: really complicated. danel must check all support class
 
         /// <summary>
         /// Unbinds a tree of HTML elements from a View-Model.
@@ -567,7 +565,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Checks for the browser scrollbar width, returns scrollbar width in pixels, 0 if no scrollbars available (e.g. in mobile).
         /// </summary>
-        public JsFunction scrollbar { get; set; }
+        public JsFunc<JsNumber> scrollbar { get; set; }
 
         /// <summary>
         /// Return true if the browser supports 3D transitions and transforms.
@@ -602,33 +600,34 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Returns a number of browser specific transition properties
         /// </summary>
-        public class Transitions
-        {
-            /// <summary>
-            /// Returns the CSS prefix of the current browser proprietary transform properties. E.g. "-webkit-", "-moz-", "-o-", "-ms-"
-            /// </summary>
-            public JsString css { get; set; }
-
-            /// <summary>
-            /// Returns the JavaScript prefix of the current browser proprietary transform properties. E.g. "webkit", "Moz", "O", "ms"
-            /// </summary>
-            public JsString prefix { get; set; }
-
-            /// <summary>
-            /// Returns the transition end event name in the current browser. E.g. "webkitTransitionEnd", "transitionend", "oTransitionEnd"
-            /// </summary>
-            public JsString @event { get; set; }
-
-        }
-        /// <summary>
-        /// Returns a number of browser specific transition properties
-        /// </summary>
         public Transitions transitions { get; set; }
 
         /// <summary>
         /// Returns a number of properties that identify the current mobile browser. Parses navigator.userAgent to do it. Undefined on desktop.
         /// </summary>
         public MobileOS mobileOS { get; set; }
+    }
+
+    /// <summary>
+    /// Returns a number of browser specific transition properties
+    /// </summary>
+    public class Transitions
+    {
+        /// <summary>
+        /// Returns the CSS prefix of the current browser proprietary transform properties. E.g. "-webkit-", "-moz-", "-o-", "-ms-"
+        /// </summary>
+        public JsString css { get; set; }
+
+        /// <summary>
+        /// Returns the JavaScript prefix of the current browser proprietary transform properties. E.g. "webkit", "Moz", "O", "ms"
+        /// </summary>
+        public JsString prefix { get; set; }
+
+        /// <summary>
+        /// Returns the transition end event name in the current browser. E.g. "webkitTransitionEnd", "transitionend", "oTransitionEnd"
+        /// </summary>
+        public JsString @event { get; set; }
+
     }
 
     /// <summary>
@@ -726,7 +725,7 @@ namespace SharpKit.KendoUI
         ///observable.set("name", "Jane Doe"); // raises the "change" event and the handler outputs "name"
         ///        ///</code>
         ///</example>
-        public void bind(JsString eventName, JsFunction handler) { }
+        public void bind(JsString eventName, JsAction handler) { }
 
         /// <summary>
         /// Gets the value of the specified field.
@@ -824,25 +823,22 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Raised when a field value is updated via the set method.
         /// </summary>
-        public event JsAction<ObservableObjectChangeEventData> changeEvent { add { } remove { } }
-        //TODO: event name?
+        public event JsAction<ObservableObjectChangeEventData> change { add { } remove { } }
 
         /// <summary>
-        /// Raised when the get method is invoked.
+        /// Raised when the get method is invoked. TODO: change name to "get"
         /// </summary>
         public event JsAction<ObservableObjectChangeEventData> getEvent { add { } remove { } }
-        //TODO: event name?
 
         /// <summary>
         /// Raised when the set method is invoked.
         /// The set event is raised before the field value is updated. Calling the get method from the event handler will return the old value.
         /// Calling e.preventDefault will prevent the update of the field and the change event will not be raised.
+        /// TODO: change name to "set"
         /// </summary>
         public event JsAction<ObservableObjectSetEventData> setEvent { add { } remove { } }
-        //TODO: event name?
 
     }
-    //TODO:danel chack Events, get/set meth and the Configuration
 
     public class ObservableObjectChangeEventData
     {
@@ -867,15 +863,14 @@ namespace SharpKit.KendoUI
         public JsString field { get; set; }
 
         /// <summary>
-        /// The new value.
+        /// The new value. type can be Number|String|Data|Object
         /// </summary>
         public object value { get; set; }
-        //TODO: type can be Number|String|Data|Object
 
         /// <summary>
         /// A function which may prevent the update of the value. Can be used to perform validation.
         /// </summary>
-        public JsFunction preventDefault { get; set; }
+        public JsAction preventDefault { get; set; }
     }
 
     public class KendoObjectOptions
@@ -890,7 +885,6 @@ namespace SharpKit.KendoUI
         /// </summary>
         public bool useWithBlock { get; set; }
     }
-    //TODO: make sure there are no mistakes with ObjectOptions/KendoObjectOptions
 
     public enum DeviceIdentificator
     {
@@ -1001,7 +995,17 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public void cancelChanges() { }
-        //TODO: model ``
+        /// <summary>
+        /// Cancel the changes made to the DataSource after the last sync. Any changes currently existing in the model will be discarded.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // we have updated 2 items and deleted 1. All of those changes will be discarded.
+        /// dataSource.cancelChanges();
+        ///</code>
+        ///</example>
+        public void cancelChanges(Model model) { }
 
         /// <summary>
         /// Gets or sets the data of the DataSource.
@@ -1029,8 +1033,7 @@ namespace SharpKit.KendoUI
         /// If data is not available or remote operations are enabled data is requested through the transport, otherwise operations are executed over the available data.
         /// </summary>
         /// <param name="callback"></param>
-        public delegate void fetch();
-        //TODO: callback ``
+        public void fetch(JsAction callback) { }
 
         /// <summary>
         /// Get current filters or filter the data.
@@ -1227,7 +1230,6 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public void read() { }
-        //TODO: data ``
 
         /// <summary>
         /// Remove given Model instance from the DataSource.
@@ -1387,11 +1389,9 @@ namespace SharpKit.KendoUI
     public class DataSourceChangeEventData
     {
     }
-    //TODO: empty (?) is it ok?
     public class DataSourceErrorEventData
     {
     }
-    //TODO: empty (?) is it ok?
     public class DataSourceRequestStartEventData
     {
         /// <summary>
@@ -1721,7 +1721,10 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public object aggregates { get; set; }
-        //TODO: type can be string or function
+        [JsProperty(Name="aggregates")]
+        public JsString aggregatesString { get; set; }
+        [JsProperty(Name = "aggregates")]
+        public JsAction aggregatesFunction { get; set; }
 
         /// <summary>
         /// Specifies the field from the response which contains the data items.
@@ -1736,7 +1739,34 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public object data { get; set; }
-        //TODO: Returns An Array which contains the data items from the response.
+        /// <summary>
+        /// Specifies the field from the response which contains the data items.
+        /// If set to a function - the function will be called to return the data items for the current response.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    data: "items" // data items are returned in the "items" field of the response
+        ///}
+        ///</code>
+        ///</example>
+        [JsProperty(Name="data")]
+        public JsFunc<DataSourceResponse, JsArray> dataFunction { get; set; }
+        /// <summary>
+        /// Specifies the field from the response which contains the data items.
+        /// If set to a function - the function will be called to return the data items for the current response.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    data: "items" // data items are returned in the "items" field of the response
+        ///}
+        ///</code>
+        ///</example>
+        [JsProperty(Name = "data")]
+        public JsString dataString { get; set; }
 
         /// <summary>
         /// Specifies the field from the response which contains any errors. If set to a function - the function will be called to return the errors for the current response (if present).
@@ -1797,7 +1827,100 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public object groups { get; set; }
-        //TODO: type can be string or function
+
+        /// <summary>
+        /// Specifies the field from the response which contains the groups. If set to a function - the function will be called to return the groups for the current response.
+        ///Used instead of the schema.data setting if remote grouping operation is executed.
+        ///The result should have the following format:
+        ///[{
+        ///  aggregates: {
+        ///      FIEL1DNAME: {
+        ///          FUNCTON1NAME: FUNCTION1VALUE,
+        ///          FUNCTON2NAME: FUNCTION2VALUE
+        ///      },
+        ///      FIELD2NAME: {
+        ///          FUNCTON1NAME: FUNCTION1VALUE
+        ///      }
+        ///  },
+        ///  field: FIELDNAME, // the field name on which is grouped
+        ///  hasSubgroups: true, // false if there are not sub group items and this is the top most group
+        ///  items: [
+        ///  // either the inner group items (if hasSubgroups is true) or the data records
+        ///     {
+        ///         aggregates: {
+        ///             //nested group aggregates
+        ///         },
+        ///         field: NESTEDGROUPFIELDNAME,
+        ///         hasSubgroups: false,
+        ///         items: [
+        ///         // data records
+        ///         ],
+        ///         value: NESTEDGROUPVALUE
+        ///     },
+        ///     //nestedgroup2, nestedgroup3, etc.
+        ///  ],
+        ///  value: VALUE // value of the field on which is grouped
+        ///}
+        /// // group2, group3, etc.
+        ///]
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    groups: "groups" // groups are returned in the "groups" field of the response
+        ///}
+        ///</code>
+        ///</example>
+        [JsProperty(Name = "groups")]
+        public JsString groupsString { get; set; }
+
+        /// <summary>
+        /// Specifies the field from the response which contains the groups. If set to a function - the function will be called to return the groups for the current response.
+        ///Used instead of the schema.data setting if remote grouping operation is executed.
+        ///The result should have the following format:
+        ///[{
+        ///  aggregates: {
+        ///      FIEL1DNAME: {
+        ///          FUNCTON1NAME: FUNCTION1VALUE,
+        ///          FUNCTON2NAME: FUNCTION2VALUE
+        ///      },
+        ///      FIELD2NAME: {
+        ///          FUNCTON1NAME: FUNCTION1VALUE
+        ///      }
+        ///  },
+        ///  field: FIELDNAME, // the field name on which is grouped
+        ///  hasSubgroups: true, // false if there are not sub group items and this is the top most group
+        ///  items: [
+        ///  // either the inner group items (if hasSubgroups is true) or the data records
+        ///     {
+        ///         aggregates: {
+        ///             //nested group aggregates
+        ///         },
+        ///         field: NESTEDGROUPFIELDNAME,
+        ///         hasSubgroups: false,
+        ///         items: [
+        ///         // data records
+        ///         ],
+        ///         value: NESTEDGROUPVALUE
+        ///     },
+        ///     //nestedgroup2, nestedgroup3, etc.
+        ///  ],
+        ///  value: VALUE // value of the field on which is grouped
+        ///}
+        /// // group2, group3, etc.
+        ///]
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    groups: "groups" // groups are returned in the "groups" field of the response
+        ///}
+        ///</code>
+        ///</example>
+        [JsProperty(Name = "groups")]
+        public JsAction groupsFunction { get; set; }
 
         /// <summary>
         /// Describes the Model of the DataSource. If set to Object the Model.define method will be used to create the model.
@@ -1854,7 +1977,7 @@ namespace SharpKit.KendoUI
         ///}
         ///</code>
         ///</example>
-        public JsFunction parse { get; set; }
+        public JsAction parse { get; set; }
 
         /// <summary>
         /// Specifies the field from the response which contains the total number of data items.
@@ -1870,7 +1993,38 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public object total { get; set; }
-        //TODO: Returns A Number which denotes the total number of data items.
+
+        /// <summary>
+        /// Specifies the field from the response which contains the total number of data items.
+        /// If set to a function - the function will be called to return the total number of data items for the current response.
+        /// Note: If schema.total is not specified the length of the Array returned by schema.data will be used.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    total: "count" // total number of data items is returned in the "count" field of the response
+        ///}
+        ///</code>
+        ///</example>
+        [JsProperty(Name = "total")]
+        public JsString totalString { get; set; }
+
+        /// <summary>
+        /// Specifies the field from the response which contains the total number of data items.
+        /// If set to a function - the function will be called to return the total number of data items for the current response.
+        /// Note: If schema.total is not specified the length of the Array returned by schema.data will be used.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///schema: {
+        ///    total: "count" // total number of data items is returned in the "count" field of the response
+        ///}
+        ///</code>
+        ///</example>
+        [JsProperty(Name = "total")]
+        public JsFunc<JsNumber> totalFunction { get; set; }
 
         /// <summary>
         /// Specify the type of the response - XML or JSON. The only supported values are "xml" and "json".(default: "json")
@@ -1892,6 +2046,9 @@ namespace SharpKit.KendoUI
         }
     }
 
+    public class DataSourceResponse
+    {
+    }
     public enum TransportType
     {
         POST,
@@ -1964,7 +2121,7 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public JsFunction parameterMap { get; set; }
+        public JsAction parameterMap { get; set; }
 
         /// <summary>
         /// Object|String|Function 
@@ -2315,7 +2472,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Specifies the function which will parse the field value. If not set default parsers will be used.
         /// </summary>
-        public JsFunction parse { get; set; }
+        public JsAction parse { get; set; }
 
         /// <summary>
         /// Specifies the the type of the field. The available options are "string", "number", "boolean", "date". The default is "string".
@@ -2368,7 +2525,7 @@ namespace SharpKit.KendoUI
         ///observable.set("name", "Jane Doe"); // raises the "change" event and the handler outputs "name"
         ///        ///</code>
         ///</example>
-        public void bind(JsString eventName, JsFunction handler) { }
+        public void bind(JsString eventName, JsAction handler) { }
 
         /// <summary>
         /// Joins all items of an ObservableArray into a string. Equivalent of Array.prototype.join.
@@ -2664,56 +2821,31 @@ namespace SharpKit.KendoUI
         {
         }
 
-        ///// <summary>
-        ///// Discard the current drag. Calling the cancel method will trigger the cancel event. The correct moment to call this method would be in the start event handler.
-        ///// </summary>
-        /////<example>
-        /////usage
-        /////<code>
-        /////new kendo.Drag($("#foo"), {
-        ///// start: function(e) {
-        /////     e.cancel();
-        ///// }
-        /////});
-        /////</code>
-        /////</example>
-        //public void cancel() { }
-
-        ///// <summary>
-        ///// Capture the current drag, so that Drag listeners bound to parent elements will not trigger.
-        ///// This method will not have any effect if the current drag instance is instantiated with the global option set to true.
-        ///// </summary>
-        //public void capture() { }
-        //TODO: unmarke, move to the right place
-
-        /// <summary>
-        /// Fires when the drag is canceled. This when the cancel method is called.
-        /// </summary>
-        public event JsAction<DragEventData> cancel { add { } remove { } }
-
-        /// <summary>
-        /// Fires when the drag ends.
-        /// </summary>
-        public event JsAction<DragEventData> end { add { } remove { } }
-
-        /// <summary>
-        /// Fires while dragging.
-        /// </summary>
-        public event JsAction<DragEventData> move { add { } remove { } }
-
-        /// <summary>
-        /// Fires when the user starts dragging the element.
-        /// </summary>
-        public event JsAction<DragEventData> start { add { } remove { } }
-
-        /// <summary>
-        /// Fires when the user presses and releases the element without any movement or with a movement below the threshold specified.
-        /// </summary>
-        public event JsAction<DragEventData> tap { add { } remove { } }
     }
 
     public class DragEventData
     {
+        /// <summary>
+        /// Discard the current drag. Calling the cancel method will trigger the cancel event. The correct moment to call this method would be in the start event handler.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///new kendo.Drag($("#foo"), {
+        /// start: function(e) {
+        ///     e.cancel();
+        /// }
+        ///});
+        ///</code>
+        ///</example>
+        public void cancel() { }
+
+        /// <summary>
+        /// Capture the current drag, so that Drag listeners bound to parent elements will not trigger.
+        /// This method will not have any effect if the current drag instance is instantiated with the global option set to true.
+        /// </summary>
+        public void capture() { }
+
         /// <summary>
         /// Reference to the horizontal drag axis instance.
         /// </summary>
@@ -2727,8 +2859,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Reference to the jQuery event object.
         /// </summary>
-        public object @event { get; set; }
-        //TODO: type is  jQueryEvent
+        public Event @event { get; set; }
 
         /// <summary>
         /// Reference to the DOM element from which the Drag started. It is different from the element only if filter option is specified.
@@ -2774,6 +2905,32 @@ namespace SharpKit.KendoUI
         /// </summary>
         public JsNumber threshold { get; set; }
 
+        /// <summary>
+        /// Fires when the drag is canceled. This when the cancel method is called.
+        /// </summary>
+        public JsAction<DragEventData> cancel {get;set;}
+
+        /// <summary>
+        /// Fires when the drag ends.
+        /// </summary>
+        public JsAction<DragEventData> end {get;set;}
+
+        /// <summary>
+        /// Fires while dragging.
+        /// </summary>
+        public JsAction<DragEventData> move {get;set;}
+
+        /// <summary>
+        /// Fires when the user starts dragging the element.
+        /// </summary>
+        public JsAction<DragEventData> start {get;set;}
+
+        /// <summary>
+        /// Fires when the user presses and releases the element without any movement or with a movement below the threshold specified.
+        /// </summary>
+        public JsAction<DragEventData> tap {get;set;}
+
+
     }
 
     /// <summary>
@@ -2810,7 +2967,7 @@ namespace SharpKit.KendoUI
         public JsNumber velocity { get; set; }
     }
 
-    //TODO: kendo.ui.Validator means anything?
+    [JsType(JsMode.Prototype, Name="kendo.ui.Validator")]
     public class Validator
     {
         public Validator() { }
