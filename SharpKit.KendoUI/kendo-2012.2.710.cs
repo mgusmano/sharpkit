@@ -824,13 +824,13 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Raised when a field value is updated via the set method.
         /// </summary>
-        public event JsAction<ObservableObjectChangeEventData> changeEvent;
+        public event JsAction<ObservableObjectChangeEventData> changeEvent { add { } remove { } }
         //TODO: event name?
 
         /// <summary>
         /// Raised when the get method is invoked.
         /// </summary>
-        public event JsAction<ObservableObjectChangeEventData> getEvent;
+        public event JsAction<ObservableObjectChangeEventData> getEvent { add { } remove { } }
         //TODO: event name?
 
         /// <summary>
@@ -838,7 +838,7 @@ namespace SharpKit.KendoUI
         /// The set event is raised before the field value is updated. Calling the get method from the event handler will return the old value.
         /// Calling e.preventDefault will prevent the update of the field and the change event will not be raised.
         /// </summary>
-        public event JsAction<ObservableObjectSetEventData> setEvent;
+        public event JsAction<ObservableObjectSetEventData> setEvent { add { } remove { } }
         //TODO: event name?
 
     }
@@ -1350,7 +1350,7 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public event JsAction<DataSourceChangeEventData> change;
+        public event JsAction<DataSourceChangeEventData> change { add { } remove { } }
 
         /// <summary>
         /// Fires when an error occurs during data read or sync. The event arguments are the same as the ones of the error event of $.ajax().
@@ -1367,7 +1367,7 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public event JsAction<DataSourceErrorEventData> error;
+        public event JsAction<DataSourceErrorEventData> error { add { } remove { } }
 
         /// <summary>
         /// Fires when data request is to be made.
@@ -1382,7 +1382,7 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public event JsAction<DataSourceRequestStartEventData> requestStart;
+        public event JsAction<DataSourceRequestStartEventData> requestStart { add { } remove { } }
     }
     public class DataSourceChangeEventData
     {
@@ -1883,329 +1883,6 @@ namespace SharpKit.KendoUI
         /// </summary>
         public object transport { get; set; }
 
-        public class DataSourceTransportConfiguration
-        {
-            /// <summary>
-            /// Options for remote create data operation, or the URL of the remote service.
-            /// Important: The value of transport.create is passed to jQuery.ajax.
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///var dataSource = new kendo.data.DataSource({
-            ///    transport: {
-            ///        create: {
-            ///            url: "/orders/create",
-            ///            data: {
-            ///                orderId: $("#input").val() // sends the value of the input as the orderId
-            ///            }
-            ///        }
-            ///    }
-            ///});
-            ///</code>
-            ///</example>
-            public DataSourceTransportCreateConfiguration create { get; set; }
-
-            public class DataSourceTransportCreateConfiguration
-            {
-                /// <summary>
-                /// If set to false, it will force requested pages not to be cached by the browser.
-                /// Setting cache to false also appends a query string parameter, "_=[TIMESTAMP]", to the URL. Refer to the jQuery.ajax documentation for further info.
-                /// </summary>
-                ///<example>
-                ///usage
-                ///<code>
-                ///transport: {
-                ///    create: {
-                ///        cache: false
-                ///    }
-                ///}
-                ///</code>
-                ///</example>
-                public bool cache { get; set; }
-
-                /// <summary>
-                /// The content-type HTTP header sent to the server. Default is "application/x-www-form-urlencoded".
-                /// Use "application/json" if the content is JSON. Refer to the jQuery.ajax documentation for further info.
-                /// </summary>
-                ///<example>
-                ///usage
-                ///<code>
-                ///transport: {
-                ///    create: {
-                ///        contentType: "application/json"
-                ///    }
-                ///}
-                ///</code>
-                ///</example>
-                public JsString contentType { get; set; }
-
-                /// <summary>
-                /// Data to be send to the server. Refer to the jQuery.ajax documentation for further info.
-                /// </summary>
-                ///<example>
-                ///usage
-                ///<code>
-                ///transport: {
-                ///    create: {
-                ///        data: {
-                ///            id: 42,
-                ///            name: "John Doe"
-                ///        }
-                ///    }
-                ///}
-                ///</code>
-                ///</example>
-                public object data { get; set; }
-
-                /// <summary>
-                /// The type of data that you're expecting back from the server.
-                /// Commonly used values are "json" and "jsonp". Refer to the jQuery.ajax documentation for further info.
-                /// </summary>
-                ///<example>
-                ///usage
-                ///<code>
-                ///transport: {
-                ///    create: {
-                ///        dataType: "json"
-                ///    }
-                ///}
-                ///</code>
-                ///</example>
-                public JsString dataType { get; set; }
-
-                /// <summary>
-                /// The type of request to make ("POST", "GET", "PUT" or "DELETE"), default is "GET". Refer to the jQuery.ajax documentation for further info.
-                /// </summary>
-                ///<example>
-                ///usage
-                ///<code>
-                ///transport: {
-                ///    create: {
-                ///        type: "POST"
-                ///    }
-                ///}
-                ///</code>
-                ///</example>
-                public TransportType type { get; set; }
-
-                /// <summary>
-                /// The remote url to call when creating a new record.
-                /// </summary>
-                ///<example>
-                ///usage
-                ///<code>
-                ///transport: {
-                ///    create: {
-                ///        url: "/create"
-                ///    }
-                ///}
-                ///</code>
-                ///</example>
-                public JsString url { get; set; }
-
-            }
-
-            public enum TransportType
-            {
-                POST,
-                GET,
-                PUT,
-                DELETE,
-            }
-
-            /// <summary>
-            /// Options for remote destroy data operation, or the URL of the remote service.
-            /// Important: The value of transport.destroy is passed to jQuery.ajax.
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///var dataSource = new kendo.data.DataSource({
-            ///    transport: {
-            ///        destroy: {
-            ///            url: "/orders/destroy",
-            ///            data: {
-            ///                orderId: $("#input").val() // sends the value of the input as the orderId
-            ///            }
-            ///        }
-            ///    }
-            ///});
-            ///</code>
-            ///</example>
-            public DataSourceTransportDestroyeConfiguration destroy { get; set; }
-
-            public class DataSourceTransportDestroyeConfiguration : DataSourceTransportCreateConfiguration
-            {
-                ////    /// <summary>
-                ////    /// If set to false, it will force requested pages not to be cached by the browser.
-                ////    /// Setting cache to false also appends a query string parameter, "_=[TIMESTAMP]", to the URL. Refer to the jQuery.ajax documentation for further info.
-                ////    /// </summary>
-                ////    ///<example>
-                ////    ///usage
-                ////    ///<code>
-                ////    ///transport: {
-                ////    ///    destroy: {
-                ////    ///        cache: false
-                ////    ///    }
-                ////    ///}
-                ////    ///</code>
-                ////    ///</example>
-                ////    public bool cache { get; set; }
-
-                ////    /// <summary>
-                ////    /// The content-type HTTP header sent to the server. Default is "application/x-www-form-urlencoded".
-                ////    /// Use "application/json" if the content is JSON.Refer to the jQuery.ajax documentation for further info.
-                ////    /// </summary>
-                ////    ///<example>
-                ////    ///usage
-                ////    ///<code>
-                ////    ///transport: {
-                ////    ///    destroy: {
-                ////    ///        contentType: "application/json"
-                ////    ///    }
-                ////    ///}
-                ////    ///</code>
-                ////    ///</example>
-                ////    public JsString contentType { get; set; }
-
-                ////    /// <summary>
-                ////    /// Data to be send to the server. Refer to the jQuery.ajax documentation for further info.
-                ////    /// </summary>
-                ////    ///<example>
-                ////    ///usage
-                ////    ///<code>
-                ////    ///transport: {
-                ////    ///    destroy: {
-                ////    ///        data: {
-                ////    ///            id: 42,
-                ////    ///            name: "John Doe"
-                ////    ///        }
-                ////    ///    }
-                ////    ///}
-                ////    ///</code>
-                ////    ///</example>
-                ////    public object data { get; set; }
-
-                ////    /// <summary>
-                ////    /// The type of data that you're expecting back from the server.
-                ////    /// Commonly used values are "json" and "jsonp". Refer to the jQuery.ajax documentation for further info.
-                ////    /// </summary>
-                ////    ///<example>
-                ////    ///usage
-                ////    ///<code>
-                ////    ///transport: {
-                ////    ///    destroy: {
-                ////    ///        dataType: "json"
-                ////    ///    }
-                ////    ///}
-                ////    ///</code>
-                ////    ///</example>
-                ////    public JsString dataType { get; set; }
-
-                ////    /// <summary>
-                ////    /// The type of request to make ("POST", "GET", "PUT" or "DELETE"), default is "GET". Refer to the jQuery.ajax documentation for further info.
-                ////    /// </summary>
-                ////    ///<example>
-                ////    ///usage
-                ////    ///<code>
-                ////    ///transport: {
-                ////    ///    destroy: {
-                ////    ///        type: "POST"
-                ////    ///    }
-                ////    ///}
-                ////    ///</code>
-                ////    ///</example>
-                ////    public TransportType type { get; set; }
-
-                ////    /// <summary>
-                ////    /// The remote url to call when creating a new record.
-                ////    /// </summary>
-                ////    ///<example>
-                ////    ///usage
-                ////    ///<code>
-                ////    ///transport: {
-                ////    ///    destroy: {
-                ////    ///        url: "/destroy"
-                ////    ///    }
-                ////    ///}
-                ////    ///</code>
-                ////    ///</example>
-                ////    public JsString url { get; set; }
-            }
-
-            /// <summary>
-            /// Convert the request parameters from dataSource format to remote service specific format.
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///var dataSource = new kendo.data.DataSource({
-            ///    transport: {
-            ///      read: "Catalog/Titles",
-            ///      parameterMap: function(options, type) {
-            ///         return {
-            ///            pageIndex: options.page,
-            ///            size: options.pageSize,
-            ///            orderBy: convertSort(options.sort)
-            ///         }
-            ///      }
-            ///    }
-            ///});
-            ///</code>
-            ///</example>
-            public JsFunction parameterMap { get; set; }
-
-            /// <summary>
-            /// Options for remote read data operation, or the URL of the remote service.
-            /// Important: The value of transport.read is passed to jQuery.ajax.
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///var dataSource = new kendo.data.DataSource({
-            ///    transport: {
-            ///        read: {
-            ///            url: "/orders/read",
-            ///            data: {
-            ///                orderId: $("#input").val() // sends the value of the input as the orderId
-            ///            }
-            ///        }
-            ///    }
-            ///});
-            ///</code>
-            ///</example>
-            public DataSourceTransportReadConfiguration read { get; set; }
-
-            public class DataSourceTransportReadConfiguration : DataSourceTransportCreateConfiguration
-            {
-            }
-
-            /// <summary>
-            /// Options for remote update data operation, or the URL of the remote service.
-            /// Important: The value of transport.update is passed to jQuery.ajax.
-            /// </summary>
-            ///<example>
-            ///usage
-            ///<code>
-            ///var dataSource = new kendo.data.DataSource({
-            ///    transport: {
-            ///        update: {
-            ///            url: "/orders/update",
-            ///            data: {
-            ///                orderId: $("#input").val() // sends the value of the input as the orderId
-            ///            }
-            ///        }
-            ///    }
-            ///});
-            ///</code>
-            ///</example>
-            public DataSourceTransportUpdateConfiguration update { get; set; }
-
-            public class DataSourceTransportUpdateConfiguration : DataSourceTransportCreateConfiguration
-            {
-            }
-        }
 
         /// <summary>
         /// Loads transport with preconfigured settings. Currently supports only "odata" (Requires kendo.data.odata.js to be included).
@@ -2214,6 +1891,239 @@ namespace SharpKit.KendoUI
 
 
     }
+
+    public enum TransportType
+    {
+        POST,
+        GET,
+        PUT,
+        DELETE,
+    }
+
+    public class DataSourceTransportConfiguration
+    {
+        /// <summary>
+        /// Options for remote create data operation, or the URL of the remote service.
+        /// Important: The value of transport.create is passed to jQuery.ajax.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    transport: {
+        ///        create: {
+        ///            url: "/orders/create",
+        ///            data: {
+        ///                orderId: $("#input").val() // sends the value of the input as the orderId
+        ///            }
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public DataSourceTransportCreateConfiguration create { get; set; }
+
+        /// <summary>
+        /// Options for remote destroy data operation, or the URL of the remote service.
+        /// Important: The value of transport.destroy is passed to jQuery.ajax.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    transport: {
+        ///        destroy: {
+        ///            url: "/orders/destroy",
+        ///            data: {
+        ///                orderId: $("#input").val() // sends the value of the input as the orderId
+        ///            }
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public DataSourceTransportDestroyConfiguration destroy { get; set; }
+
+        /// <summary>
+        /// Convert the request parameters from dataSource format to remote service specific format.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    transport: {
+        ///      read: "Catalog/Titles",
+        ///      parameterMap: function(options, type) {
+        ///         return {
+        ///            pageIndex: options.page,
+        ///            size: options.pageSize,
+        ///            orderBy: convertSort(options.sort)
+        ///         }
+        ///      }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public JsFunction parameterMap { get; set; }
+
+        /// <summary>
+        /// Object|String|Function 
+        /// Options for remote read data operation, or the URL of the remote service.
+        /// Important: The value of transport.read is passed to jQuery.ajax.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    transport: {
+        ///        read: {
+        ///            url: "/orders/read",
+        ///            data: {
+        ///                orderId: $("#input").val() // sends the value of the input as the orderId
+        ///            }
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public DataSourceTransportReadConfiguration read { get; set; }
+
+
+        /// <summary>
+        /// Object|String|Function 
+        /// Options for remote update data operation, or the URL of the remote service.
+        /// Important: The value of transport.update is passed to jQuery.ajax.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    transport: {
+        ///        update: {
+        ///            url: "/orders/update",
+        ///            data: {
+        ///                orderId: $("#input").val() // sends the value of the input as the orderId
+        ///            }
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public DataSourceTransportUpdateConfiguration update { get; set; }
+
+    }
+    public class DataSourceTransportDestroyConfiguration : DataSourceTransportCreateConfiguration
+    {
+    }
+
+    public class DataSourceTransportCreateConfiguration
+    {
+        /// <summary>
+        /// If set to false, it will force requested pages not to be cached by the browser.
+        /// Setting cache to false also appends a query string parameter, "_=[TIMESTAMP]", to the URL. Refer to the jQuery.ajax documentation for further info.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///transport: {
+        ///    create: {
+        ///        cache: false
+        ///    }
+        ///}
+        ///</code>
+        ///</example>
+        public bool cache { get; set; }
+
+        /// <summary>
+        /// The content-type HTTP header sent to the server. Default is "application/x-www-form-urlencoded".
+        /// Use "application/json" if the content is JSON. Refer to the jQuery.ajax documentation for further info.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///transport: {
+        ///    create: {
+        ///        contentType: "application/json"
+        ///    }
+        ///}
+        ///</code>
+        ///</example>
+        public JsString contentType { get; set; }
+
+        /// <summary>
+        /// Data to be send to the server. Refer to the jQuery.ajax documentation for further info.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///transport: {
+        ///    create: {
+        ///        data: {
+        ///            id: 42,
+        ///            name: "John Doe"
+        ///        }
+        ///    }
+        ///}
+        ///</code>
+        ///</example>
+        public object data { get; set; }
+
+        /// <summary>
+        /// The type of data that you're expecting back from the server.
+        /// Commonly used values are "json" and "jsonp". Refer to the jQuery.ajax documentation for further info.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///transport: {
+        ///    create: {
+        ///        dataType: "json"
+        ///    }
+        ///}
+        ///</code>
+        ///</example>
+        public JsString dataType { get; set; }
+
+        /// <summary>
+        /// The type of request to make ("POST", "GET", "PUT" or "DELETE"), default is "GET". Refer to the jQuery.ajax documentation for further info.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///transport: {
+        ///    create: {
+        ///        type: "POST"
+        ///    }
+        ///}
+        ///</code>
+        ///</example>
+        public TransportType type { get; set; }
+
+        /// <summary>
+        /// The remote url to call when creating a new record.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///transport: {
+        ///    create: {
+        ///        url: "/create"
+        ///    }
+        ///}
+        ///</code>
+        ///</example>
+        public JsString url { get; set; }
+
+    }
+
+    public class DataSourceTransportReadConfiguration : DataSourceTransportCreateConfiguration
+    {
+    }
+
+    public class DataSourceTransportUpdateConfiguration : DataSourceTransportCreateConfiguration
+    {
+    }
+
 
     /// <summary>
     /// See the DataSource methods for all inherited methods.
@@ -2229,10 +2139,30 @@ namespace SharpKit.KendoUI
         /// Fires when data is changed. In addition to the standard change event,
         /// the HierarchicalDataSource includes additional data when the event has been triggered from a child DataSource.
         /// </summary>
-        public event JsAction<HierarchicalDataSourceChangeEventData> change;
+        public new event JsAction<HierarchicalDataSourceChangeEventData> change { add { } remove { } }
 
     }
-    //TODO: "See the DataSource events for all inherited events." should i do something special with this information?
+
+    class Test
+    {
+        void foo()
+        {
+            var ds = new DataSource();
+            ds.change += new JsAction<DataSourceChangeEventData>(ds_change);
+            var ds2 = new HierarchicalDataSource();
+            ds2.change += new JsAction<HierarchicalDataSourceChangeEventData>(ds2_change);
+        }
+
+        void ds_change(DataSourceChangeEventData arg)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        void ds2_change(HierarchicalDataSourceChangeEventData arg)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 
     public class HierarchicalDataSourceChangeEventData
     {
@@ -2697,7 +2627,7 @@ namespace SharpKit.KendoUI
         ///people[0].set("name", "Jane Doe"); // outputs "itemchange", "name", "Jane Doe"
         ///</code>
         ///</example>
-        public event JsAction<ObservableArrayChangeEventData> change;
+        public event JsAction<ObservableArrayChangeEventData> change { add { } remove { } }
 
     }
     //TODO: Configuration. Make class generic
