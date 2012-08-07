@@ -1,5 +1,0 @@
-c:\users\sebastian.loncar\documents\visual studio 2010\Projects\WebIDL2Sharpkit\WebIDL2Sharpkit\obj\x86\Debug\ResolveAssemblyReference.cache
-c:\users\sebastian.loncar\documents\visual studio 2010\Projects\WebIDL2Sharpkit\WebIDL2Sharpkit\bin\Debug\WebIDL2Sharpkit.exe
-c:\users\sebastian.loncar\documents\visual studio 2010\Projects\WebIDL2Sharpkit\WebIDL2Sharpkit\bin\Debug\WebIDL2Sharpkit.pdb
-c:\users\sebastian.loncar\documents\visual studio 2010\Projects\WebIDL2Sharpkit\WebIDL2Sharpkit\obj\x86\Debug\WebIDL2Sharpkit.exe
-c:\users\sebastian.loncar\documents\visual studio 2010\Projects\WebIDL2Sharpkit\WebIDL2Sharpkit\obj\x86\Debug\WebIDL2Sharpkit.pdb
