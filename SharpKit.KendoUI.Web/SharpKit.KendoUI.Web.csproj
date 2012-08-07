@@ -43,9 +43,9 @@
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
       <Name>SharpKit.JavaScript</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SharpKit.jQuery.Query\SharpKit.jQuery.Query.csproj">
-      <Project>{329DA980-13A0-4708-B002-2B49CCE35D33}</Project>
-      <Name>SharpKit.jQuery.Query</Name>
+    <ProjectReference Include="..\SharpKit.jQuery\SharpKit.jQuery.csproj">
+      <Project>{872605DE-E8EC-4D3D-8CEE-A62449A8DAEB}</Project>
+      <Name>SharpKit.jQuery</Name>
     </ProjectReference>
     <ProjectReference Include="..\SharpKit.KendoUI\SharpKit.KendoUI.csproj">
       <Project>{8E248098-C8F9-4ABB-91D5-896A198204F5}</Project>
