@@ -3617,7 +3617,7 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<GridDataBoundEventData> dataBound { add { } remove { } }
+        public event JsAction<GridDetailCollapseEventData> detailCollapse { add { } remove { } }
 
         /// <summary>
         /// Fires when the grid detail row is expanded.
@@ -3633,7 +3633,7 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<GridDataBoundEventData> detailExpand { add { } remove { } }
+        public event JsAction<GridDetailCollapseEventData> detailExpand { add { } remove { } }
 
         /// <summary>
         /// Fires when the grid detail is initialized.
@@ -3703,7 +3703,8 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> saveChanges { add { } remove { } }
+        public event JsAction<EmptyEventData> saveChangesEvent { add { } remove { } }
+        //TODO: event name is saveChanges
     }
 
     public class GridConfiguration
@@ -4445,7 +4446,7 @@ namespace SharpKit.KendoUI.Web
 
     }
 
-    public class GridDataBoundEventData
+    public class GridDetailCollapseEventData
     {
         /// <summary>
         /// The jQuery element representing master row.
