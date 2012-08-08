@@ -67,6 +67,34 @@ namespace SharpKit.jQuery
 
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoGrid(this jQuery query, GridConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoListView(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoListView(this jQuery query, ListViewConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoMenu(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoMenu(this jQuery query, MenuConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoNumericTextBox(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoNumericTextBox(this jQuery query, NumericTextBoxConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoPager(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoPager(this jQuery query, PagerConfiguration configuration) { return null; }
     }
 
 }
@@ -4427,6 +4455,7 @@ namespace SharpKit.KendoUI.Web
         save,
         destroy,
     }
+
     public class GridSortableToolbarConfiguration
     {
         /// <summary>
@@ -4525,6 +4554,1468 @@ namespace SharpKit.KendoUI.Web
         /// The edited model.
         /// </summary>
         public object model { get; set; }
+    }
+
+    public class ListView
+    {
+
+        /// <summary>
+        /// Inserts empty item as first item on the current view and prepare it for editing.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the list view widget
+        ///var listView = $("#listView").data("kendoListView");
+        /// // add item
+        ///listView.add();
+        ///</code>
+        ///</example>
+        public void add() { }
+
+        /// <summary>
+        /// Cancels changes in currently edited item.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the list view widget
+        /// var listView = $("#listView").data("kendoListView");
+        /// // cancel changes in currently edited item
+        /// listView.cancel();
+        ///</code>
+        ///</example>
+        public void cancel() { }
+
+        /// <summary>
+        /// Clears ListView selected items and triggers change event.
+        /// </summary>
+        public void clearSelection() { }
+
+        /// <summary>
+        /// Edit specified ListView item. Triggers edit event.
+        /// </summary>
+        /// <param name="item">jQuery object containing the item to be edited.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the list view widget
+        /// var listView = $("#listView").data("kendoListView");
+        /// // edit first list view item
+        /// listView.edit(listView.element.children().first());
+        ///</code>
+        ///</example>
+        public void edit(jQuery.jQuery item) { }
+        /// <summary>
+        /// Edit specified ListView item. Triggers edit event.
+        /// </summary>
+        /// <param name="item">jQuery object containing the item to be edited.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the list view widget
+        /// var listView = $("#listView").data("kendoListView");
+        /// // edit first list view item
+        /// listView.edit(listView.element.children().first());
+        ///</code>
+        ///</example>
+        public void edit(Model item) { }
+        //TODO: danel not sure. d.check
+
+        /// <summary>
+        /// Reloads the data and repaints the list view.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var listView = $("#listView").data("kendoListView");
+        /// // refreshes the list view
+        /// listView.refresh();
+        ///</code>
+        ///</example>   
+        public void refresh() { }
+
+        /// <summary>
+        /// Removes specified ListView item. Triggers remove event and if not prevented calls DataSource sync method.
+        /// </summary>
+        /// <param name="item">jQuery object containing the item to be removed.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the list view widget
+        /// var listView = $("#listView").data("kendoListView");
+        /// // edit first list view item
+        /// listView.remove(listView.element.children().first());
+        ///</code>
+        ///</example>
+        public void remove(jQuery.jQuery item) { }
+        /// <summary>
+        /// Removes specified ListView item. Triggers remove event and if not prevented calls DataSource sync method.
+        /// </summary>
+        /// <param name="item">jQuery object containing the item to be removed.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the list view widget
+        /// var listView = $("#listView").data("kendoListView");
+        /// // edit first list view item
+        /// listView.remove(listView.element.children().first());
+        ///</code>
+        ///</example>
+        public void remove(Model item) { }
+        //TODO: danel not sure. d.check
+
+        /// <summary>
+        /// Saves edited ListView item. If validation succeeds will call DataSource sync method.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the list view widget
+        /// var listView = $("#listView").data("kendoListView");
+        /// // edit first list view item
+        /// listView.edit(listView.element.children().first());
+        /// // save edited item
+        /// listView.save();
+        ///</code>
+        ///</example>   
+        public void save() { }
+
+        /// <summary>
+        /// Selects the specified ListView item. If called without arguments - returns the selected items.
+        /// </summary>
+        /// <param name="items">Items to select.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the list view widget
+        /// var listView = $("#listView").data("kendoListView");
+        /// // selects first list view item
+        /// listView.select(listView.element.children().first());
+        ///</code>
+        ///</example>
+        public void select(JsAction items) { }
+        //TODO: "If called without arguments - returns the selected items." (?)
+        /// <summary>
+        /// Selects the specified ListView item. If called without arguments - returns the selected items.
+        /// </summary>
+        /// <param name="items">Items to select.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the list view widget
+        /// var listView = $("#listView").data("kendoListView");
+        /// // selects first list view item
+        /// listView.select(listView.element.children().first());
+        ///</code>
+        ///</example>
+        public void select(JsArray items) { }
+        //TODO: "If called without arguments - returns the selected items." (?)
+
+
+        /// <summary>
+        /// Fires when the list view selection has changed.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#comboBox").kendoComboBox({
+        ///    change: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<EmptyEventData> change { add { } remove { } }
+
+        /// <summary>
+        /// Fires when the list view has received data from the data source. and is about to render it.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// $("#grid").kendoGrid({
+        ///     dataBound: function(e) {
+        ///         // handle event
+        ///     }
+        /// });
+        ///</code>
+        ///</example>
+        public event JsAction<EmptyEventData> dataBound { add { } remove { } }
+
+        /// <summary>
+        /// Fires when the grid enters edit mode.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// $("#grid").kendoGrid({
+        ///     edit: function(e) {
+        ///         // handle event
+        /// });
+        ///</code>
+        ///</example>
+        public event JsAction<ListViewEditEventData> editEvent { add { } remove { } }
+        //TODO: event name is edit
+
+        /// <summary>
+        /// Fires when the list view  item is removed.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// $("#grid").kendoGrid({
+        ///     remove: function(e) {
+        ///         // handle event
+        /// });
+        ///</code>
+        ///</example>
+        public event JsAction<ListViewRemoveEventData> removeEvent { add { } remove { } }
+        //TODO: event name is remove
+    }
+
+    public class ListViewConfiguration
+    {
+
+        /// <summary>
+        /// (default: true) Indicates whether the list view will call read on the DataSource initially.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#grid").kendoGrid({
+        ///     dataSource: sharedDataSource,
+        ///     columns: [
+        ///         {
+        ///             field: "Name"
+        ///         },
+        ///         {
+        ///             field: "BirthDate",
+        ///             title: "Birth Date",
+        ///             template: '#= kendo.toString(BirthDate,"dd MMMM yyyy") #'
+        ///        }
+        ///     ],
+        ///     autoBind: false // the grid will not be populated with data until read() is called on the sharedDataSource
+        /// });
+        ///</code>
+        ///</example>
+        public bool autoBind { get; set; }
+
+        /// <summary>
+        /// Instance of DataSource or Object with DataSource configuration.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var items = [ { Name: "Item 1" }, { Name: "Item 2"} ];
+        ///$("#autoComplete").kendoAutoComplete({ dataSource: items });
+        ///</code>
+        ///</example>
+        public DataSource dataSource { get; set; }
+        /// <summary>
+        /// Instance of DataSource or Object with DataSource configuration.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var items = [ { Name: "Item 1" }, { Name: "Item 2"} ];
+        ///$("#autoComplete").kendoAutoComplete({ dataSource: items });
+        ///</code>
+        ///</example>
+        [JsProperty(Name = "dataSource")]
+        public object dataSourceObject { get; set; }
+
+        /// <summary>
+        /// Specifies ListView item template in edit mode.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#listView").kendoListView({
+        ///     dataSource: {
+        ///         data: createRandomData(50)
+        ///     },
+        ///     template: kendo.template($("#template").html()),
+        ///     editTemplate: kendo.template($("#editTemplate").html())
+        /// });
+        ///</code>
+        ///</example>
+        public JsAction editTemplate { get; set; }
+
+        /// <summary>
+        /// (default: false) Indicates whether keyboard navigation is enabled/disabled.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#grid").kendoGrid({
+        ///     dataSource: {
+        ///         data: createRandomData(50),
+        ///         pageSize: 10
+        ///     },
+        ///     columns: [
+        ///         {
+        ///             field: "Name"
+        ///         },
+        ///         {
+        ///             field: "BirthDate",
+        ///             title: "Birth Date",
+        ///             template: '#= kendo.toString(BirthDate,"dd MMMM yyyy") #'
+        ///        }
+        ///     ],
+        ///     navigatable: true
+        /// });
+        ///</code>
+        ///</example>
+        public bool navigatable { get; set; }
+
+        /// <summary>
+        /// (default: undefined) Indicates whether selection is enabled/disabled. 
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///&lt;script type="text/x-kendo-tmpl" id="template">
+        ///     &lt;div>
+        ///       &lt;dl>
+        ///         &lt;dt>Name</dt> <dd>${Name}</dd>
+        ///         &lt;dt>Birth Date</dt> <dd>${BirdthDate}</dd>
+        ///       &lt;/dl>
+        ///     &lt;/div>
+        /// &lt;/script>
+        ///</code>
+        ///</example>
+        public GridSelectableOptions selectable { get; set; }
+    }
+
+    public class ListViewEditEventData
+    {
+        /// <summary>
+        /// The jQuery element to be edited.
+        /// </summary>
+        public object item { get; set; }
+
+        /// <summary>
+        /// The model to be edited.
+        /// </summary>
+        public object model { get; set; }
+    }
+
+    public class ListViewRemoveEventData
+    {
+        /// <summary>
+        /// The item element to be deleted.
+        /// </summary>
+        public object item { get; set; }
+
+        /// <summary>
+        /// The model which to be deleted.
+        /// </summary>
+        public object model { get; set; }
+    }
+
+    public class Menu
+    {
+        /// <summary>
+        /// Appends an item to a Menu in the specified referenceItem's sub menu.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. Can also handle an array of such objects.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the Menu object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.append(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public Menu append(JsAction item, object referenceItem) { return null; }
+        /// <summary>
+        /// Appends an item to a Menu in the specified referenceItem's sub menu.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. Can also handle an array of such objects.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the Menu object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.append(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public Menu append(JsAction item, JsArray referenceItem) { return null; }
+
+        /// <summary>
+        /// Closes a sub-menu of a specified item(s) in a Menu.
+        /// </summary>
+        /// <param name="element">Target item selector.</param>
+        /// <param name="item">The closed item</param>
+        /// <returns>Returns the Menu object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// // close the sub menu of "Item1"
+        /// menu.close("#Item1");
+        ///</code>
+        ///</example>
+        public Menu close(JsAction element, HtmlElement item) { return null; }
+
+        /// <summary>
+        /// Enables or disables an item of a Menu. This can optionally be accomplished on initialization by setting the disabled="disabled" on the desired menu item html element.
+        /// </summary>
+        /// <param name="element">Target element</param>
+        /// <param name="enable">Desired state</param>
+        /// <returns>Returns the Menu object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// // disable the li menu item with the id "secondItem"
+        /// menu.enable("#secondItem", false);
+        ///</code>
+        ///</example>
+        public Menu enable(JsAction element, bool enable) { return null; }
+
+        /// <summary>
+        /// Inserts an item into a Menu after the specified referenceItem.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. Can also handle an array of such objects.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the Menu object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.insertAfter(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public Menu insertAfter(JsAction item, object referenceItem) { return null; }
+        /// <summary>
+        /// Inserts an item into a Menu after the specified referenceItem.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. Can also handle an array of such objects.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the Menu object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.insertAfter(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public Menu insertAfter(JsAction item, JsArray referenceItem) { return null; }
+
+        /// <summary>
+        /// Inserts an item into a Menu before the specified referenceItem.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. Can also handle an array of such objects.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the Menu object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.insertBefore(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public Menu insertBefore(JsAction item, object referenceItem) { return null; }
+        /// <summary>
+        /// Inserts an item into a Menu before the specified referenceItem.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. Can also handle an array of such objects.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the Menu object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.insertBefore(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public Menu insertBefore(JsAction item, JsArray referenceItem) { return null; }
+
+        /// <summary>
+        /// Opens a sub-menu of a specified item(s) in a Menu.
+        /// </summary>
+        /// <param name="element">Target item selector.</param>
+        /// <param name="item">The opened item</param>
+        /// <returns>Returns the Menu object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// // open the sub menu of "Item1"
+        /// menu.open("#Item1");
+        ///</code>
+        ///</example>
+        public Menu open(JsAction element, HtmlElement item) { return null; }
+
+        /// <summary>
+        /// Removes a specified item(s) from a Menu.
+        /// </summary>
+        /// <param name="element">Target item selector.</param>
+        /// <returns>Returns the Menu object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// // remove the item with the id "Item1"
+        /// menu.remove("#Item1");
+        ///</code>
+        ///</example>
+        public Menu remove(JsAction element) { return null; }
+
+
+        /// <summary>
+        /// Fires after a sub menu gets closed.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#comboBox").kendoComboBox({
+        ///    close: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<MenuEventData> closeEvent { add { } remove { } }
+        //TODO: event name is close
+
+        /// <summary>
+        /// Fires before a sub menu gets opened.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#comboBox").kendoComboBox({
+        ///    open: function(e) {
+        ///            // handle event
+        ///        }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<MenuEventData> openEvent { add { } remove { } }
+        //TODO: event name is open
+
+        /// <summary>
+        /// Fires when a menu item gets selected.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for select
+        /// var onSelect = function(e) {
+        ///     // access the selected item via e.item (jQuery object)
+        /// };
+        /// 
+        /// // attach select event handler during initialization
+        /// var combobox = $("#combobox").kendoComboBox({
+        ///     select: onSelect
+        /// });
+        /// 
+        /// // detach select event handler via unbind()
+        /// combobox.data("kendoComboBox").unbind("select", onSelect);
+        ///</code>
+        ///</example>
+        public event JsAction<MenuEventData> selectEvent { add { } remove { } }
+        //TODO: event name is select
+    }
+
+    public class MenuEventData
+    {
+        /// <summary>
+        /// The closed/ opened/ selected  item
+        /// </summary>
+        public HtmlElement item { get; set; }
+    }
+
+    public class MenuConfiguration
+    {
+        /// <summary>
+        /// A collection of Animation objects, used to change default animations. A value of false will disable all animations in the widget.
+        /// Available animations for the Menu are listed below. Each animation has a reverse options which is used for the close effect by default,
+        /// but can be over-ridden by setting the close animation. Each animation also has a direction which can be set off the animation (i.e. slideIn:Down).
+        /// slideIn:
+        /// Menu content slides in from the top
+        /// fadeIn:
+        /// Menu content fades in
+        /// expand:
+        /// Menu content expands from the top down. Similar to slideIn.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#menu").kendoMenu({
+        ///     animation: { open: { effects: "fadeIn" } }
+        /// });
+        ///</code>
+        ///</example>
+        public AnimationConfiguration animation { get; set; }
+
+        /// <summary>
+        /// (default: true) Specifies that sub menus should close after item selection (provided they won't navigate).
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#menu").kendoMenu({
+        ///    closeOnClick: false
+        ///});
+        ///</code>
+        ///</example>
+        public bool closeOnClick { get; set; }
+
+        /// <summary>
+        /// (default: "default") Specifies Menu opening direction. Can be "top", "bottom", "left", "right".
+        /// You can also specify different direction for root and sub menu items, separating them with space.
+        /// The example below will initialize the root menu to open upwards and its sub menus to the left.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#menu").kendoMenu({
+        ///     direction: "top left"
+        /// });
+        ///</code>
+        ///</example>
+        public JsString direction { get; set; }
+
+        /// <summary>
+        /// (default: 100) Specifies the delay in ms before the menu is opened/closed - used to avoid accidental closure on leaving.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#menu").kendoMenu({
+        ///     hoverDelay: 200
+        /// });
+        ///</code>
+        ///</example>
+        public JsNumber hoverDelay { get; set; }
+
+        /// <summary>
+        /// (default: false) Specifies that the root sub menus will be opened on item click.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#menu").kendoMenu({
+        ///     openOnClick: true
+        /// });
+        ///</code>
+        ///</example>
+        public bool openOnClick { get; set; }
+
+        /// <summary>
+        /// (default: "horizontal") Root menu orientation. Could be horizontal or vertical.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#menu").kendoMenu({
+        ///     orientation: "vertical"
+        /// });
+        ///</code>
+        ///</example>
+        public JsString orientation { get; set; }
+
+        /// <summary>
+        /// Specifies how Menu should adjust to screen boundaries. By default the strategy is "fit" for a sub menu with a horizontal parent,
+        /// meaning it will move to fit in screen boundaries in all directions, and "fit flip" for a sub menu with vertical parent,
+        /// meaning it will fit vertically and flip over its parent horizontally.]
+        /// You can also switch off the screen boundary detection completely if you set the popupCollision to false.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#menu").kendoMenu({
+        ///     popupCollision: false
+        /// });
+        ///</code>
+        ///</example>
+        public JsString popupCollision { get; set; }
+
+    }
+
+    public class NumericTextBox
+    {
+
+        /// <summary>
+        /// Enable/Disable the numerictextbox widget.
+        /// </summary>
+        /// <param name="enable">The argument, which defines whether to enable/disable the autocomplete.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to instance of the Kendo UI ComboBox
+        ///var combobox = $("#comboBox").data("kendoComboBox");
+        /// // disables the combobox
+        ///combobox.enable(false);
+        ///</code>
+        ///</example>
+        public void enable(bool enable) { }
+
+        /// <summary>
+        /// Sets the max value of the NumericTextBox.
+        /// </summary>
+        /// <param name="value">The max value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the calendar widget
+        ///var calendar = $("#calendar").data("kendoCalendar");
+        /// // get the max value of the calendar.
+        ///var max = calendar.max();
+        /// // set the max value of the calendar.
+        ///calendar.max(new Date(2100, 0, 1));
+        ///</code>
+        ///</example>
+        public void max(JsString value) { }
+        /// <summary>
+        /// Sets the max value of the NumericTextBox.
+        /// </summary>
+        /// <param name="value">The max value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the calendar widget
+        ///var calendar = $("#calendar").data("kendoCalendar");
+        /// // get the max value of the calendar.
+        ///var max = calendar.max();
+        /// // set the max value of the calendar.
+        ///calendar.max(new Date(2100, 0, 1));
+        ///</code>
+        ///</example>
+        public JsNumber max() { return null; }
+
+        /// <summary>
+        /// Sets the min value of the NumericTextBox.
+        /// </summary>
+        /// <param name="value">The min value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the calendar widget
+        ///var calendar = $("#calendar").data("kendoCalendar");
+        ///
+        /// // get the min value of the calendar.
+        ///var min = calendar.min();
+        ///
+        /// // set the min value of the calendar.
+        ///</code>
+        ///</example>
+        public void min(JsString value) { }
+        /// <summary>
+        /// Sets the min value of the NumericTextBox.
+        /// </summary>
+        /// <param name="value">The min value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the calendar widget
+        ///var calendar = $("#calendar").data("kendoCalendar");
+        ///
+        /// // get the min value of the calendar.
+        ///var min = calendar.min();
+        ///
+        /// // set the min value of the calendar.
+        ///</code>
+        ///</example>
+        public JsNumber min() { return null; }
+
+        /// <summary>
+        /// Sets the step value of the NumericTextBox.
+        /// </summary>
+        /// <param name="value">The step value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the NumericTextBox widget
+        /// var numerictextbox = $("#numerictextbox").data("kendoNumericTextBox");
+        /// 
+        /// // get the step value of the numerictextbox.
+        /// var step = numerictextbox.step();
+        /// 
+        /// // set the step value of the numerictextbox.
+        /// numerictextbox.step(0.1);
+        ///</code>
+        ///</example>
+        public void step(JsNumber value) { }
+        /// <summary>
+        /// Sets the step value of the NumericTextBox.
+        /// </summary>
+        /// <param name="value">The step value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the NumericTextBox widget
+        /// var numerictextbox = $("#numerictextbox").data("kendoNumericTextBox");
+        /// 
+        /// // get the step value of the numerictextbox.
+        /// var step = numerictextbox.step();
+        /// 
+        /// // set the step value of the numerictextbox.
+        /// numerictextbox.step(0.1);
+        ///</code>
+        ///</example>
+        public void step(JsString value) { }
+        /// <summary>
+        /// Gets the step value of the NumericTextBox.
+        /// </summary>
+        /// <param name="value">The step value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the NumericTextBox widget
+        /// var numerictextbox = $("#numerictextbox").data("kendoNumericTextBox");
+        /// 
+        /// // get the step value of the numerictextbox.
+        /// var step = numerictextbox.step();
+        /// 
+        /// // set the step value of the numerictextbox.
+        /// numerictextbox.step(0.1);
+        ///</code>
+        ///</example>
+        public JsNumber step() { return null; }
+
+        /// <summary>
+        /// Sets the value of the numerictextbox.
+        /// </summary>
+        /// <param name="value">The value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a referene to the numeric textbox
+        /// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
+        /// 
+        /// // get the value of the numerictextbox.
+        /// var value = numerictextbox.value();
+        /// 
+        /// // set the value of the numerictextbox.
+        /// numerictextbox.value("10.20");
+        ///</code>
+        ///</example>
+        public void step(JsNumber value) { }
+        /// <summary>
+        /// Sets the value of the numerictextbox.
+        /// </summary>
+        /// <param name="value">The value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a referene to the numeric textbox
+        /// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
+        /// 
+        /// // get the value of the numerictextbox.
+        /// var value = numerictextbox.value();
+        /// 
+        /// // set the value of the numerictextbox.
+        /// numerictextbox.value("10.20");
+        ///</code>
+        ///</example>
+        public void step(JsString value) { }
+        /// <summary>
+        /// Gets the value of the numerictextbox.
+        /// </summary>
+        /// <param name="value">The value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a referene to the numeric textbox
+        /// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
+        /// 
+        /// // get the value of the numerictextbox.
+        /// var value = numerictextbox.value();
+        /// 
+        /// // set the value of the numerictextbox.
+        /// numerictextbox.value("10.20");
+        ///</code>
+        ///</example>
+        public JsNumber step() { return null; }
+
+
+        /// <summary>
+        /// Fires when the value is changed
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#comboBox").kendoComboBox({
+        ///    change: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<EmptyEventData> change { add { } remove { } }
+
+        /// <summary>
+        /// Fires when the value is changed from the spin buttons
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#numeric").kendoNumericTextBox({
+        ///     spin: function(e) {
+        ///         // handle event
+        ///     }
+        /// });
+        ///</code>
+        ///</example>
+        public event JsAction<EmptyEventData> spin { add { } remove { } }
+
+
+    }
+
+    public class NumericTextBoxConfiguration
+    {
+        /// <summary>
+        /// (default: en-US) Specifies the culture info used by the NumericTextBox widget.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // specify on widget initialization
+        ///$("#calendar").kendoCalendar({
+        ///    culture: "de-DE"
+        ///});
+        ///</code>
+        ///</example>
+        public JsString culture { get; set; }
+
+        /// <summary>
+        /// (default: null) Specifies the number precision. If not set precision defined by current culture is used.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // specify on widget initialization
+        /// $("#numeric").kendoNumericTextBox({
+        ///     min: 0,
+        ///     max: 1,
+        ///     step: 0.1,
+        ///     decimals: 1
+        /// });
+        ///</code>
+        ///</example>
+        public JsNumber decimals { get; set; }
+
+        /// <summary>
+        /// (default: Decrease value) Specifies the text of the tooltip on the down arrow.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // specify on widget initialization
+        /// $("#numeric").kendoNumericTextBox({
+        ///     min: 0,
+        ///     max: 100,
+        ///     value: 50,
+        ///     upArrowText: "More",
+        ///     downArrowText: "Less"
+        /// });
+        ///</code>
+        ///</example>
+        public JsString downArrowText { get; set; }
+
+        /// <summary>
+        /// (default: n) Specifies the format of the number. Any valid number format is allowed.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#numeric").kendoNumericTextBox({
+        ///    format: "p0", // format as percentage with % sign
+        ///    min: 0,
+        ///    max: 1,
+        ///    step: 0.01
+        /// });
+        ///</code>
+        ///</example>   
+        public JsString format { get; set; }
+
+        /// <summary>
+        /// (default: null) Specifies the largest value the user can enter.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // specify in the HTML
+        /// &lt;input id="numeric" value="10" type="number" min="-100" max="100" step="10"/>
+        /// &lt;br />
+        /// // specify on widget initialization
+        /// $("#numeric").kendoNumericTextBox({
+        ///     min: 0,
+        ///     max: 100,
+        ///     value: 50
+        /// });
+        ///</code>
+        ///</example>
+        public JsNumber max { get; set; }
+
+        /// <summary>
+        /// (default: null) Specifies the smallest value the user can enter.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // specify in the HTML
+        /// &lt;input id="numeric" value="10" type="number" min="-100" max="100" step="10"/>
+        /// &lt;br />
+        /// // specify on widget initialization
+        /// $("#numeric").kendoNumericTextBox({
+        ///     min: 0,
+        ///     max: 100,
+        ///     value: 50
+        /// });
+        ///</code>
+        ///</example>
+        public JsNumber min { get; set; }
+
+        /// <summary>
+        /// (default: "") Specifies the text displayed when the input is empty.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // specify on widget initialization
+        /// $("#numeric").kendoNumericTextBox({
+        ///     min: 0,
+        ///     max: 100,
+        ///     value: 50,
+        ///     placeholder: "Select A Value"
+        /// });
+        ///</code>
+        ///</example>   
+        public JsString placeholder { get; set; }
+
+        /// <summary>
+        /// (default: 1) Specifies the increment/decrement step.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // specify in the HTML
+        /// &lt;input id="numeric" value="10" type="number" />
+        /// &lt;br />
+        /// // specify on widget initialization
+        /// $("#numeric").kendoNumericTextBox({
+        ///     min: 0,
+        ///     max: 1,
+        ///     step: 0.1
+        /// });
+        ///</code>
+        ///</example>
+        public JsNumber step { get; set; }
+
+        /// <summary>
+        /// (default: Increase value) Specifies the text of the tooltip on the up arrow.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // specify on widget initialization
+        /// $("#numeric").kendoNumericTextBox({
+        ///     min: 0,
+        ///     max: 100,
+        ///     value: 50,
+        ///     upArrowText: "More",
+        ///     downArrowText: "Less"
+        /// });
+        ///</code>
+        ///</example>
+        public JsString upArrowText { get; set; }
+
+        /// <summary>
+        /// (default: null) Specifies the value of the NumericTextBox widget.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // specify in the HTML
+        /// &lt;input id="numeric" value="10" type="number" min="-100" max="100" step="10"/>
+        /// 
+        /// // specify on widget initialization
+        /// $("#numeric").kendoNumericTextBox({
+        ///     min: 0,
+        ///     max: 100,
+        ///     value: 50
+        /// });
+        ///</code>
+        ///</example>
+        public JsNumber value { get; set; }
+    }
+
+    public class Pager
+    {
+        /// <summary>
+        /// Returns the number of pages.
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber totalPages() { return null; }
+
+        /// <summary>
+        /// Returns the page size - maximum number of items allowed on one page.
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber pageSize() { return null; }
+
+        /// <summary>
+        /// Set the specified page as a current page. If called without arguments - returns the current page.
+        /// </summary>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var currentPage = pager.page();
+        ///</code>
+        ///</example>   
+        public JsNumber page() { return null; }
+        /// <summary>
+        /// Set the specified page as a current page. If called without arguments - returns the current page.
+        /// </summary>
+        /// <example>
+        ///usage
+        ///<code>
+        ///pager.page(2);
+        ///</code>
+        ///</example>   
+        public void page(JsNumber page) { }
+
+        /// <summary>
+        /// Updates all values of pager elements so that these values fit the values of DataSource.
+        /// This method is automaticaly called after DataSource change event is fired.
+        /// </summary>
+        public void refresh() { }
+
+        /// <summary>
+        /// Unbinds all callbacks created within pager initialization. This method doesn't remove pager element from DOM.
+        /// </summary>
+        public void destroy() { }
+
+        /// <summary>
+        /// Fires when the current page has changed.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#comboBox").kendoComboBox({
+        ///    change: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<EmptyEventData> change { add { } remove { } }
+    }
+
+    public class PagerConfiguration
+    {
+        /// <summary>
+        /// (default: true) Indicates whether the pager refresh method will be called within its initialization.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#grid").kendoGrid({
+        ///     dataSource: sharedDataSource,
+        ///     columns: [
+        ///         {
+        ///             field: "Name"
+        ///         },
+        ///         {
+        ///             field: "BirthDate",
+        ///             title: "Birth Date",
+        ///             template: '#= kendo.toString(BirthDate,"dd MMMM yyyy") #'
+        ///        }
+        ///     ],
+        ///     autoBind: false // the grid will not be populated with data until read() is called on the sharedDataSource
+        /// });
+        ///</code>
+        ///</example>
+        public bool autoBind { get; set; }
+
+        /// <summary>
+        /// (default: 10) Defines the number of buttons displayed in the numeric pager.
+        /// </summary>
+        public JsNumber buttonCount { get; set; }
+
+        /// <summary>
+        /// Instance of kendo DataSource. See the kendo.data.DataSource. This option is mandatory because the Pager is tightly connected with DataSource.
+        /// The pager is UI widget for managing paging over the DataSource. The Pager gets values like page size or total count of items from DataSource.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#pager").kendoPager({
+        ///     dataSource: new kendo.data.DataSource({
+        ///         data: [
+        ///             {title: "Star Wars: A New Hope", year: 1977},
+        ///             {title: "Star Wars: The Empire Strikes Back", year: 1980}
+        ///         ],
+        ///         pageSize: 25
+        ///     });
+        ///     pageSizes: [10, 25, 50]
+        /// });
+        ///</code>
+        ///</example>
+        public DataSource dataSource { get; set; }
+
+        /// <summary>
+        /// The template for selectbox with predefined page sizes.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#pager").kendoPager({
+        ///     dataSource: sharedDataSource,
+        ///     selectTemplate: '&lt;li>&lt;span class="k-state-selected">#=text#&lt;/span>&lt;/li>'
+        /// });
+        ///</code>
+        ///</example>
+        public JsString selectTemplate { get; set; }
+
+        /// <summary>
+        /// The template for page number links.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#pager").kendoPager({
+        ///     dataSource: sharedDataSource,
+        ///     linkTemplate: '&lt;li>&lt;a href="\\#" class="k-link" data-#=ns#page="#=idx#">#=text#&lt;/a>&lt;/li>'
+        /// });
+        ///</code>
+        ///</example>
+        public JsString linkTemplate { get; set; }
+
+        /// <summary>
+        /// (default: true) Defines if a label showing current paging information will be displayed.
+        /// </summary>
+        public bool info { get; set; }
+
+        /// <summary>
+        /// (default: false) Defines if an input element which allows the user to navigate to given page will be displayed.
+        /// </summary>
+        public bool input { get; set; }
+
+        /// <summary>
+        /// (default: true) Defines if numeric portion of the pager will be shown.
+        /// </summary>
+        public bool numeric { get; set; }
+
+        /// <summary>
+        /// (default: false)Displayes a list with predefined page sizes. An array of values to be displayed can be provided.
+        /// </summary>
+        public bool pageSizes { get; set; }
+        /// <summary>
+        /// (default: [5,10,20])Displayes a list with predefined page sizes. An array of values to be displayed can be provided.
+        /// </summary>
+        [JsProperty(Name = "pageSizes")]
+        public JsArray pageSizesArray { get; set; }
+
+        /// <summary>
+        /// (default: true) Defines if buttons for navigating to the first, last, previous and next pages will be shown.
+        /// </summary>
+        public bool previousNext { get; set; }
+
+        /// <summary>
+        /// (default: false) Defines if a refresh button will be displayed.
+        /// </summary>
+        public bool refresh { get; set; }
+
+        /// <summary>
+        /// Defines texts shown within the pager.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#pager").kendoPager({
+        ///    dataSource: sharedDataSource,
+        ///    messages: {
+        ///        display: "{0} - {1} of {2} items",
+        ///        empty: "No items to display",
+        ///        page: "Page",
+        ///        of: "of {0}",
+        ///        itemsPerPage: "items per page",
+        ///        first: "Go to the first page",
+        ///        previous: "Go to the previous page",
+        ///        next: "Go to the next page",
+        ///        last: "Go to the last page",
+        ///        refresh: "Refresh"
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public GridPageableMessagesConfiguration messages { get; set; }
     }
 }
 
