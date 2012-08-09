@@ -5,6 +5,7 @@ using System.Text;
 using SharpKit.JavaScript;
 using SharpKit.KendoUI.Web;
 using SharpKit.Html4;
+using SharpKit.jQuery;
 
 
 namespace SharpKit.jQuery
@@ -255,24 +256,7 @@ namespace SharpKit.KendoUI.Web
         ///autocomplete.select(autocomplete.ul.children().eq(0));
         ///</code>
         ///</example>
-        public void select(jQuery.jQuery li, jQuery.jQuery item) { }
-        //TODO: "item" was writen "e.item"
-        /// <summary>
-        /// Selects drop-down list item and sets the text of the autocomplete.
-        /// </summary>
-        /// <param name="li">The LI element.</param>
-        /// <param name="item">The selected item chosen by a user.</param>
-        ///<example>
-        ///usage
-        ///<code>
-        /// // get a reference to the autocomplete widget
-        ///var autocomplete = $("autocomplete").data("kendoAutoComplete");
-        /// // selects by jQuery object
-        ///autocomplete.select(autocomplete.ul.children().eq(0));
-        ///</code>
-        ///</example>
-        public void select(object li, jQuery.jQuery item) { }
-        //TODO: "item" was writen "e.item"
+        public void select(jQuery.jQuery li) { }
 
         /// <summary>
         /// Forces a suggestion onto the text of the AutoComplete.
@@ -496,8 +480,7 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public JsString ignoreCase { get; set; }
-        //TODO: seems like they have a mistake. if default: true should it be boolean?
+        public bool ignoreCase { get; set; }
 
         /// <summary>
         /// (default: 1) Specifies the minimum number of characters that should be typed before the AutoComplete queries the dataSource.
@@ -1117,13 +1100,11 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public void select(jQuery.jQuery li, jQuery.jQuery item) { }
-        //TODO: "item" was writen "e.item"
+        public void select(jQuery.jQuery li) { }
         /// <summary>
         /// Selects drop-down list item and sets the value and the text of the combobox.
         /// </summary>
         /// <param name="li">The LI element.</param>
-        /// <param name="item">The selected item chosen by a user.</param>
         ///<example>
         ///usage
         ///<code>
@@ -1138,13 +1119,11 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public void select(object li, jQuery.jQuery item) { }
-        //TODO: "item" was writen "e.item"\
+        public void select(JsNumber li) { }
         /// <summary>
         /// Selects drop-down list item and sets the value and the text of the combobox.
         /// </summary>
         /// <param name="li">The LI element.</param>
-        /// <param name="item">The selected item chosen by a user.</param>
         ///<example>
         ///usage
         ///<code>
@@ -1159,8 +1138,7 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public void select(JsAction li, jQuery.jQuery item) { }
-        //TODO: "item" was writen "e.item"
+        public void select(JsString li) { }
 
         /// <summary>
         /// Forces a suggestion onto the text of the ComboBox.
@@ -2689,7 +2667,7 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public JsNumber select(JsAction li, jQuery.jQuery item) { return null; }
+        public JsNumber select(JsString li, jQuery.jQuery item) { return null; }
         //TODO: "item" was writen "e.item"
 
         /// <summary>
@@ -2988,8 +2966,7 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public JsString ignoreCase { get; set; }
-        //todo: if (default: true) why string and not boolean?
+        public bool ignoreCase { get; set; }
 
         /// <summary>
         /// (default: 0) Defines the initial selected item.
@@ -3126,8 +3103,22 @@ namespace SharpKit.KendoUI.Web
         ///editor.exec("foreColor", { value: "#ff0000" });
         ///</code>
         ///</example>
-        public void exec(JsString name, JsString @params) { }
-        //TODO: params optinal?
+        public void exec(JsString name, object @params) { }
+        /// <summary>
+        /// Executes an editor command on the currently selected text.
+        /// </summary>
+        /// <param name="name">The name of the command to be executed.</param>
+        /// <param name="params">The parameters for the executed command.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var editor = $("#editor").data("kendoEditor");
+        ///editor.exec("bold");
+        ///editor.exec("undo");
+        ///editor.exec("foreColor", { value: "#ff0000" });
+        ///</code>
+        ///</example>
+        public void exec(JsString name) { }
 
         /// <summary>
         /// Focuses the editable area.
@@ -3145,15 +3136,13 @@ namespace SharpKit.KendoUI.Web
         ///var range = editor.getRange();
         ///</code>
         ///</example>
-        public object getRange() { return null; }
-        //TODO: return type?
+        public HtmlTextRange getRange() { return null; }
 
         /// <summary>
         /// Gets a W3C-compatible Selection object form the editable area.
         /// </summary>
         /// <returns></returns>
-        public object getSelection() { return null; }
-        //TODO: return type?
+        public HtmlSelection getSelection() { return null; }
 
         /// <summary>
         /// Pastes HTML into the editable area.
@@ -3189,7 +3178,7 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public void selectRange(HtmlTextRange range) { }
 
-        //TODO: update
+        public event JsAction<EmptyEventData> select { add { } remove { } }
 
 
     }
@@ -3329,7 +3318,7 @@ namespace SharpKit.KendoUI.Web
         /// // TODO: add specific function call here
         ///</code>
         ///</example>
-        public JsNumber cellIndex(JsAction cell) { return null; }
+        public JsNumber cellIndex(JsString cell) { return null; }
         /// <summary>
         /// Returns the index of the cell in the grid item skipping group and hierarchy cells.
         /// </summary>
@@ -3387,7 +3376,7 @@ namespace SharpKit.KendoUI.Web
         /// grid.collapseGroup(grid.tbody.find(">tr.k-grouping-row:first"));
         ///</code>
         ///</example>
-        public void collapseGroup(JsAction group) { }
+        public void collapseGroup(JsString group) { }
         /// <summary>
         /// Collapses specified group.
         /// </summary>
@@ -3416,7 +3405,7 @@ namespace SharpKit.KendoUI.Web
         /// grid.collapseRow(grid.tbody.find(">tr.k-master-row:first"));
         ///</code>
         ///</example>
-        public void collapseRow(JsAction row) { }
+        public void collapseRow(JsString row) { }
         /// <summary>
         /// Collapses specified master row.
         /// </summary>
@@ -3445,7 +3434,7 @@ namespace SharpKit.KendoUI.Web
         /// grid.dataItem(grid.tbody.find(">tr:first"));
         ///</code>
         ///</example>
-        public object dataItem(JsAction tr) { return null; }
+        public object dataItem(JsString tr) { return null; }
         /// <summary>
         /// Returns the data item to which a given table row (tr DOM element) is bound.
         /// </summary>
@@ -3474,7 +3463,7 @@ namespace SharpKit.KendoUI.Web
         ///grid.editCell(grid.tbody.find(">tr>td:first"));
         ///</code>
         ///</example>
-        public void editCell(JsAction cell) { }
+        public void editCell(JsString cell) { }
 
         /// <summary>
         /// Switches the specified row from the grid into edit mode. The editRow method triggers edit event.
@@ -3489,7 +3478,7 @@ namespace SharpKit.KendoUI.Web
         /// grid.editRow(grid.tbody.find(">tr:first"));
         ///</code>
         ///</example>
-        public void editRow(JsAction row) { }
+        public void editRow(JsString row) { }
         /// <summary>
         /// Switches the specified row from the grid into edit mode. The editRow method triggers edit event.
         /// </summary>
@@ -3518,7 +3507,7 @@ namespace SharpKit.KendoUI.Web
         /// grid.expandGroup(grid.tbody.find(">tr.k-grouping-row:first"));
         ///</code>
         ///</example>
-        public void expandGroup(JsAction group) { }
+        public void expandGroup(JsString group) { }
         /// <summary>
         /// Expands specified group.
         /// </summary>
@@ -3547,7 +3536,7 @@ namespace SharpKit.KendoUI.Web
         /// grid.expandRow(grid.tbody.find(">tr.k-master-row:first"));
         ///</code>
         ///</example>
-        public void expandRow(JsAction row) { }
+        public void expandRow(JsString row) { }
         /// <summary>
         /// Expands specified master row.
         /// </summary>
@@ -3590,7 +3579,7 @@ namespace SharpKit.KendoUI.Web
         /// grid.removeRow(grid.tbody.find(">tr:first"));
         ///</code>
         ///</example>
-        public void removeRow(JsAction row) { }
+        public void removeRow(JsString row) { }
         /// <summary>
         /// Removes the specified row from the grid. The removeRow method triggers remove event. (Note: In inline or popup edit modes the changes will be automatically synced)
         /// </summary>
@@ -3645,7 +3634,7 @@ namespace SharpKit.KendoUI.Web
         /// grid.select(grid.tbody.find(">tr:first"));
         ///</code>
         ///</example>
-        public void select(JsAction items) { }
+        public void select(JsString items) { }
         /// <summary>
         /// Selects the specified Grid rows/cells. If called without arguments - returns the selected rows/cells.
         /// </summary>
@@ -3839,28 +3828,7 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public GridColumnsConfiguration columns { get; set; }
-        /// <summary>
-        /// A collection of column objects or collection of strings that represents the name of the fields.
-        /// </summary>
-        ///<example>
-        ///usage
-        ///<code>
-        ///var sharedDataSource = new kendo.data.DataSource({
-        ///     data: [{title: "Star Wars: A New Hope", year: 1977}, {title: "Star Wars: The Empire Strikes Back", year: 1980}],
-        ///     pageSize: 1
-        ///});
-        ///$("#grid").kendoGrid({
-        ///    dataSource: sharedDataSource,
-        ///    columns: [ { title: "Action", command: "destroy" }, // creates a column with delete buttons
-        ///               { title: "Title", field: "title", width: 200, template: "<div id='title'>${ title }</div>" },
-        ///               { title: "Year", field: "year", filterable: false, sortable: true, format: "{0:dd/MMMM/yyyy}" } ];
-        ///});
-        ///</code>
-        ///</example>
-        [JsProperty(Name = "columns")]
-        public JsArray columnsArray { get; set; }
-        //TODO: not sure if needed
+        public JsArray<GridColumnConfiguration> columns { get; set; }
 
         /// <summary>
         /// Instance of DataSource or Object with DataSource configuration.
@@ -4204,29 +4172,31 @@ namespace SharpKit.KendoUI.Web
         multipleCell
 
     }
-    public class GridColumnsConfiguration
+
+    /// <summary>
+    /// Provides a way to specify custom editor for this column.
+    /// </summary>
+    /// <param name="container">The container in which the editor must be added.</param>
+    /// <param name="options">Additional options.</param>
+    public delegate void GridColumnsEditorCallback(jQuery.jQuery container, GridColumnsEditorOptionsConfiguration options);
+
+    public class GridColumnConfiguration
     {
         /// <summary>
         /// Definition of command column. The supported built-in commands are: "create", "cancel", "save", "destroy".
         /// </summary>
         public GridColumnsCommandOptions command { get; set; }
+
         /// <summary>
         /// Definition of command column. The supported built-in commands are: "create", "cancel", "save", "destroy".
         /// </summary>
         [JsProperty(Name = "command")]
         public JsString commandString { get; set; }
-        //TODO: not sure if needed
 
         /// <summary>
         /// Provides a way to specify custom editor for this column.
         /// </summary>
-        public GridColumnsEditorConfiguration editor { get; set; }
-        /// <summary>
-        /// Provides a way to specify custom editor for this column.
-        /// </summary>
-        [JsProperty(Name = "editor")]
-        public JsAction editorFunction { get; set; }
-        //TODO: not sure if needed
+        public GridColumnsEditorCallback editor { get; set; }
 
         /// <summary>
         /// (default: true) Specified whether the column content is escaped. Disable encoding if the data contains HTML markup.
@@ -4315,18 +4285,6 @@ namespace SharpKit.KendoUI.Web
         save,
         destroy,
 
-    }
-    public class GridColumnsEditorConfiguration
-    {
-        /// <summary>
-        /// The container in which the editor must be added.
-        /// </summary>
-        public object container { get; set; }
-
-        /// <summary>
-        /// Additional options.
-        /// </summary>
-        public GridColumnsEditorOptionsConfiguration options { get; set; }
     }
     public class GridColumnsEditorOptionsConfiguration
     {
@@ -4738,7 +4696,7 @@ namespace SharpKit.KendoUI.Web
         /// listView.select(listView.element.children().first());
         ///</code>
         ///</example>
-        public void select(JsAction items) { }
+        public void select(JsString items) { }
         //TODO: "If called without arguments - returns the selected items." (?)
         /// <summary>
         /// Selects the specified ListView item. If called without arguments - returns the selected items.
@@ -4997,7 +4955,7 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public Menu append(JsAction item, object referenceItem) { return null; }
+        public Menu append(JsString item, object referenceItem) { return null; }
         /// <summary>
         /// Appends an item to a Menu in the specified referenceItem's sub menu.
         /// </summary>
@@ -5055,7 +5013,7 @@ namespace SharpKit.KendoUI.Web
         /// menu.close("#Item1");
         ///</code>
         ///</example>
-        public Menu close(JsAction element, HtmlElement item) { return null; }
+        public Menu close(JsString element, HtmlElement item) { return null; }
 
         /// <summary>
         /// Enables or disables an item of a Menu. This can optionally be accomplished on initialization by setting the disabled="disabled" on the desired menu item html element.
@@ -5072,7 +5030,7 @@ namespace SharpKit.KendoUI.Web
         /// menu.enable("#secondItem", false);
         ///</code>
         ///</example>
-        public Menu enable(JsAction element, bool enable) { return null; }
+        public Menu enable(JsString element, bool enable) { return null; }
 
         /// <summary>
         /// Inserts an item into a Menu after the specified referenceItem.
@@ -5114,7 +5072,7 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public Menu insertAfter(JsAction item, object referenceItem) { return null; }
+        public Menu insertAfter(JsString item, object referenceItem) { return null; }
         /// <summary>
         /// Inserts an item into a Menu after the specified referenceItem.
         /// </summary>
@@ -5239,7 +5197,7 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public Menu insertBefore(JsAction item, object referenceItem) { return null; }
+        public Menu insertBefore(JsString item, object referenceItem) { return null; }
         /// <summary>
         /// Inserts an item into a Menu before the specified referenceItem.
         /// </summary>
@@ -5280,7 +5238,7 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public Menu insertBefore(JsAction item, JsArray referenceItem) { return null; }
+        public Menu insertBefore(JsString item, JsArray referenceItem) { return null; }
 
         /// <summary>
         /// Opens a sub-menu of a specified item(s) in a Menu.
@@ -5297,7 +5255,7 @@ namespace SharpKit.KendoUI.Web
         /// menu.open("#Item1");
         ///</code>
         ///</example>
-        public Menu open(JsAction element, HtmlElement item) { return null; }
+        public Menu open(JsString element, HtmlElement item) { return null; }
 
         /// <summary>
         /// Removes a specified item(s) from a Menu.
@@ -5313,7 +5271,7 @@ namespace SharpKit.KendoUI.Web
         /// menu.remove("#Item1");
         ///</code>
         ///</example>
-        public Menu remove(JsAction element) { return null; }
+        public Menu remove(JsString element) { return null; }
 
 
         /// <summary>
@@ -5620,61 +5578,60 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public JsNumber step() { return null; }
 
-        ///// <summary>
-        ///// Sets the value of the numerictextbox.
-        ///// </summary>
-        ///// <param name="value">The value to set.</param>
-        /////<example>
-        /////usage
-        /////<code>
-        ///// // get a referene to the numeric textbox
-        ///// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
-        ///// 
-        ///// // get the value of the numerictextbox.
-        ///// var value = numerictextbox.value();
-        ///// 
-        ///// // set the value of the numerictextbox.
-        ///// numerictextbox.value("10.20");
-        /////</code>
-        /////</example>
-        //public void step(JsNumber value) { }
-        ///// <summary>
-        ///// Sets the value of the numerictextbox.
-        ///// </summary>
-        ///// <param name="value">The value to set.</param>
-        /////<example>
-        /////usage
-        /////<code>
-        ///// // get a referene to the numeric textbox
-        ///// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
-        ///// 
-        ///// // get the value of the numerictextbox.
-        ///// var value = numerictextbox.value();
-        ///// 
-        ///// // set the value of the numerictextbox.
-        ///// numerictextbox.value("10.20");
-        /////</code>
-        /////</example>
-        //public void step(JsString value) { }
-        ///// <summary>
-        ///// Gets the value of the numerictextbox.
-        ///// </summary>
-        ///// <param name="value">The value to set.</param>
-        /////<example>
-        /////usage
-        /////<code>
-        ///// // get a referene to the numeric textbox
-        ///// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
-        ///// 
-        ///// // get the value of the numerictextbox.
-        ///// var value = numerictextbox.value();
-        ///// 
-        ///// // set the value of the numerictextbox.
-        ///// numerictextbox.value("10.20");
-        /////</code>
-        /////</example>
-        //public JsNumber step() { return null; }
-        //TODO: Error	1	Type 'SharpKit.KendoUI.Web.NumericTextBox' already defines a member called 'step' with the same parameter types	C:\Users\May\Documents\Visual Studio 2010\Projects\SharpKit_SDK\SharpKit.KendoUI.Web\kendo-web-2012.2.710.cs	5622	21	SharpKit.KendoUI.Web
+        /// <summary>
+        /// Sets the value of the numerictextbox.
+        /// </summary>
+        /// <param name="value">The value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a referene to the numeric textbox
+        /// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
+        /// 
+        /// // get the value of the numerictextbox.
+        /// var value = numerictextbox.value();
+        /// 
+        /// // set the value of the numerictextbox.
+        /// numerictextbox.value("10.20");
+        ///</code>
+        ///</example>
+        public void value(JsNumber value) { }
+        /// <summary>
+        /// Sets the value of the numerictextbox.
+        /// </summary>
+        /// <param name="value">The value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a referene to the numeric textbox
+        /// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
+        /// 
+        /// // get the value of the numerictextbox.
+        /// var value = numerictextbox.value();
+        /// 
+        /// // set the value of the numerictextbox.
+        /// numerictextbox.value("10.20");
+        ///</code>
+        ///</example>
+        public void value(JsString value) { }
+        /// <summary>
+        /// Gets the value of the numerictextbox.
+        /// </summary>
+        /// <param name="value">The value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a referene to the numeric textbox
+        /// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
+        /// 
+        /// // get the value of the numerictextbox.
+        /// var value = numerictextbox.value();
+        /// 
+        /// // set the value of the numerictextbox.
+        /// numerictextbox.value("10.20");
+        ///</code>
+        ///</example>
+        public JsNumber value() { return null; }
 
 
 
@@ -6135,7 +6092,7 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public PanelBar append(JsAction item, object referenceItem) { return null; }
+        public PanelBar append(JsString item, object referenceItem) { return null; }
         /// <summary>
         /// Appends an item to the PanelBar.
         /// </summary>
@@ -6250,7 +6207,7 @@ namespace SharpKit.KendoUI.Web
         /// panelBar.enable($('[id^="item"]'), false);
         ///</code>
         ///</example>
-        public void enable(JsAction element, bool enable) { }
+        public void enable(JsString element, bool enable) { }
         /// <summary>
         ///Enables (true) or disables (false) the specified item(s) of the PanelBar.
         /// </summary>
@@ -6336,7 +6293,7 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public void insertAfter(JsAction item, object referenceItem) { }
+        public void insertAfter(JsString item, object referenceItem) { }
         /// <summary>
         /// Inserts a PanelBar item after the specified referenceItem
         /// </summary>
@@ -6464,7 +6421,7 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public PanelBar insertBefore(JsAction item, object referenceItem) { return null; }
+        public PanelBar insertBefore(JsString item, object referenceItem) { return null; }
         /// <summary>
         /// Inserts a PanelBar item before the specified referenceItem
         /// </summary>
@@ -6565,7 +6522,7 @@ namespace SharpKit.KendoUI.Web
         /// panelBar.reload();
         ///</code>
         ///</example>
-        public void reload(JsAction element) { }
+        public void reload(JsString element) { }
 
         /// <summary>
         /// Removes the specified PanelBar item(s).
@@ -6580,7 +6537,7 @@ namespace SharpKit.KendoUI.Web
         /// menu.remove("#Item1");
         ///</code>
         ///</example>
-        public void remove(JsAction element) { }
+        public void remove(JsString element) { }
 
         /// <summary>
         /// Selects the specified item of the PanelBar. If this method is invoked without arguments, it returns the currently selected item.
@@ -6596,7 +6553,7 @@ namespace SharpKit.KendoUI.Web
         /// panelBar.select("#item1");
         ///</code>
         ///</example>
-        public void select(JsAction element, HtmlElement item) { }
+        public void select(JsString element, HtmlElement item) { }
         /// <summary>
         /// Selects the specified item of the PanelBar. If this method is invoked without arguments, it returns the currently selected item.
         /// </summary>
@@ -6941,8 +6898,7 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// The jqXHR object used to load the content
         /// </summary>
-        public object xhr { get; set; }
-        //TODO: xhr type is jqXHR
+        public jqXHR xhr { get; set; }
 
         /// <summary>
         /// The returned status.
@@ -7000,7 +6956,7 @@ namespace SharpKit.KendoUI.Web
         /// rangeSlider.value();
         ///</code>
         ///</example>
-        public JsArray<object> value() { return null; }
+        public JsArray value() { return null; }
         /// <summary>
         /// The value method gets or sets the start and end values of the RangeSlider.
         /// It accepts an array as parameter, and returns an object array with the start and end selection values.
@@ -7013,7 +6969,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void value(JsArray value) { }
-        //TODO: danel check
 
         /// <summary>
         /// Fires when the rangeSlider value changes as a result of selecting a new value with one of the drag handles or the keyboard.
@@ -7194,7 +7149,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void value(JsString value) { }
-        //TODO: danel check
 
         /// <summary>
         /// Fires when the slider value changes as a result of selecting a new value with the drag handle, buttons or keyboard.
@@ -7303,7 +7257,7 @@ namespace SharpKit.KendoUI.Web
         /// splitter.ajaxRequest("#pane1", "/customer/profile", { id: 42 });
         ///</code>
         ///</example>
-        public void ajaxRequest(JsAction pane, JsString url, object data) { }
+        public void ajaxRequest(JsString pane, JsString url, object data) { }
         /// <summary>
         /// Loads the content of a pane from a local or remote URL.
         /// </summary>
@@ -7320,7 +7274,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void ajaxRequest(HtmlElement pane, JsString url, object data) { }
-        //TODO: HtmlElement = DOM Element (?)
         /// <summary>
         /// Loads the content of a pane from a local or remote URL.
         /// </summary>
@@ -7336,7 +7289,7 @@ namespace SharpKit.KendoUI.Web
         /// splitter.ajaxRequest("#pane1", "/customer/profile", { id: 42 });
         ///</code>
         ///</example>
-        public void ajaxRequest(JsAction pane, JsString url, JsString data) { }
+        public void ajaxRequest(JsString pane, JsString url, JsString data) { }
         /// <summary>
         /// Loads the content of a pane from a local or remote URL.
         /// </summary>
@@ -7353,7 +7306,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void ajaxRequest(HtmlElement pane, JsString url, JsString data) { }
-        //TODO: HtmlElement = DOM Element (?)
 
         /// <summary>
         /// Collapses a specified pane. Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
@@ -7369,8 +7321,7 @@ namespace SharpKit.KendoUI.Web
         /// splitter.collapse("#pane1");
         ///</code>
         ///</example>
-        public void collapse(JsAction pane) { }
-        //TODO: there is another paramter: e.pane (Element) The collapsing pane of the Splitter.
+        public void collapse(JsString pane) { }
         /// <summary>
         /// Collapses a specified pane. Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
         /// Note: Invoking the method will not trigger a collapse event.
@@ -7386,7 +7337,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void collapse(HtmlElement pane) { }
-        //TODO: there is another paramter: e.pane (Element) The collapsing pane of the Splitter.HtmlElement = DOM Element (?)
 
         /// <summary>
         /// Expands a specified pane. Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
@@ -7402,8 +7352,7 @@ namespace SharpKit.KendoUI.Web
         /// splitter.expand("#pane1");
         ///</code>
         ///</example>
-        public void expand(JsAction pane) { }
-        //TODO: there is another paramter: e.pane (Element) The collapsing pane of the Splitter.
+        public void expand(JsString pane) { }
         /// <summary>
         /// Expands a specified pane. Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
         /// Note: Invoking the method will not trigger an expand event.
@@ -7419,7 +7368,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void expand(HtmlElement pane) { }
-        //TODO: there is another paramter: e.pane (Element) The collapsing pane of the Splitter.HtmlElement = DOM Element (?)
 
         /// <summary>
         /// Sets the maximum size of a pane. Setting this value will not cause the Splitter to redraw, nor will it trigger any events.
@@ -7435,7 +7383,7 @@ namespace SharpKit.KendoUI.Web
         /// splitter.max("#pane1", "300px");
         ///</code>
         ///</example>
-        public void max(JsAction pane, JsString value) { }
+        public void max(JsString pane, JsString value) { }
         /// <summary>
         /// Sets the maximum size of a pane. Setting this value will not cause the Splitter to redraw, nor will it trigger any events.
         /// </summary>
@@ -7451,7 +7399,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void max(HtmlElement pane, JsString value) { }
-        //TODO:HtmlElement = DOM Element (?)
 
         /// <summary>
         /// Sets the minimum size of a pane. Setting this value will not cause the Splitter to redraw, nor will it trigger any events.
@@ -7467,7 +7414,7 @@ namespace SharpKit.KendoUI.Web
         /// splitter.min("#pane1", "100px");
         ///</code>
         ///</example>
-        public void min(JsAction pane, JsString value) { }
+        public void min(JsString pane, JsString value) { }
         /// <summary>
         /// Sets the minimum size of a pane. Setting this value will not cause the Splitter to redraw, nor will it trigger any events.
         /// </summary>
@@ -7483,7 +7430,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void min(HtmlElement pane, JsString value) { }
-        //TODO:HtmlElement = DOM Element (?)
 
         /// <summary>
         /// Set the size of the pane. Setting this value will cause the Splitter to redraw and it will trigger layoutChange and resize events.
@@ -7500,7 +7446,7 @@ namespace SharpKit.KendoUI.Web
         /// splitter.size("#pane1", "200px");
         ///</code>
         ///</example>
-        public void size(JsAction pane, JsString value) { }
+        public void size(JsString pane, JsString value) { }
         /// <summary>
         /// Set the size of the pane. Setting this value will cause the Splitter to redraw and it will trigger layoutChange and resize events.
         /// </summary>
@@ -7517,7 +7463,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void size(HtmlElement pane, JsString value) { }
-        //TODO:HtmlElement = DOM Element (?)
 
         /// <summary>
         /// Toggles the state of a specified pane (i.e. collapsed or expanded). Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
@@ -7539,7 +7484,7 @@ namespace SharpKit.KendoUI.Web
         /// splitter.toggle("#pane1", false);
         ///</code>
         ///</example>
-        public void toggle(JsAction pane, bool expand) { }
+        public void toggle(JsString pane, bool expand) { }
         /// <summary>
         /// Toggles the state of a specified pane (i.e. collapsed or expanded). Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
         /// Note: Invoking the method will not trigger collapse or expand events.
@@ -7561,7 +7506,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void toggle(HtmlElement pane, bool expand) { }
-        //TODO:HtmlElement = DOM Element (?)
         /// <summary>
         /// Toggles the state of a specified pane (i.e. collapsed or expanded). Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
         /// Note: Invoking the method will not trigger collapse or expand events.
@@ -7582,7 +7526,7 @@ namespace SharpKit.KendoUI.Web
         /// splitter.toggle("#pane1", false);
         ///</code>
         ///</example>
-        public void toggle(JsAction pane) { }
+        public void toggle(JsString pane) { }
         /// <summary>
         /// Toggles the state of a specified pane (i.e. collapsed or expanded). Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
         /// Note: Invoking the method will not trigger collapse or expand events.
@@ -7604,7 +7548,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void toggle(HtmlElement pane) { }
-        //TODO:HtmlElement = DOM Element (?)
 
         /// <summary>
         /// Triggered when a pane of a Splitter is collapsed.
@@ -7736,9 +7679,9 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public JsArray panes { get; set; }
+        public JsArray<SplitterPaneConfiguration> panes { get; set; }
     }
-    public class SplitterPanesConfiguration
+    public class SplitterPaneConfiguration
     {
         /// <summary>
         /// (default: false) Specifies whether a pane is initially collapsed (true) or expanded (true).
@@ -7802,7 +7745,7 @@ namespace SharpKit.KendoUI.Web
         /// $("#tabStrip").data("kendoTabStrip").activateTab(tabToActivate);
         ///</code>
         ///</example>
-        public bool activateTab(JsAction item) { return false; }
+        public bool activateTab(JsString item) { return false; }
 
         /// <summary>
         /// Appends a tab to the collection of tabs in a TabStrip.
@@ -7810,7 +7753,7 @@ namespace SharpKit.KendoUI.Web
         /// <param name="tab">Target tab, specified as a JSON object. You can pass tab text, content or contentUrl here.
         /// Can handle an HTML string or array of such strings or JSON.</param>
         /// <returns>Returns the TabStrip object to support chaining.</returns>
-        public TabStrip append(JsAction tab) { return null; }
+        public TabStrip append(JsString tab) { return null; }
 
         /// <summary>
         /// Obtains the DOM element representing a tab by its index in the TabStrip.
@@ -7836,14 +7779,14 @@ namespace SharpKit.KendoUI.Web
         /// $("#tabStrip").data("kendoTabStrip").deactivateTab(tabToActivate);
         ///</code>
         ///</example>
-        public void deactivateTab(JsAction item) { }
+        public void deactivateTab(JsString item) { }
 
         /// <summary>
         /// Disables a tab(s) of a TabStrip.
         /// </summary>
         /// <param name="element">The target tab(s), specified as a selector, to be disabled.</param>
         /// <returns>Returns the TabStrip object to support chaining.</returns>
-        public TabStrip disable(JsAction element) { return null; }
+        public TabStrip disable(JsString element) { return null; }
 
         /// <summary>
         /// Disables (false) or enables (true) a tab(s) of a TabStrip.
@@ -7851,7 +7794,7 @@ namespace SharpKit.KendoUI.Web
         /// <param name="element">The target tab(s), specified as a selector, to be enabled (true) or disabled (false).</param>
         /// <param name="enable">Desired state of the tab(s) specified by the selector; enabled (true) or disabled (false).</param>
         /// <returns>Returns the TabStrip object to support chaining.</returns>
-        public TabStrip enable(JsAction element, bool enable) { return null; }
+        public TabStrip enable(JsString element, bool enable) { return null; }
 
         /// <summary>
         /// Inserts a newly-created tab after a specified tab.
@@ -7893,7 +7836,7 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public TabStrip insertAfter(JsAction item, object referenceItem) { return null; }
+        public TabStrip insertAfter(JsString item, object referenceItem) { return null; }
         /// <summary>
         /// Inserts a newly-created tab after a specified tab.
         /// </summary>
@@ -8019,7 +7962,7 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public TabStrip insertBefore(JsAction item, object referenceItem) { return null; }
+        public TabStrip insertBefore(JsString item, object referenceItem) { return null; }
         /// <summary>
         /// Inserts a newly-created tab before a specified tab.
         /// </summary>
@@ -8112,7 +8055,7 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         /// <param name="element">The target tab(s), specified as a selector, to be reloaded via AJAX.</param>
         /// <returns>Returns the TabStrip object to support chaining.</returns>
-        public TabStrip reload(JsAction element) { return null; }
+        public TabStrip reload(JsString element) { return null; }
 
         /// <summary>
         /// Removes a specified tab from a TabStrip.
@@ -8125,7 +8068,7 @@ namespace SharpKit.KendoUI.Web
         ///tabStrip.remove("#tab1");
         ///</code>
         ///</example>
-        public TabStrip remove(JsAction element) { return null; }
+        public TabStrip remove(JsString element) { return null; }
 
         /// <summary>
         /// Selects the specified tab(s) within a TabStrip. If called without arguments, it returns the currently selected tab.
@@ -8138,7 +8081,7 @@ namespace SharpKit.KendoUI.Web
         ///tabStrip.select("#tab1");
         ///</code>
         ///</example>
-        public TabStrip select(TabStripSelectConfigurationEventData element) { return null; }
+        public TabStrip select(JsString element) { return null; }
         /// <summary>
         /// Selects the specified tab(s) within a TabStrip. If called without arguments, it returns the currently selected tab.
         /// </summary>
@@ -8151,7 +8094,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public TabStrip select(JsNumber element) { return null; }
-        //TODO: must check
 
 
         /// <summary>
@@ -8174,7 +8116,7 @@ namespace SharpKit.KendoUI.Web
         /// panelBar.data("kendoPanelBar").unbind("activate", onActivate);
         ///</code>
         ///</example>
-        public event JsAction<TabStripSelectConfigurationEventData> activate { add { } remove { } }
+        public event JsAction<TabStripSelectEventData> activate { add { } remove { } }
 
         /// <summary>
         /// Fires when content is fetched from an AJAX request.
@@ -8189,7 +8131,7 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<TabStripSelectConfigurationEventData> contentLoad { add { } remove { } }
+        public event JsAction<TabStripSelectEventData> contentLoad { add { } remove { } }
 
         /// <summary>
         /// Triggered when an AJAX request results in an error.
@@ -8226,7 +8168,7 @@ namespace SharpKit.KendoUI.Web
         /// combobox.data("kendoComboBox").unbind("select", onSelect);
         ///</code>
         ///</example>
-        public event JsAction<TabStripSelectConfigurationEventData> selectEvent { add { } remove { } }
+        public event JsAction<TabStripSelectEventData> selectEvent { add { } remove { } }
         //TODO: event name is select
 
     }
@@ -8350,7 +8292,7 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public JsString dataUrlField { get; set; }
     }
-    public class TabStripSelectConfigurationEventData
+    public class TabStripSelectEventData
     {
         /// <summary>
         /// The selected item chosen by a user.
@@ -8668,13 +8610,11 @@ namespace SharpKit.KendoUI.Web
         /// (default: 00:00) Specifies the end value in the popup list.
         /// </summary>
         public JsDate max { get; set; }
-        //TODO: sounds wird it is a date type.
 
         /// <summary>
         /// (default: 00:00) Specifies the start value in the popup list.
         /// </summary>
         public JsDate min { get; set; }
-        //TODO: sounds wird it is a date type.
 
         /// <summary>
         /// Specifies the formats, which are used to parse the value set with the value method or by direct input.
@@ -8724,7 +8664,7 @@ namespace SharpKit.KendoUI.Web
         ///treeView.append({ text: "HTML5" }, $("#firstItem"));
         ///</code>
         ///</example>
-        public void append(JsAction nodeData) { }
+        public void append(JsString nodeData) { }
 
         /// <summary>
         /// Collapses nodes.
@@ -8742,7 +8682,7 @@ namespace SharpKit.KendoUI.Web
         ///treeview.collapse(".k-item");
         ///</code>
         ///</example>
-        public void collapse(JsAction nodes) { }
+        public void collapse(JsString nodes) { }
         //TODO: one more parameter (?) e.node (Node) The collapsed node
 
         /// <summary>
@@ -8764,7 +8704,7 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         /// <param name="node">The element or selector that specifies a node.</param>
         /// <returns></returns>
-        public Model dataItem(JsAction node) { return null; }
+        public Model dataItem(JsString node) { return null; }
         //TODO: return type?
 
         /// <summary>
@@ -8782,7 +8722,7 @@ namespace SharpKit.KendoUI.Web
         ///firstItem.data("id") == 1;
         ///</code>
         ///</example>
-        public jQuery.jQuery detach(JsAction node) { return null; }
+        public jQuery.jQuery detach(JsString node) { return null; }
 
         /// <summary>
         /// Enables or disables nodes.
@@ -8801,7 +8741,7 @@ namespace SharpKit.KendoUI.Web
         /// treeview.enable(".k-item");
         ///</code>
         ///</example>
-        public void enable(JsAction nodes, bool enable) { }
+        public void enable(JsString nodes, bool enable) { }
         /// <summary>
         /// Enables or disables nodes.
         /// </summary>
@@ -8819,7 +8759,7 @@ namespace SharpKit.KendoUI.Web
         /// treeview.enable(".k-item");
         ///</code>
         ///</example>
-        public void enable(JsAction nodes) { }
+        public void enable(JsString nodes) { }
 
         /// <summary>
         /// Expands nodes.
@@ -8837,7 +8777,7 @@ namespace SharpKit.KendoUI.Web
         /// treeview.expand(".k-item");
         ///</code>
         ///</example>
-        public void expand(JsAction nodes) { }
+        public void expand(JsString nodes) { }
         //TODO: one more parameter (?) e.node (Node) The collapsed node
 
         /// <summary>
@@ -8893,7 +8833,7 @@ namespace SharpKit.KendoUI.Web
         ///treeView.insertAfter({ text: "JavaScript" }, $("#firstItem"));
         ///</code>
         ///</example>
-        public void insertAfter(JsAction nodeData, HtmlNode referenceNode) { }
+        public void insertAfter(JsString nodeData, HtmlNode referenceNode) { }
 
         /// <summary>
         /// Inserts a node before another node. This method may also be used to reorder the nodes of a TreeView.
@@ -8908,19 +8848,6 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void insertBefore(JsString nodeData, HtmlNode referenceNode) { }
-        /// <summary>
-        /// Inserts a node before another node. This method may also be used to reorder the nodes of a TreeView.
-        /// </summary>
-        /// <param name="nodeData">A JSON-formatted string or selector that specifies the node to be inserted.</param>
-        /// <param name="referenceNode">The node that will be preceed the newly-appended node.</param>
-        ///<example>
-        ///usage
-        ///<code>
-        ///var treeView = $("#treeView").data("kendoTreeView");
-        ///treeView.insertBefore({ text: "CSS3" }, $("#firstItem"));
-        ///</code>
-        ///</example>
-        public void insertBefore(JsAction nodeData, HtmlNode referenceNode) { }
 
         /// <summary>
         /// Removes a node from a TreeView.
@@ -8933,7 +8860,7 @@ namespace SharpKit.KendoUI.Web
         ///treeView.remove($("#firstItem"));
         ///</code>
         ///</example>
-        public void remove(JsAction node) { }
+        public void remove(JsString node) { }
 
         /// <summary>
         /// Gets the selected node of a TreeView.
@@ -8944,7 +8871,7 @@ namespace SharpKit.KendoUI.Web
         /// Sets the selected node of a TreeView.
         /// </summary>
         /// <param name="node">If provided, the node of a TreeView that should be selected.</param>
-        public void select(JsAction node) { }
+        public void select(JsString node) { }
 
         /// <summary>
         /// Gets the text of a node in a TreeView.
@@ -8958,7 +8885,7 @@ namespace SharpKit.KendoUI.Web
         ///var nodeText = treeView.text($("#firstItem"));
         ///</code>
         ///</example>
-        public JsString text(JsAction node) { return null; }
+        public JsString text(JsString node) { return null; }
 
         /// <summary>
         /// Toggles the node of a TreeView between its expanded and collapsed states.
@@ -8971,7 +8898,7 @@ namespace SharpKit.KendoUI.Web
         ///treeView.toggle($("#firstItem"));
         ///</code>
         ///</example>
-        public void toggle(JsAction node) { }
+        public void toggle(JsString node) { }
 
 
         /// <summary>
@@ -9854,7 +9781,7 @@ namespace SharpKit.KendoUI.Web
         ///var kendoWindow = $("#window").data("kendoWindow").content("Kendo UI for all the things!");
         ///</code>
         ///</example>
-        public void content(JsString content) { }
+        public Window content(JsString content) { return null; }
 
         /// <summary>
         /// Gets the content of a Window.
@@ -9862,7 +9789,6 @@ namespace SharpKit.KendoUI.Web
         /// <returns>If content is provided, this method will return the (Kendo UI) Window object to support chaining.
         /// Otherwise, it will return the current content of the (Kendo UI) Window.</returns>
         public JsString content() { return null; }
-        //TODO: return type? 
 
         /// <summary>
         /// Destroys the window and its modal overlay, if necessary. Removes the Window HTML elements from the DOM.
