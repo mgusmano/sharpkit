@@ -95,6 +95,20 @@ namespace SharpKit.jQuery
 
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoPager(this jQuery query, PagerConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoPanelBar(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoPanelBar(this jQuery query, PanelBarConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoRangeSlider(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoRangeSlider(this jQuery query, RangeSliderConfiguration configuration) { return null; }
     }
 
 }
@@ -4997,7 +5011,7 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public Menu append(JsAction item, JsArray referenceItem) { return null; }
+        public Menu append(JsArray item, object referenceItem) { return null; }
 
         /// <summary>
         /// Closes a sub-menu of a specified item(s) in a Menu.
@@ -5114,7 +5128,49 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public Menu insertAfter(JsAction item, JsArray referenceItem) { return null; }
+        public Menu insertAfter(object item, object referenceItem) { return null; }
+        /// <summary>
+        /// Inserts an item into a Menu after the specified referenceItem.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. Can also handle an array of such objects.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the Menu object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.insertAfter(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public Menu insertAfter(JsArray<object> item, object referenceItem) { return null; }
+        //TODO: chack all 3 of them
 
         /// <summary>
         /// Inserts an item into a Menu before the specified referenceItem.
@@ -5246,7 +5302,7 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<MenuEventData> closeEvent { add { } remove { } }
+        public event JsAction<OneItemEventData> closeEvent { add { } remove { } }
         //TODO: event name is close
 
         /// <summary>
@@ -5262,7 +5318,7 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<MenuEventData> openEvent { add { } remove { } }
+        public event JsAction<OneItemEventData> openEvent { add { } remove { } }
         //TODO: event name is open
 
         /// <summary>
@@ -5285,14 +5341,14 @@ namespace SharpKit.KendoUI.Web
         /// combobox.data("kendoComboBox").unbind("select", onSelect);
         ///</code>
         ///</example>
-        public event JsAction<MenuEventData> selectEvent { add { } remove { } }
+        public event JsAction<OneItemEventData> selectEvent { add { } remove { } }
         //TODO: event name is select
     }
 
-    public class MenuEventData
+    public class OneItemEventData
     {
         /// <summary>
-        /// The closed/ opened/ selected  item
+        /// The selected  item
         /// </summary>
         public HtmlElement item { get; set; }
     }
@@ -5546,60 +5602,62 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public JsNumber step() { return null; }
 
-        /// <summary>
-        /// Sets the value of the numerictextbox.
-        /// </summary>
-        /// <param name="value">The value to set.</param>
-        ///<example>
-        ///usage
-        ///<code>
-        /// // get a referene to the numeric textbox
-        /// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
-        /// 
-        /// // get the value of the numerictextbox.
-        /// var value = numerictextbox.value();
-        /// 
-        /// // set the value of the numerictextbox.
-        /// numerictextbox.value("10.20");
-        ///</code>
-        ///</example>
-        public void step(JsNumber value) { }
-        /// <summary>
-        /// Sets the value of the numerictextbox.
-        /// </summary>
-        /// <param name="value">The value to set.</param>
-        ///<example>
-        ///usage
-        ///<code>
-        /// // get a referene to the numeric textbox
-        /// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
-        /// 
-        /// // get the value of the numerictextbox.
-        /// var value = numerictextbox.value();
-        /// 
-        /// // set the value of the numerictextbox.
-        /// numerictextbox.value("10.20");
-        ///</code>
-        ///</example>
-        public void step(JsString value) { }
-        /// <summary>
-        /// Gets the value of the numerictextbox.
-        /// </summary>
-        /// <param name="value">The value to set.</param>
-        ///<example>
-        ///usage
-        ///<code>
-        /// // get a referene to the numeric textbox
-        /// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
-        /// 
-        /// // get the value of the numerictextbox.
-        /// var value = numerictextbox.value();
-        /// 
-        /// // set the value of the numerictextbox.
-        /// numerictextbox.value("10.20");
-        ///</code>
-        ///</example>
-        public JsNumber step() { return null; }
+        ///// <summary>
+        ///// Sets the value of the numerictextbox.
+        ///// </summary>
+        ///// <param name="value">The value to set.</param>
+        /////<example>
+        /////usage
+        /////<code>
+        ///// // get a referene to the numeric textbox
+        ///// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
+        ///// 
+        ///// // get the value of the numerictextbox.
+        ///// var value = numerictextbox.value();
+        ///// 
+        ///// // set the value of the numerictextbox.
+        ///// numerictextbox.value("10.20");
+        /////</code>
+        /////</example>
+        //public void step(JsNumber value) { }
+        ///// <summary>
+        ///// Sets the value of the numerictextbox.
+        ///// </summary>
+        ///// <param name="value">The value to set.</param>
+        /////<example>
+        /////usage
+        /////<code>
+        ///// // get a referene to the numeric textbox
+        ///// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
+        ///// 
+        ///// // get the value of the numerictextbox.
+        ///// var value = numerictextbox.value();
+        ///// 
+        ///// // set the value of the numerictextbox.
+        ///// numerictextbox.value("10.20");
+        /////</code>
+        /////</example>
+        //public void step(JsString value) { }
+        ///// <summary>
+        ///// Gets the value of the numerictextbox.
+        ///// </summary>
+        ///// <param name="value">The value to set.</param>
+        /////<example>
+        /////usage
+        /////<code>
+        ///// // get a referene to the numeric textbox
+        ///// var numerictextbox = $("#textbox").data("kendoNumericTextBox");
+        ///// 
+        ///// // get the value of the numerictextbox.
+        ///// var value = numerictextbox.value();
+        ///// 
+        ///// // set the value of the numerictextbox.
+        ///// numerictextbox.value("10.20");
+        /////</code>
+        /////</example>
+        //public JsNumber step() { return null; }
+        //TODO: Error	1	Type 'SharpKit.KendoUI.Web.NumericTextBox' already defines a member called 'step' with the same parameter types	C:\Users\May\Documents\Visual Studio 2010\Projects\SharpKit_SDK\SharpKit.KendoUI.Web\kendo-web-2012.2.710.cs	5622	21	SharpKit.KendoUI.Web
+
 
 
         /// <summary>
@@ -6017,5 +6075,1047 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public GridPageableMessagesConfiguration messages { get; set; }
     }
+
+    public class PanelBar
+    {
+        /// <summary>
+        /// Appends an item to the PanelBar.
+        /// </summary>
+        /// <param name="item">Target item, specified as the JSON representation of an object. You can pass item text, content or contentUrl here.
+        /// Can handle an HTML string or array of such strings or JSON.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns> Returns the PanelBar object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.append(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public PanelBar append(JsAction item, object referenceItem) { return null; }
+        /// <summary>
+        /// Appends an item to the PanelBar.
+        /// </summary>
+        /// <param name="item">Target item, specified as the JSON representation of an object. You can pass item text, content or contentUrl here.
+        /// Can handle an HTML string or array of such strings or JSON.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns> Returns the PanelBar object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.append(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public PanelBar append(JsString item, object referenceItem) { return null; }
+        /// <summary>
+        /// Appends an item to the PanelBar.
+        /// </summary>
+        /// <param name="item">Target item, specified as the JSON representation of an object. You can pass item text, content or contentUrl here.
+        /// Can handle an HTML string or array of such strings or JSON.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns> Returns the PanelBar object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.append(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public PanelBar append(JsArray item, object referenceItem) { return null; }
+
+        /// <summary>
+        /// Collapses the specified item(s) of a PanelBar. Temporarily enables (true) or disables (false) any visual animation(s) when collapsing items.
+        /// </summary>
+        /// <param name="element">The PanelBar item(s) to be collapsed, expressed as a string containing a selector expression or represented by a jQuery selector.</param>
+        /// <param name="useAnimation">_optional, default: _</param>
+        /// <param name="item">The collapsing item of the PanelBar.</param>
+        /// <returns>Returns the PanelBar object to support chaining.</returns>
+        public PanelBar collapse(JsString element, bool useAnimation, HtmlElement item) { return null; }
+
+        /// <summary>
+        ///Enables (true) or disables (false) the specified item(s) of the PanelBar.
+        /// </summary>
+        /// <param name="element">The PanelBar item(s) to be enabled (true) or disabled (false),
+        /// expressed as a string containing a selector expression or represented by a jQuery selector.</param>
+        /// <param name="enable">The desired state - enabled (true) or disabled (false) - of the target element(s).</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // access an existing PanelBar instance
+        /// var panelBar = $("#panelBar").data("kendoPanelBar");
+        /// // enable the item of the PanelBar with ID, "item1"
+        /// panelBar.enable($("#item1"), true);
+        /// // disable the currently selected item of the PanelBar
+        /// var item = panelBar.select();
+        /// panelBar.enable(item, false);
+        /// // disable all list items that start with ID, "item"
+        /// panelBar.enable($('[id^="item"]'), false);
+        ///</code>
+        ///</example>
+        public void enable(JsAction element, bool enable) { }
+        /// <summary>
+        ///Enables (true) or disables (false) the specified item(s) of the PanelBar.
+        /// </summary>
+        /// <param name="element">The PanelBar item(s) to be enabled (true) or disabled (false),
+        /// expressed as a string containing a selector expression or represented by a jQuery selector.</param>
+        /// <param name="enable">The desired state - enabled (true) or disabled (false) - of the target element(s).</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // access an existing PanelBar instance
+        /// var panelBar = $("#panelBar").data("kendoPanelBar");
+        /// // enable the item of the PanelBar with ID, "item1"
+        /// panelBar.enable($("#item1"), true);
+        /// // disable the currently selected item of the PanelBar
+        /// var item = panelBar.select();
+        /// panelBar.enable(item, false);
+        /// // disable all list items that start with ID, "item"
+        /// panelBar.enable($('[id^="item"]'), false);
+        ///</code>
+        ///</example>
+        public void enable(JsString element, bool enable) { }
+
+        /// <summary>
+        /// Expands the specified item(s) of a PanelBar. Temporariliy enables (true) or disables (false) any visual animation(s) when expanding items.
+        /// </summary>
+        /// <param name="element">The PanelBar item(s) to be expanded, expressed as a selector.</param>
+        /// <param name="useAnimation">_optional, default: _</param>
+        /// <param name="item">The expanding item of the PanelBar.</param>
+        /// <returns>Returns the PanelBar object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // access an existing PanelBar instance
+        /// var panelBar = $("#panelBar").data("kendoPanelBar");
+        /// // expand the element with ID, "item1"
+        /// panelBar.expand($("#item1"));
+        /// // expand the element with ID, "item2" without visual animations
+        /// panelBar.expand($("#item2"), false);
+        /// // expand all list items that start with ID, "item"
+        /// panelBar.expand($('[id^="item"]'));
+        ///</code>
+        ///</example>
+        public PanelBar expand(JsString element, bool useAnimation, HtmlElement item) { return null; }
+
+        /// <summary>
+        /// Inserts a PanelBar item after the specified referenceItem
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. You can pass item text, content or contentUrl here. Can handle an HTML string or array of such strings or JSON.</param>
+        /// <param name="referenceItem">A reference item to insert the new item after</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///panelBar.insertAfter(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                              // Allows use of HTML for item text
+        ///         content: "text"                              // Content for the content element
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         contentUrl: "partialContent.html"            // From where to load the item content
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         expanded: true,                              // item is rendered expanded
+        ///         items: [{                                    // Sub item collection.
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 5",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public void insertAfter(JsAction item, object referenceItem) { }
+        /// <summary>
+        /// Inserts a PanelBar item after the specified referenceItem
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. You can pass item text, content or contentUrl here. Can handle an HTML string or array of such strings or JSON.</param>
+        /// <param name="referenceItem">A reference item to insert the new item after</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///panelBar.insertAfter(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                              // Allows use of HTML for item text
+        ///         content: "text"                              // Content for the content element
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         contentUrl: "partialContent.html"            // From where to load the item content
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         expanded: true,                              // item is rendered expanded
+        ///         items: [{                                    // Sub item collection.
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 5",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public void insertAfter(JsString item, object referenceItem) { }
+        /// <summary>
+        /// Inserts a PanelBar item after the specified referenceItem
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. You can pass item text, content or contentUrl here. Can handle an HTML string or array of such strings or JSON.</param>
+        /// <param name="referenceItem">A reference item to insert the new item after</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///panelBar.insertAfter(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                              // Allows use of HTML for item text
+        ///         content: "text"                              // Content for the content element
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         contentUrl: "partialContent.html"            // From where to load the item content
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         expanded: true,                              // item is rendered expanded
+        ///         items: [{                                    // Sub item collection.
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 5",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public void insertAfter(JsArray<JsString> item, object referenceItem) { }
+
+        /// <summary>
+        /// Inserts a PanelBar item before the specified referenceItem
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. You can pass item text, content or contentUrl here. Can handle an TML string or array of such strings or JSON.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the PanelBar object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///panelBar.insertBefore(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                              // Allows use of HTML for item text
+        ///         content: "text"                              // Content for the content element
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         contentUrl: "partialContent.html"            // From where to load the item content
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         expanded: true,                              // item is rendered expanded
+        ///         items: [{                                    // Sub item collection.
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 5",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public PanelBar insertBefore(JsAction item, object referenceItem) { return null; }
+        /// <summary>
+        /// Inserts a PanelBar item before the specified referenceItem
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. You can pass item text, content or contentUrl here. Can handle an TML string or array of such strings or JSON.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the PanelBar object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///panelBar.insertBefore(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                              // Allows use of HTML for item text
+        ///         content: "text"                              // Content for the content element
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         contentUrl: "partialContent.html"            // From where to load the item content
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         expanded: true,                              // item is rendered expanded
+        ///         items: [{                                    // Sub item collection.
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 5",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public PanelBar insertBefore(JsString item, object referenceItem) { return null; }
+        /// <summary>
+        /// Inserts a PanelBar item before the specified referenceItem
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. You can pass item text, content or contentUrl here. Can handle an TML string or array of such strings or JSON.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the PanelBar object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///panelBar.insertBefore(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                              // Allows use of HTML for item text
+        ///         content: "text"                              // Content for the content element
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         contentUrl: "partialContent.html"            // From where to load the item content
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         expanded: true,                              // item is rendered expanded
+        ///         items: [{                                    // Sub item collection.
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 5",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public PanelBar insertBefore(JsArray<JsString> item, object referenceItem) { return null; }
+
+        /// <summary>
+        /// Reloads the content of a PanelBar from an AJAX request.
+        /// </summary>
+        /// <param name="element">Target element</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the panel bar
+        /// var panelBar = $("#panelBar").data("kendoPanelBar");
+        /// // reload the panel basr
+        /// panelBar.reload();
+        ///</code>
+        ///</example>
+        public void reload(JsAction element) { }
+
+        /// <summary>
+        /// Removes the specified PanelBar item(s).
+        /// </summary>
+        /// <param name="element">Target item selector.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// // remove the item with the id "Item1"
+        /// menu.remove("#Item1");
+        ///</code>
+        ///</example>
+        public void remove(JsAction element) { }
+
+        /// <summary>
+        /// Selects the specified item of the PanelBar. If this method is invoked without arguments, it returns the currently selected item.
+        /// </summary>
+        /// <param name="element">The PanelBar item to be selected, expressed as a string containing a selector expression or represented by a jQuery selector.</param>
+        /// <param name="item">The selected item of the PanelBar.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // access an existing PanelBar instance
+        /// var panelBar = $("#panelBar").data("kendoPanelBar");
+        /// // select the item with ID, "item1"
+        /// panelBar.select("#item1");
+        ///</code>
+        ///</example>
+        public void select(JsAction element, HtmlElement item) { }
+        /// <summary>
+        /// Selects the specified item of the PanelBar. If this method is invoked without arguments, it returns the currently selected item.
+        /// </summary>
+        /// <param name="element">The PanelBar item to be selected, expressed as a string containing a selector expression or represented by a jQuery selector.</param>
+        /// <param name="item">The selected item of the PanelBar.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // access an existing PanelBar instance
+        /// var panelBar = $("#panelBar").data("kendoPanelBar");
+        /// // select the item with ID, "item1"
+        /// panelBar.select("#item1");
+        ///</code>
+        ///</example>
+        public void select(JsString element, HtmlElement item) { }
+
+
+        /// <summary>
+        /// Triggered when an item of a PanelBar is activated.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for activate
+        /// var onActivate = function(e) {
+        ///     // access the activated item via e.item (HTMLElement)
+        /// };
+        /// 
+        /// // attach activate event handler during initialization
+        /// var panelBar = $("#panelBar").kendoPanelBar({
+        ///     activate: onActivate
+        /// });
+        /// 
+        /// // detach activate event handler via unbind()
+        /// panelBar.data("kendoPanelBar").unbind("activate", onActivate);
+        ///</code>
+        ///</example>
+        public event JsAction<OneItemEventData> activate { add { } remove { } }
+
+        /// <summary>
+        /// Triggered when an item of a PanelBar is collapsed.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for collapse
+        /// var onCollapse = function(e) {
+        ///     // access the collapsed item via e.item (HTMLElement)
+        /// };
+        /// 
+        /// // attach collapse event handler during initialization
+        /// var panelBar = $("#panelBar").kendoPanelBar({
+        ///     collapse: onCollapse
+        /// });
+        /// 
+        /// // detach collapse event handler via unbind()
+        /// panelBar.data("kendoPanelBar").unbind("collapse", onCollapse);
+        ///</code>
+        ///</example>
+        public event JsAction<OneItemEventData> collapseEvent { add { } remove { } }
+        //TODO: event name is collapse
+
+        /// <summary>
+        /// Fires when content is fetched from an AJAX request.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#panelBar").kendoPanelBar({
+        ///    contentLoad: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<PanelBarContentLoadEventData> contentLoad { add { } remove { } }
+
+        /// <summary>
+        /// Fires when AJAX request results in an error.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#panelBar").kendoPanelBar({
+        ///    error: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<PanelBarErrorEventData> error { add { } remove { } }
+
+        /// <summary>
+        /// Triggered when an item of a PanelBar is expanded.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for expand
+        /// var onExpand = function(e) {
+        ///     // access the expanded item via e.item (HTMLElement)
+        /// };
+        /// 
+        /// // attach expand event handler during initialization
+        /// var panelBar = $("#panelBar").kendoPanelBar({
+        ///     expand: onExpand
+        /// });
+        /// 
+        /// // detach expand event handler via unbind()
+        /// panelBar.data("kendoPanelBar").unbind("expand", onExpand);
+        ///</code>
+        ///</example>
+        public event JsAction<OneItemEventData> expandEvent { add { } remove { } }
+        //TODO: event name is expand
+
+        /// <summary>
+        /// Triggered when an item of a PanelBar is selected.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for select
+        /// var onSelect = function(e) {
+        ///     // access the selected item via e.item (jQuery object)
+        /// };
+        /// 
+        /// // attach select event handler during initialization
+        /// var combobox = $("#combobox").kendoComboBox({
+        ///     select: onSelect
+        /// });
+        /// 
+        /// // detach select event handler via unbind()
+        /// combobox.data("kendoComboBox").unbind("select", onSelect);
+        ///</code>
+        ///</example>
+        public event JsAction<OneItemEventData> selectEvent { add { } remove { } }
+        //TODO: event name is select
+    }
+
+    public class PanelBarConfiguration
+    {
+        /// <summary>
+        /// A collection of visual animations used when PanelBar items are opened or closed through user interactions. Setting this option to false will disable all animations.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#panelBar").kendoPanelBar({
+        ///    animation: {
+        ///        // fade-out closing items over 1000 milliseconds
+        ///        close: {
+        ///            duration: 1000,
+        ///            effects: "fadeOut"
+        ///        },
+        ///       // fade-in and expand opening items over 500 milliseconds
+        ///       open: {
+        ///           duration: 500,
+        ///           effects: "expandVertical fadeIn"
+        ///       }
+        ///   }
+        ///});
+        ///</code>
+        ///</example>
+        public PanelBarAnimationConfiguration animation { get; set; }
+
+        /// <summary>
+        /// Specifies how the PanelBar items are displayed when opened and closed. The following values are available:
+        /// "single"
+        /// Display one item at a time when an item is opened; opening an item will close the previously opened item.
+        /// "multiple"
+        /// Display multiple values at one time; opening an item has no visual impact on any other items in the PanelBar.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#panelBar").kendoPanelBar({
+        ///    expandMode: "single"
+        ///});
+        ///</code>
+        ///</example>
+        public PanelBarExpandModeOptions expandMode { get; set; }
+    }
+
+    public class PanelBarAnimationConfiguration
+    {
+        /// <summary>
+        /// The visual animation(s) that will be used when PanelBar items are closed.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// //combobox initialization
+        ///&lt;script>
+        ///    $("#combobox").kendoComboBox({
+        ///        dataSource: dataSource,
+        ///        animation: {
+        ///           close: {
+        ///               effects: "fadeOut",
+        ///               duration: 300,
+        ///               hide: true
+        ///               show: false
+        ///           }
+        ///        }
+        ///    });
+        ///&lt;/script>
+        ///</code>
+        ///</example>
+        public PanelBarAnimationCloseConfiguration close { get; set; }
+
+        /// <summary>
+        /// Animation to be used for opening of the popup.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// //combobox initialization
+        ///&lt;script>
+        ///     $("#combobox").kendoComboBox({
+        ///         dataSource: dataSource,
+        ///         animation: {
+        ///            open: {
+        ///                effects: "fadeIn",
+        ///                duration: 300,
+        ///                show: true
+        ///            }
+        ///         }
+        ///     });
+        /// &lt;/script>
+        ///</code>
+        ///</example>
+        public PanelBarAnimationOpenConfiguration open { get; set; }
+
+    }
+
+    public class PanelBarAnimationCloseConfiguration
+    {
+        /// <summary>
+        /// (default: 200) The number of milliseconds used for the visual animation when a PanelBar item is closed.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#panelBar").kendoPanelBar({
+        ///    animation: {
+        ///        close: {
+        ///
+        ///                   duration: 1000
+        ///
+        ///               }
+        ///  }
+        ///});
+        ///</code>
+        ///</example>
+        public JsNumber duration { get; set; }
+
+        /// <summary>
+        /// A whitespace-delimited string of animation effects that are utilized when a PanelBar item is closed. Options include "fadeOut".
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#panelBar").kendoPanelBar({
+        ///    animation: {
+        ///        close: {
+        ///            duration: 1000,
+        ///            effects: "fadeOut"
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public JsString effects { get; set; }
+
+    }
+
+    public class PanelBarAnimationOpenConfiguration
+    {
+        /// <summary>
+        /// (default: 200) The number of milliseconds used for the visual animation when an item is opened.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#panelBar").kendoPanelBar({
+        ///    animation: {
+        ///        open: {
+        ///
+        ///                   duration: 1000
+        ///
+        ///               }
+        ///  }
+        ///});
+        ///</code>
+        ///</example>
+        public JsNumber duration { get; set; }
+
+        /// <summary>
+        /// (default: "expandVertical") A whitespace-delimited string of animation effects that are used when an item is expanded. Options include "expandVertical" and "fadeIn".
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#panelBar").kendoPanelBar({
+        ///    animation: {
+        ///        close: {
+        ///            duration: 1000,
+        ///            effects: "fadeOut"
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public JsString effects { get; set; }
+
+        /// <summary>
+        /// (default: true)
+        /// </summary>
+        public bool show { get; set; }
+
+    }
+
+    public enum PanelBarExpandModeOptions
+    {
+        /// <summary>
+        /// Display one item at a time when an item is opened; opening an item will close the previously opened item.
+        /// </summary>
+        single,
+        /// <summary>
+        /// Display multiple values at one time; opening an item has no visual impact on any other items in the PanelBar.
+        /// </summary>
+        multiple,
+    }
+
+    public class PanelBarContentLoadEventData
+    {
+        /// <summary>
+        /// The selected item
+        /// </summary>
+        public HtmlElement item { get; set; }
+
+        /// <summary>
+        /// The loaded content element
+        /// </summary>
+        public HtmlElement contentElement { get; set; }
+    }
+
+    public class PanelBarErrorEventData
+    {
+        /// <summary>
+        /// The jqXHR object used to load the content
+        /// </summary>
+        public object xhr { get; set; }
+        //TODO: xhr type is jqXHR
+
+        /// <summary>
+        /// The returned status.
+        /// </summary>
+        public JsString status { get; set; }
+    }
+
+    public class RangeSlider
+    {
+
+        /// <summary>
+        /// Prepares the RangeSlider for safe removal from the DOM.
+        /// Detaches event handlers and removes data entries in order to avoid memory leaks.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // deatach events
+        /// $("#rangeSlider").data("kendoRangeSlider").destroy();
+        /// 
+        /// // remove slider html from DOM
+        /// $("#rangeSlider").closest(".k-slider").remove();
+        ///</code>
+        ///</example>
+        public void destroy() { }
+
+        /// <summary>
+        /// Enable/Disable the RangeSlider widget.
+        /// </summary>
+        /// <param name="enable">The argument, which defines whether to enable/disable the RangeSlider.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the range slider widget
+        /// var rangeSlider = $("#rangeSlider").data("kendoRangeSlider");
+        /// 
+        /// // disables the range slider
+        /// rangeSlider.enable(false);
+        /// 
+        /// // enables the range slider
+        /// rangeSlider.enable(true);
+        ///</code>
+        ///</example>
+        public void enable(bool enable) { }
+
+        /// <summary>
+        /// The value method gets or sets the start and end values of the RangeSlider.
+        /// It accepts an array as parameter, and returns an object array with the start and end selection values.
+        /// </summary>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var rangeSider = $("#rangeSlider").data("kendoRangeSlider");
+        /// rangeSlider.value();
+        ///</code>
+        ///</example>
+        public JsArray<object> value() { return null; }
+        /// <summary>
+        /// The value method gets or sets the start and end values of the RangeSlider.
+        /// It accepts an array as parameter, and returns an object array with the start and end selection values.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var rangeSider = $("#rangeSlider").data("kendoRangeSlider");
+        /// rangeSlider.value();
+        ///</code>
+        ///</example>
+        public void value(JsArray value) { }
+        //TODO: danel check
+
+        /// <summary>
+        /// Fires when the rangeSlider value changes as a result of selecting a new value with one of the drag handles or the keyboard.
+        /// </summary>
+        public event JsAction<RangeSliderEventData> change { add { } remove { } }
+
+        /// <summary>
+        /// Fires when the user drags the drag handle to a new position.
+        /// </summary>
+        public event JsAction<RangeSliderEventData> slide { add { } remove { } }
+    }
+
+    public class RangeSliderConfiguration
+    {
+        /// <summary>
+        /// (default: 5) The delta with which the value will change when the user presses the Page Up or Page Down key (the drag handle must be focused).
+        /// Note: The allied largeStep will also set large tick for every large step.
+        /// </summary>
+        public JsNumber largeStep { get; set; }
+
+        /// <summary>
+        /// (default: 10) The maximum value of the RangeSlider.
+        /// </summary>
+        public JsNumber max { get; set; }
+
+        /// <summary>
+        /// (default: 0) The minimum value of the RangeSlider.
+        /// </summary>
+        public JsNumber min { get; set; }
+
+        /// <summary>
+        /// (default: "horizontal") F The orientation of a RangeSlider; "horizontal" or "vertical".
+        /// </summary>
+        public JsString orientation { get; set; }
+
+        /// <summary>
+        /// The selection end value of the RangeSlider.
+        /// </summary>
+        public JsNumber selectionEnd { get; set; }
+
+        /// <summary>
+        /// The selection start value of the RangeSlider.
+        /// </summary>
+        public JsNumber selectionStart { get; set; }
+
+        /// <summary>
+        /// (default: 1) The small step value of the RangeSlider. The underlying value will be changed when the end user (1) clicks on the increase
+        /// or decrease buttons of the RangeSlider, (2) presses the arrow keys (the drag handle must be focused), or (3) drags the drag handle.
+        /// </summary>
+        public JsNumber smallStep { get; set; }
+
+        /// <summary>
+        /// (default: "both")
+        /// Denotes the location of the tick marks in the RangeSlider. The available options are:
+        /// "topLeft"
+        /// Tick marks are located on the top of the horizontal widget or on the left of the vertical widget.
+        /// "bottomRight"
+        /// Tick marks are located on the bottom of the horizontal widget or on the right side of the vertical widget.
+        /// "both"
+        /// Tick marks are located on both sides of the widget.
+        /// "none"
+        /// Tick marks are not visible.
+        /// </summary>
+        public RangeSliderTickPlacementOptions tickPlacement { get; set; }
+
+        /// <summary>
+        /// Configuration of the RangeSlider tooltip.
+        /// </summary>
+        public RangeSliderTooltipConfiguration tooltip { get; set; }
+    }
+
+    public enum RangeSliderTickPlacementOptions
+    {
+        /// <summary>
+        /// Tick marks are located on the top of the horizontal widget or on the left of the vertical widget.
+        /// </summary>
+        topLeft,
+        /// <summary>
+        /// Tick marks are located on the bottom of the horizontal widget or on the right side of the vertical widget.
+        /// </summary>
+        bottomRight,
+        /// <summary>
+        /// Tick marks are located on both sides of the widget.
+        /// </summary>
+        both,
+        /// <summary>
+        /// Tick marks are not visible.
+        /// </summary>
+        none,
+    }
+    public class RangeSliderTooltipConfiguration
+    {
+        /// <summary>
+        /// (default: true) Disables (false) or enables (true) the tooltip of the RangeSlider.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// (default: "{0}") Format string for the text of the tooltip. Note: The applied format will also influence the appearance of the RangeSlider tick labels.
+        /// </summary>
+        public JsString format { get; set; }
+    }
+
+    public class RangeSliderEventData
+    {
+        /// <summary>
+        /// Represents the updated array of values of the first and second drag handle.
+        /// </summary>
+        public JsNumber value { get; set; }
+    }
+
+    //TODO: must check all animation Configuration in all classes!!!
 }
 
