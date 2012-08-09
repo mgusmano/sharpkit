@@ -144,6 +144,20 @@ namespace SharpKit.jQuery
 
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoTreeView(this jQuery query, TreeViewConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoUpload(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoUpload(this jQuery query, UploadConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoWindow(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoWindow(this jQuery query, WindowConfiguration configuration) { return null; }
     }
 
 }
@@ -8685,12 +8699,1514 @@ namespace SharpKit.KendoUI.Web
 
     public class TreeView
     {
+        /// <summary>
+        /// Appends a node to a group of a TreeView. This method may also be used to reorder the nodes of a TreeView.
+        /// </summary>
+        /// <param name="nodeData">A JSON-formatted string or selector that specifies the node to be appended.</param>
+        /// <param name="parentNode">The node that will contain the newly appended node. If not specified, the new node will be appended to the root group of the TreeView.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeView = $("#treeView").data("kendoTreeView");
+        ///treeView.append({ text: "HTML5" }, $("#firstItem"));
+        ///</code>
+        ///</example>
+        public void append(JsString nodeData, HtmlNode parentNode) { }
+        //TODO: parentNode type is Node
+        /// <summary>
+        /// Appends a node to a group of a TreeView. This method may also be used to reorder the nodes of a TreeView.
+        /// </summary>
+        /// <param name="nodeData">A JSON-formatted string or selector that specifies the node to be appended.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeView = $("#treeView").data("kendoTreeView");
+        ///treeView.append({ text: "HTML5" }, $("#firstItem"));
+        ///</code>
+        ///</example>
+        public void append(JsAction nodeData) { }
+
+        /// <summary>
+        /// Collapses nodes.
+        /// </summary>
+        /// <param name="nodes">The nodes that are to be collapsed.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeview = $("#treeview").data("kendoTreeView");
+        ///
+        /// // collapse the node with id="firstItem"
+        ///treeview.collapse(document.getElementById("firstItem"));
+        ///
+        /// // collapse all nodes
+        ///treeview.collapse(".k-item");
+        ///</code>
+        ///</example>
+        public void collapse(JsAction nodes) { }
+        //TODO: one more parameter (?) e.node (Node) The collapsed node
+
+        /// <summary>
+        /// Returns the model dataItem that corresponds to a TreeView node
+        /// </summary>
+        /// <param name="node">The element or selector that specifies a node.</param>
+        /// <returns></returns>
+        public Model dataItem(jQuery.jQuery node) { return null; }
+        //TODO: return type?
+        /// <summary>
+        /// Returns the model dataItem that corresponds to a TreeView node
+        /// </summary>
+        /// <param name="node">The element or selector that specifies a node.</param>
+        /// <returns></returns>
+        public Model dataItem(HtmlElement node) { return null; }
+        //TODO: return type?
+        /// <summary>
+        /// Returns the model dataItem that corresponds to a TreeView node
+        /// </summary>
+        /// <param name="node">The element or selector that specifies a node.</param>
+        /// <returns></returns>
+        public Model dataItem(JsAction node) { return null; }
+        //TODO: return type?
+
+        /// <summary>
+        /// Removes a node from a TreeView, but keeps its jQuery.data() objects.
+        /// </summary>
+        /// <param name="node">The node that is to be detached.</param>
+        /// <returns>The node that has been detached.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeView = $("#treeView").data("kendoTreeView");
+        ///var firstItem = $("#firstItem");
+        ///firstItem.data("id", 1);
+        ///treeview.detach(firstItem);
+        ///firstItem.data("id") == 1;
+        ///</code>
+        ///</example>
+        public jQuery.jQuery detach(JsAction node) { return null; }
+
+        /// <summary>
+        /// Enables or disables nodes.
+        /// </summary>
+        /// <param name="nodes">The nodes that are to be enabled/disabled.</param>
+        /// <param name="enable">(optional, default: true) Whether the nodes should be enabled or disabled.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeview = $("#treeview").data("kendoTreeView");
+        /// 
+        /// // disable the node with id="firstItem"
+        /// treeview.enable(document.getElementById("firstItem"), false);
+        /// 
+        /// // enable all nodes
+        /// treeview.enable(".k-item");
+        ///</code>
+        ///</example>
+        public void enable(JsAction nodes, bool enable) { }
+        /// <summary>
+        /// Enables or disables nodes.
+        /// </summary>
+        /// <param name="nodes">The nodes that are to be enabled/disabled.</param>
+        /// <param name="enable">(optional, default: true) Whether the nodes should be enabled or disabled.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeview = $("#treeview").data("kendoTreeView");
+        /// 
+        /// // disable the node with id="firstItem"
+        /// treeview.enable(document.getElementById("firstItem"), false);
+        /// 
+        /// // enable all nodes
+        /// treeview.enable(".k-item");
+        ///</code>
+        ///</example>
+        public void enable(JsAction nodes) { }
+
+        /// <summary>
+        /// Expands nodes.
+        /// </summary>
+        /// <param name="nodes">The nodes that are to be expanded..</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// var treeview = $("#treeview").data("kendoTreeView");
+        /// 
+        /// // expands the node with id="firstItem"
+        /// treeview.expand(document.getElementById("firstItem"));
+        /// 
+        /// // expands all nodes
+        /// treeview.expand(".k-item");
+        ///</code>
+        ///</example>
+        public void expand(JsAction nodes) { }
+        //TODO: one more parameter (?) e.node (Node) The collapsed node
+
+        /// <summary>
+        /// Searches a TreeView for a node that has specific text.
+        /// </summary>
+        /// <param name="text">The text that is being searched for.</param>
+        /// <returns>All nodes that have the text.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeView = $("#treeView").data("kendoTreeView");
+        ///var foundNode = treeView.findByText("CSS3 is da bomb!");
+        ///</code>
+        ///</example>
+        public jQuery.jQuery findByText(JsString text) { return null; }
+
+        /// <summary>
+        /// Searches a TreeView for a node with the given unique identifier. Applicable when the widget is bound to a HierarchicalDataSource.
+        /// </summary>
+        /// <param name="text">The text that is being searched for.</param>
+        /// <returns>All nodes that have the text.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeView = $("#treeView").data("kendoTreeView");
+        ///var node = treeView.findByUid("95c1925d-a779-47fc-8420-b4274f01c037");
+        ///</code>
+        ///</example>
+        public jQuery.jQuery findByUid(JsString text) { return null; }
+
+        /// <summary>
+        /// Inserts a node after a specified node in a TreeView. This method may also be used to reorder the nodes of a TreeView.
+        /// </summary>
+        /// <param name="nodeData">A JSON-formatted string or selector that specifies the node to be inserted.</param>
+        /// <param name="referenceNode">The node that will be preceed the newly-appended node.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeView = $("#treeView").data("kendoTreeView");
+        ///treeView.insertAfter({ text: "JavaScript" }, $("#firstItem"));
+        ///</code>
+        ///</example>
+        public void insertAfter(JsString nodeData, HtmlNode referenceNode) { }
+        /// <summary>
+        /// Inserts a node after a specified node in a TreeView. This method may also be used to reorder the nodes of a TreeView.
+        /// </summary>
+        /// <param name="nodeData">A JSON-formatted string or selector that specifies the node to be inserted.</param>
+        /// <param name="referenceNode">The node that will be preceed the newly-appended node.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeView = $("#treeView").data("kendoTreeView");
+        ///treeView.insertAfter({ text: "JavaScript" }, $("#firstItem"));
+        ///</code>
+        ///</example>
+        public void insertAfter(JsAction nodeData, HtmlNode referenceNode) { }
+
+        /// <summary>
+        /// Inserts a node before another node. This method may also be used to reorder the nodes of a TreeView.
+        /// </summary>
+        /// <param name="nodeData">A JSON-formatted string or selector that specifies the node to be inserted.</param>
+        /// <param name="referenceNode">The node that will be preceed the newly-appended node.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeView = $("#treeView").data("kendoTreeView");
+        ///treeView.insertBefore({ text: "CSS3" }, $("#firstItem"));
+        ///</code>
+        ///</example>
+        public void insertBefore(JsString nodeData, HtmlNode referenceNode) { }
+        /// <summary>
+        /// Inserts a node before another node. This method may also be used to reorder the nodes of a TreeView.
+        /// </summary>
+        /// <param name="nodeData">A JSON-formatted string or selector that specifies the node to be inserted.</param>
+        /// <param name="referenceNode">The node that will be preceed the newly-appended node.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeView = $("#treeView").data("kendoTreeView");
+        ///treeView.insertBefore({ text: "CSS3" }, $("#firstItem"));
+        ///</code>
+        ///</example>
+        public void insertBefore(JsAction nodeData, HtmlNode referenceNode) { }
+
+        /// <summary>
+        /// Removes a node from a TreeView.
+        /// </summary>
+        /// <param name="node">The node that is to be removed.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeView = $("#treeView").data("kendoTreeView");
+        ///treeView.remove($("#firstItem"));
+        ///</code>
+        ///</example>
+        public void remove(JsAction node) { }
+
+        /// <summary>
+        /// Gets the selected node of a TreeView.
+        /// </summary>
+        /// <returns>The selected node of a TreeView.</returns>
+        public HtmlNode select() { return null; }
+        /// <summary>
+        /// Sets the selected node of a TreeView.
+        /// </summary>
+        /// <param name="node">If provided, the node of a TreeView that should be selected.</param>
+        public void select(JsAction node) { }
+
+        /// <summary>
+        /// Gets the text of a node in a TreeView.
+        /// </summary>
+        /// <param name="node">The node of which the text is being retrieved.</param>
+        /// <returns>The text of a node.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeView = $("#treeView").data("kendoTreeView");
+        ///var nodeText = treeView.text($("#firstItem"));
+        ///</code>
+        ///</example>
+        public JsString text(JsAction node) { return null; }
+
+        /// <summary>
+        /// Toggles the node of a TreeView between its expanded and collapsed states.
+        /// </summary>
+        /// <param name="node">The node that should be toggled.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeView = $("#treeView").data("kendoTreeView");
+        ///treeView.toggle($("#firstItem"));
+        ///</code>
+        ///</example>
+        public void toggle(JsAction node) { }
+
+
+        /// <summary>
+        /// Triggered before a subgroup gets collapsed.
+        /// </summary>
+        public event JsAction<TreeViewEventData> collapseEvent { add { } remove { } }
+        //TODO: event name is collapse
+
+        /// <summary>
+        /// Triggered while a node is being dragged.
+        /// Pre-defined status classes are:
+        /// k-insert-top - Indicates that the item will be inserted on top.
+        /// k-insert-middle - Indicates that the item will be inserted in the middle.
+        /// k-insert-bottom - Indicates that the item will be inserted at the bottom.
+        /// k-add - Indicates that the item will be added/appended.
+        /// k-denied - Indicates an invalid operation
+        /// Using this class will automatically make the drop operation invalid, so there will be no need to call setValid(false) in the drop event.
+        /// </summary>
+        public event JsAction<TreeViewDragEventData> drag { add { } remove { } }
+        //TODO:check summary (?)
+
+        /// <summary>
+        /// Triggered after a node has been dropped.
+        /// </summary>
+        public event JsAction<TreeViewDragendEventData> dragend { add { } remove { } }
+
+        /// <summary>
+        /// Triggered before the dragging of a node starts.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///treeview.data("kendoTreeView").bind("dragstart", function(e) {
+        ///    if ($(e.sourceNode).parentsUntil(".k-treeview", ".k-item").length == 0) {
+        ///        e.preventDefault();
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<TreeViewDragstartEventData> dragstart { add { } remove { } }
+
+        /// <summary>
+        /// Triggered when a node is being dropped.
+        /// </summary>
+        public event JsAction<TreeViewDropEventData> drop { add { } remove { } }
+
+        /// <summary>
+        /// Triggered before a subgroup gets expanded.
+        /// </summary>
+        public event JsAction<TreeViewEventData> expandEvent { add { } remove { } }
+        //TODO: event name is expand
+
+        /// <summary>
+        /// Triggered when a node gets selected.
+        /// </summary>
+        public event JsAction<TreeViewEventData> selectEvent { add { } remove { } }
+        //TODO: event name is select
     }
     public class TreeViewConfiguration
     {
+        /// <summary>
+        /// A collection of visual animations used when items are expanded or collapsed through user interaction. Setting this option to false will disable all animations.
+        /// </summary>
+        public TreeViewAnimationConfiguration animation { get; set; }
+
+        /// <summary>
+        /// (default: null) Sets the field of the data item that provides the image URL of the treeview nodes.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// $("#tabstrip").kendoTabStrip({
+        ///     dataTextField: "Name",
+        ///     dataImageUrlField: "ImageUrl",
+        ///     dataSource: data
+        /// });
+        ///</code>
+        ///</example>
+        public JsString dataImageUrlField { get; set; }
+
+        /// <summary>
+        /// The data that the TreeView will be bound to.
+        /// </summary>
+        public JsArray dataSource { get; set; }
+
+        /// <summary>
+        /// (default: null) Sets the field of the data item that provides the sprite CSS class of the treeview nodes.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var items = [
+        ///    { id: 1, text: "Tea", sprite: "icon-tea" },
+        ///    { id: 2, text: "Coffee", sprite: "icon-coffee" }
+        ///];
+        ///
+        ///$("#treeview").kendoTreeView({
+        ///    dataSource: items,
+        ///    dataSpriteCssClassField: "sprite"
+        ///});
+        ///</code>
+        ///</example>
+        public JsString dataSpriteCssClassField { get; set; }
+
+        /// <summary>
+        /// (default: null) Sets the field of the data item that provides the text content of the treeview nodes.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#tabstrip").kendoTabStrip({
+        ///    dataTextField: "Name",
+        ///    dataSource: data
+        ///});
+        ///</code>
+        ///</example>
+        public JsString dataTextField { get; set; }
+
+        /// <summary>
+        /// (default: null) Sets the field of the data item that provides the link URL of the treeview nodes.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#tabstrip").kendoTabStrip({
+        ///    dataTextField: "Name",
+        ///    dataUrlField: "Url",
+        ///    dataSource: data
+        ///});
+        ///</code>
+        ///</example>
+        public JsString dataUrlField { get; set; }
+
+        /// <summary>
+        /// (default: false) Disables (false) or enables (true) drag-and-drop on the nodes of a TreeView.
+        /// </summary>
+        public bool dragAndDrop { get; set; }
+
+        /// <summary>
+        /// (default: true) Indicates whether the child datasources should be fetched lazily, when parent groups get expanded.
+        /// Setting this to false causes all child dataSources to be loaded at initialization time.
+        /// Note: when initializing a TreeView from array (rather than from a HierarchicalDataSource instance), the default value of this option is false.
+        /// </summary>
+        public bool loadOnDemand { get; set; }
+
+        /// <summary>
+        /// Template for rendering of the nodes of the treeview.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#treeview").kendoTreeView({
+        ///    template: "#= item.text # <a href='\\#'>Delete</a>"
+        ///});
+        ///</code>
+        ///</example>
+        public JsString template { get; set; }
+        /// <summary>
+        /// Template for rendering of the nodes of the treeview.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#treeview").kendoTreeView({
+        ///    template: "#= item.text # <a href='\\#'>Delete</a>"
+        ///});
+        ///</code>
+        ///</example>
+        [JsProperty(Name = "template")]
+        public JsAction templateFunction { get; set; }
+    }
+    public class TreeViewAnimationConfiguration
+    {
+        /// <summary>
+        /// The animation that will be used when collapsing items.
+        /// </summary>
+        public TreeViewAnimationCollapseConfiguration collapse { get; set; }
+
+        /// <summary>
+        /// The animation that will be used when expanding items.
+        /// </summary>
+        public TreeViewAnimationExpandConfiguration expand { get; set; }
+
+
+    }
+    public class TreeViewAnimationCollapseConfiguration
+    {
+        /// <summary>
+        /// (default: 200) The number of milliseconds used for the animation when a node is expanded.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#treeView").kendoTreeView({
+        ///    animation: {
+        ///        collapse: {
+        ///            duration: 1000
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public JsNumber duration { get; set; }
+
+        /// <summary>
+        /// A whitespace-delimited string of animation effects that are utilized when a TreeView node is collapsed. Options include "fadeOut".
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#treeView").kendoTreeView({
+        ///    animation: {
+        ///        collapse: {
+        ///            duration: 5000,
+        ///            effects: "fadeOut"
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public JsString effects { get; set; }
+    }
+    public class TreeViewAnimationExpandConfiguration
+    {
+        /// <summary>
+        /// (default: 200) The number of milliseconds used for the animation when a node is expanded.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#treeView").kendoTreeView({
+        ///    animation: {
+        ///        collapse: {
+        ///            duration: 1000
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public JsNumber duration { get; set; }
+
+        /// <summary>
+        /// (default: "expandVertical") A whitespace-delimited string of animation effects that are utilized when a TreeView node is expanded. Options include "expandVertical" and "fadeIn".
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#treeView").kendoTreeView({
+        ///    animation: {
+        ///        collapse: {
+        ///            duration: 5000,
+        ///            effects: "fadeOut"
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public JsString effects { get; set; }
+
+        /// <summary>
+        /// (default: true)
+        /// </summary>
+        public bool show { get; set; }
+    }
+    public class TreeViewEventData
+    {
+        public HtmlNode node { get; set; }
+    }
+    public class TreeViewDragEventData
+    {
+        /// <summary>
+        /// The node that is being dragged.
+        /// </summary>
+        public HtmlNode sourceNode { get; set; }
+
+        /// <summary>
+        /// The element that the node is placed over.
+        /// </summary>
+        public HtmlElement dropTarget { get; set; }
+
+        /// <summary>
+        /// The x coordinate of the mouse.
+        /// </summary>
+        public JsNumber pageX { get; set; }
+
+        /// <summary>
+        /// The y coordinate of the mouse.
+        /// </summary>
+        public JsNumber pageY { get; set; }
+
+        /// <summary>
+        /// The status that the drag clue shows.
+        /// </summary>
+        public JsString statusClass { get; set; }
+
+        /// <summary>
+        /// Allows a custom drag clue status to be set.
+        /// </summary>
+        public JsAction setStatusClass { get; set; }
+    }
+    public class TreeViewDragendEventData
+    {
+        /// <summary>
+        /// The node that is being dropped.
+        /// </summary>
+        public HtmlNode sourceNode { get; set; }
+
+        /// <summary>
+        /// The node that the sourceNode is being dropped upon.
+        /// </summary>
+        public HtmlNode destinationNode { get; set; }
+
+        /// <summary>
+        /// Shows where the source has been dropped. One of the values over, before, or after.
+        /// </summary>
+        public JsString dropPosition { get; set; }
+    }
+    public class TreeViewDragstartEventData
+    {
+        /// <summary>
+        /// The node that will be dragged.
+        /// </summary>
+        public HtmlNode sourceNode { get; set; }
+    }
+    public class TreeViewDropEventData
+    {
+        /// <summary>
+        /// The node that is being dropped.
+        /// </summary>
+        public HtmlNode sourceNode { get; set; }
+
+        /// <summary>
+        /// The node that the sourceNode is being dropped upon.
+        /// </summary>
+        public HtmlNode destinationNode { get; set; }
+
+        /// <summary>
+        /// Whether this drop operation is permitted.
+        /// </summary>
+        public bool valid { get; set; }
+
+        /// <summary>
+        /// Allows the drop to be prevented.
+        /// </summary>
+        public JsAction setValid { get; set; }
+
+        /// <summary>
+        /// The element that the node is placed over.
+        /// </summary>
+        public HtmlElement dropTarget { get; set; }
+
+        /// <summary>
+        /// Shows where the source will be dropped. One of the values over, before, or after.
+        /// </summary>
+        public JsString dropPosition { get; set; }
     }
 
+    public class Upload
+    {
+
+        /// <summary>
+        /// Disables the upload.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var upload = $("#upload").data("kendoUpload");
+        /// 
+        /// // disables the upload
+        /// upload.enable();
+        ///</code>
+        ///</example>
+        public void disable() { }
+
+        /// <summary>
+        /// Prepares the Upload for safe removal from the DOM. Detaches event handlers and removes data entries in order to avoid memory leaks.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // Destroy widget and detach events
+        /// $("#upload").data("kendoUpload").destroy();
+        /// 
+        /// // Remove widget element from DOM
+        /// $("#upload").closest(".k-upload").remove();
+        ///</code>
+        ///</example>
+        public void destroy() { }
+
+        /// <summary>
+        /// Enables the upload.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// var upload = $("#upload").data("kendoUpload");
+        /// 
+        /// // enables the upload
+        /// upload.enable();
+        ///</code>
+        ///</example>
+        public void enable() { }
+        //TODO: wird parameter
+
+        /// <summary>
+        /// Toggles the upload enabled state.
+        /// </summary>
+        /// <param name="enable">(Optional) The new enabled state.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var upload = $("#upload").data("kendoUpload");
+        /// 
+        /// // toggles the upload enabled state
+        /// upload.toggle();
+        ///</code>
+        ///</example>
+        public void toggle(bool enable) { }
+        /// <summary>
+        /// Toggles the upload enabled state.
+        /// </summary>
+        /// <param name="enable">(Optional) The new enabled state.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var upload = $("#upload").data("kendoUpload");
+        /// 
+        /// // toggles the upload enabled state
+        /// upload.toggle();
+        ///</code>
+        ///</example>
+        public void toggle() { }
+
+        /// <summary>
+        /// Fires when the upload has been cancelled while in progress.
+        /// Note: The cancel event fires only when the upload is in async mode.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#photos").kendoUpload({
+        ///     // ...
+        ///     cancel: onCancel
+        /// });
+        /// 
+        /// function onCancel(e) {
+        ///     // Array with information about the uploaded files
+        ///     var files = e.files;
+        /// 
+        ///     // Process the Cancel event
+        /// }
+        ///</code>
+        ///</example>
+        public event JsAction<UploadCancelSelectEventData> cancel { add { } remove { } }
+
+        /// <summary>
+        /// Fires when all active uploads have completed either successfully or with errors.
+        /// Note: The complete event fires only when the upload is in async mode.
+        /// </summary>
+        /// <example>
+        ///usage
+        ///<code>
+        ///$("#photos").kendoUpload({
+        ///     // ...
+        ///     complete: onComplete
+        /// });
+        /// 
+        /// function onComplete(e) {
+        ///     // The upload is now idle
+        /// }
+        ///</code>
+        ///</example>
+        public event JsAction<EmptyEventData> complete { add { } remove { } }
+
+        /// <summary>
+        /// Fires when an upload / remove operation has failed.
+        /// Note: The error event fires only when the upload is in async mode.
+        /// </summary>
+        /// <example>
+        ///usage
+        ///<code>
+        ///$("#photos").kendoUpload({
+        ///     // ...
+        ///     error: onError
+        /// });
+        /// 
+        /// function onError(e) {
+        ///     // Array with information about the uploaded files
+        ///     var files = e.files;
+        /// 
+        ///     if (e.operation == "upload") {
+        ///         alert("Failed to uploaded " + files.length + " files");
+        ///     }
+        /// }
+        ///</code>
+        ///</example>
+        public event JsAction<UploadErrorEventData> error { add { } remove { } }
+
+        /// <summary>
+        /// Fires when upload progress data is available.
+        /// Note: The progress event fires only when the upload is in async mode.
+        /// </summary>
+        /// <example>
+        ///usage
+        ///<code>
+        ///$("#photos").kendoUpload({
+        ///     // ...
+        ///     progress: onProgress
+        /// });
+        /// 
+        /// function onProgress(e) {
+        ///     // Array with information about the uploaded files
+        ///     var files = e.files;
+        /// 
+        ///     console.log(e.percentComplete);
+        /// }
+        ///</code>
+        ///</example>
+        public event JsAction<UploadProgressEventData> progress { add { } remove { } }
+
+        /// <summary>
+        /// Fires when an uploaded file is about to be removed. Cancelling the event will prevent the remove.
+        /// </summary>
+        /// <example>
+        ///usage
+        ///<code>
+        ///$("#photos").kendoUpload({
+        ///    // ...
+        ///    remove: onRemove
+        ///});
+        ///
+        ///function onRemove(e) {
+        ///    // Array with information about the removed files
+        ///    var files = e.files;
+        ///
+        ///    // Process the Remove event
+        ///    // Optionally cancel the remove operation by calling
+        ///    // e.preventDefault()
+        ///}
+        ///</code>
+        ///</example>
+        public event JsAction<UploadUploadRemoveEventData> remove { add { } remove { } }
+
+        /// <summary>
+        /// Triggered when a file(s) is selected. Note: Cancelling this event will prevent the selection from occurring.
+        /// </summary>
+        /// <example>
+        ///usage
+        ///<code>
+        ///var onSelect = function(e) {
+        ///     $.each(e.files, function(index, value) {
+        ///         console.log("Name: " + value.name);
+        ///         console.log("Size: " + value.size + " bytes");
+        ///         console.log("Extension: " + value.extension);
+        ///     });
+        /// };
+        /// 
+        /// // initialize and configure an Upload widget with a select event handler
+        /// $("#photos").kendoUpload({
+        ///     // ...
+        ///     select: onSelect
+        /// });
+        ///</code>
+        ///</example>
+        public event JsAction<UploadCancelSelectEventData> select { add { } remove { } }
+
+        /// <summary>
+        /// Fires when an upload / remove operation has been completed successfully.
+        /// Note: The success event fires only when the upload is in async mode.
+        /// </summary>
+        /// <example>
+        ///usage
+        ///<code>
+        ///$("#photos").kendoUpload({
+        ///     // ...
+        ///     success: onSuccess
+        /// });
+        /// 
+        /// function onSuccess(e) {
+        ///     // Array with information about the uploaded files
+        ///     var files = e.files;
+        /// 
+        ///     if (e.operation == "upload") {
+        ///         alert("Successfully uploaded " + files.length + " files");
+        ///     }
+        /// }
+        ///</code>
+        ///</example>
+        public event JsAction<UploadSuccessEventData> success { add { } remove { } }
+
+        /// <summary>
+        /// Fires when one or more files are about to be uploaded. Cancelling the event will prevent the upload.
+        /// Note: The upload event fires only when the upload is in async mode.
+        /// </summary>
+        /// <example>
+        ///usage
+        ///<code>
+        ///$("#photos").kendoUpload({
+        ///     // ...
+        ///     upload: onUpload
+        /// });
+        /// 
+        /// function onUpload(e) {
+        ///     // Array with information about the uploaded files
+        ///     var files = e.files;
+        /// 
+        ///     // Check the extension of each file and abort the upload if it is not .jpg
+        ///     $.each(files, function() {
+        ///         if (this.extension != ".jpg") {
+        ///             alert("Only .jpg files can be uploaded")
+        ///             e.preventDefault();
+        ///         }
+        ///     });
+        /// }
+        ///</code>
+        ///</example>
+        public event JsAction<UploadUploadRemoveEventData> upload { add { } remove { } }
+
+
+
+    }
+    public class UploadConfiguration
+    {
+        /// <summary>
+        /// Configures the ability to upload a file(s) in an asynchronous manner. Please refer to the async mode help topic for more details.
+        /// </summary>
+        public UploadAsyncConfiguration async { get; set; }
+
+        /// <summary>
+        /// Sets the strings rendered by the Upload.
+        /// </summary>
+        public UploadLocalizationConfiguration localization { get; set; }
+
+        /// <summary>
+        /// (default: true) Enables (true) or disables (false) an Upload. A disabled Upload may be re-enabled via enable().
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// (default: true) Enables (true) or disables (false) the ability to select multiple files. If false, users will be able to select only one file at a time.
+        /// Note: This option does not limit the total number of uploaded files in an asynchronous configuration.
+        /// </summary>
+        public bool multiple { get; set; }
+
+        /// <summary>
+        /// (default: true)Enables (true) or disables (false) the ability to display a file listing for uploading a file(s).
+        /// Disabling a file listing may be useful you wish to customize the UI; use the client-side events to build your own UI..
+        /// </summary>
+        public bool showFileList { get; set; }
+
+
+    }
+    public class UploadAsyncConfiguration
+    {
+        /// <summary>
+        /// (default: true) The selected files will be uploaded immediately by default. You can change this behavior by setting autoUpload to false.
+        /// </summary>
+        public bool autoUpload { get; set; }
+
+        /// <summary>
+        /// (default: false) The selected files will be uploaded in separate requests, if this is supported by the browser. You can change this behavior by setting batch to true.
+        /// </summary>
+        public bool batch { get; set; }
+
+        /// <summary>
+        /// (default: "fileNames") The name of the form field submitted to the Remove URL.
+        /// </summary>
+        public JsString removeField { get; set; }
+
+        /// <summary>
+        /// The URL of the handler responsible for removing uploaded files (if any).
+        /// The handler must accept POST requests containing one or more "fileNames" fields specifying the files to be deleted.
+        /// </summary>
+        public JsString removeUrl { get; set; }
+
+        /// <summary>
+        /// (default: "DELETE") The HTTP verb to be used by the remove action.
+        /// </summary>
+        public JsString removeVerb { get; set; }
+
+        /// <summary>
+        /// The name of the form field submitted to the save URL. The default value is the input name.
+        /// </summary>
+        public JsString saveField { get; set; }
+
+        /// <summary>
+        ///The URL of the handler that will receive the submitted files.
+        ///The handler must accept POST requests containing one or more fields with the same name as the original input name.
+        /// </summary>
+        public JsString saveUrl { get; set; }
+    }
+    public class UploadLocalizationConfiguration
+    {
+        /// <summary>
+        /// Sets the text of the cancel button text.
+        /// </summary>
+        public JsString cancel { get; set; }
+
+        /// <summary>
+        /// (default: "drop files here to upload") Sets the drop zone hint.
+        /// </summary>
+        public JsString dropFilesHere { get; set; }
+
+        /// <summary>
+        /// Sets the text of the remove button text.
+        /// </summary>
+        public JsString remove { get; set; }
+
+        /// <summary>
+        /// Sets the text of the retry button text.
+        /// </summary>
+        public JsString retry { get; set; }
+
+        /// <summary>
+        /// Sets the "Select..." button text.
+        /// </summary>
+        public JsString select { get; set; }
+
+        /// <summary>
+        /// Sets the status message for failed uploads.
+        /// </summary>
+        public JsString statusFailed { get; set; }
+
+        /// <summary>
+        /// Sets the status message for uploaded files.
+        /// </summary>
+        public JsString statusUploaded { get; set; }
+
+        /// <summary>
+        /// Sets the status message for files that are being uploaded.
+        /// </summary>
+        public JsString statusUploading { get; set; }
+
+        /// <summary>
+        /// Sets the text of the "Upload files" button.
+        /// </summary>
+        public JsString uploadSelectedFiles { get; set; }
+    }
+    public class UploadCancelSelectEventData
+    {
+        /// <summary>
+        /// List of the files that were uploaded or removed .
+        /// Each file has:
+        /// name
+        /// extension - the file extension inlcuding the leading dot - ".jpg", ".png", etc.
+        /// size - the file size in bytes (null if not available)
+        /// </summary>
+        [JsProperty(Name = "files")]
+        public JsArray filesArray { get; set; }
+        /// <summary>
+        /// List of the files that were uploaded or removed .
+        /// Each file has:
+        /// name
+        /// extension - the file extension inlcuding the leading dot - ".jpg", ".png", etc.
+        /// size - the file size in bytes (null if not available)
+        /// </summary>
+        public UploadFileConfig files { get; set; }
+    }
+    public class UploadFileConfig
+    {
+        public JsString name { get; set; }
+
+        /// <summary>
+        ///  the file extension inlcuding the leading dot - ".jpg", ".png", etc.
+        /// </summary>
+        public JsString extension { get; set; }
+
+        /// <summary>
+        /// the file size in bytes (null if not available)
+        /// </summary>
+        public JsNumber size { get; set; }
+    }
+    public class UploadErrorEventData
+    {
+        /// <summary>
+        /// List of the files that were uploaded or removed
+        /// </summary>
+        public UploadFileConfig files { get; set; }
+
+        public UploadOperationOptions operation { get; set; }
+
+        /// <summary>
+        /// This is either the original XHR used for the operation or a stub containing:
+        /// responseText
+        /// status
+        /// statusText Verify that this is an actual XHR before accessing any other fields.
+        /// </summary>
+        public object XMLHttpRequest { get; set; }
+
+    }
+    public enum UploadOperationOptions
+    {
+        upload,
+        remove,
+    }
+    public class UploadProgressEventData
+    {
+        /// <summary>
+        /// List of the files that are being uploaded. Each file has:
+        /// </summary>
+        public UploadFileConfig files { get; set; }
+
+        /// <summary>
+        /// Upload progress (0 - 100)
+        /// </summary>
+        public JsNumber percentComplete { get; set; }
+    }
+    public class UploadUploadRemoveEventData
+    {
+        /// <summary>
+        /// List of the files that were uploaded or removed .
+        /// </summary>
+        public UploadFileConfig files { get; set; }
+
+        /// <summary>
+        /// Optional object that will be sent to the save handler in the form of key/value pairs.
+        /// </summary>
+        public object data { get; set; }
+    }
+    public class UploadSuccessEventData
+    {
+        /// <summary>
+        /// List of the files that were uploaded or removed .
+        /// </summary>
+        public UploadFileConfig files { get; set; }
+
+        /// <summary>
+        /// "upload" or "remove".
+        /// </summary>
+        public UploadOperationOptions operation { get; set; }
+
+        /// <summary>
+        /// the response object returned by the server.
+        /// </summary>
+        public JsString response { get; set; }
+
+        /// <summary>
+        /// This is either the original XHR used for the operation or a stub containing:
+        /// responseText
+        /// status
+        /// statusText Verify that this is an actual XHR before accessing any other fields.
+        /// </summary>
+        public object XMLHttpRequest { get; set; }
+    }
+
+    public class Window
+    {
+        /// <summary>
+        /// Centers a Window within the viewport.
+        /// </summary>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var kendoWindow = $("#window").data("kendoWindow");
+        ///kendoWindow.center();
+        ///</code>
+        ///</example>
+        public Window center() { return null; }
+
+        /// <summary>
+        /// Closes a Window.
+        /// </summary>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var kendoWindow = $("#window").data("kendoWindow").close();
+        ///</code>
+        ///</example>
+        public Window close() { return null; }
+
+        /// <summary>
+        /// set the content of a Window.
+        /// </summary>
+        /// <param name="content">_optional, default: _</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var kendoWindow = $("#window").data("kendoWindow").content("Kendo UI for all the things!");
+        ///</code>
+        ///</example>
+        public void content(JsString content) { }
+
+        /// <summary>
+        /// Gets the content of a Window.
+        /// </summary>
+        /// <returns>If content is provided, this method will return the (Kendo UI) Window object to support chaining.
+        /// Otherwise, it will return the current content of the (Kendo UI) Window.</returns>
+        public JsString content() { return null; }
+        //TODO: return type? 
+
+        /// <summary>
+        /// Destroys the window and its modal overlay, if necessary. Removes the Window HTML elements from the DOM.
+        /// </summary>
+        public void destroy() { }
+
+        /// <summary>
+        /// Maximizes a Window to the entire viewing area of the user agent. Triggers the resize event.
+        /// </summary>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#window").data("kendoWindow").maximize();
+        ///</code>
+        ///</example>
+        public Window maximize() { return null; }
+
+        /// <summary>
+        /// Maximizes a Window to its title bar.
+        /// </summary>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#window").data("kendoWindow").minimize();
+        ///</code>
+        ///</example>
+        public Window minimize() { return null; }
+
+        /// <summary>
+        /// Opens a Window.
+        /// </summary>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var kendoWindow = $("#window").data("kendoWindow").open();
+        ///</code>
+        ///</example>
+        public Window open() { return null; }
+
+        /// <summary>
+        /// Refreshes the content of a Window from a remote URL.
+        /// </summary>
+        /// <param name="options">Options for requesting data from the server. If omitted, the window uses the content property that was supplied when the window was created.
+        /// Any options specified here are passed to jQuery.ajax().</param>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var windowObject = $("#window").data("kendoWindow");
+        /// windowObject.refresh("/feedbackForm");
+        /// 
+        /// windowObject.refresh({
+        ///     url: "/feedbackForm",
+        ///     data: { userId: 42 }
+        /// });
+        /// 
+        /// windowObject.refresh({
+        ///     url: "/userInfo",
+        ///     data: { userId: 42 },
+        ///     template: "Hello, #= firstName # #= lastName #"
+        /// });
+        ///</code>
+        ///</example>
+        public Window refresh(WindowRefreshOptions options) { return null; }
+        /// <summary>
+        /// Refreshes the content of a Window from a remote URL.
+        /// </summary>
+        /// <param name="options">Options for requesting data from the server. If omitted, the window uses the content property that was supplied when the window was created.
+        /// Any options specified here are passed to jQuery.ajax().</param>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var windowObject = $("#window").data("kendoWindow");
+        /// windowObject.refresh("/feedbackForm");
+        /// 
+        /// windowObject.refresh({
+        ///     url: "/feedbackForm",
+        ///     data: { userId: 42 }
+        /// });
+        /// 
+        /// windowObject.refresh({
+        ///     url: "/userInfo",
+        ///     data: { userId: 42 },
+        ///     template: "Hello, #= firstName # #= lastName #"
+        /// });
+        ///</code>
+        ///</example>
+        public Window refresh(object options) { return null; }
+        /// <summary>
+        /// Refreshes the content of a Window from a remote URL.
+        /// </summary>
+        /// <param name="options">Options for requesting data from the server. If omitted, the window uses the content property that was supplied when the window was created.
+        /// Any options specified here are passed to jQuery.ajax().</param>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var windowObject = $("#window").data("kendoWindow");
+        /// windowObject.refresh("/feedbackForm");
+        /// 
+        /// windowObject.refresh({
+        ///     url: "/feedbackForm",
+        ///     data: { userId: 42 }
+        /// });
+        /// 
+        /// windowObject.refresh({
+        ///     url: "/userInfo",
+        ///     data: { userId: 42 },
+        ///     template: "Hello, #= firstName # #= lastName #"
+        /// });
+        ///</code>
+        ///</example>
+        public Window refresh(JsString options) { return null; }
+
+        /// <summary>
+        /// Restores a maximized or minimized Window to its previous state. Triggers the resize event.
+        /// </summary>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var kendoWindow = $("#window").data("kendoWindow").restore();
+        ///</code>
+        ///</example>
+        public Window restore() { return null; }
+
+        /// <summary>
+        /// set the title of a Window.
+        /// </summary>
+        /// <param name="text">_optional, default: _</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var kendoWindow = $("#window").data("kendoWindow").title("Do a barrel roll!");
+        ///</code>
+        ///</example>
+        public void title(JsString text) { }
+        /// <summary>
+        /// Get the title of a Window.
+        /// </summary>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// var kendoWindow = $("#window").data("kendoWindow");
+        /// var windowTitle = kendoWindow.title();
+        ///</code>
+        ///</example>
+        public JsString title() { return null; }
+        //TODO: return type?
+
+        /// <summary>
+        /// Brings forward a Window to the top of the z-index.
+        /// </summary>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///Brings forward a Window to the top of the z-index.
+        ///</code>
+        ///</example>
+        public Window toFront() { return null; }
+
+        /// <summary>
+        /// Toggles a Window between a maximized and restored state. Triggers the resize event.
+        /// </summary>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var kendoWindow = $("#window").data("kendoWindow").toggleMaximization();
+        ///</code>
+        ///</example>
+        public Window toggleMaximization() { return null; }
+
+
+        /// <summary>
+        /// Triggered when a Window has finished its opening animation.
+        /// </summary>
+        public event JsAction<EmptyEventData> activate { add { } remove { } }
+
+        /// <summary>
+        /// Triggered when a Window is closed (by a user or through the close() method).
+        /// </summary>
+        public event JsAction<EmptyEventData> closeEvent { add { } remove { } }
+        //TODO: Event name is close
+
+        /// <summary>
+        /// Triggered when a Window has finished its closing animation.
+        /// </summary>
+        public event JsAction<EmptyEventData> deactivate { add { } remove { } }
+
+        /// <summary>
+        /// Triggered when a Window has been moved by a user.
+        /// </summary>
+        public event JsAction<EmptyEventData> dragend { add { } remove { } }
+
+        /// <summary>
+        /// Triggered when the user starts to move the window.
+        /// </summary>
+        public event JsAction<EmptyEventData> dragstart { add { } remove { } }
+
+        /// <summary>
+        /// Triggered when an AJAX request for content fails.
+        /// </summary>
+        public event JsAction<EmptyEventData> error { add { } remove { } }
+
+        /// <summary>
+        /// Triggered when a Window is opened (i.e. the open() method is called).
+        /// </summary>
+        public event JsAction<EmptyEventData> openEvent { add { } remove { } }
+        //TODO: Event name is open
+
+        /// <summary>
+        /// Triggered when the content of a Window have been refreshed via AJAX.
+        /// </summary>
+        public event JsAction<EmptyEventData> refreshEvent { add { } remove { } }
+        //TODO: Event name is refresh
+
+        /// <summary>
+        /// Triggered when a Window has been resized by a user.
+        /// </summary>
+        public event JsAction<EmptyEventData> resize { add { } remove { } }
+
+        //TODO: all events have no eventData (?)
+    }
+    public class WindowRefreshOptions
+    {
+        /// <summary>
+        /// The server URL that will be requested.
+        /// </summary>
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// A JSON object containing the data that will be passed to the server.
+        /// </summary>
+        public object data { get; set; }
+
+        /// <summary>
+        /// The HTTP request method ("GET", "POST").
+        /// </summary>
+        public JsString type { get; set; }
+
+        /// <summary>
+        /// A template to be used for displaying the requested data.
+        /// </summary>
+        public JsString template { get; set; }
+    }
+    public class WindowConfiguration
+    {
+        /// <summary>
+        /// (default: ["Close"]) The buttons for interacting with the window. Predefined array values are "Close", "Refresh", "Minimize", and "Maximize".
+        /// </summary>
+        public JsArray actions { get; set; }
+
+        /// <summary>
+        /// A collection of {Animation} objects, used to change default animations. A value of false will disable all animations in the widget.
+        /// </summary>
+        public AnimationConfiguration animation { get; set; }
+
+        /// <summary>
+        /// (default: document.body) The element that the Window will be appended to.
+        /// </summary>
+        public object appendTo { get; set; }
+
+        /// <summary>
+        /// Specifies a URL or request options that the window should load its content from. For remote URLs, a container iframe element is automatically created.
+        /// </summary>
+        public WindowContentConfiguration content { get; set; }
+        /// <summary>
+        /// Specifies a URL or request options that the window should load its content from. For remote URLs, a container iframe element is automatically created.
+        /// </summary>
+        [JsProperty(Name = "content")]
+        public object contentObject { get; set; }
+        /// <summary>
+        /// Specifies a URL or request options that the window should load its content from. For remote URLs, a container iframe element is automatically created.
+        /// </summary>
+        [JsProperty(Name = "content")]
+        public JsString contentString { get; set; }
+
+        /// <summary>
+        /// (default: true) Enables (true) or disables (false) the ability for users to move/drag a Window.
+        /// </summary>
+        public bool draggable { get; set; }
+
+        /// <summary>
+        /// Explicitly states whether content iframe should be created.
+        /// </summary>
+        public bool iframe { get; set; }
+
+        /// <summary>
+        /// (default: Infinity) The maximum height (in pixels) that may be achieved by resizing the window.
+        /// </summary>
+        public JsNumber maxHeight { get; set; }
+
+        /// <summary>
+        /// (default: Infinity) The maximum width (in pixels) that may be achieved by resizing the window.
+        /// </summary>
+        public JsNumber maxWidth { get; set; }
+
+        /// <summary>
+        /// (default: 50) The minimum height (in pixels) that may be achieved by resizing the window.
+        /// </summary>
+        public JsNumber minHeight { get; set; }
+
+        /// <summary>
+        /// (default: 50) The minimum width (in pixels) that may be achieved by resizing the window.
+        /// </summary>
+        public JsNumber minWidth { get; set; }
+
+        /// <summary>
+        /// (default: false) Specifies whether the window should show a modal overlay over the page.
+        /// </summary>
+        public bool modal { get; set; }
+
+        /// <summary>
+        /// (default: true) Enables (true) or disables (false) the ability for users to resize a Window.
+        /// </summary>
+        public bool resizable { get; set; }
+
+        /// <summary>
+        /// The text in the window title bar.
+        /// </summary>
+        public JsString title { get; set; }
+
+        /// <summary>
+        /// (default: true) Specifies whether the window will be initially visible.
+        /// </summary>
+        public bool visible { get; set; }
+    }
+    public class WindowContentConfiguration
+    {
+        /// <summary>
+        /// Template for the content of a Window.
+        /// </summary>
+        public JsString template { get; set; }
+    }
+
+
     //TODO: must check all animation Configuration in all classes!!!
-    //KendoUI.Web.TabStrip, TimePicker
+    //TODO: KendoUI.Web.UI
 }
 
