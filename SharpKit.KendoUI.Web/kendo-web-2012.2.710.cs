@@ -123,6 +123,27 @@ namespace SharpKit.jQuery
 
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoSplitter(this jQuery query, SplitterConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoTabStrip(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoTabStrip(this jQuery query, TabStripConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoTimePicker(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoTimePicker(this jQuery query, TimePickerConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoTreeView(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoTreeView(this jQuery query, TreeViewConfiguration configuration) { return null; }
     }
 
 }
@@ -2492,7 +2513,6 @@ namespace SharpKit.KendoUI.Web
         public JsDate value { get; set; }
 
     }
-
     public class OpenEventData
     {
         public ViewOptions view { get; set; }
@@ -7754,7 +7774,923 @@ namespace SharpKit.KendoUI.Web
         public HtmlElement pane { get; set; }
     }
 
+    public class TabStrip
+    {
+        /// <summary>
+        /// Activates a tab specified as a selector. Note: Invoking this method will not trigger any events.
+        /// </summary>
+        /// <param name="item">The target tab, specified as a selector, to be activated.</param>
+        /// <returns> Returns true if successful; otherwise, false.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var tabToActivate = $("#tab1");
+        /// $("#tabStrip").data("kendoTabStrip").activateTab(tabToActivate);
+        ///</code>
+        ///</example>
+        public bool activateTab(JsAction item) { return false; }
+
+        /// <summary>
+        /// Appends a tab to the collection of tabs in a TabStrip.
+        /// </summary>
+        /// <param name="tab">Target tab, specified as a JSON object. You can pass tab text, content or contentUrl here.
+        /// Can handle an HTML string or array of such strings or JSON.</param>
+        /// <returns>Returns the TabStrip object to support chaining.</returns>
+        public TabStrip append(JsAction tab) { return null; }
+
+        /// <summary>
+        /// Obtains the DOM element representing a tab by its index in the TabStrip.
+        /// </summary>
+        /// <param name="itemIndex">The index of the tab in the TabStrip.</param>
+        /// <returns>The DOM element representing a tab by its index in the TabStrip.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var tabContent = $("#tabStrip").data("kendoTabStrip").contentElement(0);
+        ///</code>
+        ///</example>
+        public HtmlElement contentElement(JsNumber itemIndex) { return null; }
+
+        /// <summary>
+        /// Deactivates a tab specified as a selector. Note: Invoking this method will not trigger any events.
+        /// </summary>
+        /// <param name="item">The target tab, specified as a selector, to be deactivated.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var tabToDeactivate = $("#tab1");
+        /// $("#tabStrip").data("kendoTabStrip").deactivateTab(tabToActivate);
+        ///</code>
+        ///</example>
+        public void deactivateTab(JsAction item) { }
+
+        /// <summary>
+        /// Disables a tab(s) of a TabStrip.
+        /// </summary>
+        /// <param name="element">The target tab(s), specified as a selector, to be disabled.</param>
+        /// <returns>Returns the TabStrip object to support chaining.</returns>
+        public TabStrip disable(JsAction element) { return null; }
+
+        /// <summary>
+        /// Disables (false) or enables (true) a tab(s) of a TabStrip.
+        /// </summary>
+        /// <param name="element">The target tab(s), specified as a selector, to be enabled (true) or disabled (false).</param>
+        /// <param name="enable">Desired state of the tab(s) specified by the selector; enabled (true) or disabled (false).</param>
+        /// <returns>Returns the TabStrip object to support chaining.</returns>
+        public TabStrip enable(JsAction element, bool enable) { return null; }
+
+        /// <summary>
+        /// Inserts a newly-created tab after a specified tab.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. Can also handle an array of such objects.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the TabStrip object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.insertAfter(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public TabStrip insertAfter(JsAction item, object referenceItem) { return null; }
+        /// <summary>
+        /// Inserts a newly-created tab after a specified tab.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. Can also handle an array of such objects.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the TabStrip object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.insertAfter(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public TabStrip insertAfter(JsString item, object referenceItem) { return null; }
+        /// <summary>
+        /// Inserts a newly-created tab after a specified tab.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. Can also handle an array of such objects.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>Returns the TabStrip object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// //
+        /// menu.insertAfter(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                                 // Allows use of HTML for item text
+        ///         content: "text"                                 // content within an item
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         items: [{                                    // Sub item collection
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public TabStrip insertAfter(JsArray<JsString> item, object referenceItem) { return null; }
+
+        /// <summary>
+        /// Inserts a newly-created tab before a specified tab.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. You can pass item text, content or contentUrl here. Can handle an TML string or array of such strings or JSON.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>TabStrip Returns the TabStrip object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///panelBar.insertBefore(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                              // Allows use of HTML for item text
+        ///         content: "text"                              // Content for the content element
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         contentUrl: "partialContent.html"            // From where to load the item content
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         expanded: true,                              // item is rendered expanded
+        ///         items: [{                                    // Sub item collection.
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 5",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public TabStrip insertBefore(JsAction item, object referenceItem) { return null; }
+        /// <summary>
+        /// Inserts a newly-created tab before a specified tab.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. You can pass item text, content or contentUrl here. Can handle an TML string or array of such strings or JSON.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>TabStrip Returns the TabStrip object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///panelBar.insertBefore(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                              // Allows use of HTML for item text
+        ///         content: "text"                              // Content for the content element
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         contentUrl: "partialContent.html"            // From where to load the item content
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         expanded: true,                              // item is rendered expanded
+        ///         items: [{                                    // Sub item collection.
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 5",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public TabStrip insertBefore(JsString item, object referenceItem) { return null; }
+        /// <summary>
+        /// Inserts a newly-created tab before a specified tab.
+        /// </summary>
+        /// <param name="item">Target item, specified as a JSON object. You can pass item text, content or contentUrl here. Can handle an TML string or array of such strings or JSON.</param>
+        /// <param name="referenceItem">A reference item to append the new item in.</param>
+        /// <returns>TabStrip Returns the TabStrip object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///panelBar.insertBefore(
+        ///     [{
+        ///         text: "Item 1",
+        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
+        ///     },
+        ///     {
+        ///         text: "<b>Item 2</b>",
+        ///         encoded: false,                              // Allows use of HTML for item text
+        ///         content: "text"                              // Content for the content element
+        ///     },
+        ///     {
+        ///         text: "Item 3",
+        ///         contentUrl: "partialContent.html"            // From where to load the item content
+        ///     },
+        ///     {
+        ///         text: "Item 4",
+        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
+        ///         expanded: true,                              // item is rendered expanded
+        ///         items: [{                                    // Sub item collection.
+        ///              text: "Sub Item 1"
+        ///         },
+        ///         {
+        ///              text: "Sub Item 2"
+        ///         }]
+        ///     },
+        ///     {
+        ///         text: "Item 5",
+        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        ///     }],
+        ///     referenceItem
+        /// );
+        ///</code>
+        ///</example>
+        public TabStrip insertBefore(JsArray<JsString> item, object referenceItem) { return null; }
+
+        /// <summary>
+        /// Reloads TabStrip tab(s) via AJAX.
+        /// </summary>
+        /// <param name="element">The target tab(s), specified as a selector, to be reloaded via AJAX.</param>
+        /// <returns>Returns the TabStrip object to support chaining.</returns>
+        public TabStrip reload(JsAction element) { return null; }
+
+        /// <summary>
+        /// Removes a specified tab from a TabStrip.
+        /// </summary>
+        /// <param name="element">The target tab(s), specified as a selector, to be removed.</param>
+        /// <returns>Returns the TabStrip object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///tabStrip.remove("#tab1");
+        ///</code>
+        ///</example>
+        public TabStrip remove(JsAction element) { return null; }
+
+        /// <summary>
+        /// Selects the specified tab(s) within a TabStrip. If called without arguments, it returns the currently selected tab.
+        /// </summary>
+        /// <param name="element">or index The target tab(s), specified as a selector or index in the tab group.</param>
+        /// <returns>Returns the TabStrip object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///tabStrip.select("#tab1");
+        ///</code>
+        ///</example>
+        public TabStrip select(TabStripSelectConfigurationEventData element) { return null; }
+        /// <summary>
+        /// Selects the specified tab(s) within a TabStrip. If called without arguments, it returns the currently selected tab.
+        /// </summary>
+        /// <param name="element">or index The target tab(s), specified as a selector or index in the tab group.</param>
+        /// <returns>Returns the TabStrip object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///tabStrip.select("#tab1");
+        ///</code>
+        ///</example>
+        public TabStrip select(JsNumber element) { return null; }
+        //TODO: must check
+
+
+        /// <summary>
+        /// Triggered just after a tab is being made visible, but before the end of the animation
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for activate
+        /// var onActivate = function(e) {
+        ///     // access the activated item via e.item (HTMLElement)
+        /// };
+        /// 
+        /// // attach activate event handler during initialization
+        /// var panelBar = $("#panelBar").kendoPanelBar({
+        ///     activate: onActivate
+        /// });
+        /// 
+        /// // detach activate event handler via unbind()
+        /// panelBar.data("kendoPanelBar").unbind("activate", onActivate);
+        ///</code>
+        ///</example>
+        public event JsAction<TabStripSelectConfigurationEventData> activate { add { } remove { } }
+
+        /// <summary>
+        /// Fires when content is fetched from an AJAX request.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#panelBar").kendoPanelBar({
+        ///    contentLoad: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<TabStripSelectConfigurationEventData> contentLoad { add { } remove { } }
+
+        /// <summary>
+        /// Triggered when an AJAX request results in an error.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#panelBar").kendoPanelBar({
+        ///    error: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<PanelBarErrorEventData> error { add { } remove { } }
+
+        /// <summary>
+        /// Triggered before a tab is selected.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for select
+        /// var onSelect = function(e) {
+        ///     // access the selected item via e.item (jQuery object)
+        /// };
+        /// 
+        /// // attach select event handler during initialization
+        /// var combobox = $("#combobox").kendoComboBox({
+        ///     select: onSelect
+        /// });
+        /// 
+        /// // detach select event handler via unbind()
+        /// combobox.data("kendoComboBox").unbind("select", onSelect);
+        ///</code>
+        ///</example>
+        public event JsAction<TabStripSelectConfigurationEventData> selectEvent { add { } remove { } }
+        //TODO: event name is select
+
+    }
+    public class TabStripConfiguration
+    {
+        /// <summary>
+        /// A collection of visual animations used when TabStrip tab are selected through user interactions. Setting this option to false will disable all animations.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#panelBar").kendoPanelBar({
+        ///    animation: {
+        ///        // fade-out closing items over 1000 milliseconds
+        ///        close: {
+        ///            duration: 1000,
+        ///            effects: "fadeOut"
+        ///        },
+        ///       // fade-in and expand opening items over 500 milliseconds
+        ///       open: {
+        ///           duration: 500,
+        ///           effects: "expandVertical fadeIn"
+        ///       }
+        ///   }
+        ///});
+        ///</code>
+        ///</example>
+        public PanelBarAnimationConfiguration animation { get; set; }
+
+        /// <summary>
+        /// (default: false) Specifies whether the TabStrip should be able to collapse completely when clicking an expanded tab.
+        /// </summary>
+        public bool collapsible { get; set; }
+
+        /// <summary>
+        /// (default: "") Sets the field of the data item that provides the text content of the tab content element.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// $("#tabstrip").kendoTabStrip({
+        ///     dataTextField: "Name",
+        ///     dataContentField: "Content",
+        ///     dataSource: data
+        /// });
+        ///</code>
+        ///</example>
+        public JsString dataContentField { get; set; }
+
+        /// <summary>
+        /// (default: "") Sets the field of the data item that provides the URL for the ajax loaded tab content.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// $("#tabstrip").kendoTabStrip({
+        ///     dataTextField: "Name",
+        ///     dataContentUrlField: "ContentUrl",
+        ///     dataSource: data
+        /// });
+        ///</code>
+        ///</example>
+        public JsString dataContentUrlField { get; set; }
+
+        /// <summary>
+        /// (default: "") Sets the field of the data item that provides the image URL of the tab.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// $("#tabstrip").kendoTabStrip({
+        ///     dataTextField: "Name",
+        ///     dataImageUrlField: "ImageUrl",
+        ///     dataSource: data
+        /// });
+        ///</code>
+        ///</example>
+        public JsString dataImageUrlField { get; set; }
+
+        /// <summary>
+        /// (default: "") Sets the field of the data item that provides the CSS class of the tab.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// $("#tabstrip").kendoTabStrip({
+        ///     dataTextField: "Name",
+        ///     dataSpriteCssClass: "CssClass ",
+        ///     dataSource: data
+        /// });
+        ///</code>
+        ///</example>
+        public JsString dataSpriteCssClass { get; set; }
+
+        /// <summary>
+        /// (default: "") Sets the field of the data item that provides the text name of the tab.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#tabstrip").kendoTabStrip({
+        ///    dataTextField: "Name",
+        ///    dataSource: data
+        ///});
+        ///</code>
+        ///</example>
+        public JsString dataTextField { get; set; }
+
+        /// <summary>
+        /// (default: "") Sets the field of the data item that provides the link URL for the tab.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#tabstrip").kendoTabStrip({
+        ///    dataTextField: "Name",
+        ///    dataUrlField: "Url",
+        ///    dataSource: data
+        ///});
+        ///</code>
+        ///</example>
+        public JsString dataUrlField { get; set; }
+    }
+    public class TabStripSelectConfigurationEventData
+    {
+        /// <summary>
+        /// The selected item chosen by a user.
+        /// </summary>
+        public HtmlElement item { get; set; }
+
+        /// <summary>
+        /// The content element of the tab going to be selected.
+        /// </summary>
+        public HtmlElement contentElement { get; set; }
+    }
+
+    public class TimePicker
+    {
+        /// <summary>
+        /// Closes the drop-down list of a TimePicker
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("timepicker").data("kendoTimePicker").close();
+        ///</code>
+        ///</example>
+        public void close() { }
+
+        /// <summary>
+        /// Enables or disables a TimePicker.
+        /// </summary>
+        /// <param name="enable">Enables (true or undefined) or disables (false) a DateTimePicker.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("timepicker").data("kendoTimePicker").enable();
+        ///</code>
+        ///</example>
+        public void enable(bool enable) { }
+
+        /// <summary>
+        /// Sets the max value of the TimePicker.
+        /// </summary>
+        /// <param name="value">The max date to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the calendar widget
+        ///var calendar = $("#calendar").data("kendoCalendar");
+        /// // get the max value of the calendar.
+        ///var max = calendar.max();
+        /// // set the max value of the calendar.
+        ///calendar.max(new Date(2100, 0, 1));
+        ///</code>
+        ///</example>
+        public void max(JsDate value) { }
+
+        /// <summary>
+        /// Sets the max value of the TimePicker.
+        /// </summary>
+        /// <param name="value">The max date to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the calendar widget
+        ///var calendar = $("#calendar").data("kendoCalendar");
+        /// // get the max value of the calendar.
+        ///var max = calendar.max();
+        /// // set the max value of the calendar.
+        ///calendar.max(new Date(2100, 0, 1));
+        ///</code>
+        ///</example>
+        public void max(JsString value) { }
+
+        /// <summary>
+        /// Gets the max value of the TimePicker.
+        /// </summary>
+        /// <param name="value">The max date to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the calendar widget
+        ///var calendar = $("#calendar").data("kendoCalendar");
+        /// // get the max value of the calendar.
+        ///var max = calendar.max();
+        /// // set the max value of the calendar.
+        ///calendar.max(new Date(2100, 0, 1));
+        ///</code>
+        ///</example>
+        public JsDate max() { return null; }
+
+        /// <summary>
+        /// Sets the min value of the TimePicker.
+        /// </summary>
+        /// <param name="value">The min  date to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the calendar widget
+        ///var calendar = $("#calendar").data("kendoCalendar");
+        ///
+        /// // get the min value of the calendar.
+        ///var min = calendar.min();
+        ///
+        /// // set the min value of the calendar.
+        ///calendar.min(new Date(1900, 0, 1));
+        ///</code>
+        ///</example>
+        public void min(JsDate value) { }
+
+        /// <summary>
+        /// Sets the min value of the TimePicker.
+        /// </summary>
+        /// <param name="value">The min  date to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the calendar widget
+        ///var calendar = $("#calendar").data("kendoCalendar");
+        ///
+        /// // get the min value of the calendar.
+        ///var min = calendar.min();
+        ///
+        /// // set the min value of the calendar.
+        ///</code>
+        ///</example>
+        public void min(JsString value) { }
+
+        /// <summary>
+        /// Gets the min value of the TimePicker.
+        /// </summary>
+        /// <param name="value">The min  date to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the calendar widget
+        ///var calendar = $("#calendar").data("kendoCalendar");
+        ///
+        /// // get the min value of the calendar.
+        ///var min = calendar.min();
+        ///
+        /// // set the min value of the calendar.
+        ///</code>
+        ///</example>
+        public JsDate min() { return null; }
+
+        /// <summary>
+        /// Opens the drop-down list of a TimePicker.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// $("timepicker").data("kendoTimePicker").open();
+        ///</code>
+        ///</example>
+        public void open() { }
+
+        /// <summary>
+        /// Sets the value of the TimePicker.
+        /// </summary>
+        /// <param name="value">The value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var combobox = $("#combobox").data("kendoComboBox");
+        /// // get the value of the combobox.
+        /// var value = combobox.value();
+        /// // set the value of the combobox.
+        /// combobox.value("1"); //looks for item which has value "1"
+        ///</code>
+        ///</example>
+        public void value(JsString value) { }
+        /// <summary>
+        /// Sets the value of the TimePicker.
+        /// </summary>
+        /// <param name="value">The value to set.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var combobox = $("#combobox").data("kendoComboBox");
+        /// // get the value of the combobox.
+        /// var value = combobox.value();
+        /// // set the value of the combobox.
+        /// combobox.value("1"); //looks for item which has value "1"
+        ///</code>
+        ///</example>
+        public void value(JsDate value) { }
+        /// <summary>
+        /// Gets the value of the TimePicker.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var combobox = $("#combobox").data("kendoComboBox");
+        /// // get the value of the combobox.
+        /// var value = combobox.value();
+        /// // set the value of the combobox.
+        /// combobox.value("1"); //looks for item which has value "1"
+        ///</code>
+        ///</example>
+        public JsDate value() { return null; }
+
+        /// <summary>
+        /// Triggered when the underlying value of a TimePicker is changed.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#comboBox").kendoComboBox({
+        ///    change: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<EmptyEventData> change { add { } remove { } }
+
+        /// <summary>
+        /// Fires when the time drop-down list is closed
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#comboBox").kendoComboBox({
+        ///    close: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<EmptyEventData> closeEvent { add { } remove { } }
+        //TODO: event name is close
+
+        /// <summary>
+        /// Fires when the time drop-down list is opened
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#comboBox").kendoComboBox({
+        ///    open: function(e) {
+        ///            // handle event
+        ///        }
+        ///});
+        ///</code>
+        ///</example>
+        public event JsAction<ViewOptions> openEvent { add { } remove { } }
+        //TODO: event name is open
+    }
+    public class TimePickerConfiguration
+    {
+        /// <summary>
+        /// Animations to be used for opening/closing the popup. Setting to false will turn of the animation.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// $("#timepicker").kendoTimePicker({
+        ///     animation: {
+        ///         close: {
+        ///             effects: "fadeOut",
+        ///             duration: 300,
+        ///             hide: true
+        ///             show: false
+        ///         }
+        ///     }
+        /// });
+        ///</code>
+        ///</example>
+        public AnimationConfiguration animation { get; set; }
+
+        /// <summary>
+        /// (default: en-US) Specifies the culture info used by the widget.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // specify on widget initialization
+        ///$("#calendar").kendoCalendar({
+        ///    culture: "de-DE"
+        ///});
+        ///</code>
+        ///</example>
+        public JsString culture { get; set; }
+
+        /// <summary>
+        /// Specifies a list of dates, which are shown in the time drop-down list. If not set, the DateTimePicker will auto-generate the available times.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#dateTimePicker").kendoDateTimePicker({
+        ///    dates: [new Date(2000, 10, 10, 10, 0, 0), new Date(2000, 10, 10, 30, 0)] //the drop-down list will consist only two entries - "10:00 AM" and "10:30 AM"
+        ///});
+        ///</code>
+        ///</example>
+        public JsArray dates { get; set; }
+
+        /// <summary>
+        /// (default: h:mm tt) Specifies the format, which is used to format the value of the TimePicker displayed in the input. The format also will be used to parse the input.
+        /// </summary>
+        public JsString format { get; set; }
+
+        /// <summary>
+        /// (default: 30) Specifies the interval, between values in the popup list, in minutes.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#dateTimePicker").kendoDateTimePicker({
+        ///    interval: 15
+        ///});
+        ///</code>
+        ///</example>
+        public JsNumber interval { get; set; }
+
+        /// <summary>
+        /// (default: 00:00) Specifies the end value in the popup list.
+        /// </summary>
+        public JsDate max { get; set; }
+        //TODO: sounds wird it is a date type.
+
+        /// <summary>
+        /// (default: 00:00) Specifies the start value in the popup list.
+        /// </summary>
+        public JsDate min { get; set; }
+        //TODO: sounds wird it is a date type.
+
+        /// <summary>
+        /// Specifies the formats, which are used to parse the value set with the value method or by direct input.
+        /// If not set the value of the options.format will be used. Note that value of the format option is always used.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#timePicker").kendoTimePicker({
+        ///    format: "h:mm tt",
+        ///    parseFormats: ["HH:mm"] //format also will be added to parseFormats
+        ///});
+        ///</code>
+        ///</example>
+        public JsArray parseFormats { get; set; }
+
+        /// <summary>
+        /// (default: null) Specifies the selected time.
+        /// </summary>
+        public JsDate value { get; set; }
+    }
+
+    public class TreeView
+    {
+    }
+    public class TreeViewConfiguration
+    {
+    }
+
     //TODO: must check all animation Configuration in all classes!!!
-    //KendoUI.Web.Splitter
+    //KendoUI.Web.TabStrip, TimePicker
 }
 
