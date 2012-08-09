@@ -7177,7 +7177,7 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// (default: "Decrease") The title of the decrease button of the Slider.
         /// </summary>
-        public JsString decreaseButtonTitle  { get; set; }
+        public JsString decreaseButtonTitle { get; set; }
 
         /// <summary>
         /// (default: "Increase") The title of the increase button of the Slider.
@@ -7208,7 +7208,7 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// (default: true) Can be used to show (true) or hide (false) the increase and decrease buttons of a Slider.
         /// </summary>
-        public bool showButtons  { get; set; }
+        public bool showButtons { get; set; }
 
         /// <summary>
         /// (default: 1) The small step value of the Slider. The underlying value will be changed when the end user (1) clicks on the increase
@@ -7240,7 +7240,7 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsNumber value { get; set; }
     }
-    public enum OrientationOptions 
+    public enum OrientationOptions
     {
         /// <summary>
         /// Define horizontal orientation
@@ -7254,12 +7254,507 @@ namespace SharpKit.KendoUI.Web
 
     public class Splitter
     {
+        /// <summary>
+        /// Loads the content of a pane from a local or remote URL.
+        /// </summary>
+        /// <param name="pane">The targetted pane whose content is to be loaded via a URL.</param>
+        /// <param name="url">A local or remote URL from which the content of the pane is to be loaded.</param>
+        /// <param name="data">Any data that is necessary to be sent to the server.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // load content into the pane with ID, pane1
+        /// splitter.ajaxRequest("#pane1", "/customer/profile", { id: 42 });
+        ///</code>
+        ///</example>
+        public void ajaxRequest(JsAction pane, JsString url, object data) { }
+        /// <summary>
+        /// Loads the content of a pane from a local or remote URL.
+        /// </summary>
+        /// <param name="pane">The targetted pane whose content is to be loaded via a URL.</param>
+        /// <param name="url">A local or remote URL from which the content of the pane is to be loaded.</param>
+        /// <param name="data">Any data that is necessary to be sent to the server.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // load content into the pane with ID, pane1
+        /// splitter.ajaxRequest("#pane1", "/customer/profile", { id: 42 });
+        ///</code>
+        ///</example>
+        public void ajaxRequest(HtmlElement pane, JsString url, object data) { }
+        //TODO: HtmlElement = DOM Element (?)
+        /// <summary>
+        /// Loads the content of a pane from a local or remote URL.
+        /// </summary>
+        /// <param name="pane">The targetted pane whose content is to be loaded via a URL.</param>
+        /// <param name="url">A local or remote URL from which the content of the pane is to be loaded.</param>
+        /// <param name="data">Any data that is necessary to be sent to the server.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // load content into the pane with ID, pane1
+        /// splitter.ajaxRequest("#pane1", "/customer/profile", { id: 42 });
+        ///</code>
+        ///</example>
+        public void ajaxRequest(JsAction pane, JsString url, JsString data) { }
+        /// <summary>
+        /// Loads the content of a pane from a local or remote URL.
+        /// </summary>
+        /// <param name="pane">The targetted pane whose content is to be loaded via a URL.</param>
+        /// <param name="url">A local or remote URL from which the content of the pane is to be loaded.</param>
+        /// <param name="data">Any data that is necessary to be sent to the server.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // load content into the pane with ID, pane1
+        /// splitter.ajaxRequest("#pane1", "/customer/profile", { id: 42 });
+        ///</code>
+        ///</example>
+        public void ajaxRequest(HtmlElement pane, JsString url, JsString data) { }
+        //TODO: HtmlElement = DOM Element (?)
+
+        /// <summary>
+        /// Collapses a specified pane. Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
+        /// Note: Invoking the method will not trigger a collapse event.
+        /// </summary>
+        /// <param name="pane">The pane to be collapsed.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // collapse the pane with ID, pane1
+        /// splitter.collapse("#pane1");
+        ///</code>
+        ///</example>
+        public void collapse(JsAction pane) { }
+        //TODO: there is another paramter: e.pane (Element) The collapsing pane of the Splitter.
+        /// <summary>
+        /// Collapses a specified pane. Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
+        /// Note: Invoking the method will not trigger a collapse event.
+        /// </summary>
+        /// <param name="pane">The pane to be collapsed.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // collapse the pane with ID, pane1
+        /// splitter.collapse("#pane1");
+        ///</code>
+        ///</example>
+        public void collapse(HtmlElement pane) { }
+        //TODO: there is another paramter: e.pane (Element) The collapsing pane of the Splitter.HtmlElement = DOM Element (?)
+
+        /// <summary>
+        /// Expands a specified pane. Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
+        /// Note: Invoking the method will not trigger an expand event.
+        /// </summary>
+        /// <param name="pane">The pane to be expanded.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // expand the pane with ID, pane1
+        /// splitter.expand("#pane1");
+        ///</code>
+        ///</example>
+        public void expand(JsAction pane) { }
+        //TODO: there is another paramter: e.pane (Element) The collapsing pane of the Splitter.
+        /// <summary>
+        /// Expands a specified pane. Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
+        /// Note: Invoking the method will not trigger an expand event.
+        /// </summary>
+        /// <param name="pane">The pane to be expanded.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // expand the pane with ID, pane1
+        /// splitter.expand("#pane1");
+        ///</code>
+        ///</example>
+        public void expand(HtmlElement pane) { }
+        //TODO: there is another paramter: e.pane (Element) The collapsing pane of the Splitter.HtmlElement = DOM Element (?)
+
+        /// <summary>
+        /// Sets the maximum size of a pane. Setting this value will not cause the Splitter to redraw, nor will it trigger any events.
+        /// </summary>
+        /// <param name="pane">The pane being targetted for a new minimum size configuration value.</param>
+        /// <param name="value">The maximum size value of the pane defined as pixels (i.e. "200px") or as a percentage (i.e. "50%").</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // set the maximum size of the pane with ID, pane1
+        /// splitter.max("#pane1", "300px");
+        ///</code>
+        ///</example>
+        public void max(JsAction pane, JsString value) { }
+        /// <summary>
+        /// Sets the maximum size of a pane. Setting this value will not cause the Splitter to redraw, nor will it trigger any events.
+        /// </summary>
+        /// <param name="pane">The pane being targetted for a new minimum size configuration value.</param>
+        /// <param name="value">The maximum size value of the pane defined as pixels (i.e. "200px") or as a percentage (i.e. "50%").</param>
+        /// <example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // set the maximum size of the pane with ID, pane1
+        /// splitter.max("#pane1", "300px");
+        ///</code>
+        ///</example>
+        public void max(HtmlElement pane, JsString value) { }
+        //TODO:HtmlElement = DOM Element (?)
+
+        /// <summary>
+        /// Sets the minimum size of a pane. Setting this value will not cause the Splitter to redraw, nor will it trigger any events.
+        /// </summary>
+        /// <param name="pane">The pane being targetted for a new minimum size configuration value.</param>
+        /// <param name="value">The minimum size value of the pane defined as pixels (i.e. "200px") or as a percentage (i.e. "50%").</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // set the minimum size of the pane with ID, pane1
+        /// splitter.min("#pane1", "100px");
+        ///</code>
+        ///</example>
+        public void min(JsAction pane, JsString value) { }
+        /// <summary>
+        /// Sets the minimum size of a pane. Setting this value will not cause the Splitter to redraw, nor will it trigger any events.
+        /// </summary>
+        /// <param name="pane">The pane being targetted for a new minimum size configuration value.</param>
+        /// <param name="value">The minimum size value of the pane defined as pixels (i.e. "200px") or as a percentage (i.e. "50%").</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // set the minimum size of the pane with ID, pane1
+        /// splitter.min("#pane1", "100px");
+        ///</code>
+        ///</example>
+        public void min(HtmlElement pane, JsString value) { }
+        //TODO:HtmlElement = DOM Element (?)
+
+        /// <summary>
+        /// Set the size of the pane. Setting this value will cause the Splitter to redraw and it will trigger layoutChange and resize events.
+        /// </summary>
+        /// <param name="pane">The pane to be resized.</param>
+        /// <param name="value">The new size of the pane defined as pixels (i.e. "200px") or as a percentage (i.e. "50%").
+        /// Note: This value must not exceed panes.max or be less then panes.min.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // set the size of the pane with ID, pane1
+        /// splitter.size("#pane1", "200px");
+        ///</code>
+        ///</example>
+        public void size(JsAction pane, JsString value) { }
+        /// <summary>
+        /// Set the size of the pane. Setting this value will cause the Splitter to redraw and it will trigger layoutChange and resize events.
+        /// </summary>
+        /// <param name="pane">The pane to be resized.</param>
+        /// <param name="value">The new size of the pane defined as pixels (i.e. "200px") or as a percentage (i.e. "50%").
+        /// Note: This value must not exceed panes.max or be less then panes.min.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // set the size of the pane with ID, pane1
+        /// splitter.size("#pane1", "200px");
+        ///</code>
+        ///</example>
+        public void size(HtmlElement pane, JsString value) { }
+        //TODO:HtmlElement = DOM Element (?)
+
+        /// <summary>
+        /// Toggles the state of a specified pane (i.e. collapsed or expanded). Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
+        /// Note: Invoking the method will not trigger collapse or expand events.
+        /// </summary>
+        /// <param name="pane">The pane to be resized.</param>
+        /// <param name="expand ">(Optional) Represents the desired state of the specified pane; to be expanded (true) or collapsed (false).
+        /// If undefined, toggle() will collapse the pane if it is expanded or will expand the pane if it is collapsed.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // toggle the state of the pane with ID, pane1
+        /// splitter.toggle("#pane1");
+        /// // toggle the state of the pane with ID, pane1 to be expanded
+        /// splitter.toggle("#pane1", true);
+        /// // toggle the state of the pane with ID, pane1 to be collapsed
+        /// splitter.toggle("#pane1", false);
+        ///</code>
+        ///</example>
+        public void toggle(JsAction pane, bool expand) { }
+        /// <summary>
+        /// Toggles the state of a specified pane (i.e. collapsed or expanded). Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
+        /// Note: Invoking the method will not trigger collapse or expand events.
+        /// </summary>
+        /// <param name="pane">The pane to be resized.</param>
+        /// <param name="expand ">(Optional) Represents the desired state of the specified pane; to be expanded (true) or collapsed (false).
+        /// If undefined, toggle() will collapse the pane if it is expanded or will expand the pane if it is collapsed.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // toggle the state of the pane with ID, pane1
+        /// splitter.toggle("#pane1");
+        /// // toggle the state of the pane with ID, pane1 to be expanded
+        /// splitter.toggle("#pane1", true);
+        /// // toggle the state of the pane with ID, pane1 to be collapsed
+        /// splitter.toggle("#pane1", false);
+        ///</code>
+        ///</example>
+        public void toggle(HtmlElement pane, bool expand) { }
+        //TODO:HtmlElement = DOM Element (?)
+        /// <summary>
+        /// Toggles the state of a specified pane (i.e. collapsed or expanded). Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
+        /// Note: Invoking the method will not trigger collapse or expand events.
+        /// </summary>
+        /// <param name="pane">The pane to be resized.</param>
+        /// <param name="expand ">(Optional) Represents the desired state of the specified pane; to be expanded (true) or collapsed (false).
+        /// If undefined, toggle() will collapse the pane if it is expanded or will expand the pane if it is collapsed.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // toggle the state of the pane with ID, pane1
+        /// splitter.toggle("#pane1");
+        /// // toggle the state of the pane with ID, pane1 to be expanded
+        /// splitter.toggle("#pane1", true);
+        /// // toggle the state of the pane with ID, pane1 to be collapsed
+        /// splitter.toggle("#pane1", false);
+        ///</code>
+        ///</example>
+        public void toggle(JsAction pane) { }
+        /// <summary>
+        /// Toggles the state of a specified pane (i.e. collapsed or expanded). Invoking this method will force the Splitter to redraw and it will trigger layoutChange and resize events.
+        /// Note: Invoking the method will not trigger collapse or expand events.
+        /// </summary>
+        /// <param name="pane">The pane to be resized.</param>
+        /// <param name="expand ">(Optional) Represents the desired state of the specified pane; to be expanded (true) or collapsed (false).
+        /// If undefined, toggle() will collapse the pane if it is expanded or will expand the pane if it is collapsed.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the splitter
+        /// var splitter = $("#splitter").data("kendoSplitter");
+        /// // toggle the state of the pane with ID, pane1
+        /// splitter.toggle("#pane1");
+        /// // toggle the state of the pane with ID, pane1 to be expanded
+        /// splitter.toggle("#pane1", true);
+        /// // toggle the state of the pane with ID, pane1 to be collapsed
+        /// splitter.toggle("#pane1", false);
+        ///</code>
+        ///</example>
+        public void toggle(HtmlElement pane) { }
+        //TODO:HtmlElement = DOM Element (?)
+
+        /// <summary>
+        /// Triggered when a pane of a Splitter is collapsed.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for collapse
+        /// var onCollapse = function(e) {
+        ///     // access the collapsed item via e.item (HTMLElement)
+        /// };
+        /// 
+        /// // attach collapse event handler during initialization
+        /// var panelBar = $("#panelBar").kendoPanelBar({
+        ///     collapse: onCollapse
+        /// });
+        /// 
+        /// // detach collapse event handler via unbind()
+        /// panelBar.data("kendoPanelBar").unbind("collapse", onCollapse);
+        ///</code>
+        ///</example>
+        public event JsAction<SplitterEventData> collapseEvent { add { } remove { } }
+        //TODO: event name is collapse
+
+        /// <summary>
+        /// Triggered when the content for a pane has finished loading.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for contentLoad
+        /// var onContentLoad = function(e) {
+        ///     // access the loaded pane via e.pane (HTMLElement)
+        /// };
+        /// 
+        /// // attach contentLoad event handler during initialization
+        /// var splitter = $("#splitter").kendoSplitter({
+        ///     contentLoad: onContentLoad
+        /// });
+        /// 
+        /// // detach contentLoad event handler via unbind()
+        /// splitter.data("kendoSplitter").unbind("contentLoad", onContentLoad);
+        ///</code>
+        ///</example>
+        public event JsAction<SplitterEventData> contentLoad { add { } remove { } }
+
+        /// <summary>
+        /// Triggered when a pane of a Splitter is expanded.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for expand
+        /// var onExpand = function(e) {
+        ///     // access the expanded item via e.item (HTMLElement)
+        /// };
+        /// 
+        /// // attach expand event handler during initialization
+        /// var panelBar = $("#panelBar").kendoPanelBar({
+        ///     expand: onExpand
+        /// });
+        /// 
+        /// // detach expand event handler via unbind()
+        /// panelBar.data("kendoPanelBar").unbind("expand", onExpand);
+        ///</code>
+        ///</example>
+        public event JsAction<SplitterEventData> expandEvent { add { } remove { } }
+        //TODO: event name is expand
+
+        /// <summary>
+        /// Fires when the splitter layout has changed
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for resize
+        /// var onLayoutChange = function(e) {
+        ///     // ...
+        /// };
+        /// 
+        /// $("#splitter").kendoSplitter({
+        ///     layoutChange: onLayoutChange
+        /// });
+        ///</code>
+        ///</example>
+        public event JsAction<EmptyEventData> layoutChange { add { } remove { } }
+
+        /// <summary>
+        /// Triggered when a pane is resized.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for resize
+        /// var onResize = function(e) {
+        ///     // ...
+        /// };
+        /// 
+        /// // attach resize event handler during initialization
+        /// var splitter = $("#splitter").kendoSplitter({
+        ///     resize: onResize
+        /// });
+        /// 
+        /// // detach resize event handler via unbind()
+        /// splitter.data("kendoSplitter").unbind("resize", onResize);
+        ///</code>
+        ///</example>
+        public event JsAction<EmptyEventData> resize { add { } remove { } }
     }
     public class SplitterConfiguration
     {
+        /// <summary>
+        /// (default: horizontal) Specifies the orientation of the Splitter.
+        /// </summary>
+        public OrientationOptions orientation { get; set; }
+
+        /// <summary>
+        /// An array of pane definitions.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("#splitter").kendoSplitter({
+        ///    panes: [
+        ///        { size: "200px", min: "100px", max: "300px" },
+        ///        { size: "20%", resizable: false },
+        ///        { collapsed: true, collapsible: true }
+        ///    ]
+        ///});
+        ///</code>
+        ///</example>
+        public JsArray panes { get; set; }
+    }
+    public class SplitterPanesConfiguration
+    {
+        /// <summary>
+        /// (default: false) Specifies whether a pane is initially collapsed (true) or expanded (true).
+        /// </summary>
+        public bool collapsed { get; set; }
+
+        /// <summary>
+        /// (default: false) Specifies whether a pane is collapsible (true) or not collapsible (false).
+        /// </summary>
+        public bool collapsible { get; set; }
+
+        /// <summary>
+        /// (default: true) Specifies the URL from which to load the content of a pane.
+        /// </summary>
+        public bool contentUrl { get; set; }
+
+        /// <summary>
+        /// Specifies the maximum size of a pane defined as pixels
+        /// (i.e. "200px") or as a percentage (i.e. "50%"). The size of a resized pane cannot exceed the defined maximum size.
+        /// </summary>
+        public JsString max { get; set; }
+
+        /// <summary>
+        /// Specifies the minimum size of a pane defined as pixels
+        /// (i.e. "200px") or as a percentage (i.e. "50%"). The size of a resized pane cannot be less than the defined minimum size.
+        /// </summary>
+        public JsString min { get; set; }
+
+        /// <summary>
+        /// (default: true) Specifies whether a pane is resizable (true) or not resizable (false).
+        /// </summary>
+        public bool resizable { get; set; }
+
+        /// <summary>
+        /// (default: true) Specifies whether a pane is scrollable (true) or not scrollable (false).
+        /// </summary>
+        public bool scrollable { get; set; }
+
+        /// <summary>
+        /// Specifies the size of a pane defined as pixels (i.e. "200px") or as a percentage (i.e. "50%"). Note: This value must not exceed panes.max or be less then panes.min
+        /// </summary>
+        public JsString size { get; set; }
+    }
+    public class SplitterEventData
+    {
+
+        public HtmlElement pane { get; set; }
     }
 
     //TODO: must check all animation Configuration in all classes!!!
-    //KendoUI.Web.
+    //KendoUI.Web.Splitter
 }
 
