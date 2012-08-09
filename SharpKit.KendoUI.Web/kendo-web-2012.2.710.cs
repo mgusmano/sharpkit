@@ -6134,48 +6134,6 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public PanelBar append(JsString item, object referenceItem) { return null; }
-        /// <summary>
-        /// Appends an item to the PanelBar.
-        /// </summary>
-        /// <param name="item">Target item, specified as the JSON representation of an object. You can pass item text, content or contentUrl here.
-        /// Can handle an HTML string or array of such strings or JSON.</param>
-        /// <param name="referenceItem">A reference item to append the new item in.</param>
-        /// <returns> Returns the PanelBar object to support chaining.</returns>
-        ///<example>
-        ///usage
-        ///<code>
-        /// // get a reference to the menu widget
-        /// var menu = $("#menu").data("kendoMenu");
-        /// //
-        /// menu.append(
-        ///     [{
-        ///         text: "Item 1",
-        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
-        ///     },
-        ///     {
-        ///         text: "<b>Item 2</b>",
-        ///         encoded: false,                                 // Allows use of HTML for item text
-        ///         content: "text"                                 // content within an item
-        ///     },
-        ///     {
-        ///         text: "Item 3",
-        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
-        ///         items: [{                                    // Sub item collection
-        ///              text: "Sub Item 1"
-        ///         },
-        ///         {
-        ///              text: "Sub Item 2"
-        ///         }]
-        ///     },
-        ///     {
-        ///         text: "Item 4",
-        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
-        ///     }],
-        ///     referenceItem
-        /// );
-        ///</code>
-        ///</example>
         public PanelBar append(JsArray item, object referenceItem) { return null; }
 
         /// <summary>
@@ -6187,27 +6145,6 @@ namespace SharpKit.KendoUI.Web
         /// <returns>Returns the PanelBar object to support chaining.</returns>
         public PanelBar collapse(JsString element, bool useAnimation, HtmlElement item) { return null; }
 
-        /// <summary>
-        ///Enables (true) or disables (false) the specified item(s) of the PanelBar.
-        /// </summary>
-        /// <param name="element">The PanelBar item(s) to be enabled (true) or disabled (false),
-        /// expressed as a string containing a selector expression or represented by a jQuery selector.</param>
-        /// <param name="enable">The desired state - enabled (true) or disabled (false) - of the target element(s).</param>
-        ///<example>
-        ///usage
-        ///<code>
-        /// // access an existing PanelBar instance
-        /// var panelBar = $("#panelBar").data("kendoPanelBar");
-        /// // enable the item of the PanelBar with ID, "item1"
-        /// panelBar.enable($("#item1"), true);
-        /// // disable the currently selected item of the PanelBar
-        /// var item = panelBar.select();
-        /// panelBar.enable(item, false);
-        /// // disable all list items that start with ID, "item"
-        /// panelBar.enable($('[id^="item"]'), false);
-        ///</code>
-        ///</example>
-        public void enable(JsString element, bool enable) { }
         /// <summary>
         ///Enables (true) or disables (false) the specified item(s) of the PanelBar.
         /// </summary>
@@ -6252,48 +6189,6 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public PanelBar expand(JsString element, bool useAnimation, HtmlElement item) { return null; }
 
-        /// <summary>
-        /// Inserts a PanelBar item after the specified referenceItem
-        /// </summary>
-        /// <param name="item">Target item, specified as a JSON object. You can pass item text, content or contentUrl here. Can handle an HTML string or array of such strings or JSON.</param>
-        /// <param name="referenceItem">A reference item to insert the new item after</param>
-        ///<example>
-        ///usage
-        ///<code>
-        ///panelBar.insertAfter(
-        ///     [{
-        ///         text: "Item 1",
-        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
-        ///     },
-        ///     {
-        ///         text: "<b>Item 2</b>",
-        ///         encoded: false,                              // Allows use of HTML for item text
-        ///         content: "text"                              // Content for the content element
-        ///     },
-        ///     {
-        ///         text: "Item 3",
-        ///         contentUrl: "partialContent.html"            // From where to load the item content
-        ///     },
-        ///     {
-        ///         text: "Item 4",
-        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
-        ///         expanded: true,                              // item is rendered expanded
-        ///         items: [{                                    // Sub item collection.
-        ///              text: "Sub Item 1"
-        ///         },
-        ///         {
-        ///              text: "Sub Item 2"
-        ///         }]
-        ///     },
-        ///     {
-        ///         text: "Item 5",
-        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
-        ///     }],
-        ///     referenceItem
-        /// );
-        ///</code>
-        ///</example>
-        public void insertAfter(JsString item, object referenceItem) { }
         /// <summary>
         /// Inserts a PanelBar item after the specified referenceItem
         /// </summary>
@@ -6464,49 +6359,6 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public PanelBar insertBefore(JsString item, object referenceItem) { return null; }
-        /// <summary>
-        /// Inserts a PanelBar item before the specified referenceItem
-        /// </summary>
-        /// <param name="item">Target item, specified as a JSON object. You can pass item text, content or contentUrl here. Can handle an TML string or array of such strings or JSON.</param>
-        /// <param name="referenceItem">A reference item to append the new item in.</param>
-        /// <returns>Returns the PanelBar object to support chaining.</returns>
-        ///<example>
-        ///usage
-        ///<code>
-        ///panelBar.insertBefore(
-        ///     [{
-        ///         text: "Item 1",
-        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
-        ///     },
-        ///     {
-        ///         text: "<b>Item 2</b>",
-        ///         encoded: false,                              // Allows use of HTML for item text
-        ///         content: "text"                              // Content for the content element
-        ///     },
-        ///     {
-        ///         text: "Item 3",
-        ///         contentUrl: "partialContent.html"            // From where to load the item content
-        ///     },
-        ///     {
-        ///         text: "Item 4",
-        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
-        ///         expanded: true,                              // item is rendered expanded
-        ///         items: [{                                    // Sub item collection.
-        ///              text: "Sub Item 1"
-        ///         },
-        ///         {
-        ///              text: "Sub Item 2"
-        ///         }]
-        ///     },
-        ///     {
-        ///         text: "Item 5",
-        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
-        ///     }],
-        ///     referenceItem
-        /// );
-        ///</code>
-        ///</example>
         public PanelBar insertBefore(JsArray<JsString> item, object referenceItem) { return null; }
 
         /// <summary>
@@ -6539,21 +6391,6 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public void remove(JsString element) { }
 
-        /// <summary>
-        /// Selects the specified item of the PanelBar. If this method is invoked without arguments, it returns the currently selected item.
-        /// </summary>
-        /// <param name="element">The PanelBar item to be selected, expressed as a string containing a selector expression or represented by a jQuery selector.</param>
-        /// <param name="item">The selected item of the PanelBar.</param>
-        ///<example>
-        ///usage
-        ///<code>
-        /// // access an existing PanelBar instance
-        /// var panelBar = $("#panelBar").data("kendoPanelBar");
-        /// // select the item with ID, "item1"
-        /// panelBar.select("#item1");
-        ///</code>
-        ///</example>
-        public void select(JsString element, HtmlElement item) { }
         /// <summary>
         /// Selects the specified item of the PanelBar. If this method is invoked without arguments, it returns the currently selected item.
         /// </summary>
@@ -7877,92 +7714,8 @@ namespace SharpKit.KendoUI.Web
         /// );
         ///</code>
         ///</example>
-        public TabStrip insertAfter(JsString item, object referenceItem) { return null; }
-        /// <summary>
-        /// Inserts a newly-created tab after a specified tab.
-        /// </summary>
-        /// <param name="item">Target item, specified as a JSON object. Can also handle an array of such objects.</param>
-        /// <param name="referenceItem">A reference item to append the new item in.</param>
-        /// <returns>Returns the TabStrip object to support chaining.</returns>
-        ///<example>
-        ///usage
-        ///<code>
-        /// // get a reference to the menu widget
-        /// var menu = $("#menu").data("kendoMenu");
-        /// //
-        /// menu.insertAfter(
-        ///     [{
-        ///         text: "Item 1",
-        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
-        ///     },
-        ///     {
-        ///         text: "<b>Item 2</b>",
-        ///         encoded: false,                                 // Allows use of HTML for item text
-        ///         content: "text"                                 // content within an item
-        ///     },
-        ///     {
-        ///         text: "Item 3",
-        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
-        ///         items: [{                                    // Sub item collection
-        ///              text: "Sub Item 1"
-        ///         },
-        ///         {
-        ///              text: "Sub Item 2"
-        ///         }]
-        ///     },
-        ///     {
-        ///         text: "Item 4",
-        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
-        ///     }],
-        ///     referenceItem
-        /// );
-        ///</code>
-        ///</example>
         public TabStrip insertAfter(JsArray<JsString> item, object referenceItem) { return null; }
 
-        /// <summary>
-        /// Inserts a newly-created tab before a specified tab.
-        /// </summary>
-        /// <param name="item">Target item, specified as a JSON object. You can pass item text, content or contentUrl here. Can handle an TML string or array of such strings or JSON.</param>
-        /// <param name="referenceItem">A reference item to append the new item in.</param>
-        /// <returns>TabStrip Returns the TabStrip object to support chaining.</returns>
-        ///<example>
-        ///usage
-        ///<code>
-        ///panelBar.insertBefore(
-        ///     [{
-        ///         text: "Item 1",
-        ///         url: "http://www.kendoui.com"                // Link URL if navigation is needed, optional.
-        ///     },
-        ///     {
-        ///         text: "<b>Item 2</b>",
-        ///         encoded: false,                              // Allows use of HTML for item text
-        ///         content: "text"                              // Content for the content element
-        ///     },
-        ///     {
-        ///         text: "Item 3",
-        ///         contentUrl: "partialContent.html"            // From where to load the item content
-        ///     },
-        ///     {
-        ///         text: "Item 4",
-        ///         imageUrl: "http://www.kendoui.com/test.jpg", // Item image URL, optional.
-        ///         expanded: true,                              // item is rendered expanded
-        ///         items: [{                                    // Sub item collection.
-        ///              text: "Sub Item 1"
-        ///         },
-        ///         {
-        ///              text: "Sub Item 2"
-        ///         }]
-        ///     },
-        ///     {
-        ///         text: "Item 5",
-        ///         spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
-        ///     }],
-        ///     referenceItem
-        /// );
-        ///</code>
-        ///</example>
-        public TabStrip insertBefore(JsString item, object referenceItem) { return null; }
         /// <summary>
         /// Inserts a newly-created tab before a specified tab.
         /// </summary>
@@ -8808,19 +8561,6 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public jQuery.jQuery findByUid(JsString text) { return null; }
 
-        /// <summary>
-        /// Inserts a node after a specified node in a TreeView. This method may also be used to reorder the nodes of a TreeView.
-        /// </summary>
-        /// <param name="nodeData">A JSON-formatted string or selector that specifies the node to be inserted.</param>
-        /// <param name="referenceNode">The node that will be preceed the newly-appended node.</param>
-        ///<example>
-        ///usage
-        ///<code>
-        ///var treeView = $("#treeView").data("kendoTreeView");
-        ///treeView.insertAfter({ text: "JavaScript" }, $("#firstItem"));
-        ///</code>
-        ///</example>
-        public void insertAfter(JsString nodeData, HtmlNode referenceNode) { }
         /// <summary>
         /// Inserts a node after a specified node in a TreeView. This method may also be used to reorder the nodes of a TreeView.
         /// </summary>
