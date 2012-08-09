@@ -109,6 +109,20 @@ namespace SharpKit.jQuery
 
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoRangeSlider(this jQuery query, RangeSliderConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoSlider(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoSlider(this jQuery query, SliderConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoSplitter(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoSplitter(this jQuery query, SplitterConfiguration configuration) { return null; }
     }
 
 }
@@ -320,7 +334,6 @@ namespace SharpKit.KendoUI.Web
         //TODO: event name is select
 
     }
-
     public class AutoCompleteConfiguration
     {
         /// <summary>
@@ -541,13 +554,19 @@ namespace SharpKit.KendoUI.Web
     public class EmptyEventData
     {
     }
-
     public class SelectEventData
     {
         /// <summary>
         /// The selected item chosen by a user.
         /// </summary>
         public jQuery.jQuery item { get; set; }
+    }
+    public class OneItemEventData
+    {
+        /// <summary>
+        /// The selected  item
+        /// </summary>
+        public HtmlElement item { get; set; }
     }
 
     public class Calendar
@@ -814,7 +833,6 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<EmptyEventData> navigateEvent { add { } remove { } }
         //TODO: event name is navigate
     }
-
     public class CalendarConfiguration
     {
 
@@ -1271,7 +1289,6 @@ namespace SharpKit.KendoUI.Web
         //TODO: event name is select
 
     }
-
     public class ComboBoxConfiguration
     {
         /// <summary>
@@ -1849,7 +1866,6 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<ViewOptions> openEvent { add { } remove { } }
         //TODO: event name is open
     }
-
     public class DatePickerConfiguration
     {
         /// <summary>
@@ -2291,7 +2307,6 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<ViewOptions> openEvent { add { } remove { } }
         //TODO: event name is open
     }
-
     public class DateTimePickerConfiguration
     {
         /// <summary>
@@ -2482,7 +2497,6 @@ namespace SharpKit.KendoUI.Web
     {
         public ViewOptions view { get; set; }
     }
-
     public enum ViewOptions
     {
         date,
@@ -2786,7 +2800,6 @@ namespace SharpKit.KendoUI.Web
         //TODO: event name is select
 
     }
-
     public class DropDownListConfiguration
     {
         /// <summary>
@@ -3146,7 +3159,6 @@ namespace SharpKit.KendoUI.Web
 
 
     }
-
     public class EditorConfiguration
     {
         /// <summary>
@@ -3748,7 +3760,6 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<EmptyEventData> saveChangesEvent { add { } remove { } }
         //TODO: event name is saveChanges
     }
-
     public class GridConfiguration
     {
 
@@ -4139,7 +4150,6 @@ namespace SharpKit.KendoUI.Web
 
 
     }
-
     public enum GridSelectableOptions
     {
         /// <summary>
@@ -4160,13 +4170,12 @@ namespace SharpKit.KendoUI.Web
         multipleCell
 
     }
-
     public class GridColumnsConfiguration
     {
         /// <summary>
         /// Definition of command column. The supported built-in commands are: "create", "cancel", "save", "destroy".
         /// </summary>
-        public ColumnsCommandOptions command { get; set; }
+        public GridColumnsCommandOptions command { get; set; }
         /// <summary>
         /// Definition of command column. The supported built-in commands are: "create", "cancel", "save", "destroy".
         /// </summary>
@@ -4177,7 +4186,7 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// Provides a way to specify custom editor for this column.
         /// </summary>
-        public ColumnsEditorConfiguration editor { get; set; }
+        public GridColumnsEditorConfiguration editor { get; set; }
         /// <summary>
         /// Provides a way to specify custom editor for this column.
         /// </summary>
@@ -4265,8 +4274,7 @@ namespace SharpKit.KendoUI.Web
         public JsString width { get; set; }
 
     }
-
-    public enum ColumnsCommandOptions
+    public enum GridColumnsCommandOptions
     {
         create,
         cancel,
@@ -4274,8 +4282,7 @@ namespace SharpKit.KendoUI.Web
         destroy,
 
     }
-
-    public class ColumnsEditorConfiguration
+    public class GridColumnsEditorConfiguration
     {
         /// <summary>
         /// The container in which the editor must be added.
@@ -4285,9 +4292,9 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// Additional options.
         /// </summary>
-        public ColumnsEditorOptionsConfiguration options { get; set; }
+        public GridColumnsEditorOptionsConfiguration options { get; set; }
     }
-    public class ColumnsEditorOptionsConfiguration
+    public class GridColumnsEditorOptionsConfiguration
     {
         /// <summary>
         /// The field for the editor.
@@ -4299,7 +4306,6 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public object model { get; set; }
     }
-
     public class GridEditableConfiguration
     {
         /// <summary>
@@ -4332,7 +4338,6 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public bool update { get; set; }
     }
-
     public class GridPageableConfiguration
     {
         /// <summary>
@@ -4386,7 +4391,6 @@ namespace SharpKit.KendoUI.Web
         public GridPageableMessagesConfiguration messages { get; set; }
 
     }
-
     public class GridPageableMessagesConfiguration
     {
         /// <summary>
@@ -4439,7 +4443,6 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsString refresh { get; set; }
     }
-
     public class GridSortableConfiguration
     {
         /// <summary>
@@ -4450,7 +4453,6 @@ namespace SharpKit.KendoUI.Web
         public GridSortableModeOptions mode { get; set; }
 
     }
-
     public enum GridSortableModeOptions
     {
         /// <summary>
@@ -4469,7 +4471,6 @@ namespace SharpKit.KendoUI.Web
         save,
         destroy,
     }
-
     public class GridSortableToolbarConfiguration
     {
         /// <summary>
@@ -4488,7 +4489,6 @@ namespace SharpKit.KendoUI.Web
         public JsString text { get; set; }
 
     }
-
     public class GridDetailCollapseEventData
     {
         /// <summary>
@@ -4501,7 +4501,6 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public object detailRow { get; set; }
     }
-
     public class GridDetailInitEventData
     {
         /// <summary>
@@ -4525,7 +4524,6 @@ namespace SharpKit.KendoUI.Web
         public object data { get; set; }
 
     }
-
     public class GridEditEventData
     {
         /// <summary>
@@ -4538,7 +4536,6 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public object model { get; set; }
     }
-
     public class GridRemoveEventData
     {
         /// <summary>
@@ -4551,7 +4548,6 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public object model { get; set; }
     }
-
     public class GridSaveEventData
     {
         /// <summary>
@@ -4787,7 +4783,6 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<ListViewRemoveEventData> removeEvent { add { } remove { } }
         //TODO: event name is remove
     }
-
     public class ListViewConfiguration
     {
 
@@ -4901,7 +4896,6 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public GridSelectableOptions selectable { get; set; }
     }
-
     public class ListViewEditEventData
     {
         /// <summary>
@@ -4914,7 +4908,6 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public object model { get; set; }
     }
-
     public class ListViewRemoveEventData
     {
         /// <summary>
@@ -5344,15 +5337,6 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<OneItemEventData> selectEvent { add { } remove { } }
         //TODO: event name is select
     }
-
-    public class OneItemEventData
-    {
-        /// <summary>
-        /// The selected  item
-        /// </summary>
-        public HtmlElement item { get; set; }
-    }
-
     public class MenuConfiguration
     {
         /// <summary>
@@ -5692,7 +5676,6 @@ namespace SharpKit.KendoUI.Web
 
 
     }
-
     public class NumericTextBoxConfiguration
     {
         /// <summary>
@@ -5934,7 +5917,6 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public event JsAction<EmptyEventData> change { add { } remove { } }
     }
-
     public class PagerConfiguration
     {
         /// <summary>
@@ -6719,7 +6701,6 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<OneItemEventData> selectEvent { add { } remove { } }
         //TODO: event name is select
     }
-
     public class PanelBarConfiguration
     {
         /// <summary>
@@ -6763,7 +6744,6 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public PanelBarExpandModeOptions expandMode { get; set; }
     }
-
     public class PanelBarAnimationConfiguration
     {
         /// <summary>
@@ -6814,7 +6794,6 @@ namespace SharpKit.KendoUI.Web
         public PanelBarAnimationOpenConfiguration open { get; set; }
 
     }
-
     public class PanelBarAnimationCloseConfiguration
     {
         /// <summary>
@@ -6855,7 +6834,6 @@ namespace SharpKit.KendoUI.Web
         public JsString effects { get; set; }
 
     }
-
     public class PanelBarAnimationOpenConfiguration
     {
         /// <summary>
@@ -6901,7 +6879,6 @@ namespace SharpKit.KendoUI.Web
         public bool show { get; set; }
 
     }
-
     public enum PanelBarExpandModeOptions
     {
         /// <summary>
@@ -6913,7 +6890,6 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         multiple,
     }
-
     public class PanelBarContentLoadEventData
     {
         /// <summary>
@@ -6926,7 +6902,6 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public HtmlElement contentElement { get; set; }
     }
-
     public class PanelBarErrorEventData
     {
         /// <summary>
@@ -7016,7 +6991,6 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public event JsAction<RangeSliderEventData> slide { add { } remove { } }
     }
-
     public class RangeSliderConfiguration
     {
         /// <summary>
@@ -7038,7 +7012,7 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// (default: "horizontal") F The orientation of a RangeSlider; "horizontal" or "vertical".
         /// </summary>
-        public JsString orientation { get; set; }
+        public OrientationOptions orientation { get; set; }
 
         /// <summary>
         /// The selection end value of the RangeSlider.
@@ -7075,7 +7049,6 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public RangeSliderTooltipConfiguration tooltip { get; set; }
     }
-
     public enum RangeSliderTickPlacementOptions
     {
         /// <summary>
@@ -7107,7 +7080,6 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsString format { get; set; }
     }
-
     public class RangeSliderEventData
     {
         /// <summary>
@@ -7116,6 +7088,178 @@ namespace SharpKit.KendoUI.Web
         public JsNumber value { get; set; }
     }
 
+    public class Slider
+    {
+
+        /// <summary>
+        /// Prepares the Slider for safe removal from the DOM.
+        /// Detaches event handlers and removes data entries in order to avoid memory leaks.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // deatach events
+        /// $("#rangeSlider").data("kendoRangeSlider").destroy();
+        /// 
+        /// // remove slider html from DOM
+        /// $("#rangeSlider").closest(".k-slider").remove();
+        ///</code>
+        ///</example>
+        public void destroy() { }
+
+        /// <summary>
+        /// Enable/Disable the Slider widget.
+        /// </summary>
+        /// <param name="enable">The argument, which defines whether to enable/disable the Slider.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the slider widget
+        /// var Slider = $("#Slider").data("kendoSlider");
+        /// 
+        /// // disables the range slider
+        /// Slider.enable(false);
+        /// 
+        /// // enables the range slider
+        /// Slider.enable(true);
+        ///</code>
+        ///</example>
+        public void enable(bool enable) { }
+
+        /// <summary>
+        /// Gets the value of a Slider. It accepts a string or number as parameters and returns a number representing the underlying value.
+        /// </summary>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var rangeSider = $("#rangeSlider").data("kendoRangeSlider");
+        /// rangeSlider.value();
+        ///</code>
+        ///</example>
+        public JsNumber value() { return null; }
+        /// <summary>
+        /// Sets the value of a Slider. It accepts a string or number as parameters and returns a number representing the underlying value.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var rangeSider = $("#rangeSlider").data("kendoRangeSlider");
+        /// rangeSlider.value();
+        ///</code>
+        ///</example>
+        public void value(JsNumber value) { }
+        /// <summary>
+        /// Sets the value of a Slider. It accepts a string or number as parameters and returns a number representing the underlying value.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var rangeSider = $("#rangeSlider").data("kendoRangeSlider");
+        /// rangeSlider.value();
+        ///</code>
+        ///</example>
+        public void value(JsString value) { }
+        //TODO: danel check
+
+        /// <summary>
+        /// Fires when the slider value changes as a result of selecting a new value with the drag handle, buttons or keyboard.
+        /// </summary>
+        public event JsAction<RangeSliderEventData> change { add { } remove { } }
+
+        /// <summary>
+        /// Fires when the user drags the drag handle to a new position.
+        /// </summary>
+        public event JsAction<RangeSliderEventData> slide { add { } remove { } }
+    }
+    public class SliderConfiguration
+    {
+        /// <summary>
+        /// (default: "Decrease") The title of the decrease button of the Slider.
+        /// </summary>
+        public JsString decreaseButtonTitle  { get; set; }
+
+        /// <summary>
+        /// (default: "Increase") The title of the increase button of the Slider.
+        /// </summary>
+        public JsString increaseButtonTitle { get; set; }
+
+        /// <summary>
+        /// (default: 5) The delta with which the value will change when the user presses the Page Up or Page Down key (the drag handle must be focused).
+        /// Note: The allied largeStep will also set large tick for every large step.
+        /// </summary>
+        public JsNumber largeStep { get; set; }
+
+        /// <summary>
+        /// (default: 10) The maximum value of the Slider.
+        /// </summary>
+        public JsNumber max { get; set; }
+
+        /// <summary>
+        /// (default: 0) The minimum value of the Slider.
+        /// </summary>
+        public JsNumber min { get; set; }
+
+        /// <summary>
+        /// (default: "horizontal") F The orientation of a Slider; "horizontal" or "vertical".
+        /// </summary>
+        public OrientationOptions orientation { get; set; }
+
+        /// <summary>
+        /// (default: true) Can be used to show (true) or hide (false) the increase and decrease buttons of a Slider.
+        /// </summary>
+        public bool showButtons  { get; set; }
+
+        /// <summary>
+        /// (default: 1) The small step value of the Slider. The underlying value will be changed when the end user (1) clicks on the increase
+        /// or decrease buttons of the Slider, (2) presses the arrow keys (the drag handle must be focused), or (3) drags the drag handle.
+        /// </summary>
+        public JsNumber smallStep { get; set; }
+
+        /// <summary>
+        /// (default: "both")
+        /// Denotes the location of the tick marks in the Slider. The available options are:
+        /// "topLeft"
+        /// Tick marks are located on the top of the horizontal widget or on the left of the vertical widget.
+        /// "bottomRight"
+        /// Tick marks are located on the bottom of the horizontal widget or on the right side of the vertical widget.
+        /// "both"
+        /// Tick marks are located on both sides of the widget.
+        /// "none"
+        /// Tick marks are not visible.
+        /// </summary>
+        public RangeSliderTickPlacementOptions tickPlacement { get; set; }
+
+        /// <summary>
+        /// Configuration of the Slider tooltip.
+        /// </summary>
+        public RangeSliderTooltipConfiguration tooltip { get; set; }
+
+        /// <summary>
+        /// The underlying value of the Slider.
+        /// </summary>
+        public JsNumber value { get; set; }
+    }
+    public enum OrientationOptions 
+    {
+        /// <summary>
+        /// Define horizontal orientation
+        /// </summary>
+        horizontal,
+        /// <summary>
+        /// Define vertical orientation of the splitter.
+        /// </summary>
+        vertical,
+    }
+
+    public class Splitter
+    {
+    }
+    public class SplitterConfiguration
+    {
+    }
+
     //TODO: must check all animation Configuration in all classes!!!
+    //KendoUI.Web.
 }
 
