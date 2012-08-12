@@ -76,6 +76,11 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class AccordionOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the droppable. Can be set when initialising (first creating) the droppable.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
         ///<summary>
         ///Selector for the active element. Set to false to display none at start. Needs collapsible: true.
         ///Default: first child
@@ -202,11 +207,50 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class AutocompleteOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the droppable. Can be set when initialising (first creating) the droppable.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
+        /// <summary>
+        /// Which element the menu should be appended to.
+        /// </summary>
+        public JsString appendTo { get; set; }
+        /// <summary>
+        /// If set to true the first item will be automatically focused.
+        /// Default:false
+        /// </summary>
+        public bool autoFocus { get; set; }
+        /// <summary>
+        /// The delay in milliseconds the Autocomplete waits after a keystroke to activate itself.
+        /// A zero-delay makes sense for local data (more responsive), but can produce a lot of load for remote data, while being less responsive.
+        /// Default:300
+        /// </summary>
+        public JsNumber delay { get; set; }
+        /// <summary>
+        /// The minimum number of characters a user has to type before the Autocomplete activates. Zero is useful for local data with just a few items.
+        /// Should be increased when there are a lot of items, where a single character would match a few thousand items.
+        /// Default:1
+        /// </summary>
+        public JsNumber minLength { get; set; }
+        /// <summary>
+        /// Identifies the position of the Autocomplete widget in relation to the associated input element. The "of" option defaults to the input element, but you can specify another element to position against.
+        /// You can refer to the jQuery UI Position utility for more details about the various options.
+        /// Default:{ my: "left top", at: "left bottom", collision: "none" }
+        /// </summary>
+        public object position { get; set; }
+        /// <summary>
+        /// Defines the data to use, must be specified. See Overview section for more details, and look at the various demos.
+        /// Default:none, must be specified
+        /// </summary>
         public object source { get; set; }
+
+        //TODO: events: create, search, open, focus and close.
+
         public jQueryUIEvent change { get; set; }
         public jQueryUIEvent select { get; set; }
-        public JsNumber delay { get; set; }
-        public JsNumber minLength { get; set; }
+
+
     }
     #endregion
 
@@ -269,10 +313,30 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class ButtonOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the button. Can be set when initialising (first creating) the button.
+        /// Default:false
+        /// </summary>
         public bool disabled { get; set; }
+        /// <summary>
+        /// Whether to show any text - when set to false (display no text), icons (see icons option) must be enabled, otherwise it'll be ignored.
+        /// Default:true
+        /// </summary>
         public bool text { get; set; }
+        /// <summary>
+        /// Icons to display, with or without text (see text option). The primary icon is displayed by default on the left of the label text, the secondary by default is on the right. Value for the primary and secondary properties must be a classname (String), eg. "ui-icon-gear".
+        /// For using only one icon: icons: {primary:'ui-icon-locked'}. For using two icons: icons: {primary:'ui-icon-gear',secondary:'ui-icon-triangle-1-s'}
+        /// Default:{ primary: null, secondary: null }
+        /// </summary>
         public object icons { get; set; }
+        /// <summary>
+        /// Text to show on the button. When not specified (null), the element's html content is used, or its value attribute when it's an
+        /// input element of type submit or reset; or the html content of the associated label element if its an input of type radio or checkbox
+        /// Default:HTML content of the button, or value attribute
+        /// </summary>
         public JsString label { get; set; }
+
+        //TODO: create event
     }
     #endregion
     #region Datepicker
@@ -782,6 +846,10 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class DraggableOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the draggable. Can be set when initialising (first creating) the draggable.
+        /// </summary>
+        public bool disabled { get; set; }
         ///<summary>
         ///If set to false, will prevent the ui-draggable class from being added. This may be desired as a performance optimization when calling .draggable() init on many hundreds of elements.
         ///Default: true
@@ -925,6 +993,9 @@ namespace SharpKit.jQuery
         ///Default: false
         ///</summary>
         public int zIndex { get; set; }
+
+        //TODO: create event
+
         ///<summary>
         ///This event is triggered when dragging starts.
         ///Default: null
@@ -992,6 +1063,11 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class DroppableOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the droppable. Can be set when initialising (first creating) the droppable.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
         ///<summary>
         ///All draggables that match the selector will be accepted. If a function is specified, the function will be called for each draggable on the page (passed as the first argument to the function), to provide a custom filter. The function should return true if the draggable should be accepted.
         ///Default: '*'
@@ -1032,6 +1108,9 @@ namespace SharpKit.jQuery
         ///Default: 'intersect'
         ///</summary>
         public string tolerance { get; set; }
+
+        //TODO: create event
+
         ///<summary>
         ///This event is triggered any time an accepted draggable starts dragging. This can be useful if you want to make the droppable 'light up' when it can be dropped on.
         ///Default: null
@@ -1343,6 +1422,11 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class ResizableOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the resizable. Can be set when initialising (first creating) the resizable.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
         ///<summary>
         ///Resize these elements synchronous when resizing.
         ///Default: false
@@ -1439,6 +1523,9 @@ namespace SharpKit.jQuery
         ///Default: 10
         ///</summary>
         public int minWidth { get; set; }
+
+        //TODO: create event
+
         ///<summary>
         ///This event is triggered at the start of a resize operation.
         ///Default: null
@@ -1477,6 +1564,11 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class SelectableOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the droppable. Can be set when initialising (first creating) the droppable.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
         ///<summary>
         ///This determines whether to refresh (recalculate) the position and size of each selectee at the beginning of each select operation. If you have many many items, you may want to set this to false and call the refresh method manually.
         ///Default: true
@@ -1509,6 +1601,9 @@ namespace SharpKit.jQuery
         ///Default: 'touch'
         ///</summary>
         public string tolerance { get; set; }
+
+        //TODO: create event
+
         ///<summary>
         ///This event is triggered at the end of the select operation, on each element added to the selection.
         ///Default: null
@@ -1752,6 +1847,11 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class SortableOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the droppable. Can be set when initialising (first creating) the droppable.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
         ///<summary>
         ///Defines where the helper that moves with the mouse is being appended to during the drag (for example, to resolve overlap/zIndex issues).
         ///Default: 'parent'
@@ -1877,6 +1977,9 @@ namespace SharpKit.jQuery
         ///Default: 1000
         ///</summary>
         public int zIndex { get; set; }
+
+        //TODO: create event
+
         ///<summary>
         ///This event is triggered when sorting starts.
         ///Default: null
