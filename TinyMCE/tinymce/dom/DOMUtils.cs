@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.dom
+namespace SharpKit.TinyMCE.dom
 {
     /// <summary>
     /// Utility class for various DOM manipulation and retrival functions.
@@ -18,7 +18,7 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// <param name="a">Optional object collection with arguments to add to the new element(s).</param>
         /// <param name="h">Optional inner HTML contents to add for each element.</param>
         /// <param name="c">Optional internal state to indicate if it should create or add.</param>
-        public SharpKit.TinyMCE.tinymce.dom.Element add(object a, string h, bool c){return null;}
+        public SharpKit.TinyMCE.dom.Element add(object a, string h, bool c){return null;}
         /// <summary>
         /// Adds a class to the specified element or elements.
         /// </summary>
@@ -42,7 +42,7 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// <param name="n">Name of new element.</param>
         /// <param name="a">Optional object name/value collection with element attributes.</param>
         /// <param name="h">Optional HTML string to set as inner HTML of the element.</param>
-        public SharpKit.TinyMCE.tinymce.dom.Element create(string n, object a, string h){return null;}
+        public SharpKit.TinyMCE.dom.Element create(string n, object a, string h){return null;}
         /// <summary>
         /// Create HTML string for element. The element will be closed unless an empty inner HTML string is passed.
         /// </summary>
@@ -80,7 +80,7 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// </summary>
         /// <param name="a">Element to find common ancestor of.</param>
         /// <param name="b">Element to find common ancestor of.</param>
-        public SharpKit.TinyMCE.tinymce.dom.Element findCommonAncestor(SharpKit.TinyMCE.tinymce.dom.Element a, SharpKit.TinyMCE.tinymce.dom.Element b){return null;}
+        public SharpKit.TinyMCE.dom.Element findCommonAncestor(SharpKit.TinyMCE.dom.Element a, SharpKit.TinyMCE.dom.Element b){return null;}
         /// <summary>
         /// Fires the specified event name with object on target.
         /// </summary>
@@ -90,7 +90,7 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// <summary>
         /// Returns the specified element by ID or the input element if it isn't a string.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Element get(){return null;}
+        public SharpKit.TinyMCE.dom.Element get(){return null;}
         /// <summary>
         /// Returns the specified attribute by name.
         /// </summary>
@@ -110,7 +110,7 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// Returns the next node that matches selector or function
         /// </summary>
         /// <param name="node">Node to find siblings from.</param>
-        public SharpKit.TinyMCE.tinymce.html.Node getNext(SharpKit.TinyMCE.tinymce.html.Node node){return null;}
+        public SharpKit.TinyMCE.html.Node getNext(SharpKit.TinyMCE.html.Node node){return null;}
         /// <summary>
         /// Returns the outer HTML of an element.
         /// </summary>
@@ -123,24 +123,24 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// </summary>
         /// <param name="f">Selection function to execute on each node or CSS pattern.</param>
         /// <param name="r">Optional root element, never go below this point.</param>
-        public SharpKit.TinyMCE.tinymce.html.Node getParent(object f, SharpKit.TinyMCE.tinymce.html.Node r){return null;}
+        public SharpKit.TinyMCE.html.Node getParent(object f, SharpKit.TinyMCE.html.Node r){return null;}
         /// <summary>
         /// Returns a node list of all parents matching the specified selector function or pattern.
         /// If the function then returns true indicating that it has found what it was looking for and that node will be collected.
         /// </summary>
         /// <param name="f">Selection function to execute on each node or CSS pattern.</param>
         /// <param name="r">Optional root element, never go below this point.</param>
-        public Array getParents(object f, SharpKit.TinyMCE.tinymce.html.Node r){return null;}
+        public Array getParents(object f, SharpKit.TinyMCE.html.Node r){return null;}
         /// <summary>
         /// Returns the absolute x, y position of a node. The position will be returned in a object with x, y fields.
         /// </summary>
         /// <param name="ro">Optional root element to stop calculations at.</param>
-        public object getPos(SharpKit.TinyMCE.tinymce.dom.Element ro){return null;}
+        public object getPos(SharpKit.TinyMCE.dom.Element ro){return null;}
         /// <summary>
         /// Returns the previous node that matches selector or function
         /// </summary>
         /// <param name="node">Node to find siblings from.</param>
-        public SharpKit.TinyMCE.tinymce.html.Node getPrev(SharpKit.TinyMCE.tinymce.html.Node node){return null;}
+        public SharpKit.TinyMCE.html.Node getPrev(SharpKit.TinyMCE.html.Node node){return null;}
         /// <summary>
         /// Returns the rectangle for a specific element.
         /// </summary>
@@ -149,7 +149,7 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// Returns the root node of the document this is normally the body but might be a DIV. Parents like getParent will not
         /// go above the point of this root node.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Element getRoot(){return null;}
+        public SharpKit.TinyMCE.dom.Element getRoot(){return null;}
         /// <summary>
         /// Returns the size dimensions of the specified element.
         /// </summary>
@@ -178,7 +178,7 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// Inserts a element after the reference element.
         /// </summary>
         /// <param name="node">Element to insert after the reference.</param>
-        public SharpKit.TinyMCE.tinymce.dom.Element insertAfter(SharpKit.TinyMCE.tinymce.dom.Element node){return null;}
+        public SharpKit.TinyMCE.dom.Element insertAfter(SharpKit.TinyMCE.dom.Element node){return null;}
         /// <summary>
         /// Returns true/false if the specified element matches the specified css pattern.
         /// </summary>
@@ -213,7 +213,7 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// Removes/deletes the specified element(s) from the DOM.
         /// </summary>
         /// <param name="keep_children">Optional state to keep children or not. If set to true all children will be placed at the location of the removed element.</param>
-        public SharpKit.TinyMCE.tinymce.dom.Element remove(bool keep_children){return null;}
+        public SharpKit.TinyMCE.dom.Element remove(bool keep_children){return null;}
         /// <summary>
         /// Removes a class from the specified element or elements.
         /// </summary>
@@ -224,14 +224,14 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// </summary>
         /// <param name="elm">Element to rename.</param>
         /// <param name="name">Name of the new element.</param>
-        public object rename(SharpKit.TinyMCE.tinymce.dom.Element elm, string name){return null;}
+        public object rename(SharpKit.TinyMCE.dom.Element elm, string name){return null;}
         /// <summary>
         /// Replaces the specified element or elements with the specified element, the new element will
         /// be cloned if multiple inputs elements are passed.
         /// </summary>
         /// <param name="n">New element to replace old ones with.</param>
         /// <param name="k">Optional keep children state, if set to true child nodes from the old object will be added to new ones.</param>
-        public object replace(SharpKit.TinyMCE.tinymce.dom.Element n, bool k){return null;}
+        public object replace(SharpKit.TinyMCE.dom.Element n, bool k){return null;}
         /// <summary>
         /// Executes the specified function on the element by id or dom element node or array of elements/id.
         /// </summary>
@@ -299,7 +299,7 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// <param name="pe">Parent element to split.</param>
         /// <param name="e">Element to split at.</param>
         /// <param name="re">Optional replacement element to replace the split element by.</param>
-        public SharpKit.TinyMCE.tinymce.dom.Element split(SharpKit.TinyMCE.tinymce.dom.Element pe, SharpKit.TinyMCE.tinymce.dom.Element e, SharpKit.TinyMCE.tinymce.dom.Element re){return null;}
+        public SharpKit.TinyMCE.dom.Element split(SharpKit.TinyMCE.dom.Element pe, SharpKit.TinyMCE.dom.Element e, SharpKit.TinyMCE.dom.Element re){return null;}
         /// <summary>
         /// Parses the specified RGB color value and returns a hex version of that color.
         /// </summary>

@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.dom
+namespace SharpKit.TinyMCE.dom
 {
     /// <summary>
     /// This class handles asynchronous/synchronous loading of JavaScript files it will execute callbacks when various items get...

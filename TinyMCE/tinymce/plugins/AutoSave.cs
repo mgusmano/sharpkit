@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.plugins
+namespace SharpKit.TinyMCE.plugins
 {
     /// <summary>
     /// This event gets fired when a draft removed/expired.
@@ -32,7 +32,7 @@ namespace SharpKit.TinyMCE.tinymce.plugins
         /// </summary>
         /// <param name="ed">Editor instance that the plugin is initialized in.</param>
         /// <param name="url">Absolute URL to where the plugin is located.</param>
-        public object init(SharpKit.TinyMCE.tinymce.Editor ed, string url){return null;}
+        public object init(SharpKit.TinyMCE.Editor ed, string url){return null;}
         /// <summary>
         /// Removes the currently stored draft.
         /// </summary>

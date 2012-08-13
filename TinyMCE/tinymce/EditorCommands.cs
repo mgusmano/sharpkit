@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce
+namespace SharpKit.TinyMCE
 {
     /// <summary>
     /// This class enables you to add custom editor commands and it contains overrides for native browser commands to address va...

@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.ui
+namespace SharpKit.TinyMCE.ui
 {
     /// <summary>
     /// Fires when the menu is hidden.
@@ -18,7 +18,7 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// <param name="id">Control id for the color split button.</param>
         /// <param name="s">Optional name/value settings object.</param>
         /// <param name="ed">The editor instance this button is for.</param>
-        public ColorSplitButton(string id, object s, SharpKit.TinyMCE.tinymce.Editor ed){}
+        public ColorSplitButton(string id, object s, SharpKit.TinyMCE.Editor ed){}
         /// <summary>
         /// Destroys the control. This means it will be removed from the DOM and any
         /// events tied to it will also be removed.

@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.ui
+namespace SharpKit.TinyMCE.ui
 {
     /// <summary>
     /// This class is used to create a UI button.
@@ -18,7 +18,7 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// <param name="id">Control id for the button.</param>
         /// <param name="s">Optional name/value settings object.</param>
         /// <param name="ed">Optional the editor instance this button is for.</param>
-        public Button(string id, object s, SharpKit.TinyMCE.tinymce.Editor ed){}
+        public Button(string id, object s, SharpKit.TinyMCE.Editor ed){}
         public object destroy(){return null;}
         public object isActive(){return null;}
         public object isDisabled(){return null;}

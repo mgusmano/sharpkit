@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce
+namespace SharpKit.TinyMCE
 {
     /// <summary>
     /// This class contains the core logic for a TinyMCE editor.
@@ -55,7 +55,7 @@ namespace SharpKit.TinyMCE.tinymce
         /// Adds visual aid for tables, anchors etc so they can be more easily edited inside the editor.
         /// </summary>
         /// <param name="elm">Optional root element to loop though to find tables etc that needs the visual aid.</param>
-        public object addVisual(SharpKit.TinyMCE.tinymce.dom.Element elm){return null;}
+        public object addVisual(SharpKit.TinyMCE.dom.Element elm){return null;}
         /// <summary>
         /// URL converter function this gets executed each time a user adds an img, a or
         /// any other element that has a URL in it. This will be called both by the DOM and HTML
@@ -103,12 +103,12 @@ namespace SharpKit.TinyMCE.tinymce
         /// <summary>
         /// Returns the iframes body element.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Element getBody(){return null;}
+        public SharpKit.TinyMCE.dom.Element getBody(){return null;}
         /// <summary>
         /// Returns the editors container element. The container element wrappes in
         /// all the elements added to the page for the editor. Such as UI, iframe etc.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Element getContainer(){return null;}
+        public SharpKit.TinyMCE.dom.Element getContainer(){return null;}
         /// <summary>
         /// Gets the content from the editor instance, this will cleanup the content before it gets returned using
         /// the different cleanup rules options.
@@ -119,7 +119,7 @@ namespace SharpKit.TinyMCE.tinymce
         /// Returns the editors content area container element. The this element is the one who
         /// holds the iframe or the editable element.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Element getContentAreaContainer(){return null;}
+        public SharpKit.TinyMCE.dom.Element getContentAreaContainer(){return null;}
         /// <summary>
         /// Returns the iframes document object.
         /// </summary>
@@ -127,7 +127,7 @@ namespace SharpKit.TinyMCE.tinymce
         /// <summary>
         /// Returns the target element/textarea that got replaced with a TinyMCE editor instance.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Element getElement(){return null;}
+        public SharpKit.TinyMCE.dom.Element getElement(){return null;}
         /// <summary>
         /// Returns a language pack item by name/key.
         /// </summary>
@@ -235,7 +235,7 @@ namespace SharpKit.TinyMCE.tinymce
         /// <summary>
         /// URI object to current document that holds the TinyMCE editor instance.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.util.URI baseURI{get;set;}
+        public SharpKit.TinyMCE.util.URI baseURI{get;set;}
         /// <summary>
         /// Array with CSS files to load into the iframe.
         /// </summary>
@@ -247,19 +247,19 @@ namespace SharpKit.TinyMCE.tinymce
         /// <summary>
         /// Control manager instance for the editor.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.ControlManager controlManager{get;set;}
+        public SharpKit.TinyMCE.ControlManager controlManager{get;set;}
         /// <summary>
         /// URI object to document configured for the TinyMCE instance.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.util.URI documentBaseURI{get;set;}
+        public SharpKit.TinyMCE.util.URI documentBaseURI{get;set;}
         /// <summary>
         /// DOM instance for the editor.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.DOMUtils dom{get;set;}
+        public SharpKit.TinyMCE.dom.DOMUtils dom{get;set;}
         /// <summary>
         /// Formatter instance.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.Formatter formatter{get;set;}
+        public SharpKit.TinyMCE.Formatter formatter{get;set;}
         /// <summary>
         /// Editor instance id, normally the same as the div/textarea that was replaced.
         /// </summary>
@@ -275,7 +275,7 @@ namespace SharpKit.TinyMCE.tinymce
         /// <summary>
         /// HTML parser will be used when contents is inserted into the editor.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.html.DomParser parser{get;set;}
+        public SharpKit.TinyMCE.html.DomParser parser{get;set;}
         /// <summary>
         /// Name/Value object containting plugin instances.
         /// </summary>
@@ -283,15 +283,15 @@ namespace SharpKit.TinyMCE.tinymce
         /// <summary>
         /// Schema instance, enables you to validate elements and it's children.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.html.Schema schema{get;set;}
+        public SharpKit.TinyMCE.html.Schema schema{get;set;}
         /// <summary>
         /// Selection instance for the editor.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Selection selection{get;set;}
+        public SharpKit.TinyMCE.dom.Selection selection{get;set;}
         /// <summary>
         /// DOM serializer for the editor.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Serializer serializer{get;set;}
+        public SharpKit.TinyMCE.dom.Serializer serializer{get;set;}
         /// <summary>
         /// Name/value collection with editor settings.
         /// </summary>
@@ -299,14 +299,14 @@ namespace SharpKit.TinyMCE.tinymce
         /// <summary>
         /// Reference to the theme instance that was used to generate the UI.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.Theme theme{get;set;}
+        public SharpKit.TinyMCE.Theme theme{get;set;}
         /// <summary>
         /// Undo manager instance, responsible for handling undo levels.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.UndoManager undoManager{get;set;}
+        public SharpKit.TinyMCE.UndoManager undoManager{get;set;}
         /// <summary>
         /// Window manager reference, use this to open new windows and dialogs.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.WindowManager windowManager{get;set;}
+        public SharpKit.TinyMCE.WindowManager windowManager{get;set;}
     }
 }

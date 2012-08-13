@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.util
+namespace SharpKit.TinyMCE.util
 {
     /// <summary>
     /// This class handles parsing, modification and serialization of URI/URL strings.

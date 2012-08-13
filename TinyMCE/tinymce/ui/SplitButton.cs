@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.ui
+namespace SharpKit.TinyMCE.ui
 {
     /// <summary>
     /// This class is used to create a split button.
@@ -37,6 +37,6 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// <param name="id">Control id for the split button.</param>
         /// <param name="s">Optional name/value settings object.</param>
         /// <param name="ed">Optional the editor instance this button is for.</param>
-        public SplitButton(string id, object s, SharpKit.TinyMCE.tinymce.Editor ed){}
+        public SplitButton(string id, object s, SharpKit.TinyMCE.Editor ed){}
     }
 }

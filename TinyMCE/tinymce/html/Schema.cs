@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.html
+namespace SharpKit.TinyMCE.html
 {
     /// <summary>
     /// Schema validator class.

@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.ui
+namespace SharpKit.TinyMCE.ui
 {
     /// <summary>
     /// This class is used to create drop menus, a drop menu can be a context menu, or a menu for a list box or a menu bar.
@@ -16,7 +16,7 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// Adds a new menu, menu item or sub classes of them to the drop menu.
         /// </summary>
         /// <param name="o">Menu or menu item to add to the drop menu.</param>
-        public SharpKit.TinyMCE.tinymce.ui.Control add(SharpKit.TinyMCE.tinymce.ui.Control o){return null;}
+        public SharpKit.TinyMCE.ui.Control add(SharpKit.TinyMCE.ui.Control o){return null;}
         public object addMenu(){return null;}
         public object addSeparator(){return null;}
         /// <summary>
@@ -28,7 +28,7 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// Created a new sub menu for the drop menu control.
         /// </summary>
         /// <param name="s">Optional name/value settings object.</param>
-        public SharpKit.TinyMCE.tinymce.ui.DropMenu createMenu(object s){return null;}
+        public SharpKit.TinyMCE.ui.DropMenu createMenu(object s){return null;}
         /// <summary>
         /// Destroys the menu. This will remove the menu from the DOM and any events added to it etc.
         /// </summary>
@@ -55,13 +55,13 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// Removes a specific sub menu or menu item from the drop menu.
         /// </summary>
         /// <param name="o">Menu item or menu to remove from drop menu.</param>
-        public SharpKit.TinyMCE.tinymce.ui.Control remove(SharpKit.TinyMCE.tinymce.ui.Control o){return null;}
+        public SharpKit.TinyMCE.ui.Control remove(SharpKit.TinyMCE.ui.Control o){return null;}
         public object removeAll(){return null;}
         public object renderHTML(){return null;}
         /// <summary>
         /// Renders the specified menu node to the dom.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Element renderNode(){return null;}
+        public SharpKit.TinyMCE.dom.Element renderNode(){return null;}
         public object renderTo(){return null;}
         public object setActive(){return null;}
         public object setDisabled(){return null;}

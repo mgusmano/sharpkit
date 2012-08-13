@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce
+namespace SharpKit.TinyMCE
 {
     /// <summary>
     /// Text formatter engine class.
@@ -18,7 +18,7 @@ namespace SharpKit.TinyMCE.tinymce
         /// <param name="name">Name of format to apply.</param>
         /// <param name="vars">Optional list of variables to replace within format before applying it.</param>
         /// <param name="node">Optional node to apply the format to defaults to current selection.</param>
-        public object apply(string name, object vars, SharpKit.TinyMCE.tinymce.html.Node node){return null;}
+        public object apply(string name, object vars, SharpKit.TinyMCE.html.Node node){return null;}
         /// <summary>
         /// Returns true/false if the specified format can be applied to the current selection or not. It will currently only check the state for selector formats, it returns true on all other format types.
         /// </summary>
@@ -42,7 +42,7 @@ namespace SharpKit.TinyMCE.tinymce
         /// <param name="name">Name of format to match.</param>
         /// <param name="vars">Optional list of variables to replace before checking it.</param>
         /// <param name="node">Optional node to check.</param>
-        public bool match(string name, object vars, SharpKit.TinyMCE.tinymce.html.Node node){return false;}
+        public bool match(string name, object vars, SharpKit.TinyMCE.html.Node node){return false;}
         /// <summary>
         /// Matches the current selection against the array of formats and returns a new array with matching formats.
         /// </summary>
@@ -56,7 +56,7 @@ namespace SharpKit.TinyMCE.tinymce
         /// <param name="name">Format name to check.</param>
         /// <param name="vars">Optional list of variables to replace before checking it.</param>
         /// <param name="similar">Match format that has similar properties.</param>
-        public object matchNode(SharpKit.TinyMCE.tinymce.html.Node node, string name, object vars, bool similar){return null;}
+        public object matchNode(SharpKit.TinyMCE.html.Node node, string name, object vars, bool similar){return null;}
         /// <summary>
         /// Registers a specific format by name.
         /// </summary>
@@ -73,6 +73,6 @@ namespace SharpKit.TinyMCE.tinymce
         /// <param name="name">Name of format to apply/remove.</param>
         /// <param name="vars">Optional list of variables to replace within format before applying/removing it.</param>
         /// <param name="node">Optional node to apply the format to or remove from. Defaults to current selection.</param>
-        public object toggle(string name, object vars, SharpKit.TinyMCE.tinymce.html.Node node){return null;}
+        public object toggle(string name, object vars, SharpKit.TinyMCE.html.Node node){return null;}
     }
 }

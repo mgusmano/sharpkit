@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.ui
+namespace SharpKit.TinyMCE.ui
 {
     /// <summary>
     /// This class provides basic keyboard navigation using the arrow keys to children of a component.
@@ -21,6 +21,6 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// </summary>
         /// <param name="settings">the settings object to define how keyboard navigation works.</param>
         /// <param name="dom">the DOMUtils instance to use.</param>
-        public KeyboardNavigation(object settings, SharpKit.TinyMCE.tinymce.dom.DOMUtils dom){}
+        public KeyboardNavigation(object settings, SharpKit.TinyMCE.dom.DOMUtils dom){}
     }
 }

@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.html
+namespace SharpKit.TinyMCE.html
 {
     /// <summary>
     /// This class is a minimalistic implementation of a DOM like node used by the DomParser class.
@@ -16,7 +16,7 @@ namespace SharpKit.TinyMCE.tinymce.html
         /// Appends a new node as a child of the current node.
         /// </summary>
         /// <param name="node">Node to append as a child of the current one.</param>
-        public SharpKit.TinyMCE.tinymce.html.Node append(SharpKit.TinyMCE.tinymce.html.Node node){return null;}
+        public SharpKit.TinyMCE.html.Node append(SharpKit.TinyMCE.html.Node node){return null;}
         /// <summary>
         /// Gets/sets or removes an attribute by name.
         /// </summary>
@@ -27,7 +27,7 @@ namespace SharpKit.TinyMCE.tinymce.html
         /// Does a shallow clones the node into a new node. It will also exclude id attributes since
         /// there should only be one id per document.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.html.Node clone(){return null;}
+        public SharpKit.TinyMCE.html.Node clone(){return null;}
         /// <summary>
         /// Creates a node of a specific type.
         /// </summary>
@@ -37,7 +37,7 @@ namespace SharpKit.TinyMCE.tinymce.html
         /// <summary>
         /// Removes all children of the current node.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.html.Node empty(){return null;}
+        public SharpKit.TinyMCE.html.Node empty(){return null;}
         /// <summary>
         /// Get all children by name.
         /// </summary>
@@ -49,7 +49,7 @@ namespace SharpKit.TinyMCE.tinymce.html
         /// <param name="node">Node to insert as a child of the current node.</param>
         /// <param name="ref_node">Reference node to set node before/after.</param>
         /// <param name="before">Optional state to insert the node before the reference node.</param>
-        public SharpKit.TinyMCE.tinymce.html.Node insert(SharpKit.TinyMCE.tinymce.html.Node node, SharpKit.TinyMCE.tinymce.html.Node ref_node, bool before){return null;}
+        public SharpKit.TinyMCE.html.Node insert(SharpKit.TinyMCE.html.Node node, SharpKit.TinyMCE.html.Node ref_node, bool before){return null;}
         /// <summary>
         /// Returns true/false if the node is to be considered empty or not.
         /// </summary>
@@ -64,12 +64,12 @@ namespace SharpKit.TinyMCE.tinymce.html
         /// <summary>
         /// Removes the node from it's parent.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.html.Node remove(){return null;}
+        public SharpKit.TinyMCE.html.Node remove(){return null;}
         /// <summary>
         /// Replaces the current node with the specified one.
         /// </summary>
         /// <param name="node">Node to replace the current node with.</param>
-        public SharpKit.TinyMCE.tinymce.html.Node replace(SharpKit.TinyMCE.tinymce.html.Node node){return null;}
+        public SharpKit.TinyMCE.html.Node replace(SharpKit.TinyMCE.html.Node node){return null;}
         /// <summary>
         /// Unwraps the node in other words it removes the node but keeps the children.
         /// </summary>
@@ -78,7 +78,7 @@ namespace SharpKit.TinyMCE.tinymce.html
         /// Walks to the next or previous node and returns that node or null if it wasn't found.
         /// </summary>
         /// <param name="prev">Optional previous node state defaults to false.</param>
-        public SharpKit.TinyMCE.tinymce.html.Node walk(bool prev){return null;}
+        public SharpKit.TinyMCE.html.Node walk(bool prev){return null;}
         /// <summary>
         /// Wraps the node in in another node.
         /// </summary>

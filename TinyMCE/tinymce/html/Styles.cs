@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.html
+namespace SharpKit.TinyMCE.html
 {
     /// <summary>
     /// This class is used to parse CSS styles it also compresses styles to reduce the output size.

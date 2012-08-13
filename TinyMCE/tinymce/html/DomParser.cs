@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.html
+namespace SharpKit.TinyMCE.html
 {
     /// <summary>
     /// This class parses HTML code into a DOM like structure of nodes it will remove redundant whitespace and make sure that th...
@@ -29,12 +29,12 @@ namespace SharpKit.TinyMCE.tinymce.html
         /// </summary>
         /// <param name="settings">Name/value collection of settings. comment, cdata, text, start and end are callbacks.</param>
         /// <param name="schema">HTML Schema class to use when parsing.</param>
-        public DomParser(object settings, SharpKit.TinyMCE.tinymce.html.Schema schema){}
+        public DomParser(object settings, SharpKit.TinyMCE.html.Schema schema){}
         /// <summary>
         /// Parses the specified HTML string into a DOM like node tree and returns the result.
         /// </summary>
         /// <param name="html">Html string to sax parse.</param>
         /// <param name="args">Optional args object that gets passed to all filter functions.</param>
-        public SharpKit.TinyMCE.tinymce.html.Node parse(string html, object args){return null;}
+        public SharpKit.TinyMCE.html.Node parse(string html, object args){return null;}
     }
 }

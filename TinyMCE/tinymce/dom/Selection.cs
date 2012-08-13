@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.dom
+namespace SharpKit.TinyMCE.dom
 {
     /// <summary>
     /// This event gets executed when contents is extracted from the selection.
@@ -33,11 +33,11 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// Returns the end element of a selection range. If the end is in a text
         /// node the parent element will be returned.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Element getEnd(){return null;}
+        public SharpKit.TinyMCE.dom.Element getEnd(){return null;}
         /// <summary>
         /// Returns the currently selected element or the common ancestor element for both start and end of the selection.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Element getNode(){return null;}
+        public SharpKit.TinyMCE.dom.Element getNode(){return null;}
         /// <summary>
         /// Returns the browsers internal range object.
         /// </summary>
@@ -46,12 +46,12 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// <summary>
         /// Returns the browsers internal selection object.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Selection getSel(){return null;}
+        public SharpKit.TinyMCE.dom.Selection getSel(){return null;}
         /// <summary>
         /// Returns the start element of a selection range. If the start is in a text
         /// node the parent element will be returned.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.dom.Element getStart(){return null;}
+        public SharpKit.TinyMCE.dom.Element getStart(){return null;}
         /// <summary>
         /// Returns true/false if the selection range is collapsed or not. Collapsed means if it's a caret or a larger selection.
         /// </summary>
@@ -66,14 +66,14 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// </summary>
         /// <param name="node">HMTL DOM element to select.</param>
         /// <param name="content">Optional bool state if the contents should be selected or not on non IE browser.</param>
-        public SharpKit.TinyMCE.tinymce.dom.Element select(SharpKit.TinyMCE.tinymce.dom.Element node, bool content){return null;}
+        public SharpKit.TinyMCE.dom.Element select(SharpKit.TinyMCE.dom.Element node, bool content){return null;}
         /// <summary>
         /// Constructs a new selection instance.
         /// </summary>
         /// <param name="dom">DOMUtils object reference.</param>
         /// <param name="win">Window to bind the selection object to.</param>
         /// <param name="serializer">DOM serialization class to use for getContent.</param>
-        public Selection(SharpKit.TinyMCE.tinymce.dom.DOMUtils dom, object win, SharpKit.TinyMCE.tinymce.dom.Serializer serializer){}
+        public Selection(SharpKit.TinyMCE.dom.DOMUtils dom, object win, SharpKit.TinyMCE.dom.Serializer serializer){}
         /// <summary>
         /// Executes callback of the current selection matches the specified selector or not and passes the state and args to the callback.
         /// </summary>
@@ -92,7 +92,7 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// Sets the current selection to the specified DOM element.
         /// </summary>
         /// <param name="n">Element to set as the contents of the selection.</param>
-        public SharpKit.TinyMCE.tinymce.dom.Element setNode(SharpKit.TinyMCE.tinymce.dom.Element n){return null;}
+        public SharpKit.TinyMCE.dom.Element setNode(SharpKit.TinyMCE.dom.Element n){return null;}
         /// <summary>
         /// Changes the selection to the specified DOM range.
         /// </summary>

@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce
+namespace SharpKit.TinyMCE
 {
     /// <summary>
     /// This class handles the creation of native windows and dialogs.
@@ -50,6 +50,6 @@ namespace SharpKit.TinyMCE.tinymce
         /// Constructs a new window manager instance.
         /// </summary>
         /// <param name="ed">Editor instance that the windows are bound to.</param>
-        public WindowManager(SharpKit.TinyMCE.tinymce.Editor ed){}
+        public WindowManager(SharpKit.TinyMCE.Editor ed){}
     }
 }

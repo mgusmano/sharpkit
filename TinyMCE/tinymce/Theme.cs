@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce
+namespace SharpKit.TinyMCE
 {
     /// <summary>
     /// TinyMCE theme class.
@@ -21,7 +21,7 @@ namespace SharpKit.TinyMCE.tinymce
         /// </summary>
         /// <param name="editor">Editor instance that created the theme instance.</param>
         /// <param name="url">Absolute URL where the theme is located.</param>
-        public object init(SharpKit.TinyMCE.tinymce.Editor editor, string url){return null;}
+        public object init(SharpKit.TinyMCE.Editor editor, string url){return null;}
         /// <summary>
         /// This method is responsible for rendering/generating the overall user interface with toolbars, buttons, iframe containers etc.
         /// </summary>

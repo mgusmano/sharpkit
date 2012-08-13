@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce
+namespace SharpKit.TinyMCE
 {
     /// <summary>
     /// Plugin base class, this is a pseudo class that describes how a plugin is to be created for TinyMCE.
@@ -17,7 +17,7 @@ namespace SharpKit.TinyMCE.tinymce
         /// </summary>
         /// <param name="name">Control name to create for example "mylistbox"</param>
         /// <param name="controlman">Control manager/factory to use to create the control.</param>
-        public SharpKit.TinyMCE.tinymce.ui.Control createControl(string name, SharpKit.TinyMCE.tinymce.ControlManager controlman){return null;}
+        public SharpKit.TinyMCE.ui.Control createControl(string name, SharpKit.TinyMCE.ControlManager controlman){return null;}
         /// <summary>
         /// Meta info method, this method gets executed when TinyMCE wants to present information about the plugin for example in the about/help dialog.
         /// </summary>
@@ -27,6 +27,6 @@ namespace SharpKit.TinyMCE.tinymce
         /// </summary>
         /// <param name="editor">Editor instance that created the plugin instance.</param>
         /// <param name="url">Absolute URL where the plugin is located.</param>
-        public object init(SharpKit.TinyMCE.tinymce.Editor editor, string url){return null;}
+        public object init(SharpKit.TinyMCE.Editor editor, string url){return null;}
     }
 }

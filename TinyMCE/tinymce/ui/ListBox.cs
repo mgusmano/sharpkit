@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.ui
+namespace SharpKit.TinyMCE.ui
 {
     /// <summary>
     /// Fires when the menu gets rendered.
@@ -41,7 +41,7 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// <param name="id">Control id for the list box.</param>
         /// <param name="s">Optional name/value settings object.</param>
         /// <param name="ed">Optional the editor instance this button is for.</param>
-        public ListBox(string id, object s, SharpKit.TinyMCE.tinymce.Editor ed){}
+        public ListBox(string id, object s, SharpKit.TinyMCE.Editor ed){}
         /// <summary>
         /// Post render event. This will be executed after the control has been rendered and can be used to
         /// set states, add events to the control etc. It's recommended for subclasses of the control to call this method by using this.parent().

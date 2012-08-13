@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.ui
+namespace SharpKit.TinyMCE.ui
 {
     /// <summary>
     /// This class is the base class for all container controls like toolbars.
@@ -16,7 +16,7 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// Adds a control to the collection of controls for the container.
         /// </summary>
         /// <param name="c">Control instance to add to the container.</param>
-        public SharpKit.TinyMCE.tinymce.ui.Control add(SharpKit.TinyMCE.tinymce.ui.Control c){return null;}
+        public SharpKit.TinyMCE.ui.Control add(SharpKit.TinyMCE.ui.Control c){return null;}
         /// <summary>
         /// Base contrustor a new container control instance.
         /// </summary>
@@ -28,7 +28,7 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// Returns a control by id from the containers collection.
         /// </summary>
         /// <param name="n">Id for the control to retrive.</param>
-        public SharpKit.TinyMCE.tinymce.ui.Control get(string n){return null;}
+        public SharpKit.TinyMCE.ui.Control get(string n){return null;}
         public object isActive(){return null;}
         public object isDisabled(){return null;}
         public object isRendered(){return null;}

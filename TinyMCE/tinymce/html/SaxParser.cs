@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.html
+namespace SharpKit.TinyMCE.html
 {
     /// <summary>
     /// This class parses HTML code using pure JavaScript and executes various events for each item it finds.
@@ -56,6 +56,6 @@ namespace SharpKit.TinyMCE.tinymce.html
         /// </summary>
         /// <param name="settings">Name/value collection of settings. comment, cdata, text, start and end are callbacks.</param>
         /// <param name="schema">HTML Schema class to use when parsing.</param>
-        //public SaxParser(object settings, SharpKit.TinyMCE.tinymce.html.Schema schema){}
+        //public SaxParser(object settings, SharpKit.TinyMCE.html.Schema schema){}
     }
 }

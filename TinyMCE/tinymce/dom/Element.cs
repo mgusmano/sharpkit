@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.dom
+namespace SharpKit.TinyMCE.dom
 {
     /// <summary>
     /// Element class, this enables element blocking in IE.

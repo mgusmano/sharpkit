@@ -1,18 +1,15 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SharpKitDemo.aspx.cs" Inherits="TinyMCESamples._default" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<html>
+<head>
     <title></title>
+    <script type="text/javascript" src="tiny_mce_3.5.6/tiny_mce.js"></script>
+    <script src="res/TinyMCESamples.js" type="text/javascript"></script>
+    <script>        Main();</script>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
-            NOT THERE YET :-)
-
-    </div>
-    </form>
+        <textarea name="content" style="width:100%"></textarea>
 </body>
 </html>

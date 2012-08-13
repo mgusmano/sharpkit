@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce
+namespace SharpKit.TinyMCE
 {
     /// <summary>
     /// Fires when a item is added.
@@ -16,12 +16,12 @@ namespace SharpKit.TinyMCE.tinymce
         /// Adds a instance of the add-on by it's short name.
         /// </summary>
         /// <param name="id">Short name/id for the add-on.</param>
-        public SharpKit.TinyMCE.tinymce.Theme add(string id){return null;}
+        public SharpKit.TinyMCE.Theme add(string id){return null;}
         /// <summary>
         /// Returns the specified add on by the short name.
         /// </summary>
         /// <param name="n">Add-on to look for.</param>
-        public SharpKit.TinyMCE.tinymce.Theme get(string n){return null;}
+        public SharpKit.TinyMCE.Theme get(string n){return null;}
         /// <summary>
         /// Loads an add-on from a specific url.
         /// </summary>

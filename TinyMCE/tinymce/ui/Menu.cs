@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.ui
+namespace SharpKit.TinyMCE.ui
 {
     /// <summary>
     /// This class is base class for all menu types like DropMenus etc.
@@ -16,16 +16,16 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// Adds a new menu, menu item or sub classes of them to the drop menu.
         /// </summary>
         /// <param name="o">Menu or menu item to add to the drop menu.</param>
-        public SharpKit.TinyMCE.tinymce.ui.Control add(SharpKit.TinyMCE.tinymce.ui.Control o){return null;}
+        public SharpKit.TinyMCE.ui.Control add(SharpKit.TinyMCE.ui.Control o){return null;}
         /// <summary>
         /// Adds a sub menu to the menu.
         /// </summary>
         /// <param name="o">Menu control or a object with settings to be created into an control.</param>
-        public SharpKit.TinyMCE.tinymce.ui.Menu addMenu(object o){return null;}
+        public SharpKit.TinyMCE.ui.Menu addMenu(object o){return null;}
         /// <summary>
         /// Adds a menu separator between the menu items.
         /// </summary>
-        public SharpKit.TinyMCE.tinymce.ui.MenuItem addSeparator(){return null;}
+        public SharpKit.TinyMCE.ui.MenuItem addSeparator(){return null;}
         /// <summary>
         /// Collapses the menu, this will hide the menu and all menu items.
         /// </summary>
@@ -35,7 +35,7 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// Created a new sub menu for the menu control.
         /// </summary>
         /// <param name="s">Optional name/value settings object.</param>
-        public SharpKit.TinyMCE.tinymce.ui.Menu createMenu(object s){return null;}
+        public SharpKit.TinyMCE.ui.Menu createMenu(object s){return null;}
         public object destroy(){return null;}
         /// <summary>
         /// Expands the menu, this will show them menu and all menu items.
@@ -65,7 +65,7 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// Removes a specific sub menu or menu item from the menu.
         /// </summary>
         /// <param name="o">Menu item or menu to remove from menu.</param>
-        public SharpKit.TinyMCE.tinymce.ui.Control remove(SharpKit.TinyMCE.tinymce.ui.Control o){return null;}
+        public SharpKit.TinyMCE.ui.Control remove(SharpKit.TinyMCE.ui.Control o){return null;}
         /// <summary>
         /// Removes all menu items and sub menu items from the menu.
         /// </summary>

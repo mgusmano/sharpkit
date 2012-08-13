@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.util
+namespace SharpKit.TinyMCE.util
 {
     /// <summary>
     /// This class contains simple cookie manangement functions.

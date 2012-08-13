@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.ui
+namespace SharpKit.TinyMCE.ui
 {
     /// <summary>
     /// This class is the base class for all controls like buttons, toolbars, containers.
@@ -55,7 +55,7 @@ namespace SharpKit.TinyMCE.tinymce.ui
         /// Renders the control to the specified container element.
         /// </summary>
         /// <param name="n">HTML DOM element to add control to.</param>
-        public object renderTo(SharpKit.TinyMCE.tinymce.dom.Element n){return null;}
+        public object renderTo(SharpKit.TinyMCE.dom.Element n){return null;}
         /// <summary>
         /// Sets the activated state for the control. This will add CSS classes to the
         /// element that contains the control. So that it can be activated visually.
