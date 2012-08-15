@@ -2345,10 +2345,13 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void jQueryUIEvent<T>(Event e, T ui);
 
+    #region Plugins as classes
+    
+
     /// <summary>
     /// The jQuery UI Draggable plugin makes selected elements draggable by mouse.
     /// </summary>
-    public class Draggable
+    internal class Draggable
     {
         public Draggable(jQuery jQuery, DraggableOptions options)
         {
@@ -2430,7 +2433,7 @@ namespace SharpKit.jQuery
     /// ui.position - current position of the draggable helper { top: , left: }
     /// ui.offset - current absolute position of the draggable helper { top: , left: }
     /// </summary>
-    public class Droppable
+    internal class Droppable
     {
         public Droppable(jQuery jQuery, DroppableOptions options)
         {
@@ -2515,7 +2518,7 @@ namespace SharpKit.jQuery
     /// <summary>
     /// The jQuery UI Selectable plugin allows for elements to be selected by dragging a box (sometimes called a lasso) with the mouse over the elements. Also, elements can be selected by click or drag while holding the Ctrl/Meta key, allowing for multiple (non-contiguous) selections.
     /// </summary>
-    public class Resizable
+    internal class Resizable
     {
         public Resizable(jQuery jQuery, ResizableOptions options)
         {
@@ -2587,7 +2590,7 @@ namespace SharpKit.jQuery
     /// <summary>
     /// The jQuery UI Selectable plugin allows for elements to be selected by dragging a box (sometimes called a lasso) with the mouse over the elements. Also, elements can be selected by click or drag while holding the Ctrl/Meta key, allowing for multiple (non-contiguous) selections.
     /// </summary>
-    public class Selectable
+    internal class Selectable
     {
         public Selectable(jQuery jQuery, SelectableOptions options)
         {
@@ -2690,7 +2693,7 @@ namespace SharpKit.jQuery
     /// ui.placeholder - the placeholder (if you defined one)
     /// ui.sender - the sortable where the item comes from (only exists if you move from one connected list to another)
     /// </summary>
-    public class Sortable
+    internal class Sortable
     {
         public Sortable(jQuery jQuery, SortableOptions options)
         {
@@ -2882,7 +2885,7 @@ namespace SharpKit.jQuery
     /// 
     /// NOTE: If you want multiple sections open at once, don't use an accordion
     /// </summary>
-    public class Accordion
+    internal class Accordion
     {
         public Accordion(jQuery jQuery, AccordionOptions options)
         {
@@ -2987,7 +2990,7 @@ namespace SharpKit.jQuery
     /// a String, specifying a URL
     /// a Callback
     /// </summary>
-    public class Autocomplete
+    internal class Autocomplete
     {
         public Autocomplete(jQuery jQuery, AutocompleteOptions options)
         {
@@ -3100,7 +3103,7 @@ namespace SharpKit.jQuery
     /// 
     /// When using an input of type button, submit or reset, support is limited to plain text labels with no icons.
     /// </summary>
-    public class Button
+    internal class Button
     {
         public Button(jQuery jQuery, ButtonOptions options)
         {
@@ -3177,7 +3180,7 @@ namespace SharpKit.jQuery
     /// ctrl+end - close and erase the date
     /// escape - close the datepicker without selection
     /// </summary>
-    public class Datepicker
+    internal class Datepicker
     {
         public Datepicker(jQuery jQuery, DatepickerOptions options)
         {
@@ -3329,7 +3332,7 @@ namespace SharpKit.jQuery
     /// 
     /// A bottom button bar and semi-transparent modal overlay layer are common options that can be added.
     /// </summary>
-    public class Dialog
+    internal class Dialog
     {
         public Dialog(jQuery jQuery, DialogOptions options)
         {
@@ -3470,7 +3473,7 @@ namespace SharpKit.jQuery
     /// 
     /// This is a determinate progress bar, meaning that it should only be used in situations where the system can accurately update the current status complete. A determinate progress bar should never fill from left to right, then loop back to empty for a single process -- if the actual percent complete status cannot be calculated, an indeterminate progress bar (coming soon) or spinner animation is a better way to provide user feedback.
     /// </summary>
-    public class Progressbar
+    internal class Progressbar
     {
         public Progressbar(jQuery jQuery, ProgressbarOptions options)
         {
@@ -3554,7 +3557,7 @@ namespace SharpKit.jQuery
     /// 
     /// The slider widget will create handle elements with the class 'ui-slider-handle' on initialization. You can specify custom handle elements by creating and appending the elements and adding the 'ui-slider-handle' class before init. It will only create the number of handles needed to match the length of value/values. For example, if you specify 'values: [1, 5, 18]' and create one custom handle, the plugin will create the other two.
     /// </summary>
-    public class Slider
+    internal class Slider
     {
         public Slider(jQuery jQuery, SliderOptions options)
         {
@@ -3670,7 +3673,7 @@ namespace SharpKit.jQuery
     /// 
     /// NOTE: Tabs created dynamically using .tabs( "add", ... ) are given an id of ui-tabs-NUM, where NUM is an auto-incrementing id. If you use this naming convention for your own elements, you may encounter problems.
     /// </summary>
-    public class Tabs
+    internal class Tabs
     {
         public Tabs(jQuery jQuery, TabsOptions options)
         {
@@ -3853,4 +3856,7 @@ namespace SharpKit.jQuery
         //TODO: event name without the"event"
 
     }
+        #endregion
+
+
 }
