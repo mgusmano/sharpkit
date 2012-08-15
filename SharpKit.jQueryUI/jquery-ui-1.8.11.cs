@@ -245,8 +245,6 @@ namespace SharpKit.jQuery
         /// </summary>
         public object source { get; set; }
 
-        //TODO: events: create, search, open, focus and close.
-
         public jQueryUIEvent change { get; set; }
         public jQueryUIEvent select { get; set; }
 
