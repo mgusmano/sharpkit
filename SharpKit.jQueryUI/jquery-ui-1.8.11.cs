@@ -290,7 +290,7 @@ namespace SharpKit.jQuery
     }
     #endregion
     #region Button
-    public static partial class Button
+    public static partial class ButtonExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery button(this jQuery query) { return default(jQuery); }
@@ -375,6 +375,12 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class DatepickerOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the button. Can be set when initialising (first creating) the button.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
+
         ///<summary>
         ///The jQuery selector for another field that is to be updated with the selected date from the datepicker. Use the altFormat setting below to change the format of the date within this field. Leave as blank for no alternate field.
         ///Default: ''
@@ -637,6 +643,11 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class DialogOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the button. Can be set when initialising (first creating) the button.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
         ///<summary>
         ///When autoOpen is true the dialog will open automatically when dialog is called. If false it will stay hidden until .dialog("open") is called on it.
         ///Default: true
@@ -656,7 +667,7 @@ namespace SharpKit.jQuery
         ///Specifies which buttons should be displayed on the dialog. The property key is the text of the button. The value is the callback function for when the button is clicked. The context of the callback is the dialog element; if you need access to the button, it is available as the target of the event object. 
         ///Default: { }
         ///</summary>
-        [JsProperty(Name="buttons")]
+        [JsProperty(Name = "buttons")]
         public JsObject<JsAction> buttonsClicks { get; set; }
         ///<summary>
         ///Specifies whether the dialog should close when it has focus and the user presses the esacpe (ESC) key.
@@ -994,23 +1005,7 @@ namespace SharpKit.jQuery
         ///</summary>
         public int zIndex { get; set; }
 
-        //TODO: create event
 
-        ///<summary>
-        ///This event is triggered when dragging starts.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UIDraggable> start { get; set; }
-        ///<summary>
-        ///This event is triggered when the mouse is moved during the dragging.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UIDraggable> drag { get; set; }
-        ///<summary>
-        ///This event is triggered when dragging stops.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UIDraggable> stop { get; set; }
     }
     #endregion
     #region Droppable
@@ -1108,34 +1103,6 @@ namespace SharpKit.jQuery
         ///Default: 'intersect'
         ///</summary>
         public string tolerance { get; set; }
-
-        //TODO: create event
-
-        ///<summary>
-        ///This event is triggered any time an accepted draggable starts dragging. This can be useful if you want to make the droppable 'light up' when it can be dropped on.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent activate { get; set; }
-        ///<summary>
-        ///This event is triggered any time an accepted draggable stops dragging.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent deactivate { get; set; }
-        ///<summary>
-        ///This event is triggered as an accepted draggable is dragged 'over' (within the tolerance of) this droppable.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent over { get; set; }
-        ///<summary>
-        ///This event is triggered when an accepted draggable is dragged out (within the tolerance of) this droppable.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent @out { get; set; }
-        ///<summary>
-        ///This event is triggered when an accepted draggable is dropped 'over' (within the tolerance of) this droppable. In the callback, $(this) represents the droppable the draggable is dropped on. ui.draggable represents the draggable.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent drop { get; set; }
     }
     #endregion
     #region Effect
@@ -1312,6 +1279,11 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class ProgressbarOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the button. Can be set when initialising (first creating) the button.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
         ///<summary>
         ///The value of the progressbar.
         ///Default: 0
@@ -1524,23 +1496,6 @@ namespace SharpKit.jQuery
         ///</summary>
         public int minWidth { get; set; }
 
-        //TODO: create event
-
-        ///<summary>
-        ///This event is triggered at the start of a resize operation.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent start { get; set; }
-        ///<summary>
-        ///This event is triggered during the resize, on the drag of the resize handler.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent resize { get; set; }
-        ///<summary>
-        ///This event is triggered at the end of a resize operation.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent stop { get; set; }
     }
     #endregion
     #region Selectable
@@ -1720,6 +1675,11 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class SliderOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the button. Can be set when initialising (first creating) the button.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
         ///<summary>
         ///Whether to slide handle smoothly when user click outside handle on the bar.
         ///Default: false
@@ -1977,69 +1937,6 @@ namespace SharpKit.jQuery
         ///Default: 1000
         ///</summary>
         public int zIndex { get; set; }
-
-        //TODO: create event
-
-        ///<summary>
-        ///This event is triggered when sorting starts.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UISortable> start { get; set; }
-        ///<summary>
-        ///This event is triggered during sorting.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UISortable> sort { get; set; }
-        ///<summary>
-        ///This event is triggered during sorting, but only when the DOM position has changed.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UISortable> change { get; set; }
-        ///<summary>
-        ///This event is triggered when sorting stops, but when the placeholder/helper is still available.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UISortable> beforeStop { get; set; }
-        ///<summary>
-        ///This event is triggered when sorting has stopped.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UISortable> stop { get; set; }
-        ///<summary>
-        ///This event is triggered when the user stopped sorting and the DOM position has changed.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UISortable> update { get; set; }
-        ///<summary>
-        ///This event is triggered when a connected sortable list has received an item from another list.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UISortable> receive { get; set; }
-        ///<summary>
-        ///This event is triggered when a sortable item has been dragged out from the list and into another.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UISortable> remove { get; set; }
-        ///<summary>
-        ///This event is triggered when a sortable item is moved into a connected list.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UISortable> over { get; set; }
-        ///<summary>
-        ///This event is triggered when a sortable item is moved away from a connected list.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UISortable> @out { get; set; }
-        ///<summary>
-        ///This event is triggered when using connected lists, every connected list on drag start receives it.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UISortable> activate { get; set; }
-        ///<summary>
-        ///This event is triggered when sorting was stopped, is propagated to all possible connected lists.
-        ///Default: null
-        ///</summary>
-        public jQueryUIEvent<UISortable> deactivate { get; set; }
     }
     #endregion
     #region SwitchClass
@@ -2228,6 +2125,11 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class TabsOptions
     {
+        /// <summary>
+        /// Disables (true) or enables (false) the button. Can be set when initialising (first creating) the button.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
         ///<summary>
         ///Additional Ajax options to consider when loading tab content (see $.ajax).
         ///Default: null
@@ -2253,11 +2155,14 @@ namespace SharpKit.jQuery
         ///Default: false
         ///</summary>
         public bool deselectable { get; set; }
+
         ///<summary>
         ///An array containing the position of the tabs (zero-based index) that should be disabled on initialization.
         ///Default: []
         ///</summary>
-        public JsArray<int> disabled { get; set; }
+        [JsProperty(Name = "disabled")]
+        public JsArray<int> disabledIntArray { get; set; }
+
         ///<summary>
         ///The type of event to be used for selecting a tab.
         ///Default: 'click'
@@ -2439,4 +2344,1513 @@ namespace SharpKit.jQuery
     [JsDelegate(NativeDelegates = true)]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void jQueryUIEvent<T>(Event e, T ui);
+
+    /// <summary>
+    /// The jQuery UI Draggable plugin makes selected elements draggable by mouse.
+    /// </summary>
+    public class Draggable
+    {
+        public Draggable(jQuery jQuery, DraggableOptions options)
+        {
+        }
+
+        /// <summary>
+        /// Remove the draggable functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the draggable.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the draggable.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any draggable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+        //TODO: value is array (?)
+
+        /// <summary>
+        /// set any draggable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any draggable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-draggable element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        ///<summary>
+        ///This event is triggered when draggable is created.
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> create { get; set; }
+
+        ///<summary>
+        ///This event is triggered when dragging starts.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> start { get; set; }
+
+        ///<summary>
+        ///This event is triggered when the mouse is moved during the dragging.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> drag { get; set; }
+
+        ///<summary>
+        ///This event is triggered when dragging stops.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> stop { get; set; }
+    }
+
+    /// <summary>
+    /// The jQuery UI Droppable plugin makes selected elements droppable (meaning they accept being dropped on by draggables). You can specify which (individually) or which kind of draggables each will accept.
+    /// 
+    /// All callbacks receive two arguments: The original browser event and a prepared ui object, view below for a documentation of this object (if you name your second argument 'ui'):
+    /// 
+    /// ui.draggable - current draggable element, a jQuery object.
+    /// ui.helper - current draggable helper, a jQuery object
+    /// ui.position - current position of the draggable helper { top: , left: }
+    /// ui.offset - current absolute position of the draggable helper { top: , left: }
+    /// </summary>
+    public class Droppable
+    {
+        public Droppable(jQuery jQuery, DroppableOptions options)
+        {
+        }
+
+
+        /// <summary>
+        /// Remove the droppable functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the droppable.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the droppable.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any droppable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+        //TODO: value is array (?)
+
+        /// <summary>
+        /// set any droppable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any droppable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-droppable element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        ///<summary>
+        ///This event is triggered when droppable is created.
+        ///</summary>
+        public jQueryUIEvent<UIDroppable> create { get; set; }
+
+        ///<summary>
+        ///This event is triggered any time an accepted draggable starts dragging.
+        ///This can be useful if you want to make the droppable 'light up' when it can be dropped on.
+        ///</summary>
+        public jQueryUIEvent<UIDroppable> activate { get; set; }
+
+        ///<summary>
+        ///This event is triggered any time an accepted draggable stops dragging.
+        ///</summary>
+        public jQueryUIEvent<UIDroppable> deactivate { get; set; }
+
+        ///<summary>
+        ///This event is triggered as an accepted draggable is dragged 'over' (within the tolerance of) this droppable.
+        ///</summary>
+        public jQueryUIEvent<UIDroppable> over { get; set; }
+
+        ///<summary>
+        ///This event is triggered when an accepted draggable is dragged out (within the tolerance of) this droppable.
+        ///</summary>
+        public jQueryUIEvent<UIDroppable> @out { get; set; }
+
+        ///<summary>
+        ///This event is triggered when an accepted draggable is dropped 'over' (within the tolerance of) this droppable.
+        ///In the callback, $(this) represents the droppable the draggable is dropped on. ui.draggable represents the draggable.
+        ///</summary>
+        public jQueryUIEvent<UIDroppable> drop { get; set; }
+    }
+
+    /// <summary>
+    /// The jQuery UI Selectable plugin allows for elements to be selected by dragging a box (sometimes called a lasso) with the mouse over the elements. Also, elements can be selected by click or drag while holding the Ctrl/Meta key, allowing for multiple (non-contiguous) selections.
+    /// </summary>
+    public class Resizable
+    {
+        public Resizable(jQuery jQuery, ResizableOptions options)
+        {
+        }
+
+        /// <summary>
+        /// Remove the resizable functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the resizable.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the resizable.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any resizable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+        //TODO: value is array (?)
+
+        /// <summary>
+        /// set any resizable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any resizable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-resizable element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        ///<summary>
+        ///This event is triggered when resizable is created.
+        ///</summary>
+        public jQueryUIEvent<UIResizable> create { get; set; }
+
+        ///<summary>
+        ///This event is triggered at the start of a resize operation.
+        ///</summary>
+        public jQueryUIEvent<UIResizable> start { get; set; }
+
+        ///<summary>
+        ///This event is triggered during the resize, on the drag of the resize handler.
+        ///</summary>
+        public jQueryUIEvent<UIResizable> resize { get; set; }
+
+        ///<summary>
+        ///This event is triggered at the end of a resize operation.
+        ///</summary>
+        public jQueryUIEvent<UIResizable> stop { get; set; }
+    }
+
+    /// <summary>
+    /// The jQuery UI Selectable plugin allows for elements to be selected by dragging a box (sometimes called a lasso) with the mouse over the elements. Also, elements can be selected by click or drag while holding the Ctrl/Meta key, allowing for multiple (non-contiguous) selections.
+    /// </summary>
+    public class Selectable
+    {
+        public Selectable(jQuery jQuery, SelectableOptions options)
+        {
+        }
+
+        /// <summary>
+        /// Remove the selectable functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the selectable.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the selectable.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any selectable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+        //TODO: value is array (?)
+
+        /// <summary>
+        /// set any selectable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any selectable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-selectable element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        /// <summary>
+        /// Refresh the position and size of each selectee element.
+        /// This method can be used to manually recalculate the position and size of each selectee element. Very useful if autoRefresh is set to false.
+        /// </summary>
+        public void refresh() { }
+
+        ///<summary>
+        ///This event is triggered when selectable is created.
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> create { get; set; }
+
+        ///<summary>
+        ///This event is triggered at the end of the select operation, on each element added to the selection.
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> selected { get; set; }
+
+        ///<summary>
+        ///This event is triggered during the select operation, on each element added to the selection.
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> selecting { get; set; }
+
+        ///<summary>
+        ///This event is triggered at the beginning of the select operation.
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> start { get; set; }
+
+        ///<summary>
+        ///This event is triggered at the end of the select operation.
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> stop { get; set; }
+
+        ///<summary>
+        ///This event is triggered at the end of the select operation, on each element removed from the selection.
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> unselected { get; set; }
+
+        ///<summary>
+        ///This event is triggered during the select operation, on each element removed from the selection.
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> unselecting { get; set; }
+
+    }
+
+    /// <summary>
+    /// The jQuery UI Sortable plugin makes selected elements sortable by dragging with the mouse.
+    /// 
+    /// All callbacks receive two arguments: The original browser event and a prepared ui object, view below for a documentation of this object (if you name your second argument 'ui'):
+    /// 
+    /// ui.helper - the current helper element (most often a clone of the item)
+    /// ui.position - current position of the helper
+    /// ui.offset - current absolute position of the helper
+    /// ui.item - the current dragged element
+    /// ui.placeholder - the placeholder (if you defined one)
+    /// ui.sender - the sortable where the item comes from (only exists if you move from one connected list to another)
+    /// </summary>
+    public class Sortable
+    {
+        public Sortable(jQuery jQuery, SortableOptions options)
+        {
+        }
+
+        /// <summary>
+        /// Remove the sortable functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the sortable.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the sortable.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any sortable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+        //TODO: value is array (?)
+
+        /// <summary>
+        /// set any sortable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any sortable option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-sortable element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        /// <summary>
+        /// Serializes the sortable's item id's into a form/ajax submittable string.
+        /// Calling this method produces a hash that can be appended to any url to easily submit a new item order back to the server.
+        ///It works by default by looking at the id of each item in the format 'setname_number', and it spits out a hash like "setname[]=number&setname[]=number".
+        ///You can also give in a option hash as second argument to custom define how the function works.
+        ///The possible options are: 'key' (replaces part1[] with whatever you want), 'attribute' (test another attribute than 'id') and 'expression' (use your own regexp).
+        ///If serialize returns an empty string, make sure the id attributes include an underscore.
+        ///They must be in the form: "set_number" For example, a 3 element list with id attributes foo_1, foo_5, foo_2 will serialize to foo[]=1&foo[]=5&foo[]=2.
+        ///You can use an underscore, equal sign or hyphen to separate the set and number. For example foo=1 or foo-1 or foo_1 all serialize to foo[]=1.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public object serialize(SortableSerializeOptionsType options) { return null; }
+        //TODO: return type?
+
+        /// <summary>
+        /// Serializes the sortable's item id's into an array of string.
+        /// </summary>
+        public void toArray() { }
+
+        /// <summary>
+        /// Refresh the sortable items. Custom trigger the reloading of all sortable items, causing new items to be recognized.
+        /// </summary>
+        public void refresh() { }
+
+        /// <summary>
+        /// Refresh the cached positions of the sortables' items. Calling this method refreshes the cached item positions of all sortables.
+        /// This is usually done automatically by the script and slows down performance. Use wisely.
+        /// </summary>
+        public void refreshPositions() { }
+
+        /// <summary>
+        /// Cancels a change in the current sortable and reverts it back to how it was before the current sort started. Useful in the stop and receive callback functions.
+        /// If the sortable item is not being moved from one connected sortable to another:
+        /// $(this).sortable('cancel');
+        /// will cancel the change.
+        /// If the sortable item is being moved from one connected sortable to another:
+        /// $(ui.sender).sortable('cancel');
+        /// will cancel the change. Useful in the 'receive' callback.
+        /// </summary>
+        public void cancel() { }
+
+        ///<summary>
+        ///This event is triggered when sortable is created.
+        ///</summary>
+        public jQueryUIEvent<UISortable> create { get; set; }
+
+        ///<summary>
+        ///This event is triggered when sorting starts.
+        ///</summary>
+        public jQueryUIEvent<UISortable> start { get; set; }
+
+        ///<summary>
+        ///This event is triggered during sorting.
+        ///</summary>
+        public jQueryUIEvent<UISortable> sort { get; set; }
+
+        ///<summary>
+        ///This event is triggered during sorting, but only when the DOM position has changed.
+        ///</summary>
+        public jQueryUIEvent<UISortable> change { get; set; }
+
+        ///<summary>
+        ///This event is triggered when sorting stops, but when the placeholder/helper is still available.
+        ///</summary>
+        public jQueryUIEvent<UISortable> beforeStop { get; set; }
+
+        ///<summary>
+        ///This event is triggered when sorting has stopped.
+        ///</summary>
+        public jQueryUIEvent<UISortable> stop { get; set; }
+
+        ///<summary>
+        ///This event is triggered when the user stopped sorting and the DOM position has changed.
+        ///</summary>
+        public jQueryUIEvent<UISortable> update { get; set; }
+
+        ///<summary>
+        ///This event is triggered when a connected sortable list has received an item from another list.
+        ///</summary>
+        public jQueryUIEvent<UISortable> receive { get; set; }
+
+        ///<summary>
+        ///This event is triggered when a sortable item has been dragged out from the list and into another.
+        ///</summary>
+        public jQueryUIEvent<UISortable> remove { get; set; }
+
+        ///<summary>
+        ///This event is triggered when a sortable item is moved into a connected list.
+        ///</summary>
+        public jQueryUIEvent<UISortable> over { get; set; }
+
+        ///<summary>
+        ///This event is triggered when a sortable item is moved away from a connected list
+        ///</summary>
+        public jQueryUIEvent<UISortable> @out { get; set; }
+
+        ///<summary>
+        ///This event is triggered when using connected lists, every connected list on drag start receives it.
+        ///</summary>
+        public jQueryUIEvent<UISortable> activate { get; set; }
+
+        ///<summary>
+        ///This event is triggered when sorting was stopped, is propagated to all possible connected lists.
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> deactivate { get; set; }
+
+    }
+
+    public enum SortableSerializeOptionsType
+    {
+        /// <summary>
+        /// replaces part1[] with whatever you want
+        /// </summary>
+        key,
+        /// <summary>
+        /// test another attribute than 'id'
+        /// </summary>
+        attribute,
+        /// <summary>
+        /// use your own regexp
+        /// </summary>
+        expression,
+    }
+
+    /// <summary>
+    /// Make the selected elements Accordion widgets. Semantic requirements:
+    /// 
+    /// The markup of your accordion container needs pairs of headers and content panels:
+    /// 
+    /// <div id="accordion">
+    ///     <h3><a href="#">First header</a></h3>
+    ///     <div>First content</div>
+    ///     <h3><a href="#">Second header</a></h3>
+    ///     <div>Second content</div>
+    /// </div>
+    /// If you use a different element for the header, specify the header-option with an appropriate selector, eg. header: 'a.header'. The content element must be always next to its header.
+    /// 
+    /// If you have links inside the accordion content and use a-elements as headers, add a class to them and use that as the header, eg. header: 'a.header'.
+    /// 
+    /// Use activate(Number) to change the active content programmatically.
+    /// 
+    /// NOTE: If you want multiple sections open at once, don't use an accordion
+    /// </summary>
+    public class Accordion
+    {
+        public Accordion(jQuery jQuery, AccordionOptions options)
+        {
+        }
+
+        /// <summary>
+        /// Remove the accordion functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the accordion.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the accordion.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any accordion option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+
+        /// <summary>
+        /// set any accordion option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any accordion option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-accordion element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        /// <summary>
+        /// Activate a content part of the Accordion programmatically.
+        /// The index can be a zero-indexed number to match the position of the header to close or a Selector matching an element.
+        /// </summary>
+        /// <param name="index"></param>
+        public void activate(JsNumber index) { }
+
+        /// <summary>
+        /// Recompute heights of the accordion contents when using the fillSpace option and the container height changed.
+        /// For example, when the container is a resizable, this method should be called by its resize-event.
+        /// </summary>
+        public void resize() { }
+
+        ///<summary>
+        ///This event is triggered when accordion is created.
+        ///</summary>
+        public jQueryUIEvent<UIAccordion> create { get; set; }
+
+        ///<summary>
+        ///This event is triggered every time the accordion changes.
+        ///If the accordion is animated, the event will be triggered upon completion of the animation; otherwise, it is triggered immediately.
+        ///$('.ui-accordion').bind('accordionchange', function(event, ui) {
+        ///   ui.newHeader // jQuery object, activated header
+        ///   ui.oldHeader // jQuery object, previous header
+        ///   ui.newContent // jQuery object, activated content
+        ///   ui.oldContent // jQuery object, previous content
+        /// });
+        ///</summary>
+        public jQueryUIEvent<UIAccordion> change { get; set; }
+
+        ///<summary>
+        ///This event is triggered every time the accordion starts to change.
+        /// $('.ui-accordion').bind('accordionchangestart', function(event, ui) {
+        ///   ui.newHeader // jQuery object, activated header
+        ///   ui.oldHeader // jQuery object, previous header
+        ///   ui.newContent // jQuery object, activated content
+        ///   ui.oldContent // jQuery object, previous content
+        /// });
+        ///</summary>
+        public jQueryUIEvent<UIAccordion> changestart { get; set; }
+
+    }
+
+    /// <summary>
+    /// Autocomplete, when added to an input field, enables users to quickly find and select from a pre-populated list of values as they type, leveraging searching and filtering.
+    /// 
+    /// By giving an Autocomplete field focus or entering something into it, the plugin starts searching for entries that match and displays a list of values to choose from. By entering more characters, the user can filter down the list to better matches.
+    /// 
+    /// This can be used to enter previous selected values, for example you could use Autocomplete for entering tags, to complete an address, you could enter a city name and get the zip code, or maybe enter email addresses from an address book.
+    /// 
+    /// You can pull data in from a local and/or a remote source: Local is good for small data sets (like an address book with 50 entries), remote is necessary for big data sets, like a database with hundreds or millions of entries to select from.
+    /// 
+    /// Autocomplete can be customized to work with various data sources, by just specifying the source option. A data source can be:
+    /// 
+    /// an Array with local data
+    /// a String, specifying a URL
+    /// a Callback
+    /// </summary>
+    public class Autocomplete
+    {
+        public Autocomplete(jQuery jQuery, AutocompleteOptions options)
+        {
+        }
+
+        /// <summary>
+        /// Remove the autocomplete functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the autocomplete.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the autocomplete.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any autocomplete option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+
+        /// <summary>
+        /// set any autocomplete option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any autocomplete option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-autocomplete element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        /// <summary>
+        /// Triggers a search event, which, when data is available, then will display the suggestions; can be used by a selectbox-like button to open the suggestions when clicked.
+        /// If no value argument is specified, the current input's value is used. Can be called with an empty string and minLength: 0 to display all items.
+        /// </summary>
+        /// <param name="value"></param>
+        public void search(object value) { }
+        /// <summary>
+        /// Triggers a search event, which, when data is available, then will display the suggestions; can be used by a selectbox-like button to open the suggestions when clicked.
+        /// If no value argument is specified, the current input's value is used. Can be called with an empty string and minLength: 0 to display all items.
+        /// </summary>
+        public void search() { }
+
+        /// <summary>
+        /// Close the Autocomplete menu. Useful in combination with the search method, to close the open menu.
+        /// </summary>
+        public void close() { }
+
+        /// <summary>
+        /// This event is triggered when autocomplete is created.
+        /// </summary>
+        public jQueryUIEvent create { get; set; }
+
+        /// <summary>
+        /// Before a request (source-option) is started, after minLength and delay are met. Can be canceled (return false), then no request will be started and no items suggested.
+        ///</summary>
+        public jQueryUIEvent searchEvent { get; set; }
+        //TODO: event name without the"event"
+
+        /// <summary>
+        /// Triggered when the suggestion menu is opened.
+        /// </summary>
+        public jQueryUIEvent open { get; set; }
+
+        /// <summary>
+        /// Before focus is moved to an item (not selecting), ui.item refers to the focused item. The default action of focus is to replace the text field's value with the value of the focused item, though only if the focus event was triggered by a keyboard interaction.
+        /// Canceling this event prevents the value from being updated, but does not prevent the menu item from being focused.
+        /// </summary>
+        public jQueryUIEvent focus { get; set; }
+
+        /// <summary>
+        /// Triggered when an item is selected from the menu; ui.item refers to the selected item. The default action of select is to replace the text field's value with the value of the selected item.
+        ///Canceling this event prevents the value from being updated, but does not prevent the menu from closing.
+        /// </summary>
+        public jQueryUIEvent select { get; set; }
+
+        /// <summary>
+        /// When the list is hidden - doesn't have to occur together with a change.
+        /// </summary>
+        public jQueryUIEvent closeEvent { get; set; }
+        //TODO: event name without the"event"
+
+        /// <summary>
+        /// Triggered when the field is blurred, if the value has changed; ui.item refers to the selected item.
+        /// </summary>
+        public jQueryUIEvent change { get; set; }
+    }
+
+    /// <summary>
+    /// Button enhances standard form elements like button, input of type submit or reset or anchors to themable buttons with appropiate mouseover and active styles.
+    /// 
+    /// In addition to basic push buttons, radio buttons and checkboxes (inputs of type radio and checkbox) can be converted to buttons: Their associated label is styled to appear as the button, while the underlying input is updated on click.
+    /// 
+    /// In order to group radio buttons, Button also provides an additional widget-method, called Buttonset. Its used by selecting a container element (which contains the radio buttons) and calling buttonset(). Buttonset will also provide visual grouping, and therefore should be used whenever you have a group of buttons. It works by selecting all descendents and applying button() to them. You can enable and disable a buttonset, which will enable and disable all contained buttons. Destroying a buttonset also calls the button's destroy method.
+    /// 
+    /// When using an input of type button, submit or reset, support is limited to plain text labels with no icons.
+    /// </summary>
+    public class Button
+    {
+        public Button(jQuery jQuery, ButtonOptions options)
+        {
+        }
+
+        /// <summary>
+        /// Remove the button functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the button.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the button.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any button option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+        //TODO: value is array (?)
+
+        /// <summary>
+        /// set any button option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any button option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-button element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        /// <summary>
+        /// Refresh the position and size of each selectee element.
+        /// This method can be used to manually recalculate the position and size of each selectee element. Very useful if autoRefresh is set to false.
+        /// </summary>
+        public void refresh() { }
+
+        ///<summary>
+        ///This event is triggered when button is created.
+        ///</summary>
+        public jQueryUIEvent<UIDraggable> create { get; set; }
+        //TODO: no UIButton
+    }
+
+    /// <summary>
+    /// The jQuery UI Datepicker is a highly configurable plugin that adds datepicker functionality to your pages. You can customize the date format and language, restrict the selectable date ranges and add in buttons and other navigation options easily.
+    /// 
+    /// By default, the datepicker calendar opens in a small overlay onFocus and closes automatically onBlur or when a date is selected. For an inline calendar, simply attach the datepicker to a div or span.
+    /// 
+    /// You can use keyboard shortcuts to drive the datepicker:
+    /// 
+    /// page up/down - previous/next month
+    /// ctrl+page up/down - previous/next year
+    /// ctrl+home - current month or open when closed
+    /// ctrl+left/right - previous/next day
+    /// ctrl+up/down - previous/next week
+    /// enter - accept the selected date
+    /// ctrl+end - close and erase the date
+    /// escape - close the datepicker without selection
+    /// </summary>
+    public class Datepicker
+    {
+        public Datepicker(jQuery jQuery, DatepickerOptions options)
+        {
+        }
+
+        /// <summary>
+        /// Remove the datepicker functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the datepicker.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the datepicker.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any datepicker option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+
+        /// <summary>
+        /// set any datepicker option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any datepicker option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-datepicker element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        /// <summary>
+        /// Open a datepicker in a "dialog" box.
+        /// </summary>
+        /// <param name="date">the initial date for the date picker as either a Date or a string in the current date format.</param>
+        /// <param name="onSelect">A callback function when a date is selected. The function receives the date text and date picker instance as parameters.</param>
+        /// <param name="settings">The new settings for the date picker.</param>
+        /// <param name="pos">The position of the top/left of the dialog as [x, y] or a MouseEvent that contains the coordinates. If not specified the dialog is centered on the screen.</param>
+        public void dialog(JsString date, object onSelect, object settings, object pos) { }
+        /// <summary>
+        /// Open a datepicker in a "dialog" box.
+        /// </summary>
+        /// <param name="date">the initial date for the date picker as either a Date or a string in the current date format.</param>
+        /// <param name="onSelect">A callback function when a date is selected. The function receives the date text and date picker instance as parameters.</param>
+        /// <param name="settings">The new settings for the date picker.</param>
+        /// <param name="pos">The position of the top/left of the dialog as [x, y] or a MouseEvent that contains the coordinates. If not specified the dialog is centered on the screen.</param>
+        public void dialog(JsDate date, object onSelect, object settings, object pos) { }
+        /// <summary>
+        /// Open a datepicker in a "dialog" box.
+        /// </summary>
+        /// <param name="date">the initial date for the date picker as either a Date or a string in the current date format.</param>
+        public void dialog(JsString date) { }
+        /// <summary>
+        /// Open a datepicker in a "dialog" box.
+        /// </summary>
+        /// <param name="date">the initial date for the date picker as either a Date or a string in the current date format.</param>
+        public void dialog(JsDate date) { }
+
+        /// <summary>
+        /// Determine whether a date picker has been disabled.
+        /// </summary>
+        public void isDisabled() { }
+
+        /// <summary>
+        /// Close a previously opened date picker.
+        /// </summary>
+        public void hide() { }
+
+        /// <summary>
+        /// Call up a previously attached date picker. If the datepicker is attached to an input, the input must be visible for the datepicker to be shown.
+        /// </summary>
+        public void show() { }
+
+        /// <summary>
+        /// Redraw a date picker, after having made some external modifications.
+        /// </summary>
+        public void refresh() { }
+
+        /// <summary>
+        /// Returns the current date for the datepicker or null if no date has been selected.
+        /// </summary>
+        /// <returns></returns>
+        public object getDate() { return null; }
+
+        /// <summary>
+        /// Sets the current date for the datepicker. The new date may be a Date object or a string in the current date format (e.g. '01/26/2009'),
+        /// a number of days from today (e.g. +7) or a string of values and periods ('y' for years, 'm' for months, 'w' for weeks, 'd' for days, e.g. '+1m +7d')
+        /// or null to clear the selected date.
+        /// </summary>
+        /// <param name="date"></param>
+        public void setDate(JsString date) { }
+        /// <summary>
+        /// Sets the current date for the datepicker. The new date may be a Date object or a string in the current date format (e.g. '01/26/2009'),
+        /// a number of days from today (e.g. +7) or a string of values and periods ('y' for years, 'm' for months, 'w' for weeks, 'd' for days, e.g. '+1m +7d')
+        /// or null to clear the selected date.
+        /// </summary>
+        /// <param name="date"></param>
+        public void setDate(JsDate date) { }
+
+        ///<summary>
+        ///Can be a function that takes an input field and current datepicker instance and returns an options object to update the datepicker with. It is called just before the datepicker is displayed.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent beforeShow { get; set; }
+        ///<summary>
+        ///The function takes a date as a parameter and must return an array with [0] equal to true/false indicating whether or not this date is selectable, [1] equal to a CSS class name(s) or '' for the default presentation and [2] an optional popup tooltip for this date. It is called for each day in the datepicker before is it displayed.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent beforeShowDay { get; set; }
+        ///<summary>
+        ///Allows you to define your own event when the datepicker moves to a new month and/or year. The function receives the selected year, month (1-12), and the datepicker instance as parameters. this refers to the associated input field.
+        ///Default: null
+        ///Types: function(year, month, inst)
+        ///</summary>
+        public jQueryUIEvent onChangeMonthYear { get; set; }
+        ///<summary>
+        ///Allows you to define your own event when the datepicker is closed, whether or not a date is selected. The function receives the selected date as text and the datepicker instance as parameters. this refers to the associated input field.
+        ///Default: null
+        ///Types: function(dateText, inst)
+        ///</summary>
+        public jQueryUIEvent onClose { get; set; }
+        ///<summary>
+        ///Allows you to define your own event when the datepicker is selected. The function receives the selected date as text and the datepicker instance as parameters. this refers to the associated input field.
+        ///Default: null
+        ///Types: function(dateText, inst)
+        ///</summary>
+        public jQueryUIEvent onSelect { get; set; }
+    }
+
+    /// <summary>
+    /// A dialog is a floating window that contains a title bar and a content area. The dialog window can be moved, resized and closed with the 'x' icon by default.
+    /// 
+    /// If the content length exceeds the maximum height, a scrollbar will automatically appear.
+    /// 
+    /// A bottom button bar and semi-transparent modal overlay layer are common options that can be added.
+    /// </summary>
+    public class Dialog
+    {
+        public Dialog(jQuery jQuery, DialogOptions options)
+        {
+        }
+
+        /// <summary>
+        /// Remove the dialog functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the dialog.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the dialog.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any dialog option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+
+        /// <summary>
+        /// set any dialog option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any dialog option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-dialog element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        /// <summary>
+        /// Close the dialog.
+        /// </summary>
+        public void close() { }
+
+        /// <summary>
+        /// Returns true if the dialog is currently open.
+        /// </summary>
+        /// <returns></returns>
+        public bool isOpen() { return false; }
+
+        /// <summary>
+        /// Move the dialog to the top of the dialogs stack.
+        /// </summary>
+        public void moveToTop() { }
+
+        /// <summary>
+        /// Open the dialog.
+        /// </summary>
+        public void open() { }
+
+        ///<summary>
+        ///This event is triggered when dialog is created.
+        ///</summary>
+        public jQueryUIEvent create { get; set; }
+
+        ///<summary>
+        ///This event is triggered when a dialog attempts to close. If the beforeclose event handler (callback function) returns false, the close will be prevented.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent beforeclose { get; set; }
+
+        ///<summary>
+        ///This event is triggered when dialog is opened.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent openEvent { get; set; }
+        //TODO: event name without the"event"
+
+        ///<summary>
+        ///This event is triggered when the dialog gains focus.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent focus { get; set; }
+
+        ///<summary>
+        ///This event is triggered at the beginning of the dialog being dragged.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent dragStart { get; set; }
+
+        ///<summary>
+        ///This event is triggered when the dialog is dragged.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent drag { get; set; }
+
+        ///<summary>
+        ///This event is triggered after the dialog has been dragged.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent dragStop { get; set; }
+
+        ///<summary>
+        ///This event is triggered at the beginning of the dialog being resized.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent resizeStart { get; set; }
+
+        ///<summary>
+        ///This event is triggered when the dialog is resized.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent resize { get; set; }
+
+        ///<summary>
+        ///This event is triggered after the dialog has been resized.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent resizeStop { get; set; }
+
+        ///<summary>
+        ///This event is triggered when the dialog is closed.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent closeEvent { get; set; }
+        //TODO: event name without the"event"
+    }
+
+    /// <summary>
+    /// The progress bar is designed to simply display the current % complete for a process. The bar is coded to be flexibly sized through CSS and will scale to fit inside it's parent container by default.
+    /// 
+    /// This is a determinate progress bar, meaning that it should only be used in situations where the system can accurately update the current status complete. A determinate progress bar should never fill from left to right, then loop back to empty for a single process -- if the actual percent complete status cannot be calculated, an indeterminate progress bar (coming soon) or spinner animation is a better way to provide user feedback.
+    /// </summary>
+    public class Progressbar
+    {
+        public Progressbar(jQuery jQuery, ProgressbarOptions options)
+        {
+        }
+
+        /// <summary>
+        /// Remove the progressbar functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the progressbar.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the progressbar.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any progressbar option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+
+        /// <summary>
+        /// set any progressbar option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any progressbar option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-progressbar element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        /// <summary>
+        /// sets the current value of the progressbar.
+        /// </summary>
+        /// <param name="value"></param>
+        public void value(object value) { }
+
+        /// <summary>
+        /// gets the current value of the progressbar.
+        /// </summary>
+        /// <returns></returns>
+        public object value() { return null; }
+
+        ///<summary>
+        ///This event is triggered when progressbar is created.
+        ///</summary>
+        public jQueryUIEvent create { get; set; }
+
+        ///<summary>
+        ///This event is triggered when the value of the progressbar changes.
+        ///Default: null
+        ///</summary>
+        public jQueryUIEvent change { get; set; }
+
+        ///<summary>
+        ///This event is triggered when the value of the progressbar reaches the maximum value of 100.
+        ///</summary>
+        public jQueryUIEvent complete { get; set; }
+
+    }
+
+    /// <summary>
+    /// The jQuery UI Slider plugin makes selected elements into sliders. There are various options such as multiple handles, and ranges. The handle can be moved with the mouse or the arrow keys.
+    /// 
+    /// The start, slide, and stop callbacks receive two arguments: The original browser event and a prepared ui object, view below for a documentation of this object (if you name your second argument 'ui'):
+    /// 
+    /// The slider widget will create handle elements with the class 'ui-slider-handle' on initialization. You can specify custom handle elements by creating and appending the elements and adding the 'ui-slider-handle' class before init. It will only create the number of handles needed to match the length of value/values. For example, if you specify 'values: [1, 5, 18]' and create one custom handle, the plugin will create the other two.
+    /// </summary>
+    public class Slider
+    {
+        public Slider(jQuery jQuery, SliderOptions options)
+        {
+        }
+
+        /// <summary>
+        /// Remove the slider functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the slider.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the slider.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any slider option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+
+        /// <summary>
+        /// set any slider option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any slider option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-slider element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        /// <summary>
+        /// sets the current value of the slider.
+        /// </summary>
+        /// <param name="value"></param>
+        public void value(object value) { }
+
+        /// <summary>
+        /// gets the current value of the slider.
+        /// </summary>
+        /// <returns></returns>
+        public object value() { return null; }
+
+        /// <summary>
+        /// sets the values of the slider. For multiple handle or range sliders.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="value"></param>
+        public void values(JsNumber index, object value) { }
+        /// <summary>
+        /// sets the values of the slider. For multiple handle or range sliders.
+        /// </summary>
+        /// <param name="index"></param>
+        public void values(JsNumber index) { }
+
+        /// <summary>
+        /// gets the values of the slider. For multiple handle or range sliders.
+        /// </summary>
+        /// <returns></returns>
+        public object values() { return null; }
+
+        ///<summary>
+        ///This event is triggered when slider is created.
+        ///</summary>
+        public jQueryUIEvent<UISlider> create { get; set; }
+
+        ///<summary>
+        ///This event is triggered when the user starts sliding.
+        ///</summary>
+        public jQueryUIEvent<UISlider> start { get; set; }
+
+        ///<summary>
+        ///This event is triggered on every mouse move during slide. Use ui.value (single-handled sliders) to obtain the value of the current handle,
+        ///$(..).slider('value', index) to get another handles' value.
+        ///Return false in order to prevent a slide, based on ui.value.
+        ///</summary>
+        public jQueryUIEvent<UISlider> slide { get; set; }
+
+        ///<summary>
+        ///This event is triggered on slide stop, or if the value is changed programmatically (by the value method). Takes arguments event and ui.
+        ///Use event.originalEvent to detect whether the value changed by mouse, keyboard, or programmatically.
+        ///Use ui.value (single-handled sliders) to obtain the value of the current handle, $(this).slider('values', index) to get another handle's value.
+        ///</summary>
+        public jQueryUIEvent<UISlider> change { get; set; }
+
+        ///<summary>
+        ///This event is triggered when the user stops sliding.
+        ///</summary>
+        public jQueryUIEvent<UISlider> stop { get; set; }
+
+
+    }
+
+    /// <summary>
+    /// Tabs are generally used to break content into multiple sections that can be swapped to save space, much like an accordion.
+    /// 
+    /// By default a tab widget will swap between tabbed sections onClick, but the events can be changed to onHover through an option. Tab content can be loaded via Ajax by setting an href on a tab.
+    /// 
+    /// NOTE: Tabs created dynamically using .tabs( "add", ... ) are given an id of ui-tabs-NUM, where NUM is an auto-incrementing id. If you use this naming convention for your own elements, you may encounter problems.
+    /// </summary>
+    public class Tabs
+    {
+        public Tabs(jQuery jQuery, TabsOptions options)
+        {
+        }
+
+        /// <summary>
+        /// Remove the tabs functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        /// <returns></returns>
+        public object destroy() { return null; }
+
+        /// <summary>
+        /// Disable the tabs.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enable the tabs.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// set any tabs option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <param name="value"></param>
+        public void option(JsString optionName, object value) { }
+
+        /// <summary>
+        /// set any tabs option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <param name="optionName"></param>
+        public void option(JsString optionName) { }
+
+        /// <summary>
+        /// Get any tabs option. If no value is specified, will act as a getter.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+
+        /// <summary>
+        /// Returns the .ui-tabs element.
+        /// </summary>
+        /// <returns></returns>
+        public object widget() { return null; }
+
+        /// <summary>
+        /// Add a new tab. The second argument is either a URL consisting of a fragment identifier only to create an in-page tab or a full url (relative or absolute,
+        /// no cross-domain support) to turn the new tab into an Ajax (remote) tab.
+        /// The third is the zero-based position where to insert the new tab. Optional, by default a new tab is appended at the end.
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="label"></param>
+        /// <param name="index"></param>
+        public void add(JsString url, object label, JsNumber index) { }
+        /// <summary>
+        /// Add a new tab. The second argument is either a URL consisting of a fragment identifier only to create an in-page tab or a full url (relative or absolute,
+        /// no cross-domain support) to turn the new tab into an Ajax (remote) tab.
+        /// The third is the zero-based position where to insert the new tab. Optional, by default a new tab is appended at the end.
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="label"></param>
+        public void add(JsString url, object label) { }
+
+        /// <summary>
+        /// Remove a tab. The second argument is the zero-based index of the tab to be removed. Instead of an index, the href of the tab may be passed.
+        /// </summary>
+        /// <param name="index"></param>
+        public void remove(JsNumber index) { }
+
+        /// <summary>
+        /// Enable a disabled tab. To enable more than one tab at once reset the disabled property like:
+        /// $('#example').tabs("option","disabled",[]);
+        /// . The second argument is the zero-based index of the tab to be enabled. Instead of an index, the href of the tab may be passed.
+        /// </summary>
+        /// <param name="index"></param>
+        public void enable(JsNumber index) { }
+
+        /// <summary>
+        /// Disable a tab. The selected tab cannot be disabled. To disable more than one tab at once use:
+        /// $('#example').tabs("option","disabled", [1, 2, 3]);
+        /// The second argument is the zero-based index of the tab to be disabled. Instead of an index, the href of the tab may be passed.
+        /// </summary>
+        /// <param name="index"></param>
+        public void disable(JsNumber index) { }
+
+        /// <summary>
+        /// Select a tab, as if it were clicked. The second argument is the zero-based index of the tab to be selected
+        /// or the id selector of the panel the tab is associated with (the tab's href fragment identifier, e.g. hash, points to the panel's id).
+        /// </summary>
+        /// <param name="index"></param>
+        public void select(JsNumber index) { }
+
+        /// <summary>
+        /// Reload the content of an Ajax tab programmatically. This method always loads the tab content from the remote location,
+        /// even if cache is set to true. The second argument is the zero-based index of the tab to be reloaded.
+        /// </summary>
+        /// <param name="index"></param>
+        public void load(JsNumber index) { }
+
+        /// <summary>
+        /// Change the url from which an Ajax (remote) tab will be loaded. The specified URL will be used for subsequent loads.
+        /// Note that you can not only change the URL for an existing remote tab with this method, but also turn an in-page tab into a remote tab.
+        /// The second argument is the zero-based index of the tab of which its URL is to be updated. The third is a URL the content of the tab is loaded from.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="url"></param>
+        public void url(JsNumber index, JsString url) { }
+
+        /// <summary>
+        /// Retrieve the number of tabs of the first matched tab pane.
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber length() { return null; }
+
+        /// <summary>
+        /// Terminate all running tab ajax requests and animations.
+        /// </summary>
+        public void abort() { }
+
+        /// <summary>
+        /// Set up an automatic rotation through tabs of a tab pane. The second argument is an amount of time in milliseconds until the next tab in the cycle gets activated.
+        /// The third controls whether or not to continue the rotation after a tab has been selected by a user. Default: false.
+        /// </summary>
+        /// <param name="ms"></param>
+        /// <param name="continuing"></param>
+        public void rotate(JsNumber ms, bool continuing) { }
+        /// <summary>
+        /// Set up an automatic rotation through tabs of a tab pane. The second argument is an amount of time in milliseconds until the next tab in the cycle gets activated.
+        /// The third controls whether or not to continue the rotation after a tab has been selected by a user. Default: false.
+        /// </summary>
+        /// <param name="ms"></param>
+        public void rotate(JsNumber ms) { }
+
+
+        ///<summary>
+        ///This event is triggered when tabs is created.
+        ///</summary>
+        public jQueryUIEvent<UITabs> create { get; set; }
+
+        ///<summary>
+        ///This event is triggered when clicking a tab.
+        ///</summary>
+        public jQueryUIEvent<UITabs> selectEvent { get; set; }
+        //TODO: event name without the"event"
+
+        ///<summary>
+        ///This event is triggered after the content of a remote tab has been loaded.
+        ///</summary>
+        public jQueryUIEvent<UITabs> loadEvent { get; set; }
+        //TODO: event name without the"event"
+
+        ///<summary>
+        ///This event is triggered when a tab is shown.
+        ///</summary>
+        public jQueryUIEvent<UITabs> show { get; set; }
+
+        ///<summary>
+        ///This event is triggered when a tab is added.
+        ///</summary>
+        public jQueryUIEvent<UITabs> addEvent { get; set; }
+        //TODO: event name without the"event"
+
+        ///<summary>
+        ///This event is triggered when a tab is removed.
+        ///</summary>
+        public jQueryUIEvent<UITabs> removeEvent { get; set; }
+        //TODO: event name without the"event"
+
+        ///<summary>
+        ///This event is triggered when a tab is enabled.
+        ///</summary>
+        public jQueryUIEvent<UITabs> enableEvent { get; set; }
+        //TODO: event name without the"event"
+
+        ///<summary>
+        ///This event is triggered when a tab is disabled.
+        ///</summary>
+        public jQueryUIEvent<UITabs> disableEvent { get; set; }
+        //TODO: event name without the"event"
+
+    }
 }
