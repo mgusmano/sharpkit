@@ -5,10 +5,10 @@ using System.Text;
 
 namespace SharpKit.SignalR
 {
-    class Program
+
+    public class Connection
     {
-        static void Main(string[] args)
-        {
-        }
+        public Connection received ( JsAction
     }
+
 }
