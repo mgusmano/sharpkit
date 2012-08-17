@@ -53,7 +53,8 @@
     <form id="form1" runat="server">
     <div>
 
-        <textarea name="content" style="width:100%"></textarea>    
+        <textarea name="content" style="width:100%"></textarea>
+    
     </div>
     </form>
 </body>

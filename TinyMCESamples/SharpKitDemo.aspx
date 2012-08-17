@@ -10,6 +10,7 @@
     <script>        Main();</script>
 </head>
 <body>
-        <textarea name="content" style="width:100%"></textarea>
+        <textarea name="content" style="width:100%"></textarea>
+
 </body>
 </html>

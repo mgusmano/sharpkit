@@ -173,6 +173,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.SignalR", "SharpKi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.Arshaw.FullCalendar", "SharpKit.Arshaw.FullCalendar\SharpKit.Arshaw.FullCalendar.csproj", "{B8709F27-33D4-441A-91FB-7203CA034843}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeMirror", "CodeMirror", "{7815A0AF-9E0F-461B-87F5-C41A71D5E1EE}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
