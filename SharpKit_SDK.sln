@@ -175,6 +175,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.Arshaw.FullCalenda
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeMirror", "CodeMirror", "{7815A0AF-9E0F-461B-87F5-C41A71D5E1EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.LinqJs", "SharpKit.LinqJs\SharpKit.LinqJs.csproj", "{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -1603,6 +1605,26 @@ Global
 		{B8709F27-33D4-441A-91FB-7203CA034843}.v4.0|Mixed Platforms.Build.0 = Release|x86
 		{B8709F27-33D4-441A-91FB-7203CA034843}.v4.0|x86.ActiveCfg = Release|x86
 		{B8709F27-33D4-441A-91FB-7203CA034843}.v4.0|x86.Build.0 = Release|x86
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.Release|x86.ActiveCfg = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.v3.5|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.v3.5|Mixed Platforms.Build.0 = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.v3.5|x86.ActiveCfg = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
+		{423F6BC9-1AAC-473D-A2D5-3FB42AAFC89A}.v4.0|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

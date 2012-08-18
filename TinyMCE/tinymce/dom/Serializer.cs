@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using SharpKit.JavaScript;
-namespace SharpKit.TinyMCE.tinymce.dom
+namespace SharpKit.TinyMCE.dom
 {
     /// <summary>
     /// Fires when the Serializer does a postProcess on the contents.
@@ -43,7 +43,7 @@ namespace SharpKit.TinyMCE.tinymce.dom
         /// <param name="settings">Serializer settings object.</param>
         /// <param name="dom">DOMUtils instance reference.</param>
         /// <param name="schema">Optional schema reference.</param>
-        public Serializer(object settings, SharpKit.TinyMCE.tinymce.dom.DOMUtils dom, SharpKit.TinyMCE.tinymce.html.Schema schema){}
+        public Serializer(object settings, SharpKit.TinyMCE.dom.DOMUtils dom, SharpKit.TinyMCE.html.Schema schema){}
         /// <summary>
         /// Sets the valid elements rules to the serializers schema instance this enables you to specify things
         /// like what elements should be outputted and what attributes specific elements might have.
