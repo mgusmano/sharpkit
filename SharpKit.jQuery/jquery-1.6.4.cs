@@ -575,16 +575,9 @@ namespace SharpKit.jQuery
 		/// <summary>
 		///  Reduce the set of matched elements to the one at the specified index.
 		/// </summary>
-		/// <param name="_index">An integer indicating the position of the element, by adding "-" counting backwards from the last element in the set.</param>
+        /// <param name="index">An integer indicating the position of the element, by adding "-" counting backwards from the last element in the set.</param>
 		/// <returns></returns>
 		public jQuery eq(JsNumber index) { return null; }
-		/// <summary>
-		/// Reduce the set of matched elements to the one at the specified index.
-		/// </summary>
-		/// <param name="index">An integer indicating the 0-based position of the element.</param>
-		/// <returns></returns>
-		//TODO: danel needs to write a normal summary for that one
-
 		/// <summary>
 		/// Bind an event handler to the "error" JavaScript event.
 		/// </summary>
