@@ -206,7 +206,7 @@ namespace SharpKit.SignalR
         /// <summary>
         /// The client id for the hub connection.
         /// </summary>
-        public JsString id { get; set; }
+        public new JsString id { get; set; }
 
         /// <summary>
         /// Set to true to enable logging. Default is false
