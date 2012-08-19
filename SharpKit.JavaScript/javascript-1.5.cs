@@ -2062,6 +2062,7 @@ namespace SharpKit.JavaScript
     }
     #endregion
     #region JsRegExpResult
+    [JsType(JsMode.Prototype, Name = "Array", NativeEnumerator = false, Export = false, IgnoreGenericTypeArguments = true, NativeArrayEnumerator = true, NativeCasts = true)]
     public partial class JsRegExpResult : JsArray<JsString>
     {
         ///<summary>
