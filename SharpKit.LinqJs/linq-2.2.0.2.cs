@@ -47,7 +47,7 @@ namespace SharpKit.LinqJs
         /// 6. Array or ArrayLikeObject(has length) = to Enumerable.
         /// 7. JScript's IEnumerable = to Enumerable(using Enumerator).
         /// </summary>
-        /// <param name="obj">object</param>
+        /// <param name="list">list</param>
         /// <returns type="Enumerable"></returns>
         public static Enumerable<T> From<T>(JsArray<T> list) { return null; } //TODO:
 
@@ -156,7 +156,6 @@ namespace SharpKit.LinqJs
         /// If omit count then generate to infinity.
         /// Ex: Generate("Math.random()", 5) - 0.131341,0.95425252,...</summary>
         /// <param type="Func&lt;T>" name="func">The value of execute func to be repeated.</param>
-        /// <param type="Optional:Number" integer="true" name="count" optional="true">The number of times to repeat the value in the generated sequence.</param>
         /// <returns type="Enumerable"></returns>
         public static Enumerable<T> Generate<T>(JsFunc<T> func) { return null; }
 
@@ -208,127 +207,126 @@ namespace SharpKit.LinqJs
         /// <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use breadth first search.</summary>
         /// <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;T>_or_Func&lt;T,int>" optional="true">Optional:the second parameter of the function represents the nestlevel of the source sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> CascadeBreadthFirst(JsFunc<T, JsArray<T>> func, JsFunc<T> resultSelector) { return null; }
         /// <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use breadth first search.</summary>
         /// <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;T>_or_Func&lt;T,int>" optional="true">Optional:the second parameter of the function represents the nestlevel of the source sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> CascadeBreadthFirst(JsFunc<T, JsArray<T>> func, JsFunc<T, JsNumber> resultSelector) { return null; }
         /// <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use breadth first search.</summary>
         /// <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
-        /// <param name="resultSelector" type="Optional:Func&lt;T>_or_Func&lt;T,int>" optional="true">Optional:the second parameter of the function represents the nestlevel of the source sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> CascadeBreadthFirst(JsFunc<T, JsArray<T>> func) { return null; }
 
         /// <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use depth first search.</summary>
         /// <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;T>_or_Func&lt;T,int>" optional="true">Optional:the second parameter of the function represents the nestlevel of the source sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> CascadeDepthFirst(JsFunc<T, JsArray<T>> func, JsFunc<T> resultSelector) { return null; }
         /// <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use depth first search.</summary>
         /// <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;T>_or_Func&lt;T,int>" optional="true">Optional:the second parameter of the function represents the nestlevel of the source sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> CascadeDepthFirst(JsFunc<T, JsArray<T>> func, JsFunc<T, JsNumber> resultSelector) { return null; }
         /// <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use depth first search.</summary>
         /// <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> CascadeDepthFirst(JsFunc<T, JsArray<T>> func) { return null; }
 
         /// <summary>Flatten sequences into one sequence.</summary>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Flatten() { return null; }
 
         /// <summary>Projects current and next element of a sequence into a new form.</summary>
         /// <param type="Func&lt;TSource,TSource,TResult>" name="selector">A transform function to apply to current and next element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<TResult> Pairwise<TResult>(JsFunc<T, T, TResult> selector) { return null; }
 
         /// <summary>Applies an accumulator function over a sequence.</summary>
         /// <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
         /// <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<TResult> Scan<TAccumulate, TResult>(JsFunc<T, T, T> func_or_seed, JsFunc<TAccumulate, T, TAccumulate> func, Func<TAccumulate, TResult> resultSelector) { return null; }
         /// <summary>Applies an accumulator function over a sequence.</summary>
         /// <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
         /// <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Scan<TAccumulate>(JsFunc<T, T, T> func_or_seed) { return null; }
         /// <summary>Applies an accumulator function over a sequence.</summary>
         /// <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
         /// <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<TResult> Scan<TAccumulate, TResult>(TAccumulate func_or_seed, JsFunc<TAccumulate, T, TAccumulate> func, Func<TAccumulate, TResult> resultSelector) { return null; }
         /// <summary>Applies an accumulator function over a sequence.</summary>
         /// <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
         /// <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Scan<TAccumulate>(TAccumulate func_or_seed) { return null; }
 
 
         /// <summary>Projects each element of a sequence into a new form.</summary>
         /// <param name="selector" type="Func&lt;T,T>_or_Func&lt;T,int,T>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Select(JsFunc<T, T> selector) { return null; }
         /// <summary>Projects each element of a sequence into a new form.</summary>
         /// <param name="selector" type="Func&lt;T,T>_or_Func&lt;T,int,T>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Select(JsFunc<T, JsNumber, T> selector) { return null; }
 
         /// <summary>Projects each element of a sequence and flattens the resulting sequences into one sequence.</summary>
         /// <param name="collectionSelector" type="Func&lt;T,TCollection[]>_or_Func&lt;T,int,TCollection[]>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;T,TCollection,TResult>" optional="true">Optional:A transform function to apply to each element of the intermediate sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> SelectMany<TCollection, TResult>(JsFunc<T, JsArray<TCollection>> collectionSelector, JsFunc<T, TCollection, TResult> resultSelector) { return null; }
         //TODO: CHECK
         /// <summary>Projects each element of a sequence and flattens the resulting sequences into one sequence.</summary>
         /// <param name="collectionSelector" type="Func&lt;T,TCollection[]>_or_Func&lt;T,int,TCollection[]>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;T,TCollection,TResult>" optional="true">Optional:A transform function to apply to each element of the intermediate sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> SelectMany<TCollection>(JsFunc<T, JsArray<TCollection>> collectionSelector) { return null; }
         //TODO: CHECK
         /// <summary>Projects each element of a sequence and flattens the resulting sequences into one sequence.</summary>
         /// <param name="collectionSelector" type="Func&lt;T,TCollection[]>_or_Func&lt;T,int,TCollection[]>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;T,TCollection,TResult>" optional="true">Optional:A transform function to apply to each element of the intermediate sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> SelectMany<TCollection, TResult>(JsFunc<T, JsNumber, TCollection> collectionSelector, JsFunc<T, TCollection, TResult> resultSelector) { return null; }
         //TODO: CHECK
         /// <summary>Projects each element of a sequence and flattens the resulting sequences into one sequence.</summary>
         /// <param name="collectionSelector" type="Func&lt;T,TCollection[]>_or_Func&lt;T,int,TCollection[]>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;T,TCollection,TResult>" optional="true">Optional:A transform function to apply to each element of the intermediate sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> SelectMany<TCollection>(JsFunc<T, JsNumber, TCollection> collectionSelector) { return null; }
         //TODO: CHECK
 
         /// <summary>Filters a sequence of values based on a predicate.</summary>
         /// <param name="predicate" type="Func&lt;T,bool>_or_Func&lt;T,int,bool>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Where(JsFunc<T, bool> predicate) { return null; }
         /// <summary>Filters a sequence of values based on a predicate.</summary>
         /// <param name="predicate" type="Func&lt;T,bool>_or_Func&lt;T,int,bool>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Where(JsFunc<T, JsNumber, bool> predicate) { return null; }
 
         /// <summary>Filters the elements based on a specified type.</summary>
         /// <param name="type" type="T">The type to filter the elements of the sequence on.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> OfType(T type) { return null; }
 
         /// <summary>Merges two sequences by using the specified predicate function.</summary>
         /// <param name="second" type="T[]">The second sequence to merge.</param>
         /// <param name="selector" type="Func&lt;TFirst,TSecond,TResult>_or_Func&lt;TFirst,TSecond,int,TResult>">A function that specifies how to merge the elements from the two sequences. Optional:the third parameter of the function represents the index of the source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public object Zip<TFirst, TSecond, TResult>(JsArray<T> second, JsFunc<TFirst, TSecond, TResult> selector) { return null; }
         //TODO: CHECK
         /// <summary>Merges two sequences by using the specified predicate function.</summary>
         /// <param name="second" type="T[]">The second sequence to merge.</param>
         /// <param name="selector" type="Func&lt;TFirst,TSecond,TResult>_or_Func&lt;TFirst,TSecond,int,TResult>">A function that specifies how to merge the elements from the two sequences. Optional:the third parameter of the function represents the index of the source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public object Zip<TFirst, TSecond, TResult>(JsArray<T> second, JsFunc<TFirst, TSecond, JsNumber, TResult> selector) { return null; }
         //TODO: CHECK
 
@@ -342,7 +340,7 @@ namespace SharpKit.LinqJs
         /// <param name="innerKeySelector" type="Func&lt;TInner,TKey>">A function to extract the join key from each element of the second sequence.</param>
         /// <param name="resultSelector" type="Func&lt;TOuter,TInner,TResult>">A function to create a result element from two matching elements.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Join<TOuter, TInner, TResult, TKey, TCompare>(JsArray<T> inner, JsFunc<TOuter, TKey> outerKeySelector, JsFunc<TInner, TKey> innerKeySelector, JsFunc<TOuter, TInner, TResult> resultSelector, JsFunc<TKey, TCompare> compareSelector) { return null; }
         //TODO: CHECK
         /// <summary>Correlates the elements of two sequences based on matching keys.</summary>
@@ -350,7 +348,7 @@ namespace SharpKit.LinqJs
         /// <param name="outerKeySelector" type="Func&lt;TOuter,TKey>">A function to extract the join key from each element of the first sequence.</param>
         /// <param name="innerKeySelector" type="Func&lt;TInner,TKey>">A function to extract the join key from each element of the second sequence.</param>
         /// <param name="resultSelector" type="Func&lt;TOuter,TInner,TResult>">A function to create a result element from two matching elements.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Join<TOuter, TInner, TResult, TKey>(JsArray<T> inner, JsFunc<TOuter, TKey> outerKeySelector, JsFunc<TInner, TKey> innerKeySelector, JsFunc<TOuter, TInner, TResult> resultSelector) { return null; }
         //TODO: CHECK
 
@@ -360,7 +358,7 @@ namespace SharpKit.LinqJs
         /// <param name="innerKeySelector" type="Func&lt;TInner>">A function to extract the join key from each element of the second sequence.</param>
         /// <param name="resultSelector" type="Func&lt;TOuter,Enumerable<T>&lt;TInner>,TResult">A function to create a result element from an element from the first sequence and a collection of matching elements from the second sequence.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> GroupJoin<TOuter, TInner, TResult, TKey, TCompare>(JsArray<T> inner, JsFunc<TOuter> outerKeySelector, JsFunc<TInner> innerKeySelector, JsFunc<TOuter, Enumerable<T>, TInner, TResult> resultSelector, JsFunc<TKey, TCompare> compareSelector) { return null; }
         //TODO: CHECK
         /// <summary>Correlates the elements of two sequences based on equality of keys and groups the results.</summary>
@@ -369,7 +367,7 @@ namespace SharpKit.LinqJs
         /// <param name="innerKeySelector" type="Func&lt;TInner>">A function to extract the join key from each element of the second sequence.</param>
         /// <param name="resultSelector" type="Func&lt;TOuter,Enumerable<T>&lt;TInner>,TResult">A function to create a result element from an element from the first sequence and a collection of matching elements from the second sequence.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> GroupJoin<TOuter, TInner, TResult>(JsArray<T> inner, JsFunc<TOuter> outerKeySelector, JsFunc<TInner> innerKeySelector, JsFunc<TOuter, Enumerable<T>, TInner, TResult> resultSelector) { return null; }
         //TODO: CHECK
 
@@ -391,18 +389,18 @@ namespace SharpKit.LinqJs
 
         /// <summary>Concatenates two sequences.</summary>
         /// <param name="second" type="T[]">The sequence to concatenate to the first sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Concat(JsArray<T> second) { return null; }
 
         /// <summary>Merge two sequences.</summary>
         /// <param name="index" type="Number" integer="true">The index of insert start position.</param>
         /// <param name="second" type="T[]">The sequence to concatenate to the first sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Insert(JsNumber index, JsArray<T> second) { return null; }
 
         /// <summary>Insert value to between sequence.</summary>
         /// <param name="value" type="T">The value of insert.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Alternate(T value) { return null; }
 
         /// <summary>Determines whether a sequence contains a specified element.</summary>
@@ -419,63 +417,63 @@ namespace SharpKit.LinqJs
 
         /// <summary>Returns the elements of the specified sequence or the specified value in a singleton collection if the sequence is empty.</summary>
         /// <param name="defaultValue" type="T">The value to return if the sequence is empty.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> DefaultIfEmpty(T defaultValue) { return null; }
 
         /// <summary>Returns distinct elements from a sequence.</summary>
         /// <param name="compareSelector" type="Optional:Func&lt;T,TKey>" optional="true">An equality comparer to compare values.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Distinct<TKey>(JsFunc<T, TKey> compareSelector) { return null; }
         //TODO: check
         /// <summary>Returns distinct elements from a sequence.</summary>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Distinct() { return null; }
         //TODO: check
 
         /// <summary>Produces the set difference of two sequences.</summary>
         /// <param name="second" type="T[]">An T[] whose Elements that also occur in the first sequence will cause those elements to be removed from the returned sequence.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;T,TKey>" optional="true">An equality comparer to compare values.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Except<TKey>(JsArray<T> second, JsFunc<T, TKey> compareSelector) { return null; }
         //TODO: check
         /// <summary>Produces the set difference of two sequences.</summary>
         /// <param name="second" type="T[]">An T[] whose Elements that also occur in the first sequence will cause those elements to be removed from the returned sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Except(JsArray<T> second) { return null; }
         //TODO: check
 
         /// <summary>Produces the set difference of two sequences.</summary>
         /// <param name="second" type="T[]">An T[] whose distinct elements that also appear in the first sequence will be returned.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;T,TKey>" optional="true">An equality comparer to compare values.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Intersect<TKey>(JsArray<T> second, JsFunc<T, TKey> compareSelector) { return null; }
         //TODO: check
         /// <summary>Produces the set difference of two sequences.</summary>
         /// <param name="second" type="T[]">An T[] whose distinct elements that also appear in the first sequence will be returned.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Intersect(JsArray<T> second) { return null; }
         //TODO: check
 
         /// <summary>Determines whether two sequences are equal by comparing the elements.</summary>
         /// <param name="second" type="T[]">An T[] to compare to the first sequence.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;T,TKey>" optional="true">An equality comparer to compare values.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> SequenceEqual<TKey>(JsArray<T> second, JsFunc<T, TKey> compareSelector) { return null; }
         //TODO: check
         /// <summary>Determines whether two sequences are equal by comparing the elements.</summary>
         /// <param name="second" type="T[]">An T[] to compare to the first sequence.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> SequenceEqual(JsArray<T> second) { return null; }
         //TODO: check
 
         /// <summary>Produces the union of two sequences.</summary>
         /// <param name="second" type="T[]">An T[] whose distinct elements form the second set for the union.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;T,TKey>" optional="true">An equality comparer to compare values.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Union<TKey>(JsArray<T> second, JsFunc<T, TKey> compareSelector) { return null; }
         /// <summary>Produces the union of two sequences.</summary>
         /// <param name="second" type="T[]">An T[] whose distinct elements form the second set for the union.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Union<TKey>(JsArray<T> second) { return null; }
 
         #endregion
@@ -502,11 +500,11 @@ namespace SharpKit.LinqJs
         //TODO: check + return type?
 
         /// <summary>Inverts the order of the elements in a sequence.</summary>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Reverse() { return null; }
 
         /// <summary>Shuffle sequence.</summary>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Shuffle() { return null; }
 
 
@@ -519,12 +517,12 @@ namespace SharpKit.LinqJs
         /// <param name="elementSelector" type="Optional:Func&lt;T,TElement>">A function to map each source element to an element in an Grouping&lt;TKey, TElement>.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;TKey,Enumerable<T>&lt;TElement>,TResult>">A function to create a result value from each group.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> GroupBy<TKey, TElement, TResult, TCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<TKey, Enumerable<T>, TElement, TResult> resultSelector, JsFunc<TKey, TCompare> compareSelector) { return null; }
         //TODO: CHECK                               
         /// <summary>Groups the elements of a sequence according to a specified key selector function.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract the key for each element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> GroupBy<TKey>(JsFunc<T, TKey> keySelector) { return null; }
         //TODO: CHECK
 
@@ -533,18 +531,18 @@ namespace SharpKit.LinqJs
         /// <param name="elementSelector" type="Optional:Func&lt;T,TElement>">A function to map each source element to an element in an Grouping&lt;TKey, TElement>.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;TKey,Enumerable<T>&lt;TElement>,TResult>">A function to create a result value from each group.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> PartitionBy<TKey, TElement, TResult, TCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<TKey, Enumerable<T>, TElement, TResult> resultSelector, JsFunc<TKey, TCompare> compareSelector) { return null; }
         //TODO: CHECK
         /// <summary>Create Group by continuation key.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract the key for each element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> PartitionBy<TKey>(JsFunc<T, TKey> keySelector) { return null; }
         //TODO: CHECK
 
         /// <summary>Divide by count</summary>
         /// <param name="count" type="Number" integer="true">integer</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> BufferWithCount(JsNumber count) { return null; }
 
 
@@ -712,44 +710,44 @@ namespace SharpKit.LinqJs
 
         /// <summary>Bypasses a specified number of elements in a sequence and then returns the remaining elements.</summary>
         /// <param name="count" type="Number" integer="true">The number of elements to skip before returning the remaining elements.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Skip(JsNumber count) { return null; }
 
         /// <summary>Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements.</summary>
         /// <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> SkipWhile(JsFunc<T, bool> predicate) { return null; }
         /// <summary>Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements.</summary>
         /// <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> SkipWhile(JsFunc<T, JsNumber, bool> predicate) { return null; }
 
 
         /// <summary>Returns a specified number of contiguous elements from the start of a sequence.</summary>
         /// <param name="count" type="Number" integer="true">The number of elements to return.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Take(JsNumber count) { return null; }
 
         /// <summary>Returns elements from a sequence as long as a specified condition is true, and then skips the remaining elements.</summary>
         /// <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> TakeWhile(JsFunc<T, bool> predicate) { return null; }
         /// <summary>Returns elements from a sequence as long as a specified condition is true, and then skips the remaining elements.</summary>
         /// <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> TakeWhile(JsFunc<T, JsNumber, bool> predicate) { return null; }
 
         /// <summary>Take a sequence except last count.</summary>
         /// <param name="count" type="Optional:Number" integer="true">The number of skip count.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> TakeExceptLast(JsNumber count) { return null; }
         /// <summary>Take a sequence except last count.</summary>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> TakeExceptLast() { return null; }
 
         /// <summary>Take a sequence from last count.</summary>
         /// <param name="count" type="Number" integer="true">The number of take count.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> TakeFromLast(JsNumber count) { return null; }
 
         /// <summary>Returns the zero-based index of the flrst occurrence of a value.</summary>
@@ -836,11 +834,11 @@ namespace SharpKit.LinqJs
 
         /// <summary>Performs the specified action on each element of the sequence.</summary>
         /// <param name="action" type="Action&lt;T>_or_Action&lt;T,int>">Optional:the second parameter of the function represents the index of the source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Do(JsAction<T> action) { return null; }
         /// <summary>Performs the specified action on each element of the sequence.</summary>
         /// <param name="action" type="Action&lt;T>_or_Action&lt;T,int>">Optional:the second parameter of the function represents the index of the source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Do(JsAction<T, JsNumber> action) { return null; }
 
         /// <summary>Performs the specified action on each element of the sequence.</summary>
@@ -883,16 +881,16 @@ namespace SharpKit.LinqJs
 
         /// <summary>Bind the source to the parameter so that it can be used multiple times.</summary>
         /// <param name="func" type="Func&lt;Enumerable<T>&lt;T>,Enumerable<T>&lt;TR>>">apply function.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Let<TR>(JsFunc<Enumerable<T>, T, Enumerable<T>, TR> func) { return null; }
         //TODO: check
 
         /// <summary>Shares cursor of all enumerators to the sequence.</summary>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Share() { return null; }
 
         /// <summary>Creates an enumerable that enumerates the original enumerable only once and caches its results.</summary>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> MemoizeAll() { return null; }
 
         #endregion
@@ -901,13 +899,13 @@ namespace SharpKit.LinqJs
 
         /// <summary>catch error and do handler.</summary>
         /// <param name="handler" type="Action&lt;Error>">execute if error occured.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Catch(JsAction<JsError> handler) { return null; }
         //TODO: CHECK
 
         /// <summary>do action if enumerate end or disposed or error occured.</summary>
-        /// <param name="handler" type="Action">finally execute.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <param name="finallyAction" type="Action">finally execute.</param>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Finally(JsAction finallyAction) { return null; }
 
         #endregion
@@ -917,14 +915,14 @@ namespace SharpKit.LinqJs
         /// <summary>Trace object use console.log.</summary>
         /// <param name="message" type="Optional:String">Default is 'Trace:'.</param>
         /// <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Trace(JsString message, JsFunc<T, JsString> selector) { return null; }
         /// <summary>Trace object use console.log.</summary>
         /// <param name="message" type="Optional:String">Default is 'Trace:'.</param>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Trace(JsString message) { return null; }
         /// <summary>Trace object use console.log.</summary>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Trace() { return null; }
 
         #endregion
@@ -980,8 +978,8 @@ namespace SharpKit.LinqJs
         /// <returns type="Number"></returns>
         public static JsNumber Count() { return null; }
 
-        /// <summary>Convert to Enumerable<T>&lt;{Key:, Value:}&gt;.</summary>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <summary>Convert to Enumerable&lt;T&gt;&lt;{Key:, Value:}&gt;.</summary>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<KeyValuePair<K, T>> ToEnumerable() { return null; }
 
     }
@@ -998,7 +996,7 @@ namespace SharpKit.LinqJs
         public JsNumber Count() { return null; }
 
         /// <summary>get grouped enumerable.</summary>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Get(K key) { return null; }
 
         /// <summary>check contains key.</summary>
@@ -1006,7 +1004,7 @@ namespace SharpKit.LinqJs
         public bool Contains(K key) { return false; }
 
         /// <summary>Convert to Enumerable<T>&lt;Grouping&gt;.</summary>
-        /// <returns type="Enumerable<T>"></returns>
+        /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<Grouping<K, T>> ToEnumerable() { return null; }
 
     }
