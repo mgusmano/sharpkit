@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using SharpKit.Html4;
 using SharpKit.JavaScript;
-
+[assembly:JsType(JsMode.Prototype, Export=false)]
 namespace SharpKit.LinqJs
 {
     //TODO: add Params_Contents overload using params
@@ -17,12 +17,9 @@ namespace SharpKit.LinqJs
     * http://neue.cc/
     * http://linqjs.codeplex.com/
     *--------------------------------------------------------------------------*/
+    [JsType(JsMode.Prototype, Export=false, Name="Enumerable")]
     public class Enumerable
     {
-        public Enumerable(object getEnumerator)
-        {
-            //TODO: this.GetEnumerator = getEnumerator;
-        }
 
         /// <summary>Random choice from arguments.
         /// Ex: Choice(1,2,3) - 1,3,2,3,3,2,1...</summary>
@@ -204,6 +201,9 @@ namespace SharpKit.LinqJs
     }
     public class Enumerable<T>
     {
+        public Enumerable(JsFunc<Enumerable<T>> getEnumerator) { }
+        public Enumerable() { }
+
         #region NoRegionMethods
         /// <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use breadth first search.</summary>
         /// <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
@@ -243,37 +243,32 @@ namespace SharpKit.LinqJs
         /// <summary>Projects current and next element of a sequence into a new form.</summary>
         /// <param type="Func&lt;TSource,TSource,TResult>" name="selector">A transform function to apply to current and next element.</param>
         /// <returns type="Enumerable<T>"></returns>
-        public Enumerable<T> Pairwise<T, TSource, TResult>(JsFunc<T, TSource, TSource, TResult> selector) { return null; }
-        //TODO: CHECK
+        public Enumerable<TResult> Pairwise<TResult>(JsFunc<T, T, TResult> selector) { return null; }
 
         /// <summary>Applies an accumulator function over a sequence.</summary>
         /// <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
         /// <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
         /// <returns type="Enumerable<T>"></returns>
-        public Enumerable<T> Scan<TAccumulate, TResult>(JsFunc<T, T, T> func_or_seed, JsFunc<TAccumulate, T, TAccumulate> func, Func<TAccumulate, TResult> resultSelector) { return null; }
-        //TODO: check
+        public Enumerable<TResult> Scan<TAccumulate, TResult>(JsFunc<T, T, T> func_or_seed, JsFunc<TAccumulate, T, TAccumulate> func, Func<TAccumulate, TResult> resultSelector) { return null; }
         /// <summary>Applies an accumulator function over a sequence.</summary>
         /// <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
         /// <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
         /// <returns type="Enumerable<T>"></returns>
-        public Enumerable<T> Scan<TAccumulate, TResult>(JsFunc<T, T, T> func_or_seed) { return null; }
-        //TODO: check
+        public Enumerable<T> Scan<TAccumulate>(JsFunc<T, T, T> func_or_seed) { return null; }
         /// <summary>Applies an accumulator function over a sequence.</summary>
         /// <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
         /// <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
         /// <returns type="Enumerable<T>"></returns>
-        public Enumerable<T> Scan<TAccumulate, TResult>(TAccumulate func_or_seed, JsFunc<TAccumulate, T, TAccumulate> func, Func<TAccumulate, TResult> resultSelector) { return null; }
-        //TODO: check
+        public Enumerable<TResult> Scan<TAccumulate, TResult>(TAccumulate func_or_seed, JsFunc<TAccumulate, T, TAccumulate> func, Func<TAccumulate, TResult> resultSelector) { return null; }
         /// <summary>Applies an accumulator function over a sequence.</summary>
         /// <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
         /// <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
         /// <returns type="Enumerable<T>"></returns>
-        public Enumerable<T> Scan<TAccumulate, TResult>(TAccumulate func_or_seed) { return null; }
-        //TODO: check
+        public Enumerable<T> Scan<TAccumulate>(TAccumulate func_or_seed) { return null; }
 
 
         /// <summary>Projects each element of a sequence into a new form.</summary>
@@ -799,26 +794,22 @@ namespace SharpKit.LinqJs
         /// <param name="elementSelector" type="Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
         ///return new Dictionary();
-        public object ToDictionary<TKey, TElement, TCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<T, TKey, TCompare> compareSelector) { return null; }
-        //TODO: return type?
+        public Dictionary<TKey, TElement> ToDictionary<TKey, TElement, TCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<T, TKey, TCompare> compareSelector) { return null; }
         /// <summary>Creates a Dictionary from this sequence.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
         /// <param name="elementSelector" type="Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
         ///return new Dictionary();
-        public object ToDictionary<TKey, TElement>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector) { return null; }
-        //TODO: return type?
+        public Dictionary<TKey, TElement> ToDictionary<TKey, TElement>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector) { return null; }
 
         /// <summary>Creates a JSON String from sequence, performed only native JSON support browser or included json2.js.</summary>
         /// <param name="replacer" type="Optional:Func">a replacer.</param>
         /// <param name="space" type="Optional:Number">indent spaces.</param>
         /// <returns type="String"></returns>
-        public JsString ToJSON(object replacer, JsNumber space) { return null; }
-        //TODO: replacer type?
+        public JsString ToJSON<TKey, TValue, TResult>(JsFunc<TKey, TValue, TResult> replacer, JsNumber space) { return null; }
         /// <summary>Creates a JSON String from sequence, performed only native JSON support browser or included json2.js.</summary>
         /// <param name="replacer" type="Optional:Func">a replacer.</param>
         /// <returns type="String"></returns>
-        public JsString ToJSON(object replacer) { return null; }
-        //TODO: replacer type?
+        public JsString ToJSON<TKey, TValue, TResult>(JsFunc<TKey, TValue, TResult> replacer) { return null; }
         /// <summary>Creates a JSON String from sequence, performed only native JSON support browser or included json2.js.</summary>
         /// <returns type="String"></returns>
         public JsString ToJSON() { return null; }
@@ -835,7 +826,7 @@ namespace SharpKit.LinqJs
 
         /// <summary>Creates Joined string from this sequence.</summary>
         /// <returns type="String"></returns>
-        public JsString ToString() { return null; }
+        public new JsString ToString() { return null; }
 
 
 
@@ -938,143 +929,105 @@ namespace SharpKit.LinqJs
 
         #endregion
 
-        //#region Unknown vsdoc-dummy (?)
+        /// <summary>Returns an enumerator that iterates through the collection.</summary>
+        ///return new IEnumerator();
+        public object GetEnumerator() { return null; }
 
-        //            // vsdoc-dummy
+    }
 
-        //            Enumerable<T>.prototype.GetEnumerator = function ()
-        //            {
-        //                /// <summary>Returns an enumerator that iterates through the collection.</summary>
-        //                return new IEnumerator();
-        //            }
+    public class IEnumerator<T>
+    {
+        /// <summary>Gets the element in the collection at the current position of the enumerator.</summary>
+        /// <returns type="T"></returns>
+        public static T Current() { return default(T); }
 
-        //            var IEnumerator = function () { }
-        //            IEnumerator.prototype.Current = function ()
-        //            {
-        //                /// <summary>Gets the element in the collection at the current position of the enumerator.</summary>
-        //                /// <returns type="T"></returns>
-        //            }
-        //            IEnumerator.prototype.MoveNext = function ()
-        //            {
-        //                /// <summary>Advances the enumerator to the next element of the collection.</summary>
-        //                /// <returns type="Boolean"></returns>
-        //            }
-        //            IEnumerator.prototype.Dispose = function ()
-        //            {
-        //                /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
-        //                /// <returns type="Void"></returns>
-        //            }
+        /// <summary>Advances the enumerator to the next element of the collection.</summary>
+        /// <returns type="Boolean"></returns>
+        public static bool MoveNext() { return false; }
 
-        //            var Dictionary = function () { }
-        //            Dictionary.prototype =
-        //            {
-        //                Add: function (key, value)
-        //                {
-        //                    /// <summary>add new pair. if duplicate key then overwrite new value.</summary>
-        //                    /// <returns type="Void"></returns>
-        //                },
+        /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+        /// <returns type="Void"></returns>
+        public static void Dispose() { }
+    }
 
-        //                Get: function (key)
-        //                {
-        //                    /// <summary>get value. if not find key then return undefined.</summary>
-        //                    /// <returns type="T"></returns>
-        //                },
+    public class Dictionary<K, T>
+    {
+        /// <summary>add new pair. if duplicate key then overwrite new value.</summary>
+        /// <returns type="Void"></returns>
+        public static void Add(K key, T value) { }
 
-        //                Set: function (key, value)
-        //                {
-        //                    /// <summary>set value. if complete set value then return true, not find key then return false.</summary>
-        //                    /// <returns type="Boolean"></returns>
-        //                },
+        /// <summary>get value. if not find key then return undefined.</summary>
+        /// <returns type="T"></returns>
+        public static T Get(K key) { return default(T); }
 
-        //                Contains: function (key)
-        //                {
-        //                    /// <summary>check contains key.</summary>
-        //                    /// <returns type="Boolean"></returns>
-        //                },
+        /// <summary>set value. if complete set value then return true, not find key then return false.</summary>
+        /// <returns type="Boolean"></returns>
+        public static bool Set(K key, T value) { return false; }
 
-        //                Clear: function ()
-        //                {
-        //                    /// <summary>clear dictionary.</summary>
-        //                    /// <returns type="Void"></returns>
-        //                },
+        /// <summary>check contains key.</summary>
+        /// <returns type="Boolean"></returns>
+        public static bool Contains(K key) { return false; }
 
-        //                Remove: function (key)
-        //                {
-        //                    /// <summary>remove key and value.</summary>
-        //                    /// <returns type="Void"></returns>
-        //                },
+        /// <summary>clear dictionary.</summary>
+        /// <returns type="Void"></returns>
+        public static void Clear() { }
 
-        //                Count: function ()
-        //                {
-        //                    /// <summary>contains value's count.</summary>
-        //                    /// <returns type="Number"></returns>
-        //                },
+        /// <summary>remove key and value.</summary>
+        /// <returns type="Void"></returns>
+        public static void Remove(K key) { }
 
-        //                ToEnumerable: function ()
-        //                {
-        //                    /// <summary>Convert to Enumerable<T>&lt;{Key:, Value:}&gt;.</summary>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                }
-        //            }
+        /// <summary>contains value's count.</summary>
+        /// <returns type="Number"></returns>
+        public static JsNumber Count() { return null; }
 
-        //            var Lookup = function () { }
-        //            Lookup.prototype =
-        //            {
-        //                Count: function ()
-        //                {
-        //                    /// <summary>contains value's count.</summary>
-        //                    /// <returns type="Number"></returns>
-        //                },
+        /// <summary>Convert to Enumerable<T>&lt;{Key:, Value:}&gt;.</summary>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<KeyValuePair<K, T>> ToEnumerable() { return null; }
 
-        //                Get: function (key)
-        //                {
-        //                    /// <summary>get grouped enumerable.</summary>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
+    }
 
-        //                Contains: function (key)
-        //                {
-        //                    /// <summary>check contains key.</summary>
-        //                    /// <returns type="Boolean"></returns>
-        //                },
+    public class KeyValuePair<K, T>
+    {
+        public K Key{ get; set; }
+        public T Value { get; set; }
+    }
+    public class Lookup<K, T>
+    {
+        /// <summary>contains value's count.</summary>
+        /// <returns type="Number"></returns>
+        public JsNumber Count() { return null; }
 
-        //                ToEnumerable: function ()
-        //                {
-        //                    /// <summary>Convert to Enumerable<T>&lt;Grouping&gt;.</summary>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                }
-        //            }
+        /// <summary>get grouped enumerable.</summary>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> Get(K key) { return null; }
 
+        /// <summary>check contains key.</summary>
+        /// <returns type="Boolean"></returns>
+        public bool Contains(K key) { return false; }
 
-        //            var Grouping = function () { }
-        //            Grouping.prototype = new Enumerable<T>();
-        //            Grouping.prototype.Key = function ()
-        //            {
-        //                /// <summary>get grouping key.</summary>
-        //                /// <returns type="T"></returns>  
-        //            }
+        /// <summary>Convert to Enumerable<T>&lt;Grouping&gt;.</summary>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<Grouping<K, T>> ToEnumerable() { return null; }
 
-        //            var OrderedEnumerable = function () { }
-        //            OrderedEnumerable.prototype = new Enumerable<T>();
+    }
 
-        //            OrderedEnumerable.prototype.ThenBy = function (keySelector)
-        //            {
-        //                /// <summary>Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.</summary>
-        //                /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
-        //                return Enumerable<T>.Empty().OrderBy();
-        //            }
+    public class Grouping<K, T> : Enumerable<T>
+    {
+        /// <summary>get grouping key.</summary>
+        /// <returns type="T"></returns>  
+        public static K Key() { return default(K); }
+    }
 
-        //            OrderedEnumerable.prototype.ThenByDescending = function (keySelector)
-        //            {
-        //                /// <summary>Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.</summary>
-        //                /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
-        //                return Enumerable<T>.Empty().OrderBy();
-        //            }
+    public class OrderedEnumerable<T> : Enumerable<T>
+    {
+        /// <summary>Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.</summary>
+        /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
+        ///return Enumerable<T>.Empty().OrderBy();
+        public static OrderedEnumerable<T> ThenBy<TKey>(JsFunc<T, TKey> keySelector) { return null; }
 
-        //            return Enumerable<T>;
-        //        })()}
-        //    }
-
-        //    #endregion
+        /// <summary>Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.</summary>
+        /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
+        ///return Enumerable<T>.Empty().OrderBy();
+        public static OrderedEnumerable<T> ThenByDescending<TKey>(JsFunc<T, TKey> keySelector) { return null; }
     }
 }
