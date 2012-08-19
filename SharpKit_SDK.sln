@@ -179,6 +179,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.LinqJs", "SharpKit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.QUnit", "SharpKit.QUnit\SharpKit.QUnit.csproj", "{201E2D3F-B5FA-415A-9E6C-DF356E5A6935}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.XRegExp", "SharpKit.XRegExp\SharpKit.XRegExp.csproj", "{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -1647,6 +1649,26 @@ Global
 		{201E2D3F-B5FA-415A-9E6C-DF356E5A6935}.v4.0|Mixed Platforms.ActiveCfg = v4.0|Any CPU
 		{201E2D3F-B5FA-415A-9E6C-DF356E5A6935}.v4.0|Mixed Platforms.Build.0 = v4.0|Any CPU
 		{201E2D3F-B5FA-415A-9E6C-DF356E5A6935}.v4.0|x86.ActiveCfg = v4.0|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.Release|x86.ActiveCfg = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.v3.5|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.v3.5|Mixed Platforms.Build.0 = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.v3.5|x86.ActiveCfg = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
+		{52C018F5-BDBE-4BA0-992C-7EEE1178ADFB}.v4.0|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
