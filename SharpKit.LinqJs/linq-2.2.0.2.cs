@@ -251,10 +251,8 @@ namespace SharpKit.LinqJs
         public Enumerable<TResult> Scan<TAccumulate, TResult>(JsFunc<T, T, T> func_or_seed, JsFunc<TAccumulate, T, TAccumulate> func, Func<TAccumulate, TResult> resultSelector) { return null; }
         /// <summary>Applies an accumulator function over a sequence.</summary>
         /// <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
-        /// <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
-        /// <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
         /// <returns type="Enumerable&lt;T&gt;"></returns>
-        public Enumerable<T> Scan<TAccumulate>(JsFunc<T, T, T> func_or_seed) { return null; }
+        public Enumerable<T> Scan(JsFunc<T, T, T> func_or_seed) { return null; }
         /// <summary>Applies an accumulator function over a sequence.</summary>
         /// <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
         /// <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
@@ -263,8 +261,6 @@ namespace SharpKit.LinqJs
         public Enumerable<TResult> Scan<TAccumulate, TResult>(TAccumulate func_or_seed, JsFunc<TAccumulate, T, TAccumulate> func, Func<TAccumulate, TResult> resultSelector) { return null; }
         /// <summary>Applies an accumulator function over a sequence.</summary>
         /// <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
-        /// <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
-        /// <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
         /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Scan<TAccumulate>(TAccumulate func_or_seed) { return null; }
 
@@ -286,7 +282,6 @@ namespace SharpKit.LinqJs
         //TODO: CHECK
         /// <summary>Projects each element of a sequence and flattens the resulting sequences into one sequence.</summary>
         /// <param name="collectionSelector" type="Func&lt;T,TCollection[]>_or_Func&lt;T,int,TCollection[]>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
-        /// <param name="resultSelector" type="Optional:Func&lt;T,TCollection,TResult>" optional="true">Optional:A transform function to apply to each element of the intermediate sequence.</param>
         /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> SelectMany<TCollection>(JsFunc<T, JsArray<TCollection>> collectionSelector) { return null; }
         //TODO: CHECK
@@ -298,7 +293,6 @@ namespace SharpKit.LinqJs
         //TODO: CHECK
         /// <summary>Projects each element of a sequence and flattens the resulting sequences into one sequence.</summary>
         /// <param name="collectionSelector" type="Func&lt;T,TCollection[]>_or_Func&lt;T,int,TCollection[]>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
-        /// <param name="resultSelector" type="Optional:Func&lt;T,TCollection,TResult>" optional="true">Optional:A transform function to apply to each element of the intermediate sequence.</param>
         /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> SelectMany<TCollection>(JsFunc<T, JsNumber, TCollection> collectionSelector) { return null; }
         //TODO: CHECK
@@ -356,7 +350,7 @@ namespace SharpKit.LinqJs
         /// <param name="inner" type="T[]">The sequence to join to the first sequence.</param>
         /// <param name="outerKeySelector" type="Func&lt;TOuter>">A function to extract the join key from each element of the first sequence.</param>
         /// <param name="innerKeySelector" type="Func&lt;TInner>">A function to extract the join key from each element of the second sequence.</param>
-        /// <param name="resultSelector" type="Func&lt;TOuter,Enumerable<T>&lt;TInner>,TResult">A function to create a result element from an element from the first sequence and a collection of matching elements from the second sequence.</param>
+        /// <param name="resultSelector" type="Func&lt;TOuter,Enumerable&lt;T>&lt;TInner>,TResult">A function to create a result element from an element from the first sequence and a collection of matching elements from the second sequence.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
         /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> GroupJoin<TOuter, TInner, TResult, TKey, TCompare>(JsArray<T> inner, JsFunc<TOuter> outerKeySelector, JsFunc<TInner> innerKeySelector, JsFunc<TOuter, Enumerable<T>, TInner, TResult> resultSelector, JsFunc<TKey, TCompare> compareSelector) { return null; }
@@ -365,8 +359,7 @@ namespace SharpKit.LinqJs
         /// <param name="inner" type="T[]">The sequence to join to the first sequence.</param>
         /// <param name="outerKeySelector" type="Func&lt;TOuter>">A function to extract the join key from each element of the first sequence.</param>
         /// <param name="innerKeySelector" type="Func&lt;TInner>">A function to extract the join key from each element of the second sequence.</param>
-        /// <param name="resultSelector" type="Func&lt;TOuter,Enumerable<T>&lt;TInner>,TResult">A function to create a result element from an element from the first sequence and a collection of matching elements from the second sequence.</param>
-        /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
+        /// <param name="resultSelector" type="Func&lt;TOuter,Enumerable&lt;T>&lt;TInner>,TResult">A function to create a result element from an element from the first sequence and a collection of matching elements from the second sequence.</param>
         /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> GroupJoin<TOuter, TInner, TResult>(JsArray<T> inner, JsFunc<TOuter> outerKeySelector, JsFunc<TInner> innerKeySelector, JsFunc<TOuter, Enumerable<T>, TInner, TResult> resultSelector) { return null; }
         //TODO: CHECK
@@ -515,7 +508,7 @@ namespace SharpKit.LinqJs
         /// <summary>Groups the elements of a sequence according to a specified key selector function.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract the key for each element.</param>
         /// <param name="elementSelector" type="Optional:Func&lt;T,TElement>">A function to map each source element to an element in an Grouping&lt;TKey, TElement>.</param>
-        /// <param name="resultSelector" type="Optional:Func&lt;TKey,Enumerable<T>&lt;TElement>,TResult>">A function to create a result value from each group.</param>
+        /// <param name="resultSelector" type="Optional:Func&lt;TKey,Enumerable&lt;T>&lt;TElement>,TResult>">A function to create a result value from each group.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
         /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> GroupBy<TKey, TElement, TResult, TCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<TKey, Enumerable<T>, TElement, TResult> resultSelector, JsFunc<TKey, TCompare> compareSelector) { return null; }
@@ -529,7 +522,7 @@ namespace SharpKit.LinqJs
         /// <summary>Create Group by continuation key.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract the key for each element.</param>
         /// <param name="elementSelector" type="Optional:Func&lt;T,TElement>">A function to map each source element to an element in an Grouping&lt;TKey, TElement>.</param>
-        /// <param name="resultSelector" type="Optional:Func&lt;TKey,Enumerable<T>&lt;TElement>,TResult>">A function to create a result value from each group.</param>
+        /// <param name="resultSelector" type="Optional:Func&lt;TKey,Enumerable&lt;T>&lt;TElement>,TResult>">A function to create a result value from each group.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
         /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> PartitionBy<TKey, TElement, TResult, TCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<TKey, Enumerable<T>, TElement, TResult> resultSelector, JsFunc<TKey, TCompare> compareSelector) { return null; }
@@ -584,7 +577,6 @@ namespace SharpKit.LinqJs
         /// <returns type="Number"></returns>
         public JsNumber Max<TKey>(JsFunc<T, TKey> selector) { return null; }
         /// <summary>Returns the maximum value in a sequence</summary>
-        /// <param name="selector" type="Optional:Func&lt;T,TKey>" optional="true">A transform function to apply to each element.</param>
         /// <returns type="Number"></returns>
         public JsNumber Max() { return null; }
 
@@ -593,7 +585,6 @@ namespace SharpKit.LinqJs
         /// <returns type="Number"></returns>
         public JsNumber Min<TKey>(JsFunc<T, TKey> selector) { return null; }
         /// <summary>Returns the minimum value in a sequence</summary>
-        /// <param name="selector" type="Optional:Func&lt;T,TKey>" optional="true">A transform function to apply to each element.</param>
         /// <returns type="Number"></returns>
         public JsNumber Min() { return null; }
 
@@ -620,7 +611,6 @@ namespace SharpKit.LinqJs
         /// <returns type="Number"></returns>
         public JsNumber Sum<TKey>(JsFunc<T, TKey> selector) { return null; }
         /// <summary>Computes the sum of a sequence of values.</summary>
-        /// <param name="selector" type="Optional:Func&lt;T,TKey>" optional="true">A transform function to apply to each element.</param>
         /// <returns type="Number"></returns>
         public JsNumber Sum() { return null; }
 
@@ -880,7 +870,7 @@ namespace SharpKit.LinqJs
         #region Functional Methods
 
         /// <summary>Bind the source to the parameter so that it can be used multiple times.</summary>
-        /// <param name="func" type="Func&lt;Enumerable<T>&lt;T>,Enumerable<T>&lt;TR>>">apply function.</param>
+        /// <param name="func" type="Func&lt;Enumerable&lt;T>&lt;T>,Enumerable&lt;T>&lt;TR>>">apply function.</param>
         /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<T> Let<TR>(JsFunc<Enumerable<T>, T, Enumerable<T>, TR> func) { return null; }
         //TODO: check
@@ -1003,7 +993,7 @@ namespace SharpKit.LinqJs
         /// <returns type="Boolean"></returns>
         public bool Contains(K key) { return false; }
 
-        /// <summary>Convert to Enumerable<T>&lt;Grouping&gt;.</summary>
+        /// <summary>Convert to Enumerable&lt;T>&lt;Grouping&gt;.</summary>
         /// <returns type="Enumerable&lt;T&gt;"></returns>
         public Enumerable<Grouping<K, T>> ToEnumerable() { return null; }
 
@@ -1020,12 +1010,12 @@ namespace SharpKit.LinqJs
     {
         /// <summary>Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
-        ///return Enumerable<T>.Empty().OrderBy();
+        ///return Enumerable&lt;T>.Empty().OrderBy();
         public static OrderedEnumerable<T> ThenBy<TKey>(JsFunc<T, TKey> keySelector) { return null; }
 
         /// <summary>Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
-        ///return Enumerable<T>.Empty().OrderBy();
+        ///return Enumerable&lt;T>.Empty().OrderBy();
         public static OrderedEnumerable<T> ThenByDescending<TKey>(JsFunc<T, TKey> keySelector) { return null; }
     }
 }
