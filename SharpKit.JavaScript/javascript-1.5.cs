@@ -376,7 +376,7 @@ namespace SharpKit.JavaScript
     #endregion
     #region JsBoolean
     [JsType(JsMode.Prototype, Name = "Boolean", Export = false, NativeCasts = true)]
-    public partial class JsBoolean
+    public partial class JsBoolean : JsObjectBase
     {
         public JsBoolean(object boolValue) { }
         public JsBoolean() { }
