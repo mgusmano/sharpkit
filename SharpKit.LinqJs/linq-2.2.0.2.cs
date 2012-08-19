@@ -243,7 +243,7 @@ namespace SharpKit.LinqJs
         /// <summary>Projects current and next element of a sequence into a new form.</summary>
         /// <param type="Func&lt;TSource,TSource,TResult>" name="selector">A transform function to apply to current and next element.</param>
         /// <returns type="Enumerable<T>"></returns>
-        public Enumerable<T> Pairwise<T, TSource, TSource, TResult>(JsFunc<T, TSource, TSource, TResult> selector) { return null; }
+        public Enumerable<T> Pairwise<T, TSource, TResult>(JsFunc<T, TSource, TSource, TResult> selector) { return null; }
         //TODO: CHECK
 
         /// <summary>Applies an accumulator function over a sequence.</summary>
@@ -525,7 +525,7 @@ namespace SharpKit.LinqJs
         /// <param name="resultSelector" type="Optional:Func&lt;TKey,Enumerable<T>&lt;TElement>,TResult>">A function to create a result value from each group.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
         /// <returns type="Enumerable<T>"></returns>
-        public Enumerable<T> GroupBy<TKey, TElement, TResultTCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<TKey, Enumerable<T>, TElement, TResult> resultSelector, JsFunc<TKey, TCompare> compareSelector) { return null; }
+        public Enumerable<T> GroupBy<TKey, TElement, TResult, TCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<TKey, Enumerable<T>, TElement, TResult> resultSelector, JsFunc<TKey, TCompare> compareSelector) { return null; }
         //TODO: CHECK                               
         /// <summary>Groups the elements of a sequence according to a specified key selector function.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract the key for each element.</param>
@@ -539,7 +539,7 @@ namespace SharpKit.LinqJs
         /// <param name="resultSelector" type="Optional:Func&lt;TKey,Enumerable<T>&lt;TElement>,TResult>">A function to create a result value from each group.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
         /// <returns type="Enumerable<T>"></returns>
-        public Enumerable<T> PartitionBy<TKey, TElement, TResultTCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<TKey, Enumerable<T>, TElement, TResult> resultSelector, JsFunc<TKey, TCompare> compareSelector) { return null; }
+        public Enumerable<T> PartitionBy<TKey, TElement, TResult, TCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<TKey, Enumerable<T>, TElement, TResult> resultSelector, JsFunc<TKey, TCompare> compareSelector) { return null; }
         //TODO: CHECK
         /// <summary>Create Group by continuation key.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract the key for each element.</param>
@@ -634,288 +634,309 @@ namespace SharpKit.LinqJs
 
         #endregion
 
-        //#region Paging Methods
+        #region Paging Methods
 
-        //                /* Paging Methods */
+        /// <summary>Returns the element at a specified index in a sequence.</summary>
+        /// <param name="index" type="Number" integer="true">The zero-based index of the element to retrieve.</param>
+        /// <returns type="T"></returns>
+        public object ElementAt(JsNumber index) { return null; }
+        //TODO: return type (?)
 
-        //                public object ElementAt: function (index)
-        //                {
-        //                    /// <summary>Returns the element at a specified index in a sequence.</summary>
-        //                    /// <param name="index" type="Number" integer="true">The zero-based index of the element to retrieve.</param>
-        //                    /// <returns type="T"></returns>
-        //                },
+        /// <summary>Returns the element at a specified index in a sequence or a default value if the index is out of range.</summary>
+        /// <param name="index" type="Number" integer="true">The zero-based index of the element to retrieve.</param>
+        /// <param name="defaultValue" type="T">The value if the index is outside the bounds then send.</param>
+        /// <returns type="T"></returns>
+        public object ElementAtOrDefault(JsNumber index, T defaultValue) { return null; }
+        //TODO: return type (?)
 
-        //                public object ElementAtOrDefault: function (index, defaultValue)
-        //                {
-        //                    /// <summary>Returns the element at a specified index in a sequence or a default value if the index is out of range.</summary>
-        //                    /// <param name="index" type="Number" integer="true">The zero-based index of the element to retrieve.</param>
-        //                    /// <param name="defaultValue" type="T">The value if the index is outside the bounds then send.</param>
-        //                    /// <returns type="T"></returns>
-        //                },
+        /// <summary>Returns the first element of a sequence.</summary>
+        /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>
+        /// <returns type="T"></returns>
+        public object First(JsFunc<T, bool> predicate) { return null; }
+        //TODO: return type (?)
+        /// <summary>Returns the first element of a sequence.</summary>
+        /// <returns type="T"></returns>
+        public object First() { return null; }
+        //TODO: return type (?)
 
-        //                public object First: function (predicate)
-        //                {
-        //                    /// <summary>Returns the first element of a sequence.</summary>
-        //                    /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>
-        //                    /// <returns type="T"></returns>
-        //                },
+        /// <summary>Returns the first element of a sequence, or a default value.</summary>
+        /// <param name="defaultValue" type="T">The value if not found then send.</param>
+        /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>        
+        /// <returns type="T"></returns>
+        public object FirstOrDefault(T defaultValue, JsFunc<T, bool> predicate) { return null; }
+        //TODO: return type (?)
+        /// <summary>Returns the first element of a sequence, or a default value.</summary>
+        /// <param name="defaultValue" type="T">The value if not found then send.</param>
+        /// <returns type="T"></returns>
+        public object FirstOrDefault(T defaultValue) { return null; }
+        //TODO: return type (?)
 
-        //                public object FirstOrDefault: function (defaultValue, predicate)
-        //                {
-        //                    /// <summary>Returns the first element of a sequence, or a default value.</summary>
-        //                    /// <param name="defaultValue" type="T">The value if not found then send.</param>
-        //                    /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>        
-        //                    /// <returns type="T"></returns>
-        //                },
+        /// <summary>Returns the last element of a sequence.</summary>
+        /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>
+        /// <returns type="T"></returns>
+        public object Last(JsFunc<T, bool> predicate) { return null; }
+        //TODO: return type (?)
+        /// <summary>Returns the last element of a sequence.</summary>
+        /// <returns type="T"></returns>
+        public object Last() { return null; }
+        //TODO: return type (?)
 
-        //                public object Last: function (predicate)
-        //                {
-        //                    /// <summary>Returns the last element of a sequence.</summary>
-        //                    /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>
-        //                    /// <returns type="T"></returns>
-        //                },
+        /// <summary>Returns the last element of a sequence, or a default value.</summary>
+        /// <param name="defaultValue" type="T">The value if not found then send.</param>
+        /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>        
+        /// <returns type="T"></returns>
+        public object LastOrDefault(T defaultValue, JsFunc<T, bool> predicate) { return null; }
+        //TODO: return type (?)
+        /// <summary>Returns the last element of a sequence, or a default value.</summary>
+        /// <param name="defaultValue" type="T">The value if not found then send.</param>
+        /// <returns type="T"></returns>
+        public object LastOrDefault(T defaultValue) { return null; }
+        //TODO: return type (?)
 
-        //                public object LastOrDefault: function (defaultValue, predicate)
-        //                {
-        //                    /// <summary>Returns the last element of a sequence, or a default value.</summary>
-        //                    /// <param name="defaultValue" type="T">The value if not found then send.</param>
-        //                    /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>        
-        //                    /// <returns type="T"></returns>
-        //                },
+        /// <summary>Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.</summary>
+        /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>
+        /// <returns type="T"></returns>
+        public object Single(JsFunc<T, bool> predicate) { return null; }
+        //TODO: return type (?)
+        /// <summary>Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.</summary>
+        /// <returns type="T"></returns>
+        public object Single() { return null; }
+        //TODO: return type (?)
 
-        //                public object Single: function (predicate)
-        //                {
-        //                    /// <summary>Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.</summary>
-        //                    /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>
-        //                    /// <returns type="T"></returns>
-        //                },
+        /// <summary>Returns a single, specific element of a sequence of values, or a default value if no such element is found.</summary>
+        /// <param name="defaultValue" type="T">The value if not found then send.</param>
+        /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>        
+        /// <returns type="T"></returns>
+        public object SingleOrDefault(T defaultValue, JsFunc<T, bool> predicate) { return null; }
+        //TODO: return type (?)
+        /// <summary>Returns a single, specific element of a sequence of values, or a default value if no such element is found.</summary>
+        /// <param name="defaultValue" type="T">The value if not found then send.</param>
+        /// <returns type="T"></returns>
+        public object SingleOrDefault(T defaultValue) { return null; }
+        //TODO: return type (?)
 
-        //                SingleOrDefault: function (defaultValue, predicate)
-        //                {
-        //                    /// <summary>Returns a single, specific element of a sequence of values, or a default value if no such element is found.</summary>
-        //                    /// <param name="defaultValue" type="T">The value if not found then send.</param>
-        //                    /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>        
-        //                    /// <returns type="T"></returns>
-        //                },
+        /// <summary>Bypasses a specified number of elements in a sequence and then returns the remaining elements.</summary>
+        /// <param name="count" type="Number" integer="true">The number of elements to skip before returning the remaining elements.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> Skip(JsNumber count) { return null; }
 
-        //                Skip: function (count)
-        //                {
-        //                    /// <summary>Bypasses a specified number of elements in a sequence and then returns the remaining elements.</summary>
-        //                    /// <param name="count" type="Number" integer="true">The number of elements to skip before returning the remaining elements.</param>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
-
-        //                SkipWhile: function (predicate)
-        //                {
-        //                    /// <summary>Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements.</summary>
-        //                    /// <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
-
-        //                Take: function (count)
-        //                {
-        //                    /// <summary>Returns a specified number of contiguous elements from the start of a sequence.</summary>
-        //                    /// <param name="count" type="Number" integer="true">The number of elements to return.</param>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
-
-        //                TakeWhile: function (predicate)
-        //                {
-        //                    /// <summary>Returns elements from a sequence as long as a specified condition is true, and then skips the remaining elements.</summary>
-        //                    /// <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
-
-        //                TakeExceptLast: function (count)
-        //                {
-        //                    /// <summary>Take a sequence except last count.</summary>
-        //                    /// <param name="count" type="Optional:Number" integer="true">The number of skip count.</param>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
-
-        //                TakeFromLast: function (count)
-        //                {
-        //                    /// <summary>Take a sequence from last count.</summary>
-        //                    /// <param name="count" type="Number" integer="true">The number of take count.</param>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
-
-        //                IndexOf: function (item)
-        //                {
-        //                    /// <summary>Returns the zero-based index of the flrst occurrence of a value.</summary>
-        //                    /// <param name="item" type="T">The zero-based starting index of the search.</param>
-        //                    /// <returns type="Number" integer="true"></returns>
-        //                },
-
-        //                LastIndexOf: function (item)
-        //                {
-        //                    /// <summary>Returns the zero-based index of the last occurrence of a value.</summary>
-        //                    /// <param name="item" type="T">The zero-based starting index of the search.</param>
-        //                    /// <returns type="Number" integer="true"></returns>
-        //                },
-
-        //    #endregion
-
-        //#region Convert Methods
-        //                         /* Convert Methods */
-
-        //                ToArray: function ()
-        //                {
-        //                    /// <summary>Creates an array from this sequence.</summary>
-        //                    /// <returns type="Array"></returns>
-        //                },
-
-        //                ToLookup: function (keySelector, elementSelector, compareSelector)
-        //                {
-        //                    /// <summary>Creates a Lookup from this sequence.</summary>
-        //                    /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
-        //                    /// <param name="elementSelector" type="Optional:Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
-        //                    /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
-        //                    return new Lookup();
-        //                },
-
-        //                ToObject: function (keySelector, elementSelector)
-        //                {
-        //                    /// <summary>Creates a Object from this sequence.</summary>
-        //                    /// <param name="keySelector" type="Func&lt;T,String>">A function to extract a key from each element.</param>
-        //                    /// <param name="elementSelector" type="Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
-        //                    /// <returns type="Object"></returns>
-        //                },
-
-        //                ToDictionary: function (keySelector, elementSelector, compareSelector)
-        //                {
-        //                    /// <summary>Creates a Dictionary from this sequence.</summary>
-        //                    /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
-        //                    /// <param name="elementSelector" type="Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
-        //                    /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
-        //                    return new Dictionary();
-        //                },
-
-        //                // Overload:function()
-        //                // Overload:function(replacer)
-        //                // Overload:function(replacer, space)
-        //                ToJSON: function (replacer, space)
-        //                {
-        //                    /// <summary>Creates a JSON String from sequence, performed only native JSON support browser or included json2.js.</summary>
-        //                    /// <param name="replacer" type="Optional:Func">a replacer.</param>
-        //                    /// <param name="space" type="Optional:Number">indent spaces.</param>
-        //                    /// <returns type="String"></returns>
-        //                },
-
-        //                // Overload:function()
-        //                // Overload:function(separator)
-        //                // Overload:function(separator,selector)
-        //                ToString: function (separator, selector)
-        //                {
-        //                    /// <summary>Creates Joined string from this sequence.</summary>
-        //                    /// <param name="separator" type="Optional:String">A String.</param>
-        //                    /// <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
-        //                    /// <returns type="String"></returns>
-        //                },
+        /// <summary>Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements.</summary>
+        /// <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> SkipWhile(JsFunc<T, bool> predicate) { return null; }
+        /// <summary>Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements.</summary>
+        /// <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> SkipWhile(JsFunc<T, JsNumber, bool> predicate) { return null; }
 
 
-        //    #endregion
+        /// <summary>Returns a specified number of contiguous elements from the start of a sequence.</summary>
+        /// <param name="count" type="Number" integer="true">The number of elements to return.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> Take(JsNumber count) { return null; }
 
-        //#region Action Methods
-        //                         /* Action Methods */
+        /// <summary>Returns elements from a sequence as long as a specified condition is true, and then skips the remaining elements.</summary>
+        /// <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> TakeWhile(JsFunc<T, bool> predicate) { return null; }
+        /// <summary>Returns elements from a sequence as long as a specified condition is true, and then skips the remaining elements.</summary>
+        /// <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> TakeWhile(JsFunc<T, JsNumber, bool> predicate) { return null; }
 
-        //                Do: function (action)
-        //                {
-        //                    /// <summary>Performs the specified action on each element of the sequence.</summary>
-        //                    /// <param name="action" type="Action&lt;T>_or_Action&lt;T,int>">Optional:the second parameter of the function represents the index of the source element.</param>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
+        /// <summary>Take a sequence except last count.</summary>
+        /// <param name="count" type="Optional:Number" integer="true">The number of skip count.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> TakeExceptLast(JsNumber count) { return null; }
+        /// <summary>Take a sequence except last count.</summary>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> TakeExceptLast() { return null; }
 
-        //                ForEach: function (action)
-        //                {
-        //                    /// <summary>Performs the specified action on each element of the sequence.</summary>
-        //                    /// <param name="action" type="Action&lt;T>_or_Action&lt;T,int>">[return true;]continue iteration.[return false;]break iteration. Optional:the second parameter of the function represents the index of the source element.</param>
-        //                    /// <returns type="void"></returns>
-        //                },
+        /// <summary>Take a sequence from last count.</summary>
+        /// <param name="count" type="Number" integer="true">The number of take count.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> TakeFromLast(JsNumber count) { return null; }
 
-        //                Write: function (separator, selector)
-        //                {
-        //                    /// <summary>Do document.write.</summary>
-        //                    /// <param name="separator" type="Optional:String">A String.</param>
-        //                    /// <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
-        //                    /// <returns type="void"></returns>
-        //                },
+        /// <summary>Returns the zero-based index of the flrst occurrence of a value.</summary>
+        /// <param name="item" type="T">The zero-based starting index of the search.</param>
+        /// <returns type="Number" integer="true"></returns>
+        public JsNumber IndexOf(T item) { return null; }
 
-        //                WriteLine: function (selector)
-        //                {
-        //                    /// <summary>Do document.write + &lt;br />.</summary>
-        //                    /// <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
-        //                    /// <returns type="void"></returns>
-        //                },
+        /// <summary>Returns the zero-based index of the last occurrence of a value.</summary>
+        /// <param name="item" type="T">The zero-based starting index of the search.</param>
+        /// <returns type="Number" integer="true"></returns>
+        public JsNumber LastIndexOf(T item) { return null; }
 
-        //                Force: function ()
-        //                {
-        //                    /// <summary>Execute enumerate.</summary>
-        //                    /// <returns type="void"></returns>
-        //                },
+        #endregion
+
+        #region Convert Methods
+
+        /// <summary>Creates an array from this sequence.</summary>
+        /// <returns type="Array"></returns>
+        public JsArray ToArray() { return null; }
+
+        /// <summary>Creates a Lookup from this sequence.</summary>
+        /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
+        /// <param name="elementSelector" type="Optional:Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
+        /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
+        ///return new Lookup();
+        public object ToLookup<TKey, TElement, TCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<T, TKey, TCompare> compareSelector) { return null; }
+        //TODO: return type?
+        /// <summary>Creates a Lookup from this sequence.</summary>
+        /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
+        ///return new Lookup();
+        public object ToLookup<TKey>(JsFunc<T, TKey> keySelector) { return null; }
+        //TODO: return type?
+
+        /// <summary>Creates a Object from this sequence.</summary>
+        /// <param name="keySelector" type="Func&lt;T,String>">A function to extract a key from each element.</param>
+        /// <param name="elementSelector" type="Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
+        /// <returns type="Object"></returns>
+        public object ToObject<TElement>(JsFunc<T, JsString> keySelector, JsFunc<T, TElement> elementSelector) { return null; }
+
+        /// <summary>Creates a Dictionary from this sequence.</summary>
+        /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
+        /// <param name="elementSelector" type="Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
+        /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
+        ///return new Dictionary();
+        public object ToDictionary<TKey, TElement, TCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<T, TKey, TCompare> compareSelector) { return null; }
+        //TODO: return type?
+        /// <summary>Creates a Dictionary from this sequence.</summary>
+        /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
+        /// <param name="elementSelector" type="Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
+        ///return new Dictionary();
+        public object ToDictionary<TKey, TElement>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector) { return null; }
+        //TODO: return type?
+
+        /// <summary>Creates a JSON String from sequence, performed only native JSON support browser or included json2.js.</summary>
+        /// <param name="replacer" type="Optional:Func">a replacer.</param>
+        /// <param name="space" type="Optional:Number">indent spaces.</param>
+        /// <returns type="String"></returns>
+        public JsString ToJSON(object replacer, JsNumber space) { return null; }
+        //TODO: replacer type?
+        /// <summary>Creates a JSON String from sequence, performed only native JSON support browser or included json2.js.</summary>
+        /// <param name="replacer" type="Optional:Func">a replacer.</param>
+        /// <returns type="String"></returns>
+        public JsString ToJSON(object replacer) { return null; }
+        //TODO: replacer type?
+        /// <summary>Creates a JSON String from sequence, performed only native JSON support browser or included json2.js.</summary>
+        /// <returns type="String"></returns>
+        public JsString ToJSON() { return null; }
+
+        /// <summary>Creates Joined string from this sequence.</summary>
+        /// <param name="separator" type="Optional:String">A String.</param>
+        /// <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
+        /// <returns type="String"></returns>
+        public JsString ToString(JsString separator, JsFunc<T, JsString> selector) { return null; }
+        /// <summary>Creates Joined string from this sequence.</summary>
+        /// <param name="separator" type="Optional:String">A String.</param>
+        /// <returns type="String"></returns>
+        public JsString ToString(JsString separator) { return null; }
+
+        /// <summary>Creates Joined string from this sequence.</summary>
+        /// <returns type="String"></returns>
+        public JsString ToString() { return null; }
 
 
-        //    #endregion
 
-        //#region Functional Methods
-        //                         /* Functional Methods */
+        #endregion
 
-        //                Let: function (func)
-        //                {
-        //                    /// <summary>Bind the source to the parameter so that it can be used multiple times.</summary>
-        //                    /// <param name="func" type="Func&lt;Enumerable<T>&lt;T>,Enumerable<T>&lt;TR>>">apply function.</param>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
+        #region Action Methods
 
-        //                Share: function ()
-        //                {
-        //                    /// <summary>Shares cursor of all enumerators to the sequence.</summary>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
+        /// <summary>Performs the specified action on each element of the sequence.</summary>
+        /// <param name="action" type="Action&lt;T>_or_Action&lt;T,int>">Optional:the second parameter of the function represents the index of the source element.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> Do(JsAction<T> action) { return null; }
+        /// <summary>Performs the specified action on each element of the sequence.</summary>
+        /// <param name="action" type="Action&lt;T>_or_Action&lt;T,int>">Optional:the second parameter of the function represents the index of the source element.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> Do(JsAction<T, JsNumber> action) { return null; }
 
-        //                MemoizeAll: function ()
-        //                {
-        //                    /// <summary>Creates an enumerable that enumerates the original enumerable only once and caches its results.</summary>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
+        /// <summary>Performs the specified action on each element of the sequence.</summary>
+        /// <param name="action" type="Action&lt;T>_or_Action&lt;T,int>">[return true;]continue iteration.[return false;]break iteration. Optional:the second parameter of the function represents the index of the source element.</param>
+        /// <returns type="void"></returns>
+        public void ForEach(JsAction<T> action) { }
+        /// <summary>Performs the specified action on each element of the sequence.</summary>
+        /// <param name="action" type="Action&lt;T>_or_Action&lt;T,int>">[return true;]continue iteration.[return false;]break iteration. Optional:the second parameter of the function represents the index of the source element.</param>
+        /// <returns type="void"></returns>
+        public void ForEach(JsAction<T, JsNumber> action) { }
 
+        /// <summary>Do document.write.</summary>
+        /// <param name="separator" type="Optional:String">A String.</param>
+        /// <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
+        /// <returns type="void"></returns>
+        public void Write(JsString separator, JsFunc<T, JsString> selector) { }
+        /// <summary>Do document.write.</summary>
+        /// <param name="separator" type="Optional:String">A String.</param>
+        /// <returns type="void"></returns>
+        public void Write(JsString separator) { }
+        /// <summary>Do document.write.</summary>
+        /// <returns type="void"></returns>
+        public void Write() { }
 
-        //    #endregion
+        /// <summary>Do document.write + &lt;br />.</summary>
+        /// <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
+        /// <returns type="void"></returns>
+        public void WriteLine(JsFunc<T, JsString> selector) { }
+        /// <summary>Do document.write + &lt;br />.</summary>
+        /// <returns type="void"></returns>
+        public void WriteLine() { }
 
-        //#region Error Handling Methods
+        /// <summary>Execute enumerate.</summary>
+        /// <returns type="void"></returns>
+        public void Force() { }
 
-        //                /* Error Handling Methods */
+        #endregion
 
-        //                Catch: function (handler)
-        //                {
-        //                    /// <summary>catch error and do handler.</summary>
-        //                    /// <param name="handler" type="Action&lt;Error>">execute if error occured.</param>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
+        #region Functional Methods
 
-        //                Finally: function (finallyAction)
-        //                {
-        //                    /// <summary>do action if enumerate end or disposed or error occured.</summary>
-        //                    /// <param name="handler" type="Action">finally execute.</param>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                },
+        /// <summary>Bind the source to the parameter so that it can be used multiple times.</summary>
+        /// <param name="func" type="Func&lt;Enumerable<T>&lt;T>,Enumerable<T>&lt;TR>>">apply function.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> Let<TR>(JsFunc<Enumerable<T>, T, Enumerable<T>, TR> func) { return null; }
+        //TODO: check
 
+        /// <summary>Shares cursor of all enumerators to the sequence.</summary>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> Share() { return null; }
 
-        //    #endregion
+        /// <summary>Creates an enumerable that enumerates the original enumerable only once and caches its results.</summary>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> MemoizeAll() { return null; }
 
-        //#region For Debug Methods
-        //                    /* For Debug Methods */
+        #endregion
 
-        //                Trace: function (message, selector)
-        //                {
-        //                    /// <summary>Trace object use console.log.</summary>
-        //                    /// <param name="message" type="Optional:String">Default is 'Trace:'.</param>
-        //                    /// <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
-        //                    /// <returns type="Enumerable<T>"></returns>
-        //                }
-        //            }
+        #region Error Handling Methods
 
-        //    #endregion
+        /// <summary>catch error and do handler.</summary>
+        /// <param name="handler" type="Action&lt;Error>">execute if error occured.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> Catch(JsAction<JsError> handler) { return null; }
+        //TODO: CHECK
+
+        /// <summary>do action if enumerate end or disposed or error occured.</summary>
+        /// <param name="handler" type="Action">finally execute.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> Finally(JsAction finallyAction) { return null; }
+
+        #endregion
+
+        #region For Debug Methods
+
+        /// <summary>Trace object use console.log.</summary>
+        /// <param name="message" type="Optional:String">Default is 'Trace:'.</param>
+        /// <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> Trace(JsString message, JsFunc<T, JsString> selector) { return null; }
+        /// <summary>Trace object use console.log.</summary>
+        /// <param name="message" type="Optional:String">Default is 'Trace:'.</param>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> Trace(JsString message) { return null; }
+        /// <summary>Trace object use console.log.</summary>
+        /// <returns type="Enumerable<T>"></returns>
+        public Enumerable<T> Trace() { return null; }
+
+        #endregion
 
         //#region Unknown vsdoc-dummy (?)
 
