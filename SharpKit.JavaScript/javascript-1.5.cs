@@ -111,8 +111,8 @@ namespace SharpKit.JavaScript
         public void push(object item) { }
         public void push(object item1, object item2) { }
         public void push(object item1, object item2, params object[] items) { }
-        [JsMethod(NativeOverloads = true)]
-        public object peek() { return default(object); }
+        //[JsMethod(NativeOverloads = true)]
+        //public object peek() { return default(object); }
         ///<summary>
         ///Removes the last element from an array and returns it.
         ///</summary>
@@ -258,8 +258,8 @@ namespace SharpKit.JavaScript
         ///</summary>
         ///<param name="item">Optional. New elements of the Array.</param>
         public void push(T item) { }
-        [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public T peek() { return default(T); }
+        //[JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
+        //public T peek() { return default(T); }
         ///<summary>
         ///Removes the last element from an array and returns it.
         ///</summary>
