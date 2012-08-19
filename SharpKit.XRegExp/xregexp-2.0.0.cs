@@ -25,9 +25,9 @@ namespace SharpKit.XRegExp
         ///usage
         ///<code>
         /// // With named capture and flag x
-        /// XRegExp('(?<year>  [0-9]{4} ) [-\\s]?  # year  \n\
-        ///          (?<month> [0-9]{2} ) [-\\s]?  # month \n\
-        ///          (?<day>   [0-9]{2} )          # day   ', 'x');
+        /// XRegExp('(?&lt;year>  [0-9]{4} ) [-\\s]?  # year  \n\
+        ///          (?&lt;month> [0-9]{2} ) [-\\s]?  # month \n\
+        ///          (?&lt;day>   [0-9]{2} )          # day   ', 'x');
         /// 
         /// // Providing a regex object copies it. Native regexes are recompiled using native (not
         /// // XRegExp) syntax. Copies maintain special properties for named capture, are augmented
@@ -62,9 +62,9 @@ namespace SharpKit.XRegExp
         ///usage
         ///<code>
         /// // With named capture and flag x
-        /// XRegExp('(?<year>  [0-9]{4} ) [-\\s]?  # year  \n\
-        ///          (?<month> [0-9]{2} ) [-\\s]?  # month \n\
-        ///          (?<day>   [0-9]{2} )          # day   ', 'x');
+        /// XRegExp('(?&lt;year>  [0-9]{4} ) [-\\s]?  # year  \n\
+        ///          (?&lt;month> [0-9]{2} ) [-\\s]?  # month \n\
+        ///          (?&lt;day>   [0-9]{2} )          # day   ', 'x');
         /// 
         /// // Providing a regex object copies it. Native regexes are recompiled using native (not
         /// // XRegExp) syntax. Copies maintain special properties for named capture, are augmented
@@ -88,9 +88,9 @@ namespace SharpKit.XRegExp
         ///usage
         ///<code>
         /// // With named capture and flag x
-        /// XRegExp('(?<year>  [0-9]{4} ) [-\\s]?  # year  \n\
-        ///          (?<month> [0-9]{2} ) [-\\s]?  # month \n\
-        ///          (?<day>   [0-9]{2} )          # day   ', 'x');
+        /// XRegExp('(?&lt;year>  [0-9]{4} ) [-\\s]?  # year  \n\
+        ///          (?&lt;month> [0-9]{2} ) [-\\s]?  # month \n\
+        ///          (?&lt;day>   [0-9]{2} )          # day   ', 'x');
         /// 
         /// // Providing a regex object copies it. Native regexes are recompiled using native (not
         /// // XRegExp) syntax. Copies maintain special properties for named capture, are augmented
@@ -114,9 +114,9 @@ namespace SharpKit.XRegExp
         ///usage
         ///<code>
         /// // With named capture and flag x
-        /// XRegExp('(?<year>  [0-9]{4} ) [-\\s]?  # year  \n\
-        ///          (?<month> [0-9]{2} ) [-\\s]?  # month \n\
-        ///          (?<day>   [0-9]{2} )          # day   ', 'x');
+        /// XRegExp('(?&lt;year>  [0-9]{4} ) [-\\s]?  # year  \n\
+        ///          (?&lt;month> [0-9]{2} ) [-\\s]?  # month \n\
+        ///          (?&lt;day>   [0-9]{2} )          # day   ', 'x');
         /// 
         /// // Providing a regex object copies it. Native regexes are recompiled using native (not
         /// // XRegExp) syntax. Copies maintain special properties for named capture, are augmented
@@ -189,7 +189,7 @@ namespace SharpKit.XRegExp
         /// Addon: Builds regexes using named subpatterns, for readability and pattern reuse.
         /// Backreferences in the outer pattern and provided subpatterns are automatically renumbered to work correctly. Returns a regex with interpolated subpatterns.
         /// </summary>
-        /// <param name="pattern">XRegExp pattern using {{name}} for embedded subpatterns. Allows ({{name}}) as shorthand for (?<name>{{name}}).
+        /// <param name="pattern">XRegExp pattern using {{name}} for embedded subpatterns. Allows ({{name}}) as shorthand for (?&lt;name>{{name}}).
         /// Patterns cannot be embedded within character classes.</param>
         /// <param name="subs">Lookup object for named subpatterns.
         /// Values can be strings or regexes. A leading ^ and trailing unescaped $ are stripped from subpatterns, if both are present.</param>
@@ -200,7 +200,7 @@ namespace SharpKit.XRegExp
         /// Addon: Builds regexes using named subpatterns, for readability and pattern reuse.
         /// Backreferences in the outer pattern and provided subpatterns are automatically renumbered to work correctly. Returns a regex with interpolated subpatterns.
         /// </summary>
-        /// <param name="pattern">XRegExp pattern using {{name}} for embedded subpatterns. Allows ({{name}}) as shorthand for (?<name>{{name}}).
+        /// <param name="pattern">XRegExp pattern using {{name}} for embedded subpatterns. Allows ({{name}}) as shorthand for (?&lt;name>{{name}}).
         /// Patterns cannot be embedded within character classes.</param>
         /// <param name="subs">Lookup object for named subpatterns.
         /// Values can be strings or regexes. A leading ^ and trailing unescaped $ are stripped from subpatterns, if both are present.</param>
@@ -254,8 +254,8 @@ namespace SharpKit.XRegExp
         ///<example>
         ///usage
         ///<code>
-        ///XRegExp.escape('Escaped? <.>');
-        /// // -> 'Escaped\?\ <\.>'
+        ///XRegExp.escape('Escaped? &lt;.>');
+        /// // -> 'Escaped\?\ &lt;\.>'
         ///</code>
         ///</example>
         public static JsString escape(JsString str) { return null; }
@@ -279,7 +279,7 @@ namespace SharpKit.XRegExp
         /// 
         /// // With pos and sticky, in a loop
         /// var pos = 2, result = [], match;
-        /// while (match = XRegExp.exec('<1><2><3><4>5<6>', /<(\d)>/, pos, 'sticky')) {
+        /// while (match = XRegExp.exec('&lt;1>&lt;2>&lt;3>&lt;4>5&lt;6>', /&lt;(\d)>/, pos, 'sticky')) {
         ///   result.push(match[1]);
         ///   pos = match.index + match[0].length;
         /// }
@@ -306,7 +306,7 @@ namespace SharpKit.XRegExp
         /// 
         /// // With pos and sticky, in a loop
         /// var pos = 2, result = [], match;
-        /// while (match = XRegExp.exec('<1><2><3><4>5<6>', /<(\d)>/, pos, 'sticky')) {
+        /// while (match = XRegExp.exec('&lt;1>&lt;2>&lt;3>&lt;4>5&lt;6>', /&lt;(\d)>/, pos, 'sticky')) {
         ///   result.push(match[1]);
         ///   pos = match.index + match[0].length;
         /// }
@@ -331,7 +331,7 @@ namespace SharpKit.XRegExp
         /// 
         /// // With pos and sticky, in a loop
         /// var pos = 2, result = [], match;
-        /// while (match = XRegExp.exec('<1><2><3><4>5<6>', /<(\d)>/, pos, 'sticky')) {
+        /// while (match = XRegExp.exec('&lt;1>&lt;2>&lt;3>&lt;4>5&lt;6>', /&lt;(\d)>/, pos, 'sticky')) {
         ///   result.push(match[1]);
         ///   pos = match.index + match[0].length;
         /// }
@@ -476,19 +476,19 @@ namespace SharpKit.XRegExp
         ///<example>
         ///usage
         ///<code>
-        /// // Basic usage; matches numbers within <b> tags
-        /// XRegExp.matchChain('1 <b>2</b> 3 <b>4 a 56</b>', [
-        ///   XRegExp('(?is)<b>.*?</b>'),
+        /// // Basic usage; matches numbers within &lt;b> tags
+        /// XRegExp.matchChain('1 &lt;b>2&lt;/b> 3 &lt;b>4 a 56&lt;/b>', [
+        ///   XRegExp('(?is)&lt;b>.*?&lt;/b>'),
         ///   /\d+/
         /// ]);
         /// // -> ['2', '4', '56']
         /// 
         /// // Passing forward and returning specific backreferences
-        /// html = '<a href="http://xregexp.com/api/">XRegExp</a>\
-        ///         <a href="http://www.google.com/">Google</a>';
+        /// html = '&lt;a href="http://xregexp.com/api/">XRegExp&lt;/a>\
+        ///         &lt;a href="http://www.google.com/">Google&lt;/a>';
         /// XRegExp.matchChain(html, [
-        ///   {regex: /<a href="([^"]+)">/i, backref: 1},
-        ///   {regex: XRegExp('(?i)^https?://(?<domain>[^/?#]+)'), backref: 'domain'}
+        ///   {regex: /&lt;a href="([^"]+)">/i, backref: 1},
+        ///   {regex: XRegExp('(?i)^https?://(?&lt;domain>[^/?#]+)'), backref: 'domain'}
         /// ]);
         /// // -> ['xregexp.com', 'www.google.com']
         ///</code>
@@ -514,15 +514,15 @@ namespace SharpKit.XRegExp
         /// // -> ['t((e))s', '', 'ing']
         /// 
         /// // Extended information mode with valueNames
-        /// str = 'Here is <div> <div>an</div></div> example';
-        /// XRegExp.matchRecursive(str, '<div\\s*>', '</div>', 'gi', {
+        /// str = 'Here is &lt;div> &lt;div>an&lt;/div>&lt;/div> example';
+        /// XRegExp.matchRecursive(str, '&lt;div\\s*>', '&lt;/div>', 'gi', {
         ///   valueNames: ['between', 'left', 'match', 'right']
         /// });
         /// /* -> [
         /// {name: 'between', value: 'Here is ',       start: 0,  end: 8},
-        /// {name: 'left',    value: '<div>',          start: 8,  end: 13},
-        /// {name: 'match',   value: ' <div>an</div>', start: 13, end: 27},
-        /// {name: 'right',   value: '</div>',         start: 27, end: 33},
+        /// {name: 'left',    value: '&lt;div>',          start: 8,  end: 13},
+        /// {name: 'match',   value: ' &lt;div>an&lt;/div>', start: 13, end: 27},
+        /// {name: 'right',   value: '&lt;/div>',         start: 27, end: 33},
         /// {name: 'between', value: ' example',       start: 33, end: 41}
         /// ] */
         /// 
@@ -540,9 +540,9 @@ namespace SharpKit.XRegExp
         /// ] */
         /// 
         /// // Sticky mode via flag y
-        /// str = '<1><<<2>>><3>4<5>';
-        /// XRegExp.matchRecursive(str, '<', '>', 'gy');
-        /// // -> ['1', '<<2>>', '3']
+        /// str = '&lt;1>&lt;&lt;&lt;2>>>&lt;3>4&lt;5>';
+        /// XRegExp.matchRecursive(str, '&lt;', '>', 'gy');
+        /// // -> ['1', '&lt;&lt;2>>', '3']
         ///</code>
         ///</example>
         public static JsArray matchRecursive(JsString str, JsString left, JsString right, JsString flags, object options) { return null; }
@@ -563,15 +563,15 @@ namespace SharpKit.XRegExp
         /// // -> ['t((e))s', '', 'ing']
         /// 
         /// // Extended information mode with valueNames
-        /// str = 'Here is <div> <div>an</div></div> example';
-        /// XRegExp.matchRecursive(str, '<div\\s*>', '</div>', 'gi', {
+        /// str = 'Here is &lt;div> &lt;div>an&lt;/div>&lt;/div> example';
+        /// XRegExp.matchRecursive(str, '&lt;div\\s*>', '&lt;/div>', 'gi', {
         ///   valueNames: ['between', 'left', 'match', 'right']
         /// });
         /// /* -> [
         /// {name: 'between', value: 'Here is ',       start: 0,  end: 8},
-        /// {name: 'left',    value: '<div>',          start: 8,  end: 13},
-        /// {name: 'match',   value: ' <div>an</div>', start: 13, end: 27},
-        /// {name: 'right',   value: '</div>',         start: 27, end: 33},
+        /// {name: 'left',    value: '&lt;div>',          start: 8,  end: 13},
+        /// {name: 'match',   value: ' &lt;div>an&lt;/div>', start: 13, end: 27},
+        /// {name: 'right',   value: '&lt;/div>',         start: 27, end: 33},
         /// {name: 'between', value: ' example',       start: 33, end: 41}
         /// ] */
         /// 
@@ -589,9 +589,9 @@ namespace SharpKit.XRegExp
         /// ] */
         /// 
         /// // Sticky mode via flag y
-        /// str = '<1><<<2>>><3>4<5>';
-        /// XRegExp.matchRecursive(str, '<', '>', 'gy');
-        /// // -> ['1', '<<2>>', '3']
+        /// str = '&lt;1>&lt;&lt;2>>>&lt;3>4&lt;5>';
+        /// XRegExp.matchRecursive(str, '&lt;', '>', 'gy');
+        /// // -> ['1', '&lt;&lt;2>>', '3']
         ///</code>
         ///</example>
         public static JsArray matchRecursive(JsString str, JsString left, JsString right) { return null; }
@@ -607,13 +607,13 @@ namespace SharpKit.XRegExp
         /// <param name="replacement">Replacement string or a function invoked to create it.
         /// Replacement strings can include special replacement syntax:
         /// $$ - Inserts a literal $ character.
-        /// $&, $0 - Inserts the matched substring.
+        /// $&amp;, $0 - Inserts the matched substring.
         /// $` - Inserts the string that precedes the matched substring (left context).
         /// $' - Inserts the string that follows the matched substring (right context).
         /// $n, $nn - Where n/nn are digits referencing an existent capturing group, inserts backreference n/nn.
         /// ${n} - Where n is a name or any number of digits that reference an existent capturing group, inserts backreference n.
         /// Replacement functions are invoked with three or more arguments:
-        /// The matched substring (corresponds to $& above). Named backreferences are accessible as properties of this first argument.
+        /// The matched substring (corresponds to $&amp; above). Named backreferences are accessible as properties of this first argument.
         /// 0..n arguments, one for each backreference (corresponding to $1, $2, etc. above).
         /// The zero-based index of the match within the total search string.
         /// The total string being searched.</param>
@@ -623,7 +623,7 @@ namespace SharpKit.XRegExp
         ///usage
         ///<code>
         /// // Regex search, using named backreferences in replacement string
-        /// var name = XRegExp('(?<first>\\w+) (?<last>\\w+)');
+        /// var name = XRegExp('(?&lt;first>\\w+) (?&lt;last>\\w+)');
         /// XRegExp.replace('John Smith', name, '${last}, ${first}');
         /// // -> 'Smith, John'
         /// 
@@ -650,23 +650,22 @@ namespace SharpKit.XRegExp
         /// <param name="replacement">Replacement string or a function invoked to create it.
         /// Replacement strings can include special replacement syntax:
         /// $$ - Inserts a literal $ character.
-        /// $&, $0 - Inserts the matched substring.
+        /// $&amp;, $0 - Inserts the matched substring.
         /// $` - Inserts the string that precedes the matched substring (left context).
         /// $' - Inserts the string that follows the matched substring (right context).
         /// $n, $nn - Where n/nn are digits referencing an existent capturing group, inserts backreference n/nn.
         /// ${n} - Where n is a name or any number of digits that reference an existent capturing group, inserts backreference n.
         /// Replacement functions are invoked with three or more arguments:
-        /// The matched substring (corresponds to $& above). Named backreferences are accessible as properties of this first argument.
+        /// The matched substring (corresponds to $&amp; above). Named backreferences are accessible as properties of this first argument.
         /// 0..n arguments, one for each backreference (corresponding to $1, $2, etc. above).
         /// The zero-based index of the match within the total search string.
         /// The total string being searched.</param>
-        /// <param name="scope">Use 'one' to replace the first match only, or 'all'. If not explicitly specified and using a regex with flag g, scope is 'all'.</param>
         /// <returns>New string with one or all matches replaced.</returns>
         ///<example>
         ///usage
         ///<code>
         /// // Regex search, using named backreferences in replacement string
-        /// var name = XRegExp('(?<first>\\w+) (?<last>\\w+)');
+        /// var name = XRegExp('(?&lt;first>\\w+) (?&lt;last>\\w+)');
         /// XRegExp.replace('John Smith', name, '${last}, ${first}');
         /// // -> 'Smith, John'
         /// 
@@ -693,13 +692,13 @@ namespace SharpKit.XRegExp
         /// <param name="replacement">Replacement string or a function invoked to create it.
         /// Replacement strings can include special replacement syntax:
         /// $$ - Inserts a literal $ character.
-        /// $&, $0 - Inserts the matched substring.
+        /// $&amp;, $0 - Inserts the matched substring.
         /// $` - Inserts the string that precedes the matched substring (left context).
         /// $' - Inserts the string that follows the matched substring (right context).
         /// $n, $nn - Where n/nn are digits referencing an existent capturing group, inserts backreference n/nn.
         /// ${n} - Where n is a name or any number of digits that reference an existent capturing group, inserts backreference n.
         /// Replacement functions are invoked with three or more arguments:
-        /// The matched substring (corresponds to $& above). Named backreferences are accessible as properties of this first argument.
+        /// The matched substring (corresponds to $&amp; above). Named backreferences are accessible as properties of this first argument.
         /// 0..n arguments, one for each backreference (corresponding to $1, $2, etc. above).
         /// The zero-based index of the match within the total search string.
         /// The total string being searched.</param>
@@ -709,7 +708,7 @@ namespace SharpKit.XRegExp
         ///usage
         ///<code>
         /// // Regex search, using named backreferences in replacement string
-        /// var name = XRegExp('(?<first>\\w+) (?<last>\\w+)');
+        /// var name = XRegExp('(?&lt;first>\\w+) (?&lt;last>\\w+)');
         /// XRegExp.replace('John Smith', name, '${last}, ${first}');
         /// // -> 'Smith, John'
         /// 
@@ -736,13 +735,13 @@ namespace SharpKit.XRegExp
         /// <param name="replacement">Replacement string or a function invoked to create it.
         /// Replacement strings can include special replacement syntax:
         /// $$ - Inserts a literal $ character.
-        /// $&, $0 - Inserts the matched substring.
+        /// $&amp;, $0 - Inserts the matched substring.
         /// $` - Inserts the string that precedes the matched substring (left context).
         /// $' - Inserts the string that follows the matched substring (right context).
         /// $n, $nn - Where n/nn are digits referencing an existent capturing group, inserts backreference n/nn.
         /// ${n} - Where n is a name or any number of digits that reference an existent capturing group, inserts backreference n.
         /// Replacement functions are invoked with three or more arguments:
-        /// The matched substring (corresponds to $& above). Named backreferences are accessible as properties of this first argument.
+        /// The matched substring (corresponds to $&amp; above). Named backreferences are accessible as properties of this first argument.
         /// 0..n arguments, one for each backreference (corresponding to $1, $2, etc. above).
         /// The zero-based index of the match within the total search string.
         /// The total string being searched.</param>
@@ -751,7 +750,7 @@ namespace SharpKit.XRegExp
         ///usage
         ///<code>
         /// // Regex search, using named backreferences in replacement string
-        /// var name = XRegExp('(?<first>\\w+) (?<last>\\w+)');
+        /// var name = XRegExp('(?&lt;first>\\w+) (?&lt;last>\\w+)');
         /// XRegExp.replace('John Smith', name, '${last}, ${first}');
         /// // -> 'Smith, John'
         /// 
@@ -841,8 +840,6 @@ namespace SharpKit.XRegExp
         /// </summary>
         /// <param name="str">String to search.</param>
         /// <param name="regex">Regex to search with.</param>
-        /// <param name="pos">Zero-based index at which to start the search.</param>
-        /// <param name="sticky">Whether the match must start at the specified position only. The string 'sticky' is accepted as an alternative to true.</param>
         /// <returns>Whether the regex matched the provided value.</returns>
         ///<example>
         ///usage
@@ -936,8 +933,58 @@ namespace SharpKit.XRegExp
         public static void version(JsString ver) { }
         //TODO: in the documnetion threr where no paremeters but it seems wird, so i gussed them.
 
+        /// <summary>
+        /// Addon: Implicitly calls the regex's test method with the first value in the provided args array. context is ignored.
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="args"></param>
+        public void apply(object context, JsArray args) { }
 
+        /// <summary>
+        /// Addon: Implicitly calls the regex's test method with the provided string. context is ignored.
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="str"></param>
+        public void call(object context, JsString str) { }
 
+        /// <summary>
+        /// Addon: Implicitly calls XRegExp.forEach.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="callback"></param>
+        /// <param name="context"></param>
+        public void forEach(JsString str, JsAction callback, object context) { }
+
+        /// <summary>
+        /// Addon: Implicitly calls XRegExp.globalize.
+        /// </summary>
+        public void globalize() { }
+
+        /// <summary>
+        /// Addon: Implicitly calls XRegExp.exec.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="pos"></param>
+        /// <param name="sticky"></param>
+        public void xexec(JsString str, JsNumber pos, bool sticky) { }
+        /// <summary>
+        /// Addon: Implicitly calls XRegExp.exec.
+        /// </summary>
+        /// <param name="str"></param>
+        public void xexec(JsString str) { }
+
+        /// <summary>
+        /// Addon: Implicitly calls XRegExp.test.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="pos"></param>
+        /// <param name="sticky"></param>
+        public void xtest(JsString str, JsNumber pos, bool sticky) { }
+        /// <summary>
+        /// Addon: Implicitly calls XRegExp.test.
+        /// </summary>
+        /// <param name="str"></param>
+        public void xtest(JsString str) { }
     }
 
     public class XRegExpAddTokenOptions
