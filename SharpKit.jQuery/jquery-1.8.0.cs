@@ -828,14 +828,14 @@ namespace SharpKit.jQuery
 		/// <example>
 		/// Set data on an element and see the results of hasData.
 		/// <code>
-		///<!DOCTYPE html>
-		///<html>
-		///<head>
-		///  <script src="http:///code.jquery.com/jquery-latest.js"></script>
-		///</head>
-		///<body>
-		///  <p>Results: </p>
-		///<script>
+		///&lt;!DOCTYPE html>
+        ///&lt;html>
+        ///&lt;head>
+        ///  &lt;script src="http:///code.jquery.com/jquery-latest.js">&lt;/script>
+        ///&lt;/head>
+        ///&lt;body>
+        ///  &lt;p>Results: &lt;/p>
+        ///&lt;script>
 		///$(function(){
 		///  var $p = jQuery("p"), p = $p[0];
 		///  $p.append(jQuery.hasData(p)+" "); /* false */
@@ -1367,12 +1367,6 @@ namespace SharpKit.jQuery
 		public jQuery one(EventsMap eventsMap, JsString selector, object data) { return null; }
 		//TODO: data type?
 		//TODO: danel must check all "one"
-
-		/// <summary>
-		///  Attach a handler to an event for the elements. The handler is executed at most once per element.
-		/// </summary>
-		/// <param name="events">A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.</param>
-		/// <returns></returns>
 
 		/// <summary>
 		/// Get the current computed height for the first element in the set of matched elements, including padding, border, and optionally margin.
@@ -2576,11 +2570,6 @@ namespace SharpKit.jQuery
 		/// <returns></returns>
 		public jQuery on(EventsMap eventsMap, JsString selector, object data) { return null; }
 		//TODO: data type?
-		/// <summary>
-		///  Attach a handler to an event for the elements. The handler is executed at most once per element.
-		/// </summary>
-		/// <param name="events">A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.</param>
-		/// <returns></returns>
 
 		/// <summary>
 		/// Remove an event handler.

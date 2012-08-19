@@ -123,24 +123,11 @@ namespace SharpKit.SignalR
         public void start(JsAction callback) { }
         //TODO: return type?
 
+
         /// <summary>
         /// Starts the connection using the passed settings.
         /// </summary>
-        /// <param name="callback">- A set of key value pairs that configure the connection. All settings are optional.</param>
-        /// <returns></returns>
-        ///<example>
-        ///usage
-        ///<code>
-        /// // Only try longPolling, by name  
-        /// connection.start({ transport: 'longPolling' });
-        /// 
-        /// // Only try webSockets, by object 
-        /// connection.start({ transport: signalR.transports.webSockets }); 
-        /// 
-        /// // Try longPolling then webSockets  
-        /// connection.start({ transport: ['longPolling','webSockets'] });
-        ///</code>
-        ///</example>
+        /// <param name="settings"></param>
         public void start(ConnectionStartSettings settings) { }
         //TODO: return type?
 
