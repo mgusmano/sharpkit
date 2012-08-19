@@ -356,5 +356,16 @@ namespace SharpKit.QUnit
         /// The assert argument to the callback contains all of QUnit’s assertion methods. If you are avoiding using any of QUnit’s globals, you can use the assert argument instead.
         /// </remarks>
         public static void test(JsString title, JsNumber expected, JsAction<Assert> test) { }
+        /// <summary>
+        /// Add a test to run.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="test"></param>
+        /// <remarks>
+        /// test( title: String[, expected: Number ], test: Function(assert: QUnit.assert) )
+        /// When testing the most common, synchronous code, use test()
+        /// The assert argument to the callback contains all of QUnit’s assertion methods. If you are avoiding using any of QUnit’s globals, you can use the assert argument instead.
+        /// </remarks>
+        public static void test(JsString title, JsAction<Assert> test) { }
     }
 }
