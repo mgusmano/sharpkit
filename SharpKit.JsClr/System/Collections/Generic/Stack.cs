@@ -48,7 +48,7 @@ namespace SharpKit.JavaScript.Private
         {
             if (this._list.length == 0)
                 throw new JsError("Cannot peek in stack - stack is empty").As<Exception>();
-            return this._list.peek();
+            return this._list[this._list.length-1];
         }
 		
 		public bool Contains(T item)
