@@ -16,22 +16,38 @@ namespace SharpkitTester
 
         public static string projectDir;
 
-        public static void Main(string[] args)
+        public static int Main(string[] args)
         {
 
-            argHash = getArguments(args);
-
-            //projectDir = @"D:\projects\Sharpkit\SharpkitTest";
-            projectDir = Environment.CurrentDirectory;
-
-            if (argHash.getValue("compile", "1") == "1")
-            { //--> /compile:0 for skip compiling
-                compile();
-            }
-
-            if (argHash.getValue("compare", "1") == "1")//--> /compare:0 for skip compiling
+            try
             {
-                compare();
+                argHash = getArguments(args);
+
+                //projectDir = @"D:\projects\Sharpkit\SharpkitTest";
+                projectDir = Environment.CurrentDirectory;
+
+                if (argHash.getValue("compile", "1") == "1")
+                { //--> /compile:0 for skip compiling
+                    compile();
+                }
+
+                if (argHash.getValue("compare", "1") == "1")//--> /compare:0 for skip compiling
+                {
+                    compare();
+                }
+                return 0;
+            }
+            catch (Exception e)
+            {
+                write(e.Message, ConsoleColor.Red);
+                if (argHash.ContainsKey("wait"))
+                {
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
+                }
+                if (errorCount == 0)
+                    return -1;
+                return errorCount;
             }
 
         }
@@ -64,41 +80,43 @@ namespace SharpkitTester
                 //
             }
         }
+        public static bool hasErrors(List<TCompareFile> files)
+        {
+            return files.Any(t => t.status == ECompareFileStatus.ok);
+        }
+
+        static int errorCount;
 
         public static void compare()
         {
-            var list = compareFolder(projectDir + "\\versions\\current", projectDir + "\\versions\\original");
-            if (list == null) exit(-1);
-            if (list.hasErrors())
+            var list = IterateFolderComparison(projectDir + "\\versions\\current", projectDir + "\\versions\\original");
+            if (list == null)
+                throw new Exception("unknown error");
+
+            foreach (var itm in list)
             {
-                var errorCount = 0;
-                foreach (var itm in list)
+                Console.WriteLine(itm.fileOriginal +" -> "+itm.status);
+                if (itm.status == ECompareFileStatus.ok)
+                    continue;
+                errorCount++;
+                Console.Write(Path.GetFileName(itm.fileOriginal) + " ");
+
+                Console.Write("[");
+                write(itm.status.ToString().ToUpper(), ConsoleColor.Red);
+                Console.Write("]");
+
+                Console.Write("\n");
+                if (itm.status == ECompareFileStatus.lineDiff)
                 {
-                    if (itm.status != ECompareFileStatus.ok)
-                    {
-                        errorCount++;
-                        Console.Write(Path.GetFileName(itm.fileOriginal) + " ");
-
-                        Console.Write("[");
-                        write(itm.status.ToString().ToUpper(), ConsoleColor.Red);
-                        Console.Write("]");
-
-                        Console.Write("\n");
-                        if (itm.status == ECompareFileStatus.lineDiff)
-                        {
-                            Console.WriteLine("Original: " + itm.diff.lineContentOriginal);
-                            Console.WriteLine("Current : " + itm.diff.lineContentCurrent);
-                        }
-                        Console.WriteLine("");
-                    }
+                    Console.WriteLine("Original: " + itm.diff.lineContentOriginal);
+                    Console.WriteLine("Current : " + itm.diff.lineContentCurrent);
                 }
-                exit(errorCount);
+                Console.WriteLine("");
             }
-            else
-            {
-                Console.WriteLine("Files have no diffs.");
-                exit(0);
-            }
+
+            if (errorCount > 0)
+                throw new Exception("Found " + errorCount + " errors");
+            Console.WriteLine("Files have no diffs.");
         }
 
         private static void write(string text, ConsoleColor color)
@@ -112,17 +130,6 @@ namespace SharpkitTester
         private static void writeLine(string text, ConsoleColor color)
         {
             write(text + "\n", color);
-        }
-
-        private static void exit(int code)
-        {
-            if (argHash.ContainsKey("wait"))
-            {
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
-            }
-            Environment.Exit(code);
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
 
         private static TArgumentDictionary getArguments(string[] args)
@@ -143,30 +150,23 @@ namespace SharpkitTester
             return dic;
         }
 
-        private static TCompareFileList compareFolder(string currentDir, string originalDir)
+        private static IEnumerable<TCompareFile> IterateFolderComparison(string currentDir, string originalDir)
         {
             if (!Directory.Exists(currentDir))
             {
-                writeLine("currentDir is missing", ConsoleColor.Red);
-                exit(-1);
-                return null;
+                throw new Exception("currentDir is missing");
             }
 
             if (!Directory.Exists(originalDir))
             {
-                writeLine("originalDir is missing", ConsoleColor.Red);
-                exit(-1);
-                return null;
+                throw new Exception("originalDir is missing");
             }
 
-            var list = new TCompareFileList();
             foreach (var file in Directory.GetFiles(currentDir, "*.js"))
             {
                 var file2 = Path.Combine(originalDir, Path.GetFileName(file));
-                Console.WriteLine(file);
-                list.Add(TCompareFile.compare(file, file2));
+                yield return TCompareFile.compare(file, file2);
             }
-            return list;
         }
 
         //private static void copyFolder(string srcDir, string destDir)
@@ -205,17 +205,7 @@ namespace SharpkitTester
         lineCount
     }
 
-    public class TCompareFileList : List<TCompareFile>
-    {
 
-        public bool hasErrors()
-        {
-            foreach (var itm in this)
-                if (itm.status != ECompareFileStatus.ok) return true;
-            return false;
-        }
-
-    }
 
     public class TCompareFile
     {
