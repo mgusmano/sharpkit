@@ -160,9 +160,11 @@ namespace SharpkitTester
             }
 
             var list = new TCompareFileList();
-            foreach (var file in new DirectoryInfo(currentDir).GetFiles("*.js"))
+            foreach (var file in Directory.GetFiles(currentDir, "*.js"))
             {
-                list.Add(TCompareFile.compare(file.FullName, originalDir + "\\" + file.Name));
+                var file2 = Path.Combine(originalDir, Path.GetFileName(file));
+                Console.WriteLine(file);
+                list.Add(TCompareFile.compare(file, file2));
             }
             return list;
         }
