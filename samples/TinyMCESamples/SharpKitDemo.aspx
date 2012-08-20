@@ -5,7 +5,7 @@
 <html>
 <head>
     <title></title>
-    <script type="text/javascript" src="tiny_mce_3.5.6/tiny_mce.js"></script>
+    <script type="text/javascript" src="http://www.tinymce.com/js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
     <script src="res/TinyMCESamples.js" type="text/javascript"></script>
     <script>        Main();</script>
 </head>
