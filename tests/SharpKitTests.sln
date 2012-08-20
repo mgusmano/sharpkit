@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpkitHelper", "SharpkitHelper\SharpkitHelper.csproj", "{4B107155-149F-4FAD-A720-20313F4F6EC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpkitTest", "SharpkitTest\SharpkitTest.csproj", "{C5B3CA21-E02E-4989-A853-49F5DFF9C87B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpkitTester", "SharpkitTester\SharpkitTester.csproj", "{05C48E8C-FBF9-4E52-B7E0-C9A07832BB1A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreTests", "CoreTests\CoreTests.csproj", "{0CE96B09-C11D-4181-9D69-8B3AD2BA147C}"
@@ -23,10 +21,6 @@ Global
 		{4B107155-149F-4FAD-A720-20313F4F6EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B107155-149F-4FAD-A720-20313F4F6EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B107155-149F-4FAD-A720-20313F4F6EC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5B3CA21-E02E-4989-A853-49F5DFF9C87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5B3CA21-E02E-4989-A853-49F5DFF9C87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5B3CA21-E02E-4989-A853-49F5DFF9C87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5B3CA21-E02E-4989-A853-49F5DFF9C87B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{05C48E8C-FBF9-4E52-B7E0-C9A07832BB1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{05C48E8C-FBF9-4E52-B7E0-C9A07832BB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05C48E8C-FBF9-4E52-B7E0-C9A07832BB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU

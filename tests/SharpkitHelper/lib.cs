@@ -9,187 +9,158 @@ using System.IO;
 namespace SharpkitHelper
 {
 
-    public enum ECompilationTarget
-    {
-        library
-    }
-
-    public class TMSBUildRunner
+    public class MSBUildRunner
     {
 
-        public string projectDirectory;
-        public string msbuildExe = "";
-        public bool useCache = false;
-        public TStringList defines = new TStringList();
+        public string ProjectDirectory;
+        public string MSBuildExe = "";
+        public bool UseCache = false;
+        public StringList Defines = new StringList();
 
-        public TMSBUildRunner(string projectDirectory)
+        public MSBUildRunner(string projectDirectory)
         {
-            this.projectDirectory = projectDirectory;
+            this.ProjectDirectory = projectDirectory;
         }
 
-        private string getMsBuildExe()
+        private string GetMsBuildExe()
         {
-            if (!msbuildExe.isEmpty()) return msbuildExe;
+            if (!MSBuildExe.IsEmpty()) return MSBuildExe;
             return @"C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe"; //TODO
         }
 
-        private void clearCache()
+        private void ClearCache()
         {
-            clearCache(new DirectoryInfo(projectDirectory));
+            ClearCache(new DirectoryInfo(ProjectDirectory));
         }
 
-        private void clearCache(DirectoryInfo dir)
+        private void ClearCache(DirectoryInfo dir)
         {
             foreach (var file in dir.GetFiles("*.skccache"))
                 file.Delete();
             foreach (var subDir in dir.GetDirectories())
-                clearCache(subDir);
+                ClearCache(subDir);
         }
 
-        public string getArguments()
+        public string GetArguments()
         {
-            var args = new TArgumentBuilder();
-            if (defines.Count != 0)
-                args.add("p").append("DefineConstants", string.Join(";", defines));
+            var args = new ArgumentBuilder();
+            if (Defines.Count != 0)
+                args.Add("p").Append("DefineConstants", string.Join(";", Defines));
             return args.ToString();
         }
 
-        public bool execute()
+        public bool Execute()
         {
-            if (!useCache) clearCache();
+            if (!UseCache) ClearCache();
 
-            var execResult = SharpkitUtils.executeProcess(projectDirectory, getMsBuildExe(), getArguments());
+            var execResult = SharpkitUtils.ExecuteProcess(ProjectDirectory, GetMsBuildExe(), GetArguments());
             return execResult.ExitCode == 0;
         }
 
     }
 
-    public class TSharpkitRunner
+    //Sample how to run SharpkitRunner:
+    //var runner = new TSharpkitRunner();
+    //runner.references.AddRange(new string[] {
+    //    @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\mscorlib.dll",
+    //    @"D:\dotnet\sharpkit\sdk\bin\v4.0\SharpKit.JavaScript.dll",
+    //    @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll",
+    //    @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll"
+    //});
+
+    //runner.projectDirectory = @"D:\projects\Sharpkit\SharpkitTest";
+    //runner.csFiles.Add("Tests.cs");
+    public class SharpkitRunner
     {
 
-        public string projectDirectory = "";
-        public string outputBinFile = "bin\\library.dll";
-        public ECompilationTarget target = ECompilationTarget.library;
-        public TStringList csFiles = new TStringList();
-        public TStringList references = new TStringList();
-        public string skcExe = "";
-        public bool useCache = false;
+        public string ProjectDirectory = "";
+        public string OutputBinFile = "bin\\library.dll";
+        public ECompilationTarget Target = ECompilationTarget.library;
+        public StringList CsFiles = new StringList();
+        public StringList References = new StringList();
+        public string SkcExe = "";
+        public bool UseCache = false;
         //public string jsOutputBaseDirectory = ""; //Not possible in the moment
 
-        public static TSharpkitRunner createFromProjectFile(string projectFile)
+        public static SharpkitRunner CreateFromProjectFile(string projectFile)
         {
             throw new NotImplementedException();
         }
 
-        private string getSkcExe()
+        private string GetSkcExe()
         {
-            if (!skcExe.isEmpty()) return skcExe;
+            if (!SkcExe.IsEmpty()) return SkcExe;
             return @"C:\Windows\Microsoft.NET\Framework\v4.0.30319\SharpKit\5\skc5.exe"; //TODO
         }
 
-        private string getArguments()
+        private string GetArguments()
         {
+            var args = new ArgumentBuilder();
 
-            var args = new TArgumentBuilder();
-
-            args.add("dir", projectDirectory);
+            args.Add("dir", ProjectDirectory);
             //args.add("define", "TRACE:DEBUG");
-            foreach (var reference in references)
-                args.add("reference", reference);
-            args.add("out", outputBinFile);
-            args.add("target", target.ToString());
-            foreach (var csFile in csFiles)
-                args.addValue(csFile);
+            foreach (var reference in References)
+                args.Add("reference", reference);
+            args.Add("out", OutputBinFile);
+            args.Add("target", Target.ToString());
+            foreach (var csFile in CsFiles)
+                args.AddValue(csFile);
             //args.add("contentfile", "append.js");
-            args.add("TargetFrameworkVersion", "v4.0");
+            args.Add("TargetFrameworkVersion", "v4.0");
 
             return args.ToString();
         }
 
-        private void clearCache()
+        private void ClearCache()
         {
-            string cacheFile = Path.ChangeExtension(Path.Combine(projectDirectory, outputBinFile), ".skccache");
+            string cacheFile = Path.ChangeExtension(Path.Combine(ProjectDirectory, OutputBinFile), ".skccache");
             if (File.Exists(cacheFile)) File.Delete(cacheFile);
         }
 
-        public bool execute()
+        public bool Execute()
         {
-            if (!useCache) clearCache();
+            if (!UseCache) ClearCache();
 
-            var execResult = SharpkitUtils.executeProcess(projectDirectory, getSkcExe(), getArguments());
+            var execResult = SharpkitUtils.ExecuteProcess(ProjectDirectory, GetSkcExe(), GetArguments());
             return execResult.ExitCode == 0;
         }
 
-
-    }
-
-    public class SharpkitUtils
-    {
-        public static ExecuteResult executeProcess(string dir, string file, string args)
+        public enum ECompilationTarget
         {
-
-            Console.WriteLine("Executing: {0} {1} {2}", dir, file, args);
-            var process = Process.Start(new ProcessStartInfo
-            {
-                WorkingDirectory = dir,
-                FileName = file,
-                Arguments = args,
-                RedirectStandardError = true,
-                RedirectStandardOutput = true,
-                UseShellExecute = false,
-            });
-            var res = new ExecuteResult { Output = new List<string>(), Error = new List<string>() };
-
-            Console.WriteLine("{0}>{1} {2}", process.StartInfo.WorkingDirectory, process.StartInfo.FileName, process.StartInfo.Arguments);
-            process.OutputDataReceived += (s, e) => { Console.WriteLine(e.Data); res.Output.Add(e.Data); };
-            process.ErrorDataReceived += (s, e) => { Console.WriteLine(e.Data); res.Error.Add(e.Data); };
-            process.BeginErrorReadLine();
-            process.BeginOutputReadLine();
-            process.WaitForExit();
-            res.ExitCode = process.ExitCode;
-            Console.WriteLine("Finished execution. Exit code: {0}", process.ExitCode);
-            return res;
+            library
         }
 
     }
 
-    public class TArgumentBuilder
+    public class ArgumentBuilder
     {
-        public string connector = ":";
 
-        public TArgumentBuilder() { }
+        private List<ArgumentEntry> entries = new List<ArgumentEntry>();
 
-        public TArgumentBuilder(string connector)
+        public ArgumentEntry Add(string name)
         {
-            this.connector = connector;
-        }
-
-        private List<TArgumentEntry> entries = new List<TArgumentEntry>();
-
-        public TArgumentEntry add(string name)
-        {
-            var itm = new TArgumentEntry(name);
+            var itm = new ArgumentEntry(name);
             entries.Add(itm);
             return itm;
         }
 
-        public TArgumentEntry add(string name, string value)
+        public ArgumentEntry Add(string name, string value)
         {
-            var itm = new TArgumentEntry(name).append(value);
+            var itm = new ArgumentEntry(name).Append(value);
             entries.Add(itm);
             return itm;
         }
 
-        public TArgumentEntry addValue(string value)
+        public ArgumentEntry AddValue(string value)
         {
-            var itm = new TArgumentEntry().append(value);
+            var itm = new ArgumentEntry().Append(value);
             entries.Add(itm);
             return itm;
         }
 
         public override string ToString()
         {
-            var list = new TStringList();
+            var list = new StringList();
 
             foreach (var entry in entries)
                 list.Add(entry.ToString());
@@ -197,54 +168,52 @@ namespace SharpkitHelper
             return string.Join(" ", list.ToArray());
         }
 
-
-
     }
 
-    public class TArgumentEntry
+    public class ArgumentEntry
     {
 
-        public string name = "";
+        public string Name = "";
         private StringBuilder sb = new StringBuilder();
-        private EArgumentSeparator lastSeparator = EArgumentSeparator.none;
+        private EArgumentSeparator LastSeparator = EArgumentSeparator.none;
 
-        public TArgumentEntry() { }
+        public ArgumentEntry() { }
 
-        public TArgumentEntry(string name)
+        public ArgumentEntry(string name)
         {
-            this.name = name;
+            this.Name = name;
             sb.Append("/" + name);
         }
 
-        public TArgumentEntry append(string value)
+        public ArgumentEntry Append(string value)
         {
-            return append(value, EArgumentSeparator.doubleDot);
+            return Append(value, EArgumentSeparator.doubleDot);
         }
 
-        public TArgumentEntry append(string value, EArgumentSeparator group)
+        public ArgumentEntry Append(string value, EArgumentSeparator group)
         {
-            if (sb.Length != 0) sb.Append(getSeparator(group));
-            lastSeparator = group;
-            sb.Append(getOutputValue(value));
+            if (sb.Length != 0) sb.Append(GetSeparator(group));
+            LastSeparator = group;
+            sb.Append(GetOutputValue(value));
             return this;
         }
 
-        public TArgumentEntry append(string key, string value)
+        public ArgumentEntry Append(string key, string value)
         {
-            return append(key, value, EArgumentSeparator.doubleDot);
+            return Append(key, value, EArgumentSeparator.doubleDot);
         }
 
-        public TArgumentEntry append(string key, string value, EArgumentSeparator group)
+        public ArgumentEntry Append(string key, string value, EArgumentSeparator group)
         {
-            if (sb.Length != 0) sb.Append(getSeparator(group));
-            lastSeparator = group;
-            sb.Append(getOutputValue(key));
+            if (sb.Length != 0) sb.Append(GetSeparator(group));
+            LastSeparator = group;
+            sb.Append(GetOutputValue(key));
             sb.Append("=");
-            sb.Append(getOutputValue(value));
+            sb.Append(GetOutputValue(value));
             return this;
         }
 
-        private string getSeparator(EArgumentSeparator group)
+        private string GetSeparator(EArgumentSeparator group)
         {
             switch (group)
             {
@@ -255,10 +224,10 @@ namespace SharpkitHelper
             }
         }
 
-        private Regex valueTester = new Regex("^[a-zA-Z0-9._-~+\\[\\]\\(\\#'&!)]+$");
-        private string getOutputValue(string value)
+        private Regex ValueTester = new Regex("^[a-zA-Z0-9._-~+\\[\\]\\(\\#'&!)]+$");
+        private string GetOutputValue(string value)
         {
-            if (valueTester.IsMatch(value)) return value;
+            if (ValueTester.IsMatch(value)) return value;
             else return "\"" + value + "\"";
         }
 
@@ -276,8 +245,6 @@ namespace SharpkitHelper
         comma,
         semicolon
     }
-
-
 
     public class SkcResult
     {

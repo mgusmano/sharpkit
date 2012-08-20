@@ -11,10 +11,12 @@ namespace SharpkitHelper
 
     class CompilerLogger
     {
+
         public CompilerLogger()
         {
             Items = new ConcurrentQueue<CompilerLogItem>();
         }
+
         public ConcurrentQueue<CompilerLogItem> Items { get; set; }
         public void Log(CompilerLogItem item)
         {
@@ -22,15 +24,15 @@ namespace SharpkitHelper
                 return;
             Items.Enqueue(item);
             var sb = new StringBuilder();
-            if (item.ProjectRelativeFilename.isEmpty())
+            if (item.ProjectRelativeFilename.IsEmpty())
                 sb.AppendFormat("{0}", item.ProjectRelativeFilename);
             if (item.Line > 0 && item.Column > 0)
                 sb.AppendFormat("({0},{1})", item.Line, item.Column);
-            if (item.ProjectRelativeFilename.isEmpty() || (item.Line > 0 && item.Column > 0))
+            if (item.ProjectRelativeFilename.IsEmpty() || (item.Line > 0 && item.Column > 0))
                 sb.Append(": ");
 
             sb.AppendFormat("{0} {1}{2}: {3}", item.Type.ToString().ToLower(), "SK", item.Code.ToString("0000"), item.Text);
-            if (item.AbsoluteFilename.isEmpty())
+            if (item.AbsoluteFilename.IsEmpty())
                 sb.AppendFormat(" [{0}]", item.AbsoluteFilename);
             var ss = sb.ToString();
             Console.WriteLine(ss);

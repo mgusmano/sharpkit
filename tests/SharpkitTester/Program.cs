@@ -12,26 +12,26 @@ namespace SharpkitTester
     public static class Programm
     {
 
-        private static TArgumentDictionary argHash;
-
-        public static string projectDir;
+        private static ArgumentDictionary argHash;
+        private static string projectDir;
+        private static int errorCount;
 
         public static int Main(string[] args)
         {
 
             try
             {
-                argHash = getArguments(args);
+                argHash = GetArguments(args);
 
                 //projectDir = @"D:\projects\Sharpkit\SharpkitTest";
                 projectDir = Environment.CurrentDirectory;
 
-                if (argHash.getValue("compile", "1") == "1")
-                { //--> /compile:0 for skip compiling
+                if (argHash.getValue("compile", "1") == "1") //--> /compile:0 for skip compiling
+                {
                     compile();
                 }
 
-                if (argHash.getValue("compare", "1") == "1")//--> /compare:0 for skip compiling
+                if (argHash.getValue("compare", "1") == "1") //--> /compare:0 for skip comparing
                 {
                     compare();
                 }
@@ -39,7 +39,7 @@ namespace SharpkitTester
             }
             catch (Exception e)
             {
-                write(e.Message, ConsoleColor.Red);
+                Write(e.Message, ConsoleColor.Red);
                 if (argHash.ContainsKey("wait"))
                 {
                     Console.WriteLine("Press any key to continue...");
@@ -52,40 +52,23 @@ namespace SharpkitTester
 
         }
 
-        private static void compile()
+        public static void compile()
         {
             var version = argHash.getValue("version", "current");
 
-            //var runner = new TSharpkitRunner();
-            //runner.references.AddRange(new string[] {
-            //    @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\mscorlib.dll",
-            //    @"D:\dotnet\sharpkit\sdk\bin\v4.0\SharpKit.JavaScript.dll",
-            //    @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll",
-            //    @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll"
-            //});
+            var runner = new MSBUildRunner(projectDir);
+            runner.Defines.Add(version.ToUpper());
 
-            //runner.projectDirectory = @"D:\projects\Sharpkit\SharpkitTest";
-            //runner.csFiles.Add("Tests.cs");
-
-            //if (runner.execute())
-            //{
-            //    //copyFolder(runner.projectDirectory + "\\js", runner.projectDirectory + "\\versions\\1");
-            //}
-
-            var runner = new TMSBUildRunner(projectDir);
-            runner.defines.Add(version.ToUpper());
-
-            if (runner.execute())
+            if (!runner.Execute())
             {
-                //
+                throw new Exception("Compilation not successfull");
             }
         }
-        public static bool hasErrors(List<TCompareFile> files)
+
+        public static bool hasErrors(List<CompareFile> files)
         {
             return files.Any(t => t.status == ECompareFileStatus.ok);
         }
-
-        static int errorCount;
 
         public static void compare()
         {
@@ -95,14 +78,17 @@ namespace SharpkitTester
 
             foreach (var itm in list)
             {
-                Console.WriteLine(itm.fileOriginal +" -> "+itm.status);
+                Console.WriteLine(itm.fileOriginal + " -> " + itm.status);
                 if (itm.status == ECompareFileStatus.ok)
                     continue;
                 errorCount++;
-                Console.Write(Path.GetFileName(itm.fileOriginal) + " ");
+
+                var lineNumberStr = "";
+                if (itm.status == ECompareFileStatus.lineDiff) lineNumberStr = ":" + itm.diff.lineNumber;
+                Console.Write(Path.GetFileName(itm.fileOriginal) + lineNumberStr + " ");
 
                 Console.Write("[");
-                write(itm.status.ToString().ToUpper(), ConsoleColor.Red);
+                Write(itm.status.ToString().ToUpper(), ConsoleColor.Red);
                 Console.Write("]");
 
                 Console.Write("\n");
@@ -119,7 +105,7 @@ namespace SharpkitTester
             Console.WriteLine("Files have no diffs.");
         }
 
-        private static void write(string text, ConsoleColor color)
+        private static void Write(string text, ConsoleColor color)
         {
             var oldColor = Console.ForegroundColor;
             Console.ForegroundColor = color;
@@ -127,14 +113,14 @@ namespace SharpkitTester
             Console.ForegroundColor = oldColor;
         }
 
-        private static void writeLine(string text, ConsoleColor color)
+        private static void WriteLine(string text, ConsoleColor color)
         {
-            write(text + "\n", color);
+            Write(text + "\n", color);
         }
 
-        private static TArgumentDictionary getArguments(string[] args)
+        private static ArgumentDictionary GetArguments(string[] args)
         {
-            var dic = new TArgumentDictionary();
+            var dic = new ArgumentDictionary();
             foreach (var arg in args)
             {
                 var idx = arg.IndexOf(":");
@@ -150,7 +136,7 @@ namespace SharpkitTester
             return dic;
         }
 
-        private static IEnumerable<TCompareFile> IterateFolderComparison(string currentDir, string originalDir)
+        private static IEnumerable<CompareFile> IterateFolderComparison(string currentDir, string originalDir)
         {
             if (!Directory.Exists(currentDir))
             {
@@ -165,29 +151,13 @@ namespace SharpkitTester
             foreach (var file in Directory.GetFiles(currentDir, "*.js"))
             {
                 var file2 = Path.Combine(originalDir, Path.GetFileName(file));
-                yield return TCompareFile.compare(file, file2);
+                yield return CompareFile.compare(file, file2);
             }
         }
 
-        //private static void copyFolder(string srcDir, string destDir)
-        //{
-        //    copyFolder(new DirectoryInfo(srcDir), destDir);
-        //}
-
-        //private static void copyFolder(DirectoryInfo srcDir, string destDir)
-        //{
-        //    if (!Directory.Exists(destDir)) Directory.CreateDirectory(destDir);
-
-        //    foreach (var file in srcDir.GetFiles("*.js"))
-        //        file.CopyTo(destDir + "\\" + file.Name, true);
-
-        //    foreach (var dir in srcDir.GetDirectories())
-        //        copyFolder(dir, destDir + "\\" + dir.Name);
-        //}
-
     }
 
-    public class TArgumentDictionary : Dictionary<string, string>
+    public class ArgumentDictionary : Dictionary<string, string>
     {
         public string getValue(string key, string defaultValue = "")
         {
@@ -197,26 +167,16 @@ namespace SharpkitTester
         }
     }
 
-    public enum ECompareFileStatus
-    {
-        ok,
-        missing,
-        lineDiff,
-        lineCount
-    }
-
-
-
-    public class TCompareFile
+    public class CompareFile
     {
         public ECompareFileStatus status = ECompareFileStatus.ok;
         public string fileOriginal;
         public string fileCurrent;
-        public TCompareFileDiff diff;
+        public CompareFileDiff diff;
 
-        public static TCompareFile compare(string currentFile, string originalFile)
+        public static CompareFile compare(string currentFile, string originalFile)
         {
-            var itm = new TCompareFile() { fileOriginal = originalFile, fileCurrent = currentFile };
+            var itm = new CompareFile() { fileOriginal = originalFile, fileCurrent = currentFile };
             if (!File.Exists(originalFile) || !File.Exists(currentFile))
             {
                 itm.status = ECompareFileStatus.missing;
@@ -237,7 +197,7 @@ namespace SharpkitTester
                 if (originalLines[i] != currentLines[i])
                 {
                     itm.status = ECompareFileStatus.lineDiff;
-                    itm.diff = new TCompareFileDiff() { lineNumber = i + 1, lineContentCurrent = currentLines[i], lineContentOriginal = originalLines[i] };
+                    itm.diff = new CompareFileDiff() { lineNumber = i + 1, lineContentCurrent = currentLines[i], lineContentOriginal = originalLines[i] };
                     return itm;
                 }
             }
@@ -247,11 +207,19 @@ namespace SharpkitTester
 
     }
 
-    public class TCompareFileDiff
+    public class CompareFileDiff
     {
         public int lineNumber;
         public string lineContentOriginal;
         public string lineContentCurrent;
+    }
+
+    public enum ECompareFileStatus
+    {
+        ok,
+        missing,
+        lineDiff,
+        lineCount
     }
 
 }
