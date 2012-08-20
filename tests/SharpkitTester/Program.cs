@@ -24,7 +24,7 @@ namespace SharpkitTester
                 ArgHash = GetArguments(args);
 
                 //ProjectDir = @"D:\projects\Sharpkit\SharpkitTest";
-                projectDir = Environment.CurrentDirectory;
+                ProjectDir = Environment.CurrentDirectory;
 
                 if (ArgHash.getValue("compile", "1") == "1") //--> /compile:0 for skip compiling
                 {
