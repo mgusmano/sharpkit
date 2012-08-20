@@ -34,7 +34,7 @@
     <StartupObject>SharpkitTester.Programm</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="program.cs">
+    <Compile Include="Program.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
