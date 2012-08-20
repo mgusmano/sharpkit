@@ -12,51 +12,51 @@ namespace SharpkitTester
     public static class Programm
     {
 
-        private static ArgumentDictionary argHash;
-        private static string projectDir;
-        private static int errorCount;
+        private static ArgumentDictionary ArgHash;
+        private static string ProjectDir;
+        private static int ErrorCount;
 
         public static int Main(string[] args)
         {
 
             try
             {
-                argHash = GetArguments(args);
+                ArgHash = GetArguments(args);
 
-                //projectDir = @"D:\projects\Sharpkit\SharpkitTest";
-                projectDir = Environment.CurrentDirectory;
+                ProjectDir = @"D:\projects\Sharpkit\SharpkitTest";
+                //projectDir = Environment.CurrentDirectory;
 
-                if (argHash.getValue("compile", "1") == "1") //--> /compile:0 for skip compiling
+                if (ArgHash.getValue("compile", "1") == "1") //--> /compile:0 for skip compiling
                 {
-                    compile();
+                    Compile();
                 }
 
-                if (argHash.getValue("compare", "1") == "1") //--> /compare:0 for skip comparing
+                if (ArgHash.getValue("compare", "1") == "1") //--> /compare:0 for skip comparing
                 {
-                    compare();
+                    Compare();
                 }
                 return 0;
             }
             catch (Exception e)
             {
-                Write(e.Message, ConsoleColor.Red);
-                if (argHash.ContainsKey("wait"))
+                WriteLine(e.Message, ConsoleColor.Red);
+                if (ArgHash.ContainsKey("wait"))
                 {
                     Console.WriteLine("Press any key to continue...");
                     Console.ReadKey();
                 }
-                if (errorCount == 0)
+                if (ErrorCount == 0)
                     return -1;
-                return errorCount;
+                return ErrorCount;
             }
 
         }
 
-        public static void compile()
+        public static void Compile()
         {
-            var version = argHash.getValue("version", "current");
+            var version = ArgHash.getValue("version", "current");
 
-            var runner = new MSBUildRunner(projectDir);
+            var runner = new MSBUildRunner(ProjectDir);
             runner.Defines.Add(version.ToUpper());
 
             if (!runner.Execute())
@@ -65,14 +65,14 @@ namespace SharpkitTester
             }
         }
 
-        public static bool hasErrors(List<CompareFile> files)
+        public static bool HasErrors(List<CompareFile> files)
         {
             return files.Any(t => t.status == ECompareFileStatus.ok);
         }
 
-        public static void compare()
+        public static void Compare()
         {
-            var list = IterateFolderComparison(projectDir + "\\versions\\current", projectDir + "\\versions\\original");
+            var list = IterateFolderComparison(ProjectDir + "\\versions\\current", ProjectDir + "\\versions\\original");
             if (list == null)
                 throw new Exception("unknown error");
 
@@ -81,7 +81,7 @@ namespace SharpkitTester
                 Console.WriteLine(itm.fileOriginal + " -> " + itm.status);
                 if (itm.status == ECompareFileStatus.ok)
                     continue;
-                errorCount++;
+                ErrorCount++;
 
                 var lineNumberStr = "";
                 if (itm.status == ECompareFileStatus.lineDiff) lineNumberStr = ":" + itm.diff.lineNumber;
@@ -90,7 +90,7 @@ namespace SharpkitTester
                 Console.Write("[");
                 Write(itm.status.ToString().ToUpper(), ConsoleColor.Red);
                 Console.Write("]");
-
+                
                 Console.Write("\n");
                 if (itm.status == ECompareFileStatus.lineDiff)
                 {
@@ -100,8 +100,8 @@ namespace SharpkitTester
                 Console.WriteLine("");
             }
 
-            if (errorCount > 0)
-                throw new Exception("Found " + errorCount + " errors");
+            if (ErrorCount > 0)
+                throw new Exception("Found " + ErrorCount + " errors");
             Console.WriteLine("Files have no diffs.");
         }
 
@@ -153,6 +153,10 @@ namespace SharpkitTester
                 var file2 = Path.Combine(originalDir, Path.GetFileName(file));
                 yield return CompareFile.compare(file, file2);
             }
+
+            foreach (var subDir in new DirectoryInfo(currentDir).GetDirectories())
+                foreach (var itm in IterateFolderComparison(subDir.FullName, originalDir + "\\" + subDir.Name))
+                    yield return itm;
         }
 
     }
