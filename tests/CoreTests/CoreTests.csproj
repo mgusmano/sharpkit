@@ -38,6 +38,7 @@
     <Compile Include="Class5.cs" />
     <Compile Include="Class6.cs" />
     <Compile Include="Class7.cs" />
+    <Compile Include="Dynamics\Dynamics.cs" />
     <Compile Include="Events\CustomEvents.cs" />
     <Compile Include="Methods\NamedParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
