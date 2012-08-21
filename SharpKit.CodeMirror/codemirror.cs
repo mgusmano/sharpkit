@@ -414,14 +414,15 @@ namespace SharpKit.CodeMirror
 
         /// <summary>
         /// Get the text between the given points in the editor, which should be {line, ch} objects
-        /// An optional third argument can be given to indicate the line separator string to use (defaults to "\n").        /// </summary>
+        /// An optional third argument can be given to indicate the line separator string to use (defaults to "\n").
+        /// </summary>
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <returns></returns>
         public JsString getRange(PosConfig from,PosConfig to) { return null; }
         /// <summary>
         /// Get the text between the given points in the editor, which should be {line, ch} objects
-        /// An optional third argument can be given to indicate the line separator string to use (defaults to "\n").        /// </summary>
+        /// An optional third argument can be given to indicate the line separator string to use (defaults to "\n").
         /// </summary>
         /// <param name="from"></param>
         /// <param name="to"></param>
