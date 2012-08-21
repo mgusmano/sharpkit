@@ -1710,5 +1710,254 @@ namespace SharpKit.Google.Chrome
     }
 
     #endregion
+
+    //TODO: chrome.declarativeWebRequest: http://developer.chrome.com/extensions/declarativeWebRequest.html
+    //TODO: EVENTS http://developer.chrome.com/extensions/events.html
+    //841
+
+    #region extension
+
+    [JsType(JsMode.Prototype, Name = "chrome.extension", Export = false)]
+    public class extension
+    {
+        /// <summary>
+        /// ( optional ) Set for the lifetime of a callback if an ansychronous extension api has resulted in an error.
+        /// If no error has occured lastError will be undefined.
+        /// </summary>
+        public ExtensionLastError lastError { get; set; }
+
+        /// <summary>
+        /// ( optional ) True for content scripts running inside incognito tabs, and for extension pages running inside an incognito process.
+        /// The latter only applies to extensions with 'split' incognito_behavior.
+        /// </summary>
+        public bool inIncognitoContext { get; set; }
+
+        /// <summary>
+        /// Attempts to connect to other listeners within the extension (such as the extension's background page).
+        /// This is primarily useful for content scripts connecting to their extension processes.
+        /// Extensions may connect to content scripts embedded in tabs via chrome.tabs.connect().
+        /// </summary>
+        /// <param name="extensionId"> ( optional ) The extension ID of the extension you want to connect to. If omitted, default is your own extension.</param>
+        /// <param name="connectInfo">( optional )</param>
+        /// <returns>Port through which messages can be sent and received with the extension. The port's onDisconnect event is fired if extension does not exist.</returns>
+        public static Port connect(JsString extensionId, ExtensionConnectInfo connectInfo) { return null; }
+        /// <summary>
+        /// Attempts to connect to other listeners within the extension (such as the extension's background page).
+        /// This is primarily useful for content scripts connecting to their extension processes.
+        /// Extensions may connect to content scripts embedded in tabs via chrome.tabs.connect().
+        /// </summary>
+        /// <param name="extensionId"> ( optional ) The extension ID of the extension you want to connect to. If omitted, default is your own extension.</param>
+        /// <returns>Port through which messages can be sent and received with the extension. The port's onDisconnect event is fired if extension does not exist.</returns>
+        public static Port connect(JsString extensionId) { return null; }
+        /// <summary>
+        /// Attempts to connect to other listeners within the extension (such as the extension's background page).
+        /// This is primarily useful for content scripts connecting to their extension processes.
+        /// Extensions may connect to content scripts embedded in tabs via chrome.tabs.connect().
+        /// </summary>
+        /// <returns>Port through which messages can be sent and received with the extension. The port's onDisconnect event is fired if extension does not exist.</returns>
+        public static Port connect() { return null; }
+
+        /// <summary>
+        /// Returns the JavaScript 'window' object for the background page running inside the current extension. Returns null if the extension has no background page.
+        /// </summary>
+        /// <returns></returns>
+        public static Window getBackgroundPage() { return null; }
+
+        /// <summary>
+        /// Converts a relative path within an extension install directory to a fully-qualified URL.
+        /// </summary>
+        /// <param name="path">A path to a resource within an extension expressed relative to its install directory.</param>
+        /// <returns>The fully-qualified URL to the resource.</returns>
+        public static JsString getURL(JsString path) { return null; }
+
+        /// <summary>
+        /// Returns an array of the JavaScript 'window' objects for each of the pages running inside the current extension.
+        /// </summary>
+        /// <param name="fetchProperties"></param>
+        /// <returns>Array of global objects</returns>
+        public static JsArray<Window> getViews(ExtensionFetchProperties fetchProperties) { return null; }
+        /// <summary>
+        /// Returns an array of the JavaScript 'window' objects for each of the pages running inside the current extension.
+        /// </summary>
+        /// <returns>Array of global objects</returns>
+        public static JsArray<Window> getViews() { return null; }
+
+        /// <summary>
+        /// Retrieves the state of the extension's access to the 'file://' scheme (as determined by the user-controlled 'Allow access to File URLs' checkbox.
+        /// *This function was added in version 12.0.706.0.
+        /// If you require this function, the manifest key minimum_chrome_version can ensure that your extension won't be run in an earlier browser version.*
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void isAllowedFileSchemeAccess(JsAction callback) { }
+
+        /// <summary>
+        /// Retrieves the state of the extension's access to Incognito-mode (as determined by the user-controlled 'Allowed in Incognito' checkbox.
+        /// *This function was added in version 12.0.706.0.
+        /// If you require this function, the manifest key minimum_chrome_version can ensure that your extension won't be run in an earlier browser version.*
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void isAllowedIncognitoAccess(JsAction callback) { }
+
+        /// <summary>
+        /// Sends a single message to other listeners within the extension. Similar to chrome.extension.connect, but only sends a single message with an optional response.
+        /// The chrome.extension.onMessage event is fired in each page of the extension.
+        /// </summary>
+        /// <param name="extensionId">( optional ) The extension ID of the extension you want to connect to. If omitted, default is your own extension.</param>
+        /// <param name="message"></param>
+        /// <param name="responseCallback">( optional ) The JSON response object sent by the handler of the message. If an error occurs while connecting to the extension,
+        /// the callback will be called with no arguments and chrome.extension.lastError will be set to the error message.</param>
+        public static void sendMessage(JsString extensionId, object message, JsAction<object> responseCallback) { }
+        /// <summary>
+        /// Sends a single message to other listeners within the extension. Similar to chrome.extension.connect, but only sends a single message with an optional response.
+        /// The chrome.extension.onMessage event is fired in each page of the extension.
+        /// </summary>
+        /// <param name="extensionId">( optional ) The extension ID of the extension you want to connect to. If omitted, default is your own extension.</param>
+        /// <param name="message"></param>
+        public static void sendMessage(JsString extensionId, object message) { }
+        /// <summary>
+        /// Sends a single message to other listeners within the extension. Similar to chrome.extension.connect, but only sends a single message with an optional response.
+        /// The chrome.extension.onMessage event is fired in each page of the extension.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="responseCallback">( optional ) The JSON response object sent by the handler of the message. If an error occurs while connecting to the extension,
+        /// the callback will be called with no arguments and chrome.extension.lastError will be set to the error message.</param>
+        public static void sendMessage(object message, JsAction<object> responseCallback) { }
+        /// <summary>
+        /// Sends a single message to other listeners within the extension. Similar to chrome.extension.connect, but only sends a single message with an optional response.
+        /// The chrome.extension.onMessage event is fired in each page of the extension.
+        /// </summary>
+        /// <param name="message"></param>
+        public static void sendMessage(object message) { }
+
+        /// <summary>
+        /// Sets the value of the ap CGI parameter used in the extension's update URL.
+        /// This value is ignored for extensions that are hosted in the Chrome Extension Gallery.
+        /// </summary>
+        /// <param name="data"></param>
+        public static void setUpdateUrlData(JsString data) { }
+
+        /// <summary>
+        /// Fired when a connection is made from either an extension process or a content script.
+        /// </summary>
+        public ChromeEvent<JsAction<Port>> onConnect { get; set; }
+
+        /// <summary>
+        /// Fired when a connection is made from another extension.
+        /// </summary>
+        public ChromeEvent<JsAction<Port>> onConnectExternal { get; set; }
+
+        /// <summary>
+        /// Fired when a message is sent from either an extension process or a content script.
+        /// </summary>
+        public ChromeEvent<JsFunc<ExtensionOnMessageDetails, bool>> onMessage { get; set; }
+
+        /// <summary>
+        /// Fired when a message is sent from another extension.
+        /// </summary>
+        public ChromeEvent<JsFunc<ExtensionOnMessageDetails, bool>> onMessageExternal { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class ExtensionLastError
+    {
+        /// <summary>
+        /// Description of the error that has taken place.
+        /// </summary>
+        public JsString message { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class ExtensionConnectInfo
+    {
+        /// <summary>
+        /// ( optional ) Will be passed into onConnect for extension processes that are listening for the connection event.
+        /// </summary>
+        public JsString name { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class ExtensionFetchProperties
+    {
+        /// <summary>
+        /// type ( optional enumerated string ["tab", "infobar", "notification", "popup"] )
+        /// The type of view to get. If omitted, returns all views (including background pages and tabs). Valid values: 'tab', 'infobar', 'notification', 'popup'.
+        /// </summary>
+        public FetchPropertiesType type { get; set; }
+
+        /// <summary>
+        /// The window to restrict the search to. If omitted, returns all views.
+        /// </summary>
+        public JsNumber windowId { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum FetchPropertiesType
+    {
+        tab,
+        infobar,
+        notification,
+        popup,
+    }
+
+    [JsType(JsMode.Json)]
+    public class ExtensionOnMessageDetails
+    {
+        /// <summary>
+        /// The message sent by the calling script.
+        /// </summary>
+        public object message { get; set; }
+
+        public MessageSender sender { get; set; }
+
+        /// <summary>
+        /// Function to call (at most once) when you have a response. The argument should be any JSON-ifiable object.
+        /// If you have more than one onMessage listener in the same document, then only one may send a response.
+        /// This function becomes invalid when the event listener returns, unless you return true from the event listener to indicate you wish to send a response asynchronously
+        /// (this will keep the message channel open to the other end until sendResponse is called).
+        /// </summary>
+        public JsAction sendResponse { get; set; }
+
+    }
+
+    /// <summary>
+    /// An object containing information about the script context that sent a message or request.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.extension.MessageSender", Export = false)]
+    public class MessageSender
+    {
+        /// <summary>
+        /// ( optional tabs.Tab ) This property will only be present when the connection was opened from a tab or content script.
+        /// </summary>
+        public object tab { get; set; }
+        //TODO: object = tabs.Tab (needs to create this class)
+
+        /// <summary>
+        /// The extension ID of the extension that opened the connection.
+        /// </summary>
+        public JsString id { get; set; }
+    }
+
+    /// <summary>
+    /// An object which allows two way communication with other pages.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.extension.Port", Export = false)]
+    public class Port
+    {
+
+        public JsString name { get; set; }
+
+        public object onDisconnect { get; set; }
+        //TODO: type is ( events.Event ) (needs to create this class)
+
+        public object onMessage { get; set; }
+        //TODO: type is ( events.Event ) (needs to create this class)
+
+        public JsAction postMessage { get; set; }
+
+        public MessageSender sender { get; set; }
+    }
+    #endregion
 }
 
