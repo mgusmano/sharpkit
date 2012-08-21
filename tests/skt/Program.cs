@@ -84,7 +84,7 @@ namespace skt
                 ErrorCount++;
 
                 var lineNumberStr = "";
-                if (itm.Status == CompareFileStatus.LineDiff) lineNumberStr = ":" + itm.Diff.lineNumber;
+                if (itm.Status == CompareFileStatus.LineDiff) lineNumberStr = ":" + itm.Diff.LineNumber;
                 Console.Write(Path.GetFileName(itm.FileOriginal) + lineNumberStr + " ");
 
                 Console.Write("[");
@@ -94,8 +94,8 @@ namespace skt
                 Console.Write("\n");
                 if (itm.Status == CompareFileStatus.LineDiff)
                 {
-                    Console.WriteLine("Original: " + itm.Diff.lineContentOriginal);
-                    Console.WriteLine("Current : " + itm.Diff.lineContentCurrent);
+                    Console.WriteLine("Original: " + itm.Diff.LineContentOriginal);
+                    Console.WriteLine("Current : " + itm.Diff.LineContentCurrent);
                 }
                 Console.WriteLine("");
             }
@@ -205,7 +205,7 @@ namespace skt
                 if (originalLines[i] != currentLines[i])
                 {
                     itm.Status = CompareFileStatus.LineDiff;
-                    itm.Diff = new CompareFileDiff() { lineNumber = i + 1, lineContentCurrent = currentLines[i], lineContentOriginal = originalLines[i] };
+                    itm.Diff = new CompareFileDiff() { LineNumber = i + 1, LineContentCurrent = currentLines[i], LineContentOriginal = originalLines[i] };
                     return itm;
                 }
             }
@@ -217,9 +217,9 @@ namespace skt
 
     public class CompareFileDiff
     {
-        public int lineNumber;
-        public string lineContentOriginal;
-        public string lineContentCurrent;
+        public int LineNumber;
+        public string LineContentOriginal;
+        public string LineContentCurrent;
     }
 
     public enum CompareFileStatus
