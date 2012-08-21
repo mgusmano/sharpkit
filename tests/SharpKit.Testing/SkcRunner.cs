@@ -20,16 +20,20 @@ namespace SharpKit.Testing
     /// </summary>
     public class SkcRunner
     {
+        public SkcRunner()
+        {
+            Target = SkcCompilationTarget.Library;
+            ProjectDirectory = "";
+            OutputBinFile = "bin\\library.dll";
+        }
 
-        public string ProjectDirectory = "";
-        public string OutputBinFile = "bin\\library.dll";
-        public ECompilationTarget Target = ECompilationTarget.library;
+        public string ProjectDirectory { get; set; }
+        public string OutputBinFile { get; set; }
+        public SkcCompilationTarget Target { get; set; }
         public List<String> CsFiles = new List<String>();
         public List<String> References = new List<String>();
         public string SkcExe = "";
         public bool UseCache = false;
-        //public string jsOutputBaseDirectory = ""; //Not possible in the moment
-
         public static SkcRunner CreateFromProjectFile(string projectFile)
         {
             throw new NotImplementedException();
@@ -37,7 +41,8 @@ namespace SharpKit.Testing
 
         private string GetSkcExe()
         {
-            if (!SkcExe.IsEmpty()) return SkcExe;
+            if (!SkcExe.IsEmpty()) 
+                return SkcExe;
             return @"C:\Windows\Microsoft.NET\Framework\v4.0.30319\SharpKit\5\skc5.exe"; //TODO
         }
 
@@ -72,11 +77,12 @@ namespace SharpKit.Testing
             var execResult = Utils.ExecuteProcess(ProjectDirectory, GetSkcExe(), GetArguments());
             return execResult.ExitCode == 0;
         }
-
-        public enum ECompilationTarget
-        {
-            library
-        }
-
     }
+
+
+    public enum SkcCompilationTarget
+    {
+        Library
+    }
+
 }

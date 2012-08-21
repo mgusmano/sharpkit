@@ -63,26 +63,26 @@ namespace SharpKit.Testing
     public class ArgumentBuilder
     {
 
-        private List<ArgumentEntry> entries = new List<ArgumentEntry>();
+        private List<ArgumentEntry> Entries = new List<ArgumentEntry>();
 
         public ArgumentEntry Add(string name)
         {
             var itm = new ArgumentEntry(name);
-            entries.Add(itm);
+            Entries.Add(itm);
             return itm;
         }
 
         public ArgumentEntry Add(string name, string value)
         {
             var itm = new ArgumentEntry(name).Append(value);
-            entries.Add(itm);
+            Entries.Add(itm);
             return itm;
         }
 
         public ArgumentEntry AddValue(string value)
         {
             var itm = new ArgumentEntry().Append(value);
-            entries.Add(itm);
+            Entries.Add(itm);
             return itm;
         }
 
@@ -90,7 +90,7 @@ namespace SharpKit.Testing
         {
             var list = new List<String>();
 
-            foreach (var entry in entries)
+            foreach (var entry in Entries)
                 list.Add(entry.ToString());
 
             return string.Join(" ", list.ToArray());
@@ -102,42 +102,42 @@ namespace SharpKit.Testing
     {
 
         public string Name = "";
-        private StringBuilder sb = new StringBuilder();
-        private ArgumentSeparator LastSeparator = ArgumentSeparator.none;
+        private StringBuilder Builder = new StringBuilder();
+        private ArgumentSeparator LastSeparator = ArgumentSeparator.None;
 
         public ArgumentEntry() { }
 
         public ArgumentEntry(string name)
         {
             this.Name = name;
-            sb.Append("/" + name);
+            Builder.Append("/" + name);
         }
 
         public ArgumentEntry Append(string value)
         {
-            return Append(value, ArgumentSeparator.doubleDot);
+            return Append(value, ArgumentSeparator.DoubleDot);
         }
 
         public ArgumentEntry Append(string value, ArgumentSeparator group)
         {
-            if (sb.Length != 0) sb.Append(GetSeparator(group));
+            if (Builder.Length != 0) Builder.Append(GetSeparator(group));
             LastSeparator = group;
-            sb.Append(GetOutputValue(value));
+            Builder.Append(GetOutputValue(value));
             return this;
         }
 
         public ArgumentEntry Append(string key, string value)
         {
-            return Append(key, value, ArgumentSeparator.doubleDot);
+            return Append(key, value, ArgumentSeparator.DoubleDot);
         }
 
         public ArgumentEntry Append(string key, string value, ArgumentSeparator group)
         {
-            if (sb.Length != 0) sb.Append(GetSeparator(group));
+            if (Builder.Length != 0) Builder.Append(GetSeparator(group));
             LastSeparator = group;
-            sb.Append(GetOutputValue(key));
-            sb.Append("=");
-            sb.Append(GetOutputValue(value));
+            Builder.Append(GetOutputValue(key));
+            Builder.Append("=");
+            Builder.Append(GetOutputValue(value));
             return this;
         }
 
@@ -145,9 +145,9 @@ namespace SharpKit.Testing
         {
             switch (group)
             {
-                case ArgumentSeparator.comma: return ",";
-                case ArgumentSeparator.semicolon: return ";";
-                case ArgumentSeparator.doubleDot: return ":";
+                case ArgumentSeparator.Comma: return ",";
+                case ArgumentSeparator.Semicolon: return ";";
+                case ArgumentSeparator.DoubleDot: return ":";
                 default: return "";
             }
         }
@@ -161,17 +161,17 @@ namespace SharpKit.Testing
 
         public override string ToString()
         {
-            return sb.ToString();
+            return Builder.ToString();
         }
 
     }
 
     public enum ArgumentSeparator
     {
-        none,
-        doubleDot,
-        comma,
-        semicolon
+        None,
+        DoubleDot,
+        Comma,
+        Semicolon
     }
 
     public class SkcResult

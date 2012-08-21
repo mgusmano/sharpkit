@@ -26,12 +26,12 @@ namespace skt
                 //ProjectDir = @"D:\projects\Sharpkit\SharpkitTest";
                 ProjectDir = Environment.CurrentDirectory;
 
-                if (ArgHash.getValue("compile", "1") == "1") //--> /compile:0 for skip compiling
+                if (ArgHash.GetValue("compile", "1") == "1") //--> /compile:0 for skip compiling
                 {
                     Compile();
                 }
 
-                if (ArgHash.getValue("compare", "1") == "1") //--> /compare:0 for skip comparing
+                if (ArgHash.GetValue("compare", "1") == "1") //--> /compare:0 for skip comparing
                 {
                     Compare();
                 }
@@ -54,7 +54,7 @@ namespace skt
 
         public static void Compile()
         {
-            var version = ArgHash.getValue("version", "current");
+            var version = ArgHash.GetValue("version", "current");
 
             var runner = new MSBuildRunner(ProjectDir);
             runner.Defines.Add(version.ToUpper());
@@ -67,7 +67,7 @@ namespace skt
 
         public static bool HasErrors(List<CompareFile> files)
         {
-            return files.Any(t => t.status == ECompareFileStatus.ok);
+            return files.Any(t => t.Status == CompareFileStatus.Ok);
         }
 
         public static void Compare()
@@ -78,24 +78,24 @@ namespace skt
 
             foreach (var itm in list)
             {
-                Console.WriteLine(itm.fileOriginal + " -> " + itm.status);
-                if (itm.status == ECompareFileStatus.ok)
+                Console.WriteLine(itm.FileOriginal + " -> " + itm.Status);
+                if (itm.Status == CompareFileStatus.Ok)
                     continue;
                 ErrorCount++;
 
                 var lineNumberStr = "";
-                if (itm.status == ECompareFileStatus.lineDiff) lineNumberStr = ":" + itm.diff.lineNumber;
-                Console.Write(Path.GetFileName(itm.fileOriginal) + lineNumberStr + " ");
+                if (itm.Status == CompareFileStatus.LineDiff) lineNumberStr = ":" + itm.Diff.lineNumber;
+                Console.Write(Path.GetFileName(itm.FileOriginal) + lineNumberStr + " ");
 
                 Console.Write("[");
-                Write(itm.status.ToString().ToUpper(), ConsoleColor.Red);
+                Write(itm.Status.ToString().ToUpper(), ConsoleColor.Red);
                 Console.Write("]");
 
                 Console.Write("\n");
-                if (itm.status == ECompareFileStatus.lineDiff)
+                if (itm.Status == CompareFileStatus.LineDiff)
                 {
-                    Console.WriteLine("Original: " + itm.diff.lineContentOriginal);
-                    Console.WriteLine("Current : " + itm.diff.lineContentCurrent);
+                    Console.WriteLine("Original: " + itm.Diff.lineContentOriginal);
+                    Console.WriteLine("Current : " + itm.Diff.lineContentCurrent);
                 }
                 Console.WriteLine("");
             }
@@ -151,7 +151,7 @@ namespace skt
             foreach (var file in Directory.GetFiles(currentDir, "*.js"))
             {
                 var file2 = Path.Combine(originalDir, Path.GetFileName(file));
-                yield return CompareFile.compare(file, file2);
+                yield return CompareFile.Compare(file, file2);
             }
 
             foreach (var subDir in new DirectoryInfo(currentDir).GetDirectories())
@@ -163,7 +163,7 @@ namespace skt
 
     public class ArgumentDictionary : Dictionary<string, string>
     {
-        public string getValue(string key, string defaultValue = "")
+        public string GetValue(string key, string defaultValue = "")
         {
             var value = "";
             if (TryGetValue(key, out value)) return value;
@@ -173,17 +173,21 @@ namespace skt
 
     public class CompareFile
     {
-        public ECompareFileStatus status = ECompareFileStatus.ok;
-        public string fileOriginal;
-        public string fileCurrent;
-        public CompareFileDiff diff;
-
-        public static CompareFile compare(string currentFile, string originalFile)
+        public CompareFile()
         {
-            var itm = new CompareFile() { fileOriginal = originalFile, fileCurrent = currentFile };
+            Status = CompareFileStatus.Ok;
+        }
+        public CompareFileStatus Status { get; set; }
+        public string FileOriginal { get; set; }
+        public string FileCurrent { get; set; }
+        public CompareFileDiff Diff { get; set; }
+
+        public static CompareFile Compare(string currentFile, string originalFile)
+        {
+            var itm = new CompareFile() { FileOriginal = originalFile, FileCurrent = currentFile };
             if (!File.Exists(originalFile) || !File.Exists(currentFile))
             {
-                itm.status = ECompareFileStatus.missing;
+                itm.Status = CompareFileStatus.Missing;
                 return itm;
             }
 
@@ -192,7 +196,7 @@ namespace skt
 
             if (originalLines.Length != currentLines.Length)
             {
-                itm.status = ECompareFileStatus.lineCount;
+                itm.Status = CompareFileStatus.LineCount;
                 return itm;
             }
 
@@ -200,8 +204,8 @@ namespace skt
             {
                 if (originalLines[i] != currentLines[i])
                 {
-                    itm.status = ECompareFileStatus.lineDiff;
-                    itm.diff = new CompareFileDiff() { lineNumber = i + 1, lineContentCurrent = currentLines[i], lineContentOriginal = originalLines[i] };
+                    itm.Status = CompareFileStatus.LineDiff;
+                    itm.Diff = new CompareFileDiff() { lineNumber = i + 1, lineContentCurrent = currentLines[i], lineContentOriginal = originalLines[i] };
                     return itm;
                 }
             }
@@ -218,12 +222,12 @@ namespace skt
         public string lineContentCurrent;
     }
 
-    public enum ECompareFileStatus
+    public enum CompareFileStatus
     {
-        ok,
-        missing,
-        lineDiff,
-        lineCount
+        Ok,
+        Missing,
+        LineDiff,
+        LineCount
     }
 
 }
