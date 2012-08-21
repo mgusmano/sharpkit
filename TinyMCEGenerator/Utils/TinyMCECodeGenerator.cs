@@ -15,6 +15,7 @@ namespace TinyMCEApiGenerator
     public class TinyMCECodeGenerator
     {
         public const string TinyMCENamespace = "TinyMCE";
+        public const string TinyMCENamespaceNS = "TinyMCE_Support";
 
 
         public TinyMCECodeGenerator()
@@ -121,10 +122,19 @@ namespace TinyMCEApiGenerator
         {
             bool isNamespace = string.Equals(namespaceNode.Name, "namespace", StringComparison.OrdinalIgnoreCase);
 
+            string nsName = (isNamespace) ? namespaceNode.Attributes["fullname"].Value : "";
+
+            if (string.Equals(nsName, TinyMCENamespace, StringComparison.OrdinalIgnoreCase))
+                nsName = TinyMCENamespaceNS;
+            else if (nsName.StartsWith(TinyMCENamespace + ".", StringComparison.OrdinalIgnoreCase))
+                nsName = TinyMCENamespaceNS + nsName.Substring(TinyMCENamespace.Length);
+            else if (string.IsNullOrEmpty(nsName)) nsName = TinyMCENamespace;
+
+
             var ce = new Class
             {
                 FullName = classNode.Attributes["name"].Value,
-                Namespace = (isNamespace) ? namespaceNode.Attributes["fullname"].Value : "",
+                Namespace = nsName,
                 Tag = classNode,
             };
 
@@ -262,16 +272,18 @@ namespace TinyMCEApiGenerator
                 var evnt = new Event
                 {
                     Name = name,
-                    TypeName= "void"
+                    TypeName = "object",
+                    //DeclaringClass = ce
+                    //Parameters = FindClassOrObject("JsAction")
                 };
 
-                foreach (XmlNode paramNode in memberNode.SelectNodes("param"))
-                {
-                    Parameter param = GenerateParameter2(paramNode);
+                //foreach (XmlNode paramNode in memberNode.SelectNodes("param"))
+                //{
+                //    Parameter param = GenerateParameter2(paramNode);
 
-                    if (param != null)
-                        evnt.Parameters.Add(param);
-                }
+                //    if (param != null)
+                //        evnt.Parameters.Add(param);
+                //}
 
                 ImportDocumentation3(ce, memberNode);
 
@@ -416,7 +428,70 @@ namespace TinyMCEApiGenerator
 
             FixOptionalParameters();
 
-            Assembly.Classes.ForEach(t => t.Members.ForEach(m => m.DeclaringClass = t));
+
+            Assembly.Classes.ForEach(clss =>
+            {
+
+                List<Method> removeList = new List<Method>();
+
+                clss.Members.ForEach(m =>
+                    {
+                        m.DeclaringClass = clss;
+
+                        /// MAKING THE METHODS OF A STATIC CLASS, STATIC AS WELL.
+                        /// 
+                        if (m.DeclaringClass.IsStatic)
+                        {
+                            m.IsStatic = true;
+                            Method meth = m as Method;
+                            if (meth != null && meth.IsConstructor)
+                            {
+                                /// WE NEED TO REMOVE CONSTRUCTORS FROM STATIC CLASSES.
+                                /// 
+                                removeList.Add(meth);
+                            }
+                        }
+
+
+                    });
+
+                removeList.ForEach(m => clss.Members.Remove(m));
+
+                string jsNamespace = null;
+
+                List<string> ns = clss.Namespace.Split(new char[] { '.' }).ToList();
+
+                string csNamespace = clss.Namespace;
+
+                if (string.Equals(ns[0], TinyMCENamespace))
+                {
+                    ns.RemoveAt(0);
+                }
+                else if (string.Equals(ns[0], TinyMCENamespaceNS))
+                {
+                    ns[0] = TinyMCENamespace;
+                    csNamespace = string.Join(".", ns.ToArray());
+
+                    ns[0] = TinyMCENamespace.ToLower();
+                }
+
+                jsNamespace = string.Join(".", ns.ToArray());
+
+                if (!string.IsNullOrEmpty(jsNamespace)) jsNamespace += ".";
+
+                jsNamespace += clss.Name;
+
+                clss.Namespace = csNamespace;
+                clss.Attributes.Add(new SharpKit.TinyMCE.Generator.Attribute
+                {
+                    Name = "JsType",
+                    Parameters = new List<string>() { "JsMode.Prototype" },
+                    NamedParamters = new Dictionary<string, string> { { "Name", "\"" + jsNamespace + "\"" }, { "Export", "false" } }
+                });
+
+            });
+
+            
 
             //Assembly.GetClass("YUI").Attributes.Add(new SharpKit.ExtJs4.Generator.Attribute
             //{
@@ -459,9 +534,13 @@ namespace TinyMCEApiGenerator
             foreach (var ce in Assembly.Classes)
             {
                 if (ce.Namespace.IsNullOrEmpty())
-                    ce.Namespace = "SharpKit." + TinyMCENamespace;
+                {
+                    throw new NotSupportedException("A namespace is required");
+                    //ce.Namespace = "SharpKit." + TinyMCENamespace;
+                }
                 else
-                    ce.Namespace = "SharpKit." + TinyMCENamespace + "." + ce.Namespace;
+                    ce.Namespace = "SharpKit." + ce.Namespace;
+
                 var ns = ce.Namespace;
 
                 //ce.Namespace = ce.Namespace.Split('.').Select(t => t + "_").StringConcat(".");
@@ -529,7 +608,7 @@ namespace TinyMCEApiGenerator
         public void Save(string outDir, bool singleFile)
         {
             //var writer = new StringWriter();
-            new CodeModelExporter { Assembly = Assembly, OutputDir = outDir, RootNamespace = "SharpKit."+ TinyMCENamespace, SingleFile = singleFile }.Export();
+            new CodeModelExporter { Assembly = Assembly, OutputDir = outDir, RootNamespace = "SharpKit", SingleFile = singleFile }.Export();
             //File.WriteAllText(outFilename, writer.GetStringBuilder().ToString());
 
         }
