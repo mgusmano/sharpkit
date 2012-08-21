@@ -1,0 +1,6 @@
+D:\dotnet\sharpkit\sdk\sdk\SharpKit.Html.Idl\obj\v4.0\ResolveAssemblyReference.cache
+D:\dotnet\sharpkit\sdk\bin\v4.0\javascript-1.5.cs
+D:\dotnet\sharpkit\sdk\bin\v4.0\SharpKit.Html.idl.dll
+D:\dotnet\sharpkit\sdk\sdk\SharpKit.Html.Idl\obj\v4.0\SharpKit.Html.idl.dll
+D:\dotnet\sharpkit\sdk\src\SharpKit.Html.Idl\obj\v4.0\ResolveAssemblyReference.cache
+D:\dotnet\sharpkit\sdk\src\SharpKit.Html.Idl\obj\v4.0\SharpKit.Html.idl.dll
