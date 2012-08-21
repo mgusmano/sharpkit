@@ -1354,6 +1354,8 @@ namespace SharpKit.Google.Chrome
 
     #endregion
 
+    #region cookies
+
     [JsType(JsMode.Prototype, Name = "chrome.cookies", Export = false)]
     public class cookies
     {
@@ -1414,17 +1416,17 @@ namespace SharpKit.Google.Chrome
         /// The URL with which the cookie to retrieve is associated. This argument may be a full URL, in which case any data following the URL path (e.g. the query string) is simply ignored.
         /// If host permissions for this URL are not specified in the manifest file, the API call will fail.
         /// </summary>
-        public JsString url  { get; set; }
+        public JsString url { get; set; }
 
         /// <summary>
         /// The name of the cookie to retrieve.
         /// </summary>
-        public JsString name  { get; set; }
+        public JsString name { get; set; }
 
         /// <summary>
         /// ( optional ) The ID of the cookie store in which to look for the cookie. By default, the current execution context's cookie store will be used.
         /// </summary>
-        public JsString storeId  { get; set; }
+        public JsString storeId { get; set; }
 
 
     }
@@ -1550,13 +1552,163 @@ namespace SharpKit.Google.Chrome
     [JsType(JsMode.Prototype, Name = "chrome.cookies.Cookie", Export = false)]
     public class Cookie
     {
+
+        /// <summary>
+        /// The name of the cookie.
+        /// </summary>
+        public JsString name { get; set; }
+
+        /// <summary>
+        /// The value of the cookie.
+        /// </summary>
+        public JsString value { get; set; }
+
+        /// <summary>
+        /// The domain of the cookie (e.g. "www.google.com", "example.com").
+        /// </summary>
+        public JsString domain { get; set; }
+
+        /// <summary>
+        /// True if the cookie is a host-only cookie (i.e. a request's host must exactly match the domain of the cookie).
+        /// </summary>
+        public bool hostOnly { get; set; }
+
+        /// <summary>
+        /// The path of the cookie.
+        /// </summary>
+        public JsString path { get; set; }
+
+        /// <summary>
+        /// True if the cookie is marked as Secure (i.e. its scope is limited to secure channels, typically HTTPS).
+        /// </summary>
+        public bool secure { get; set; }
+
+        /// <summary>
+        /// True if the cookie is marked as HttpOnly (i.e. the cookie is inaccessible to client-side scripts).
+        /// </summary>
+        public bool httpOnly { get; set; }
+
+        /// <summary>
+        /// True if the cookie is a session cookie, as opposed to a persistent cookie with an expiration date.
+        /// </summary>
+        public bool session { get; set; }
+
+        /// <summary>
+        /// The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+        /// </summary>
+        public JsNumber expirationDate { get; set; }
+
+        /// <summary>
+        /// The ID of the cookie store containing this cookie, as provided in getAllCookieStores().
+        /// </summary>
+        public JsString storeId { get; set; }
     }
 
+    /// <summary>
+    /// Represents a cookie store in the browser. An incognito mode window, for instance, uses a separate cookie store from a non-incognito window.
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "chrome.cookies.CookieStore", Export = false)]
     public class CookieStore
     {
+        /// <summary>
+        /// The unique identifier for the cookie store.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// Identifiers of all the browser tabs that share this cookie store.
+        /// </summary>
+        public JsArray<JsNumber> tabIds { get; set; }
     }
 
+    #endregion
 
+    #region debugger
+
+    [JsType(JsMode.Prototype, Name = "chrome.debugger", Export = false)]
+    public class debugger
+    {
+        /// <summary>
+        /// Attaches debugger to the given target.
+        /// </summary>
+        /// <param name="target">Debugging target to which you want to attach.</param>
+        /// <param name="requiredVersion">Required debugging protocol version ("0.1"). One can only attach to the debuggee with matching major version and greater or equal minor version.
+        /// List of the protocol versions can be obtained here: https://developers.google.com/chrome-developer-tools/docs/remote-debugging </param>
+        /// <param name="callback">( optional )Called once the attach operation succeeds or fails. Callback receives no arguments. If the attach fails, chrome.extension.lastError will be set to the error message.</param>
+        public static void attach(Debuggee target, JsString requiredVersion, JsAction callback) { }
+        /// <summary>
+        /// Attaches debugger to the given target.
+        /// </summary>
+        /// <param name="target">Debugging target to which you want to attach.</param>
+        /// <param name="requiredVersion">Required debugging protocol version ("0.1"). One can only attach to the debuggee with matching major version and greater or equal minor version.
+        /// List of the protocol versions can be obtained here: https://developers.google.com/chrome-developer-tools/docs/remote-debugging </param>
+        public static void attach(Debuggee target, JsString requiredVersion) { }
+
+        /// <summary>
+        /// Detaches debugger from the given target.
+        /// </summary>
+        /// <param name="target">Debugging target from which you want to detach.</param>
+        /// <param name="callback">( optional ) Called once the detach operation succeeds or fails. Callback receives no arguments.
+        /// If the detach fails, chrome.extension.lastError will be set to the error message.</param>
+        public static void detach(Debuggee target, JsAction callback) { }
+        /// <summary>
+        /// Detaches debugger from the given target.
+        /// </summary>
+        /// <param name="target">Debugging target from which you want to detach.</param>
+        public static void detach(Debuggee target) { }
+
+        /// <summary>
+        /// Sends given command to the debugging target.
+        /// </summary>
+        /// <param name="target">Debugging target to which you want to send the command.</param>
+        /// <param name="method">Method name. Should be one of the methods defined by the remote debugging protocol.</param>
+        /// <param name="params">JSON object with request parameters. This object must conform to the remote debugging params scheme for given method.</param>
+        /// <param name="callback">Response body. If an error occurs while posting the message, the callback will be called with no arguments and chrome.extension.lastError will be set to the error message.</param>
+        public static void sendCommand(Debuggee target, JsString method, object @params, JsAction callback) { }
+        /// <summary>
+        /// Sends given command to the debugging target.
+        /// </summary>
+        /// <param name="target">Debugging target to which you want to send the command.</param>
+        /// <param name="method">Method name. Should be one of the methods defined by the remote debugging protocol.</param>
+        /// <param name="params">JSON object with request parameters. This object must conform to the remote debugging params scheme for given method.</param>
+        public static void sendCommand(Debuggee target, JsString method, object @params) { }
+        /// <summary>
+        /// Sends given command to the debugging target.
+        /// </summary>
+        /// <param name="target">Debugging target to which you want to send the command.</param>
+        /// <param name="method">Method name. Should be one of the methods defined by the remote debugging protocol.</param>
+        public static void sendCommand(Debuggee target, JsString method) { }
+
+        /// <summary>
+        /// Fired when browser terminates debugging session for the tab. This happens when either the tab is being closed or Chrome DevTools is being invoked for the attached tab.
+        /// </summary>
+        public ChromeEvent<JsAction<Debuggee>> onDetach { get; set; }
+
+        /// <summary>
+        /// Fired whenever debugging target issues instrumentation event.
+        /// Listener parameters:
+        /// source ( debugger.Debuggee )
+        /// The debuggee that generated this event.
+        /// method ( string )
+        /// Method name. Should be one of the notifications defined by the remote debugging protocol.
+        /// params ( optional object )
+        /// JSON object with the response. Structure of the response varies depending on the method and is defined by the remote debugging protocol.
+        /// </summary>
+        public ChromeEvent<JsAction<Debuggee, JsString, object>> onEvent { get; set; }
+    }
+
+    /// <summary>
+    /// Debuggee identifier.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.debugger.Debuggee", Export = false)]
+    public class Debuggee
+    {
+        /// <summary>
+        /// The id of the tab which you intend to debug.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+    }
+
+    #endregion
 }
 
