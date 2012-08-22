@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
 using SharpKit.Html;
-[assembly:JsNamespace(Namespace="SharpKit.Google.Chrome", JsNamespace="chrome")]
+[assembly: JsNamespace(Namespace = "SharpKit.Google.Chrome", JsNamespace = "chrome")]
 namespace SharpKit.Google.Chrome
 {
 
@@ -4100,14 +4100,955 @@ namespace SharpKit.Google.Chrome
 
     #endregion
 
-    [JsType(JsMode.Prototype, Name = "chrome.tabs.Tab ", Export = false)]
-    public class Tab
+    #region storage
+
+    /// <summary>
+    /// Use the chrome.storage module to store, retrieve, and track changes to user data. This API has been optimized to meet the specific storage needs of extensions. It provides the same storage capabilities as the localStorage API with the following key differences:
+    /// User data can be automatically synced with Chrome sync (using storage.sync).
+    /// Your extension's content scripts can directly access user data without the need for a background page.
+    /// A user's extension settings can be persisted even when using split incognito behavior.
+    /// User data can be stored as objects (the localStorage API stores data in strings).
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.storage ", Export = false)]
+    public class storage
     {
-        //TODO: this class is empty. needs to be done
+        /// <summary>
+        /// Items under the "sync" namespace are synced using Chrome Sync.
+        /// </summary>
+        public static SyncStorageChange sync { get; set; }
+
+        /// <summary>
+        /// Items under the "local" namespace are local to each machine.
+        /// </summary>
+        public static LocalStorageChange local { get; set; }
+
+        /// <summary>
+        /// Fired when one or more items change.
+        /// Listener parameters:
+        /// changes ( object )
+        /// Object mapping each key that changed to its corresponding StorageChange for that item.
+        /// namespace ( string )
+        /// The namespace ("sync" or "local") of the storage area the changes are for.
+        /// </summary>
+        public static Event<JsAction<object, JsString>> onChanged { get; set; }
 
     }
 
-    [JsType(JsMode.Prototype, Name = "chrome.types.ChromeSetting  ", Export = false)]
+    /// <summary>
+    /// Items under the "sync" namespace are synced using Chrome Sync.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class SyncStorageChange : StorageArea
+    {
+        /// <summary>
+        /// The maximum total amount (in bytes) of data that can be stored in sync storage.
+        /// Updates that would cause this limit to be exceeded fail immediately and set chrome.extension.lastError.
+        /// </summary>
+        public const int QUOTA_BYTES = 102400;
+
+        /// <summary>
+        /// The maximum size (in bytes) of each individual item in sync storage. Updates containing items larger than this limit will fail.
+        /// </summary>
+        public const int QUOTA_BYTES_PER_ITEM = 2048;
+
+        /// <summary>
+        /// The maximum number of items that can be stored in sync storage. Updates that would cause this limit to be exceeded will fail
+        /// </summary>
+        public const int MAX_ITEMS = 512;
+
+        /// <summary>
+        /// The maximum number of set, remove, or clear operations that can be performed each hour. Updates that would cause this limit to be exceeded fail.
+        /// </summary>
+        public const int MAX_WRITE_OPERATIONS_PER_HOUR = 1000;
+
+        /// <summary>
+        /// The maximum number of set, remove, or clear operations that can be performed each minute, sustained over 10 minutes.
+        /// Updates that would cause this limit to be exceeded fail.
+        /// </summary>
+        public const int MAX_SUSTAINED_WRITE_OPERATIONS_PER_MINUTE = 10;
+    }
+
+    /// <summary>
+    /// Items under the "local" namespace are local to each machine.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class LocalStorageChange : StorageArea
+    {
+        /// <summary>
+        /// The maximum amount (in bytes) of data that can be stored in local storage.
+        /// This value will be ignored if the extension has the unlimitedStorage permission. Updates that would cause this limit to be exceeded fail.
+        /// </summary>
+        public const int QUOTA_BYTES = 5242880;
+    }
+
+    [JsType(JsMode.Prototype, Name = "chrome.storage.StorageChange ", Export = false)]
+    public class StorageChange
+    {
+        /// <summary>
+        /// The old value of the item, if there was an old value.
+        /// </summary>
+        public object oldValue { get; set; }
+
+        /// <summary>
+        /// The new value of the item, if there is a new value.
+        /// </summary>
+        public object newValue { get; set; }
+    }
+
+    [JsType(JsMode.Prototype, Name = "chrome.storage.StorageArea ", Export = false)]
+    public class StorageArea
+    {
+        /// <summary>
+        /// Removes all items from storage.
+        /// </summary>
+        /// <param name="callback"> ( optional ) Callback on success, or on failure (in which case chrome.extension.lastError will be set).</param>
+        public void clear(JsAction callback) { }
+        /// <summary>
+        /// Removes all items from storage.
+        /// </summary>
+        public void clear() { }
+
+        /// <summary>
+        /// Gets one or more items from storage.
+        /// </summary>
+        /// <param name="keys">( optional string or array of string or object ) 
+        /// A single key to get, list of keys to get, or a dictionary specifying default values (see description of the object).
+        /// An empty list or object will return an empty result object. Pass in null to get the entire contents of storage.</param>
+        /// <param name="callback">Callback with storage items, or on failure (in which case chrome.extension.lastError will be set).</param>
+        public void get(JsString keys, JsAction callback) { }
+        /// <summary>
+        /// Gets one or more items from storage.
+        /// </summary>
+        /// <param name="keys">( optional string or array of string or object ) 
+        /// A single key to get, list of keys to get, or a dictionary specifying default values (see description of the object).
+        /// An empty list or object will return an empty result object. Pass in null to get the entire contents of storage.</param>
+        /// <param name="callback">Callback with storage items, or on failure (in which case chrome.extension.lastError will be set).</param>
+        public void get(JsArray<JsString> keys, JsAction callback) { }
+        /// <summary>
+        /// Gets one or more items from storage.
+        /// </summary>
+        /// <param name="keys">( optional string or array of string or object ) 
+        /// A single key to get, list of keys to get, or a dictionary specifying default values (see description of the object).
+        /// An empty list or object will return an empty result object. Pass in null to get the entire contents of storage.</param>
+        /// <param name="callback">Callback with storage items, or on failure (in which case chrome.extension.lastError will be set).</param>
+        public void get(object keys, JsAction callback) { }
+        /// <summary>
+        /// Gets one or more items from storage.
+        /// </summary>
+        /// <param name="callback">Callback with storage items, or on failure (in which case chrome.extension.lastError will be set).</param>
+        public void get(JsAction callback) { }
+
+        /// <summary>
+        /// Gets the amount of space (in bytes) being used by one or more items.
+        /// </summary>
+        /// <param name="keys">( optional string or array of string )
+        /// A single key or list of keys to get the total usage for. An empty list will return 0. Pass in null to get the total usage of all of storage.</param>
+        /// <param name="callback">Callback with the amount of space being used by storage, or on failure (in which case chrome.extension.lastError will be set).</param>
+        public void getBytesInUse(JsString keys, JsAction callback) { }
+        /// <summary>
+        /// Gets the amount of space (in bytes) being used by one or more items.
+        /// </summary>
+        /// <param name="keys">( optional string or array of string )
+        /// A single key or list of keys to get the total usage for. An empty list will return 0. Pass in null to get the total usage of all of storage.</param>
+        /// <param name="callback">Callback with the amount of space being used by storage, or on failure (in which case chrome.extension.lastError will be set).</param>
+        public void getBytesInUse(JsArray<JsString> keys, JsAction callback) { }
+        /// <summary>
+        /// Gets the amount of space (in bytes) being used by one or more items.
+        /// </summary>
+        /// <param name="callback">Callback with the amount of space being used by storage, or on failure (in which case chrome.extension.lastError will be set).</param>
+        public void getBytesInUse(JsAction callback) { }
+
+        /// <summary>
+        /// Removes one or more items from storage.
+        /// </summary>
+        /// <param name="keys">A single key or a list of keys for items to remove.</param>
+        /// <param name="callback"> ( optional ) Callback on success, or on failure (in which case chrome.extension.lastError will be set).</param>
+        public void remove(JsString keys, JsAction callback) { }
+        /// <summary>
+        /// Removes one or more items from storage.
+        /// </summary>
+        /// <param name="keys">A single key or a list of keys for items to remove.</param>
+        /// <param name="callback"> ( optional ) Callback on success, or on failure (in which case chrome.extension.lastError will be set).</param>
+        public void remove(JsArray<JsString> keys, JsAction callback) { }
+        /// <summary>
+        /// Removes one or more items from storage.
+        /// </summary>
+        /// <param name="keys">A single key or a list of keys for items to remove.</param>
+        public void remove(JsString keys) { }
+
+        /// <summary>
+        /// Sets multiple items.
+        /// </summary>
+        /// <param name="items">Object specifying items to augment storage with. Values that cannot be serialized (functions, etc) will be ignored.</param>
+        /// <param name="callback"> ( optional ) Callback on success, or on failure (in which case chrome.extension.lastError will be set).</param>
+        public void set(object items, JsAction callback) { }
+        /// <summary>
+        /// Sets multiple items.
+        /// </summary>
+        /// <param name="items">Object specifying items to augment storage with. Values that cannot be serialized (functions, etc) will be ignored.</param>
+        public void set(object items) { }
+    }
+
+    #endregion
+
+    #region tabs
+    
+    [JsType(JsMode.Prototype, Name = "chrome.tabs", Export = false)]
+    public class tabs
+    {
+        /// <summary>
+        /// Captures the visible area of the currently active tab in the specified window. You must have host permission for the URL displayed by the tab.
+        /// </summary>
+        /// <param name="windowId">( optional ) The target window. Defaults to the current window.</param>
+        /// <param name="options">( optional ) Set parameters of image capture, such as the format of the resulting image.</param>
+        /// <param name="callback"></param>
+        public static void captureVisibleTab(JsNumber windowId, TabsCaptureVisibleTabOptions options, JsAction callback) { }
+        /// <summary>
+        /// Captures the visible area of the currently active tab in the specified window. You must have host permission for the URL displayed by the tab.
+        /// </summary>
+        /// <param name="windowId">( optional ) The target window. Defaults to the current window.</param>
+        /// <param name="callback"></param>
+        public static void captureVisibleTab(JsNumber windowId, JsAction callback) { }
+        /// <summary>
+        /// Captures the visible area of the currently active tab in the specified window. You must have host permission for the URL displayed by the tab.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void captureVisibleTab(JsAction callback) { }
+
+        /// <summary>
+        /// Connects to the content script(s) in the specified tab.
+        /// The chrome.extension.onConnect event is fired in each content script running in the specified tab for the current extension.
+        /// For more details, see Content Script Messaging.
+        /// </summary>
+        /// <param name="tabId"></param>
+        /// <param name="connectInfo"></param>
+        /// <returns>A port that can be used to communicate with the content scripts running in the specified tab.
+        /// The port's onDisconnect event is fired if the tab closes or does not exist.</returns>
+        public static Port connect(JsNumber tabId, TabsConnectInfo connectInfo) { return null; }
+        /// <summary>
+        /// Connects to the content script(s) in the specified tab.
+        /// The chrome.extension.onConnect event is fired in each content script running in the specified tab for the current extension.
+        /// For more details, see Content Script Messaging.
+        /// </summary>
+        /// <param name="tabId"></param>
+        /// <returns>A port that can be used to communicate with the content scripts running in the specified tab.
+        /// The port's onDisconnect event is fired if the tab closes or does not exist.</returns>
+        public static Port connect(JsNumber tabId) { return null; }
+
+        /// <summary>
+        /// Creates a new tab. Note: This function can be used without requesting the 'tabs' permission in the manifest.
+        /// </summary>
+        /// <param name="createProperties"></param>
+        /// <param name="callback"></param>
+        public static void create(TabsCreateProperties createProperties, JsAction callback) { }
+        /// <summary>
+        /// Creates a new tab. Note: This function can be used without requesting the 'tabs' permission in the manifest.
+        /// </summary>
+        /// <param name="createProperties"></param>
+        public static void create(TabsCreateProperties createProperties) { }
+
+        /// <summary>
+        /// Detects the primary language of the content in a tab.
+        /// </summary>
+        /// <param name="tabId"> ( optional ) Defaults to the active tab of the current window.</param>
+        /// <param name="callback"></param>
+        public static void detectLanguage(JsNumber tabId, JsAction callback) { }
+        /// <summary>
+        /// Detects the primary language of the content in a tab.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void detectLanguage(JsAction callback) { }
+
+        /// <summary>
+        /// Injects JavaScript code into a page. For details, see the programmatic injection section of the content scripts doc.
+        /// </summary>
+        /// <param name="tabId">( optional ) The ID of the tab in which to run the script; defaults to the active tab of the current window.</param>
+        /// <param name="details">Details of the script to run. Either the code or the file property must be set, but both may not be set at the same time.</param>
+        /// <param name="callback">( optional ) Called after all the JavaScript has been executed.</param>
+        public static void executeScript(JsNumber tabId, TabsExecuteScriptDetails details, JsAction callback) { }
+        /// <summary>
+        /// Injects JavaScript code into a page. For details, see the programmatic injection section of the content scripts doc.
+        /// </summary>
+        /// <param name="tabId">( optional ) The ID of the tab in which to run the script; defaults to the active tab of the current window.</param>
+        /// <param name="details">Details of the script to run. Either the code or the file property must be set, but both may not be set at the same time.</param>
+        public static void executeScript(JsNumber tabId, TabsExecuteScriptDetails details) { }
+        /// <summary>
+        /// Injects JavaScript code into a page. For details, see the programmatic injection section of the content scripts doc.
+        /// </summary>
+        /// <param name="details">Details of the script to run. Either the code or the file property must be set, but both may not be set at the same time.</param>
+        /// <param name="callback">( optional ) Called after all the JavaScript has been executed.</param>
+        public static void executeScript(TabsExecuteScriptDetails details, JsAction callback) { }
+        /// <summary>
+        /// Injects JavaScript code into a page. For details, see the programmatic injection section of the content scripts doc.
+        /// </summary>
+        /// <param name="details">Details of the script to run. Either the code or the file property must be set, but both may not be set at the same time.</param>
+        public static void executeScript(TabsExecuteScriptDetails details) { }
+
+        /// <summary>
+        /// Retrieves details about the specified tab.
+        /// </summary>
+        /// <param name="tabId"></param>
+        /// <param name="callback"></param>
+        public static void get(JsNumber tabId, JsAction callback) { }
+
+        /// <summary>
+        /// Gets the tab that this script call is being made from. May be undefined if called from a non-tab context (for example: a background page or popup view).
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void getCurrent(JsAction callback) { }
+
+        /// <summary>
+        /// Highlights the given tabs.
+        /// </summary>
+        /// <param name="highlightInfo"></param>
+        /// <param name="callback"></param>
+        public static void highlight(TabsHighlightInfo highlightInfo, JsAction callback) { }
+
+        /// <summary>
+        /// Injects CSS into a page. For details, see the programmatic injection section of the content scripts doc.
+        /// </summary>
+        /// <param name="tabId">( optional ) The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.</param>
+        /// <param name="details">Details of the CSS text to insert. Either the code or the file property must be set, but both may not be set at the same time.</param>
+        /// <param name="callback">( optional ) Called when all the CSS has been inserted.</param>
+        public static void insertCSS(JsNumber tabId, TabsInsertCSSDetails details, JsAction callback) { }
+        /// <summary>
+        /// Injects CSS into a page. For details, see the programmatic injection section of the content scripts doc.
+        /// </summary>
+        /// <param name="details">Details of the CSS text to insert. Either the code or the file property must be set, but both may not be set at the same time.</param>
+        /// <param name="callback">( optional ) Called when all the CSS has been inserted.</param>
+        public static void insertCSS(TabsInsertCSSDetails details, JsAction callback) { }
+        /// <summary>
+        /// Injects CSS into a page. For details, see the programmatic injection section of the content scripts doc.
+        /// </summary>
+        /// <param name="tabId">( optional ) The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.</param>
+        /// <param name="details">Details of the CSS text to insert. Either the code or the file property must be set, but both may not be set at the same time.</param>
+        public static void insertCSS(JsNumber tabId, TabsInsertCSSDetails details) { }
+        /// <summary>
+        /// Injects CSS into a page. For details, see the programmatic injection section of the content scripts doc.
+        /// </summary>
+        /// <param name="details">Details of the CSS text to insert. Either the code or the file property must be set, but both may not be set at the same time.</param>
+        public static void insertCSS(TabsInsertCSSDetails details) { }
+
+        /// <summary>
+        /// Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal (window.type === "normal") windows.
+        /// </summary>
+        /// <param name="tabIds">The tab or list of tabs to move.</param>
+        /// <param name="moveProperties"></param>
+        /// <param name="callback">( optional )</param>
+        public static void move(JsNumber tabIds, TabsMoveProperties moveProperties, JsAction callback) { }
+        /// <summary>
+        /// Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal (window.type === "normal") windows.
+        /// </summary>
+        /// <param name="tabIds">The tab or list of tabs to move.</param>
+        /// <param name="moveProperties"></param>
+        public static void move(JsNumber tabIds, TabsMoveProperties moveProperties) { }
+        /// <summary>
+        /// Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal (window.type === "normal") windows.
+        /// </summary>
+        /// <param name="tabIds">The tab or list of tabs to move.</param>
+        /// <param name="moveProperties"></param>
+        /// <param name="callback">( optional )</param>
+        public static void move(JsArray<JsNumber> tabIds, TabsMoveProperties moveProperties, JsAction callback) { }
+        /// <summary>
+        /// Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal (window.type === "normal") windows.
+        /// </summary>
+        /// <param name="tabIds">The tab or list of tabs to move.</param>
+        /// <param name="moveProperties"></param>
+        public static void move(JsArray<JsNumber> tabIds, TabsMoveProperties moveProperties) { }
+
+        /// <summary>
+        /// Gets all tabs that have the specified properties, or all tabs if no properties are specified.
+        /// </summary>
+        /// <param name="queryInfo"></param>
+        /// <param name="callback"></param>
+        public static void query(TabsQueryInfo queryInfo, JsAction callback) { }
+
+        /// <summary>
+        /// Reload a tab.
+        /// </summary>
+        /// <param name="tabId">( optional ) The ID of the tab to reload; defaults to the selected tab of the current window.</param>
+        /// <param name="reloadProperties">( optional ) </param>
+        /// <param name="callback">( optional ) </param>
+        public static void name(JsNumber tabId, TabsReloadProperties reloadProperties, JsAction callback) { }
+        /// <summary>
+        /// Reload a tab.
+        /// </summary>
+        /// <param name="tabId">( optional ) The ID of the tab to reload; defaults to the selected tab of the current window.</param>
+        /// <param name="reloadProperties">( optional ) </param>
+        public static void name(JsNumber tabId, TabsReloadProperties reloadProperties) { }
+        /// <summary>
+        /// Reload a tab.
+        /// </summary>
+        /// <param name="tabId">( optional ) The ID of the tab to reload; defaults to the selected tab of the current window.</param>
+        public static void name(JsNumber tabId) { }
+        /// <summary>
+        /// Reload a tab.
+        /// </summary>
+        public static void name() { }
+
+        /// <summary>
+        /// Closes one or more tabs. Note: This function can be used without requesting the 'tabs' permission in the manifest.
+        /// </summary>
+        /// <param name="tabIds">The tab or list of tabs to close.</param>
+        /// <param name="callback">( optional )</param>
+        public static void remove(JsNumber tabIds, JsAction callback) { }
+        /// <summary>
+        /// Closes one or more tabs. Note: This function can be used without requesting the 'tabs' permission in the manifest.
+        /// </summary>
+        /// <param name="tabIds">The tab or list of tabs to close.</param>
+        public static void remove(JsNumber tabIds) { }
+        /// <summary>
+        /// Closes one or more tabs. Note: This function can be used without requesting the 'tabs' permission in the manifest.
+        /// </summary>
+        /// <param name="tabIds">The tab or list of tabs to close.</param>
+        /// <param name="callback">( optional )</param>
+        public static void remove(JsArray<JsNumber> tabIds, JsAction callback) { }
+        /// <summary>
+        /// Closes one or more tabs. Note: This function can be used without requesting the 'tabs' permission in the manifest.
+        /// </summary>
+        /// <param name="tabIds">The tab or list of tabs to close.</param>
+        public static void remove(JsArray<JsNumber> tabIds) { }
+
+        /// <summary>
+        /// Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back.
+        /// The chrome.extension.onMessage event is fired in each content script running in the specified tab for the current extension.
+        /// </summary>
+        /// <param name="tabId"></param>
+        /// <param name="message"></param>
+        /// <param name="responseCallback">( optional )</param>
+        public static void sendMessage(JsNumber tabId, object message, JsAction<object> responseCallback) { }
+        /// <summary>
+        /// Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back.
+        /// The chrome.extension.onMessage event is fired in each content script running in the specified tab for the current extension.
+        /// </summary>
+        /// <param name="tabId"></param>
+        /// <param name="message"></param>
+        public static void sendMessage(JsNumber tabId, object message) { }
+
+        /// <summary>
+        /// Modifies the properties of a tab. Properties that are not specified in updateProperties are not modified.
+        /// Note: This function can be used without requesting the 'tabs' permission in the manifest.
+        /// </summary>
+        /// <param name="tabId">( optional ) Defaults to the selected tab of the current window.</param>
+        /// <param name="updateProperties"></param>
+        /// <param name="callback"> ( optional )</param>
+        public static void update(JsNumber tabId, TabsUpdateProperties updateProperties, JsAction callback) { }
+        /// <summary>
+        /// Modifies the properties of a tab. Properties that are not specified in updateProperties are not modified.
+        /// Note: This function can be used without requesting the 'tabs' permission in the manifest.
+        /// </summary>
+        /// <param name="tabId">( optional ) Defaults to the selected tab of the current window.</param>
+        /// <param name="updateProperties"></param>
+        public static void update(JsNumber tabId, TabsUpdateProperties updateProperties) { }
+        /// <summary>
+        /// Modifies the properties of a tab. Properties that are not specified in updateProperties are not modified.
+        /// Note: This function can be used without requesting the 'tabs' permission in the manifest.
+        /// </summary>
+        /// <param name="updateProperties"></param>
+        public static void update(TabsUpdateProperties updateProperties) { }
+        /// <summary>
+        /// Modifies the properties of a tab. Properties that are not specified in updateProperties are not modified.
+        /// Note: This function can be used without requesting the 'tabs' permission in the manifest.
+        /// </summary>
+        /// <param name="updateProperties"></param>
+        /// <param name="callback"> ( optional )</param>
+        public static void update(TabsUpdateProperties updateProperties, JsAction callback) { }
+
+        /// <summary>
+        /// Fires when the active tab in a window changes.
+        /// Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
+        /// </summary>
+        public static Event<JsAction<TabsActiveInfo>> onActivated { get; set; }
+
+        /// <summary>
+        /// Fired when a tab is attached to a window, for example because it was moved between windows.
+        /// </summary>
+        public static Event<JsAction<JsNumber, TabsAttachInfo>> onAttached { get; set; }
+
+        /// <summary>
+        /// Fired when a tab is created.
+        /// Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
+        /// </summary>
+        public static Event<JsAction<Tab>> onCreated { get; set; }
+
+        /// <summary>
+        /// Fired when a tab is detached from a window, for example because it is being moved between windows.
+        /// </summary>
+        public static Event<JsAction<JsNumber, TabsDetachInfo>> onDetached { get; set; }
+
+        /// <summary>
+        /// Fired when the highlighted or selected tabs in a window changes.
+        /// </summary>
+        public static Event<JsAction<TabsHighlightInfo>> onHighlighted { get; set; }
+
+        /// <summary>
+        /// Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved.
+        /// Move events are not fired for the other tabs that must move in response.
+        /// This event is not fired when a tab is moved between windows. For that, see onDetached.
+        /// </summary>
+        public static Event<JsAction<JsNumber, TabsMoveInfo>> onMoved { get; set; }
+
+        /// <summary>
+        /// Fired when a tab is closed. Note: A listener can be registered for this event without requesting the 'tabs' permission in the manifest.
+        /// </summary>
+        public static Event<JsAction<JsNumber, TabsRemoveInfo>> onRemoved { get; set; }
+
+        /// <summary>
+        /// Fired when a tab is updated.
+        /// </summary>
+        public static Event<JsAction<JsNumber, TabsChangeInfo, Tab>> onUpdated { get; set; }
+
+    }
+
+    /// <summary>
+    /// Set parameters of image capture, such as the format of the resulting image.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class TabsCaptureVisibleTabOptions
+    {
+        /// <summary>
+        /// ( optional enumerated string ["jpeg", "png"] ) The format of the resulting image. Default is jpeg.
+        /// </summary>
+        public FormatType format { get; set; }
+
+        /// <summary>
+        /// When format is 'jpeg', controls the quality of the resulting image. This value is ignored for PNG images.
+        /// As quality is decreased, the resulting image will have more visual artifacts, and the number of bytes needed to store it will decrease.
+        /// </summary>
+        public JsNumber quality { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum FormatType
+    {
+        jpeg,
+        png,
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsConnectInfo
+    {
+        /// <summary>
+        ///  ( optional ) Will be passed into onConnect for content scripts that are listening for the connection event.
+        /// </summary>
+        public JsString name { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsCreateProperties
+    {
+        /// <summary>
+        /// ( optional ) The window to create the new tab in. Defaults to the current window.
+        /// </summary>
+        public JsNumber windowId { get; set; }
+
+        /// <summary>
+        /// ( optional ) The position the tab should take in the window. The provided value will be clamped to between zero and the number of tabs in the window.
+        /// </summary>
+        public JsNumber index { get; set; }
+
+        /// <summary>
+        /// ( optional ) The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com').
+        /// Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
+        /// </summary>
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// ( optional ) Whether the tab should become the active tab in the window. Defaults to true
+        /// </summary>
+        public bool active { get; set; }
+
+        /// <summary>
+        /// ( optional ) Whether the tab should be pinned. Defaults to false
+        /// </summary>
+        public bool pinned { get; set; }
+
+        /// <summary>
+        /// ( optional ) The ID of the tab that opened this tab. If specified, the opener tab must be in the same window as the newly created tab.
+        /// </summary>
+        public bool openerTabId { get; set; }
+    }
+
+    /// <summary>
+    /// Details of the script to run. Either the code or the file property must be set, but both may not be set at the same time.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class TabsExecuteScriptDetails
+    {
+        /// <summary>
+        /// ( optional ) JavaScript code to execute.
+        /// </summary>
+        public JsString code { get; set; }
+
+        /// <summary>
+        /// ( optional ) The window to create the new tab in. Defaults to the current window.
+        /// </summary>
+        public JsNumber windowId { get; set; }
+
+        /// <summary>
+        /// ( optional ) JavaScript file to execute.
+        /// </summary>
+        public JsString file { get; set; }
+
+        /// <summary>
+        /// ( optional ) If allFrames is true, this function injects script into all frames of current page.
+        /// By default, it's false and script is injected only into the top main frame.
+        /// </summary>
+        public bool allFrames { get; set; }
+
+        /// <summary>
+        /// ( optional enumerated string ["document_start", "document_end", "document_idle"] )
+        /// The soonest that the script will be injected into the tab. Defaults to "document_idle".
+        /// </summary>
+        public RunAtTypes runAt { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum RunAtTypes
+    {
+        document_start,
+        document_end,
+        document_idle,
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsHighlightInfo
+    {
+        /// <summary>
+        /// ( optional ) The window that contains the tabs.
+        /// </summary>
+        public JsNumber windowId { get; set; }
+
+        /// <summary>
+        /// One or more tab indices to highlight.
+        /// </summary>
+        public JsArray<JsNumber> tabs { get; set; }
+
+        /// <summary>
+        /// One or more tab indices to highlight.
+        /// </summary>
+        [JsProperty(Name = "tabs")]
+        public JsNumber tabsNumber { get; set; }
+
+    }
+
+    /// <summary>
+    /// Details of the CSS text to insert. Either the code or the file property must be set, but both may not be set at the same time.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class TabsInsertCSSDetails
+    {
+        /// <summary>
+        /// ( optional ) CSS code to be injected.
+        /// </summary>
+        public JsString code { get; set; }
+
+        /// <summary>
+        /// ( optional ) CSS file to be injected.
+        /// </summary>
+        public JsString file { get; set; }
+
+        /// <summary>
+        /// ( optional ) If allFrames is true, this function injects CSS text into all frames of current page.
+        /// By default, it's false and CSS is injected only into the top main frame.
+        /// </summary>
+        public bool allFrames { get; set; }
+
+        /// <summary>
+        /// ( optional enumerated string ["document_start", "document_end", "document_idle"] )
+        /// The soonest that the CSS will be injected into the tab. Defaults to "document_idle".
+        /// </summary>
+        public RunAtTypes runAt { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsMoveProperties
+    {
+        /// <summary>
+        /// ( optional ) Defaults to the window the tab is currently in.
+        /// </summary>
+        public JsNumber windowId { get; set; }
+
+        /// <summary>
+        /// The position to move the window to. -1 will place the tab at the end of the window.
+        /// </summary>
+        public JsNumber index { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsQueryInfo
+    {
+        /// <summary>
+        /// ( optional ) Whether the tabs are active in their windows.
+        /// </summary>
+        public bool active { get; set; }
+
+        /// <summary>
+        /// ( optional ) Whether the tabs are pinned.
+        /// </summary>
+        public bool pinned { get; set; }
+
+        /// <summary>
+        /// ( optional ) Whether the tabs are highlighted.
+        /// </summary>
+        public bool highlighted { get; set; }
+
+        /// <summary>
+        /// ( optional ) Whether the tabs are in the current window.
+        /// </summary>
+        public bool currentWindow { get; set; }
+
+        /// <summary>
+        /// ( optional ) Whether the tabs are in the last focused window.
+        /// </summary>
+        public bool lastFocusedWindow { get; set; }
+
+        /// <summary>
+        /// ( optional enumerated string ["loading", "complete"] ) Whether the tabs have completed loading.
+        /// </summary>
+        public StatusType status { get; set; }
+
+        /// <summary>
+        /// ( optional ) Match page titles against a pattern.
+        /// </summary>
+        public JsString title { get; set; }
+
+        /// <summary>
+        /// ( optional ) Match tabs against a URL pattern.
+        /// </summary>
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// ( optional ) The ID of the parent window, or chrome.windows.WINDOW_ID_CURRENT for the current window.
+        /// </summary>
+        public JsNumber windowId { get; set; }
+
+        /// <summary>
+        /// ( optional ) The type of window the tabs are in.
+        /// </summary>
+        public WindowType windowType { get; set; }
+
+        /// <summary>
+        /// ( optional ) The position of the tabs within their windows.
+        /// </summary>
+        public JsNumber index { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum StatusType
+    {
+        loading,
+        complete,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum WindowType
+    {
+        normal,
+        popup,
+        panel,
+        app,
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsReloadProperties
+    {
+        /// <summary>
+        /// Whether using any local cache. Default is false.
+        /// </summary>
+        public bool bypassCache { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsUpdateProperties
+    {
+        /// <summary>
+        /// ( optional ) A URL to navigate the tab to.
+        /// </summary>
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// ( optional ) Whether the tab should be active.
+        /// </summary>
+        public bool active { get; set; }
+
+        /// <summary>
+        /// ( optional ) Adds or removes the tab from the current selection.
+        /// </summary>
+        public bool highlighted { get; set; }
+
+        /// <summary>
+        /// ( optional ) Whether the tab should be pinned.
+        /// </summary>
+        public bool pinned { get; set; }
+
+        /// <summary>
+        /// ( optional ) The ID of the tab that opened this tab. If specified, the opener tab must be in the same window as this tab.
+        /// </summary>
+        public JsNumber openerTabId { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsActiveInfo 
+    {
+
+        /// <summary>
+        /// The ID of the tab that has become active.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// The ID of the window the active tab changed inside of.
+        /// </summary>
+        public JsNumber windowId { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsAttachInfo 
+    {
+        public JsNumber newWindowId { get; set; }
+
+        public JsNumber newPosition { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsDetachInfo 
+    {
+        public JsNumber oldWindowId { get; set; }
+
+        public JsNumber oldPosition { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsHighlightInfo 
+    {
+        /// <summary>
+        /// The window whose tabs changed.
+        /// </summary>
+        public JsNumber windowId { get; set; }
+
+        /// <summary>
+        /// All highlighted tabs in the window.
+        /// </summary>
+        public JsArray<JsNumber> tabIds { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsMoveInfo 
+    {
+        public JsNumber windowId { get; set; }
+
+        public JsNumber fromIndex { get; set; }
+
+        public JsNumber toIndex { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class TabsRemoveInfo 
+    {
+        /// <summary>
+        /// True when the tab is being closed because its window is being closed.
+        /// </summary>
+        public bool isWindowClosing { get; set; }
+
+    }
+
+    /// <summary>
+    /// Lists the changes to the state of the tab that was updated.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class TabsChangeInfo 
+    {
+        /// <summary>
+        ///  ( optional ) The status of the tab. Can be either loading or complete.
+        /// </summary>
+        public StatusType status { get; set; }
+
+        /// <summary>
+        /// The tab's URL if it has changed.
+        /// </summary>
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// ( optional ) The tab's new pinned state.
+        /// </summary>
+        public bool pinned { get; set; }
+    }
+
+    [JsType(JsMode.Prototype, Name = "chrome.tabs.Tab", Export = false)]
+    public class Tab
+    {
+        /// <summary>
+        /// The ID of the tab. Tab IDs are unique within a browser session.
+        /// </summary>
+        public JsNumber id { get; set; }
+
+        /// <summary>
+        /// The zero-based index of the tab within its window.
+        /// </summary>
+        public JsNumber index { get; set; }
+
+        /// <summary>
+        /// The ID of the window the tab is contained within.
+        /// </summary>
+        public JsNumber windowId { get; set; }
+
+        /// <summary>
+        /// ( optional ) The ID of the tab that opened this tab, if any. This will only be present if the opener tab still exists.
+        /// </summary>
+        public JsNumber openerTabId { get; set; }
+
+        /// <summary>
+        /// Whether the tab is highlighted.
+        /// </summary>
+        public bool highlighted { get; set; }
+
+        /// <summary>
+        /// Whether the tab is active in its window.
+        /// </summary>
+        public bool active { get; set; }
+
+        /// <summary>
+        /// Whether the tab is pinned.
+        /// </summary>
+        public bool pinned { get; set; }
+
+        /// <summary>
+        /// The URL the tab is displaying.
+        /// </summary>
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// ( optional ) The title of the tab. This may not be available if the tab is loading.
+        /// </summary>
+        public JsString title { get; set; }
+
+        /// <summary>
+        /// ( optional ) The URL of the tab's favicon. This may not be available if the tab is loading.
+        /// </summary>
+        public JsString favIconUrl { get; set; }
+
+        /// <summary>
+        /// ( optional ) Either loading or complete.
+        /// </summary>
+        public JsString status { get; set; }
+
+        /// <summary>
+        /// ( optional ) Whether the tab is in an incognito window.
+        /// </summary>
+        public bool incognito { get; set; }
+
+
+    }
+
+    #endregion
+
+    [JsType(JsMode.Prototype, Name = "chrome.types.ChromeSetting", Export = false)]
     public class ChromeSetting
     {
         //TODO: this class is empty. needs to be done
