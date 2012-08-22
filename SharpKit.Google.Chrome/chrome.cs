@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
 using SharpKit.Html;
-
+[assembly:JsNamespace(Namespace="SharpKit.Google.Chrome", JsNamespace="chrome")]
 namespace SharpKit.Google.Chrome
 {
 
