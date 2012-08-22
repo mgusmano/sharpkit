@@ -7,10 +7,6 @@ using SharpKit.Html;
 
 namespace SharpKit.Google.Chrome
 {
-    public class ChromeEvent<T>
-    {
-        public void addEventListener(T action) { }
-    }
 
     #region alarms
 
@@ -69,7 +65,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when an alarm has elapsed. Useful for transient background pages.
         /// </summary>
-        public ChromeEvent<JsAction<Alarm>> onAlarm { get; set; }
+        public static Event<JsAction<Alarm>> onAlarm { get; set; }
 
     }
 
@@ -234,38 +230,38 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when a bookmark or folder changes. Note: Currently, only title and url changes trigger this.
         /// </summary>
-        public ChromeEvent<JsAction<string, BookmarkChangeInfoDestination>> onChanged { get; set; }
+        public static Event<JsAction<string, BookmarkChangeInfoDestination>> onChanged { get; set; }
 
         /// <summary>
         /// Fired when the children of a folder have changed their order due to the order being sorted in the UI. This is not called as a result of a move().
         /// </summary>
-        public ChromeEvent<JsAction<string, BookmarkReorderInfoDestination>> onChildrenReordered { get; set; }
+        public static Event<JsAction<string, BookmarkReorderInfoDestination>> onChildrenReordered { get; set; }
 
         /// <summary>
         /// Fired when a bookmark or folder is created.
         /// </summary>
-        public ChromeEvent<JsAction<string, BookmarkTreeNode>> onCreated { get; set; }
+        public static Event<JsAction<string, BookmarkTreeNode>> onCreated { get; set; }
 
         /// <summary>
         /// Fired when a bookmark import session is begun.
         /// Expensive observers should ignore handleCreated updates until onImportEnded is fired. Observers should still handle other notifications immediately.
         /// </summary>
-        public ChromeEvent<JsAction> onImportBegan { get; set; }
+        public static Event<JsAction> onImportBegan { get; set; }
 
         /// <summary>
         /// Fired when a bookmark import session is ended.
         /// </summary>
-        public ChromeEvent<JsAction> onImportEnded { get; set; }
+        public static Event<JsAction> onImportEnded { get; set; }
 
         /// <summary>
         /// Fired when a bookmark or folder is moved to a different parent folder.
         /// </summary>
-        public ChromeEvent<JsAction<string, BookmarkMoveInfo>> onMoved { get; set; }
+        public static Event<JsAction<string, BookmarkMoveInfo>> onMoved { get; set; }
 
         /// <summary>
         /// Fired when a bookmark or folder is removed. When a folder is removed recursively, a single notification is fired for the folder, and none for its contents.
         /// </summary>
-        public ChromeEvent<JsAction<string, BookmarkRemoveInfo>> onRemoved { get; set; }
+        public static Event<JsAction<string, BookmarkRemoveInfo>> onRemoved { get; set; }
 
     }
 
@@ -478,8 +474,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when a browser action icon is clicked. This event will not fire if the browser action has a popup.
         /// </summary>
-        public ChromeEvent<JsAction<object>> onClicked { get; set; }
-        //TODDO: (function(tabs.Tab tab)), needs to be chcnged later. (needs class tabs.Tab)
+        public static Event<JsAction<Tab>> onClicked { get; set; }
 
     }
 
@@ -1158,11 +1153,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when a context menu item is clicked.
         /// </summary>
-        public ChromeEvent<JsAction<OnClickData, object>> onClicked { get; set; }
-        //TODDO: (function(tabs.Tab tab)), needs to be chcnged later. (needs class tabs.Tab)
-
-
-
+        public static Event<JsAction<OnClickData, Tab>> onClicked { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -1204,8 +1195,7 @@ namespace SharpKit.Google.Chrome
         /// A function that will be called back when the menu item is clicked.
         /// Event pages cannot use this; instead, they should register a listener for chrome.contextMenus.onClicked.
         /// </summary>
-        public JsAction<object, OnClickData> onclick { get; set; }
-        //TODO: object = tab ( tabs.Tab ) (needs to create this class)
+        public JsAction<Tab, OnClickData> onclick { get; set; }
 
         /// <summary>
         /// ( optional )
@@ -1682,7 +1672,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when browser terminates debugging session for the tab. This happens when either the tab is being closed or Chrome DevTools is being invoked for the attached tab.
         /// </summary>
-        public ChromeEvent<JsAction<Debuggee>> onDetach { get; set; }
+        public static Event<JsAction<Debuggee>> onDetach { get; set; }
 
         /// <summary>
         /// Fired whenever debugging target issues instrumentation event.
@@ -1694,7 +1684,7 @@ namespace SharpKit.Google.Chrome
         /// params ( optional object )
         /// JSON object with the response. Structure of the response varies depending on the method and is defined by the remote debugging protocol.
         /// </summary>
-        public ChromeEvent<JsAction<Debuggee, JsString, object>> onEvent { get; set; }
+        public static Event<JsAction<Debuggee, JsString, object>> onEvent { get; set; }
     }
 
     /// <summary>
@@ -1711,23 +1701,384 @@ namespace SharpKit.Google.Chrome
 
     #endregion
 
+    #region declarativeWebRequest
 
     [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest", Export = false)]
     public class declarativeWebRequest
     {
-        //TODO: chrome.declarativeWebRequest: http://developer.chrome.com/extensions/declarativeWebRequest.html
+        //TODO: this class is empty (?)
     }
 
-    class Test
+    /// <summary>
+    /// Redirects a request by applying a regular expression on the URL. The regular expressions use the RE2 syntax.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest.RedirectByRegEx", Export = false)]
+    public class RedirectByRegEx
     {
+        /// <summary>
+        /// A match pattern that may contain capture groups. Capture groups are referenced in the Perl syntax
+        /// ($1, $2, ...) instead of the RE2 syntax (\1, \2, ...) in order to be closer to JavaScript Regular Expressions.
+        /// </summary>
+        public JsString from { get; set; }
 
-        static void foo()
-        {
-            //bookmarks.
-        }
+        /// <summary>
+        /// Destination pattern.
+        /// </summary>
+        public JsString to { get; set; }
     }
 
-    //TODO: EVENTS http://developer.chrome.com/extensions/events.html
+    /// <summary>
+    /// Matches network events by various criteria.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest.RequestMatcher", Export = false)]
+    public class RequestMatcher
+    {
+        /// <summary>
+        /// ( optional events.UrlFilter ) Matches if the condition of the UrlFilter are fulfilled for the URL of the request.
+        /// </summary>
+        public UrlFilter url { get; set; }
+
+        /// <summary>
+        /// ( optional array of string ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"] ) Matches if the request type of a request is contained in the list. Requests that cannot match any of the types will be filtered out.
+        /// </summary>
+        public JsArray<ResourceType> resourceType { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["declarativeWebRequest.RequestMatcher"] )
+        /// </summary>
+        public JsString instanceType { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum ResourceType
+    {
+        main_frame,
+        sub_frame,
+        stylesheet,
+        script,
+        image,
+        @object,
+        xmlhttprequest,
+        other,
+    }
+
+    /// <summary>
+    /// Declarative event action that redirects a network request.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest.RedirectRequest", Export = false)]
+    public class RedirectRequest
+    {
+        /// <summary>
+        /// ( enumerated string ["declarativeWebRequest.RedirectRequest"] )
+        /// </summary>
+        public JsString instanceType { get; set; }
+
+        /// <summary>
+        /// Destination to where the request is redirected.
+        /// </summary>
+        public JsString redirectUrl { get; set; }
+    }
+
+    /// <summary>
+    /// Declarative event action that redirects a network request to a transparent image.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest.RedirectToTransparentImage", Export = false)]
+    public class RedirectToTransparentImage
+    {
+    }
+
+    /// <summary>
+    /// Declarative event action that redirects a network request to an empty document.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest.RedirectToEmptyDocument", Export = false)]
+    public class RedirectToEmptyDocument
+    {
+    }
+
+    /// <summary>
+    /// Declarative event action that cancels a network request.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest.CancelRequest", Export = false)]
+    public class CancelRequest
+    {
+        /// <summary>
+        /// ( enumerated string ["declarativeWebRequest.CancelRequest"] )
+        /// </summary>
+        public JsString instanceType { get; set; }
+    }
+
+    /// <summary>
+    /// Sets the request header of the specified name to the specified value. If a header with the specified name did not exist before, a new one is created.
+    /// Header name comparison is always case-insensitive. Each request header name occurs only once in each request.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest.SetRequestHeader", Export = false)]
+    public class SetRequestHeader
+    {
+        /// <summary>
+        /// HTTP request header name.
+        /// </summary>
+        public JsString name { get; set; }
+
+        /// <summary>
+        /// HTTP request header value.
+        /// </summary>
+        public JsString value { get; set; }
+    }
+
+    /// <summary>
+    /// Removes the request header of the specified name. Do not use SetRequestHeader and RemoveRequestHeader with the same header name on the same request.
+    /// Each request header name occurs only once in each request.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest.RemoveRequestHeader", Export = false)]
+    public class RemoveRequestHeader
+    {
+        /// <summary>
+        /// HTTP request header name (case-insensitive).
+        /// </summary>
+        public JsString name { get; set; }
+    }
+
+    /// <summary>
+    /// Adds the response header to the response of this web request.
+    /// As multiple response headers may share the same name, you need to first remove and then add a new response header in order to replace one.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest.AddResponseHeader", Export = false)]
+    public class AddResponseHeader
+    {
+        /// <summary>
+        /// HTTP request header name.
+        /// </summary>
+        public JsString name { get; set; }
+
+        /// <summary>
+        /// HTTP request header value.
+        /// </summary>
+        public JsString value { get; set; }
+    }
+
+    /// <summary>
+    /// Removes all response headers of the specified names and values.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest.RemoveResponseHeader", Export = false)]
+    public class RemoveResponseHeader
+    {
+        /// <summary>
+        /// HTTP request header name.(case-insensitive).
+        /// </summary>
+        public JsString name { get; set; }
+
+        /// <summary>
+        ///( optional ) HTTP request header value.(case-insensitive).
+        /// </summary>
+        public JsString value { get; set; }
+
+
+    }
+
+    /// <summary>
+    /// Masks all rules that match the specified criteria.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest.IgnoreRules", Export = false)]
+    public class IgnoreRules
+    {
+        /// <summary>
+        /// If set, rules with a lower priority than the specified value are ignored.
+        /// This boundary is not persited, it affects only rules and their actions of the same network request stage. TODO(battre): Explain network request stages.
+        /// </summary>
+        public JsNumber lowerPriorityThan { get; set; }
+    }
+
+    #endregion
+
+    #region events
+
+    [JsType(JsMode.Prototype, Name = "chrome.events.Event", Export = false)]
+    public class Event<T>
+    {
+        public void addEventListener(T action) { }
+        public void removeEventListener(T action) { }
+        public bool hasEventListener(T action) { return false; }
+
+
+        /// <summary>
+        /// Registers rules to handle events.
+        /// </summary>
+        /// <param name="rules">Rules to be registered. These do not replace previously registered rules.</param>
+        /// <param name="callback">( optional ) Called with registered rules.</param>
+        public void addRules(JsArray<Rule> rules, JsAction<AddRulesDetails> callback) { }
+        /// <summary>
+        /// Registers rules to handle events.
+        /// </summary>
+        /// <param name="rules">Rules to be registered. These do not replace previously registered rules.</param>
+        public void addRules(JsArray<Rule> rules) { }
+
+        /// <summary>
+        /// Returns currently registered rules.
+        /// </summary>
+        /// <param name="ruleIdentifiers">( optional ) If an array is passed, only rules with identifiers contained in this array are returned.</param>
+        /// <param name="callback">Called with registered rules.</param>
+        public void getRules(JsArray<JsString> ruleIdentifiers, JsAction<AddRulesDetails> callback) { }
+        /// <summary>
+        /// Returns currently registered rules.
+        /// </summary>
+        /// <param name="callback">Called with registered rules.</param>
+        public void getRules(JsAction<AddRulesDetails> callback) { }
+
+        public void hasListener() { }
+        public void hasListeners() { }
+        public void removeListener() { }
+
+        /// <summary>
+        /// Unregisters currently registered rules.
+        /// </summary>
+        /// <param name="ruleIdentifiers"> ( optional ) If an array is passed, only rules with identifiers contained in this array are unregistered.</param>
+        /// <param name="callback">( optional ) Called when rules were unregistered.</param>
+        public void removeRules(JsArray<JsString> ruleIdentifiers, JsAction callback) { }
+        /// <summary>
+        /// Unregisters currently registered rules.
+        /// </summary>
+        /// <param name="ruleIdentifiers"> ( optional ) If an array is passed, only rules with identifiers contained in this array are unregistered.</param>
+        public void removeRules(JsArray<JsString> ruleIdentifiers) { }
+        /// <summary>
+        /// Unregisters currently registered rules.
+        /// </summary>
+        public void removeRules() { }
+
+    }
+
+    /// <summary>
+    /// Description of a declarative rule for handling events.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.events.Rule", Export = false)]
+    public class Rule
+    {
+        /// <summary>
+        /// Optional identifier that allows referencing this rule.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// List of conditions that can trigger the actions.
+        /// </summary>
+        public JsArray<object> conditions { get; set; }
+
+        /// <summary>
+        /// List of actions that are triggered if one of the condtions is fulfilled.
+        /// </summary>
+        public JsArray<object> actions { get; set; }
+
+        /// <summary>
+        /// Optional priority of this rule. Defaults to 100.
+        /// </summary>
+        public JsNumber priority { get; set; }
+
+    }
+
+    /// <summary>
+    /// Filters URLs for various criteria
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.events.UrlFilter", Export = false)]
+    public class UrlFilter
+    {
+        /// <summary>
+        /// ( optional ) Matches if the host name of the URL contains a specified string.
+        /// </summary>
+        public JsString hostContains { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the host name of the URL is equal to a specified string.
+        /// </summary>
+        public JsString hostEquals { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the host name of the URL starts with a specified string.
+        /// </summary>
+        public JsString hostPrefix { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the host name of the URL ends with a specified string.
+        /// </summary>
+        public JsString hostSuffix { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the path segment of the URL contains a specified string.
+        /// </summary>
+        public JsString pathContains { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the path segment of the URL is equal to a specified string.
+        /// </summary>
+        public JsString pathEquals { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the path segment of the URL starts with a specified string.
+        /// </summary>
+        public JsString pathPrefix { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the path segment of the URL ends with a specified string.
+        /// </summary>
+        public JsString pathSuffix { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the query segment of the URL contains a specified string.
+        /// </summary>
+        public JsString queryContains { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the query segment of the URL is equal to a specified string.
+        /// </summary>
+        public JsString queryEquals { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the query segment of the URL starts with a specified string.
+        /// </summary>
+        public JsString queryPrefix { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the query segment of the URL ends with a specified string.
+        /// </summary>
+        public JsString querySuffix { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the URL contains a specified string.
+        /// </summary>
+        public JsString urlContains { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the URL is equal to a specified string.
+        /// </summary>
+        public JsString urlEquals { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the URL starts with a specified string.
+        /// </summary>
+        public JsString urlPrefix { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the URL ends with a specified string.
+        /// </summary>
+        public JsString urlSuffix { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the scheme of the URL is equal to any of the schemes specified in the array.
+        /// </summary>
+        public JsArray<JsString> schemes { get; set; }
+
+        /// <summary>
+        /// ( optional ) Matches if the port of the URL is contained in any of the specified port lists.
+        /// For example [80, 443, [1000, 1200]] matches all requests on port 80, 443 and in the range 1000-1200.
+        /// </summary>
+        public JsArray<object> ports { get; set; }
+    }
+
+    public class AddRulesDetails : JsArray<Rule>
+    {
+    }
+    //TODO: danel don't know what to do here
+
+    #endregion
 
     #region extension
 
@@ -1853,22 +2204,22 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when a connection is made from either an extension process or a content script.
         /// </summary>
-        public ChromeEvent<JsAction<Port>> onConnect { get; set; }
+        public static Event<JsAction<Port>> onConnect { get; set; }
 
         /// <summary>
         /// Fired when a connection is made from another extension.
         /// </summary>
-        public ChromeEvent<JsAction<Port>> onConnectExternal { get; set; }
+        public static Event<JsAction<Port>> onConnectExternal { get; set; }
 
         /// <summary>
         /// Fired when a message is sent from either an extension process or a content script.
         /// </summary>
-        public ChromeEvent<JsFunc<ExtensionOnMessageDetails, bool>> onMessage { get; set; }
+        public static Event<JsFunc<ExtensionOnMessageDetails, bool>> onMessage { get; set; }
 
         /// <summary>
         /// Fired when a message is sent from another extension.
         /// </summary>
-        public ChromeEvent<JsFunc<ExtensionOnMessageDetails, bool>> onMessageExternal { get; set; }
+        public static Event<JsFunc<ExtensionOnMessageDetails, bool>> onMessageExternal { get; set; }
 
     }
 
@@ -1944,8 +2295,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// ( optional tabs.Tab ) This property will only be present when the connection was opened from a tab or content script.
         /// </summary>
-        public object tab { get; set; }
-        //TODO: object = tabs.Tab (needs to create this class)
+        public Tab tab { get; set; }
 
         /// <summary>
         /// The extension ID of the extension that opened the connection.
@@ -1996,7 +2346,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when file system action is executed from ChromeOS file browser.
         /// </summary>
-        public ChromeEvent<JsAction<JsString, FileHandlerExecuteEventDetails>> onExecute { get; set; }
+        public static Event<JsAction<JsString, FileHandlerExecuteEventDetails>> onExecute { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -2090,12 +2440,12 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when one or more URLs are removed from the history service. When all visits have been removed the URL is purged from history.
         /// </summary>
-        public ChromeEvent<JsAction<HistoryOnVisitRemoved>> onVisitRemoved { get; set; }
+        public static Event<JsAction<HistoryOnVisitRemoved>> onVisitRemoved { get; set; }
 
         /// <summary>
         /// Fired when a URL is visited, providing the HistoryItem data for that URL. This event fires before the page has loaded.
         /// </summary>
-        public ChromeEvent<JsAction<HistoryItem>> onVisited { get; set; }
+        public static Event<JsAction<HistoryItem>> onVisited { get; set; }
 
     }
 
@@ -2365,7 +2715,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when the browser changes to an active state. Currently only reports the transition from idle to active.
         /// </summary>
-        public ChromeEvent<JsAction<IdleStateType>> onStateChanged { get; set; }
+        public static Event<JsAction<IdleStateType>> onStateChanged { get; set; }
         //TODO: check
 
     }
@@ -2484,44 +2834,44 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// This event is sent when an IME is activated. It signals that the IME will be receiving onKeyPress events.
         /// </summary>
-        public ChromeEvent<JsAction<JsString>> onActivate { get; set; }
+        public static Event<JsAction<JsString>> onActivate { get; set; }
 
         /// <summary>
         /// This event is sent when focus leaves a text box. It is sent to all extensions that are listening to this event, and enabled by the user.
         /// </summary>
-        public ChromeEvent<JsAction<JsNumber>> onBlur { get; set; }
+        public static Event<JsAction<JsNumber>> onBlur { get; set; }
 
         /// <summary>
         /// This event is sent if this extension owns the active IME.
         /// </summary>
-        public ChromeEvent<JsAction<JsString, JsNumber, CandidateClickedButtonType>> onCandidateClicked { get; set; }
+        public static Event<JsAction<JsString, JsNumber, CandidateClickedButtonType>> onCandidateClicked { get; set; }
 
         /// <summary>
         /// This event is sent when an IME is deactivated. It signals that the IME will no longer be receiving onKeyPress events.
         /// </summary>
-        public ChromeEvent<JsAction<JsString>> onDeactivated { get; set; }
+        public static Event<JsAction<JsString>> onDeactivated { get; set; }
 
         /// <summary>
         /// This event is sent when focus enters a text box. It is sent to all extensions that are listening to this event, and enabled by the user.
         /// </summary>
-        public ChromeEvent<JsAction<InputContext>> onFocus { get; set; }
+        public static Event<JsAction<InputContext>> onFocus { get; set; }
 
         /// <summary>
         /// This event is sent when the properties of the current InputContext change, such as the the type.
         /// It is sent to all extensions that are listening to this event, and enabled by the user.
         /// </summary>
-        public ChromeEvent<JsAction<InputContext>> onInputContextUpdate { get; set; }
+        public static Event<JsAction<InputContext>> onInputContextUpdate { get; set; }
 
         /// <summary>
         /// This event is sent if this extension owns the active IME.
         /// </summary>
-        public ChromeEvent<JsAction<JsString, KeyboardEvent>> onKeyEvent { get; set; }
+        public static Event<JsAction<JsString, KeyboardEvent>> onKeyEvent { get; set; }
         //TODO: returns boolean (???)
 
         /// <summary>
         /// Called when the user selects a menu item
         /// </summary>
-        public ChromeEvent<JsAction<JsString, JsString>> onMenuItemActivated { get; set; }
+        public static Event<JsAction<JsString, JsString>> onMenuItemActivated { get; set; }
 
     }
     //TODO: class name (???)
@@ -2963,22 +3313,22 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when an app or extension has been disabled
         /// </summary>
-        public ChromeEvent<JsAction<ExtensionInfo>> onDisabled { get; set; }
+        public static Event<JsAction<ExtensionInfo>> onDisabled { get; set; }
 
         /// <summary>
         /// Fired when an app or extension has been enabled.
         /// </summary>
-        public ChromeEvent<JsAction<ExtensionInfo>> onEnabled { get; set; }
+        public static Event<JsAction<ExtensionInfo>> onEnabled { get; set; }
 
         /// <summary>
         /// Fired when an app or extension has been installed.
         /// </summary>
-        public ChromeEvent<JsAction<ExtensionInfo>> onInstalled { get; set; }
+        public static Event<JsAction<ExtensionInfo>> onInstalled { get; set; }
 
         /// <summary>
         /// Fired when an app or extension has been uninstalled.
         /// </summary>
-        public ChromeEvent<JsAction<JsString>> onUninstalled { get; set; }
+        public static Event<JsAction<JsString>> onUninstalled { get; set; }
 
     }
 
@@ -3098,6 +3448,8 @@ namespace SharpKit.Google.Chrome
 
     #endregion
 
+    #region omnibox
+
     /// <summary>
     /// The omnibox API allows you to register a keyword with Google Chrome's address bar, which is also known as the omnibox.
     /// Note: Chrome automatically creates a grayscale version of your 16x16-pixel icon. You should provide a full-color version so that it can also be used in other situations that require color.
@@ -3106,7 +3458,653 @@ namespace SharpKit.Google.Chrome
     [JsType(JsMode.Prototype, Name = "chrome.omnibox", Export = false)]
     public class omnibox
     {
+        /// <summary>
+        /// Sets the description and styling for the default suggestion. The default suggestion is the text that is displayed in the first suggestion row underneath the URL bar.
+        /// </summary>
+        /// <param name="suggestion">A partial SuggestResult object, without the 'content' parameter. See SuggestResult for a description of the parameters.</param>
+        public static void setDefaultSuggestion(OmniboxDefaultSuggestion suggestion) { }
+
+        /// <summary>
+        /// User has ended the keyword input session without accepting the input.
+        /// </summary>
+        public static Event<JsAction> onInputCancelled { get; set; }
+
+        /// <summary>
+        /// User has changed what is typed into the omnibox.
+        /// </summary>
+        public static Event<JsAction<JsString, JsAction<JsArray<SuggestResult>>>> onInputChanged { get; set; }
+
+        /// <summary>
+        /// User has accepted what is typed into the omnibox.
+        /// </summary>
+        public static Event<JsAction<JsString>> onInputEntered { get; set; }
+
+        /// <summary>
+        /// User has started a keyword input session by typing the extension's keyword.
+        /// This is guaranteed to be sent exactly once per input session, and before any onInputChanged events.
+        /// </summary>
+        public static Event<JsAction> onInputStarted { get; set; }
+
     }
 
+    /// <summary>
+    /// A partial SuggestResult object, without the 'content' parameter. See SuggestResult for a description of the parameters.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class OmniboxDefaultSuggestion
+    {
+        /// <summary>
+        /// The text to display in the default suggestion. The placeholder string '%s' can be included and will be replaced with the user's input.
+        /// </summary>
+        public JsString description { get; set; }
+    }
+
+    /// <summary>
+    /// A suggest result.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.omnibox.SuggestResult", Export = false)]
+    public class SuggestResult
+    {
+        /// <summary>
+        /// The text that is put into the URL bar, and that is sent to the extension when the user chooses this entry.
+        /// </summary>
+        public JsString content { get; set; }
+
+        /// <summary>
+        /// The text that is displayed in the URL dropdown. Can contain XML-style markup for styling. The supported tags are 'url' (for a literal URL),
+        /// 'match' (for highlighting text that matched what the user's query), and 'dim' (for dim helper text). The styles can be nested, eg. dimmed match
+        /// </summary>
+        public JsString description { get; set; }
+    }
+
+    #endregion
+
+    #region pageAction
+
+    /// <summary>
+    /// Use page actions to put icons inside the address bar. Page actions represent actions that can be taken on the current page, but that aren't applicable to all pages. Some examples:
+    /// Subscribe to this page's RSS feed
+    /// Make a slideshow out of this page's photos
+    /// The RSS icon in the following screenshot represents a page action that lets you subscribe to the RSS feed for the current page.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.pageAction", Export = false)]
+    public class pageAction
+    {
+        /// <summary>
+        /// Gets the html document set as the popup for this browser action.
+        /// </summary>
+        /// <param name="details"></param>
+        /// <param name="callback"></param>
+        public static void getPopup(PageActionPopupDetails details, JsAction callback) { }
+
+        /// <summary>
+        /// Gets the title of the browser action.
+        /// </summary>
+        /// <param name="details"></param>
+        /// <param name="callback"></param>
+        public static void getTitle(PageActionTitleDetails details, JsAction callback) { }
+
+        /// <summary>
+        /// Hides the page action.
+        /// </summary>
+        /// <param name="tabId">The id of the tab for which you want to modify the page action.</param>
+        public static void hide(JsNumber tabId) { }
+
+        /// <summary>
+        /// Sets the icon for the page action. The icon can be specified either as the path to an image file
+        /// or as the pixel data from a canvas element. Either the path or the imageData property must be specified.
+        /// </summary>
+        /// <param name="details"></param>
+        /// <param name="callback">( optional )</param>
+        public static void setIcon(PageActionIconDetails details, JsAction callback) { }
+        /// <summary>
+        /// Sets the icon for the page action. The icon can be specified either as the path to an image file
+        /// or as the pixel data from a canvas element. Either the path or the imageData property must be specified.
+        /// </summary>
+        /// <param name="details"></param>
+        public static void setIcon(PageActionIconDetails details) { }
+
+        /// <summary>
+        /// Sets the html document to be opened as a popup when the user clicks on the page action's icon.
+        /// </summary>
+        /// <param name="details"></param>
+        public static void setPopup(PageActionPopupDetails details) { }
+
+        /// <summary>
+        /// Sets the title of the page action. This is displayed in a tooltip over the page action.
+        /// </summary>
+        /// <param name="details"></param>
+        public static void setTitle(PageActionTitleDetails details) { }
+
+        /// <summary>
+        /// Shows the page action. The page action is shown whenever the tab is selected.
+        /// </summary>
+        /// <param name="tabId">The id of the tab for which you want to modify the page action.</param>
+        public static void show(JsNumber tabId) { }
+
+        /// <summary>
+        /// Fired when a page action icon is clicked. This event will not fire if the page action has a popup.
+        /// </summary>
+        public static Event<JsAction<Tab>> onClicked { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class PageActionPopupDetails
+    {
+        /// <summary>
+        /// This property is available for setter operations only.
+        /// The html file to show in a popup. If set to the empty string (''), no popup is shown.
+        /// </summary>
+        public JsString popup { get; set; }
+
+        /// <summary>
+        /// for get operation: Specify the tab to get the popup from.
+        /// for set operation:The id of the tab for which you want to modify the page action.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class PageActionTitleDetails
+    {
+        /// <summary>
+        /// This property is available for setter operations only.
+        /// The tooltip string.
+        /// </summary>
+        public JsString title { get; set; }
+
+        /// <summary>
+        /// for get operation: Specify the tab to get the title from.
+        /// for set operation:The id of the tab for which you want to modify the page action.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class PageActionIconDetails
+    {
+        /// <summary>
+        /// The id of the tab for which you want to modify the page action.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// ( optional ) Pixel data for an image. Must be an ImageData object (for example, from a canvas element).
+        /// </summary>
+        public ImageData imageData { get; set; }
+
+        /// <summary>
+        /// ( optional ) Relative path to an image in the extension to show in the browser action.
+        /// </summary>
+        public JsNumber path { get; set; }
+
+        /// <summary>
+        /// ( optional ) Deprecated. The zero-based index into the icons vector specified in the manifest.
+        /// </summary>
+        public JsNumber iconIndex { get; set; }
+
+    }
+
+    #endregion
+
+    #region pageCapture
+
+    /// <summary>
+    /// The pageCapture API allows you to save a tab as MHTML.
+    /// MHTML is a standard format supported by most browsers. It encapsulates in a single file a page and all its resources (CSS files, images..).
+    /// Note that for security reasons a MHTML file can only be loaded from the file system and that it can only be loaded in the main frame.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.pageCapture ", Export = false)]
+    public class pageCapture
+    {
+        /// <summary>
+        /// Saves the content of the tab with given id as MHTML.
+        /// </summary>
+        /// <param name="details"></param>
+        /// <param name="callback">Called when the MHTML has been generated.</param>
+        public static void saveAsMHTML(PageCaptureDetails details, JsAction callback) { }
+    }
+
+    [JsType(JsMode.Json)]
+    public class PageCaptureDetails
+    {
+        /// <summary>
+        /// The id of the tab to save as MHTML.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+    }
+
+    #endregion
+
+    #region permissions
+    
+    /// <summary>
+    /// Use the chrome.permissions module to implement optional permissions.
+    /// You can request optional permissions during your extension's regular application flow rather than at install time,
+    /// so users understand why the permissions are needed and use only those that are necessary.
+    /// For general information about permissions and details about each permission, see the permissions section of the manifest documentation.
+    /// 
+    /// You can specify any of the following as optional permissions:
+    /// host permissions
+    /// appNotifications
+    /// background
+    /// bookmarks
+    /// clipboardRead
+    /// clipboardWrite
+    /// contentSettings
+    /// contextMenusk
+    /// cookies
+    /// debugger
+    /// histokry
+    /// idle
+    /// management
+    /// notifications
+    /// pageCapture
+    /// tabs
+    /// topSites
+    /// webNavigation
+    /// webRequest
+    /// webRequestBlocking
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.permissions ", Export = false)]
+    public class permissions
+    {
+        /// <summary>
+        /// Checks if the extension has the specified permissions.
+        /// </summary>
+        /// <param name="permissions"></param>
+        /// <param name="callback"></param>
+        public static void contains(Permissions permissions, JsAction callback) { }
+
+        /// <summary>
+        /// Gets the extension's current set of permissions.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void getAll(JsAction callback) { }
+
+        /// <summary>
+        /// Removes access to the specified permissions. If there are any problems removing the permissions, chrome.extension.lastError will be set.
+        /// </summary>
+        /// <param name="permissions"></param>
+        /// <param name="callback"></param>
+        public static void remove(Permissions permissions, JsAction callback) { }
+        /// <summary>
+        /// Removes access to the specified permissions. If there are any problems removing the permissions, chrome.extension.lastError will be set.
+        /// </summary>
+        /// <param name="permissions"></param>
+        public static void remove(Permissions permissions) { }
+
+        /// <summary>
+        /// Requests access to the specified permissions. These permissions must be defined in the optional_permissions field of the manifest.
+        /// If there are any problems requesting the permissions, chrome.extension.lastError will be set.
+        /// </summary>
+        /// <param name="permissions"></param>
+        /// <param name="callback"></param>
+        public static void request(Permissions permissions, JsAction callback) { }
+        /// <summary>
+        /// Requests access to the specified permissions. These permissions must be defined in the optional_permissions field of the manifest.
+        /// If there are any problems requesting the permissions, chrome.extension.lastError will be set.
+        /// </summary>
+        /// <param name="permissions"></param>
+        public static void request(Permissions permissions) { }
+
+        /// <summary>
+        /// Fired when the extension acquires new permissions.
+        /// </summary>
+        public static Event<JsAction< Permissions>> onAdded { get; set; }
+
+        /// <summary>
+        /// Fired when access to permissions has been removed from the extension.
+        /// </summary>
+        public static Event<JsAction<Permissions>> onRemoved { get; set; }
+
+    }
+
+    [JsType(JsMode.Prototype, Name = "chrome.permissions.Permissions ", Export = false)]
+    public class Permissions
+    {
+
+        /// <summary>
+        /// ( optional ) List of named permissions (does not include hosts or origins).
+        /// </summary>
+        public JsArray<JsString> permissions { get; set; }
+    }
+
+    #endregion
+
+    #region privacy
+    
+    /// <summary>
+    /// Use the chrome.privacy module to control usage of the features in Chrome that can affect a user's privacy.
+    /// This module relies on the ChromeSetting prototype of the type API for getting and setting Chrome's configuration.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.privacy ", Export = false)]
+    public class privacy
+    {
+        /// <summary>
+        /// Settings that influence Chrome's handling of network connections in general.
+        /// </summary>
+        public PrivacyNetworkSetting network { get; set; }
+
+        /// <summary>
+        /// Settings that enable or disable features that require third-party network services provided by Google and your default search provider.
+        /// </summary>
+        public PrivacyServicesSetting services { get; set; }
+
+        /// <summary>
+        /// Settings that determine what information Chrome makes available to websites.
+        /// </summary>
+        public PrivacyWebsitesSetting websites { get; set; }
+    }
+
+    /// <summary>
+    /// Settings that influence Chrome's handling of network connections in general.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class PrivacyNetworkSetting
+    {
+        /// <summary>
+        /// If enabled, Chrome attempts to speed up your web browsing experience by pre-resolving DNS entries, prerendering sites (&lt;link rel='prefetch' ...>),
+        /// and preemptively opening TCP and SSL connections to servers. This preference's value is a boolean, defaulting to true.
+        /// </summary>
+        public ChromeSetting networkPredictionEnabled { get; set; }
+    }
+
+    /// <summary>
+    /// Settings that enable or disable features that require third-party network services provided by Google and your default search provider.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class PrivacyServicesSetting
+    {
+        /// <summary>
+        /// If enabled, Chrome uses a web service to help resolve navigation errors. This preference's value is a boolean, defaulting to true.
+        /// </summary>
+        public ChromeSetting alternateErrorPagesEnabled { get; set; }
+
+        /// <summary>
+        /// If enabled, Chrome offers to automatically fill in forms. This preference's value is a boolean, defaulting to true.
+        /// </summary>
+        public ChromeSetting autofillEnabled { get; set; }
+
+        /// <summary>
+        /// If enabled, Chrome automatically performs and displays search requests for text you type into the Omnibox as you type it.
+        /// This preference's value is a boolean, defaulting to true.
+        /// </summary>
+        public ChromeSetting NameinstantEnabled { get; set; }
+
+        /// <summary>
+        /// If enabled, Chrome does its best to protect you from phishing and malware. This preference's value is a boolean, defaulting to true.
+        /// </summary>
+        public ChromeSetting safeBrowsingEnabled { get; set; }
+
+        /// <summary>
+        /// If enabled, Chrome sends the text you type into the Omnibox to your default search engine, which provides predictions of websites and searches that are likely completions of what you've typed so far.
+        /// This preference's value is a boolean, defaulting to true.
+        /// </summary>
+        public ChromeSetting searchSuggestEnabled { get; set; }
+
+        /// <summary>
+        /// If enabled, Chrome uses a web service to help correct spelling errors. This preference's value is a boolean, defaulting to false.
+        /// </summary>
+        public ChromeSetting spellingServiceEnabled { get; set; }
+
+        /// <summary>
+        /// If enabled, Chrome offers to translate pages that aren't in a language you read. This preference's value is a boolean, defaulting to true.
+        /// </summary>
+        public ChromeSetting translationServiceEnabled { get; set; }
+    }
+
+    /// <summary>
+    /// Settings that determine what information Chrome makes available to websites.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class PrivacyWebsitesSetting
+    {
+        /// <summary>
+        /// If disabled, Chrome blocks third-party sites from setting cookies. The value of this preference is of type boolean, and the default value is true.
+        /// </summary>
+        public ChromeSetting thirdPartyCookiesAllowed { get; set; }
+
+        /// <summary>
+        /// If enabled, Chrome sends auditing pings when requested by a website (<a ping>). The value of this preference is of type boolean, and the default value is true.
+        /// </summary>
+        public ChromeSetting hyperlinkAuditingEnabled { get; set; }
+
+        /// <summary>
+        /// If enabled, Chrome sends referer headers with your requests. Yes, the name of this preference doesn't match the misspelled header.
+        /// No, we're not going to change it. The value of this preference is of type boolean, and the default value is true.
+        /// </summary>
+        public ChromeSetting referrersEnabled { get; set; }
+
+        /// <summary>
+        /// Available on ChromeOS only: If enabled, Chrome provides a unique ID to plugins in order to run protected content.
+        /// The value of this preference is of type boolean, and the default value is true.
+        /// </summary>
+        public ChromeSetting protectedContentEnabled { get; set; }
+    }
+
+    #endregion
+
+    #region proxy
+    
+    /// <summary>
+    /// Use the chrome.proxy module to manage Chrome's proxy settings.
+    /// This module relies on the ChromeSetting prototype of the type API for getting and setting the proxy configuration.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.proxy ", Export = false)]
+    public class proxy
+    {
+        /// <summary>
+        /// Proxy settings to be used. The value of this setting is a ProxyConfig object
+        /// </summary>
+        public ChromeSetting settings { get; set; }
+
+        /// <summary>
+        /// Notifies about proxy errors.
+        /// </summary>
+        public static Event<JsAction<ProxyErrorDetails>> onProxyError { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class ProxyErrorDetails 
+    {
+        /// <summary>
+        /// If true, the error was fatal and the network transaction was aborted. Otherwise, a direct connection is used instead.
+        /// </summary>
+        public bool fatal  { get; set; }
+
+        /// <summary>
+        /// The error description.
+        /// </summary>
+        public JsString error { get; set; }
+
+        /// <summary>
+        /// Additional details about the error such as a JavaScript runtime error..
+        /// </summary>
+        public JsString details { get; set; }
+    }
+
+    /// <summary>
+    /// An object encapsulating a single proxy server's specification.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.proxy.ProxyServer ", Export = false)]
+    public class ProxyServer
+    {
+        /// <summary>
+        ///  ( optional enumerated string ["http", "https", "socks4", "socks5"] )
+        ///  The scheme (protocol) of the proxy server itself. Defaults to 'http'.
+        /// </summary>
+        public ProxyServerSchemeType scheme  { get; set; }
+
+        /// <summary>
+        /// The URI of the proxy server. This must be an ASCII hostname (in Punycode format). IDNA is not supported, yet.
+        /// </summary>
+        public JsString host  { get; set; }
+
+        /// <summary>
+        /// ( optional ) The port of the proxy server. Defaults to a port that depends on the scheme.
+        /// </summary>
+        public JsNumber port  { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum ProxyServerSchemeType 
+    {
+        http,
+        https,
+        socks4,
+        socks5,
+    }
+
+    /// <summary>
+    /// An object encapsulating the set of proxy rules for all protocols.
+    /// Use either 'singleProxy' or (a subset of) 'proxyForHttp', 'proxyForHttps', 'proxyForFtp' and 'fallbackProxy'.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.proxy.ProxyRules ", Export = false)]
+    public class ProxyRules
+    {
+        /// <summary>
+        ///  ( optional )The proxy server to be used for all per-URL requests (that is http, https, and ftp).
+        /// </summary>
+        public ProxyServer singleProxy { get; set; }
+
+        /// <summary>
+        ///  ( optional ) The proxy server to be used for HTTP requests.
+        /// </summary>
+        public ProxyServer proxyForHttp { get; set; }
+
+        /// <summary>
+        ///  ( optional ) The proxy server to be used for HTTPS requests.
+        /// </summary>
+        public ProxyServer proxyForHttps { get; set; }
+
+        /// <summary>
+        ///  ( optional )The proxy server to be used for FTP requests.
+        /// </summary>
+        public ProxyServer proxyForFtp { get; set; }
+
+        /// <summary>
+        ///  ( optional )The proxy server to be used for everthing else or if any of the specific proxyFor... is not specified.
+        /// </summary>
+        public ProxyServer fallbackProxy { get; set; }
+
+        /// <summary>
+        ///  ( optional ) List of servers to connect to without a proxy server.
+        /// </summary>
+        public JsArray<JsString> bypassList { get; set; }
+    }
+
+    /// <summary>
+    /// An object holding proxy auto-config information. Exactly one of the fields should be non-empty.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.proxy.PacScript ", Export = false)]
+    public class PacScript
+    {
+        /// <summary>
+        /// ( optional ) URL of the PAC file to be used.
+        /// </summary>
+        public JsString url  { get; set; }
+
+        /// <summary>
+        /// ( optional ) A PAC script.
+        /// </summary>
+        public JsString data { get; set; }
+
+        /// <summary>
+        /// ( optional ) If true, an invalid PAC script will prevent the network stack from falling back to direct connections. Defaults to false.
+        /// </summary>
+        public bool mandatory { get; set; }
+    }
+
+    /// <summary>
+    /// An object encapsulating a complete proxy configuration.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.proxy.ProxyConfig ", Export = false)]
+    public class ProxyConfig
+    {
+        /// <summary>
+        /// ( optional ) The proxy rules describing this configuration. Use this for 'fixed_servers' mode.
+        /// </summary>
+        public ProxyRules rules  { get; set; }
+
+        /// <summary>
+        /// ( optional ) The proxy auto-config (PAC) script for this configuration. Use this for 'pac_script' mode.
+        /// </summary>
+        public PacScript pacScript { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["direct", "auto_detect", "pac_script", "fixed_servers", "system"] )
+        /// </summary>
+        public ProxyConfigModeType mode { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum ProxyConfigModeType
+    {
+        /// <summary>
+        /// Never use a proxy
+        /// </summary>
+        direct,
+        /// <summary>
+        /// Auto detect proxy settings
+        /// </summary>
+        auto_detect,
+        /// <summary>
+        /// Use specified PAC script
+        /// </summary>
+        pac_script,
+        /// <summary>
+        /// Manually specify proxy servers
+        /// </summary>
+        fixed_servers,
+        /// <summary>
+        /// Use system proxy settings
+        /// </summary>
+        system,
+    }
+
+    #endregion
+
+    [JsType(JsMode.Prototype, Name = "chrome.runtime ", Export = false)]
+    public class runtime
+    {
+        /// <summary>
+        /// Retrieves the JavaScript 'window' object for the background page running inside the current extension.
+        /// If the background page is transient, the system will ensure it is loaded before calling the callback. If there is no background page, an error is set.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void getBackgroundPage(JsAction callback) { }
+
+        /// <summary>
+        /// Sent to the transient background page just before it is unloaded. This gives the extension opportunity to do some clean up.
+        /// Note that since the page is unloading, any asynchronous operations started while handling this event are not guaranteed to complete.
+        /// </summary>
+        public static Event<JsAction> onBackgroundPageUnloadingSoon { get; set; }
+
+        /// <summary>
+        /// Fired when the extension is first installed.
+        /// </summary>
+        public static Event<JsAction> onInstalled { get; set; }
+
+    }
+
+    [JsType(JsMode.Prototype, Name = "chrome.tabs.Tab ", Export = false)]
+    public class Tab
+    {
+        //TODO: this class is empty. needs to be done
+
+    }
+
+    [JsType(JsMode.Prototype, Name = "chrome.types.ChromeSetting  ", Export = false)]
+    public class ChromeSetting 
+    {
+        //TODO: this class is empty. needs to be done
+
+    }
 }
 
