@@ -3678,7 +3678,7 @@ namespace SharpKit.Google.Chrome
     #endregion
 
     #region permissions
-    
+
     /// <summary>
     /// Use the chrome.permissions module to implement optional permissions.
     /// You can request optional permissions during your extension's regular application flow rather than at install time,
@@ -3752,7 +3752,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when the extension acquires new permissions.
         /// </summary>
-        public static Event<JsAction< Permissions>> onAdded { get; set; }
+        public static Event<JsAction<Permissions>> onAdded { get; set; }
 
         /// <summary>
         /// Fired when access to permissions has been removed from the extension.
@@ -3774,7 +3774,7 @@ namespace SharpKit.Google.Chrome
     #endregion
 
     #region privacy
-    
+
     /// <summary>
     /// Use the chrome.privacy module to control usage of the features in Chrome that can affect a user's privacy.
     /// This module relies on the ChromeSetting prototype of the type API for getting and setting Chrome's configuration.
@@ -3887,7 +3887,7 @@ namespace SharpKit.Google.Chrome
     #endregion
 
     #region proxy
-    
+
     /// <summary>
     /// Use the chrome.proxy module to manage Chrome's proxy settings.
     /// This module relies on the ChromeSetting prototype of the type API for getting and setting the proxy configuration.
@@ -3908,12 +3908,12 @@ namespace SharpKit.Google.Chrome
     }
 
     [JsType(JsMode.Json)]
-    public class ProxyErrorDetails 
+    public class ProxyErrorDetails
     {
         /// <summary>
         /// If true, the error was fatal and the network transaction was aborted. Otherwise, a direct connection is used instead.
         /// </summary>
-        public bool fatal  { get; set; }
+        public bool fatal { get; set; }
 
         /// <summary>
         /// The error description.
@@ -3936,22 +3936,22 @@ namespace SharpKit.Google.Chrome
         ///  ( optional enumerated string ["http", "https", "socks4", "socks5"] )
         ///  The scheme (protocol) of the proxy server itself. Defaults to 'http'.
         /// </summary>
-        public ProxyServerSchemeType scheme  { get; set; }
+        public ProxyServerSchemeType scheme { get; set; }
 
         /// <summary>
         /// The URI of the proxy server. This must be an ASCII hostname (in Punycode format). IDNA is not supported, yet.
         /// </summary>
-        public JsString host  { get; set; }
+        public JsString host { get; set; }
 
         /// <summary>
         /// ( optional ) The port of the proxy server. Defaults to a port that depends on the scheme.
         /// </summary>
-        public JsNumber port  { get; set; }
+        public JsNumber port { get; set; }
     }
 
     [JsType(JsMode.Json)]
     [JsEnum(ValuesAsNames = true)]
-    public enum ProxyServerSchemeType 
+    public enum ProxyServerSchemeType
     {
         http,
         https,
@@ -4006,7 +4006,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// ( optional ) URL of the PAC file to be used.
         /// </summary>
-        public JsString url  { get; set; }
+        public JsString url { get; set; }
 
         /// <summary>
         /// ( optional ) A PAC script.
@@ -4028,7 +4028,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// ( optional ) The proxy rules describing this configuration. Use this for 'fixed_servers' mode.
         /// </summary>
-        public ProxyRules rules  { get; set; }
+        public ProxyRules rules { get; set; }
 
         /// <summary>
         /// ( optional ) The proxy auto-config (PAC) script for this configuration. Use this for 'pac_script' mode.
@@ -4070,6 +4070,11 @@ namespace SharpKit.Google.Chrome
 
     #endregion
 
+    #region runtime
+
+    /// <summary>
+    /// Warning: This API is still under development. It is only available for Chrome users on the dev early release channel. Learn more.
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "chrome.runtime ", Export = false)]
     public class runtime
     {
@@ -4093,6 +4098,8 @@ namespace SharpKit.Google.Chrome
 
     }
 
+    #endregion
+
     [JsType(JsMode.Prototype, Name = "chrome.tabs.Tab ", Export = false)]
     public class Tab
     {
@@ -4101,7 +4108,7 @@ namespace SharpKit.Google.Chrome
     }
 
     [JsType(JsMode.Prototype, Name = "chrome.types.ChromeSetting  ", Export = false)]
-    public class ChromeSetting 
+    public class ChromeSetting
     {
         //TODO: this class is empty. needs to be done
 
