@@ -1713,7 +1713,6 @@ namespace SharpKit.Google.Chrome
 
     //TODO: chrome.declarativeWebRequest: http://developer.chrome.com/extensions/declarativeWebRequest.html
     //TODO: EVENTS http://developer.chrome.com/extensions/events.html
-    //841
 
     #region extension
 
@@ -1959,5 +1958,1073 @@ namespace SharpKit.Google.Chrome
         public MessageSender sender { get; set; }
     }
     #endregion
+
+    #region fileBrowserHandler
+
+
+    /// <summary>
+    /// Use the chrome.fileBrowserHandler module to extend the Chrome OS file browser.
+    /// For example, you can use this API to enable users to upload files to your website.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.fileBrowserHandler", Export = false)]
+    public class fileBrowserHandler
+    {
+
+        /// <summary>
+        /// Prompts user to select file path under which a new file will be created.
+        /// When the user selects file, the file gets created or, if it already existed, truncated. The function has to be called with a user gesture.
+        /// </summary>
+        /// <param name="selectionParams">Parameters that will be used to create a new file.</param>
+        /// <param name="callback">Function called upon completion.</param>
+        public static void selectFile(SelectionParams selectionParams, JsAction callback) { }
+
+        /// <summary>
+        /// Fired when file system action is executed from ChromeOS file browser.
+        /// </summary>
+        public ChromeEvent<JsAction<JsString, FileHandlerExecuteEventDetails>> onExecute { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class SelectionParams
+    {
+        /// <summary>
+        /// Suggested name for the new file.
+        /// </summary>
+        public JsString suggestedName { get; set; }
+    }
+
+    /// <summary>
+    /// Event details payload for fileBrowserHandler.onExecute event.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.fileBrowserHandler.FileHandlerExecuteEventDetails", Export = false)]
+    public class FileHandlerExecuteEventDetails
+    {
+        /// <summary>
+        /// Array of Entry instances representing files that are targets of this action (selected in ChromeOS file browser).
+        /// </summary>
+        public JsArray<object> entries { get; set; }
+
+        /// <summary>
+        /// ( optional ) The ID of the tab that raised this event. Tab IDs are unique within a browser session.
+        /// </summary>
+        public JsNumber tab_id { get; set; }
+    }
+
+    #endregion
+
+    #region history
+
+    /// <summary>
+    /// Use the chrome.history module to interact with the browser's record of visited pages.
+    /// You can add, remove, and query for URLs in the browser's history. To override the history page with your own version, see Override Pages.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.history", Export = false)]
+    public class history
+    {
+        /// <summary>
+        /// Adds a URL to the history at the current time with a transition type of "link".
+        /// </summary>
+        /// <param name="details"></param>
+        /// <param name="callback"></param>
+        public static void addUrl(HistoryAddUrlDetails details, JsAction callback) { }
+        /// <summary>
+        /// Adds a URL to the history at the current time with a transition type of "link".
+        /// </summary>
+        /// <param name="details"></param>
+        public static void addUrl(HistoryAddUrlDetails details) { }
+
+        /// <summary>
+        /// Deletes all items from the history.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void deleteAll(JsAction callback) { }
+
+        /// <summary>
+        /// Removes all items within the specified date range from the history. Pages will not be removed from the history unless all visits fall within the range.
+        /// </summary>
+        /// <param name="range"></param>
+        /// <param name="callback"></param>
+        public static void deleteRange(HistoryDeleteRange range, JsAction callback) { }
+
+        /// <summary>
+        /// Removes all occurrences of the given URL from the history.
+        /// </summary>
+        /// <param name="details"></param>
+        /// <param name="callback"></param>
+        public static void deleteUrl(HistoryDeleteUrlDetails details, JsAction callback) { }
+        /// <summary>
+        /// Removes all occurrences of the given URL from the history.
+        /// </summary>
+        /// <param name="details"></param>
+        public static void deleteUrl(HistoryDeleteUrlDetails details) { }
+
+        /// <summary>
+        /// Retrieves information about visits to a URL.
+        /// </summary>
+        /// <param name="details"></param>
+        /// <param name="callback"></param>
+        public static void getVisits(HistoryGetVisitsDetails details, JsAction callback) { }
+
+        /// <summary>
+        /// Searches the history for the last visit time of each page matching the query.
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="callback"></param>
+        public static void search(HistorySearchQuery query, JsAction callback) { }
+
+        /// <summary>
+        /// Fired when one or more URLs are removed from the history service. When all visits have been removed the URL is purged from history.
+        /// </summary>
+        public ChromeEvent<JsAction<HistoryOnVisitRemoved>> onVisitRemoved { get; set; }
+
+        /// <summary>
+        /// Fired when a URL is visited, providing the HistoryItem data for that URL. This event fires before the page has loaded.
+        /// </summary>
+        public ChromeEvent<JsAction<HistoryItem>> onVisited { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class HistoryAddUrlDetails
+    {
+        /// <summary>
+        /// The URL to add.
+        /// </summary>
+        public JsString url { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class HistoryDeleteRange
+    {
+        /// <summary>
+        /// Items added to history after this date, represented in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber startTime { get; set; }
+        /// <summary>
+        /// Items added to history before this date, represented in milliseconds since the epoch
+        /// </summary>
+        public JsNumber endTime { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class HistoryDeleteUrlDetails
+    {
+        /// <summary>
+        /// The URL to remove.
+        /// </summary>
+        public JsString url { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class HistoryGetVisitsDetails
+    {
+        /// <summary>
+        /// The URL for which to retrieve visit information. It must be in the format as returned from a call to history.search.
+        /// </summary>
+        public JsString url { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class HistorySearchQuery
+    {
+        /// <summary>
+        /// A free-text query to the history service. Leave empty to retrieve all pages.
+        /// </summary>
+        public JsString text { get; set; }
+
+        /// <summary>
+        /// ( optional ) Limit results to those visited after this date, represented in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber startTime { get; set; }
+
+        /// <summary>
+        /// ( optional )Limit results to those visited before this date, represented in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber endTime { get; set; }
+
+        /// <summary>
+        /// ( optional )The maximum number of results to retrieve. Defaults to 100.
+        /// </summary>
+        public JsNumber maxResults { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class HistoryOnVisitRemoved
+    {
+        /// <summary>
+        /// True if all history was removed. If true, then urls will be empty.
+        /// </summary>
+        public bool allHistory { get; set; }
+
+        /// <summary>
+        /// ( optional )
+        /// </summary>
+        public JsArray<JsString> urls { get; set; }
+    }
+
+    /// <summary>
+    /// An object encapsulating one result of a history query.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.history.HistoryItem", Export = false)]
+    public class HistoryItem
+    {
+        /// <summary>
+        /// The unique identifier for the item.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// ( optional ) The URL navigated to by a user.
+        /// </summary>
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// ( optional ) The title of the page when it was last loaded.
+        /// </summary>
+        public JsString title { get; set; }
+
+        /// <summary>
+        /// ( optional ) When this page was last loaded, represented in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber lastVisitTime { get; set; }
+
+        /// <summary>
+        /// ( optional ) The number of times the user has navigated to this page.
+        /// </summary>
+        public JsNumber visitCount { get; set; }
+
+        /// <summary>
+        /// ( optional ) The number of times the user has navigated to this page by typing in the address.
+        /// </summary>
+        public JsNumber typedCount { get; set; }
+    }
+
+    /// <summary>
+    /// An object encapsulating one visit to a URL.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.history.VisitItem", Export = false)]
+    public class VisitItem
+    {
+        /// <summary>
+        /// The unique identifier for the item.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// The unique identifier for this visit.
+        /// </summary>
+        public JsString visitId { get; set; }
+
+        /// <summary>
+        /// ( optional ) When this visit occurred, represented in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber visitTime { get; set; }
+
+        /// <summary>
+        /// The visit ID of the referrer.
+        /// </summary>
+        public JsString referringVisitId { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["link", "typed", "auto_bookmark", "auto_subframe", "manual_subframe", "generated", "start_page", "form_submit", "reload", "keyword", "keyword_generated"] )
+        /// The transition type for this visit from its referrer.
+        /// </summary>
+        public TransitionType transition { get; set; }
+    }
+
+    /// <summary>
+    /// The history API uses a transition type to describe how the browser navigated to a particular URL on a particular visit.
+    /// For example, if a user visits a page by clicking a link on another page, the transition type is "link".
+    /// </summary>
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum TransitionType
+    {
+        /// <summary>
+        /// The user got to this page by clicking a link on another page.
+        /// </summary>
+        link,
+        /// <summary>
+        /// The user got this page by typing the URL in the address bar. Also used for other explicit navigation actions.
+        /// See also generated, which is used for cases where the user selected a choice that didn't look at all like a URL.
+        /// </summary>
+        typed,
+        /// <summary>
+        /// The user got to this page through a suggestion in the UI — for example, through a menu item.
+        /// </summary>
+        auto_bookmark,
+        /// <summary>
+        /// Subframe navigation. This is any content that is automatically loaded in a non-top-level frame.
+        /// For example, if a page consists of several frames containing ads, those ad URLs have this transition type.
+        /// The user may not even realize the content in these pages is a separate frame, and so may not care about the URL (see also manual_subframe).
+        /// </summary>
+        auto_subframe,
+        /// <summary>
+        /// For subframe navigations that are explicitly requested by the user and generate new navigation entries in the back/forward list.
+        /// An explicitly requested frame is probably more important than an automatically loaded frame because the user probably cares about 
+        /// he fact that the requested frame was loaded.
+        /// </summary>
+        manual_subframe,
+        /// <summary>
+        /// The user got to this page by typing in the address bar and selecting an entry that did not look like a URL.
+        /// For example, a match might have the URL of a Google search result page, but it might appear to the user as "Search Google for ...".
+        /// These are not quite the same as typed navigations because the user didn't type or see the destination URL. See also keyword.
+        /// </summary>
+        generated,
+        /// <summary>
+        /// The page was specified in the command line or is the start page.
+        /// </summary>
+        start_page,
+        /// <summary>
+        /// The user filled out values in a form and submitted it.
+        /// Note that in some situations — such as when a form uses script to submit contents — submitting a form does not result in this transition type.
+        /// </summary>
+        form_submit,
+        /// <summary>
+        /// The user reloaded the page, either by clicking the reload button or by pressing Enter in the address bar.
+        /// Session restore and Reopen closed tab use this transition type, too.
+        /// </summary>
+        reload,
+        /// <summary>
+        /// The URL was generated from a replaceable keyword other than the default search provider. See also keyword_generated.
+        /// </summary>
+        keyword,
+        /// <summary>
+        /// Corresponds to a visit generated for a keyword. See also keyword.
+        /// </summary>
+        keyword_generated,
+    }
+
+    #endregion
+
+    #region i18n
+
+    /// <summary>
+    /// An internationalized extension can be easily localized — adapted to languages and regions that it didn't originally support.
+    /// To internationalize your extension, you need to put all of its user-visible strings into a file named messages.json.
+    /// Each time you localize your extension you add a messages file under a directory named _locales/localeCode, where localeCode is a code such as en for English.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.i18n", Export = false)]
+    public class i18n
+    {
+        /// <summary>
+        /// Gets the accept-languages of the browser. This is different from the locale used by the browser; to get the locale, use window.navigator.language.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void getAcceptLanguages(JsAction callback) { }
+
+        /// <summary>
+        /// Gets the localized string for the specified message.
+        /// If the message is missing, this method returns an empty string (''). If the format of the getMessage() call is wrong — for example, essageName is not a string or the substitutions array has more than 9 elements — this method returns undefined.
+        /// </summary>
+        /// <param name="messageName">The name of the message, as specified in the messages.json file.</param>
+        /// <param name="substitutions">( optional ) Up to 9 substitution strings, if the message requires any.</param>
+        /// <returns>Message localized for current locale</returns>
+        public static JsString getMessage(JsString messageName, object substitutions) { return null; }
+        /// <summary>
+        /// Gets the localized string for the specified message.
+        /// If the message is missing, this method returns an empty string (''). If the format of the getMessage() call is wrong — for example, essageName is not a string or the substitutions array has more than 9 elements — this method returns undefined.
+        /// </summary>
+        /// <param name="messageName">The name of the message, as specified in the messages.json file.</param>
+        /// <returns>Message localized for current locale</returns>
+        public static JsString getMessage(JsString messageName) { return null; }
+    }
+    #endregion
+
+    #region idle
+
+    /// <summary>
+    /// You must declare the "idle" permission in your extension's manifest to use the idle API.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.i18n", Export = false)]
+    public class idle
+    {
+        /// <summary>
+        /// Returns the current state of the browser.
+        /// </summary>
+        /// <param name="thresholdSeconds">Threshold, in seconds, used to determine when a machine is in the idle state.</param>
+        /// <param name="callback"></param>
+        public static void queryState(JsNumber thresholdSeconds, JsAction callback) { }
+
+        /// <summary>
+        /// Fired when the browser changes to an active state. Currently only reports the transition from idle to active.
+        /// </summary>
+        public ChromeEvent<JsAction<NewStateType>> onStateChanged { get; set; }
+        //TODO: check
+
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum NewStateType
+    {
+        active,
+    }
+    //TODO: can eunm have only one option?
+
+    #endregion
+
+    #region input.ime
+
+    [JsType(JsMode.Prototype, Name = "chrome.input.ime", Export = false)]
+    public class InputIme
+    {
+        /// <summary>
+        /// Clear the current composition. If this extension does not own the active IME, this fails.
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <param name="callback">( optional ) Called when the operation completes with a boolean indicating if the text was accepted or not. On failure, chrome.extension.lastError is set.</param>
+        public static void clearComposition(InputImeClearCompositionParameter parameters, JsAction callback) { }
+        /// <summary>
+        /// Clear the current composition. If this extension does not own the active IME, this fails.
+        /// </summary>
+        /// <param name="parameters"></param>
+        public static void clearComposition(InputImeClearCompositionParameter parameters) { }
+
+        /// <summary>
+        /// Commits the provided text to the current input.
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <param name="callback">( optional ) Called when the operation completes with a boolean indicating if the text was accepted or not. On failure, chrome.extension.lastError is set.</param>
+        public static void commitText(InputImeCommitTextParameter parameters, JsAction callback) { }
+        /// <summary>
+        /// Commits the provided text to the current input.
+        /// </summary>
+        /// <param name="parameters"></param>
+        public static void commitText(InputImeCommitTextParameter parameters) { }
+
+        /// <summary>
+        /// Sets the properties of the candidate window. This fails if the extension doesn’t own the active IME
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <param name="callback">( optional ) Called when the operation completes.</param>
+        public static void setCandidateWindowProperties(InputImeCandidateWindowParameter parameters, JsAction callback) { }
+        /// <summary>
+        /// Sets the properties of the candidate window. This fails if the extension doesn’t own the active IME
+        /// </summary>
+        /// <param name="parameters"></param>
+        public static void setCandidateWindowProperties(InputImeCandidateWindowParameter parameters) { }
+
+        /// <summary>
+        /// Sets the current candidate list. This fails if this extension doesn’t own the active IME
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <param name="callback">( optional ) Called when the operation completes.</param>
+        public static void setCandidates(InputImeCandidatesParameter parameters, JsAction callback) { }
+        /// <summary>
+        /// Sets the current candidate list. This fails if this extension doesn’t own the active IME
+        /// </summary>
+        /// <param name="parameters"></param>
+        public static void setCandidates(InputImeCandidatesParameter parameters) { }
+
+        /// <summary>
+        /// Set the current composition. If this extension does not own the active IME, this fails.
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <param name="callback">( optional ) Called when the operation completes with a boolean indicating if the text was accepted or not. On failure, chrome.extension.lastError is set.</param>
+        public static void setComposition(InputImeCompositionParameter parameters, JsAction callback) { }
+        /// <summary>
+        /// Set the current composition. If this extension does not own the active IME, this fails.
+        /// </summary>
+        /// <param name="parameters"></param>
+        public static void setComposition(InputImeCompositionParameter parameters) { }
+
+        /// <summary>
+        /// Set the position of the cursor in the candidate window. This is a no-op if this extension does not own the active IME.
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <param name="callback">( optional ) Called when the operation completes</param>
+        public static void setCursorPosition(InputImeCursorPositionParameter parameters, JsAction callback) { }
+        /// <summary>
+        /// Set the position of the cursor in the candidate window. This is a no-op if this extension does not own the active IME.
+        /// </summary>
+        /// <param name="parameters"></param>
+        public static void setCursorPosition(InputImeCursorPositionParameter parameters) { }
+
+        /// <summary>
+        /// Adds the provided menu items to the language menu when this IME is active.
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <param name="callback">( optional ) </param>
+        public static void setMenuItems(InputImeMenuItemsParameter parameters, JsAction callback) { }
+        /// <summary>
+        /// Adds the provided menu items to the language menu when this IME is active.
+        /// </summary>
+        /// <param name="parameters"></param>
+        public static void setMenuItems(InputImeMenuItemsParameter parameters) { }
+
+        /// <summary>
+        /// Updates the state of the MenuItems specified
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <param name="callback">( optional ) Called when the operation completes</param>
+        public static void updateMenuItems(InputImeMenuItemsParameter parameters, JsAction callback) { }
+        /// <summary>
+        /// Updates the state of the MenuItems specified
+        /// </summary>
+        /// <param name="parameters"></param>
+        public static void updateMenuItems(InputImeMenuItemsParameter parameters) { }
+
+        /// <summary>
+        /// This event is sent when an IME is activated. It signals that the IME will be receiving onKeyPress events.
+        /// </summary>
+        public ChromeEvent<JsAction<JsString>> onActivate { get; set; }
+
+        /// <summary>
+        /// This event is sent when focus leaves a text box. It is sent to all extensions that are listening to this event, and enabled by the user.
+        /// </summary>
+        public ChromeEvent<JsAction<JsNumber>> onBlur { get; set; }
+
+        /// <summary>
+        /// This event is sent if this extension owns the active IME.
+        /// </summary>
+        public ChromeEvent<JsAction<JsString, JsNumber, CandidateClickedButtonType>> onCandidateClicked { get; set; }
+
+        /// <summary>
+        /// This event is sent when an IME is deactivated. It signals that the IME will no longer be receiving onKeyPress events.
+        /// </summary>
+        public ChromeEvent<JsAction<JsString>> onDeactivated { get; set; }
+
+        /// <summary>
+        /// This event is sent when focus enters a text box. It is sent to all extensions that are listening to this event, and enabled by the user.
+        /// </summary>
+        public ChromeEvent<JsAction<InputContext>> onFocus { get; set; }
+
+        /// <summary>
+        /// This event is sent when the properties of the current InputContext change, such as the the type.
+        /// It is sent to all extensions that are listening to this event, and enabled by the user.
+        /// </summary>
+        public ChromeEvent<JsAction<InputContext>> onInputContextUpdate { get; set; }
+
+        /// <summary>
+        /// This event is sent if this extension owns the active IME.
+        /// </summary>
+        public ChromeEvent<JsAction<JsString, KeyboardEvent>> onKeyEvent { get; set; }
+        //TODO: returns boolean (???)
+
+        /// <summary>
+        /// Called when the user selects a menu item
+        /// </summary>
+        public ChromeEvent<JsAction<JsString, JsString>> onMenuItemActivated { get; set; }
+
+    }
+    //TODO: class name (???)
+
+    [JsType(JsMode.Json)]
+    public class InputImeClearCompositionParameter
+    {
+        /// <summary>
+        /// ID of the context where the composition will be cleared
+        /// </summary>
+        public JsNumber contextID { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class InputImeCommitTextParameter
+    {
+        /// <summary>
+        /// ID of the context where the text will be committed
+        /// </summary>
+        public JsNumber contextID { get; set; }
+
+        /// <summary>
+        /// The text to commit
+        /// </summary>
+        public JsString text { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class InputImeCandidateWindowParameter
+    {
+        /// <summary>
+        /// ID of the engine to set properties on.
+        /// </summary>
+        public JsString engineID { get; set; }
+
+        public InputImeCandidateWindowParameterProperties properties { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class InputImeCandidateWindowParameterProperties
+    {
+        /// <summary>
+        /// ( optional )True to show the Candidate window, false to hide it.
+        /// </summary>
+        public bool visible { get; set; }
+
+        /// <summary>
+        /// ( optional ) True to show the cursor, false to hide it.
+        /// </summary>
+        public bool cursorVisible { get; set; }
+
+        /// <summary>
+        /// ( optional )True if the candidate window should be rendered vertical, false to make it horizontal.
+        /// </summary>
+        public bool vertical { get; set; }
+
+        /// <summary>
+        /// ( optional ) The number of candidates to display per page.
+        /// </summary>
+        public JsNumber pageSize { get; set; }
+
+        /// <summary>
+        /// ( optional )Text that is shown at the bottom of the candidate window.
+        /// </summary>
+        public JsString auxiliaryText { get; set; }
+
+        /// <summary>
+        /// ( optional )True to display the auxiliary text, false to hide it.
+        /// </summary>
+        public bool auxiliaryTextVisible { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class InputImeCandidatesParameter
+    {
+        /// <summary>
+        /// ID of the context that owns the candidate window.
+        /// </summary>
+        public JsNumber contextID { get; set; }
+
+        /// <summary>
+        /// List of candidates to show in the candidate window
+        /// </summary>
+        public JsArray<InputImeCandidatesParameterCandidates> candidates { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class InputImeCandidatesParameterCandidates
+    {
+        /// <summary>
+        /// The candidate
+        /// </summary>
+        public JsString candidate { get; set; }
+
+        /// <summary>
+        /// The candidate's id
+        /// </summary>
+        public JsNumber id { get; set; }
+
+        /// <summary>
+        /// ( optional ) The id to add these candidates under
+        /// </summary>
+        public JsNumber parentId { get; set; }
+
+        /// <summary>
+        /// ( optional ) Short string displayed to next to the candidate, often the shortcut key or index
+        /// </summary>
+        public JsString label { get; set; }
+
+        /// <summary>
+        /// ( optional ) Additional text describing the candidate
+        /// </summary>
+        public JsString annotation { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class InputImeCompositionParameter
+    {
+        /// <summary>
+        /// ID of the context where the composition text will be set
+        /// </summary>
+        public JsNumber contextID { get; set; }
+
+        /// <summary>
+        /// Text to set
+        /// </summary>
+        public JsString text { get; set; }
+
+        /// <summary>
+        ///  ( optional ) Position in the text that the selection starts at.
+        /// </summary>
+        public JsNumber selectionStart { get; set; }
+
+        /// <summary>
+        /// ( optional ) Position in the text that the selection ends at.
+        /// </summary>
+        public JsNumber selectionEnd { get; set; }
+
+        /// <summary>
+        /// Position in the text of the cursor.
+        /// </summary>
+        public JsNumber cursor { get; set; }
+
+        /// <summary>
+        /// List of segments and their associated types.
+        /// </summary>
+        public JsArray<InputImeCompositionParameterSegment> segments { get; set; }
+
+    }
+
+    /// <summary>
+    /// List of segments and their associated types.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class InputImeCompositionParameterSegment
+    {
+        /// <summary>
+        /// Index of the character to start this segment at
+        /// </summary>
+        public JsNumber start { get; set; }
+
+        /// <summary>
+        /// Index of the character to end this segment after.
+        /// </summary>
+        public JsNumber end { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["underline", "doubleUnderline"] ) How to render this segment
+        /// </summary>
+        public SegmentsStyle style { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class InputImeCursorPositionParameter
+    {
+        /// <summary>
+        /// ID of the context that owns the candidate window.
+        /// </summary>
+        public JsNumber contextID { get; set; }
+
+        /// <summary>
+        /// ID of the candidate to select.
+        /// </summary>
+        public JsNumber candidateID { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class InputImeMenuItemsParameter
+    {
+        /// <summary>
+        /// ID of the engine to use
+        /// </summary>
+        public JsString engineID { get; set; }
+
+        /// <summary>
+        /// ID of the candidate to select.
+        /// </summary>
+        public JsArray<object> items { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class InputImeMenuItemsParameterItem
+    {
+
+        /// <summary>
+        /// String that will be passed to callbacks referencing this MenuItem.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// ( optional ) Text displayed in the menu for this item.
+        /// </summary>
+        public JsString label { get; set; }
+
+        /// <summary>
+        /// ( optional enumerated string ["none", "check", "radio", "separator"] ) Enum representing if this item is: none, check, radio, or a separator.
+        /// Radio buttons between separators are considered grouped.
+        /// </summary>
+        public MenuItemsStyle style { get; set; }
+
+        /// <summary>
+        /// ( optional ) Indicates this item is visible.
+        /// </summary>
+        public bool visible { get; set; }
+
+        /// <summary>
+        /// ( optional ) Indicates this item should be drawn with a check.
+        /// </summary>
+        public bool @checked { get; set; }
+
+        /// <summary>
+        /// ( optional ) Indicates this item is enabled.
+        /// </summary>
+        public bool enabled { get; set; }
+    }
+
+    /// <summary>
+    /// See http://www.w3.org/TR/DOM-Level-3-Events/#events-KeyboardEvent
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.input.ime", Export = false)]
+    public class KeyboardEvent
+    {
+        /// <summary>
+        /// One of keyup or keydown.
+        /// </summary>
+        public KeyboardEventType type { get; set; }
+
+        /// <summary>
+        /// The ID of the request.
+        /// </summary>
+        public JsString requestId { get; set; }
+
+        /// <summary>
+        /// Value of the key being pressed
+        /// </summary>
+        public JsString key { get; set; }
+
+        /// <summary>
+        /// ( optional )Whether or not the ALT key is pressed.
+        /// </summary>
+        public bool altKey { get; set; }
+
+        /// <summary>
+        /// ( optional )Whether or not the CTRL key is pressed.
+        /// </summary>
+        public bool ctrlKey { get; set; }
+
+        /// <summary>
+        /// ( optional )Whether or not the SHIFT key is pressed.
+        /// </summary>
+        public bool shiftKey { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum KeyboardEventType
+    {
+        keyup,
+        keydown,
+    }
+
+    /// <summary>
+    /// Describes an input Context
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.input.ime", Export = false)]
+    public class InputContext
+    {
+        /// <summary>
+        /// This is used to specify targets of text field operations. This ID becomes invalid as soon as onBlur is called.
+        /// </summary>
+        public JsNumber contextID { get; set; }
+
+        /// <summary>
+        /// Type of value this text field edits, (Text, Number, Password, etc)
+        /// </summary>
+        public InputContextType type { get; set; }
+    }
+
+    /// <summary>
+    /// Type of value this text field edits, (Text, Number, Password, etc)
+    /// </summary>
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum InputContextType
+    {
+        text,
+        number,
+        password,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum SegmentsStyle
+    {
+        underline,
+        doubleUnderline,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum MenuItemsStyle
+    {
+        none,
+        check,
+        radio,
+        separator,
+    }
+
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum CandidateClickedButtonType
+    {
+        left,
+        middle,
+        right,
+    }
+
+    #endregion
+
+    /// <summary>
+    /// You must declare the "management" permission in the extension manifest to use the management API. 
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.management", Export = false)]
+    public class management
+    {
+        /// <summary>
+        /// Returns information about the installed extension or app that has the given ID.
+        /// </summary>
+        /// <param name="id">The ID from an item of $ref:ExtensionInfo.</param>
+        /// <param name="callback">( optional )</param>
+        public static void get(JsString id, JsAction callback) { }
+        /// <summary>
+        /// Returns information about the installed extension or app that has the given ID.
+        /// </summary>
+        /// <param name="id">The ID from an item of $ref:ExtensionInfo.</param>
+        public static void get(JsString id) { }
+
+        /// <summary>
+        /// Returns a list of information about installed extensions and apps.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void getAll(JsAction callback) { }
+        /// <summary>
+        /// Returns a list of information about installed extensions and apps.
+        /// </summary>
+        public static void getAll() { }
+
+        /// <summary>
+        /// Returns a list of permission warnings for the given extension id.
+        /// </summary>
+        /// <param name="id">The ID of an already installed extension.</param>
+        /// <param name="callback"></param>
+        public static void getPermissionWarningsById(JsString id, JsAction callback) { }
+        /// <summary>
+        /// Returns a list of permission warnings for the given extension id.
+        /// </summary>
+        /// <param name="id">The ID of an already installed extension.</param>
+        public static void getPermissionWarningsById(JsString id) { }
+
+        /// <summary>
+        /// Returns a list of permission warnings for the given extension manifest string.
+        /// Note: This function can be used without requesting the 'management' permission in the manifest.
+        /// </summary>
+        /// <param name="manifestStr">Extension manifest JSON string.</param>
+        /// <param name="callback"></param>
+        public static void getPermissionWarningsByManifest(JsString manifestStr, JsAction callback) { }
+        /// <summary>
+        /// Returns a list of permission warnings for the given extension manifest string.
+        /// Note: This function can be used without requesting the 'management' permission in the manifest.
+        /// </summary>
+        /// <param name="manifestStr">Extension manifest JSON string.</param>
+        public static void getPermissionWarningsByManifest(JsString manifestStr) { }
+
+        /// <summary>
+        /// Launches an application.
+        /// </summary>
+        /// <param name="id">The extension id of the application.</param>
+        /// <param name="callback"></param>
+        public static void launchApp(JsString id, JsAction callback) { }
+        /// <summary>
+        /// Launches an application.
+        /// </summary>
+        /// <param name="id">The extension id of the application.</param>
+        public static void launchApp(JsString id) { }
+
+        public static void setEnabled(JsString id, bool enabled , JsAction callback) { }
+
+        public static void name(JsString id, JsAction callback) { }
+
+        //public static void name(JsString id, JsAction callback) { }
+    }
+
+    /// <summary>
+    /// Information about an icon belonging to an extension or app.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.management.IconInfo", Export = false)]
+    public class IconInfo
+    {
+        /// <summary>
+        /// A number representing the width and height of the icon. Likely values include (but are not limited to) 128, 48, 24, and 16.
+        /// </summary>
+        public JsNumber size { get; set; }
+
+        /// <summary>
+        /// The URL for this icon image. To display a grayscale version of the icon (to indicate that an extension is disabled, for example), append ?grayscale=true to the URL.
+        /// </summary>
+        public JsString url  { get; set; }
+    }
+
+    /// <summary>
+    /// Information about an installed extension or app.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.management.ExtensionInfo", Export = false)]
+    public class ExtensionInfo
+    {
+        /// <summary>
+        /// The extension's unique identifier.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// The name of this extension or app.
+        /// </summary>
+        public JsString name { get; set; }
+
+        /// <summary>
+        /// The description of this extension or app.
+        /// </summary>
+        public JsString description { get; set; }
+
+        /// <summary>
+        /// The version of this extension or app.
+        /// </summary>
+        public JsString version { get; set; }
+
+        /// <summary>
+        /// Whether this extension can be disabled or uninstalled by the user.
+        /// </summary>
+        public bool mayDisable { get; set; }
+
+        /// <summary>
+        /// Whether it is currently enabled or disabled.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// ( optional enumerated string ["unknown", "permissions_increase"] ) A reason the item is disabled.
+        /// </summary>
+        public object disabledReason { get; set; }
+
+        /// <summary>
+        /// True if this is an app.
+        /// </summary>
+        public bool isApp { get; set; }
+
+        /// <summary>
+        /// ( optional ) The launch url (only present for apps).
+        /// </summary>
+        public JsString appLaunchUrl { get; set; }
+
+        /// <summary>
+        /// ( optional ) The URL of the homepage of this extension or app.
+        /// </summary>
+        public JsString homepageUrl { get; set; }
+
+        /// <summary>
+        ///  ( optional string ) The update URL of this extension or app.
+        /// </summary>
+        public JsString updateUrl { get; set; }
+
+        /// <summary>
+        /// Whether the extension or app declares that it supports offline.
+        /// </summary>
+        public bool offlineEnabled { get; set; }
+
+        /// <summary>
+        /// The url for the item's options page, if it has one.
+        /// </summary>
+        public JsString optionsUrl { get; set; }
+
+        /// <summary>
+        /// ( optional )  A list of icon information. Note that this just reflects what was declared in the manifest, and the actual image at that url may be larger or smaller than
+        /// what was declared, so you might consider using explicit width and height attributes on img tags referencing these images. See the manifest documentation on icons for more details.
+        /// </summary>
+        public JsArray< IconInfo> icons { get; set; }
+
+        /// <summary>
+        /// Returns a list of API based permissions.
+        /// </summary>
+        public JsArray<JsString> permissions { get; set; }
+
+        /// <summary>
+        /// Returns a list of host based permissions.
+        /// </summary>
+        public JsArray<JsString> hostPermissions { get; set; }
+    }
 }
 
