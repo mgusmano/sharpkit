@@ -1711,7 +1711,22 @@ namespace SharpKit.Google.Chrome
 
     #endregion
 
-    //TODO: chrome.declarativeWebRequest: http://developer.chrome.com/extensions/declarativeWebRequest.html
+
+    [JsType(JsMode.Prototype, Name = "chrome.declarativeWebRequest", Export = false)]
+    public class declarativeWebRequest
+    {
+        //TODO: chrome.declarativeWebRequest: http://developer.chrome.com/extensions/declarativeWebRequest.html
+    }
+
+    class Test
+    {
+
+        static void foo()
+        {
+            //bookmarks.
+        }
+    }
+
     //TODO: EVENTS http://developer.chrome.com/extensions/events.html
 
     #region extension
@@ -2337,7 +2352,7 @@ namespace SharpKit.Google.Chrome
     /// <summary>
     /// You must declare the "idle" permission in your extension's manifest to use the idle API.
     /// </summary>
-    [JsType(JsMode.Prototype, Name = "chrome.i18n", Export = false)]
+    [JsType(JsMode.Prototype, Name = "chrome.idle", Export = false)]
     public class idle
     {
         /// <summary>
@@ -2350,14 +2365,14 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when the browser changes to an active state. Currently only reports the transition from idle to active.
         /// </summary>
-        public ChromeEvent<JsAction<NewStateType>> onStateChanged { get; set; }
+        public ChromeEvent<JsAction<IdleStateType>> onStateChanged { get; set; }
         //TODO: check
 
     }
 
     [JsType(JsMode.Json)]
     [JsEnum(ValuesAsNames = true)]
-    public enum NewStateType
+    public enum IdleStateType
     {
         active,
     }
@@ -2849,6 +2864,8 @@ namespace SharpKit.Google.Chrome
 
     #endregion
 
+    #region management
+
     /// <summary>
     /// You must declare the "management" permission in the extension manifest to use the management API. 
     /// </summary>
@@ -2870,7 +2887,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Returns a list of information about installed extensions and apps.
         /// </summary>
-        /// <param name="callback"></param>
+        /// <param name="callback">( optional ) </param>
         public static void getAll(JsAction callback) { }
         /// <summary>
         /// Returns a list of information about installed extensions and apps.
@@ -2881,7 +2898,7 @@ namespace SharpKit.Google.Chrome
         /// Returns a list of permission warnings for the given extension id.
         /// </summary>
         /// <param name="id">The ID of an already installed extension.</param>
-        /// <param name="callback"></param>
+        /// <param name="callback">( optional ) </param>
         public static void getPermissionWarningsById(JsString id, JsAction callback) { }
         /// <summary>
         /// Returns a list of permission warnings for the given extension id.
@@ -2894,7 +2911,7 @@ namespace SharpKit.Google.Chrome
         /// Note: This function can be used without requesting the 'management' permission in the manifest.
         /// </summary>
         /// <param name="manifestStr">Extension manifest JSON string.</param>
-        /// <param name="callback"></param>
+        /// <param name="callback">( optional ) </param>
         public static void getPermissionWarningsByManifest(JsString manifestStr, JsAction callback) { }
         /// <summary>
         /// Returns a list of permission warnings for the given extension manifest string.
@@ -2907,7 +2924,7 @@ namespace SharpKit.Google.Chrome
         /// Launches an application.
         /// </summary>
         /// <param name="id">The extension id of the application.</param>
-        /// <param name="callback"></param>
+        /// <param name="callback">( optional ) </param>
         public static void launchApp(JsString id, JsAction callback) { }
         /// <summary>
         /// Launches an application.
@@ -2915,11 +2932,54 @@ namespace SharpKit.Google.Chrome
         /// <param name="id">The extension id of the application.</param>
         public static void launchApp(JsString id) { }
 
-        public static void setEnabled(JsString id, bool enabled , JsAction callback) { }
+        /// <summary>
+        /// Enables or disables an app or extension.
+        /// </summary>
+        /// <param name="id">This should be the id from an item of $ref:ExtensionInfo.</param>
+        /// <param name="enabled">Whether this item should be enabled or disabled.</param>
+        /// <param name="callback">( optional ) </param>
+        public static void setEnabled(JsString id, bool enabled, JsAction callback) { }
+        /// <summary>
+        /// Enables or disables an app or extension.
+        /// </summary>
+        /// <param name="id">This should be the id from an item of $ref:ExtensionInfo.</param>
+        /// <param name="enabled">Whether this item should be enabled or disabled.</param>
+        public static void setEnabled(JsString id, bool enabled) { }
 
-        public static void name(JsString id, JsAction callback) { }
+        /// <summary>
+        /// Uninstalls a currently installed app or extension.
+        /// </summary>
+        /// <param name="id">This should be the id from an item of $ref:ExtensionInfo.</param>
+        /// <param name="options"></param>
+        /// <param name="callback">( optional ) </param>
+        public static void uninstall(JsString id, ManagementUninstallOptions options, JsAction callback) { }
+        /// <summary>
+        /// Uninstalls a currently installed app or extension.
+        /// </summary>
+        /// <param name="id">This should be the id from an item of $ref:ExtensionInfo.</param>
+        /// <param name="options"></param>
+        public static void uninstall(JsString id, ManagementUninstallOptions options) { }
 
-        //public static void name(JsString id, JsAction callback) { }
+        /// <summary>
+        /// Fired when an app or extension has been disabled
+        /// </summary>
+        public ChromeEvent<JsAction<ExtensionInfo>> onDisabled { get; set; }
+
+        /// <summary>
+        /// Fired when an app or extension has been enabled.
+        /// </summary>
+        public ChromeEvent<JsAction<ExtensionInfo>> onEnabled { get; set; }
+
+        /// <summary>
+        /// Fired when an app or extension has been installed.
+        /// </summary>
+        public ChromeEvent<JsAction<ExtensionInfo>> onInstalled { get; set; }
+
+        /// <summary>
+        /// Fired when an app or extension has been uninstalled.
+        /// </summary>
+        public ChromeEvent<JsAction<JsString>> onUninstalled { get; set; }
+
     }
 
     /// <summary>
@@ -2936,7 +2996,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// The URL for this icon image. To display a grayscale version of the icon (to indicate that an extension is disabled, for example), append ?grayscale=true to the URL.
         /// </summary>
-        public JsString url  { get; set; }
+        public JsString url { get; set; }
     }
 
     /// <summary>
@@ -3014,7 +3074,7 @@ namespace SharpKit.Google.Chrome
         /// ( optional )  A list of icon information. Note that this just reflects what was declared in the manifest, and the actual image at that url may be larger or smaller than
         /// what was declared, so you might consider using explicit width and height attributes on img tags referencing these images. See the manifest documentation on icons for more details.
         /// </summary>
-        public JsArray< IconInfo> icons { get; set; }
+        public JsArray<IconInfo> icons { get; set; }
 
         /// <summary>
         /// Returns a list of API based permissions.
@@ -3026,5 +3086,27 @@ namespace SharpKit.Google.Chrome
         /// </summary>
         public JsArray<JsString> hostPermissions { get; set; }
     }
+
+    [JsType(JsMode.Json)]
+    public class ManagementUninstallOptions
+    {
+        /// <summary>
+        /// Whether or not a confirm-uninstall dialog should prompt the user. Defaults to false.
+        /// </summary>
+        public bool showConfirmDialog { get; set; }
+    }
+
+    #endregion
+
+    /// <summary>
+    /// The omnibox API allows you to register a keyword with Google Chrome's address bar, which is also known as the omnibox.
+    /// Note: Chrome automatically creates a grayscale version of your 16x16-pixel icon. You should provide a full-color version so that it can also be used in other situations that require color.
+    /// For example, the context menus API also uses a 16x16-pixel icon, but it is displayed in color.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.omnibox", Export = false)]
+    public class omnibox
+    {
+    }
+
 }
 
