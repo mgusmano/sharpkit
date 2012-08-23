@@ -10,6 +10,9 @@ namespace SharpKit.Google.Chrome
 
     #region alarms
 
+    /// <summary>
+    /// Warning: This API is still under development. It is only available for Chrome users on the dev early release channel. Learn more.
+    /// </summary>
     [JsType(JsMode.Prototype, Export = false)]
     public class alarms
     {
@@ -195,7 +198,6 @@ namespace SharpKit.Google.Chrome
         /// Removes a bookmark or an empty bookmark folder.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="callback"></param>
         public static void remove(JsString id) { }
 
         /// <summary>
@@ -208,7 +210,6 @@ namespace SharpKit.Google.Chrome
         /// Recursively removes a bookmark folder.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="callback"></param>
         public static void removeTree(JsString id) { }
 
         /// <summary>
@@ -408,7 +409,17 @@ namespace SharpKit.Google.Chrome
     #endregion
 
     #region browserAction
-
+    /// <summary>
+    /// Use browser actions to put icons in the main Google Chrome toolbar, to the right of the address bar.
+    /// In addition to its icon, a browser action can also have a tooltip, a badge, and a popup.
+    /// For the best visual impact, follow these guidelines:
+    /// Do use browser actions for features that make sense on most pages.
+    /// Don't use browser actions for features that make sense for only a few pages. Use page actions instead.
+    /// Do use big, colorful icons that make the most of the 19x19-pixel space. Browser action icons should seem a little bigger and heavier than page action icons.
+    /// Don't attempt to mimic Google Chrome's monochrome "wrench" icon. That doesn't work well with themes, and anyway, extensions should stand out a little.
+    /// Do use alpha transparency to add soft edges to your icon. Because many people use themes, your icon should look nice on a variety of background colors.
+    /// Don't constantly animate your icon. That's just annoying.
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "chrome.browserAction", Export = false)]
     public class browserAction
     {
@@ -584,6 +595,9 @@ namespace SharpKit.Google.Chrome
 
     #region browsingData
 
+    /// <summary>
+    /// Use the chrome.browsingData module to remove browsing data from a user's local profile.
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "chrome.browsingData", Export = false)]
     public class browsingData
     {
@@ -635,7 +649,6 @@ namespace SharpKit.Google.Chrome
         /// Clears the browser's cookies modified within a particular timeframe.
         /// </summary>
         /// <param name="options"></param>
-        /// <param name="callback">( optional ) Called when the browser's cookies have been cleared.</param>
         public static void removeCookies(RemovalOptions options) { }
 
         /// <summary>
@@ -872,6 +885,10 @@ namespace SharpKit.Google.Chrome
 
     #region contentSettings
 
+    /// <summary>
+    /// The content settings module allows you to change settings that control whether websites can use features such as cookies, JavaScript, and plug-ins.
+    /// More generally speaking, content settings allow you to customize Chrome's behavior on a per-site basis instead of globally.
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "chrome.contentSettings", Export = false)]
     public class contentSettings
     {
@@ -994,12 +1011,12 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// ( optional enumerated string ["regular", "incognito_session_only"] ). Where to set the setting (default: regular). 
         /// </summary>
-        public ScopeType scope { get; set; }
+        public ContentSettingScopeType scope { get; set; }
     }
 
     [JsType(JsMode.Json)]
     [JsEnum(ValuesAsNames = true)]
-    public enum ScopeType
+    public enum ContentSettingScopeType
     {
         /// <summary>
         /// setting for regular profile (which is inherited by the incognito profile if not overridden elsewhere),
@@ -1063,7 +1080,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// ( optional enumerated string ["regular", "incognito_session_only"] ).Where to clear the setting (default: regular). 
         /// </summary>
-        public ScopeType scope { get; set; }
+        public ContentSettingScopeType scope { get; set; }
     }
 
     #endregion
@@ -1945,6 +1962,20 @@ namespace SharpKit.Google.Chrome
         /// </summary>
         public void removeRules() { }
 
+    }
+
+    [JsType(JsMode.Prototype, Name = "chrome.events.Event", Export = false)]
+    public class WebRequestEvent<T> : Event<T>
+    {
+        public BlockingResponse addEventListener(T action, RequestFilter filter) { return null; }
+    }
+
+    [JsType(JsMode.Prototype, Name = "chrome.events.Event", Export = false)]
+    public class WebRequestEvent<T, S> : WebRequestEvent<T>
+    {
+        public BlockingResponse addEventListener(T action, RequestFilter filter, JsArray<JsString> extraInfoSpec) { return null; }
+        public BlockingResponse addEventListener(T action, RequestFilter filter, JsArray<S> extraInfoSpec) { return null; }
+        public BlockingResponse addEventListener(T action, RequestFilter filter, S[] extraInfoSpec) { return null; }
     }
 
     /// <summary>
@@ -3867,7 +3898,7 @@ namespace SharpKit.Google.Chrome
         public ChromeSetting thirdPartyCookiesAllowed { get; set; }
 
         /// <summary>
-        /// If enabled, Chrome sends auditing pings when requested by a website (<a ping>). The value of this preference is of type boolean, and the default value is true.
+        /// If enabled, Chrome sends auditing pings when requested by a website (&lt;a ping>). The value of this preference is of type boolean, and the default value is true.
         /// </summary>
         public ChromeSetting hyperlinkAuditingEnabled { get; set; }
 
@@ -4292,7 +4323,7 @@ namespace SharpKit.Google.Chrome
     #endregion
 
     #region tabs
-    
+
     [JsType(JsMode.Prototype, Name = "chrome.tabs", Export = false)]
     public class tabs
     {
@@ -4579,7 +4610,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when the highlighted or selected tabs in a window changes.
         /// </summary>
-        public static Event<JsAction<TabsHighlightInfo>> onHighlighted { get; set; }
+        public static Event<JsAction<TabsOnHighlightInfo>> onHighlighted { get; set; }
 
         /// <summary>
         /// Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved.
@@ -4893,7 +4924,7 @@ namespace SharpKit.Google.Chrome
     }
 
     [JsType(JsMode.Json)]
-    public class TabsActiveInfo 
+    public class TabsActiveInfo
     {
 
         /// <summary>
@@ -4909,7 +4940,7 @@ namespace SharpKit.Google.Chrome
     }
 
     [JsType(JsMode.Json)]
-    public class TabsAttachInfo 
+    public class TabsAttachInfo
     {
         public JsNumber newWindowId { get; set; }
 
@@ -4917,7 +4948,7 @@ namespace SharpKit.Google.Chrome
     }
 
     [JsType(JsMode.Json)]
-    public class TabsDetachInfo 
+    public class TabsDetachInfo
     {
         public JsNumber oldWindowId { get; set; }
 
@@ -4925,7 +4956,7 @@ namespace SharpKit.Google.Chrome
     }
 
     [JsType(JsMode.Json)]
-    public class TabsHighlightInfo 
+    public class TabsOnHighlightInfo
     {
         /// <summary>
         /// The window whose tabs changed.
@@ -4939,7 +4970,7 @@ namespace SharpKit.Google.Chrome
     }
 
     [JsType(JsMode.Json)]
-    public class TabsMoveInfo 
+    public class TabsMoveInfo
     {
         public JsNumber windowId { get; set; }
 
@@ -4949,7 +4980,7 @@ namespace SharpKit.Google.Chrome
     }
 
     [JsType(JsMode.Json)]
-    public class TabsRemoveInfo 
+    public class TabsRemoveInfo
     {
         /// <summary>
         /// True when the tab is being closed because its window is being closed.
@@ -4962,7 +4993,7 @@ namespace SharpKit.Google.Chrome
     /// Lists the changes to the state of the tab that was updated.
     /// </summary>
     [JsType(JsMode.Json)]
-    public class TabsChangeInfo 
+    public class TabsChangeInfo
     {
         /// <summary>
         ///  ( optional ) The status of the tab. Can be either loading or complete.
@@ -5042,17 +5073,1893 @@ namespace SharpKit.Google.Chrome
         /// ( optional ) Whether the tab is in an incognito window.
         /// </summary>
         public bool incognito { get; set; }
+    }
 
+    #endregion
+
+    #region topSites
+
+    /// <summary>
+    /// The top sites module allows access to the top sites that are displayed on the new tab page.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.topSites", Export = false)]
+    public class topSites
+    {
+        /// <summary>
+        /// Gets a list of top sites.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void get(JsAction<MostVisitedURL> callback) { }
+        //TODO: check
+    }
+
+    /// <summary>
+    /// An object encapsulating a most visited URL, such as the URLs on the new tab page.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.topSites.MostVisitedURL", Export = false)]
+    public class MostVisitedURL
+    {
+        /// <summary>
+        /// The most visited URL.
+        /// </summary>
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// The title of the page
+        /// </summary>
+        public JsString title { get; set; }
+    }
+
+    #endregion
+
+    #region tts
+
+    /// <summary>
+    /// Use the chrome.tts module to play synthesized text-to-speech (TTS) from your extension or packaged app.
+    /// See also the related ttsEngine module, which allows an extension to implement a speech engine.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.tts", Export = false)]
+    public class tts
+    {
+        /// <summary>
+        /// Gets an array of all available voices.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void getVoices(JsAction<JsArray<TtsVoice>> callback) { }
+
+
+        ///// <summary>
+        ///// Gets an array of all available voices.
+        ///// </summary>
+        ///// <returns></returns>
+        //public static JsArray<TtsVoice> getVoices() { return null; }
+        ////TODO: check!
+
+        /// <summary>
+        /// Checks whether the engine is currently speaking.
+        /// On Mac OS X, the result is true whenever the system speech engine is speaking, even if the speech wasn't initiated by Chrome.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void isSpeaking(JsAction<bool> callback) { }
+        ///// <summary>
+        ///// Checks whether the engine is currently speaking.
+        ///// On Mac OS X, the result is true whenever the system speech engine is speaking, even if the speech wasn't initiated by Chrome.
+        ///// </summary>
+        ///// <returns></returns>
+        //public static bool isSpeaking() { return false; }
+        ////TODO: check!
+
+        /// <summary>
+        /// Speaks text using a text-to-speech engine.
+        /// </summary>
+        /// <param name="utterance">The text to speak, either plain text or a complete, well-formed SSML document.
+        /// Speech engines that do not support SSML will strip away the tags and speak the text. The maximum length of the text is 32,768 characters.</param>
+        /// <param name="options">( optional )The speech options.</param>
+        /// <param name="callback">( optional )Called right away, before speech finishes. Check chrome.extension.lastError to make sure there were no errors.
+        /// Use options.onEvent to get more detailed feedback.</param>
+        public static void speak(JsString utterance, TtsSpeakOptions options, JsAction callback) { }
+        /// <summary>
+        /// Speaks text using a text-to-speech engine.
+        /// </summary>
+        /// <param name="utterance">The text to speak, either plain text or a complete, well-formed SSML document.
+        /// Speech engines that do not support SSML will strip away the tags and speak the text. The maximum length of the text is 32,768 characters.</param>
+        /// <param name="options">( optional )The speech options.</param>
+        public static void speak(JsString utterance, TtsSpeakOptions options) { }
+        /// <summary>
+        /// Speaks text using a text-to-speech engine.
+        /// </summary>
+        /// <param name="utterance">The text to speak, either plain text or a complete, well-formed SSML document.
+        /// Speech engines that do not support SSML will strip away the tags and speak the text. The maximum length of the text is 32,768 characters.</param>
+        public static void speak(JsString utterance) { }
+    }
+
+    /// <summary>
+    /// The speech options.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class TtsSpeakOptions
+    {
+        /// <summary>
+        /// ( optional ) If true, enqueues this utterance if TTS is already in progress.
+        /// If false (the default), interrupts any current speech and flushes the speech queue before speaking this new utterance.
+        /// </summary>
+        public bool enqueue { get; set; }
+
+        /// <summary>
+        /// ( optional ) The name of the voice to use for synthesis. If empty, uses any available voice.
+        /// </summary>
+        public JsString voiceName { get; set; }
+
+        /// <summary>
+        /// ( optional )The extension ID of the speech engine to use, if known.
+        /// </summary>
+        public JsString extensionId { get; set; }
+
+        /// <summary>
+        /// ( optional ) The language to be used for synthesis, in the form language-region. Examples: 'en', 'en-US', 'en-GB', 'zh-CN'.
+        /// </summary>
+        public JsString lang { get; set; }
+
+        /// <summary>
+        /// ( optional enumerated string ["male", "female"] )
+        /// Gender of voice for synthesized speech.
+        /// </summary>
+        public GenderType gender { get; set; }
+
+        /// <summary>
+        /// ( optional ) Speaking rate relative to the default rate for this voice. 1.0 is the default rate, normally around 180 to 220 words per minute.
+        /// 2.0 is twice as fast, and 0.5 is half as fast. Values below 0.1 or above 10.0 are strictly disallowed,
+        /// but many voices will constrain the minimum and maximum rates further—for example a particular voice may not actually speak faster than 3 times normal
+        /// even if you specify a value larger than 3.0.
+        /// </summary>
+        public JsNumber rate { get; set; }
+
+        /// <summary>
+        /// ( optional ) Speaking pitch between 0 and 2 inclusive, with 0 being lowest and 2 being highest. 1.0 corresponds to a voice's default pitch.
+        /// </summary>
+        public JsNumber pitch { get; set; }
+
+        /// <summary>
+        /// ( optional ) Speaking volume between 0 and 1 inclusive, with 0 being lowest and 1 being highest, with a default of 1.0.
+        /// </summary>
+        public JsNumber volume { get; set; }
+
+        /// <summary>
+        /// ( optional ) The TTS event types the voice must support.
+        /// </summary>
+        public JsArray<EventType> requiredEventTypes { get; set; }
+
+        /// <summary>
+        /// ( optional )The TTS event types that you are interested in listening to. If missing, all event types may be sent.
+        /// </summary>
+        public JsArray<EventType> desiredEventTypes { get; set; }
+
+        /// <summary>
+        /// ( optional )This function is called with events that occur in the process of speaking the utterance.
+        /// </summary>
+        public JsAction<TtsEvent> onEvent { get; set; }
+    }
+
+    /// <summary>
+    /// An event from the TTS engine to communicate the status of an utterance.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.tts.TtsEvent", Export = false)]
+    public class TtsEvent
+    {
+        /// <summary>
+        /// ( enumerated string ["start", "end", "word", "sentence", "marker", "interrupted", "cancelled", "error"] )
+        /// </summary>
+        public EventType type { get; set; }
+
+        /// <summary>
+        /// ( optional ) The index of the current character in the utterance.
+        /// </summary>
+        public JsNumber charIndex { get; set; }
+
+        /// <summary>
+        /// ( optional ) The error description, if the event type is 'error'.
+        /// </summary>
+        public JsString errorMessage { get; set; }
+    }
+
+    /// <summary>
+    /// Each event includes an event type, the character index of the current speech relative to the utterance, and for error events, an optional error message.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum EventType
+    {
+        /// <summary>
+        /// The engine has started speaking the utterance.
+        /// </summary>
+        start,
+        /// <summary>
+        ///  A word boundary was reached. Use event.charIndex to determine the current speech position.
+        /// </summary>
+        word,
+        /// <summary>
+        ///  A sentence boundary was reached. Use event.charIndex to determine the current speech position.
+        /// </summary>
+        sentence,
+        /// <summary>
+        /// An SSML marker was reached. Use event.charIndex to determine the current speech position
+        /// </summary>
+        marker,
+        /// <summary>
+        /// The engine has finished speaking the utterance.
+        /// </summary>
+        end,
+        /// <summary>
+        /// This utterance was interrupted by another call to speak() or stop() and did not finish.
+        /// </summary>
+        interrupted,
+        /// <summary>
+        ///  This utterance was queued, but then cancelled by another call to speak() or stop() and never began to speak at all.
+        /// </summary>
+        cancelled,
+        /// <summary>
+        ///  An engine-specific error occurred and this utterance cannot be spoken. Check event.errorMessage for details.
+        /// </summary>
+        error
+
+    }
+
+    /// <summary>
+    /// A description of a voice available for speech synthesis.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.tts.TtsVoice", Export = false)]
+    public class TtsVoice
+    {
+        /// <summary>
+        /// ( optional )The name of the voice.
+        /// </summary>
+        public JsString voiceName { get; set; }
+
+        /// <summary>
+        /// ( optional ) The language that this voice supports, in the form language-region. Examples: 'en', 'en-US', 'en-GB', 'zh-CN'.
+        /// </summary>
+        public JsString lang { get; set; }
+
+        /// <summary>
+        /// ( optional )This voice's gender.
+        /// </summary>
+        public GenderType gender { get; set; }
+
+        /// <summary>
+        /// ( optional )The ID of the extension providing this voice.
+        /// </summary>
+        public JsString extensionId { get; set; }
+
+        /// <summary>
+        /// ( optional )All of the callback event types that this voice is capable of sending.
+        /// </summary>
+        public JsArray<EventType> eventTypes { get; set; }
+        //TODO: check
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum GenderType
+    {
+        male,
+        female,
+    }
+
+    #endregion
+
+    #region types
+
+    /// <summary>
+    /// The chrome.types module contains type declarations for Chrome.
+    /// Currently this comprises only a prototype for giving other modules access to manage Chrome browser settings.
+    /// This prototype is used, for example, for chrome.proxy.settings.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.types", Export = false)]
+    public class types
+    {
+        //THIS CLAASS IS EMPTY. nothing to put inside.
+    }
+
+    /// <summary>
+    /// An interface which allows access to a Chrome browser setting.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.types.ChromeSetting", Export = false)]
+    public class ChromeSetting
+    {
+        /// <summary>
+        /// Clears the setting. This way default settings can become effective again.
+        /// </summary>
+        /// <param name="details">What setting to clear.</param>
+        /// <param name="callback">( optional )Called after the setting has been cleared.</param>
+        public void clear(ChromeSettingClearDetails details, JsAction callback) { }
+        /// <summary>
+        /// Clears the setting. This way default settings can become effective again.
+        /// </summary>
+        /// <param name="details">What setting to clear.</param>
+        public void clear(ChromeSettingClearDetails details) { }
+
+        /// <summary>
+        /// Gets the value of a setting.
+        /// </summary>
+        /// <param name="details">What setting to consider.</param>
+        /// <param name="callback"></param>
+        public void get(ChromeSettingGetDetails details, JsAction callback) { }
+
+        /// <summary>
+        /// Sets the value of a setting.
+        /// </summary>
+        /// <param name="details">What setting to change.</param>
+        /// <param name="callback"> ( optional )Called after the setting has been set.</param>
+        public void set(ChromeSettingSetDetails details, JsAction callback) { }
+        /// <summary>
+        /// Sets the value of a setting.
+        /// </summary>
+        /// <param name="details">What setting to change.</param>
+        public void set(ChromeSettingSetDetails details) { }
+
+        /// <summary>
+        /// Fired when the value of the setting changes.
+        /// </summary>
+        public Event<JsAction<ChromeSettingChangeDetails>> onChange { get; set; }
+    }
+
+    /// <summary>
+    /// What setting to clear.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class ChromeSettingClearDetails
+    {
+        /// <summary>
+        /// ( optional enumerated string ["regular", "incognito_persistent", "incognito_session_only"] )
+        /// Where to clear the setting (default: regular). 
+        /// </summary>
+        public ChromeSettingScopeType scope { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum ChromeSettingScopeType
+    {
+        /// <summary>
+        /// setting for the regular profile (which is inherited by the incognito profile if not overridden elsewhere),
+        /// </summary>
+        regular,
+        /// <summary>
+        /// setting for the regular profile only (not inherited by the incognito profile),
+        /// </summary>
+        regular_only,
+        /// <summary>
+        /// setting for the incognito profile that survives browser restarts (overrides regular preferences),
+        /// </summary>
+        incognito_persistent,
+        /// <summary>
+        /// setting for the incognito profile that can only be set during an incognito session and is deleted when the incognito session ends
+        /// (overrides regular and incognito_persistent preferences).
+        /// </summary>
+        incognito_session_only,
+    }
+
+    /// <summary>
+    /// What setting to consider.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class ChromeSettingGetDetails
+    {
+        /// <summary>
+        ///  ( optional ) Whether to return the setting that applies to the incognito session (default false).
+        /// </summary>
+        public bool incognito { get; set; }
+    }
+
+    /// <summary>
+    /// What setting to change.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class ChromeSettingSetDetails
+    {
+        /// <summary>
+        /// The value of the setting. 
+        /// Note that every setting has a specific value type, which is described together with the setting. An extension should not set a value of a different type.
+        /// </summary>
+        public object value { get; set; }
+
+        /// <summary>
+        /// ( optional enumerated string ["regular", "regular_only", "incognito_persistent", "incognito_session_only"] )
+        /// Where to set the setting (default: regular).
+        /// </summary>
+        public ChromeSettingScopeType scope { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class ChromeSettingChangeDetails
+    {
+
+        /// <summary>
+        /// The value of the setting.
+        /// </summary>
+        public object value { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["not_controllable", "controlled_by_other_extensions", "controllable_by_this_extension", "controlled_by_this_extension"] )
+        /// </summary>
+        public ChromeSettingLevelOfControl levelOfControl { get; set; }
+
+        /// <summary>
+        /// ( optional )
+        /// Whether the value that has changed is specific to the incognito session.
+        /// This property will only be present if the user has enabled the extension in incognito mode.
+        /// </summary>
+        public bool incognitoSpecific { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum ChromeSettingLevelOfControl
+    {
+        /// <summary>
+        /// cannot be controlled by any extension
+        /// </summary>
+        not_controllable,
+        /// <summary>
+        /// controlled by extensions with higher precedence
+        /// </summary>
+        controlled_by_other_extensions,
+        /// <summary>
+        /// can be controlled by this extension
+        /// </summary>
+        controllable_by_this_extension,
+        /// <summary>
+        ///  controlled by this extension
+        /// </summary>
+        controlled_by_this_extension,
+    }
+
+    #endregion
+
+    #region webNavigation
+
+    /// <summary>
+    /// Use the chrome.webNavigation module to receive notifications about the status of navigations requests in-flight.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.webNavigation", Export = false)]
+    public class webNavigation
+    {
+        /// <summary>
+        /// Retrieves information about all frames of a given tab.
+        /// </summary>
+        /// <param name="details"></param>
+        /// <param name="callback"></param>
+        public static void getAllFrames(WebNavigationAllFramesDetails details, JsAction callback) { }
+
+        /// <summary>
+        /// Retrieves information about the given frame. A frame refers to an &lt;iframe> or a &lt;frame> of a web page and is identified by a tab ID and a frame ID.
+        /// </summary>
+        /// <param name="details"></param>
+        /// <param name="callback"></param>
+        public static void getFrame(WebNavigationFrameDetails details, JsAction callback) { }
+
+        /// <summary>
+        /// Fired when a navigation is about to occur.
+        /// </summary>
+        public Event<JsAction<WebNavigationBeforeNavigateDetails>> onBeforeNavigate { get; set; }
+
+        /// <summary>
+        /// Fired when a navigation is committed. The document (and the resources it refers to, such as images and subframes) might still be downloading,
+        /// but at least part of the document has been received from the server and the browser has decided to switch to the new document.
+        /// </summary>
+        public Event<JsAction<WebNavigationCommittedDetails>> onCommitted { get; set; }
+
+        /// <summary>
+        /// Fired when a document, including the resources it refers to, is completely loaded and initialized.
+        /// </summary>
+        public Event<JsAction<WebNavigationCompletedDetails>> onCompleted { get; set; }
+
+        /// <summary>
+        /// Fired when a new window, or a new tab in an existing window, is created to host a navigation.
+        /// </summary>
+        public Event<JsAction<WebNavigationCreatedNavigationTargetDetails>> onCreatedNavigationTarget { get; set; }
+
+        /// <summary>
+        /// Fired when the page's DOM is fully constructed, but the referenced resources may not finish loading.
+        /// </summary>
+        public Event<JsAction<WebNavigationDOMContentLoadedDetails>> onDOMContentLoaded { get; set; }
+
+        /// <summary>
+        /// Fired when an error occurs and the navigation is aborted. This can happen if either a network error occurred, or the user aborted the navigation.
+        /// </summary>
+        public Event<JsAction<WebNavigationErrorOccurredDetails>> onErrorOccurred { get; set; }
+
+        /// <summary>
+        /// Fired when the reference fragment of a frame was updated. All future events for that frame will use the updated URL.
+        /// </summary>
+        public Event<JsAction<WebNavigationReferenceFragmentUpdatedDetails>> onReferenceFragmentUpdated { get; set; }
+    }
+
+    /// <summary>
+    /// Information about the tab to retrieve all frames from.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class WebNavigationAllFramesDetails
+    {
+        /// <summary>
+        /// The ID of the tab.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+    }
+
+    /// <summary>
+    /// Information about the frame to retrieve information about.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class WebNavigationFrameDetails
+    {
+        /// <summary>
+        /// The ID of the tab in which the frame is.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// The ID of the frame in the given tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebNavigationBeforeNavigateDetails
+    {
+        /// <summary>
+        /// The ID of the tab in which the navigation is about to occur.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// 0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// The time when the browser was about to start the navigation, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebNavigationCommittedDetails
+    {
+        /// <summary>
+        /// The ID of the tab in which the navigation is about to occur.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// 0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["link", "typed", "auto_bookmark", "auto_subframe", "manual_subframe", "generated", "start_page", "form_submit", "reload", "keyword", "keyword_generated"] )
+        /// Cause of the navigation. The same transition types as defined in the history API are used.
+        /// </summary>
+        public TransitionType transitionType { get; set; }
+
+        /// <summary>
+        /// ( array of string ["client_redirect", "server_redirect", "forward_back", "from_address_bar"] )
+        /// A list of transition qualifiers.
+        /// </summary>
+        public JsArray<TransitionQualifiers> transitionQualifiers { get; set; }
+
+        /// <summary>
+        /// The time when the navigation was committed, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebNavigationCompletedDetails
+    {
+        /// <summary>
+        /// The ID of the tab in which the navigation occurs.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// 0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// The time when the document finished loading, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebNavigationCreatedNavigationTargetDetails
+    {
+        /// <summary>
+        /// The ID of the tab in which the navigation is triggered.
+        /// </summary>
+        public JsNumber sourceTabId { get; set; }
+
+        /// <summary>
+        /// The ID of the frame with sourceTabId in which the navigation is triggered. 0 indicates the main frame.
+        /// </summary>
+        public JsNumber sourceFrameId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// The ID of the tab in which the url is opened
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// The time when the browser was about to create a new view, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebNavigationDOMContentLoadedDetails
+    {
+
+        /// <summary>
+        /// The ID of the tab in which the navigation occurs.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// 0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// The time when the page's DOM was fully constructed, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebNavigationErrorOccurredDetails
+    {
+        /// <summary>
+        /// The ID of the tab in which the navigation occurs.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// 0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// The error description.
+        /// </summary>
+        public JsString error { get; set; }
+
+        /// <summary>
+        /// The time when the error occurred, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebNavigationReferenceFragmentUpdatedDetails
+    {
+
+        /// <summary>
+        /// The ID of the tab in which the navigation occurs.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// 0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["link", "typed", "auto_bookmark", "auto_subframe", "manual_subframe", "generated", "start_page", "form_submit", "reload", "keyword", "keyword_generated"] )
+        /// Cause of the navigation. The same transition types as defined in the history API are used.
+        /// </summary>
+        public TransitionType transitionType { get; set; }
+
+        /// <summary>
+        /// ( array of string ["client_redirect", "server_redirect", "forward_back", "from_address_bar"] )
+        /// A list of transition qualifiers.
+        /// </summary>
+        public JsArray<TransitionQualifiers> transitionQualifiers { get; set; }
+
+        /// <summary>
+        /// The time when the navigation was committed, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum TransitionQualifiers
+    {
+        /// <summary>
+        /// One or more redirects caused by JavaScript or meta refresh tags on the page happened during the navigation.
+        /// </summary>
+        client_redirect,
+        /// <summary>
+        /// One or more redirects caused by HTTP headers sent from the server happened during the navigation.
+        /// </summary>
+        server_redirect,
+        /// <summary>
+        /// The user used the Forward or Back button to initiate the navigation.
+        /// </summary>
+        forward_back,
+        /// <summary>
+        /// The user initiated the navigation from the address bar (aka Omnibox).
+        /// </summary>
+        from_address_bar,
 
     }
 
     #endregion
 
-    [JsType(JsMode.Prototype, Name = "chrome.types.ChromeSetting", Export = false)]
-    public class ChromeSetting
+    #region webRequest
+
+    [JsType(JsMode.Prototype, Name = "chrome.webRequest", Export = false)]
+    public class webRequest
     {
-        //TODO: this class is empty. needs to be done
+        /// <summary>
+        /// Needs to be called when the behavior of the webRequest handlers has changed to prevent incorrect handling due to caching.
+        /// This function call is expensive. Don't call it often.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void handlerBehaviorChanged(JsAction callback) { }
+
+        /// <summary>
+        /// Fired when an authentication failure is received. The listener has three options: it can provide authentication credentials,
+        /// it can cancel the request and display the error page, or it can take no action on the challenge.
+        /// If bad user credentials are provided, this may be called multiple times for the same request.
+        /// </summary>
+        public static WebRequestEvent<JsAction<WebRequestAuthRequiredDetails>, AuthRequiredExtraInfoSpec> onAuthRequired { get; set; }
+
+        /// <summary>
+        /// Fired when a server-initiated redirect is about to occur.
+        /// </summary>
+        public static WebRequestEvent<JsAction<WebRequestBeforeRedirectDetails>, BeforeRedirectExtraInfoSpec> onBeforeRedirect { get; set; }
+
+        /// <summary>
+        /// Fired when a request is about to occur.
+        /// </summary>
+        public static WebRequestEvent<JsAction<WebRequestBeforeRequestDetails>, BeforeRequestExtraInfoSpec> onBeforeRequest { get; set; }
+
+        /// <summary>
+        /// Fired before sending an HTTP request, once the request headers are available.
+        /// This may occur after a TCP connection is made to the server, but before any HTTP data is sent.
+        /// </summary>
+        public static WebRequestEvent<JsAction<WebRequestBeforeSendHeadersDetails>, BeforeSendHeadersExtraInfoSpec> onBeforeSendHeaders { get; set; }
+
+        /// <summary>
+        /// Fired when a request is completed.
+        /// </summary>
+        public static WebRequestEvent<JsAction<WebRequestCompletedDetails>, CompletedExtraInfoSpec> onCompleted { get; set; }
+
+        /// <summary>
+        /// Fired when an error occurs.
+        /// </summary>
+        public static WebRequestEvent<JsAction<WebRequestErrorOccurredDetails>> onErrorOccurred { get; set; }
+
+        /// <summary>
+        /// Fired when HTTP response headers of a request have been received.
+        /// </summary>
+        public static WebRequestEvent<JsAction<WebRequestHeadersReceivedDetails>, HeadersReceivedExtraInfoSpec> onHeadersReceived { get; set; }
+
+        /// <summary>
+        /// Fired when the first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
+        /// </summary>
+        public static WebRequestEvent<JsAction<WebRequestResponseStartedDetails>, ResponseStartedExtraInfoSpec> onResponseStarted { get; set; }
+
+        /// <summary>
+        /// Fired just before a request is going to be sent to the server (modifications of previous onBeforeSendHeaders callbacks are visible by the time onSendHeaders is fired).
+        /// </summary>
+        public static WebRequestEvent<JsAction<WebRequestonSendHeadersDetails>, SendHeadersExtraInfoSpec> onSendHeaders { get; set; }
 
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum AuthRequiredExtraInfoSpec
+    {
+        responseHeaders,
+        blocking,
+        asyncBlocking,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum BeforeRedirectExtraInfoSpec
+    {
+        responseHeaders,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum BeforeRequestExtraInfoSpec
+    {
+        blocking,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum BeforeSendHeadersExtraInfoSpec
+    {
+        requestHeaders,
+        blocking,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum CompletedExtraInfoSpec
+    {
+        responseHeaders,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum HeadersReceivedExtraInfoSpec
+    {
+        responseHeaders,
+        blocking,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum ResponseStartedExtraInfoSpec
+    {
+        responseHeaders,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum SendHeadersExtraInfoSpec
+    {
+        requestHeaders,
+    }
+
+    /// <summary>
+    /// An object describing filters to apply to webRequest events.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.webRequest.RequestFilter", Export = false)]
+    public class RequestFilter
+    {
+        /// <summary>
+        /// A list of URLs or URL patterns. Requests that cannot match any of the URLs will be filtered out.
+        /// </summary>
+        public JsArray<JsString> urls { get; set; }
+
+        /// <summary>
+        /// ( optional array of string ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"] )
+        /// A list of request types. Requests that cannot match any of the types will be filtered out.
+        /// </summary>
+        public RequestType types { get; set; }
+
+        /// <summary>
+        /// ( optional )
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// ( optional )
+        /// </summary>
+        public JsNumber windowId { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum RequestType
+    {
+        main_frame,
+        sub_frame,
+        stylesheet,
+        script,
+        image,
+        @object,
+        xmlhttprequest,
+        other,
+    }
+
+    /// <summary>
+    /// An array of HTTP headers. Each header is represented as a dictionary containing the keys name and either value or binaryValue.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.webRequest.HttpHeaders", Export = false)]
+    public class HttpHeaders
+    {
+        /// <summary>
+        /// Name of the HTTP header.
+        /// </summary>
+        public JsString name { get; set; }
+
+        /// <summary>
+        /// ( optional ) Value of the HTTP header if it can be represented by UTF-8.
+        /// </summary>
+        public JsString value { get; set; }
+
+        /// <summary>
+        /// ( optional ) Value of the HTTP header if it cannot be represented by UTF-8, stored as individual byte values (0..255).
+        /// </summary>
+        public JsArray<JsNumber> binaryValue { get; set; }
+    }
+
+    /// <summary>
+    /// Returns value for event handlers that have the 'blocking' extraInfoSpec applied. Allows the event handler to modify network requests.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.webRequest.BlockingResponse", Export = false)]
+    public class BlockingResponse
+    {
+
+        /// <summary>
+        /// ( optional ) If true, the request is cancelled. Used in onBeforeRequest, this prevents the request from being sent.
+        /// </summary>
+        public bool cancel { get; set; }
+
+        /// <summary>
+        /// ( optional ) Only used as a response to the onBeforeRequest event. If set, the original request is prevented from being sent and is instead redirected to the given URL.
+        /// </summary>
+        public JsString redirectUrl { get; set; }
+
+        /// <summary>
+        /// ( optional ) Only used as a response to the onBeforeSendHeaders event. If set, the request is made with these request headers instead.
+        /// </summary>
+        public HttpHeaders requestHeaders { get; set; }
+
+        /// <summary>
+        /// ( optional ) Only used as a response to the onHeadersReceived event. If set, the server is assumed to have responded with these response headers instead.
+        /// Only return responseHeaders if you really want to modify the headers in order to limit the number of conflicts
+        /// (only one extension may modify responseHeaders for each request).
+        /// </summary>
+        public HttpHeaders responseHeaders { get; set; }
+
+        /// <summary>
+        /// ( optional ) Only used as a response to the onAuthRequired event. If set, the request is made using the supplied credentials.
+        /// </summary>
+        public BlockingResponseAuthCredentials authCredentials { get; set; }
+    }
+
+    /// <summary>
+    /// Only used as a response to the onAuthRequired event. If set, the request is made using the supplied credentials.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class BlockingResponseAuthCredentials
+    {
+
+        public JsString username { get; set; }
+
+        public JsString password { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebRequestAuthRequiredDetails
+    {
+        /// <summary>
+        /// The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+        /// </summary>
+        public JsString requestId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// Standard HTTP method.
+        /// </summary>
+        public JsString method { get; set; }
+
+        /// <summary>
+        /// The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens.
+        /// If the document of a (sub-)frame is loaded (type is main_frame or sub_frame), frameId indicates the ID of this frame, not the ID of the outer frame.
+        /// Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+        /// </summary>
+        public JsNumber parentFrameId { get; set; }
+
+        /// <summary>
+        /// The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"] )
+        /// How the requested resource will be used.
+        /// </summary>
+        public RequestType type { get; set; }
+
+        /// <summary>
+        /// The time when this signal is triggered, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+
+        /// <summary>
+        /// The authentication scheme, e.g. Basic or Digest.
+        /// </summary>
+        public JsString scheme { get; set; }
+
+        /// <summary>
+        ///  ( optional ) The authentication realm provided by the server, if there is one.
+        /// </summary>
+        public JsString realm { get; set; }
+
+        /// <summary>
+        /// The server requesting authentication.
+        /// </summary>
+        public WebRequestAuthRequiredChallengerDetails challenger { get; set; }
+
+        /// <summary>
+        /// True for Proxy-Authenticate, false for WWW-Authenticate.
+        /// </summary>
+        public bool isProxy { get; set; }
+
+        /// <summary>
+        /// ( optional )The HTTP response headers that were received along with this response.
+        /// </summary>
+        public HttpHeaders responseHeaders { get; set; }
+
+        /// <summary>
+        /// ( optional )HTTP status line of the response.
+        /// </summary>
+        public JsString statusLine { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebRequestAuthRequiredChallengerDetails
+    {
+        public JsString host { get; set; }
+        public JsNumber port { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebRequestBeforeRedirectDetails
+    {
+        /// <summary>
+        /// The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+        /// </summary>
+        public JsString requestId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// Standard HTTP method.
+        /// </summary>
+        public JsString method { get; set; }
+
+        /// <summary>
+        /// The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens.
+        /// If the document of a (sub-)frame is loaded (type is main_frame or sub_frame), frameId indicates the ID of this frame, not the ID of the outer frame.
+        /// Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+        /// </summary>
+        public JsNumber parentFrameId { get; set; }
+
+        /// <summary>
+        /// The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"] )
+        /// How the requested resource will be used.
+        /// </summary>
+        public RequestType type { get; set; }
+
+        /// <summary>
+        /// The time when this signal is triggered, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+
+        /// <summary>
+        /// The server IP address that the request was actually sent to. Note that it may be a literal IPv6 address.
+        /// </summary>
+        public JsString ip { get; set; }
+
+        /// <summary>
+        ///  ( optional ) Indicates if this response was fetched from disk cache.
+        /// </summary>
+        public bool fromCache { get; set; }
+
+        /// <summary>
+        /// Standard HTTP status code returned by the server.
+        /// </summary>
+        public JsNumber statusCode { get; set; }
+
+        /// <summary>
+        /// The new URL.
+        /// </summary>
+        public JsString redirectUrl { get; set; }
+
+        /// <summary>
+        /// ( optional )The HTTP response headers that were received along with this redirect.
+        /// </summary>
+        public HttpHeaders responseHeaders { get; set; }
+
+        /// <summary>
+        /// ( optional )HTTP status line of the response.
+        /// </summary>
+        public JsString statusLine { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebRequestBeforeRequestDetails
+    {
+        /// <summary>
+        /// The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+        /// </summary>
+        public JsString requestId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// Standard HTTP method.
+        /// </summary>
+        public JsString method { get; set; }
+
+        /// <summary>
+        /// The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens.
+        /// If the document of a (sub-)frame is loaded (type is main_frame or sub_frame), frameId indicates the ID of this frame, not the ID of the outer frame.
+        /// Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+        /// </summary>
+        public JsNumber parentFrameId { get; set; }
+
+        /// <summary>
+        /// The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"] )
+        /// How the requested resource will be used.
+        /// </summary>
+        public RequestType type { get; set; }
+
+        /// <summary>
+        /// The time when this signal is triggered, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebRequestBeforeSendHeadersDetails
+    {
+        /// <summary>
+        /// The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+        /// </summary>
+        public JsString requestId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// Standard HTTP method.
+        /// </summary>
+        public JsString method { get; set; }
+
+        /// <summary>
+        /// The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens.
+        /// If the document of a (sub-)frame is loaded (type is main_frame or sub_frame), frameId indicates the ID of this frame, not the ID of the outer frame.
+        /// Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+        /// </summary>
+        public JsNumber parentFrameId { get; set; }
+
+        /// <summary>
+        /// The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"] )
+        /// How the requested resource will be used.
+        /// </summary>
+        public RequestType type { get; set; }
+
+        /// <summary>
+        /// The time when this signal is triggered, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+
+        /// <summary>
+        /// ( optional )The HTTP response headers that were received along with this redirect.
+        /// </summary>
+        public HttpHeaders responseHeaders { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebRequestCompletedDetails
+    {
+        /// <summary>
+        /// The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+        /// </summary>
+        public JsString requestId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// Standard HTTP method.
+        /// </summary>
+        public JsString method { get; set; }
+
+        /// <summary>
+        /// The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens.
+        /// If the document of a (sub-)frame is loaded (type is main_frame or sub_frame), frameId indicates the ID of this frame, not the ID of the outer frame.
+        /// Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+        /// </summary>
+        public JsNumber parentFrameId { get; set; }
+
+        /// <summary>
+        /// The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"] )
+        /// How the requested resource will be used.
+        /// </summary>
+        public RequestType type { get; set; }
+
+        /// <summary>
+        /// The time when this signal is triggered, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+
+        /// <summary>
+        /// The server IP address that the request was actually sent to. Note that it may be a literal IPv6 address.
+        /// </summary>
+        public JsString ip { get; set; }
+
+        /// <summary>
+        ///  ( optional ) Indicates if this response was fetched from disk cache.
+        /// </summary>
+        public bool fromCache { get; set; }
+
+        /// <summary>
+        /// Standard HTTP status code returned by the server.
+        /// </summary>
+        public JsNumber statusCode { get; set; }
+
+        /// <summary>
+        /// ( optional )The HTTP response headers that were received along with this redirect.
+        /// </summary>
+        public HttpHeaders responseHeaders { get; set; }
+
+        /// <summary>
+        /// ( optional )HTTP status line of the response.
+        /// </summary>
+        public JsString statusLine { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebRequestErrorOccurredDetails
+    {
+        /// <summary>
+        /// The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+        /// </summary>
+        public JsString requestId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// Standard HTTP method.
+        /// </summary>
+        public JsString method { get; set; }
+
+        /// <summary>
+        /// The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens.
+        /// If the document of a (sub-)frame is loaded (type is main_frame or sub_frame), frameId indicates the ID of this frame, not the ID of the outer frame.
+        /// Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+        /// </summary>
+        public JsNumber parentFrameId { get; set; }
+
+        /// <summary>
+        /// The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"] )
+        /// How the requested resource will be used.
+        /// </summary>
+        public RequestType type { get; set; }
+
+        /// <summary>
+        /// The time when this signal is triggered, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+
+        /// <summary>
+        ///  ( optional ) The server IP address that the request was actually sent to. Note that it may be a literal IPv6 address.
+        /// </summary>
+        public JsString ip { get; set; }
+
+        /// <summary>
+        /// Indicates if this response was fetched from disk cache.
+        /// </summary>
+        public bool fromCache { get; set; }
+
+        /// <summary>
+        /// The error description. This string is not guaranteed to remain backwards compatible between releases. You must not parse and act based upon its content.
+        /// </summary>
+        public JsString error { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebRequestHeadersReceivedDetails
+    {
+        /// <summary>
+        /// The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+        /// </summary>
+        public JsString requestId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// Standard HTTP method.
+        /// </summary>
+        public JsString method { get; set; }
+
+        /// <summary>
+        /// The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens.
+        /// If the document of a (sub-)frame is loaded (type is main_frame or sub_frame), frameId indicates the ID of this frame, not the ID of the outer frame.
+        /// Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+        /// </summary>
+        public JsNumber parentFrameId { get; set; }
+
+        /// <summary>
+        /// The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"] )
+        /// How the requested resource will be used.
+        /// </summary>
+        public RequestType type { get; set; }
+
+        /// <summary>
+        /// The time when this signal is triggered, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+
+        /// <summary>
+        /// ( optional )HTTP status line of the response.
+        /// </summary>
+        public JsString statusLine { get; set; }
+
+        /// <summary>
+        /// ( optional )The HTTP response headers that were received along with this redirect.
+        /// </summary>
+        public HttpHeaders responseHeaders { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebRequestResponseStartedDetails
+    {
+        /// <summary>
+        /// The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+        /// </summary>
+        public JsString requestId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// Standard HTTP method.
+        /// </summary>
+        public JsString method { get; set; }
+
+        /// <summary>
+        /// The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens.
+        /// If the document of a (sub-)frame is loaded (type is main_frame or sub_frame), frameId indicates the ID of this frame, not the ID of the outer frame.
+        /// Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+        /// </summary>
+        public JsNumber parentFrameId { get; set; }
+
+        /// <summary>
+        /// The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"] )
+        /// How the requested resource will be used.
+        /// </summary>
+        public RequestType type { get; set; }
+
+        /// <summary>
+        /// The time when this signal is triggered, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+
+        /// <summary>
+        /// ( optional ) The server IP address that the request was actually sent to. Note that it may be a literal IPv6 address.
+        /// </summary>
+        public JsString ip { get; set; }
+
+        /// <summary>
+        ///Indicates if this response was fetched from disk cache.
+        /// </summary>
+        public bool fromCache { get; set; }
+
+        /// <summary>
+        /// Standard HTTP status code returned by the server.
+        /// </summary>
+        public JsNumber statusCode { get; set; }
+
+        /// <summary>
+        /// ( optional )The HTTP response headers that were received along with this redirect.
+        /// </summary>
+        public HttpHeaders responseHeaders { get; set; }
+
+        /// <summary>
+        /// ( optional )HTTP status line of the response.
+        /// </summary>
+        public JsString statusLine { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WebRequestonSendHeadersDetails
+    {
+        /// <summary>
+        /// The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+        /// </summary>
+        public JsString requestId { get; set; }
+
+        public JsString url { get; set; }
+
+        /// <summary>
+        /// Standard HTTP method.
+        /// </summary>
+        public JsString method { get; set; }
+
+        /// <summary>
+        /// The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens.
+        /// If the document of a (sub-)frame is loaded (type is main_frame or sub_frame), frameId indicates the ID of this frame, not the ID of the outer frame.
+        /// Frame IDs are unique within a tab.
+        /// </summary>
+        public JsNumber frameId { get; set; }
+
+        /// <summary>
+        /// ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+        /// </summary>
+        public JsNumber parentFrameId { get; set; }
+
+        /// <summary>
+        /// The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"] )
+        /// How the requested resource will be used.
+        /// </summary>
+        public RequestType type { get; set; }
+
+        /// <summary>
+        /// The time when this signal is triggered, in milliseconds since the epoch.
+        /// </summary>
+        public JsNumber timeStamp { get; set; }
+
+        /// <summary>
+        /// ( optional )The HTTP response headers that were received along with this redirect.
+        /// </summary>
+        public HttpHeaders responseHeaders { get; set; }
+    }
+
+    #endregion
+
+    #region webstore
+
+    [JsType(JsMode.Prototype, Name = "chrome.webstore", Export = false)]
+    public class webstore
+    {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url">( optional ) If you have more than one &lt;link> tag on your page with the chrome-webstore-item relation,
+        /// you can choose which item you'd like to install by passing in its URL here. If it is omitted, then the first (or only) link will be used.
+        /// An exception will be thrown if the passed in URL does not exist on the page.</param>
+        /// <param name="successCallback">( optional ) This function is invoked when inline installation successfully completes
+        /// (after the dialog is shown and the user agrees to add the item to Chrome).
+        /// You may wish to use this to hide the user interface element that prompted the user to install the app or extension.</param>
+        /// <param name="failureCallback"> ( optional ) This function is invoked when inline installation does not successfully complete.
+        /// Possible reasons for this include the user canceling the dialog, the linked item not being found in the store,
+        /// or the install being initiated from a non-verified site.</param>
+        public static void install(JsString url, JsAction successCallback, JsAction<JsString> failureCallback) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url">( optional ) If you have more than one &lt;link> tag on your page with the chrome-webstore-item relation,
+        /// you can choose which item you'd like to install by passing in its URL here. If it is omitted, then the first (or only) link will be used.
+        /// An exception will be thrown if the passed in URL does not exist on the page.</param>
+        /// <param name="successCallback">( optional ) This function is invoked when inline installation successfully completes
+        /// (after the dialog is shown and the user agrees to add the item to Chrome).
+        /// You may wish to use this to hide the user interface element that prompted the user to install the app or extension.</param>
+        public static void install(JsString url, JsAction successCallback) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url">( optional ) If you have more than one &lt;link> tag on your page with the chrome-webstore-item relation,
+        /// you can choose which item you'd like to install by passing in its URL here. If it is omitted, then the first (or only) link will be used.
+        /// An exception will be thrown if the passed in URL does not exist on the page.</param>
+        /// <param name="failureCallback"> ( optional ) This function is invoked when inline installation does not successfully complete.
+        /// Possible reasons for this include the user canceling the dialog, the linked item not being found in the store,
+        /// or the install being initiated from a non-verified site.</param>
+        public static void install(JsString url, JsAction<JsString> failureCallback) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url">( optional ) If you have more than one &lt;link> tag on your page with the chrome-webstore-item relation,
+        /// you can choose which item you'd like to install by passing in its URL here. If it is omitted, then the first (or only) link will be used.
+        /// An exception will be thrown if the passed in URL does not exist on the page.</param>
+        public static void install(JsString url) { }
+    }
+
+    #endregion
+
+    #region windows
+
+    /// <summary>
+    /// Use the chrome.windows module to interact with browser windows. You can use this module to create, modify, and rearrange windows in the browser.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "chrome.windows", Export = false)]
+    public class windows
+    {
+        /// <summary>
+        /// The windowId value that represents the absence of a chrome browser window.
+        /// </summary>
+        public static const int WINDOW_ID_NONE = -1;
+
+        /// <summary>
+        /// The windowId value that represents the current window.
+        /// </summary>
+        public static const int WINDOW_ID_CURRENT = -2;
+
+        /// <summary>
+        /// Creates (opens) a new browser with any optional sizing, position or default URL provided.
+        /// </summary>
+        /// <param name="createData">( optional )</param>
+        /// <param name="callback">( optional )</param>
+        public static void create(WindowsCreateData createData, JsAction callback) { }
+        /// <summary>
+        /// Creates (opens) a new browser with any optional sizing, position or default URL provided.
+        /// </summary>
+        /// <param name="createData">( optional )</param>
+        public static void create(WindowsCreateData createData) { }
+        /// <summary>
+        /// Creates (opens) a new browser with any optional sizing, position or default URL provided.
+        /// </summary>
+        public static void create() { }
+
+        /// <summary>
+        /// Gets details about a window.
+        /// </summary>
+        /// <param name="windowId"></param>
+        /// <param name="getInfo"> ( optional )</param>
+        /// <param name="callback"></param>
+        public static void get(JsNumber windowId, WindowsGetInfo getInfo, JsAction callback) { }
+        /// <summary>
+        /// Gets details about a window.
+        /// </summary>
+        /// <param name="windowId"></param>
+        /// <param name="callback"></param>
+        public static void get(JsNumber windowId, JsAction callback) { }
+
+        /// <summary>
+        /// Gets all windows.
+        /// </summary>
+        /// <param name="getInfo"></param>
+        /// <param name="callback"></param>
+        public static void getAll(WindowsGetInfo getInfo, JsAction callback) { }
+        /// <summary>
+        /// Gets all windows.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void getAll(JsAction callback) { }
+
+        /// <summary>
+        /// Gets the current window.
+        /// </summary>
+        /// <param name="getInfo"></param>
+        /// <param name="callback"></param>
+        public static void getCurrent(WindowsGetInfo getInfo, JsAction callback) { }
+        /// <summary>
+        /// Gets the current window.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void getCurrent(JsAction callback) { }
+
+        /// <summary>
+        /// Gets the window that was most recently focused — typically the window 'on top'.
+        /// </summary>
+        /// <param name="getInfo"></param>
+        /// <param name="callback"></param>
+        public static void getLastFocused(WindowsGetInfo getInfo, JsAction callback) { }
+        /// <summary>
+        /// Gets the window that was most recently focused — typically the window 'on top'.
+        /// </summary>
+        /// <param name="getInfo"></param>
+        /// <param name="callback"></param>
+        public static void getLastFocused(JsAction callback) { }
+
+        /// <summary>
+        /// Removes (closes) a window, and all the tabs inside it.
+        /// </summary>
+        /// <param name="windowId"></param>
+        /// <param name="callback"></param>
+        public static void remove(JsNumber windowId, JsAction callback) { }
+        /// <summary>
+        /// Removes (closes) a window, and all the tabs inside it.
+        /// </summary>
+        /// <param name="windowId"></param>
+        public static void remove(JsNumber windowId) { }
+
+        /// <summary>
+        /// Updates the properties of a window. Specify only the properties that you want to change; unspecified properties will be left unchanged.
+        /// </summary>
+        /// <param name="windowId"></param>
+        /// <param name="updateInfo"></param>
+        /// <param name="callback"></param>
+        public static void update(JsNumber windowId, WindowsUpdateInfo updateInfo, JsAction callback) { }
+        /// <summary>
+        /// Updates the properties of a window. Specify only the properties that you want to change; unspecified properties will be left unchanged.
+        /// </summary>
+        /// <param name="windowId"></param>
+        /// <param name="updateInfo"></param>
+        public static void update(JsNumber windowId, WindowsUpdateInfo updateInfo) { }
+
+        /// <summary>
+        /// Fired when a window is created.
+        /// </summary>
+        public Event<JsAction<Window>> onCreated { get; set; }
+
+        /// <summary>
+        /// Fired when the currently focused window changes. Will be chrome.windows.WINDOW_ID_NONE if all chrome windows have lost focus.
+        /// Note: On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one chrome window to another.
+        /// </summary>
+        public Event<JsAction<JsNumber>> onFocusChanged { get; set; }
+
+        /// <summary>
+        /// Fired when a window is removed (closed).
+        /// </summary>
+        public Event<JsAction<JsNumber>> onCreated { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class WindowsCreateData
+    {
+        /// <summary>
+        /// ( optional )A URL or list of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com').
+        /// Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
+        /// </summary>
+        public JsString url { get; set; }
+        /// <summary>
+        /// ( optional )A URL or list of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com').
+        /// Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
+        /// </summary>
+        [JsProperty(Name = "url")]
+        public JsArray<JsString> urlArray { get; set; }
+
+        /// <summary>
+        /// ( optional ) The id of the tab for which you want to adopt to the new window.
+        /// </summary>
+        public JsNumber tabId { get; set; }
+
+        /// <summary>
+        /// ( optional )The number of pixels to position the new window from the left edge of the screen.
+        /// If not specified, the new window is offset naturally from the last focused window. This value is ignored for panels.
+        /// </summary>
+        public JsNumber left { get; set; }
+
+        /// <summary>
+        /// ( optional )The number of pixels to position the new window from the top edge of the screen.
+        /// If not specified, the new window is offset naturally from the last focused window. This value is ignored for panels.
+        /// </summary>
+        public JsNumber top { get; set; }
+
+        /// <summary>
+        ///( optional ) The width in pixels of the new window. If not specified defaults to a natural width.
+        /// </summary>
+        public JsNumber width { get; set; }
+
+        /// <summary>
+        /// ( optional )The height in pixels of the new window. If not specified defaults to a natural height.
+        /// </summary>
+        public JsNumber height { get; set; }
+
+        /// <summary>
+        ///  ( optional ) If true, opens an active window. If false, opens an inactive window.
+        /// </summary>
+        public bool focused { get; set; }
+
+        /// <summary>
+        /// ( optional )Whether the new window should be an incognito window.
+        /// </summary>
+        public bool incognito { get; set; }
+
+        /// <summary>
+        /// ( optional enumerated string ["normal", "popup", "panel"] )
+        /// Specifies what type of browser window to create. The 'panel' type creates a popup unless the '--enable-panels' flag is set.
+        /// </summary>
+        public WindowType type { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WindowsUpdateInfo
+    {
+        /// <summary>
+        /// ( optional )The offset from the left edge of the screen to move the window to in pixels. This value is ignored for panels.
+        /// </summary>
+        public JsNumber left { get; set; }
+
+        /// <summary>
+        /// ( optional )The offset from the top edge of the screen to move the window to in pixels. This value is ignored for panels.
+        /// </summary>
+        public JsNumber top { get; set; }
+
+        /// <summary>
+        ///( optional ) The width to resize the window to in pixels. This value is ignored for panels.
+        /// </summary>
+        public JsNumber width { get; set; }
+
+        /// <summary>
+        /// ( optional )The height to resize the window to in pixels. This value is ignored for panels.
+        /// </summary>
+        public JsNumber height { get; set; }
+
+        /// <summary>
+        ///  ( optional ) If true, brings the window to the front. If false, brings the next window in the z-order to the front.
+        /// </summary>
+        public bool focused { get; set; }
+
+        /// <summary>
+        /// ( optional )If true, causes the window to be displayed in a manner that draws the user's attention to the window, without changing the focused window.
+        /// The effect lasts until the user changes focus to the window. This option has no effect if the window already has focus.
+        /// Set to false to cancel a previous draw attention request.
+        /// </summary>
+        public bool drawAttention { get; set; }
+
+        /// <summary>
+        /// ( optional enumerated string ["normal", "minimized", "maximized", "fullscreen"] )
+        /// The new state of the window. The 'minimized', 'maximized' and 'fullscreen' states cannot be combined with 'left', 'top', 'width' or 'height'.
+        /// </summary>
+        public WindowState state { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class WindowsGetInfo
+    {
+        /// <summary>
+        /// If true, the window object will have a tabs property that contains a list of the $ref:tabs.Tab objects
+        /// </summary>
+        public bool populate { get; set; }
+    }
+
+    [JsType(JsMode.Prototype, Name = "chrome.windows.Window", Export = false)]
+    public class Window
+    {
+        /// <summary>
+        /// The ID of the window. Window IDs are unique within a browser session.
+        /// </summary>
+        public JsNumber id { get; set; }
+
+        /// <summary>
+        /// Whether the window is currently the focused window.
+        /// </summary>
+        public bool focused { get; set; }
+
+        /// <summary>
+        /// The offset of the window from the top edge of the screen in pixels.
+        /// </summary>
+        public JsNumber top { get; set; }
+
+        /// <summary>
+        /// The offset of the window from the left edge of the screen in pixels.
+        /// </summary>
+        public JsNumber left { get; set; }
+
+        /// <summary>
+        /// The width of the window in pixels.
+        /// </summary>
+        public JsNumber width { get; set; }
+
+        /// <summary>
+        /// The height of the window in pixels.
+        /// </summary>
+        public JsNumber height { get; set; }
+
+        /// <summary>
+        ///  ( optional ) Array of $ref:tabs.Tab objects representing the current tabs in the window.
+        /// </summary>
+        public JsArray<Tab> tabs { get; set; }
+
+        /// <summary>
+        /// Whether the window is incognito.
+        /// </summary>
+        public bool incognito { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["normal", "popup", "panel", "app"] )
+        /// The type of browser window this is.
+        /// </summary>
+        public WindowType type { get; set; }
+
+        /// <summary>
+        /// ( enumerated string ["normal", "minimized", "maximized", "fullscreen"] )
+        /// The state of this browser window.
+        /// </summary>
+        public WindowState state { get; set; }
+
+        /// <summary>
+        /// Whether the window is set to be always on top.
+        /// </summary>
+        public bool alwaysOnTop { get; set; }
+    }
+
+    /// <summary>
+    /// The state of this browser window.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum WindowState
+    {
+        normal,
+        minimized,
+        maximized,
+        fullscreen,
+    }
+    #endregion
+
 }
 
