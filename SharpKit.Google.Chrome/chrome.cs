@@ -6961,5 +6961,986 @@ namespace SharpKit.Google.Chrome
     }
     #endregion
 
+    #region Manifest
+
+
+    /// <summary>
+    /// Every extension, installable web app, and theme has a JSON-formatted manifest file, named manifest.json, that provides important information.
+    /// </summary>
+    ///<example>
+    ///usage
+    ///<code>
+    ///{
+    ///   // Required
+    ///   "name": "My Extension",
+    ///   "version": "versionString",
+    ///   "manifest_version": 2,
+    ///   // Recommended
+    ///   "description": "A plain text description",
+    ///   "icons": { ... },
+    ///   "default_locale": "en",
+    ///   // Pick one (or none)
+    ///   "browser_action": {...},
+    ///   "page_action": {...},
+    ///   "theme": {...},
+    ///   "app": {...},
+    ///   // Add any of these that you need
+    ///   "background": {...},
+    ///   "chrome_url_overrides": {...},
+    ///   "content_scripts": [...],
+    ///   "content_security_policy": "policyString",
+    ///   "file_browser_handlers": [...],
+    ///   "homepage_url": "http://path/to/homepage",
+    ///   "incognito": "spanning" or "split",
+    ///   "intents": {...}
+    ///   "key": "publicKey",
+    ///   "minimum_chrome_version": "versionString",
+    ///   "nacl_modules": [...],
+    ///   "offline_enabled": true,
+    ///   "omnibox": { "keyword": "aString" },
+    ///   "options_page": "aFile.html",
+    ///   "permissions": [...],
+    ///   "plugins": [...],
+    ///   "requirements": {...},
+    ///   "update_url": "http://path/to/updateInfo.xml",
+    ///   "web_accessible_resources": [...],
+    ///   "sandbox": [...]
+    /// }
+    ///</code>
+    ///</example>
+    [JsType(JsMode.Prototype, Name = "chrome.Manifest", Export = false)]
+    public class Manifest
+    {
+        // Required:
+
+        /// <summary>
+        /// A short, plain text string (no more than 45 characters) that identifies the extension. The name is used in the install dialog, extension management UI, and the store.
+        /// You can specify locale-specific strings for this field; see Internationalization for details.
+        /// </summary>
+        public JsString name { get; set; }
+
+        /// <summary>
+        /// One to four dot-separated integers identifying the version of this extension.
+        /// A couple of rules apply to the integers: they must be between 0 and 65535, inclusive, and non-zero integers can't start with 0.
+        /// For example, 99999 and 032 are both invalid.
+        /// Here are some examples of valid versions:
+        /// "version": "1"
+        /// "version": "1.0"
+        /// "version": "2.10.2"
+        /// "version": "3.1.2.4567"
+        /// The autoupdate system compares versions to determine whether an installed extension needs to be updated.
+        /// If the published extension has a newer version string than the installed extension, then the extension is automatically updated.
+        /// The comparison starts with the leftmost integers. If those integers are equal, the integers to the right are compared, and so on.
+        /// For example, 1.2.0 is a newer version than 1.1.9.9999.
+        /// A missing integer is equal to zero. For example, 1.1.9.9999 is newer than 1.1.
+        /// For more information, see Autoupdating.
+        /// </summary>
+        public JsString version { get; set; }
+
+        /// <summary>
+        /// One integer specifying the version of the manifest file format your package requires.
+        /// As of Chrome 18, developers should specify 2 (without quotes) to use the format as described by this document:
+        /// "manifest_version": 2
+        /// Consider manifest version 1 deprecated as of Chrome 18.
+        /// Version 2 is not yet required, but we will, at some point in the not-too-distant future, stop supporting packages using deprecated manifest versions.
+        /// Extensions, applications, and themes that aren't ready to make the jump to the new manifest version in Chrome 18 can either explicitly specify version 1,or leave the key off entirely.
+        /// The changes between version 1 and version 2 of the manifest file format are described in detail in the manifest_version documentation.
+        /// Setting manifest_version 2 in Chrome 17 or lower is not recommended.
+        /// If your extension needs to work in older versions of Chrome, stick with version 1 for the moment. We'll give you ample warning before version 1 stops working.
+        /// </summary>
+        public JsNumber manifest_version { get; set; }
+
+        // Recommended:
+
+        /// <summary>
+        /// A plain text string (no HTML or other formatting; no more than 132 characters) that describes the extension.
+        /// The description should be suitable for both the browser's extension management UI and the Chrome Web Store.
+        /// You can specify locale-specific strings for this field; see Internationalization for details.
+        /// </summary>
+        public JsString description { get; set; }
+
+        /// <summary>
+        /// One or more icons that represent the extension, app, or theme. You should always provide a 128x128 icon; it's used during installation and by the Chrome Web Store.
+        /// Extensions should also provide a 48x48 icon, which is used in the extensions management page (chrome://extensions).
+        /// You can also specify a 16x16 icon to be used as the favicon for an extension's pages. The 16x16 icon is also displayed in the experimental extension infobar feature.
+        /// Icons should generally be in PNG format, because PNG has the best support for transparency.
+        /// They can, however, be in any format supported by WebKit, including BMP, GIF, ICO, and JPEG. Here's an example of specifying the icons:
+        /// "icons": { "16": "icon16.png",
+        ///            "48": "icon48.png",
+        ///           "128": "icon128.png" },
+        /// Important: Use only the documented icon sizes. 
+        /// 
+        /// You might notice that Chrome sometimes resizes these icons down to smaller sizes. For example, the install dialog might shrink the 128-pixel icon down to 69 pixels. 
+        /// 
+        /// However, the details of Chrome's UI may change between versions, and these changes assume that developers are using the documented sizes.
+        /// If you use other sizes, your icon may look bad in future versions of the browser.
+        /// If you upload your extension, app, or theme using the Chrome Developer Dashboard, you'll need to upload additional images, including at least one screenshot of your extension.
+        /// For more information, see the Chrome Web Store developer documentation.
+        /// </summary>
+        public object icons { get; set; }
+
+        /// <summary>
+        /// Specifies the subdirectory of _locales that contains the default strings for this extension.
+        /// This field is required in extensions that have a _locales directory; it must be absent in extensions that have no _locales directory.
+        /// For details, see Internationalization.
+        /// </summary>
+        public JsString default_locale { get; set; }
+
+        // Pick one (or none):
+
+        /// <summary>
+        /// Register your browser action in the extension manifest like this:
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///{
+        ///   "name": "My extension",
+        ///   ...
+        ///   "browser_action": {
+        ///     "default_icon": "images/icon19.png", // optional
+        ///     "default_title": "Google Mail",      // optional; shown in tooltip
+        ///     "default_popup": "popup.html"        // optional
+        ///   },
+        ///   ...
+        /// }
+        ///</code>
+        ///</example>
+        public BrowserActionManifest browser_action { get; set; }
+
+        /// <summary>
+        /// Register your page action in the extension manifest like this:
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///{
+        ///   "name": "My extension",
+        ///   ...
+        ///   "page_action": {
+        ///     "default_icon": "icons/foo.png", // optional
+        ///     "default_title": "Do action",    // optional; shown in tooltip
+        ///     "default_popup": "popup.html"    // optional
+        ///   },
+        ///   ...
+        /// }
+        ///</code>
+        ///</example>
+        public PageActionManifest page_action { get; set; }
+
+        /// <summary>
+        /// A theme is a special kind of extension that changes the way the browser looks.
+        /// Themes are packaged like regular extensions, but they don't contain JavaScript or HTML code.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///{
+        ///   "version": "2.6",
+        ///   "name": "camo theme",
+        ///   "theme": {
+        ///     "images" : {
+        ///       "theme_frame" : "images/theme_frame_camo.png",
+        ///       "theme_frame_overlay" : "images/theme_frame_stripe.png",
+        ///       "theme_toolbar" : "images/theme_toolbar_camo.png",
+        ///       "theme_ntp_background" : "images/theme_ntp_background_norepeat.png",
+        ///       "theme_ntp_attribution" : "images/attribution.png"
+        ///     },
+        ///     "colors" : {
+        ///       "frame" : [71, 105, 91],
+        ///       "toolbar" : [207, 221, 192],
+        ///       "ntp_text" : [20, 40, 0],
+        ///       "ntp_link" : [36, 70, 0],
+        ///       "ntp_section" : [207, 221, 192],
+        ///       "button_background" : [255, 255, 255]
+        ///     },
+        ///     "tints" : {
+        ///       "buttons" : [0.33, 0.5, 0.47]
+        ///     },
+        ///     "properties" : {
+        ///       "ntp_background_alignment" : "bottom"
+        ///     }
+        ///   }
+        /// }
+        ///</code>
+        ///</example>
+        public ThemeManifest theme { get; set; }
+
+        /// <summary>
+        /// Used by installable web apps, including packaged apps, to specify the URLs that the app uses.
+        /// Most important is the launch page for the app—the page that the browser goes to when the user clicks the app's icon in the New Tab page.
+        /// For details, see the documentation for hosted apps and packaged apps.
+        /// </summary>
+        public AppManifest app { get; set; }
+
+        // Add any of these that you need:
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public object background { get; set; }
+
+        /// <summary>
+        /// Register an override page in the extension manifest like this:
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///{
+        ///   "name": "My extension",
+        ///   ...
+        ///   "chrome_url_overrides" : {
+        ///     "pageToOverride": "myPage.html"
+        ///   },
+        ///   ...
+        /// }
+        ///</code>
+        ///</example>
+        public OverrideManifest chrome_url_overrides { get; set; }
+
+        /// <summary>
+        /// If your content script's code should always be injected, register it in the extension manifest using the content_scripts field, as in the following example.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///{
+        ///   "name": "My extension",
+        ///   ...
+        ///   "content_scripts": [
+        ///     {
+        ///       "matches": ["http://www.google.com/*"],
+        ///       "css": ["mystyles.css"],
+        ///       "js": ["jquery.js", "myscript.js"]
+        ///     }
+        ///   ],
+        ///   ...
+        /// }
+        ///</code>
+        ///</example>
+        public ContentManifest content_scripts { get; set; }
+
+        /// <summary>
+        /// In order to mitigate a large class of potental cross-site scripting issues,
+        /// Chrome's extension system has incorporated the general concept of Content Security Policy (CSP) .
+        /// This introduces some fairly strict policies that will make extensions more secure by default,
+        /// and provides you with the ability to create and enforce rules governing the types of content that can be loaded and executed by your extensions and applications.
+        /// In general, CSP works as a black/whitelisting mechanism for resources loaded or executed by your extensions.
+        /// Defining a reasonable policy for your extension enables you to carefully consider the resources that your extension requires,
+        /// and to ask the browser to ensure that those are the only resources your extension has access to.
+        /// These policies provide security over and above the host permissions your extension requests; they're an additional layer of protection, not a replacement.
+        /// </summary>
+        public JsString content_security_policy { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public object file_browser_handlers { get; set; }
+
+        /// <summary>
+        /// The URL of the homepage for this extension. The extensions management page (chrome://extensions) will contain a link to this URL.
+        /// This field is particularly useful if you host the extension on your own site.
+        /// If you distribute your extension using the Chrome Web Store, the homepage URL defaults to the extension's own page.
+        /// </summary>
+        public JsString homepage_url { get; set; }
+
+        /// <summary>
+        /// Either "spanning" or "split", to specify how this extension will behave if allowed to run in incognito mode.
+        /// The default for extensions is "spanning", which means that the extension will run in a single shared process.
+        /// Any events or messages from an incognito tab will be sent to the shared process, with an incognito flag indicating where it came from.
+        /// Because incognito tabs cannot use this shared process,
+        /// an extension using the "spanning" incognito mode will not be able to load pages from its extension package into the main frame of an incognito tab.
+        /// The default for installable web apps is "split", which means that all app pages in an incognito window will run in their own incognito process.
+        /// If the app or extension contains a background page, that will also run in the incognito process. This incognito process runs along side the regular process,
+        /// but has a separate memory-only cookie store. Each process sees events and messages only from its own context
+        /// (for example, the incognito process will see only incognito tab updates). The processes are unable to communicate with each other.
+        /// As a rule of thumb, if your extension or app needs to load a tab in an incognito browser, use split incognito behavior.
+        /// If your extension or app needs to be logged into a remote server or persist settings locally, use spanning incognito behavior.
+        /// </summary>
+        public IncognitoType incognito { get; set; }
+
+        /// <summary>
+        /// A dictionary that specifies all intent handlers provided by this extension or app. Each key in the dictionary specifies
+        /// an action verb that is handled by this extension.
+        /// The following example specifies two handlers for the action verb "http://webintents.org/share".
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///{
+        ///   "name": "test",
+        ///   "version": "1",
+        ///   "intents": {
+        ///     "http://webintents.org/share": [
+        ///       {
+        ///         "type": ["text/uri-list"],
+        ///         "href": "/services/sharelink.html",
+        ///         "title" : "Sample Link Sharing Intent",
+        ///         "disposition" : "inline"
+        ///       },
+        ///       {
+        ///         "type": ["image/*"],
+        ///         "href": "/services/shareimage.html",
+        ///         "title" : "Sample Image Sharing Intent",
+        ///         "disposition" : "window"
+        ///       }
+        ///     ]
+        ///   }
+        /// }
+        ///</code>
+        ///</example>
+        public object intents { get; set; }
+
+        /// <summary>
+        /// The version of Chrome that your extension, app, or theme requires, if any. The format for this string is the same as for the version field.
+        /// </summary>
+        public JsString minimum_chrome_version { get; set; }
+
+        /// <summary>
+        /// One or more mappings from MIME types to the Native Client module that handles each type.
+        /// For example, the bold code in the following snippet registers a Native Client module as the content handler for the OpenOffice spreadsheet MIME type.
+        /// The value of "path" is the location of a Native Client manifest (a .nmf file) within the extension directory.
+        /// For more information on Native Client and .nmf files, see the Native Client Technical Overview.
+        /// Each MIME type can be associated with only one .nmf file, but a single .nmf file might handle multiple MIME types.
+        /// The following example shows an extension with two .nmf files that handle three MIME types.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///{
+        ///   "name": "Native Client OpenOffice Spreadsheet Viewer",
+        ///   "version": "0.1",
+        ///   "description": "Open OpenOffice spreadsheets, right in your browser.",
+        ///   "nacl_modules": [{
+        ///     "path": "OpenOfficeViewer.nmf",
+        ///     "mime_type": "application/vnd.oasis.opendocument.spreadsheet"
+        ///   }]
+        /// }
+        ///</code>
+        ///</example>
+        public NaclModulesManifest nacl_modules { get; set; }
+
+        /// <summary>
+        /// Whether the app or extension is expected to work offline.
+        /// When Chrome detects that it is offline, apps with this field set to true will be highlighted on the New Tab page.
+        /// </summary>
+        public bool offline_enabled { get; set; }
+
+        /// <summary>
+        /// You must include an omnibox keyword field in the manifest to use the omnibox API.
+        /// You should also specify a 16x16-pixel icon, which will be displayed in the address bar when suggesting that users enter keyword mode.
+        /// </summary>
+        public OmniboxManifest omnibox { get; set; }
+
+        /// <summary>
+        /// To allow users to customize the behavior of your extension, you may wish to provide an options page.
+        /// If you do, a link to it will be provided from the extensions management page at chrome://extensions.
+        /// Clicking the Options link opens a new tab pointing at your options page.
+        /// </summary>
+        public JsString options_page { get; set; }
+
+        /// <summary>
+        /// An array of permissions that the extension or app might use. Each permission can be either one of a list of known strings
+        /// (such as "geolocation") or a match pattern that gives access to one or more hosts.
+        /// Permissions can help to limit damage if your extension or app is attacked.
+        /// Some permissions are also displayed to users before installation, as detailed in Permission Warnings.
+        /// If an extension API requires you to declare a permission in the manifest, then its documentation tells you how to do so.
+        /// For example, the Tabs page shows you how to declare the "tabs" permission.
+        /// Note: As of Chrome 16, some permissions can be optional. For details, see Optional Permissions.
+        /// </summary>
+        public JsArray<PermissionType> permissions { get; set; }
+
+        /// <summary>
+        /// Leveraging HTML and JavaScript makes developing new extensions really easy, but what if you have existing legacy or proprietary code that you want to reuse in your extension?
+        /// You can bundle an NPAPI plugin with your extension, allowing you to call into native binary code from JavaScript.
+        /// </summary>
+        public object plugins { get; set; }
+
+        /// <summary>
+        /// Technologies required by the app or extension. Hosting sites such as the Chrome Web
+        /// Store may use this list to dissuade users from installing apps or extensions that will not work on their computer.
+        /// The only supported requirement is "3D", which denotes GPU hardware acceleration.
+        /// For that requirement, you can list the 3D-related features your app requires, as demonstrated in the following example:
+        /// </summary>
+        public object requirements { get; set; }
+
+        /// <summary>
+        /// If you're hosting your own extension, you need to add the "update_url" field to your manifest.json file, like this:
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///{
+        ///   "name": "My extension",
+        ///   ...
+        ///   "update_url": "http://myhost.com/mytestextension/updates.xml",
+        ///   ...
+        /// }
+        ///</code>
+        ///</example>
+        public JsString update_url { get; set; }
+
+        /// <summary>
+        /// An array of strings specifying the paths (relative to the package root) of packaged resources that are expected to be usable in the context of a web page.
+        /// For example, an extension that injects a content script with the intention of building up some custom interface for example.com would whitelist any
+        /// resources that interface requires (images, icons, stylesheets, scripts, etc.)
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///{
+        ///   ...
+        ///   "web_accessible_resources": [
+        ///     "images/my-awesome-image1.png",
+        ///     "images/my-amazing-icon1.png",
+        ///     "style/double-rainbow.css",
+        ///     "script/double-rainbow.js"
+        ///   ],
+        ///   ...
+        /// }
+        ///</code>
+        ///</example>
+        public JsArray<JsString> web_accessible_resources { get; set; }
+
+        /// <summary>
+        /// Defines an collection of app or extension pages that are to be served in a sandboxed unique origin, and optionally a Content Security Policy to use with them.
+        /// Being in a sandbox has two implications:
+        /// A sandboxed page will not have access to extension or app APIs, or direct access to non-sandboxed pages (it may communicate with them via postMessage()).
+        /// A sandboxed page is not subject to the Content Security Policy (CSP) used by the rest of the app or extension (it has its own separate CSP value).
+        /// This means that, for example, it can use inline script and eval.
+        /// If not specified, the default content_security_policy value is sandbox allow-scripts allow-forms.
+        /// You can specify your CSP value to restrict the sandbox even further, but it must have the sandbox directive and may not have the allow-same-origin token
+        /// (see the HTML5 specification for possible sandbox tokens).
+        /// Note that you only need to list pages that you expected to be loaded in windows or frames. Resources used by sandboxed pages
+        /// (e.g. stylesheets or JavaScript source files) do not need to appear in the sandboxed_page list, they will use the sandbox of the page that embeds them.
+        /// Sandboxed page may only be specified when using manifest_version 2 or above.
+        /// </summary>
+        public JsArray<JsString> sandbox { get; set; }
+
+
+    }
+    //TODO: gussed most of it. danel  m u s t  check
+
+    /// <summary>
+    /// One or more mappings from MIME types to the Native Client module that handles each type.
+    /// For example, the bold code in the following snippet registers a Native Client module as the content handler for the OpenOffice spreadsheet MIME type.
+    /// The value of "path" is the location of a Native Client manifest (a .nmf file) within the extension directory.
+    /// For more information on Native Client and .nmf files, see the Native Client Technical Overview.
+    /// Each MIME type can be associated with only one .nmf file, but a single .nmf file might handle multiple MIME types.
+    /// The following example shows an extension with two .nmf files that handle three MIME types.
+    /// </summary>
+    ///<example>
+    ///usage
+    ///<code>
+    ///{
+    ///   "name": "Native Client OpenOffice Spreadsheet Viewer",
+    ///   "version": "0.1",
+    ///   "description": "Open OpenOffice spreadsheets, right in your browser.",
+    ///   "nacl_modules": [{
+    ///     "path": "OpenOfficeViewer.nmf",
+    ///     "mime_type": "application/vnd.oasis.opendocument.spreadsheet"
+    ///   }]
+    /// }
+    ///</code>
+    ///</example>
+    [JsType(JsMode.Json)]
+    public class NaclModulesManifest
+    {
+
+        public JsString path { get; set; }
+
+        public JsString mime_type { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class PageActionManifest
+    {
+        /// <summary>
+        /// ( optional )
+        /// </summary>
+        public JsString default_icon { get; set; }
+
+        /// <summary>
+        /// ( optional )  shown in tooltip
+        /// </summary>
+        public JsString default_title { get; set; }
+
+        /// <summary>
+        /// ( optional )
+        /// </summary>
+        public JsString default_popup { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class BrowserActionManifest
+    {
+        /// <summary>
+        /// ( optional )
+        /// </summary>
+        public JsString default_icon { get; set; }
+
+        /// <summary>
+        /// ( optional )  shown in tooltip
+        /// </summary>
+        public JsString default_title { get; set; }
+
+        /// <summary>
+        /// ( optional )
+        /// </summary>
+        public JsString default_popup { get; set; }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    ///<example>
+    ///usage
+    ///<code>
+    ///{
+    ///   "version": "2.6",
+    ///   "name": "camo theme",
+    ///   "theme": {
+    ///     "images" : {
+    ///       "theme_frame" : "images/theme_frame_camo.png",
+    ///       "theme_frame_overlay" : "images/theme_frame_stripe.png",
+    ///       "theme_toolbar" : "images/theme_toolbar_camo.png",
+    ///       "theme_ntp_background" : "images/theme_ntp_background_norepeat.png",
+    ///       "theme_ntp_attribution" : "images/attribution.png"
+    ///     },
+    ///     "colors" : {
+    ///       "frame" : [71, 105, 91],
+    ///       "toolbar" : [207, 221, 192],
+    ///       "ntp_text" : [20, 40, 0],
+    ///       "ntp_link" : [36, 70, 0],
+    ///       "ntp_section" : [207, 221, 192],
+    ///       "button_background" : [255, 255, 255]
+    ///     },
+    ///     "tints" : {
+    ///       "buttons" : [0.33, 0.5, 0.47]
+    ///     },
+    ///     "properties" : {
+    ///       "ntp_background_alignment" : "bottom"
+    ///     }
+    ///   }
+    /// }
+    ///</code>
+    ///</example>
+    [JsType(JsMode.Json)]
+    public class ThemeManifest
+    {
+        /// <summary>
+        /// Image resources use paths relative to the root of the extension. You can override any of the images that are specified by kThemeableImages in theme_service.cc.
+        /// Just remove the "IDR_" and convert the remaining characters to lowercase. For example, IDR_THEME_NTP_BACKGROUND
+        /// (which kThemeableImages uses to specify the background of the new tab pane) corresponds to "theme_ntp_background".
+        /// </summary>
+        public ThemeImage images { get; set; }
+
+        /// <summary>
+        /// Colors are in RGB format. To find the strings you can use within the "colors" field, look for kColor* strings in theme_service.cc.
+        /// </summary>
+        public ThemeColor colors { get; set; }
+
+        /// <summary>
+        /// You can specify tints to be applied to parts of the UI such as buttons, the frame, and the background tab.
+        /// Google Chrome supports tints, not images, because images don't work across platforms and are brittle in the case of adding new buttons.
+        /// To find the strings you can use within the "tints" field, look for kTint* strings in theme_service.cc.
+        /// Tints are in Hue-Saturation-Lightness (HSL) format, using floating-point numbers in the range 0 - 1.0:
+        /// Hue is an absolute value, with 0 and 1 being red.
+        /// Saturation is relative to the currently provided image. 0.5 is no change, 0 is totally desaturated, and 1 is full saturation.
+        /// Lightness is also relative, with 0.5 being no change, 0 as all pixels black, and 1 as all pixels white.
+        /// You can alternatively use -1.0 for any of the HSL values to specify no change.
+        /// </summary>
+        public ThemeTint tints { get; set; }
+
+        /// <summary>
+        /// This field lets you specify properties such as background alignment, background repeat, and an alternate logo.
+        /// To see the properties and the values they can have, see theme_service.cc.
+        /// </summary>
+        public ThemePropertie properties { get; set; }
+    }
+
+    /// <summary>
+    /// Image resources use paths relative to the root of the extension. You can override any of the images that are specified by kThemeableImages in theme_service.cc.
+    /// Just remove the "IDR_" and convert the remaining characters to lowercase. For example, IDR_THEME_NTP_BACKGROUND
+    /// (which kThemeableImages uses to specify the background of the new tab pane) corresponds to "theme_ntp_background".
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class ThemeImage
+    {
+        public JsString theme_frame { get; set; }
+
+        public JsString theme_frame_overlay { get; set; }
+
+        public JsString theme_toolbar { get; set; }
+
+        public JsString theme_ntp_background { get; set; }
+
+        public JsString theme_ntp_attribution { get; set; }
+    }
+
+    /// <summary>
+    /// Colors are in RGB format. To find the strings you can use within the "colors" field, look for kColor* strings in theme_service.cc.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class ThemeColor
+    {
+        public JsArray<JsNumber> frame { get; set; }
+
+        public JsArray<JsNumber> toolbar { get; set; }
+
+        public JsArray<JsNumber> ntp_text { get; set; }
+
+        public JsArray<JsNumber> ntp_link { get; set; }
+
+        public JsArray<JsNumber> ntp_section { get; set; }
+
+        public JsArray<JsNumber> button_background { get; set; }
+    }
+
+    /// <summary>
+    /// You can specify tints to be applied to parts of the UI such as buttons, the frame, and the background tab.
+    /// Google Chrome supports tints, not images, because images don't work across platforms and are brittle in the case of adding new buttons.
+    /// To find the strings you can use within the "tints" field, look for kTint* strings in theme_service.cc.
+    /// Tints are in Hue-Saturation-Lightness (HSL) format, using floating-point numbers in the range 0 - 1.0:
+    /// Hue is an absolute value, with 0 and 1 being red.
+    /// Saturation is relative to the currently provided image. 0.5 is no change, 0 is totally desaturated, and 1 is full saturation.
+    /// Lightness is also relative, with 0.5 being no change, 0 as all pixels black, and 1 as all pixels white.
+    /// You can alternatively use -1.0 for any of the HSL values to specify no change.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class ThemeTint
+    {
+        public JsArray<JsNumber> buttons { get; set; }
+    }
+
+    /// <summary>
+    /// This field lets you specify properties such as background alignment, background repeat, and an alternate logo.
+    /// To see the properties and the values they can have, see theme_service.cc.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class ThemePropertie
+    {
+        public JsString ntp_background_alignment { get; set; }
+    }
+
+    /// <summary>
+    /// Used by installable web apps, including packaged apps, to specify the URLs that the app uses.
+    /// Most important is the launch page for the app—the page that the browser goes to when the user clicks the app's icon in the New Tab page.
+    /// For details, see the documentation for hosted apps and packaged apps.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class AppManifest
+    {
+        /// <summary>
+        /// The URLs for the pages in the hosted app, not necessarily including the launch page.
+        /// Once the app is installed, these pages and the launch page have the permissions requested in the manifest.
+        /// Note: You don't need to specify the URLs for included files or for assets such as images.
+        /// 
+        /// Each URL must begin with http, https, or * (which matches both http and https). You can use wildcards for subdomains—for example, "*://*.example.com/".
+        /// 
+        /// Important: Do not put port numbers in the value of "urls".
+        /// Port numbers aren't necessary there (all ports are valid), and values with port numbers are silently ignored, leaving the corresponding pages without the requested permissions.
+        /// 
+        /// You need to specify only the start of the app's URLs.
+        /// For example, "https://www.google.com/accounts/" matches every URL that starts with that string, such as https://www.google.com/accounts/ and https://www.google.com/accounts/b/0/ManageAccount.
+        /// 
+        /// Important: If you provide multiple apps, avoid overlapping URLs.
+        /// If a user tries to install an app whose "web_url" or "urls" values overlap with those of an already installed app, the second installation will fail due to URL conflict errors.
+        /// For example, an app that specifies a "urls" value of "http://mail.example.com/" would conflict with an app that specifies "http://mail.example.com/mail/".
+        /// 
+        /// If the user downloads the app's .crx file from a server that's not the Chrome Web Store, only one domain is allowed, and it must be the same as the domain that serves the .crx file.
+        /// For more information on hosting options, see the extensions documentation for Hosting.
+        /// </summary>
+        public JsString urls { get; set; }
+
+        /// <summary>
+        /// Required. Specifies what happens when the user launches the app.
+        /// </summary>
+        public AppLaunch launch { get; set; }
+    }
+
+    /// <summary>
+    /// Specifies what happens when the user launches the app.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class AppLaunch
+    {
+        /// <summary>
+        /// Required. Specifies the launch page as an absolute URL.
+        /// </summary>
+        public JsString web_url { get; set; }
+
+        /// <summary>
+        /// The value "panel" makes the app appear in an app panel. By default, or when you specify "tab", the app appears in a tab.
+        /// </summary>
+        public ContainerType container { get; set; }
+
+        /// <summary>
+        /// If the container is set to "panel", this integer specifies the height of the panel in pixels.
+        /// For example, you might specify "height":400. Note that you don't use quotation marks in the value.
+        /// This field specifies the height of the area to display contents in; window decorations add a few more pixels to the total height.
+        /// If the container isn't a panel, this field is ignored.
+        /// </summary>
+        public JsNumber height { get; set; }
+
+        /// <summary>
+        /// Similar to "height", but specifies the width of the panel.
+        /// </summary>
+        public JsNumber width { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class OmniboxManifest
+    {
+        public JsString pageToOverride { get; set; }
+    }
+
+    /// <summary>
+    /// Register an override page in the extension manifest like this:
+    /// </summary>
+    ///<example>
+    ///usage
+    ///<code>
+    ///{
+    ///   "name": "My extension",
+    ///   ...
+    ///   "chrome_url_overrides" : {
+    ///     "pageToOverride": "myPage.html"
+    ///   },
+    ///   ...
+    /// }
+    ///</code>
+    ///</example>
+    [JsType(JsMode.Json)]
+    public class OverrideManifest
+    {
+        public JsString keyword { get; set; }
+
+    }
+
+    /// <summary>
+    /// If your content script's code should always be injected, register it in the extension manifest using the content_scripts field, as in the following example.
+    /// </summary>
+    ///<example>
+    ///usage
+    ///<code>
+    ///{
+    ///   "name": "My extension",
+    ///   ...
+    ///   "content_scripts": [
+    ///     {
+    ///       "matches": ["http://www.google.com/*"],
+    ///       "css": ["mystyles.css"],
+    ///       "js": ["jquery.js", "myscript.js"]
+    ///     }
+    ///   ],
+    ///   ...
+    /// }
+    ///</code>
+    ///</example>
+    [JsType(JsMode.Json)]
+    public class ContentManifest
+    {
+
+        /// <summary>
+        /// Required. Specifies which pages this content script will be injected into.
+        /// See Match Patterns for more details on the syntax of these strings and Match patterns and globs for information on how to exclude URLs.
+        /// </summary>
+        public JsArray<JsString> matches { get; set; }
+
+        /// <summary>
+        /// Optional. Excludes pages that this content script would otherwise be injected into.
+        /// See Match Patterns for more details on the syntax of these strings and Match patterns and globs for information on how to exclude URLs.
+        /// </summary>
+        public JsArray<JsString> exclude_matches { get; set; }
+
+        /// <summary>
+        /// Optional. The list of CSS files to be injected into matching pages.
+        /// These are injected in the order they appear in this array, before any DOM is constructed or displayed for the page.
+        /// </summary>
+        public JsArray<JsString> css { get; set; }
+
+        /// <summary>
+        /// Optional. The list of JavaScript files to be injected into matching pages. These are injected in the order they appear in this array.
+        /// </summary>
+        public JsArray<JsString> js { get; set; }
+
+        /// <summary>
+        /// Optional. Controls when the files in js are injected. Can be "document_start", "document_end", or "document_idle". Defaults to "document_idle". 
+        /// 
+        /// In the case of "document_start", the files are injected after any files from css, but before any other DOM is constructed or any other script is run. 
+        /// 
+        /// In the case of "document_end", the files are injected immediately after the DOM is complete, but before subresources like images and frames have loaded. 
+        /// 
+        /// In the case of "document_idle", the browser chooses a time to inject scripts between "document_end" and immediately after the window.onload event fires.
+        /// The exact moment of injection depends on how complex the document is and how long it is taking to load, and is optimized for page load speed. 
+        /// 
+        /// Note: With "document_idle", content scripts may not necessarily receive the window.onload event, because they may run after it has already fired.
+        /// In most cases, listening for the onload event is unnecessary for content scripts running at "document_idle" because they are guaranteed to run after the DOM is complete.
+        /// If your script definitely needs to run after window.onload, you can check if onload has already fired by using the document.readyState property.
+        /// </summary>
+        public JsArray<RunAtTypes> run_at { get; set; }
+
+        /// <summary>
+        /// Optional. Controls whether the content script runs in all frames of the matching page, or only the top frame. 
+        /// Defaults to false, meaning that only the top frame is matched.
+        /// </summary>
+        public bool all_frames { get; set; }
+
+        /// <summary>
+        /// Optional. Applied after matches to include only those URLs that also match this glob.
+        /// Intended to emulate the @include Greasemonkey keyword. See Match patterns and globs below for more details.
+        /// </summary>
+        public JsArray<JsString> include_globs { get; set; }
+
+        /// <summary>
+        /// Optional. Applied after matches to exclude URLs that match this glob.
+        /// Intended to emulate the @exclude Greasemonkey keyword. See Match patterns and globs below for more details.
+        /// </summary>
+        public JsArray<JsString> pageToOverride { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum ContainerType
+    {
+        panel,
+        tab,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum IncognitoType
+    {
+        spanning,
+        split,
+    }
+
+    /// <summary>
+    /// The following table lists the permissions an extension or packaged app can use.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum PermissionType
+    {
+        /// <summary>
+        /// Specifies a host permission. Required if the extension wants to interact with the code running on pages.
+        /// Many extension capabilities, such as cross-origin XMLHttpRequests,
+        /// programmatically injected content scripts, and the cookies API require host permissions. For details on the syntax, see Match Patterns.
+        /// </summary>
+        match_pattern,
+        /// <summary>
+        /// Makes Chrome start up early and and shut down late, so that apps and extensions can have a longer life.
+        /// When any installed hosted app, packaged app, or extension has "background" permission,
+        /// Chrome runs (invisibly) as soon as the user logs into their computer—before the user launches Chrome.
+        /// The "background" permission also makes Chrome continue running (even after its last window is closed) until the user explicitly quits Chrome.
+        /// Note: Disabled apps and extensions are treated as if they aren't installed.
+        /// You typically use the "background" permission with a background page or (for hosted apps) a background window.
+        /// </summary>
+        background,
+        /// <summary>
+        /// Required if the extension uses the chrome.bookmarks module.
+        /// </summary>
+        bookmarks,
+        /// <summary>
+        /// Required if the extension uses the "chrome://favicon/url" mechanism to display the favicon of a page.
+        /// For example, to display the favicon of http://www.google.com/, you declare the "chrome://favicon/" permission and use HTML code like this:
+        ///&lt;img src="chrome://favicon/http://www.google.com/">
+        /// </summary>
+        favicon,
+        /// <summary>
+        /// Required if the extension uses document.execCommand('paste').
+        /// </summary>
+        clipboardRead,
+        /// <summary>
+        /// Indicates the app or extension uses document.execCommand('copy') or document.execCommand('cut').
+        /// This permission is required for hosted apps; it's recommended for extensions and packaged apps.
+        /// </summary>
+        clipboardWrite,
+        /// <summary>
+        /// Required if the extension uses the chrome.contentSettings module.
+        /// </summary>
+        contentSettings,
+        /// <summary>
+        /// Required if the extension uses the chrome.contextMenus module.
+        /// </summary>
+        contextMenus,
+        /// <summary>
+        /// Required if the extension uses the chrome.cookies module.
+        /// </summary>
+        cookies,
+        /// <summary>
+        /// Required if the extension uses any chrome.experimental.* APIs.
+        /// </summary>
+        experimental,
+        /// <summary>
+        /// Required if the extension uses the fileBrowserhandler module.
+        /// </summary>
+        fileBrowserHandler,
+        /// <summary>
+        /// Allows the extension to use the proposed HTML5 geolocation API without prompting the user for permission.
+        /// </summary>
+        geolocation,
+        /// <summary>
+        /// Required if the extension uses the chrome.history module.
+        /// </summary>
+        history,
+        /// <summary>
+        /// Required if the extension uses the chrome.idle module.
+        /// </summary>
+        idle,
+        /// <summary>
+        /// Required if the extension uses the chrome.management module.
+        /// </summary>
+        management,
+        /// <summary>
+        /// Allows the extension to use the proposed HTML5 notification API without calling permission methods
+        /// (such as checkPermission()). For more information see Desktop Notifications.
+        /// </summary>
+        notifications,
+        /// <summary>
+        /// Required if the extension uses the chrome.privacy module.
+        /// </summary>
+        privacy,
+        /// <summary>
+        /// Required if the extension uses the chrome.proxy module.
+        /// </summary>
+        proxy,
+        /// <summary>
+        /// Required if the extension uses the chrome.tabs or chrome.windows module.
+        /// </summary>
+        tabs,
+        /// <summary>
+        /// Required if the extension uses the chrome.tts module.
+        /// </summary>
+        tts,
+        /// <summary>
+        /// Required if the extension uses the chrome.ttsEngine module.
+        /// </summary>
+        ttsEngine,
+        /// <summary>
+        /// Provides an unlimited quota for storing HTML5 client-side data, such as databases and local storage files.
+        /// Without this permission, the extension is limited to 5 MB of local storage.
+        /// Note: This permission applies only to Web SQL Database and application cache (see issue 58985).
+        /// Also, it doesn't currently work with wildcard subdomains such as http://*.example.com.
+        /// </summary>
+        unlimitedStorage,
+        /// <summary>
+        /// Required if the extension uses the chrome.webNavigation module.
+        /// </summary>
+        webNavigation,
+        /// <summary>
+        /// Required if the extension uses the chrome.webRequest module.
+        /// </summary>
+        webRequest,
+        /// <summary>
+        /// Required if the extension uses the chrome.webRequest module in a blocking fashion.
+        /// </summary>
+        webRequestBlocking,
+    }
+
+    #endregion
+
 }
 
