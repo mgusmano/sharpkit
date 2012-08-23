@@ -1913,9 +1913,9 @@ namespace SharpKit.Google.Chrome
     [JsType(JsMode.Prototype, Name = "chrome.events.Event", Export = false)]
     public class Event<T>
     {
-        public void addEventListener(T action) { }
-        public void removeEventListener(T action) { }
-        public bool hasEventListener(T action) { return false; }
+        public void addListener(T action) { }
+        public void removeListener(T action) { }
+        public bool hasListener(T action) { return false; }
 
 
         /// <summary>
@@ -1967,15 +1967,15 @@ namespace SharpKit.Google.Chrome
     [JsType(JsMode.Prototype, Name = "chrome.events.Event", Export = false)]
     public class WebRequestEvent<T> : Event<T>
     {
-        public BlockingResponse addEventListener(T action, RequestFilter filter) { return null; }
+        public BlockingResponse addListener(T action, RequestFilter filter) { return null; }
     }
 
     [JsType(JsMode.Prototype, Name = "chrome.events.Event", Export = false)]
     public class WebRequestEvent<T, S> : WebRequestEvent<T>
     {
-        public BlockingResponse addEventListener(T action, RequestFilter filter, JsArray<JsString> extraInfoSpec) { return null; }
-        public BlockingResponse addEventListener(T action, RequestFilter filter, JsArray<S> extraInfoSpec) { return null; }
-        public BlockingResponse addEventListener(T action, RequestFilter filter, S[] extraInfoSpec) { return null; }
+        public BlockingResponse addListener(T action, RequestFilter filter, JsArray<JsString> extraInfoSpec) { return null; }
+        public BlockingResponse addListener(T action, RequestFilter filter, JsArray<S> extraInfoSpec) { return null; }
+        public BlockingResponse addListener(T action, RequestFilter filter, S[] extraInfoSpec) { return null; }
     }
 
     /// <summary>
@@ -6658,12 +6658,12 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// The windowId value that represents the absence of a chrome browser window.
         /// </summary>
-        public static const int WINDOW_ID_NONE = -1;
+        public const int WINDOW_ID_NONE = -1;
 
         /// <summary>
         /// The windowId value that represents the current window.
         /// </summary>
-        public static const int WINDOW_ID_CURRENT = -2;
+        public const int WINDOW_ID_CURRENT = -2;
 
         /// <summary>
         /// Creates (opens) a new browser with any optional sizing, position or default URL provided.
@@ -6772,7 +6772,7 @@ namespace SharpKit.Google.Chrome
         /// <summary>
         /// Fired when a window is removed (closed).
         /// </summary>
-        public Event<JsAction<JsNumber>> onCreated { get; set; }
+        public Event<JsAction<JsNumber>> onRemoved { get; set; }
 
     }
 
