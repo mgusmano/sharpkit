@@ -26,6 +26,7 @@ namespace SharpKit.ExtJs4.Generator.ExtDocModel
         public string filename { get; set; }
         public string href { get; set; }
         public string html_filename { get; set; }
+        public string html { get; set; }
         public bool inheritable { get; set; }
         public int linenr { get; set; }
         public ExtMembers members { get; set; }
@@ -41,6 +42,46 @@ namespace SharpKit.ExtJs4.Generator.ExtDocModel
         public List<string> superclasses { get; set; }
         public string tagname { get; set; }
         public List<object> xtypes { get; set; }
+
+        public IEnumerable<ExtMember> AllMembers
+        {
+            get
+            {
+                foreach ( var member in members.cfg )
+                {
+                    yield return member;
+                }
+                foreach ( var member in members.property )
+                {
+                    yield return member;
+                }
+                foreach ( var member in members.method )
+                {
+                    yield return member;
+                }
+                foreach ( var member in members.@event )
+                {
+                    yield return member;
+                }
+
+                foreach ( var member in statics.cfg )
+                {
+                    yield return member;
+                }
+                foreach ( var member in statics.property )
+                {
+                    yield return member;
+                }
+                foreach ( var member in statics.method )
+                {
+                    yield return member;
+                }
+                foreach ( var member in statics.@event )
+                {
+                    yield return member;
+                }
+            }
+        }
     }
     public partial class ExtMembers
     {
@@ -53,6 +94,11 @@ namespace SharpKit.ExtJs4.Generator.ExtDocModel
     }
     public partial class ExtMember
     {
+        public string defined_in;
+        public string paramsDocs;
+        public string returnsDocs;
+        public string id;
+
         public override string ToString()
         {
             return name;
@@ -76,7 +122,19 @@ namespace SharpKit.ExtJs4.Generator.ExtDocModel
         public string tagname { get; set; }
 
         public string type { get; set; }
+
+        public Meta meta { get; set; }
+
+        public bool ReturnsArray { get; set; }
     }
+
+    public class Meta
+    {
+        public bool @private { get; set; }
+        public bool @protected { get; set; }
+        public bool @static { get; set; }
+    }
+
     public partial class ExtParam
     {
         public override string ToString()

@@ -12,36 +12,43 @@ namespace SharpKit.ExtJs4.Generator
             Members = new List<Element>();
             GenericArguments = new List<Class>();
             Interfaces = new List<Class>();
+            SubClasses = new List<Class>();
         }
         public string Namespace { get; set; }
         public List<Class> GenericArguments { get; set; }
         public Class BaseClass { get; set; }
         public List<Class> Interfaces { get; set; }
         public List<Element> Members { get; set; }
+        public List<Class> SubClasses { get; set; }
         public string FullName
         {
             get
             {
-                if (DeclaringClass != null)
+                if ( DeclaringClass != null )
                 {
                     return DeclaringClass.FullName + "+" + Name;
                 }
-                if (Namespace.IsNotNullOrEmpty())
+                if ( Namespace.IsNotNullOrEmpty() )
                     return Namespace + "." + Name;
                 return Name;
             }
             set
             {
-                var tokens = value.Split('.');
-                Name = tokens.Skip(tokens.Length - 1).First();
-                Namespace = tokens.Take(tokens.Length - 1).StringConcat(".");
+                var tokens = value.Split( '.' );
+                Name = tokens.Skip( tokens.Length - 1 ).First();
+                Namespace = tokens.Take( tokens.Length - 1 ).StringConcat( "." );
             }
         }
         public override string ToString()
         {
-            return FullName;
+            return "Class: +" + FullName;
         }
         public bool IsInterface { get; set; }
+
+        public bool IsDeclared( Element el )
+        {
+            return el != null && this.Members.Any( m => m != null && m.Name.IsNotNullOrEmpty() && m.Name.Equals( el.Name, StringComparison.Ordinal ) && m.IsStatic == el.IsStatic );
+        }
     }
     class Method : Element
     {
@@ -52,10 +59,17 @@ namespace SharpKit.ExtJs4.Generator
         public List<Parameter> Parameters { get; set; }
 
         public bool IsConstructor { get; set; }
+
+        public string ParametersDocs { get; set; }
+
+        public string ReturnsDocs { get; set; }
+
+        public bool ReturnsArray { get; set; }
     }
     class Parameter : Element
     {
         public bool IsOptional { get; set; }
+        public bool IsParams { get; set; }
     }
     class Field : Element
     {
@@ -69,6 +83,9 @@ namespace SharpKit.ExtJs4.Generator
     }
     class Element
     {
+        private bool isOverride;
+        private bool isNew;
+
         public Element()
         {
             Attributes = new List<Attribute>();
@@ -80,19 +97,37 @@ namespace SharpKit.ExtJs4.Generator
         public string Name { get; set; }
         public override string ToString()
         {
-            return Name;
+            return this.GetType().Name + ": " + Name;
         }
 
         public List<Attribute> Attributes { get; set; }
         public string Summary { get; set; }
         public string Remarks { get; set; }
 
-
         public bool IsVirtual { get; set; }
 
-        public bool IsOverride { get; set; }
+        public bool IsOverride
+        {
+            get { return this.isOverride; }
+            set
+            {
+                if ( value && this.IsVirtual )
+                {
+                    this.IsVirtual = false;
+                    this.IsNew = false;
+                }
+                this.isOverride = value;
+            }
+        }
 
-        public bool IsNew { get; set; }
+        public bool IsNew
+        {
+            get
+            {
+                return this.isNew && !this.IsVirtual;
+            }
+            set { this.isNew = value; }
+        }
 
         public bool IsProtected { get; set; }
 
@@ -111,17 +146,17 @@ namespace SharpKit.ExtJs4.Generator
         {
             get
             {
-                foreach (var ce in Classes)
+                foreach ( var ce in Classes )
                 {
                     yield return ce;
-                    foreach (var ce2 in ce.Members.OfType<Class>())
+                    foreach ( var ce2 in ce.Members.OfType<Class>() )
                         yield return ce2;
                 }
             }
         }
-        public Class GetClass(string fullName)
+        public Class GetClass( string fullName )
         {
-            return AllClasses.Where(t => t.FullName == fullName).FirstOrDefault();
+            return AllClasses.Where( t => t.FullName == fullName ).FirstOrDefault();
         }
         public List<string> Usings { get; set; }
     }
@@ -135,18 +170,18 @@ namespace SharpKit.ExtJs4.Generator
         }
         public List<Assembly> Assemblies { get; set; }
         public Dictionary<string, string> ClassMappings { get; set; }
-        public Class GetClass(string name)
+        public Class GetClass( string name )
         {
-            name = ClassMappings.TryGetValue(name) ?? name;
-            foreach (var asm in Assemblies)
+            name = ClassMappings.TryGetValue( name ) ?? name;
+            foreach ( var asm in Assemblies )
             {
-                var type = asm.GetClass(name);
-                if (type != null)
+                var type = asm.GetClass( name );
+                if ( type != null )
                     return type;
             }
             return null;
         }
-        public Class MakeGenericClass(Class ce, List<Class> genericArgs)
+        public Class MakeGenericClass( Class ce, List<Class> genericArgs )
         {
             return new Class { Name = ce.Name, Namespace = ce.Namespace, GenericArguments = genericArgs };
         }
@@ -161,7 +196,7 @@ namespace SharpKit.ExtJs4.Generator
         }
         public Attribute Clone()
         {
-            return new Attribute { Name = Name, Parameters = new List<string>(Parameters), NamedParamters = new Dictionary<string, string>(NamedParamters) };
+            return new Attribute { Name = Name, Parameters = new List<string>( Parameters ), NamedParamters = new Dictionary<string, string>( NamedParamters ) };
         }
         public string Name { get; set; }
         public List<string> Parameters { get; set; }
@@ -171,25 +206,25 @@ namespace SharpKit.ExtJs4.Generator
 
     static class CodeModelExtensions
     {
-        public static bool HasEmptyConstructor(this Class ce)
+        public static bool HasEmptyConstructor( this Class ce )
         {
-            return ce.Members.OfType<Method>().Where(t => t.IsConstructor && t.Parameters.Count == 0).FirstOrDefault() != null;
+            return ce.Members.OfType<Method>().Where( t => t.IsConstructor && t.Parameters.Count == 0 ).FirstOrDefault() != null;
         }
-        public static bool HasAnyConstructor(this Class ce)
+        public static bool HasAnyConstructor( this Class ce )
         {
-            return ce.Members.OfType<Method>().Where(t => t.IsConstructor).FirstOrDefault() != null;
+            return ce.Members.OfType<Method>().Where( t => t.IsConstructor ).FirstOrDefault() != null;
         }
-        public static IEnumerable<Method> Methods(this Class ce)
+        public static IEnumerable<Method> Methods( this Class ce )
         {
-            return ce.Members.OfType<Method>().Where(t=>!t.IsConstructor);
+            return ce.Members.OfType<Method>().Where( t => !t.IsConstructor );
         }
-        public static IEnumerable<Property> Properties(this Class ce)
+        public static IEnumerable<Property> Properties( this Class ce )
         {
             return ce.Members.OfType<Property>();
         }
-        public static IEnumerable<Method> Constructors(this Class ce)
+        public static IEnumerable<Method> Constructors( this Class ce )
         {
-            return ce.Members.OfType<Method>().Where(t=>t.IsConstructor);
+            return ce.Members.OfType<Method>().Where( t => t.IsConstructor );
         }
     }
 

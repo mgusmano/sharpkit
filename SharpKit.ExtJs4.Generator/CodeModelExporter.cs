@@ -23,44 +23,45 @@ namespace SharpKit.ExtJs4.Generator
             "switch",
             "true", "false",
             "params","lock","checked","fixed","private", "protected", "public", "internal", "static",
-            "return", "override","virtual", "sealed","string","this", "base"
+            "return", "override","virtual", "sealed","string","this", "base",
+            "ref", "out"
         };
 
         #region Write
-        
-        private void Write(string s, params object[] args)
+
+        private void Write( string s, params object[] args )
         {
-            Writer.Write(s, args);
+            Writer.Write( s, args );
         }
-        private void Write(string s)
+        private void Write( string s )
         {
-            Writer.Write(s);
+            Writer.Write( s );
         }
         private void WriteLine()
         {
             Writer.WriteLine();
         }
-        private void WriteLine(string s, params object[] args)
+        private void WriteLine( string s, params object[] args )
         {
-            Writer.WriteLine(s, args);
+            Writer.WriteLine( s, args );
         }
-        private void WriteLine(string s)
+        private void WriteLine( string s )
         {
-            Writer.WriteLine(s);
+            Writer.WriteLine( s );
         }
         private void BeginBlock()
         {
-            WriteLine("{");
+            WriteLine( "{" );
             Writer.Indent++;
         }
         private void EndBlock()
         {
             Writer.Indent--;
-            WriteLine("}");
+            WriteLine( "}" );
         }
         void WriteComma()
         {
-            Write(", ");
+            Write( ", " );
         }
 
         #endregion
@@ -73,29 +74,29 @@ namespace SharpKit.ExtJs4.Generator
         //    return s;
         //}
         Class ContextClass;
-        string Class(Class ce, Class context=null)
+        string Class( Class ce, Class context = null )
         {
-            if (context == null)
+            if ( context == null )
                 context = ContextClass;
             string name = null;
-            if (ce.GenericArguments.Count > 0)
-                name = ce.Name.Substring(0, ce.Name.IndexOf("`")) + ce.GenericArguments.StringConcat(t=>Class(t), "<", ", ", ">");
+            if ( ce.GenericArguments.Count > 0 )
+                name = ce.Name.Substring( 0, ce.Name.IndexOf( "`" ) ) + ce.GenericArguments.StringConcat( t => Class( t ), "<", ", ", ">" );
             else
                 name = ce.Name;
-            if (ce.Namespace.IsNotNullOrEmpty())
+            if ( ce.Namespace.IsNotNullOrEmpty() )
             {
-                if(context!=null && !context.Namespace.StartsWith(ce.Namespace))
+                if ( context != null && !context.Namespace.StartsWith( ce.Namespace ) )
                     name = ce.Namespace + "." + name;
-                else if (Assembly != null && Assembly.AllClasses.Where(t => t.Name == name).Count() > 1)
+                else if ( Assembly != null && this.Assembly.AllClasses.Count( t => t.Name == name ) > 1 )
                     name = ce.Namespace + "." + name;
             }
             return name;
         }
-        string Identifier(string s)
+        string Identifier( string s )
         {
-            if (keywords.Contains(s))
+            if ( keywords.Contains( s ) )
                 return "@" + s;
-            s = s.Replace(" ", "_").Replace("(", "_").Replace(")", "_").Replace("-", "_");
+            s = s.Replace( " ", "_" ).Replace( "(", "_" ).Replace( ")", "_" ).Replace( "-", "_" );
             return s;
         }
 
@@ -103,186 +104,188 @@ namespace SharpKit.ExtJs4.Generator
         public void Export()
         {
             ExportHeader();
-            Export(Assembly.Classes);
+            Export( Assembly.Classes );
             //asm.Classes.ForEach(Export);
         }
-        public void Export(List<Class> list)
+        public void Export( List<Class> list )
         {
-            list.GroupBy(t => t.Namespace).ForEach(t =>
+            list.GroupBy( t => t.Namespace ).ForEach( t =>
             {
-                WriteLine("#region {0}", t.Key);
-                Namespace(t.Key, delegate
+                WriteLine( "#region {0}", t.Key );
+                Namespace( t.Key, () => t.ForEach( ce =>
                 {
-                    t.ForEach(ce =>
-                    {
-                        WriteLine("#region {0}", ce.Name);
-                        Export(ce);
-                        WriteLine("#endregion");
-                    });
-                });
-                WriteLine("#endregion");
-            });
+                    this.WriteLine( "#region {0}", ce.Name );
+                    this.Export( ce );
+                    this.WriteLine( "#endregion" );
+                } ) );
+                WriteLine( "#endregion" );
+            } );
             //asm.Classes.ForEach(Export);
         }
 
         public void ExportHeader()
         {
-            WriteLine("//***************************************************");
-            WriteLine("//* This file was generated by tool", DateTime.Now);
-            WriteLine("//* SharpKit");
-            WriteLine("//***************************************************");
-            Assembly.Usings.ForEach(t => WriteLine("using {0};", t));
+            WriteLine( "//***************************************************" );
+            WriteLine( "//* This file was generated by tool", DateTime.Now );
+            WriteLine( "//* SharpKit" );
+            WriteLine( "//***************************************************" );
+            Assembly.Usings.ForEach( t => WriteLine( "using {0};", t ) );
         }
-        public void Export(Class ce)
+        public void Export( Class ce )
         {
             ContextClass = ce;
-            ExportXmlDoc2(ce);
-            ce.Attributes.ForEach(Export);
-            Write("public {0}partial {1} {2}", ce.IsNew.If("new "), ce.IsInterface.If("interface", "class"), Identifier(ce.Name));
+            ExportXmlDoc2( ce );
+            ce.Attributes.ForEach( Export );
+            Write( "public {0}partial {1} {2}", ce.IsNew.If( "new " ), ce.IsInterface.If( "interface", "class" ), Identifier( ce.Name ) );
             var bases = new List<Class>();
-            if (ce.BaseClass != null)
-                bases.Add(ce.BaseClass);
-            bases.AddRange(ce.Interfaces);
-            if(bases.Count>0)
+            if ( ce.BaseClass != null )
+                bases.Add( ce.BaseClass );
+            bases.AddRange( ce.Interfaces );
+            if ( bases.Count > 0 )
             {
-                Write(" : ");
-                bases.ForEachJoin(t => Write("{0}", Class(t)), WriteComma);
+                Write( " : " );
+                bases.ForEachJoin( t => Write( "{0}", Class( t ) ), WriteComma );
             }
             WriteLine();
             BeginBlock();
-            ce.Members.ForEach(Export);
+            ce.Members.ForEach( Export );
+            ce.SubClasses.ForEach( Export );
             EndBlock();
             ContextClass = null;
         }
-        private void Export(Method me)
+        private void Export( Method me )
         {
-            ExportXmlDoc2(me);
-            me.Attributes.ForEach(Export);
-            if (me.IsConstructor)
+            ExportXmlDoc2( me );
+            me.Attributes.ForEach( Export );
+            if ( me.IsConstructor )
             {
-                Write("public {0}(", Identifier(me.DeclaringClass.Name));
-                me.Parameters.ForEachJoin(Export, WriteComma);
-                Write(")");
-                if (me.DeclaringClass.BaseClass != null)
-                {
-                    var baseCtors = me.DeclaringClass.BaseClass.Members.OfType<Method>().Where(t => t.IsConstructor).ToList();
-                    if (baseCtors.Count > 0 && baseCtors.Where(t => t.Parameters.Count == 0).FirstOrDefault() == null)
-                    {
-                        Write(" : base(");
-                        baseCtors.First().Parameters.ForEachJoin(p => Write("null"), WriteComma);
-                        Write(")");
-                    }
-                }
-                WriteLine("{}");
+                Write( "public {0}(", Identifier( me.DeclaringClass.Name ) );
+                me.Parameters.ForEachJoin( Export, WriteComma );
+                Write( ")" );
+                //if ( me.DeclaringClass.BaseClass != null )
+                //{
+                //    var baseCtors = me.DeclaringClass.BaseClass.Members.OfType<Method>().Where( t => t.IsConstructor ).ToList();
+                //    if ( baseCtors.Count > 0 && baseCtors.Where( t => t.Parameters.Count == 0 ).FirstOrDefault() == null )
+                //    {
+                //        Write( " : base(" );
+                //        baseCtors.First().Parameters.ForEachJoin( p => Write( "null" ), WriteComma );
+                //        Write( ")" );
+                //    }
+                //}
+                WriteLine( "{}" );
             }
             else
             {
-                ExportVisibility(me);
-                Write("{0}{1}{2}{3}{4} {5}(", me.IsStatic.If("static "), me.IsVirtual.If("virtual "), me.IsOverride.If("override "), me.IsNew.If("new "), me.Type == null ? "void" : Class(me.Type), Identifier(me.Name));
-                me.Parameters.ForEachJoin(Export, WriteComma);
-                Write(")");
-                if (me.DeclaringClass.IsInterface)
+                ExportVisibility( me );
+                Write( "{0}{1}{2}{3}{4}{5} {6}(", me.IsStatic.If( "static " ), me.IsVirtual.If( "virtual " ), me.IsOverride.If( "override " ), me.IsNew.If( "new " ), me.Type == null ? "void" : Class( me.Type ), me.ReturnsArray.If( "[]" ), Identifier( me.Name ) );
+                me.Parameters.ForEachJoin( Export, WriteComma );
+                Write( ")" );
+                if ( me.DeclaringClass.IsInterface )
                 {
-                    WriteLine(";");
+                    WriteLine( ";" );
                 }
                 else
                 {
-                    Write("{");
-                    if (me.Type != null && me.Type.Name != "void")
+                    Write( "{" );
+                    if ( me.Type != null && me.Type.Name != "void" )
                     {
-                        if (me.Type.Name == "bool")
-                            Write("return false;");
+                        if ( me.Type.Name == "bool" )
+                            Write( "return false;" );
                         else
-                            Write("return null;", Class(me.Type));
+                            Write( "return null;", Class( me.Type ) );
                     }
-                    WriteLine("}");
+                    WriteLine( "}" );
                 }
             }
         }
 
 
-        private void Export(Parameter prm)
+        private void Export( Parameter prm )
         {
-            Write("{0} {1}", Class(prm.Type), Identifier(prm.Name));
-            if (prm.IsOptional)
+            Write( "{0}{1}{2} {3}", prm.IsParams.IfTrue( "params " ), Class( prm.Type ), prm.IsParams.IfTrue( "[]" ), Identifier( prm.Name ) );
+            if ( prm.IsOptional )
             {
-                if (prm.Type.Name == "bool")
-                    Write("=false");
+                if ( prm.Type.Name == "bool" )
+                    Write( "=false" );
                 else
-                    Write("=null");
+                    Write( "=null" );
             }
         }
 
-        void Export(Element el)
+        void Export( Element el )
         {
-            if (el is Method)
-                Export((Method)el);
-            else if (el is Property)
-                Export((Property)el);
-            else if (el is Class)
-                Export((Class)el);
-            else if (el is Event)
-                Export((Event)el);
-            else if (el is Field)
-                Export((Field)el);
+            if ( el is Method )
+                Export( ( Method ) el );
+            else if ( el is Property )
+                Export( ( Property ) el );
+            else if ( el is Class )
+                Export( ( Class ) el );
+            else if ( el is Event )
+                Export( ( Event ) el );
+            else if ( el is Field )
+                Export( ( Field ) el );
             else
                 throw new Exception();
         }
 
-        private void Export(Field pe)
+        private void Export( Field pe )
         {
-            ExportXmlDoc2(pe);
-            pe.Attributes.ForEach(Export);
-            Write("public {0}{1}{2}{3}{4} {5}", pe.IsStatic.If("static "), pe.IsVirtual.If("virtual "), pe.IsOverride.If("override "), pe.IsNew.If("new "), Class(pe.Type), Identifier(pe.Name));
-            if (pe.Initializer.IsNotNullOrEmpty())
-                Write("={0}", pe.Initializer);
-            WriteLine(";");
+            ExportXmlDoc2( pe );
+            pe.Attributes.ForEach( Export );
+            Write( "public {0}{1}{2}{3}{4} {5}", pe.IsStatic.If( "static " ), pe.IsVirtual.If( "virtual " ), pe.IsOverride.If( "override " ), pe.IsNew.If( "new " ), Class( pe.Type ), Identifier( pe.Name ) );
+            if ( pe.Initializer.IsNotNullOrEmpty() )
+                Write( "={0}", pe.Initializer );
+            WriteLine( ";" );
         }
-        private void Export(Property pe)
+        private void Export( Property pe )
         {
-            ExportXmlDoc2(pe);
-            pe.Attributes.ForEach(Export);
-            ExportVisibility(pe);
-            WriteLine("{0}{1}{2}{3}{4} {5}{{get;set;}}", pe.IsStatic.If("static "), pe.IsVirtual.If("virtual "), pe.IsOverride.If("override "), pe.IsNew.If("new "), Class(pe.Type), Identifier(pe.Name));
+            ExportXmlDoc2( pe );
+            pe.Attributes.ForEach( Export );
+            ExportVisibility( pe );
+            WriteLine( "{0}{1}{2}{3}{4} {5}{{get;set;}}", pe.IsStatic.If( "static " ), pe.IsVirtual.If( "virtual " ), pe.IsOverride.If( "override " ), pe.IsNew.If( "new " ), Class( pe.Type ), Identifier( pe.Name ) );
         }
 
-        private void ExportVisibility(Element el)
+        private void ExportVisibility( Element el )
         {
-            if (el is Class)
-            {
-            }
-            else
+            if ( !( el is Class ) )
             {
                 var ce = el.DeclaringClass;
-                if (!ce.IsInterface)
+                if ( !ce.IsInterface )
                 {
-                    if (el.IsProtected)
-                        Write("protected ");
-                    else if(el.IsPrivate)
-                        Write("private ");
+                    if ( el.IsProtected )
+                    {
+                        Write( "protected " );
+                    }
+                    else if ( el.IsPrivate )
+                    {
+                        Write( "private " );
+                    }
                     else
-                        Write("public ");
+                    {
+                        Write( "public " );
+                    }
                 }
             }
         }
-        private void Export(Event pe)
+
+        private void Export( Event pe )
         {
-            ExportXmlDoc2(pe);
-            pe.Attributes.ForEach(Export);
-            ExportVisibility(pe);
-            WriteLine("event {0}{1}{2}{3}{4} {5};", pe.IsStatic.If("static "), pe.IsVirtual.If("virtual "), pe.IsOverride.If("override "), pe.IsNew.If("new "), Class(pe.Type), Identifier(pe.Name));
+            ExportXmlDoc2( pe );
+            pe.Attributes.ForEach( Export );
+            ExportVisibility( pe );
+            WriteLine( "event {0}{1}{2}{3}{4} {5};", pe.IsStatic.If( "static " ), pe.IsVirtual.If( "virtual " ), pe.IsOverride.If( "override " ), pe.IsNew.If( "new " ), Class( pe.Type ), Identifier( pe.Name ) );
         }
 
 
-        private void Namespace(string ns, Action action)
+        private void Namespace( string ns, Action action )
         {
-            if (ns.IsNotNullOrEmpty())
+            if ( ns.IsNotNullOrEmpty() )
             {
-                WriteLine("namespace {0}", ns);
+                WriteLine( "namespace {0}", ns );
                 BeginBlock();
             }
             action();
-            if (ns.IsNotNullOrEmpty())
+            if ( ns.IsNotNullOrEmpty() )
             {
                 EndBlock();
             }
@@ -293,50 +296,70 @@ namespace SharpKit.ExtJs4.Generator
         public bool ExportXmlDoc { get; set; }
         public bool ExportXmlDocRemarks { get; set; }
 
-        void WriteXmlDoc(string ss)
+        void WriteXmlDoc( string ss )
         {
-            ss.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries).ForEach(t =>
+            if ( string.IsNullOrEmpty( ss ) )
+                return;
+            ss.Split( new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries ).ForEach( t =>
             {
                 var s = t.Trim();
-                if (s.IsNotNullOrEmpty())
-                    WriteLine("/// " + s);
-            });
+                if ( s.IsNotNullOrEmpty() )
+                    WriteLine( "/// " + s );
+            } );
 
         }
-        void ExportXmlDoc2(Element me)
+        void ExportXmlDoc2( Element me )
         {
-            if (ExportXmlDoc)
+            if ( ExportXmlDoc )
             {
-                if (me.Summary != null)
+                if ( me is Class )
                 {
-                    WriteLine("/// <summary>");
-                    WriteXmlDoc(me.Summary);
-                    //WriteLine("/// " + me.Summary.Trim());
-                    WriteLine("/// </summary>");
+                    var c = me as Class;
+                    if ( c.BaseClass != null )
+                    {
+                        this.WriteLine( "/// <inheritdocs />" );
+                    }
                 }
-                if (ExportXmlDocRemarks && me.Remarks != null)
+                if ( me.Summary != null )
+                {
+                    WriteLine( "/// <summary>" );
+                    WriteXmlDoc( me.Summary );
+                    WriteLine( "/// </summary>" );
+                }
+                if ( me is Method )
+                {
+                    if ( ( me as Method ).ParametersDocs != null )
+                        this.WriteXmlDoc( ( me as Method ).ParametersDocs );
+                    if ( ( me as Method ).ReturnsDocs != null )
+                    {
+                        WriteLine( "/// <returns>" );
+                        this.WriteXmlDoc( ( me as Method ).ReturnsDocs );
+                        WriteLine( "/// </returns>" );
+                    }
+                }
+                if ( ExportXmlDocRemarks && me.Remarks != null )
                 {
                     //WriteLine("/// <remarks>");
-                    WriteXmlDoc(me.Remarks);
+                    WriteXmlDoc( me.Remarks );
                     //WriteLine("/// </remarks>");
                 }
             }
         }
 
         #endregion
-        void Export(Attribute att)
+        void Export( Attribute att )
         {
-            Write("[{0}", att.Name);
-            if (att.Parameters.Count > 0 || att.NamedParamters.Count > 0)
+            Write( "[{0}", att.Name );
+            if ( att.Parameters.Count > 0 || att.NamedParamters.Count > 0 )
             {
-                Write("(");
-                att.Parameters.ForEachJoin(Write, WriteComma);
-                if (att.Parameters.Count > 0 && att.NamedParamters.Count > 0)
-                    Write(", ");
-                att.NamedParamters.ForEachJoin(t => Write("{0}={1}", t.Key, t.Value), WriteComma);
-                Write(")");
+                Write( "(" );
+                att.Parameters.ForEachJoin( Write, WriteComma );
+                if ( att.Parameters.Count > 0 && att.NamedParamters.Count > 0 )
+                    Write( ", " );
+                att.NamedParamters.ForEachJoin( t => Write( "{0}={1}", t.Key, t.Value ), WriteComma );
+                Write( ")" );
             }
-            WriteLine("]");
+            WriteLine( "]" );
         }
 
         public IndentedTextWriter Writer { get; set; }
