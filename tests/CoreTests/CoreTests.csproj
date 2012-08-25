@@ -38,12 +38,15 @@
     <Compile Include="Class5.cs" />
     <Compile Include="Class6.cs" />
     <Compile Include="Class7.cs" />
+    <Compile Include="Constants\Constants.cs" />
+    <Compile Include="Constructors\Constructors.cs" />
     <Compile Include="Dynamics\Dynamics.cs" />
     <Compile Include="Events\CustomEvents.cs" />
     <Compile Include="Methods\NamedParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="SharpKit.JavaScript, Version=1.5.0.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL" />
     <Reference Include="System" />
   </ItemGroup>

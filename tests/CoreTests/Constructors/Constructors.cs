@@ -4,17 +4,14 @@ using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
 
-namespace CoreTests.Dynamics
+namespace CoreTests.Constructors
 {
     [JsType(JsMode.Prototype)]
-    class Dynamics
+    class Constructors
     {
-        void TestMethod() { dynamic d; }
-
-
-        public void parse(dynamic dateNode)
+        static Constructors()
         {
-            JsString dateString = dateNode["$t"];
+            var x = 7;
         }
     }
 }
