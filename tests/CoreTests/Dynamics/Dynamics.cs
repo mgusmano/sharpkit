@@ -14,7 +14,7 @@ namespace CoreTests.Dynamics
 
         public void parse(dynamic dateNode)
         {
-            JsString dateString = dateNode["$t"];
+            //JsString dateString = dateNode["$t"];
         }
     }
 }
