@@ -52,7 +52,9 @@
     <Reference Include="SharpKit.jQuery" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DeepClone\ObjectCloner.js" />
     <Content Include="Default.aspx" />
+    <Content Include="DefaultClient.js" />
     <Content Include="res\ClrModeSamples.js" />
     <Content Include="res\jquery-1.6.4.min.js" />
     <Content Include="res\jsclr-4.1.0.js">
@@ -61,6 +63,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeepClone\ObjectCloner.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

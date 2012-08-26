@@ -5,7 +5,7 @@
     <title>ClrModeSamples</title>
     <script src="res/jquery-1.6.4.min.js"></script>
     <script src="res/jsclr-4.1.0.js" type="text/javascript"></script>
-    <script src="res/ClrModeSamples.js" type="text/javascript"></script>
+    <script src="DefaultClient.js" type="text/javascript"></script>
     <script>
         Compile();
         $(DefaultClient_Load);
