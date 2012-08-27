@@ -52,6 +52,8 @@
     <Reference Include="SharpKit.jQuery" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DeepClone\HTMLPage1.htm" />
+    <Content Include="DeepClone\HTMLPage1.js" />
     <Content Include="DeepClone\ObjectCloner.js" />
     <Content Include="Default.aspx" />
     <Content Include="DefaultClient.js" />
@@ -63,6 +65,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeepClone\HTMLPage1.cs" />
     <Compile Include="DeepClone\ObjectCloner.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

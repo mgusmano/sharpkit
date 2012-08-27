@@ -7,7 +7,7 @@ var ClrModeSamples$DeepClone$ObjectCloner=
     baseTypeName:"System.Object",
     staticDefinition:
     {
-        CloneObject$$Object:function(obj)
+        CloneObject$1$$T:function(obj)
         {
             return new ClrModeSamples.DeepClone.ObjectCloner.ctor().Clone$$Object(obj);
         }
@@ -33,10 +33,7 @@ var ClrModeSamples$DeepClone$ObjectCloner=
                 if(context.get_Mappings().ContainsKey(obj))
                     obj2 = context.get_Mappings().get_Item$$TKey(obj);
                 else
-                {
                     obj2 = this.CloneObject$$Object$$CloneContext(obj,context);
-                    context.get_Mappings().set_Item$$TKey(obj,obj2);
-                }
                 return obj2;
             }
             else
@@ -49,9 +46,23 @@ var ClrModeSamples$DeepClone$ObjectCloner=
             if(obj instanceof Array)
             {
                 var arr2= [];
+                context.get_Mappings().set_Item$$TKey(obj,arr2);
                 for(var $i2=0,$l2=arr2.length,item=arr2[$i2];$i2 < $l2;$i2++,item = arr2[$i2])
                     arr2.push(this.Clone$$Object$$CloneContext(item,context));
                 return arr2;
+            }
+            else if(Is(obj,System.Collections.IList.ctor))
+            {
+                var list=obj;
+                var list2=System.Activator.CreateInstance$$Type(obj.GetType());
+                context.get_Mappings().set_Item$$TKey(obj,list2);
+                var $it2=list.GetEnumerator();
+                while($it2.MoveNext())
+                {
+                    var item=$it2.get_Current();
+                    list2.Add(this.Clone$$Object$$CloneContext(item,context));
+                }
+                return list2;
             }
             else if(obj instanceof Date.ctor)
             {
@@ -60,6 +71,7 @@ var ClrModeSamples$DeepClone$ObjectCloner=
             else
             {
                 var obj2=System.Activator.CreateInstance$$Type(obj.GetType());
+                context.get_Mappings().set_Item$$TKey(obj,obj2);
                 var json=obj;
                 var json2=obj2;
                 for(var p in json)

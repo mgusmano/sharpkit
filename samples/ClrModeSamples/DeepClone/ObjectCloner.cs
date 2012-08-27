@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SharpKit.JavaScript;
+using System.Collections;
 
 namespace ClrModeSamples.DeepClone
 {
@@ -13,9 +14,10 @@ namespace ClrModeSamples.DeepClone
         {
             return Clone(obj, new CloneContext());
         }
-        public static object CloneObject(object obj)
+        [JsMethod(IgnoreGenericArguments=true)]
+        public static T CloneObject<T>(T obj)
         {
-            return new ObjectCloner().Clone(obj);
+            return new ObjectCloner().Clone(obj.As<object>()).As<T>();
         }
         object Clone(object obj, CloneContext context)
         {
@@ -26,10 +28,7 @@ namespace ClrModeSamples.DeepClone
                 if (context.Mappings.ContainsKey(obj))
                     obj2 = context.Mappings[obj];
                 else
-                {
                     obj2 = CloneObject(obj, context);
-                    context.Mappings[obj] = obj2;
-                }
                 return obj2;
             }
             else
@@ -44,9 +43,20 @@ namespace ClrModeSamples.DeepClone
             if (obj.instanceof<JsArray>())
             {
                 var arr2 = new JsArray();
+                context.Mappings[obj] = arr2;
+
                 foreach (var item in arr2)
                     arr2.push(Clone(item, context));
                 return arr2;
+            }
+            else if (obj is IList)
+            {
+                var list = obj.As<IList>();
+                var list2 = Activator.CreateInstance(obj.GetType()).As<IList>();
+                context.Mappings[obj] = list2;
+                foreach (var item in list)
+                    list2.Add(Clone(item, context));
+                return list2;
             }
             else if (obj.instanceof<JsDate>())
             {
@@ -55,6 +65,7 @@ namespace ClrModeSamples.DeepClone
             else
             {
                 var obj2 = Activator.CreateInstance(obj.GetType());
+                context.Mappings[obj] = obj2;
                 var json = obj.As<JsObject>();
                 var json2 = obj2.As<JsObject>();
                 foreach (var p in json)
