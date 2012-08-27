@@ -32,12 +32,6 @@
     <Reference Include="SharpKit.JavaScript, Version=1.5.0.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpKit.Html\SharpKit.Html.csproj">
-      <Project>{DF77BAB5-69BC-4F2A-A3E6-81B35BB95D7B}</Project>
-      <Name>SharpKit.Html</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="SharpKit.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

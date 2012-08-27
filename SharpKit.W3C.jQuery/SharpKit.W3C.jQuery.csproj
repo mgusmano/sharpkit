@@ -52,10 +52,6 @@
     <Content Include="res\jquery.validate.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpKit.Html\SharpKit.Html.csproj">
-      <Project>{DF77BAB5-69BC-4F2A-A3E6-81B35BB95D7B}</Project>
-      <Name>SharpKit.Html</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
       <Name>SharpKit.JavaScript</Name>
