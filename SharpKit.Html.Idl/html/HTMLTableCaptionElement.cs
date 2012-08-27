@@ -50,7 +50,7 @@ using SharpKit.Html.svg;
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true, Name = "HTMLTableCaptionElement")]
 public partial class HtmlTableCaptionElement : HtmlElement
 {
-	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('tablecaption')")]
+	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('caption')")]
 	public   HtmlTableCaptionElement() {}
 	public  JsString align {get; set; }
 }

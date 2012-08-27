@@ -50,7 +50,7 @@ using SharpKit.Html.svg;
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true, Name = "HTMLAnchorElement")]
 public partial class HtmlAnchorElement : HtmlElement
 {
-	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('anchor')")]
+	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('a')")]
 	public   HtmlAnchorElement() {}
 	public  JsString charset {get; set; }
 	public  JsString coords {get; set; }

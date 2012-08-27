@@ -4,219 +4,264 @@ using SharpKit.Html.threads;
 using SharpKit.Html.audio;
 using SharpKit.Html.webaudio;
 using SharpKit.Html.svg;
+using System;
 
 namespace SharpKit.Html.Legacy
 {
 
 	#region missing
 
-	partial class HtmlNode : Node { }
-	partial class HtmlAnchor : HtmlAnchorElement { }
-	partial class HtmlAttribute : Attr { }
-	partial class HtmlBody : HtmlBodyElement { }
-	partial class HtmlBr : HtmlBRElement { }
-	partial class HtmlButton : HtmlButtonElement { }
-	partial class HtmlCaption : object { }
-	partial class HtmlClipboardData : object { }
-	partial class HtmlContextBase : object { }
-	partial class HtmlCssRule : CssRule { }
-	partial class HtmlDiv : HtmlDivElement { }
-	partial class HtmlDocumentElement : object { }
-	partial class HtmlDocumentFragment : DocumentFragment { }
-	partial class HtmlDomEventArgs : object { }
-	partial class HtmlDomImplementation : object { }
-	partial class HtmlElementStyle : object { }
-	partial class HtmlFieldSet : HtmlFieldSetElement { }
-	partial class HtmlForm : HtmlFormElement { }
-	partial class HtmlHead : HtmlHeadElement { }
-	partial class HtmlHorizontalRule : HtmlHRElement { }
-	partial class HtmlIFrame : HtmlIFrameElement { }
-	partial class HtmlImage : HtmlImageElement { }
-	partial class HtmlInput : HtmlInputElement { }
-	partial class HtmlInputCheckBox : HtmlInputElement { }
-	partial class HtmlLegend : HtmlLegendElement { }
-	partial class HtmlLineBreak : HtmlBRElement { }
-	partial class HtmlLink : HtmlLinkElement { }
-	partial class HtmlListItem : object { }
-	partial class HtmlOption : HtmlOptionElement
+	public partial class HtmlNode : Node { }
+	public partial class HtmlAnchor : HtmlAnchorElement { }
+	public partial class HtmlAttribute : Attr { }
+	public partial class HtmlBody : HtmlBodyElement { }
+	public partial class HtmlBr : HtmlBRElement { }
+	public partial class HtmlButton : HtmlButtonElement { }
+	public partial class HtmlCaption : HtmlTableCaptionElement { }
+	public partial class HtmlClipboardData : Clipboard { }
+	public partial class HtmlCssRule : CssRule { }
+	public partial class HtmlDiv : HtmlDivElement { }
+	public partial class HtmlDocumentElement : HtmlDocument { }
+	public partial class HtmlDocumentFragment : DocumentFragment { }
+	public partial class HtmlDomEventArgs : UIEvent { }
+	public partial class HtmlDomImplementation : DOMImplementation { }
+	public partial class HtmlElementStyle : CssStyleDeclaration { }
+	public partial class HtmlFieldSet : HtmlFieldSetElement { }
+	public partial class HtmlForm : HtmlFormElement { }
+	public partial class HtmlHead : HtmlHeadElement { }
+	public partial class HtmlHorizontalRule : HtmlHRElement { }
+	public partial class HtmlIFrame : HtmlIFrameElement { }
+	public partial class HtmlImage : HtmlImageElement { }
+	public partial class HtmlInput : HtmlInputElement { }
+	public partial class HtmlInputCheckBox : HtmlInputElement { }
+	public partial class HtmlLegend : HtmlLegendElement { }
+	public partial class HtmlLineBreak : HtmlBRElement { }
+	public partial class HtmlLink : HtmlLinkElement { }
+	public partial class HtmlListItem : HtmlLIElement { }
+	public partial class HtmlOption : HtmlOptionElement
 	{
 		HtmlOption(string data, string value, bool defaultSelected, bool selected)
 			: base(data, value, defaultSelected, selected) {
 		}
 	}
-	partial class HtmlOrderedList : object { }
-	partial class HtmlParagraph : HtmlParagraphElement { }
-	partial class HtmlPre : HtmlPreElement { }
-	partial class HtmlScreen : Screen { }
-	partial class HtmlSelect : HtmlSelectElement { }
-	partial class HtmlSpan : HtmlSpanElement { }
-	partial class HtmlStyleSheetPage : object { }
-	partial class HtmlTable : HtmlTableElement { }
-	partial class HtmlTableBody : HtmlTableSectionElement { }
-	partial class HtmlTableCell : HtmlTableCellElement { }
-	partial class HtmlTableCol : HtmlTableColElement { }
-	partial class HtmlTableColGroup : object { }
-	partial class HtmlTableFoot : object { }
-	partial class HtmlTableHead : object { }
-	partial class HtmlTableHeadCell : object { }
-	partial class HtmlTableRow : HtmlTableRowElement { }
-	partial class HtmlTextArea : HtmlTextAreaElement { }
-	partial class HtmlTextNode : Text { }
-	partial class HtmlSelection : Selection { }
-	partial class HtmlTextRange : Range { }
-	partial class HtmlTextRectangle : HtmlTextRectangleCollection { }
-	partial class HtmlTitle : HtmlTitleElement { }
-	partial class HtmlUnorderedList : object { }
-	partial class HtmlWindow : Window { }
-	partial class HtmlWindowLocation : Location { }
-	partial class HtmlWindowNavigator : Navigator { }
-	partial class StyleFilterCollection : object { }
-	partial class HtmlNodeCollection<T> : NodeList { }
-	partial class HtmlNodeCollection : NodeList { }
-	partial class HtmlNodeToAppend : object { }
-	partial class HtmlElementCollection : NodeList { }
-	partial class HtmlTextRectangleCollection : object { }
-	partial class HtmlGenericCollection<T> : object { }
-	partial class HtmlAttributeCollection : NamedNodeMap { }
-	partial class HtmlDomEventHandler : object { }
-	partial class ActiveXObject : HtmlObjectElement { }
-	partial class StyleFilter : object { }
-	partial class WindowModal : object { }
-	partial class HtmlInputText : HtmlInputElement { }
-	partial class HtmlInputPassword : HtmlInputElement { }
-	partial class HtmlInputImage : HtmlInputElement { }
-	partial class HtmlInputRadio : HtmlInputElement { }
-	partial class HtmlInputFile : HtmlInputElement { }
-	partial class HtmlInputSubmit : HtmlInputElement { }
-	partial class HtmlInputReset : HtmlInputElement { }
-	partial class HtmlInputHidden : HtmlInputElement { }
-	partial class HtmlInputButton : HtmlInputElement { }
-	partial class JSON : object { }
-	partial class A : HtmlAnchorElement { }
-	partial class BODY : HtmlBodyElement { }
-	partial class BR : HtmlBRElement { }
-	partial class BUTTON : HtmlButtonElement { }
-	partial class CAPTION : HtmlCaption { }
-	partial class DIV : HtmlDivElement { }
-	partial class EMBED : HtmlEmbedElement { }
-	partial class FIELDSET : HtmlFieldSetElement { }
-	partial class FORM : HtmlFormElement { }
-	partial class FRAME : HtmlFrameElement { }
-	partial class FRAMESET : HtmlFrameSetElement { }
-	partial class HEAD : HtmlHeadElement { }
-	partial class HR : HtmlHRElement { }
-	partial class IFRAME : HtmlIFrame { }
-	partial class INPUT : HtmlInput { }
-	partial class LEGEND : HtmlLegendElement { }
-	partial class LINK : HtmlLinkElement { }
-	partial class LI : HtmlLIElement { }
-	partial class MARQUEE : HtmlMarqueeElement { }
-	partial class OBJECT : HtmlObjectElement { }
-	partial class OL : HtmlOListElement { }
-	partial class P : HtmlParagraphElement { }
-	partial class PRE : HtmlPreElement { }
-	partial class SCRIPT : HtmlScriptElement { }
-	partial class SELECT : HtmlSelectElement { }
-	partial class SPAN : HtmlSpanElement { }
-	partial class TABLE : HtmlTableElement { }
-	partial class TBODY : HtmlTableSectionElement { }
-	partial class TD : HtmlTableCellElement { }
-	partial class COL : HtmlTableColElement { }
-	partial class COLGROUP : object { }
-	partial class TFOOT : object { }
-	partial class THEAD : object { }
-	partial class TH : object { }
-	partial class TR : HtmlTableRowElement { }
-	partial class TEXTAREA : HtmlTextAreaElement { }
-	partial class TITLE : HtmlTitleElement { }
-	partial class UL : HtmlUListElement { }
-	partial class JsBinder : object { }
+	public partial class HtmlOrderedList : object { }
+	public partial class HtmlParagraph : HtmlParagraphElement { }
+	public partial class HtmlPre : HtmlPreElement { }
+	public partial class HtmlScreen : Screen { }
+	public partial class HtmlSelect : HtmlSelectElement { }
+	public partial class HtmlSpan : HtmlSpanElement { }
+	public partial class HtmlStyleSheetPage : object { }
+	public partial class HtmlTable : HtmlTableElement { }
+	public partial class HtmlTableBody : HtmlTableSectionElement { }
+	public partial class HtmlTableCell : HtmlTableCellElement { }
+	public partial class HtmlTableCol : HtmlTableColElement { }
+	public partial class HtmlTableColGroup : object { }
+	public partial class HtmlTableFoot : HtmlTableSectionElement { }
+	public partial class HtmlTableHead : HtmlTableSectionElement { }
+	public partial class HtmlTableHeadCell : HtmlTableCellElement { }
+	public partial class HtmlTableRow : HtmlTableRowElement { }
+	public partial class HtmlTextArea : HtmlTextAreaElement { }
+	public partial class HtmlTextNode : Text { }
+	public partial class HtmlSelection : Selection { }
+	public partial class HtmlTextRange : Range { }
+	public partial class HtmlTextRectangle : HtmlTextRectangleCollection { }
+	public partial class HtmlTitle : HtmlTitleElement { }
+	public partial class HtmlUnorderedList : HtmlUListElement { }
+	public partial class HtmlWindow : Window { }
+	public partial class HtmlWindowLocation : Location { }
+	public partial class HtmlWindowNavigator : Navigator { }
+	public partial class StyleFilterCollection : object { }
+	public partial class HtmlNodeCollection<T> : NodeList { }
+	public partial class HtmlNodeCollection : NodeList { }
+	public partial class HtmlNodeToAppend : object { }
+	public partial class HtmlElementCollection : NodeList { }
+	public partial class HtmlTextRectangleCollection : object { }
+	public partial class HtmlGenericCollection<T> : object { }
+	public partial class HtmlAttributeCollection : NamedNodeMap { }
+	public partial class HtmlDomEventHandler : object { }
+	public partial class ActiveXObject : HtmlObjectElement { }
+
+	[JsType(JsMode.Json, Export = false, Name = "StyleFilter")]
+	public partial class StyleFilter
+	{
+	}
+
+	[JsType(JsMode.Json, Export = false)]
+	public partial interface WindowModal
+	{
+		object dialogArguments { get; }
+		JsString returnValue { get; set; }
+	}
+
+	public partial class HtmlInputText : HtmlInputElement { }
+	public partial class HtmlInputPassword : HtmlInputElement { }
+	public partial class HtmlInputImage : HtmlInputElement { }
+	public partial class HtmlInputRadio : HtmlInputElement { }
+	public partial class HtmlInputFile : HtmlInputElement { }
+	public partial class HtmlInputSubmit : HtmlInputElement { }
+	public partial class HtmlInputReset : HtmlInputElement { }
+	public partial class HtmlInputHidden : HtmlInputElement { }
+	public partial class HtmlInputButton : HtmlInputElement { }
+
+	[JsType(JsMode.Prototype, Name = "JSON", Export = false)]
+	public class JSON
+	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="obj"></param>
+		/// <param name="replacer">If replacer is a function, JSON.stringify calls the function, passing in the key and value of each member. The return value is serialized instead of the original value. If the function returns undefined, the member will be excluded from the serialization. The key for the root object is an empty string: "".
+		/// If replacer is an array, only members with key values in the array will be serialized. The order of serialization is the same as the order of the keys in the array. The replacer array is ignored when the value argument is also an array.</param>
+		/// <returns></returns>
+		public static string stringify(object obj, JsFunc<object, object, object> replacer) { return null; }
+
+		public static string stringify(object obj) { return null; }
+
+		public static object parse(JsString json) { return null; }
+
+	}
+
+	public partial class A : HtmlAnchorElement { }
+	public partial class BODY : HtmlBodyElement { }
+	public partial class BR : HtmlBRElement { }
+	public partial class BUTTON : HtmlButtonElement { }
+	public partial class CAPTION : HtmlCaption { }
+	public partial class DIV : HtmlDivElement { }
+	public partial class EMBED : HtmlEmbedElement { }
+	public partial class FIELDSET : HtmlFieldSetElement { }
+	public partial class FORM : HtmlFormElement { }
+	public partial class FRAME : HtmlFrameElement { }
+	public partial class FRAMESET : HtmlFrameSetElement { }
+	public partial class HEAD : HtmlHeadElement { }
+	public partial class HR : HtmlHRElement { }
+	public partial class IFRAME : HtmlIFrame { }
+	public partial class INPUT : HtmlInput { }
+	public partial class LEGEND : HtmlLegendElement { }
+	public partial class LINK : HtmlLinkElement { }
+	public partial class LI : HtmlLIElement { }
+	public partial class MARQUEE : HtmlMarqueeElement { }
+	public partial class OBJECT : HtmlObjectElement { }
+	public partial class OL : HtmlOListElement { }
+	public partial class P : HtmlParagraphElement { }
+	public partial class PRE : HtmlPreElement { }
+	public partial class SCRIPT : HtmlScriptElement { }
+	public partial class SELECT : HtmlSelectElement { }
+	public partial class SPAN : HtmlSpanElement { }
+	public partial class TABLE : HtmlTableElement { }
+	public partial class TBODY : HtmlTableSectionElement { }
+	public partial class TD : HtmlTableCellElement { }
+	public partial class COL : HtmlTableColElement { }
+	public partial class COLGROUP : object { }
+	public partial class TFOOT : HtmlTableSectionElement { }
+	public partial class THEAD : HtmlTableSectionElement { }
+	public partial class TH : HtmlTableCell { }
+	public partial class TR : HtmlTableRowElement { }
+	public partial class TEXTAREA : HtmlTextAreaElement { }
+	public partial class TITLE : HtmlTitleElement { }
+	public partial class UL : HtmlUListElement { }
+
+	namespace Server
+	{
+		using System.Reflection;
+		using SharpKit.Html.Legacy;
+
+		public class JsBinder : SharpKit.JavaScript.Server.JsBinder
+		{
+			public string HandleEvent(Action<HtmlDomEventArgs> handler) {
+				return MethodOf(handler.Method) + "(event);";
+			}
+			public string HandleEvent(Action<object, HtmlDomEventArgs> handler) {
+				return MethodOf(handler.Method) + "(this, event);";
+			}
+		}
+
+	}
 
 	#endregion
 
 	#region Constructors
 
-	partial class HtmlAnchor
+	public partial class HtmlAnchor
 	{
 		[JsMethod(Name = "document.createElement('A')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlAnchor() { }
 	}
-	partial class HtmlBody
+	public partial class HtmlBody
 	{
 		[JsMethod(Name = "document.createElement('BODY')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlBody() { }
 	}
-	partial class HtmlBr
+	public partial class HtmlBr
 	{
 		[JsMethod(Name = "document.createElement('BR')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlBr() { }
 	}
-	partial class HtmlButton
+	public partial class HtmlButton
 	{
 		[JsMethod(Name = "document.createElement('BUTTON')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlButton() { }
 	}
-	partial class HtmlCaption
+	public partial class HtmlCaption
 	{
 		[JsMethod(Name = "document.createElement('CAPTION')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlCaption() { }
 	}
-	partial class HtmlDiv
+	public partial class HtmlDiv
 	{
 		[JsMethod(Name = "document.createElement('DIV')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlDiv() { }
 	}
-	partial class HtmlDocumentElement
+	public partial class HtmlDocumentElement
 	{
 		[JsMethod(Name = "document.createElement('HTML')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlDocumentElement() { }
 	}
-	partial class HtmlDocumentFragment
+	public partial class HtmlDocumentFragment
 	{
 		[JsMethod(Name = "document.createDocumentFragment", OmitNewOperator = true)]
 		public HtmlDocumentFragment() { }
 	}
-	partial class HtmlEmbedElement
+	public partial class HtmlEmbedElement
 	{
 		[JsMethod(Name = "document.createElement('EMBED')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlEmbedElement() { }
 	}
-	partial class HtmlFieldSet
+	public partial class HtmlFieldSet
 	{
 		[JsMethod(Name = "document.createElement('FIELDSET')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlFieldSet() { }
 	}
-	partial class HtmlForm
+	public partial class HtmlForm
 	{
 		[JsMethod(Name = "document.createElement('FORM')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlForm() { }
 	}
-	partial class HtmlFrameElement
+	public partial class HtmlFrameElement
 	{
 		[JsMethod(Name = "document.createElement('FRAME')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlFrameElement() { }
 	}
-	partial class HtmlFrameSetElement
+	public partial class HtmlFrameSetElement
 	{
 		[JsMethod(Name = "document.createElement('FRAMESET')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlFrameSetElement() { }
 	}
-	partial class HtmlHead
+	public partial class HtmlHead
 	{
 		[JsMethod(Name = "document.createElement('HEAD')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlHead() { }
 	}
-	partial class HtmlHorizontalRule
+	public partial class HtmlHorizontalRule
 	{
 		[JsMethod(Name = "document.createElement('HR')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlHorizontalRule() { }
 	}
-	partial class HtmlIFrame
+	public partial class HtmlIFrame
 	{
 		[JsMethod(Name = "document.createElement('IFRAME')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlIFrame() { }
 	}
-	partial class HtmlInput
+	public partial class HtmlInput
 	{
 		[JsMethod(Name = "document.createElement('INPUT')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlInput() { }
@@ -226,7 +271,7 @@ namespace SharpKit.Html.Legacy
 		[JsMethod(Name = "document.createElement('INPUT')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlInputText() { }
 	}
-	partial class HtmlInputCheckBox
+	public partial class HtmlInputCheckBox
 	{
 		[JsMethod(Name = "function(){var x = document.createElement('INPUT');x.type = 'checkbox';return x;}", OmitNewOperator = true)]
 		public HtmlInputCheckBox() { }
@@ -271,47 +316,47 @@ namespace SharpKit.Html.Legacy
 		[JsMethod(Name = "function(){var x = document.createElement('INPUT');x.type = 'button';return x;}", OmitNewOperator = true)]
 		public HtmlInputButton() { }
 	}
-	partial class HtmlLegend
+	public partial class HtmlLegend
 	{
 		[JsMethod(Name = "document.createElement('LEGEND')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlLegend() { }
 	}
-	partial class HtmlLineBreak
+	public partial class HtmlLineBreak
 	{
 		[JsMethod(Name = "document.createElement('BR')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlLineBreak() { }
 	}
-	partial class HtmlLink
+	public partial class HtmlLink
 	{
 		[JsMethod(Name = "document.createElement('LINK')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlLink() { }
 	}
-	partial class HtmlListItem
+	public partial class HtmlListItem
 	{
 		[JsMethod(Name = "document.createElement('LI')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlListItem() { }
 	}
-	partial class HtmlMarqueeElement
+	public partial class HtmlMarqueeElement
 	{
 		[JsMethod(Name = "document.createElement('MARQUEE')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlMarqueeElement() { }
 	}
-	partial class HtmlObjectElement
+	public partial class HtmlObjectElement
 	{
 		[JsMethod(Name = "document.createElement('OBJECT')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlObjectElement() { }
 	}
-	partial class HtmlOrderedList
+	public partial class HtmlOrderedList
 	{
 		[JsMethod(Name = "document.createElement('OL')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlOrderedList() { }
 	}
-	partial class HtmlParagraph
+	public partial class HtmlParagraph
 	{
 		[JsMethod(Name = "document.createElement('P')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlParagraph() { }
 	}
-	partial class HtmlPre
+	public partial class HtmlPre
 	{
 		[JsMethod(Name = "document.createElement('PRE')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlPre() { }
@@ -322,97 +367,262 @@ namespace SharpKit.Html.Legacy
 		[JsMethod(Name = "document.createElement('SCRIPT')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlScript() { }
 	}
-	partial class HtmlSelect
+	public partial class HtmlSelect
 	{
 		[JsMethod(Name = "document.createElement('SELECT')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlSelect() { }
 	}
-	partial class HtmlSpan
+	public partial class HtmlSpan
 	{
 		[JsMethod(Name = "document.createElement('SPAN')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlSpan() { }
 	}
-	partial class HtmlStyleElement
+	public partial class HtmlStyleElement
 	{
 		[JsMethod(Name = "document.createElement('STYLE')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlStyleElement() { }
 	}
-	partial class HtmlStyleSheetPage
+	public partial class HtmlStyleSheetPage
 	{
 		[JsMethod(Name = "document.createElement('STYLESHEETPAGE')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlStyleSheetPage() { }
 	}
-	partial class HtmlTable
+	public partial class HtmlTable
 	{
 		[JsMethod(Name = "document.createElement('TABLE')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlTable() { }
 	}
-	partial class HtmlTableBody
+	public partial class HtmlTableBody
 	{
 		[JsMethod(Name = "document.createElement('TBODY')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlTableBody() { }
 	}
-	partial class HtmlTableCell
+	public partial class HtmlTableCell
 	{
 		[JsMethod(Name = "document.createElement('TD')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlTableCell() { }
 	}
-	partial class HtmlTableCol
+	public partial class HtmlTableCol
 	{
 		[JsMethod(Name = "document.createElement('COL')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlTableCol() { }
 	}
-	partial class HtmlTableColGroup
+	public partial class HtmlTableColGroup
 	{
 		[JsMethod(Name = "document.createElement('COLGROUP')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlTableColGroup() { }
 	}
-	partial class HtmlTableFoot
+	public partial class HtmlTableFoot
 	{
 		[JsMethod(Name = "document.createElement('TFOOT')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlTableFoot() { }
 	}
-	partial class HtmlTableHead
+	public partial class HtmlTableHead
 	{
 		[JsMethod(Name = "document.createElement('THEAD')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlTableHead() { }
 	}
-	partial class HtmlTableHeadCell
+	public partial class HtmlTableHeadCell
 	{
 		[JsMethod(Name = "document.createElement('TH')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlTableHeadCell() { }
 	}
-	partial class HtmlTableRow
+	public partial class HtmlTableRow
 	{
 		[JsMethod(Name = "document.createElement('TR')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlTableRow() { }
 	}
-	partial class HtmlTextArea
+	public partial class HtmlTextArea
 	{
 		[JsMethod(Name = "document.createElement('TEXTAREA')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlTextArea() { }
 	}
-	partial class HtmlTextNode
+	public partial class HtmlTextNode
 	{
 		[JsMethod(Name = "document.createTextNode", OmitNewOperator = true)]
 		public HtmlTextNode(JsString s) { }
 	}
-	partial class HtmlTitle
+	public partial class HtmlTitle
 	{
 		[JsMethod(Name = "document.createElement('TITLE')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlTitle() { }
 	}
-	partial class HtmlUnorderedList
+	public partial class HtmlUnorderedList
 	{
 		[JsMethod(Name = "document.createElement('UL')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlUnorderedList() { }
 	}
-	partial class HtmlWindowLocation
+	public partial class HtmlWindowLocation
 	{
 		[JsMethod(Name = "document.createElement('WINDOWLOCATION')", OmitParanthesis = true, OmitNewOperator = true)]
 		public HtmlWindowLocation() { }
 	}
 
+	#endregion
+
+	#region HtmlContext
+	[JsType(JsMode.Global, Export = false)]
+	public partial class HtmlContext : JsContext
+	{
+		public static Console console { get; private set; }
+
+		///<summary>
+		///Displays a dialog box containing an application-defined message. 
+		///</summary>
+		///<param name="message">Optional. String that specifies the message to display in the dialog box.</param>
+		///<remarks>You cannot change the title bar of the Alert dialog box.</remarks>
+		public static void alert(object message) { }
+		/// <summary>
+		/// Displays a confirmation dialog box that contains an optional message as well as OK and Cancel buttons.
+		/// </summary>
+		/// <param name="message">Optional. String that specifies the message to display in the confirmation dialog box. If no value is provided, the dialog box does not contain a message.</param>
+		/// <returns>Boolean. Returns one of the following possible values:
+		///	<list type="table">
+		///	<item>
+		///		<term>true</term>
+		///		<description>The user clicked the OK button.</description>
+		///	</item>
+		///	<item>
+		///		<term>false</term>
+		///		<description>The user clicked Cancel button.</description>
+		/// </item>
+		/// </list>
+		/// </returns>
+		public static JsBoolean confirm(JsString message) { return null; }
+		///<summary>
+		///Encodes String objects so they can be read on all computers.
+		///</summary>
+		///<param name="s">String object or literal to be encoded.</param>
+		///<returns>A JsString value (in Unicode format) that contains the contents of charstring. All spaces, punctuation, accented characters, and any other non-ASCII characters are replaced with %xx encoding, where xx is equivalent to the hexadecimal number representing the character. For example, a space is returned as "%20."</returns>
+		public static JsString escape(JsString s) { return null; }
+		///<summary>
+		///Returns the unencoded version of an encoded component of a Uniform Resource Identifier (URI). 
+		///</summary>
+		///<param name="encodedURIString">A value representing an encoded URI component.</param>
+		///<returns>The required encodedURIString argument is a value representing an encoded 
+		///URI component.A URIComponent is part of a complete URI. If the encodedURIString is 
+		///not valid, a URIError occurs.</returns>
+		public static JsString decodeURIComponent(JsString encodedURIString) { return null; }
+		///<summary>
+		///Encodes a text JsString as a valid component of a Uniform Resource Identifier (URI).
+		///</summary>
+		///<param name="encodedURIString">A value representing an encoded URI component.</param>
+		///<returns>A an encoded URI. If you pass the result to decodeURIComponent, 
+		///the original JsString is returned. Because the encodeURIComponent method encodes all 
+		///characters, be careful if the JsString represents a path such 
+		///as /folder1/folder2/default.html. The slash characters will be encoded and will 
+		///not be valid if sent as a request to a web server. Use the encodeURI method if the 
+		///JsString contains more than a single URI component.</returns>
+		public static JsString encodeURIComponent(JsString encodedURIString) { return null; }
+		///<summary>
+		///Encodes a text JsString as a valid Uniform Resource Identifier (URI) 
+		///</summary>
+		///<param name="URIString">A value representing an encoded URI.</param>
+		///<returns>n encoded URI. If you pass the result to decodeURI, the original JsString is returned. The encodeURI method does not encode the following characters: ":", "/", ";", and "?". Use encodeURIComponent to encode these characters.</returns>
+		public static JsString encodeURI(JsString URIString) { return null; }
+		///<summary>
+		///Returns the unencoded version of an encoded Uniform Resource Identifier (URI). 
+		///</summary>
+		///<param name="URIString"></param>
+		///<returns></returns>
+		public static JsString decodeURI(JsString URIString) { return null; }
+		///<summary>
+		///Decodes String objects encoded with the escape method.
+		///</summary>
+		///<param name="charString">String object or literal to be decoded.</param>
+		///<returns>A JsString value that contains the contents of charstring. All characters encoded with the %xx hexadecimal form are replaced by their ASCII character set equivalents.</returns>
+		public static JsString unescape(JsString charString) { return null; }
+		///<summary>
+		///Retrieves the HTML window
+		///</summary>
+		public static HtmlWindow window { get; set; }
+		///<summary>
+		///Retrieves the HTML document
+		///</summary>
+		public static HtmlDocument document { get; set; }
+	}
+	#endregion
+	#region HtmlContextBase
+	[JsType(JsMode.Global, Export = false)]
+	public partial class HtmlContextBase : JsContextBase
+	{
+		protected static Console console { get; private set; }
+
+		///<summary>
+		///Displays a dialog box containing an application-defined message. 
+		///</summary>
+		///<param name="message">Optional. String that specifies the message to display in the dialog box.</param>
+		///<remarks>You cannot change the title bar of the Alert dialog box.</remarks>
+		protected static void alert(object message) { }
+		/// <summary>
+		/// Displays a confirmation dialog box that contains an optional message as well as OK and Cancel buttons.
+		/// </summary>
+		/// <param name="message">Optional. String that specifies the message to display in the confirmation dialog box. If no value is provided, the dialog box does not contain a message.</param>
+		/// <returns>Boolean. Returns one of the following possible values:
+		///	<list type="table">
+		///	<item>
+		///		<term>true</term>
+		///		<description>The user clicked the OK button.</description>
+		///	</item>
+		///	<item>
+		///		<term>false</term>
+		///		<description>The user clicked Cancel button.</description>
+		/// </item>
+		/// </list>
+		/// </returns>
+		protected static JsBoolean confirm(JsString message) { return null; }
+		///<summary>
+		///Encodes String objects so they can be read on all computers.
+		///</summary>
+		///<param name="s">String object or literal to be encoded.</param>
+		///<returns>A JsString value (in Unicode format) that contains the contents of charstring. All spaces, punctuation, accented characters, and any other non-ASCII characters are replaced with %xx encoding, where xx is equivalent to the hexadecimal number representing the character. For example, a space is returned as "%20."</returns>
+		protected static JsString escape(JsString s) { return null; }
+		///<summary>
+		///Returns the unencoded version of an encoded component of a Uniform Resource Identifier (URI). 
+		///</summary>
+		///<param name="encodedURIString">A value representing an encoded URI component.</param>
+		///<returns>The required encodedURIString argument is a value representing an encoded 
+		///URI component.A URIComponent is part of a complete URI. If the encodedURIString is 
+		///not valid, a URIError occurs.</returns>
+		protected static JsString decodeURIComponent(JsString encodedURIString) { return null; }
+		///<summary>
+		///Encodes a text JsString as a valid component of a Uniform Resource Identifier (URI).
+		///</summary>
+		///<param name="encodedURIString">A value representing an encoded URI component.</param>
+		///<returns>A an encoded URI. If you pass the result to decodeURIComponent, 
+		///the original JsString is returned. Because the encodeURIComponent method encodes all 
+		///characters, be careful if the JsString represents a path such 
+		///as /folder1/folder2/default.html. The slash characters will be encoded and will 
+		///not be valid if sent as a request to a web server. Use the encodeURI method if the 
+		///JsString contains more than a single URI component.</returns>
+		protected static JsString encodeURIComponent(JsString encodedURIString) { return null; }
+		///<summary>
+		///Encodes a text JsString as a valid Uniform Resource Identifier (URI) 
+		///</summary>
+		///<param name="URIString">A value representing an encoded URI.</param>
+		///<returns>n encoded URI. If you pass the result to decodeURI, the original JsString is returned. The encodeURI method does not encode the following characters: ":", "/", ";", and "?". Use encodeURIComponent to encode these characters.</returns>
+		protected static JsString encodeURI(JsString URIString) { return null; }
+		///<summary>
+		///Returns the unencoded version of an encoded Uniform Resource Identifier (URI). 
+		///</summary>
+		///<param name="URIString"></param>
+		///<returns></returns>
+		protected static JsString decodeURI(JsString URIString) { return null; }
+		///<summary>
+		///Decodes String objects encoded with the escape method.
+		///</summary>
+		///<param name="charString">String object or literal to be decoded.</param>
+		///<returns>A JsString value that contains the contents of charstring. All characters encoded with the %xx hexadecimal form are replaced by their ASCII character set equivalents.</returns>
+		protected static JsString unescape(JsString charString) { return null; }
+		///<summary>
+		///Retrieves the HTML window
+		///</summary>
+		protected static HtmlWindow window { get; set; }
+		///<summary>
+		///Retrieves the HTML document
+		///</summary>
+		protected static HtmlDocument document { get; set; }
+	}
 	#endregion
 
 }

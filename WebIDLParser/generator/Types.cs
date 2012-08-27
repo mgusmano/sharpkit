@@ -187,9 +187,9 @@ namespace WebIDLParser
 			}
 			if (memList.Count == 0) {
 				if (name.StartsWith("Html") && name.EndsWith("Element"))
-					memList.Add(createElementMethod(name.Substring(0, name.Length - ("Element".Length)).Substring("Html".Length).ToLower()));
+					memList.Add(createElementMethod(name.Substring(0, name.Length - ("Element".Length)).Substring("Html".Length).ToLower(), name));
 				if (name.StartsWith("Svg") && name.EndsWith("Element"))
-					memList.Add(createElementMethod(name.Substring(0, name.Length - ("Element".Length)).Substring("Svg".Length).ToLower()));
+					memList.Add(createElementMethod(name.Substring(0, name.Length - ("Element".Length)).Substring("Svg".Length).ToLower(), name));
 			}
 			if (memList.Count != 0) {
 				members.InsertRange(0, memList);
@@ -197,11 +197,25 @@ namespace WebIDLParser
 			}
 		}
 
-		private TMethod createElementMethod(string tagName) {
+		private TMethod createElementMethod(string tagName, string typeName) {
+			tagName = getCreateElementMethodTagName(tagName, typeName);
+			if(string.IsNullOrEmpty(tagName)) return null;
 			var method = new TMethod(this) { name = "ctor", aliasName = "document.createElement('" + tagName + "')" };
 			method.jsAttributes.Add("OmitParanthesis", "true");
 			method.jsAttributes.Add("OmitNewOperator", "true");
 			return method;
+		}
+
+		private string getCreateElementMethodTagName(string tagName, string typeName) { 
+			switch (tagName) {
+				case "anchor": return "a";
+				case "tablecaption": return "caption";
+				case "tablecell": return "td";
+				case "tablecol": return "col";
+				case "tablerow": return "tr";
+				case "tablesection": return "tbody"; //Notice: It can be thead or tfoot, too!
+				default: return tagName;
+			}
 		}
 
 		public void checkGenerateEnumerator() {

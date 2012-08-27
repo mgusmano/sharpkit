@@ -50,7 +50,7 @@ using SharpKit.Html.svg;
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true, Name = "HTMLTableCellElement")]
 public partial class HtmlTableCellElement : HtmlElement
 {
-	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('tablecell')")]
+	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('td')")]
 	public   HtmlTableCellElement() {}
 	public  int cellIndex {get; set; }
 	public  JsString abbr {get; set; }

@@ -50,7 +50,7 @@ using SharpKit.Html.svg;
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true, Name = "HTMLTableColElement")]
 public partial class HtmlTableColElement : HtmlElement
 {
-	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('tablecol')")]
+	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('col')")]
 	public   HtmlTableColElement() {}
 	public  JsString align {get; set; }
 	public  JsString ch {get; set; }

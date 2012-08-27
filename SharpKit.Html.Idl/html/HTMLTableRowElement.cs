@@ -50,7 +50,7 @@ using SharpKit.Html.svg;
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitCasts = true, Name = "HTMLTableRowElement")]
 public partial class HtmlTableRowElement : HtmlElement
 {
-	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('tablerow')")]
+	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('tr')")]
 	public   HtmlTableRowElement() {}
 	public  int rowIndex {get; set; }
 	public  int sectionRowIndex {get; set; }
