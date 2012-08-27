@@ -269,6 +269,7 @@
     <Compile Include="inspector\JavaScriptCallFrame.cs" />
     <Compile Include="inspector\ScriptProfile.cs" />
     <Compile Include="inspector\ScriptProfileNode.cs" />
+    <Compile Include="legacy.cs" />
     <Compile Include="loader\appcache\DOMApplicationCache.cs" />
     <Compile Include="Modules\battery\BatteryManager.cs" />
     <Compile Include="Modules\battery\NavigatorBattery.cs" />

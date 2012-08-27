@@ -38,3 +38,10 @@ using SharpKit.JavaScript;
 
 [assembly: JsNamespace(Namespace = "SharpKit.Html", JsNamespace = "")]
 [assembly: JsType(JsMode.Prototype, Name = "", Export = false, PropertiesAsFields = true, OmitCasts = true)]
+
+/// <summary>
+/// SharpKit interface for HTML 5
+/// </summary>
+class AssemblyDoc
+{
+}
