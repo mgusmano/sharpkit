@@ -517,7 +517,7 @@
     <Compile Include="SharpKit.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SharpKit.Html.XML">
+    <Content Include="SharpKit.Html.old.XML">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -34,6 +34,12 @@
   <ItemGroup>
     <None Include="SharpKit.snk" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpKit.Html.old\SharpKit.Html.old.csproj">
+      <Project>{DF77BAB5-69BC-4F2A-A3E6-81B35BB95D7B}</Project>
+      <Name>SharpKit.Html.old</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
