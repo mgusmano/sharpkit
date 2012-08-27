@@ -22,6 +22,9 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'v4.0'">
+    <DefineConstants>LEGACY</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="custom.cs" />
     <Compile Include="css\Counter.cs" />
