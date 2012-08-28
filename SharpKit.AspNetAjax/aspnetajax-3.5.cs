@@ -1,6 +1,12 @@
 ﻿using System;
 using SharpKit.JavaScript;
+
+#if HTML4
 using SharpKit.Html4;
+#else
+using SharpKit.Html;
+#endif
+
 using System.Diagnostics;
 using Sys.Net;
 namespace SharpKit.AspNetAjax3_5
@@ -1591,9 +1597,9 @@ namespace Sys.UI
             get { return default(JsNumber); }
         }
         [JsProperty(NativeField = true)]
-        public HtmlDomEventArgs rawEvent
+        public UIEvent rawEvent
         {
-            get { return default(HtmlDomEventArgs); }
+            get { return default(UIEvent); }
         }
         ///<summary>
         ///Gets the x-coordinate of the mouse pointer's position relative to the screen top left.

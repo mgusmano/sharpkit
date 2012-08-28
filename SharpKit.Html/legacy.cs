@@ -9,7 +9,7 @@
 //using System.Collections.Generic;
 //using SharpKit.Html.Legacy;
 
-//#if LEGACY
+//#if HTML4
 
 //namespace SharpKit.Html
 //{
