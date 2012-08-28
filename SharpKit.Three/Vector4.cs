@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 
+
+using SharpKit.Html4;
 using SharpKit.JavaScript;
 
-#if HTML4
-using SharpKit.Html4;
-#else
-using SharpKit.Html;
-#endif
 
 namespace THREE
 {

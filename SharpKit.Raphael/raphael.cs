@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
-
-#if HTML4
 using SharpKit.Html4;
-#else
-using SharpKit.Html;
-#endif
 
 namespace SharpKit.Raphael
 {
@@ -886,7 +881,7 @@ namespace SharpKit.Raphael
         /// <summary>
         /// DOM event object
         /// </summary>
-        public UIEvent @event { get; set; }
+        public HtmlDomEventArgs @event { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -911,7 +906,7 @@ namespace SharpKit.Raphael
         /// <summary>
         /// DOM event object
         /// </summary>
-        public UIEvent @event { get; set; }
+        public HtmlDomEventArgs @event { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -920,7 +915,7 @@ namespace SharpKit.Raphael
         /// <summary>
         /// DOM event object
         /// </summary>
-        public UIEvent @event { get; set; }
+        public HtmlDomEventArgs @event { get; set; }
     }
     #endregion
 
@@ -1965,7 +1960,7 @@ namespace SharpKit.Raphael
         /// Used when you need to draw in <iframe>. Switched window to the iframe one.
         /// </summary>
         /// <param name="newwin">new window object</param>
-        public void setWindow(Window newwin) { }
+        public void setWindow(HtmlWindow newwin) { }
         /// <summary>
         /// Snaps given value to given grid.
         /// </summary>

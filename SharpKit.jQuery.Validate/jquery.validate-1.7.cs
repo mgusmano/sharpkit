@@ -1,11 +1,5 @@
 ﻿using SharpKit.JavaScript;
-
-#if HTML4
 using SharpKit.Html4;
-#else
-using SharpKit.Html;
-#endif
-
 
 namespace SharpKit.jQuery
 {

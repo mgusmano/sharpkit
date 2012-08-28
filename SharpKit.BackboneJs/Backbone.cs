@@ -4,12 +4,7 @@ using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
 using SharpKit.jQuery;
-
-#if HTML4
 using SharpKit.Html4;
-#else
-using SharpKit.Html;
-#endif
 
 namespace SharpKit.BackboneJs
 {

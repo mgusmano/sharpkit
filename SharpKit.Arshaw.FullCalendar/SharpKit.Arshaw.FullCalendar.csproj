@@ -27,30 +27,14 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Html4' ">
-    <OutputPath>bin\Legacy\</OutputPath>
-    <DocumentationFile>..\..\bin\v4.0\SharpKit.Arshaw.FullCalendar.xml</DocumentationFile>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisLogFile>..\..\bin\v4.0\SharpKit.Arshaw.FullCalendar.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSetDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
-    <CodeAnalysisRuleDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
-    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
-    <DefineConstants>HTML4</DefineConstants>
-  </PropertyGroup>
   <ItemGroup>
     <Compile Include="fullcalendar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpKit.Html\SharpKit.Html.csproj">
-      <Project>{F1B6A826-60C3-4038-AABF-BD7C8380CC2F}</Project>
-      <Name>SharpKit.Html</Name>
+    <ProjectReference Include="..\SharpKit.Html4\SharpKit.Html4.csproj">
+      <Project>{AA74777B-DB40-4DCF-A69A-9DE5A6B2C380}</Project>
+      <Name>SharpKit.Html4</Name>
     </ProjectReference>
     <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>

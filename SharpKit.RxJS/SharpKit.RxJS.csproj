@@ -25,20 +25,6 @@
   <PropertyGroup Condition="'$(Configuration)' == 'v4.0'">
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Html4' ">
-    <OutputPath>bin\Legacy\</OutputPath>
-    <DocumentationFile>..\..\bin\v4.0\SharpKit.RxJS.xml</DocumentationFile>
-    <NoWarn>1591</NoWarn>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisLogFile>..\..\bin\v4.0\SharpKit.RxJS.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSetDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisRuleDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-    <DefineConstants>HTML4</DefineConstants>
-  </PropertyGroup>
   <ItemGroup>
     <Compile Include="rx.aggregates.cs" />
     <Compile Include="rx.coincidence.cs" />
@@ -49,6 +35,10 @@
     <Compile Include="rx.time.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SharpKit.Html4\SharpKit.Html4.csproj">
+      <Project>{AA74777B-DB40-4DCF-A69A-9DE5A6B2C380}</Project>
+      <Name>SharpKit.Html4</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
       <Name>SharpKit.JavaScript</Name>

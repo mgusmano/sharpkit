@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
-
-#if HTML4
 using SharpKit.Html4;
-#else
-using SharpKit.Html;
-#endif
 
 namespace SharpKit.KineticJs
 {
@@ -1263,7 +1258,7 @@ namespace SharpKit.KineticJs
         /// </summary>
         /// <param name="evt"></param>
         /// <returns></returns>
-        public object getMousePosition(UIEvent evt) { return null; }
+        public object getMousePosition(HtmlDomEventArgs evt) { return null; }
 
         /// <summary>
         /// return stage size
@@ -1288,14 +1283,14 @@ namespace SharpKit.KineticJs
         /// </summary>
         /// <param name="evt"></param>
         /// <returns></returns>
-        public object getTouchPosition(UIEvent evt) { return null; }
+        public object getTouchPosition(HtmlDomEventArgs evt) { return null; }
 
         /// <summary>
         /// get user position (mouse position or touch position)
         /// </summary>
         /// <param name="evt"></param>
         /// <returns></returns>
-        public object getUserPosition(UIEvent evt) { return null; }
+        public object getUserPosition(HtmlDomEventArgs evt) { return null; }
 
         /// <summary>
         /// get width
