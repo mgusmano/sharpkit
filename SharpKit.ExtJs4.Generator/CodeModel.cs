@@ -41,13 +41,33 @@ namespace SharpKit.ExtJs4.Generator
         }
         public override string ToString()
         {
-            return "Class: +" + FullName;
+            return FullName;
         }
         public bool IsInterface { get; set; }
 
-        public bool IsDeclared( Element el )
+        public bool IsDeclared( Element el, bool ignoreStaticFlag = false )
         {
-            return el != null && this.Members.Any( m => m != null && m.Name.IsNotNullOrEmpty() && m.Name.Equals( el.Name, StringComparison.Ordinal ) && m.IsStatic == el.IsStatic );
+            var ret = false;
+            if ( el != null )
+            {
+                var member = this.Members.FirstOrDefault( m => m != null && m.Name.IsNotNullOrEmpty() && m.Name.Equals( el.Name, StringComparison.Ordinal ) );
+                if ( member != null )
+                {
+                    if ( member is Method && el is Method )
+                    {
+                        ret = ( member as Method ).Parameters.Count == ( el as Method ).Parameters.Count;
+                    }
+                    else
+                    {
+                        ret = true;
+                    }
+                    if ( !ignoreStaticFlag && member.IsStatic != el.IsStatic )
+                    {
+                        ret = false;
+                    }
+                }
+            }
+            return ret;
         }
     }
     class Method : Element
@@ -85,6 +105,8 @@ namespace SharpKit.ExtJs4.Generator
     {
         private bool isOverride;
         private bool isNew;
+        private bool isVirtual;
+        private bool isPrivate;
 
         public Element()
         {
@@ -104,17 +126,40 @@ namespace SharpKit.ExtJs4.Generator
         public string Summary { get; set; }
         public string Remarks { get; set; }
 
-        public bool IsVirtual { get; set; }
+        public bool IsVirtual
+        {
+            get
+            {
+                return this.isVirtual && !this.IsStatic;
+            }
+            set
+            {
+                if ( value && this.IsPrivate )
+                {
+                    this.IsPrivate = false;
+                    this.IsProtected = true;
+                }
+                this.isVirtual = value;
+            }
+        }
 
         public bool IsOverride
         {
             get { return this.isOverride; }
             set
             {
-                if ( value && this.IsVirtual )
+                if ( value )
                 {
-                    this.IsVirtual = false;
-                    this.IsNew = false;
+                    if ( this.IsVirtual )
+                    {
+                        this.IsVirtual = false;
+                        this.IsNew = false;
+                    }
+                    if ( this.IsPrivate )
+                    {
+                        this.IsPrivate = false;
+                        this.IsProtected = true;
+                    }
                 }
                 this.isOverride = value;
             }
@@ -131,7 +176,11 @@ namespace SharpKit.ExtJs4.Generator
 
         public bool IsProtected { get; set; }
 
-        public bool IsPrivate { get; set; }
+        public bool IsPrivate
+        {
+            get { return this.isPrivate && !this.IsVirtual; }
+            set { this.isPrivate = value; }
+        }
     }
     class Assembly
     {

@@ -21,7 +21,7 @@ namespace SharpKit.ExtJs4.Generator
     {
         private static readonly HtmlDocument CurrHtDoc = new HtmlDocument();// { OptionWriteEmptyNodes = true };
         private static readonly char[] MultipleObjectDelimiter = new[] { '/', ' ' };
-       
+
         //Methods and propertys in Ext.ExtContext, needed to fix docs.
         private static readonly string[] extCreDef = new[] { 
                         "Ext.addBehaviors",
@@ -148,7 +148,7 @@ namespace SharpKit.ExtJs4.Generator
         private static bool InheritFromJsContext = true;
 
         //Self explanatory...
-        private const string OutputDir = @"C:\temp\ExtJs\";
+        private const string OutputDir = @"D:\Proyectos\Sharpkit5\sharpkit\SharpKit.ExtJs\";
         private const string InputDir = @"D:\Proyectos\extjs-4.1.1\docs\output\";
         #endregion
 
@@ -175,6 +175,8 @@ namespace SharpKit.ExtJs4.Generator
                     {"Element", "Ext.dom.Element"},
                     {"Ext.Element", "Ext.dom.Element"},
                     {"Ext.core.Element", "Ext.dom.Element"},
+                    {"Ext.dom.ElementLoader", "Ext.ElementLoader"},
+                    {"Ext.ux.form.FileUploadField","Ext.form.field.File"},
                     {"HTMLElement", "Ext.dom.Element"},
                     {"Function", "System.Delegate"},
                     {"Array", "JsArray"},
@@ -377,12 +379,7 @@ namespace SharpKit.ExtJs4.Generator
 
             //Adding Ext non existant aliases.
             ceExt.Members.Add( new Property { Name = "Msg", Type = GetClass( "Ext.window.MessageBox" ), DeclaringClass = ceExt, IsStatic = true } );
-            var direct = GetClass( "Ext.Direct", true );
-            direct.Attributes.Add( CreateJsAttribute( "Prototype" ) );
-            direct.Attributes[ 0 ].NamedParamters.Add( "Name", "\"Ext.Direct\"" );
-            direct.BaseClass = GetClass( "Ext.direct.Manager" );
-            direct.Summary = "Shorthand for <see cref=\"Ext.direct.Manager\" />";
-            ceExt.SubClasses.Add( direct );
+            ceExt.Members.Add( new Property { Name = "Direct", Type = GetClass( "Ext.direct.Manager" ), DeclaringClass = ceExt, IsStatic = true } );
             //END adding non existant aliases.
 
             //Add a new utility class to deal with this
@@ -397,16 +394,13 @@ namespace SharpKit.ExtJs4.Generator
             if ( InheritFromJsContext )
                 bExt.BaseClass = GetClass( "JsContext", false );
 
-            //Explicitly setting these members as public to be able to use it in anonymous objects via @this.As<XXX>().callXXX();
-            bExt.Members.OfType<Method>().Where( m => m.Name.Equals( "callParent", StringComparison.Ordinal ) || m.Name.Equals( "callOverridden", StringComparison.Ordinal ) ).ForEach( m =>
-            {
-                m.IsProtected = m.IsPrivate = false;
-            } );
+            //Explicitly setting these members as public to be able to use it in anonymous objects via @this.As<XXX>().callXXX(); (and borrow should be public but docs are wrong according to Ext forum)
             bExt.Members.OfType<Method>().Where( m => m.Name.Equals( "create", StringComparison.Ordinal ) || m.Name.Equals( "implement", StringComparison.Ordinal ) ).ForEach( m =>
             {
                 m.IsStatic = false;
                 m.Parameters.Add( new Parameter { Type = GetClass( "object" ), Name = "args", IsParams = true, DeclaringClass = bExt } );
             } );
+            bExt.Members.Where( m => new[] { "@className", "configMap", "initConfigList", "initConfigMap", "isInstance", "self", "callParent", "callOverridden", "destroy" }.Any( s => s.Equals( m.Name, StringComparison.Ordinal ) ) ).ForEach( m => m.IsProtected = m.IsPrivate = false );
             list.Where( t => t.FullName == "Ext.util.Sortable" || t.Interfaces.FirstOrDefault( i => i.FullName == "Ext.util.Sortable" ) != null ).ForEach( t => t.Members.Where( m => m.Name.IsNullOrEmpty() ).ForEach( m => m.Name = "sortRoot" ) );
 
             list.ForEach( t => t.Members.Where( m => m.Type != null && m.Type.Name == "this" ).ForEach( m => m.Type = t ) );
@@ -418,7 +412,7 @@ namespace SharpKit.ExtJs4.Generator
 
             list.Where( t => t.FullName == "Ext.AbstractComponent" ).ForEach( t => t.Members.OfType<Method>().Where( m => m.Name == "addChildEls" ).ForEach( m => m.Parameters.Add( new Parameter { Type = GetClass( "object" ), DeclaringClass = t, Name = "args", IsParams = true, Summary = "<param name=\"args\">An object or array describing the child elements of the Component. <see cref=\"Ext.AbstractComponent.childEls\" /></param>" } ) ) );
 
-            list.Where( t => t.FullName == "Ext.toolbar.Toolbar" ).ForEach( t => t.Members.OfType<Method>().Where( m => m.Name.Equals( "add", StringComparison.Ordinal ) ).ForEach( m =>
+            list.Where( t => t.FullName == "Ext.container.AbstractContainer" ).ForEach( t => t.Members.OfType<Method>().Where( m => m.Name.Equals( "add", StringComparison.Ordinal ) ).ForEach( m =>
             {
                 m.Parameters[ 0 ].IsParams = true;
                 m.Parameters[ 0 ].IsOptional = false;
@@ -435,7 +429,9 @@ namespace SharpKit.ExtJs4.Generator
             list.Where( t => t.FullName == "Ext.EventObject" ).ForEach( t => t.Members.OfType<Method>().ForEach( m => m.IsStatic = false ) );
 
             list.Where( t => t.FullName == "Ext.CompositeElement" ).ForEach( t => t.Members.Where( m => m.Name.IsNullOrEmpty() ).ForEach( m => m.Name = "UNKNOWN" ) );
-            list.Where( t => t.FullName == "Ext.chart.Mask" ).ForEach( t => t.IsInterface = false );
+
+            list.ForEach( t => t.Members.OfType<Method>().Where( m => m.Name == "getStore" ).ForEach( m => m.Type = GetClass( "Ext.data.Store" ) ) );
+
             list.Where( t => t.FullName == "Ext.Error" ).ForEach( t => t.BaseClass = null );
             list.Where( t => t.IsInterface && t.BaseClass != null ).ForEach( t => t.BaseClass = null );
             list.ForEach( t => t.Members.Where( m => m.Name == "isValid" && ( m.Type == null || m.Type == VoidClass ) ).ForEach( m => m.Type = GetClass( "Boolean" ) ) );
@@ -457,13 +453,15 @@ namespace SharpKit.ExtJs4.Generator
             //Implement missing interface methods
             list.Where( t => !t.IsInterface && t.Interfaces.Count > 0 ).ForEach( t => t.Interfaces.ForEach( i => i.Members.ForEach( im =>
             {
-                if ( !t.Members.Any( tm => tm.Name.Equals( im.Name, StringComparison.Ordinal ) ) )
+                if ( !InterfaceMemberIsImplementedBySelfOrBaseClass( im, t ) )
                 {
                     var ne = new Element();
                     if ( im is Method )
                     {
                         ne = new Method();
                         ( ne as Method ).Parameters = ( im as Method ).Parameters;
+                        ( ne as Method ).ReturnsArray = ( im as Method ).ReturnsArray;
+                        ( ne as Method ).IsVirtual = true;//Interface implemented methods are virtual by default.
                     }
                     else if ( im is Property )
                     {
@@ -480,19 +478,53 @@ namespace SharpKit.ExtJs4.Generator
                     ne.IsOverride = false;
                     ne.IsPrivate = false;
                     ne.IsProtected = false;
-                    ne.IsStatic = im.IsStatic;
-                    ne.IsVirtual = im.IsVirtual;
+                    ne.IsStatic = false;
+                    ne.IsVirtual = true;
                     ne.Name = im.Name;
                     ne.Remarks = im.Remarks;
                     ne.Summary = im.Summary;
-                    ne.Type = im.Type;
+                    ne.Type = im.Type ?? ObjectClass;
 
                     t.Members.Add( ne );
                 }
             } ) ) );
 
-            //Make sure interface implemented methods are public
-            list.Where( t => !t.IsInterface && t.Interfaces.Count > 0 ).ForEach( t => t.Members.ForEach( m => t.Interfaces.Where( i => i.Members.Any( im => im.Name.Equals( m.Name, StringComparison.Ordinal ) ) ).ForEach( im => m.IsPrivate = m.IsProtected = false ) ) );
+            //Make sure interface implemented methods are public, non static and have proper return type
+            list.Where( t => !t.IsInterface && t.Interfaces.Count > 0 ).ForEach( t => t.Members.ForEach( m => t.Interfaces.ForEach( i => i.Members.Where( im => im.Name.Equals( m.Name, StringComparison.Ordinal ) ).ForEach( im =>
+            {
+                var implementedInBase = AnyBaseClassImplements( m );
+                m.IsPrivate = m.IsProtected = m.IsStatic = false;
+                if ( im is Method && m is Method && ( im as Method ).Parameters.Count == ( m as Method ).Parameters.Count )
+                {
+                    m.Type = im.Type;
+                    ( m as Method ).ReturnsArray = ( im as Method ).ReturnsArray;
+                    var index = 0;
+                    //If this is the only implementation, lets fix parameter types and make it virtual
+                    if ( !implementedInBase )
+                    {
+                        ( m as Method ).IsVirtual = true;
+                        ( im as Method ).Parameters.ForEach( ip =>
+                        {
+                            if ( ( m as Method ).Parameters[ index ].Type != ip.Type )
+                            {
+                                ( m as Method ).Parameters[ index ].Type = ip.Type;
+                            }
+                            index++;
+                        } );
+                    }
+                }
+
+                else if ( !( ( im is Method ) || !( m is Method ) ) )
+                {
+                    m.Type = im.Type;
+                }
+            } ) ) ) );
+
+            //list.Where( t => !t.IsInterface && t.Interfaces.Count > 0 ).ForEach( t => t.Members.ForEach( m => t.Interfaces.Where( i => i.Members.Any( im => im.Name.Equals( m.Name, StringComparison.Ordinal ) ) ).ForEach( im =>
+            //{
+            //    m.IsPrivate = m.IsProtected = m.IsStatic = false;
+            //    m.Type = im.Type;
+            //} ) ) );
 
             var invalidMethods = new List<Method>();
             foreach ( var ce in list )
@@ -514,6 +546,7 @@ namespace SharpKit.ExtJs4.Generator
                                         pe.IsPrivate = parentM.IsPrivate;
                                         pe.IsProtected = parentM.IsProtected;
                                         pe.IsOverride = true;
+                                        pe.IsNew = false;
                                     }
                                     else
                                     {
@@ -563,12 +596,17 @@ namespace SharpKit.ExtJs4.Generator
 
                 if ( GenerateParamsConstructor )
                 {
-                    ce.Members.Add( new Method { IsConstructor = true, Parameters = new List<Parameter>() { new Parameter { Name = "args", IsParams = true, Type = GetClass( "object" ) } } } );
+                    ce.Members.Add( new Method { IsConstructor = true, Parameters = new List<Parameter> { new Parameter { Name = "args", IsParams = true, Type = GetClass( "object" ) } } } );
                 }
             } );
 
             list.ForEach( t => t.Members.Where( m => m.DeclaringClass == null ).ForEach( m => m.DeclaringClass = t ) );
-
+            list.Where( t => t.IsInterface && t.Members.OfType<Method>().Any( m => m.IsConstructor ) ).ForEach( t =>
+                                                                                                       {
+                                                                                                           var toRemove = new List<Element>();
+                                                                                                           t.Members.ForEach( toRemove.Add );
+                                                                                                           toRemove.ForEach( r => t.Members.Remove( r ) );
+                                                                                                       } );
             //Remove members already implemented in any base class
             list.Where( t => !t.IsInterface && t.BaseClass != null ).ForEach( t =>
             {
@@ -577,7 +615,29 @@ namespace SharpKit.ExtJs4.Generator
                 {
                     if ( AnyBaseClassImplements( m ) )
                     {
-                        toRemove.Add( m );
+                        if ( m is Method )
+                        {
+                            var mt = m as Method;
+                            if ( !mt.IsOverride )
+                            {
+                                toRemove.Add( m );
+                            }
+                            else
+                            {
+                                list.ForEach( ty =>
+                                                     {
+                                                         var parentM = ty.Members.OfType<Method>().FirstOrDefault( me => me.Name != null && me.Name.Equals( mt.Name ) );
+                                                         if ( parentM != null && HasSameNameAndParameterTypes( mt, parentM ) )
+                                                         {
+                                                             toRemove.Add( m );
+                                                         }
+                                                     } );
+                            }
+                        }
+                        else
+                        {
+                            toRemove.Add( m );
+                        }
                     }
                 } );
                 toRemove.ForEach( m => t.Members.Remove( m ) );
@@ -653,12 +713,26 @@ namespace SharpKit.ExtJs4.Generator
         {
             var cls = el.DeclaringClass;
             var baseCls = cls.BaseClass;
-            do
+            while ( baseCls != null )
             {
                 if ( !baseCls.IsInterface && baseCls.IsDeclared( el ) )
                     return true;
                 baseCls = baseCls.BaseClass;
-            } while ( baseCls != null );
+            }
+
+            return false;
+        }
+
+        static bool InterfaceMemberIsImplementedBySelfOrBaseClass( Element el, Class cls )
+        {
+            var baseCls = cls;
+            while ( baseCls != null )
+            {
+                //Last check is because (ej) Ext.Base implements all "basic" members requied by interfaces but doesn't implement any interface so members are private there, that shouldn't happen...
+                if ( !baseCls.IsInterface && baseCls.IsDeclared( el, true ) /*&& baseCls.Interfaces.Any( i => i.Members.Any( m => m == el ) )*/ )
+                    return true;
+                baseCls = baseCls.BaseClass;
+            }
 
             return false;
         }
@@ -775,8 +849,8 @@ namespace SharpKit.ExtJs4.Generator
             if ( ce2.superclasses != null && ce2.superclasses.Count > 0 )
                 ce.BaseClass = GetClass( ce2.superclasses.Last() );
 
-            if ( ce2.allMixins != null )
-                ce.Interfaces.AddRange( ce2.allMixins.Select( t => GetClass( t ) ) );
+            if ( ce2.mixins != null )
+                ce.Interfaces.AddRange( ce2.mixins.Select( t => GetClass( t ) ) );
 
             if ( ce.BaseClass != null )
             {
@@ -800,8 +874,8 @@ namespace SharpKit.ExtJs4.Generator
             if ( IncludeConfigsInMainClass && !ce.IsInterface )
                 ce.Members.AddRange( ce2.members.cfg.Where( t => IsDeclared( ce2, t ) && ( t.defined_in.IsNullOrEmpty() || t.defined_in == t.owner || ce2.singleton ) && !ce2.members.property.Any( t2 => t2.name.Equals( t.name, StringComparison.Ordinal ) ) && !ce2.members.method.Any( t2 => t2.name.Equals( t.name, StringComparison.Ordinal ) ) ).Select( ProcessCfg ) );
             ce.Members.AddRange( ce2.members.property.Where( t => IsDeclared( ce2, t ) && ( t.defined_in.IsNullOrEmpty() || t.defined_in == t.owner || ce2.singleton ) ).Select( ProcessProperty ) );
-            var methods = ce2.members.method.Where( t => IsDeclared( ce2, t ) ).Select( ProcessMethod ).ToList();
-            ce.Members.AddRange( methods );
+            ce.Members.AddRange( ce2.members.method.Where( t => IsDeclared( ce2, t ) ).Select( ProcessMethod ) );
+
             if ( !ce.IsInterface )
             {
                 ce.Members.AddRange( ce2.statics.property.Where( t => IsDeclared( ce2, t ) && !IsDeclared( ce, t ) && ( t.defined_in.IsNullOrEmpty() || t.defined_in == t.owner || ce2.singleton ) ).Select( ProcessProperty ) );
@@ -826,14 +900,16 @@ namespace SharpKit.ExtJs4.Generator
             ce.Summary = FixDoc();
         }
 
-        private static Field ProcessEvent( ExtMember ev2 )
+        private static Method ProcessEvent( ExtMember ev2 )
         {
+            return ProcessMethod( ev2 );
+
             //ProcessMemberDocs( ev2 );
-            var pe = new Field { Name = ev2.name, Type = GetClass( "JsString" ), Summary = ev2.shortDoc };
-            SetModifiers( ev2, pe );
-            pe.IsStatic = true;
-            pe.Initializer = "\"" + ev2.name + "\"";
-            return pe;
+            //var pe = new Method { Name = ev2.name, Type = GetClass( "JsString" ), Summary = ev2.shortDoc, IsStatic = true};
+            //SetModifiers( ev2, pe );
+            ////pe.IsStatic = true;
+            ////pe.Initializer = "\"" + ev2.name + "\"";
+            //return pe;
         }
 
         private static void SetModifiers( ExtMember me2, Element me )

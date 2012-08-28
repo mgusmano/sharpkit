@@ -16,6 +16,7 @@ namespace SharpKit.ExtJs4.Generator
         public Assembly Assembly { get; set; }
         HashSet<string> keywords = new HashSet<string>
         {
+            "new",
             "namespace","using",
             "object",
             "delegate", "event", "class", "struct", "interface",
