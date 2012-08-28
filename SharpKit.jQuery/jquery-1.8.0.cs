@@ -73,6 +73,12 @@ namespace SharpKit.jQuery
         public jQuery(JsString selector) { }
 
         /// <summary>
+        /// Creates a jQuery element by tagName
+        /// </summary>
+        [JsMethod(Name = "$", Global = true, ArgumentsPrefix = "document.createElement(", ArgumentsSuffix = ")")]
+        public static jQuery createElement(string tagName) { return null; }
+
+        /// <summary>
         /// Add elements to the set of matched elements.
         /// </summary>
         public jQuery add<T>() where T : HtmlElement { return null; }
@@ -680,6 +686,11 @@ namespace SharpKit.jQuery
         /// Hide the matched elements by fading them to transparent.
         /// </summary>
         public jQuery fadeOut(JsNumber duration, JsString easing, JsAction callback) { return null; }
+
+        /// <summary>
+        /// Adjust the opacity of the matched elements.
+        /// </summary>
+        public jQuery fadeTo(JsNumber opacity) { return null; }
         /// <summary>
         /// Adjust the opacity of the matched elements.
         /// </summary>
@@ -687,14 +698,48 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Adjust the opacity of the matched elements.
         /// </summary>
+        public jQuery fadeTo(JsNumber opacity, JsAction callback) { return null; }
+        /// <summary>
+        /// Adjust the opacity of the matched elements.
+        /// </summary>
+        public jQuery fadeTo(JsNumber opacity, JsString easing) { return null; }
+        /// <summary>
+        /// Adjust the opacity of the matched elements.
+        /// </summary>
+        public jQuery fadeTo(JsNumber duration, JsNumber opacity) { return null; }
+        /// <summary>
+        /// Adjust the opacity of the matched elements.
+        /// </summary>
         public jQuery fadeTo(JsString duration, JsNumber opacity, JsAction callback) { return null; }
         /// <summary>
         /// Adjust the opacity of the matched elements.
         /// </summary>
+        public jQuery fadeTo(JsString duration, JsNumber opacity, JsString easing) { return null; }
+        /// <summary>
+        /// Adjust the opacity of the matched elements.
+        /// </summary>
+        public jQuery fadeTo(JsNumber opacity, JsString easing, JsAction callback) { return null; }
+        /// <summary>
+        /// Adjust the opacity of the matched elements.
+        /// </summary>
+        public jQuery fadeTo(JsNumber duration, JsNumber opacity, JsAction callback) { return null; }
+        /// <summary>
+        /// Adjust the opacity of the matched elements.
+        /// </summary>
+        public jQuery fadeTo(JsNumber duration, JsNumber opacity, JsString easing) { return null; }
+        /// <summary>
+        /// Adjust the opacity of the matched elements.
+        /// </summary>
+        public jQuery fadeTo(JsString duration, JsNumber opacity, JsString easing, JsAction callback) { return null; }
+        /// <summary>
+        /// Adjust the opacity of the matched elements.
+        /// </summary>
         public jQuery fadeTo(JsNumber duration, JsNumber opacity, JsString easing, JsAction callback) { return null; }
+
         /// <summary>
         /// Display or hide the matched elements by animating their opacity.
         /// </summary>
+        /// 
         public jQuery fadeToggle() { return null; }
         /// <summary>
         /// Display or hide the matched elements by animating their opacity.
@@ -2129,6 +2174,7 @@ namespace SharpKit.jQuery
         /// Takes a string and throws an exception containing it.
         /// </summary>
         public static void error(JsString message) { }
+
         /// <summary>
         /// Merge the contents of two or more objects together into the first object.
         /// </summary>
@@ -2149,6 +2195,24 @@ namespace SharpKit.jQuery
         /// Merge the contents of two or more objects together into the first object.
         /// </summary>
         public static object extend(bool deep, object target, object object1, object objectN) { return null; }
+
+        /// <summary>
+        /// Merge the contents of two or more objects together into the first object.
+        /// </summary>
+        public static JsObject extend(JsObject target) { return null; }
+        /// <summary>
+        /// Merge the contents of two or more objects together into the first object.
+        /// </summary>
+        public static JsObject extend(JsObject target, JsObject object1) { return null; }
+        /// <summary>
+        /// Merge the contents of two or more objects together into the first object.
+        /// </summary>
+        public static JsObject extend(JsObject target, JsObject object1, JsObject objectN) { return null; }
+        /// <summary>
+        /// Merge the contents of two or more objects together into the first object.
+        /// </summary>
+        public static JsObject extend(bool deep, JsObject target, JsObject object1) { return null; }
+
         /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>

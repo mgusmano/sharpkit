@@ -861,10 +861,6 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class DraggableOptions
     {
-        /// <summary>
-        /// Disables (true) or enables (false) the draggable. Can be set when initialising (first creating) the draggable.
-        /// </summary>
-        public bool disabled { get; set; }
         ///<summary>
         ///If set to false, will prevent the ui-draggable class from being added. This may be desired as a performance optimization when calling .draggable() init on many hundreds of elements.
         ///Default: true
@@ -1008,8 +1004,21 @@ namespace SharpKit.jQuery
         ///Default: false
         ///</summary>
         public int zIndex { get; set; }
-
-
+        ///<summary>
+        ///This event is triggered when dragging starts.
+        ///Default: null
+        ///</summary>
+        public DraggableEvent start { get; set; }
+        ///<summary>
+        ///This event is triggered when the mouse is moved during the dragging.
+        ///Default: null
+        ///</summary>
+        public DraggableEvent drag { get; set; }
+        ///<summary>
+        ///This event is triggered when dragging stops.
+        ///Default: null
+        ///</summary>
+        public DraggableEvent stop { get; set; }
     }
     #endregion
     #region Droppable
@@ -1062,11 +1071,6 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class DroppableOptions
     {
-        /// <summary>
-        /// Disables (true) or enables (false) the droppable. Can be set when initialising (first creating) the droppable.
-        /// Default:false
-        /// </summary>
-        public bool disabled { get; set; }
         ///<summary>
         ///All draggables that match the selector will be accepted. If a function is specified, the function will be called for each draggable on the page (passed as the first argument to the function), to provide a custom filter. The function should return true if the draggable should be accepted.
         ///Default: '*'
@@ -1107,6 +1111,31 @@ namespace SharpKit.jQuery
         ///Default: 'intersect'
         ///</summary>
         public string tolerance { get; set; }
+        ///<summary>
+        ///This event is triggered any time an accepted draggable starts dragging. This can be useful if you want to make the droppable 'light up' when it can be dropped on.
+        ///Default: null
+        ///</summary>
+        public DroppableEvent activate { get; set; }
+        ///<summary>
+        ///This event is triggered any time an accepted draggable stops dragging.
+        ///Default: null
+        ///</summary>
+        public DroppableEvent deactivate { get; set; }
+        ///<summary>
+        ///This event is triggered as an accepted draggable is dragged 'over' (within the tolerance of) this droppable.
+        ///Default: null
+        ///</summary>
+        public DroppableEvent over { get; set; }
+        ///<summary>
+        ///This event is triggered when an accepted draggable is dragged out (within the tolerance of) this droppable.
+        ///Default: null
+        ///</summary>
+        public DroppableEvent @out { get; set; }
+        ///<summary>
+        ///This event is triggered when an accepted draggable is dropped 'over' (within the tolerance of) this droppable. In the callback, $(this) represents the droppable the draggable is dropped on. ui.draggable represents the draggable.
+        ///Default: null
+        ///</summary>
+        public DroppableEvent drop { get; set; }
     }
     #endregion
     #region Effect
@@ -1679,11 +1708,6 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class SliderOptions
     {
-        /// <summary>
-        /// Disables (true) or enables (false) the button. Can be set when initialising (first creating) the button.
-        /// Default:false
-        /// </summary>
-        public bool disabled { get; set; }
         ///<summary>
         ///Whether to slide handle smoothly when user click outside handle on the bar.
         ///Default: false
@@ -1693,12 +1717,12 @@ namespace SharpKit.jQuery
         ///The maximum value of the slider.
         ///Default: 100
         ///</summary>
-        public int max { get; set; }
+        public JsNumber max { get; set; }
         ///<summary>
         ///The minimum value of the slider.
         ///Default: 0
         ///</summary>
-        public int min { get; set; }
+        public JsNumber min { get; set; }
         ///<summary>
         ///Normally you don't need to set this option because the plugin detects the slider orientation automatically. If the orientation is not correctly detected you can set this option to 'horizontal' or 'vertical'.
         ///Default: 'auto'
@@ -1714,12 +1738,12 @@ namespace SharpKit.jQuery
         ///Determines the size or amount of each interval or step the slider takes between min and max. The full specified value range of the slider (max - min) needs to be evenly divisible by the step.
         ///Default: 1
         ///</summary>
-        public int step { get; set; }
+        public JsNumber step { get; set; }
         ///<summary>
         ///Determines the value of the slider, if there's only one handle. If there is more than one handle, determines the value of the first handle.
         ///Default: 0
         ///</summary>
-        public int value { get; set; }
+        public JsNumber value { get; set; }
         ///<summary>
         ///This option can be used to specify multiple handles. If range is set to true, the length of 'values' should be 2.
         ///Default: null
@@ -2350,7 +2374,7 @@ namespace SharpKit.jQuery
     public delegate void jQueryUIEvent<T>(Event e, T ui);
 
     #region Plugins as classes
-    
+
 
     /// <summary>
     /// The jQuery UI Draggable plugin makes selected elements draggable by mouse.
@@ -3860,7 +3884,31 @@ namespace SharpKit.jQuery
         //TODO: event name without the"event"
 
     }
-        #endregion
+    #endregion
 
+    [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
+    public delegate void DraggableEvent(Event e, DraggableUIObject ui);
+
+    [JsDelegate(NativeDelegates = true)]
+    [JsType(JsMode.Json, OmitCasts = true, Export = false)]
+    public delegate void DroppableEvent(Event e, DroppableUIObject ui);
+
+    [JsType(JsMode.Json)]
+    public partial class DroppableUIObject
+    {
+        public jQuery draggable;
+        public jQuery helper;
+        public TopLeft position;
+        public TopLeft offset;
+    }
+
+    [JsType(JsMode.Json)]
+    public partial class DraggableUIObject
+    {
+        public jQuery helper;
+        public TopLeft position;
+        public TopLeft offset;
+    }
 
 }
