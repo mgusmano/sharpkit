@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F1B6A826-60C3-4038-AABF-BD7C8380CC2F}</ProjectGuid>
+    <ProjectGuid>{DF77BAB5-69BC-4F2A-A3E6-81B35BB95D7B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SharpKit.Html</RootNamespace>
