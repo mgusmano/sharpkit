@@ -14,7 +14,17 @@ namespace CoreTests.Dynamics
 
         public void parse(dynamic dateNode)
         {
-            //JsString dateString = dateNode["$t"];
+            JsString dateString = dateNode["$t"];
+            dateNode("asdas");
+            var x = dateNode.ggg.aaa;
+            dateNode.aa.bb = "dd";
+
         }
+
+        public static bool ContainsIgnoreCase(string str, string other)
+        {
+            return (str.As<dynamic>().ToLower().IndexOf(other.As<dynamic>().ToLower())) > -1;
+        }
+
     }
 }
