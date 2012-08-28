@@ -9,9 +9,9 @@ using SharpKit.Html;
 namespace SharpKit.jQuery
 {
 
-	[JsType(JsMode.Prototype, Export = false, Name = "$")]
-	public partial class jQuery
-	{
+    [JsType(JsMode.Prototype, Export = false, Name = "$", NativeArrayEnumerator = true, NativeEnumerator = false)]
+    public partial class jQuery : IJsArrayEnumerable<HtmlElement>
+    {
 
 		/// <summary>
 		/// Accepts a string containing a CSS selector which is then used to match a set of elements.
@@ -2371,7 +2371,21 @@ namespace SharpKit.jQuery
 		/// </summary>
 		/// <returns></returns>
 		public static Deferred Deferred(JsAction<Deferred> callback) { return null; }
-	}
+
+        #region IEnumerable<HtmlElement> Members
+
+        public IEnumerator<HtmlElement> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+    }
 
 	[JsType(JsMode.Json)]
 	public partial class jQueryBrowser
@@ -2571,7 +2585,7 @@ namespace SharpKit.jQuery
 
 
 	[JsType(JsMode.Json, Export = false)]
-	public partial class Map : CSSStyleDeclaration
+	public partial class Map : CssStyleDeclaration
 	{
 
 		///<summary>
