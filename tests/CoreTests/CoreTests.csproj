@@ -42,6 +42,7 @@
     <Compile Include="Constructors\Constructors.cs" />
     <Compile Include="Dynamics\Dynamics.cs" />
     <Compile Include="Events\CustomEvents.cs" />
+    <Compile Include="Interfaces\Interface1.cs" />
     <Compile Include="Methods\NamedParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
