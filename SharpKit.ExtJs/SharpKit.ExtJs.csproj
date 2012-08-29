@@ -500,7 +500,6 @@
     <Compile Include="Ext.XTemplateCompiler.cs" />
     <Compile Include="Ext.XTemplateParser.cs" />
     <Compile Include="Ext.ZIndexManager.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
@@ -510,6 +509,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SharpKit.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="InvalidMethods.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
