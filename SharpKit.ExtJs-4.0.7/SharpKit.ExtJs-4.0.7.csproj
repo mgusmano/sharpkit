@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0D08EA4-34C6-4200-909D-F5A063FB4F4C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharpKit.ExtJs_4._0._7</RootNamespace>
+    <AssemblyName>SharpKit.ExtJs-4.0.7</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AbstractComponent.cs" />
+    <Compile Include="AbstractManager.cs" />
+    <Compile Include="AbstractPlugin.cs" />
+    <Compile Include="Action.cs" />
+    <Compile Include="Ajax.cs" />
+    <Compile Include="app\Application.cs" />
+    <Compile Include="app\Controller.cs" />
+    <Compile Include="Array.cs" />
+    <Compile Include="Base.cs" />
+    <Compile Include="button\Button.cs" />
+    <Compile Include="button\Cycle.cs" />
+    <Compile Include="button\Split.cs" />
+    <Compile Include="chart\axis\Abstract.cs" />
+    <Compile Include="chart\axis\Axis.cs" />
+    <Compile Include="chart\axis\Category.cs" />
+    <Compile Include="chart\axis\Gauge.cs" />
+    <Compile Include="chart\axis\Numeric.cs" />
+    <Compile Include="chart\axis\Time.cs" />
+    <Compile Include="chart\Callout.cs" />
+    <Compile Include="chart\Chart.cs" />
+    <Compile Include="chart\Highlight.cs" />
+    <Compile Include="chart\Label.cs" />
+    <Compile Include="chart\Legend.cs" />
+    <Compile Include="chart\LegendItem.cs" />
+    <Compile Include="chart\Mask.cs" />
+    <Compile Include="chart\Navigation.cs" />
+    <Compile Include="chart\series\Area.cs" />
+    <Compile Include="chart\series\Bar.cs" />
+    <Compile Include="chart\series\Cartesian.cs" />
+    <Compile Include="chart\series\Column.cs" />
+    <Compile Include="chart\series\Gauge.cs" />
+    <Compile Include="chart\series\Line.cs" />
+    <Compile Include="chart\series\Pie.cs" />
+    <Compile Include="chart\series\Radar.cs" />
+    <Compile Include="chart\series\Scatter.cs" />
+    <Compile Include="chart\series\Series.cs" />
+    <Compile Include="chart\theme\Theme.cs" />
+    <Compile Include="chart\Tip.cs" />
+    <Compile Include="Class.cs" />
+    <Compile Include="ClassManager.cs" />
+    <Compile Include="Component.cs" />
+    <Compile Include="ComponentLoader.cs" />
+    <Compile Include="ComponentManager.cs" />
+    <Compile Include="ComponentQuery.cs" />
+    <Compile Include="CompositeElement.cs" />
+    <Compile Include="CompositeElementLite.cs" />
+    <Compile Include="container\AbstractContainer.cs" />
+    <Compile Include="container\ButtonGroup.cs" />
+    <Compile Include="container\Container.cs" />
+    <Compile Include="container\Viewport.cs" />
+    <Compile Include="core\DomHelper.cs" />
+    <Compile Include="core\Element.cs" />
+    <Compile Include="data\AbstractStore.cs" />
+    <Compile Include="data\ArrayStore.cs" />
+    <Compile Include="data\Association.cs" />
+    <Compile Include="data\Batch.cs" />
+    <Compile Include="data\BelongsToAssociation.cs" />
+    <Compile Include="data\Connection.cs" />
+    <Compile Include="data\DirectStore.cs" />
+    <Compile Include="data\Errors.cs" />
+    <Compile Include="data\Field.cs" />
+    <Compile Include="data\HasManyAssociation.cs" />
+    <Compile Include="data\JsonP.cs" />
+    <Compile Include="data\Model.cs" />
+    <Compile Include="data\NodeInterface.cs" />
+    <Compile Include="data\Operation.cs" />
+    <Compile Include="data\proxy\Ajax.cs" />
+    <Compile Include="data\proxy\Client.cs" />
+    <Compile Include="data\proxy\Direct.cs" />
+    <Compile Include="data\proxy\JsonP.cs" />
+    <Compile Include="data\proxy\LocalStorage.cs" />
+    <Compile Include="data\proxy\Memory.cs" />
+    <Compile Include="data\proxy\Proxy.cs" />
+    <Compile Include="data\proxy\Rest.cs" />
+    <Compile Include="data\proxy\Server.cs" />
+    <Compile Include="data\proxy\SessionStorage.cs" />
+    <Compile Include="data\proxy\WebStorage.cs" />
+    <Compile Include="data\reader\Array.cs" />
+    <Compile Include="data\reader\Json.cs" />
+    <Compile Include="data\reader\Reader.cs" />
+    <Compile Include="data\reader\Xml.cs" />
+    <Compile Include="data\Request.cs" />
+    <Compile Include="data\ResultSet.cs" />
+    <Compile Include="data\SortTypes.cs" />
+    <Compile Include="data\Store.cs" />
+    <Compile Include="data\StoreManager.cs" />
+    <Compile Include="data\Tree.cs" />
+    <Compile Include="data\TreeStore.cs" />
+    <Compile Include="data\Types.cs" />
+    <Compile Include="data\validations.cs" />
+    <Compile Include="data\writer\Json.cs" />
+    <Compile Include="data\writer\Writer.cs" />
+    <Compile Include="data\writer\Xml.cs" />
+    <Compile Include="Date.cs" />
+    <Compile Include="dd\DD.cs" />
+    <Compile Include="dd\DDProxy.cs" />
+    <Compile Include="dd\DDTarget.cs" />
+    <Compile Include="dd\DragDrop.cs" />
+    <Compile Include="dd\DragDropManager.cs" />
+    <Compile Include="dd\DragSource.cs" />
+    <Compile Include="dd\DragTracker.cs" />
+    <Compile Include="dd\DragZone.cs" />
+    <Compile Include="dd\DropTarget.cs" />
+    <Compile Include="dd\DropZone.cs" />
+    <Compile Include="dd\Registry.cs" />
+    <Compile Include="dd\ScrollManager.cs" />
+    <Compile Include="dd\StatusProxy.cs" />
+    <Compile Include="direct\Event.cs" />
+    <Compile Include="direct\ExceptionEvent.cs" />
+    <Compile Include="direct\JsonProvider.cs" />
+    <Compile Include="direct\Manager.cs" />
+    <Compile Include="direct\PollingProvider.cs" />
+    <Compile Include="direct\Provider.cs" />
+    <Compile Include="direct\RemotingEvent.cs" />
+    <Compile Include="direct\RemotingProvider.cs" />
+    <Compile Include="direct\Transaction.cs" />
+    <Compile Include="DomQuery.cs" />
+    <Compile Include="draw\Color.cs" />
+    <Compile Include="draw\Component.cs" />
+    <Compile Include="draw\CompositeSprite.cs" />
+    <Compile Include="draw\engine\Svg.cs" />
+    <Compile Include="draw\engine\Vml.cs" />
+    <Compile Include="draw\Sprite.cs" />
+    <Compile Include="draw\Surface.cs" />
+    <Compile Include="Editor.cs" />
+    <Compile Include="ElementLoader.cs" />
+    <Compile Include="env\Browser.cs" />
+    <Compile Include="env\FeatureDetector.cs" />
+    <Compile Include="env\OS.cs" />
+    <Compile Include="EventManager.cs" />
+    <Compile Include="EventObject.cs" />
+    <Compile Include="flash\Component.cs" />
+    <Compile Include="FocusManager.cs" />
+    <Compile Include="form\action\Action.cs" />
+    <Compile Include="form\action\DirectLoad.cs" />
+    <Compile Include="form\action\DirectSubmit.cs" />
+    <Compile Include="form\action\Load.cs" />
+    <Compile Include="form\action\StandardSubmit.cs" />
+    <Compile Include="form\action\Submit.cs" />
+    <Compile Include="form\Basic.cs" />
+    <Compile Include="form\CheckboxGroup.cs" />
+    <Compile Include="form\FieldAncestor.cs" />
+    <Compile Include="form\FieldContainer.cs" />
+    <Compile Include="form\FieldSet.cs" />
+    <Compile Include="form\field\Base.cs" />
+    <Compile Include="form\field\Checkbox.cs" />
+    <Compile Include="form\field\ComboBox.cs" />
+    <Compile Include="form\field\Date.cs" />
+    <Compile Include="form\field\Display.cs" />
+    <Compile Include="form\field\Field.cs" />
+    <Compile Include="form\field\File.cs" />
+    <Compile Include="form\field\Hidden.cs" />
+    <Compile Include="form\field\HtmlEditor.cs" />
+    <Compile Include="form\field\Number.cs" />
+    <Compile Include="form\field\Picker.cs" />
+    <Compile Include="form\field\Radio.cs" />
+    <Compile Include="form\field\Spinner.cs" />
+    <Compile Include="form\field\Text.cs" />
+    <Compile Include="form\field\TextArea.cs" />
+    <Compile Include="form\field\Time.cs" />
+    <Compile Include="form\field\Trigger.cs" />
+    <Compile Include="form\field\VTypes.cs" />
+    <Compile Include="form\Label.cs" />
+    <Compile Include="form\Labelable.cs" />
+    <Compile Include="form\Panel.cs" />
+    <Compile Include="form\RadioGroup.cs" />
+    <Compile Include="Function.cs" />
+    <Compile Include="fx\Anim.cs" />
+    <Compile Include="fx\Animator.cs" />
+    <Compile Include="fx\Easing.cs" />
+    <Compile Include="fx\target\Component.cs" />
+    <Compile Include="fx\target\CompositeElement.cs" />
+    <Compile Include="fx\target\CompositeElementCSS.cs" />
+    <Compile Include="fx\target\CompositeSprite.cs" />
+    <Compile Include="fx\target\Element.cs" />
+    <Compile Include="fx\target\ElementCSS.cs" />
+    <Compile Include="fx\target\Sprite.cs" />
+    <Compile Include="fx\target\Target.cs" />
+    <Compile Include="grid\column\Action.cs" />
+    <Compile Include="grid\column\Boolean.cs" />
+    <Compile Include="grid\column\Column.cs" />
+    <Compile Include="grid\column\Date.cs" />
+    <Compile Include="grid\column\Number.cs" />
+    <Compile Include="grid\column\Template.cs" />
+    <Compile Include="grid\feature\AbstractSummary.cs" />
+    <Compile Include="grid\feature\Chunking.cs" />
+    <Compile Include="grid\feature\Feature.cs" />
+    <Compile Include="grid\feature\Grouping.cs" />
+    <Compile Include="grid\feature\GroupingSummary.cs" />
+    <Compile Include="grid\feature\RowBody.cs" />
+    <Compile Include="grid\feature\Summary.cs" />
+    <Compile Include="grid\header\Container.cs" />
+    <Compile Include="grid\Panel.cs" />
+    <Compile Include="grid\plugin\CellEditing.cs" />
+    <Compile Include="grid\plugin\DragDrop.cs" />
+    <Compile Include="grid\plugin\Editing.cs" />
+    <Compile Include="grid\plugin\HeaderResizer.cs" />
+    <Compile Include="grid\plugin\RowEditing.cs" />
+    <Compile Include="grid\property\Grid.cs" />
+    <Compile Include="grid\property\HeaderContainer.cs" />
+    <Compile Include="grid\property\Property.cs" />
+    <Compile Include="grid\property\Store.cs" />
+    <Compile Include="grid\RowNumberer.cs" />
+    <Compile Include="grid\View.cs" />
+    <Compile Include="Img.cs" />
+    <Compile Include="is.cs" />
+    <Compile Include="JSON.cs" />
+    <Compile Include="Layer.cs" />
+    <Compile Include="layout\container\Absolute.cs" />
+    <Compile Include="layout\container\AbstractCard.cs" />
+    <Compile Include="layout\container\AbstractContainer.cs" />
+    <Compile Include="layout\container\AbstractFit.cs" />
+    <Compile Include="layout\container\Accordion.cs" />
+    <Compile Include="layout\container\Anchor.cs" />
+    <Compile Include="layout\container\Auto.cs" />
+    <Compile Include="layout\container\Border.cs" />
+    <Compile Include="layout\container\Box.cs" />
+    <Compile Include="layout\container\Card.cs" />
+    <Compile Include="layout\container\CheckboxGroup.cs" />
+    <Compile Include="layout\container\Column.cs" />
+    <Compile Include="layout\container\Container.cs" />
+    <Compile Include="layout\container\Fit.cs" />
+    <Compile Include="layout\container\HBox.cs" />
+    <Compile Include="layout\container\Table.cs" />
+    <Compile Include="layout\container\VBox.cs" />
+    <Compile Include="layout\Layout.cs" />
+    <Compile Include="Loader.cs" />
+    <Compile Include="LoadMask.cs" />
+    <Compile Include="menu\CheckItem.cs" />
+    <Compile Include="menu\ColorPicker.cs" />
+    <Compile Include="menu\DatePicker.cs" />
+    <Compile Include="menu\Item.cs" />
+    <Compile Include="menu\Manager.cs" />
+    <Compile Include="menu\Menu.cs" />
+    <Compile Include="menu\Separator.cs" />
+    <Compile Include="ModelManager.cs" />
+    <Compile Include="Number.cs" />
+    <Compile Include="Object.cs" />
+    <Compile Include="panel\AbstractPanel.cs" />
+    <Compile Include="panel\Header.cs" />
+    <Compile Include="panel\Panel.cs" />
+    <Compile Include="panel\Proxy.cs" />
+    <Compile Include="panel\Table.cs" />
+    <Compile Include="panel\Tool.cs" />
+    <Compile Include="picker\Color.cs" />
+    <Compile Include="picker\Date.cs" />
+    <Compile Include="picker\Time.cs" />
+    <Compile Include="PluginManager.cs" />
+    <Compile Include="ProgressBar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="resizer\Handle.cs" />
+    <Compile Include="resizer\Resizer.cs" />
+    <Compile Include="resizer\Splitter.cs" />
+    <Compile Include="selection\CellModel.cs" />
+    <Compile Include="selection\CheckboxModel.cs" />
+    <Compile Include="selection\Model.cs" />
+    <Compile Include="selection\RowModel.cs" />
+    <Compile Include="Shadow.cs" />
+    <Compile Include="SharpKit\Ext.cs" />
+    <Compile Include="SharpKit\ExtJsCompiler.cs" />
+    <Compile Include="SharpKit\Missing.cs" />
+    <Compile Include="SharpKit\Unknown.cs" />
+    <Compile Include="slider\Multi.cs" />
+    <Compile Include="slider\Single.cs" />
+    <Compile Include="slider\Tip.cs" />
+    <Compile Include="state\CookieProvider.cs" />
+    <Compile Include="state\LocalStorageProvider.cs" />
+    <Compile Include="state\Manager.cs" />
+    <Compile Include="state\Provider.cs" />
+    <Compile Include="state\Stateful.cs" />
+    <Compile Include="String.cs" />
+    <Compile Include="supports.cs" />
+    <Compile Include="tab\Bar.cs" />
+    <Compile Include="tab\Panel.cs" />
+    <Compile Include="tab\Tab.cs" />
+    <Compile Include="TaskManager.cs" />
+    <Compile Include="Template.cs" />
+    <Compile Include="tip\QuickTip.cs" />
+    <Compile Include="tip\QuickTipManager.cs" />
+    <Compile Include="tip\Tip.cs" />
+    <Compile Include="tip\ToolTip.cs" />
+    <Compile Include="toolbar\Fill.cs" />
+    <Compile Include="toolbar\Item.cs" />
+    <Compile Include="toolbar\Paging.cs" />
+    <Compile Include="toolbar\Separator.cs" />
+    <Compile Include="toolbar\Spacer.cs" />
+    <Compile Include="toolbar\TextItem.cs" />
+    <Compile Include="toolbar\Toolbar.cs" />
+    <Compile Include="tree\Panel.cs" />
+    <Compile Include="tree\View.cs" />
+    <Compile Include="tree\ViewDDPlugin.cs" />
+    <Compile Include="util\AbstractMixedCollection.cs" />
+    <Compile Include="util\Animate.cs" />
+    <Compile Include="util\ClickRepeater.cs" />
+    <Compile Include="util\ComponentDragger.cs" />
+    <Compile Include="util\Cookies.cs" />
+    <Compile Include="util\CSS.cs" />
+    <Compile Include="util\DelayedTask.cs" />
+    <Compile Include="util\Filter.cs" />
+    <Compile Include="util\Floating.cs" />
+    <Compile Include="util\Format.cs" />
+    <Compile Include="util\Grouper.cs" />
+    <Compile Include="util\HashMap.cs" />
+    <Compile Include="util\History.cs" />
+    <Compile Include="util\Inflector.cs" />
+    <Compile Include="util\KeyMap.cs" />
+    <Compile Include="util\KeyNav.cs" />
+    <Compile Include="util\Memento.cs" />
+    <Compile Include="util\MixedCollection.cs" />
+    <Compile Include="util\Observable.cs" />
+    <Compile Include="util\Point.cs" />
+    <Compile Include="util\Region.cs" />
+    <Compile Include="util\Sortable.cs" />
+    <Compile Include="util\Sorter.cs" />
+    <Compile Include="util\TaskRunner.cs" />
+    <Compile Include="util\TextMetrics.cs" />
+    <Compile Include="Version.cs" />
+    <Compile Include="view\AbstractView.cs" />
+    <Compile Include="view\BoundList.cs" />
+    <Compile Include="view\BoundListKeyNav.cs" />
+    <Compile Include="view\Table.cs" />
+    <Compile Include="view\TableChunker.cs" />
+    <Compile Include="view\View.cs" />
+    <Compile Include="WindowManager.cs" />
+    <Compile Include="window\MessageBox.cs" />
+    <Compile Include="window\Window.cs" />
+    <Compile Include="XTemplate.cs" />
+    <Compile Include="ZIndexManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
+      <Project>{5a90fac8-67da-4823-b114-91f5a26b2fe9}</Project>
+      <Name>SharpKit.JavaScript</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SharpKit.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
