@@ -17,8 +17,8 @@ using System.Runtime.InteropServices;
 [assembly: Guid("57df8f7a-0aa5-4bd5-ae20-6ffc6dffe1d4")]
 
 //Generated from ExtJs 4.0.2 help files
-[assembly: AssemblyVersion("4.0.2.0")]
-[assembly: AssemblyFileVersion("4.29.4000")]
+[assembly: AssemblyVersion("4.1.1.0")]
+[assembly: AssemblyFileVersion("4.1.1.0")]
 
 
 
