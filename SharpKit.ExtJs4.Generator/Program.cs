@@ -148,8 +148,8 @@ namespace SharpKit.ExtJs4.Generator
         private static bool InheritFromJsContext = true;
 
         //Self explanatory...
-        private const string OutputDir = @"D:\Proyectos\Sharpkit5\sharpkit\SharpKit.ExtJs\";
         private const string InputDir = @"D:\Proyectos\extjs-4.1.1\docs\output\";
+        private const string OutputDir = @"C:\Temp\ExtJs\";
         #endregion
 
         #region AssemblyContext
@@ -787,6 +787,24 @@ namespace SharpKit.ExtJs4.Generator
         {
             if ( File.Exists( csFile ) )
                 File.Delete( csFile );
+            //if ( !csFile.EndsWith( "Ext.cs" ) )
+            //{
+            //    var fileName = csFile.Replace( "Ext.", "" ).Replace( ".cs", "" );
+            //    csFile = fileName.Replace( ".", "\\" ) + ".cs";
+            //}
+            //var dirs = csFile.Split( '\\' );
+            //var d = string.Empty;
+            //foreach ( var dir in dirs )
+            //{
+            //    if ( !dir.Contains( ".cs" ) )
+            //    {
+            //        d += dir;
+            //        if ( !Directory.Exists( d ) )
+            //        {
+            //            Directory.CreateDirectory( d );
+            //        }
+            //    }
+            //}
             using ( var writer = new StreamWriter( csFile ) )
             {
                 var exporter = new CodeModelExporter { Assembly = Assembly, Writer = new IndentedTextWriter( writer ) };
