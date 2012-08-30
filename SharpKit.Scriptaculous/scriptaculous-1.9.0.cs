@@ -3,7 +3,7 @@ using SharpKit.Html4;
 
 namespace SharpKit.Scriptaculous
 {
-    #region Ajax
+    #region Controls
 
     [JsType(JsMode.Prototype, Name = "Ajax.Autocompleter", Export = false)]
     public class Autocompleter
@@ -389,12 +389,7 @@ namespace SharpKit.Scriptaculous
         //TODO: callbacks
     }
 
-    #endregion
-
-    #region Autocompleter
-
     //TODO: Autocompleter.Base
-
 
     /// <summary>
     /// The local array autocompleter. Used when you’d prefer to inject an array of autocompletion options into the page, rather than sending out Ajax queries.
@@ -457,6 +452,169 @@ namespace SharpKit.Scriptaculous
     }
     //TOSO: not sure it Inherite from AjaxOptions
 
+    /// <summary>
+    /// A slider control which can be used to select a single or multiple values from a given range, or even set of values.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Control.Slider", Export = false)]
+    public class Slider
+    {
+        /// <summary>
+        /// To make a slider element, you create a new instance of class Control.Slider.
+        /// handles can either be a single id (or element) or, if you want more than one handle, an array of ids (or elements). track is either id or element.
+        /// </summary>
+        /// <param name="handles"></param>
+        /// <param name="track"></param>
+        /// <param name="options"></param>
+        public Slider(object handles, object track, SliderOptions options) { }
+        /// <summary>
+        /// To make a slider element, you create a new instance of class Control.Slider.
+        /// handles can either be a single id (or element) or, if you want more than one handle, an array of ids (or elements). track is either id or element.
+        /// </summary>
+        /// <param name="handles"></param>
+        /// <param name="track"></param>
+        public Slider(object handles, object track) { }
+
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class SliderOptions
+    {
+        /// <summary>
+        /// Default: horizontal
+        /// Sets the direction that the slider will move in. It should either be horizontal or vertical.
+        /// </summary>
+        public DirectionType axis { get; set; }
+
+        /// <summary>
+        /// Default: 1	
+        /// Defines the relationship of value to pixels. Setting this to 1 will mean each movement of 1 pixel equates to 1 value.
+        /// </summary>
+        public JsNumber increment { get; set; }
+
+        /// <summary>
+        /// Default: (none)	
+        /// Length of track in pixels adjusted by increment.
+        /// The maximum value that the slider will move to. For horizontal this is to the right while vertical it is down.
+        /// </summary>
+        public JsNumber maximum { get; set; }
+
+        /// <summary>
+        /// Default: 0
+        /// The minimum value that the slider can move to.
+        /// For horizontal this is to the left while vertical it is up. Note: this also sets the beginning of the slider (zeroes it out).
+        /// </summary>
+        public JsNumber minimum { get; set; }
+
+        /// <summary>
+        /// Default: (none)	
+        /// Use the $R(min,max)
+        /// </summary>
+        public object range { get; set; }
+        //TODO: type?
+
+        /// <summary>
+        /// Default:0	
+        /// This will move the starting point on the x-axis for the handle in relation to the track.
+        /// It is often used to move the ‘point’ of the handle to where 0 should be. It can also be used to set a different starting point on the track.
+        /// </summary>
+        public JsNumber alignX { get; set; }
+
+        /// <summary>
+        /// Default:0	
+        /// This will move the starting point on the y-axis for the handle in relation to the track.
+        /// It is often used to move the ‘point’ of the handle to where 0 should be. It can also be used to set a different starting point on the track.
+        /// </summary>
+        public JsNumber alignY { get; set; }
+
+        /// <summary>
+        /// Default: 0	
+        /// Will set the initial slider value. The handle will be set to this value, assuming it is within the minimum and maxium values.
+        /// </summary>
+        public JsNumber sliderValue { get; set; }
+
+        /// <summary>
+        /// Default:(none)	 
+        /// This will lock the slider so that it will not move and thus is disabled.
+        /// </summary>
+        public object disabled { get; set; }
+        //TODO: type?
+
+        /// <summary>
+        /// Default:(none)	 
+        /// The id of the image that represents the handle. This is used to swap out the image src with disabled image src when the slider is enabled.
+        /// </summary>
+        public JsString handleImage { get; set; }
+
+        /// <summary>
+        /// Default: (none)	
+        /// The id of the image that represents the disabled handle. This is used to change the image src when the slider is disabled.
+        /// </summary>
+        public JsString handleDisabled { get; set; }
+
+        /// <summary>
+        /// Default: (none)	
+        /// Accepts an array of integers.
+        /// If set these will be the only legal values for the slider to be at. Thus you can set specific slider values that the user can move the slider to.
+        /// </summary>
+        public JsArray<JsNumber> values { get; set; }
+
+        /// <summary>
+        /// Default: (none)	 
+        /// An array of ids or elements which are positioned between handles. This is used only when slider has more than one handle.
+        /// </summary>
+        public JsArray<JsString> spans { get; set; }
+        /// <summary>
+        /// Default: (none)	 
+        /// An array of ids or elements which are positioned between handles. This is used only when slider has more than one handle.
+        /// </summary>
+        [JsProperty(Name = "spans")]
+        public JsArray<HtmlElement> spansElementArray { get; set; }
+
+        /// <summary>
+        /// Default: false	
+        /// Used only for multiple handles, when restricted is true, handle(s) with greater indexes are not allowed to have values less than handles with smaller indexes.
+        /// When restricted is false, handles can be moved independently from others.
+        /// </summary>
+        public bool restricted { get; set; }
+
+        /// <summary>
+        /// Will update the slider’s value and thus move the slider handle to the appropriate position.
+        /// handleIndex is optional, when it is not passed then ‘active’ (last-dragged/used) handle is used.
+        /// NOTE: when using setValue, the onChange callback function is called.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="handleIndex"></param>
+        public static void setValue(object value, JsNumber handleIndex) { }
+        //TODO: check
+        /// <summary>
+        /// Will update the slider’s value and thus move the slider handle to the appropriate position.
+        /// handleIndex is optional, when it is not passed then ‘active’ (last-dragged/used) handle is used.
+        /// NOTE: when using setValue, the onChange callback function is called.
+        /// </summary>
+        /// <param name="value"></param>
+        public static void setValue(object value) { }
+        //TODO: check
+
+        /// <summary>
+        /// Will set the slider to the disabled state (disabled = true).
+        /// </summary>
+        /// <param name="disabled"></param>
+        public static void setDisabled(bool disabled) { }
+        //TODO: check
+
+        /// <summary>
+        /// Will set the slider to the enabled state (disabled = false).
+        /// </summary>
+        /// <param name="disabled"></param>
+        public static void setEnabled(bool disabled) { }
+        //TODO: check
+
+        //TODO: callbacks 
+
+    }
+
+
     #endregion
 
     #region Behaviours
@@ -472,6 +630,81 @@ namespace SharpKit.Scriptaculous
     {
         public Draggable(JsString id_of_element, DraggableOptions options) { }
         public Draggable(JsString id_of_element) { }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class Draggables
+    {
+        /// <summary>
+        /// Array of all Draggables on the page
+        /// </summary>
+        public JsArray<Draggables> drags { get; set; }
+
+        /// <summary>
+        /// function(draggable). Called when you create a new Draggable?.
+        /// If this is the first Draggable on the page, starts observing mouse events necessary for dragging.
+        /// </summary>
+        public JsArray<object> observers { get; set; }
+        //TODO: type?
+
+        /// <summary>
+        /// function(draggable). Called when you create a new Draggable?. If this is the first Draggable on the page, starts observing mouse events necessary for dragging.
+        /// </summary>
+        /// <returns></returns>
+        public JsArray<Draggable> register() { return null; }
+        //TODO: was eritten "function(draggable)" with no big latter (?)
+
+        /// <summary>
+        /// function(draggable). Called by Draggable.destroy()?.
+        /// Stops observing window mouse events if Draggable.drag is empty.
+        /// </summary>
+        /// <returns></returns>
+        public JsArray<Draggable> unregister() { return null; }
+        //TODO: was eritten "function(draggable)" with no big latter (?)
+
+        /// <summary>
+        /// Marks a particular Draggable as the activeDraggable
+        /// </summary>
+        public void activate() { }
+
+        /// <summary>
+        /// Sets Draggables.activeDraggable to @null
+        /// </summary>
+        public void deactivate() { }
+
+        /// <summary>
+        /// Passes the window mousemove event to the @activeDraggable@’s updateDrag function.
+        /// </summary>
+        public void updateDrag() { }
+
+        /// <summary>
+        /// Caught by the window’s mouseup, stops dragging the activeDraggable, if any, via its endDrag function.
+        /// </summary>
+        public void endDrag() { }
+
+        /// <summary>
+        /// Passes the window keypress event to the @activeDraggable@’s keyPress function.
+        /// </summary>
+        public void keyPress() { }
+
+        /// <summary>
+        /// Adds an observer to Draggables.observers
+        /// </summary>
+        public void addObserver() { }
+
+        /// <summary>
+        /// Removes an observer from Draggables.observers. Takes the observer’s element property as a parameter
+        /// </summary>
+        public void removeObserver() { }
+
+        /// <summary>
+        /// Calls the observers’ onStart(), onEnd(), and onDrag() functions as necessary
+        /// </summary>
+        public void notify() { }
+
+        //TODO: callbacks
+
 
     }
 
@@ -740,12 +973,12 @@ namespace SharpKit.Scriptaculous
         /// Default: ‘vertical’
         /// Either ‘vertical’ or ‘horizontal’. For floating sortables or horizontal lists, choose ‘horizontal’. Vertical lists should use ‘vertical’.
         /// </summary>
-        public JsString overlap { get; set; }
+        public DirectionType overlap { get; set; }
 
         /// <summary>
         /// string, not set by default. If set to 'horizontal' or 'vertical' the drag will be constrained to take place only horizontally or vertically.
         /// </summary>
-        public JsString constraint { get; set; }
+        public DirectionType constraint { get; set; }
 
         /// <summary>
         /// Default: (only within container)
@@ -857,6 +1090,12 @@ namespace SharpKit.Scriptaculous
 
     #endregion
 
+    #region Miscellaneous
+
+    /// <summary>
+    /// Use Builder to easily create DOM elements dynamically.
+    /// </summary>
+    [JsType(JsMode.Json)]
     public class Builder
     {
         /// <summary>
@@ -955,8 +1194,608 @@ namespace SharpKit.Scriptaculous
         public static Builder node(JsString elementName, object attributes, JsString children) { return null; }
     }
 
+    /// <summary>
+    /// Use Sound to play audio directly from the browser.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class Sound
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="replace">replace the current active track, defauts to false</param>
+        public static void play(JsString url, bool replace) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url"></param>
+        public static void play(JsString url) { }
+
+        /// <summary>
+        /// Sound.enable does not resume the playback, just allows the next track to be played.
+        /// </summary>
+        public static void enable() { }
+
+        /// <summary>
+        /// Sound.disable does not disable the playback immediately, it just prevents the next tracks from being played.
+        /// Watch the demo to see how to stop the sound immediately.
+        /// </summary>
+        public static void disable() { }
+    }
+    //TODO: check class
+
+    //TODO: Unit Testing (don't work...)
+    #endregion
+
+    //TODO: all effects!!!! WTF?
+
+    public enum DirectionType
+    {
+        horizontal,
+        vertical,
+    }
+
+    #region Core Effects
+
+    /// <summary>
+    /// The seven core effects Effect.Opacity, Effect.Scale, Effect.Morph, Effect.Move, Effect.Highlight, Effect.Parallel, Effect.Tween are the foundation of the script.aculo.us Visual Effects JavaScript library.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect", Export = false)]
     public class Effect
     {
-        //TODO: what should be in this class?
+        /// <summary>
+        /// The basic syntax to start an effect
+        /// </summary>
+        /// <param name="el">element can be either a string containing the id of the element, or a Java Script DOM element object.</param>
+        /// <param name="required_params">required-params depend on the effect being called and may not be needed. Most effects do not have required parameters.
+        /// See the documentation for the core effects to learn if the effect has required parameters or if this parameter should be omitted.</param>
+        public Effect(HtmlElement el, EffectOptions required_params)
+        {
+        }
+        /// <summary>
+        /// The basic syntax to start an effect
+        /// </summary>
+        /// <param name="el">element can be either a string containing the id of the element, or a Java Script DOM element object.</param>
+        /// <param name="required_params">required-params depend on the effect being called and may not be needed. Most effects do not have required parameters.
+        /// See the documentation for the core effects to learn if the effect has required parameters or if this parameter should be omitted.</param>
+        public Effect(JsString id_of_element, EffectOptions required_params)
+        {
+        }
+
+
+        /// <summary>
+        /// The element the effect is applied to.
+        /// </summary>
+        public static HtmlElement element { get; set; }
+
+        /// <summary>
+        /// Holds the options you gave to the effect.
+        /// </summary>
+        public static EffectOptions options { get; set; }
+
+        /// <summary>
+        /// The number of the last frame rendered.
+        /// </summary>
+        public static JsNumber currentFrame { get; set; }
+
+        /// <summary>
+        /// The times (in ms) when the effect was started, and when it will be finished.
+        /// </summary>
+        public static JsNumber startOn { get; set; }
+
+        /// <summary>
+        /// The times (in ms) when the effect was started, and when it will be finished.
+        /// </summary>
+        public static JsNumber finishOn { get; set; }
+
+        /// <summary>
+        /// On an Effect.Parallel effect, there’s an effects[] array containing the individual effects the parallel effect is composed of.
+        /// </summary>
+        public static JsArray<Effect> effects { get; set; }
+
+        /// <summary>
+        /// Stop the effect as is.
+        /// </summary>
+        public static void cancel() { }
+
+        /// <summary>
+        /// Get basic debugging information about the instance.
+        /// </summary>
+        /// <returns></returns>
+        public static object inspect() { return null; }
+
     }
+
+    [JsType(JsMode.Json)]
+    public class EffectOptions
+    {
+        /// <summary>
+        /// duration of the effect in seconds, given as a float. Defaults to 1.0.
+        /// </summary>
+        public JsNumber duration { get; set; }
+
+        /// <summary>
+        /// Target this many frames per second. Default to 25. Can’t be higher than 100.
+        /// </summary>
+        public JsNumber fps { get; set; }
+
+        /// <summary>
+        /// Sets a function that modifies the current point of the animation, which is between 0 and 1.
+        /// Following transitions are supplied:
+        /// Effect.Transitions.sinoidal (default),
+        /// Effect.Transitions.linear,
+        /// Effect.Transitions.reverse,
+        /// Effect.Transitions.wobble, 
+        /// Effect.Transitions.flicker, 
+        /// Effect.Transitions.pulse, 
+        /// Effect.Transitions.spring, 
+        /// Effect.Transitions.none,
+        /// Effect.Transitions.full.
+        /// </summary>
+        public Transitions transition { get; set; }
+
+        /// <summary>
+        /// Sets the starting point of the transition, a float between 0.0 and 1.0. Defaults to 0.0.
+        /// </summary>
+        public JsNumber from { get; set; }
+
+        /// <summary>
+        /// Sets the end point of the transition, a float between 0.0 and 1.0. Defaults to 1.0.
+        /// </summary>
+        public JsNumber to { get; set; }
+
+        /// <summary>
+        /// Sets whether the effect should render new frames automatically (which it does by default).
+        /// If true, you can render frames manually by calling the render() instance method of an effect. This is used by Effect.Parallel().
+        /// </summary>
+        public bool sync { get; set; }
+
+        /// <summary>
+        /// Sets queuing options.
+        /// When used with a string, can be ‘front’ or ‘end’ to queue the effect in the global effects queue at the beginning or end,
+        /// or a queue parameter object that can have { position: ’front/end’, scope: ’scope’, limit: 1 }. For more info on this, see Effect Queues.
+        /// </summary>
+        public JsString queue { get; set; }
+        /// <summary>
+        /// Sets queuing options.
+        /// When used with a string, can be ‘front’ or ‘end’ to queue the effect in the global effects queue at the beginning or end,
+        /// or a queue parameter object that can have { position: ’front/end’, scope: ’scope’, limit: 1 }. For more info on this, see Effect Queues.
+        /// </summary>
+        public object queueObject { get; set; }
+
+        /// <summary>
+        /// Sets the number of seconds to wait before the effect actually starts. Defaults to 0.0.
+        /// </summary>
+        public JsNumber delay { get; set; }
+
+        //TODO: should the following be in this class? "Effect instances have the following useful properties and methods:"
+
+        //TODO: callback
+    }
+
+    /// <summary>
+    /// This effect flashes a color as the background of an element.
+    /// It is mostly used to draw attention to a part of the page that has been updated via JavaScript or AJAX, when the update would not otherwise be obvious.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Highlight", Export = false)]
+    public class Highlight : Effect
+    {
+        public Highlight(JsString id_of_element, HighlightOptions options)
+            : base(id_of_element, options)
+        {
+        }
+        public Highlight(HtmlElement el, HighlightOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    [JsType(JsMode.Json)]
+    public class HighlightOptions : EffectOptions
+    {
+        /// <summary>
+        /// Sets the color of first frame of the highlight. Defaults to ”#ffff99” (a light yellow).
+        /// </summary>
+        public JsString startcolor { get; set; }
+
+        /// <summary>
+        /// Sets the color of the last frame of the highlight. This is best set to the background color of the highlighted element. Defaults to ”#ffffff” (white).
+        /// </summary>
+        public JsString endcolor { get; set; }
+
+        /// <summary>
+        /// Sets the background-color of the element after the highlight has finished. Defaults to the current background-color of the highlighted element.
+        /// If the restorecolor option is not given,
+        /// Effect.Highlight tries to find out the current background color of the element,
+        /// which will only work reliably across browsers if the color is given with a CSS rgb triplet, like rgb(0, 255, 0).
+        /// Also be aware that applying an effect (without setting a restorecolor), to an element that already has an highlight effect in progress,
+        /// will cause the restorecolor to be set to the elements background-color at the time of the new effect, and not the original background-color.
+        /// For example, click the example below 4-5 times in quick succession, and the paragraph will stay yellow as opposed to the original white.
+        /// </summary>
+        public object restorecolor { get; set; }
+
+        /// <summary>
+        /// Unless this is set to true, any background image on the element will not be preserved.
+        /// </summary>
+        public bool keepBackgroundImage { get; set; }
+    }
+
+
+    /// <summary>
+    ///This effect changes the CSS properties of an element.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Morph", Export = false)]
+    public class Morph : Effect
+    {
+        public Morph(HtmlElement el, MorphOptions options)
+            : base(el, options)
+        {
+        }
+
+        public Morph(JsString id_of_element, MorphOptions options)
+            : base(id_of_element, options)
+        {
+        }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class MorphOptions : EffectOptions
+    {
+        /// <summary>
+        /// the target style of your element, as a string written with the standard CSS syntax, a hash, or a CSS class name.
+        /// </summary>
+        public JsString style { get; set; }
+    }
+
+
+    /// <summary>
+    /// This effect flashes a color as the background of an element.
+    /// It is mostly used to draw attention to a part of the page that has been updated via JavaScript or AJAX, when the update would not otherwise be obvious.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Move", Export = false)]
+    public class Move : Effect
+    {
+        public Move(HtmlElement @object, MoveOptions options)
+            : base(@object, options)
+        {
+        }
+
+        public Move(JsString @object, MoveOptions options)
+            : base(@object, options)
+        {
+        }
+    }
+
+    [JsType(JsMode.Json)]
+    public class MoveOptions : EffectOptions
+    {
+        /// <summary>
+        /// integer value, either the new absolute target of the effect elements left value or the modifier of its current left value, depending on the mode option
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// integer value, either the new absolute target of the effect elements top value or the modifier of its current top value, depending on the mode option
+        /// </summary>
+        public JsNumber y { get; set; }
+
+        /// <summary>
+        /// string, defaults to 'relative', can also be 'absolute', specifies if the element is moved absolutely or relative to its own position.
+        /// </summary>
+        public JsString mode { get; set; }
+
+    }
+
+
+    /// <summary>
+    /// This effect changes an element’s opacity (transparency).
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Opacity", Export = false)]
+    public class Opacity : Effect
+    {
+        public Opacity(HtmlElement el, EffectOptions options)
+            : base(el, options)
+        {
+        }
+
+        public Opacity(JsString id_of_element, EffectOptions options)
+            : base(id_of_element, options)
+        {
+        }
+    }
+
+
+
+    /// <summary>
+    ///This effect changes an elements width and height dimensions and the base for em units.
+    ///This allows for smooth, automatic relative scaling of elements contained within the scaled element.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Scale", Export = false)]
+    public class Scale : Effect
+    {
+        public Scale(HtmlElement el, ScaleOptions options)
+            : base(el, options)
+        {
+        }
+
+        public Scale(JsString id_of_element, ScaleOptions options)
+            : base(id_of_element, options)
+        {
+        }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class ScaleOptions : EffectOptions
+    {
+        /// <summary>
+        /// Sets whether the element should be scaled horizontally, defaults to true.
+        /// </summary>
+        public bool scaleX { get; set; }
+
+        /// <summary>
+        /// Sets whether the element should be scaled vertically, defaults to true.
+        /// </summary>
+        public bool scaleY { get; set; }
+
+        /// <summary>
+        /// Sets whether content scaling should be enabled, defaults to true.
+        /// </summary>
+        public bool scaleContent { get; set; }
+
+        /// <summary>
+        /// If true, scale the element in a way that the center of the element stays on the same position on the screen, defaults to false.
+        /// </summary>
+        public bool scaleFromCenter { get; set; }
+
+        /// <summary>
+        /// Either ‘box’ (default, scales the visible area of the element) or ‘contents’ (scales the complete element,
+        /// that is parts normally only visible byscrolling are taken into account).
+        /// You can also precisely control the size the element will become by assigning the originalHeight and originalWidth variables to scaleMode.
+        /// Example: scaleMode: { originalHeight: 900, originalWidth: 900 }
+        /// </summary>
+        public JsString scaleMode { get; set; }
+
+        /// <summary>
+        /// Sets the starting percentage for scaling, defaults to 100.0.
+        /// </summary>
+        public JsNumber scaleFrom { get; set; }
+    }
+
+
+    /// <summary>
+    ///This is a special effect which allows to combine more than one core effect into a parallel effect.
+    ///It’s the only effect that doesn’t take an element as first parameter, but an array of subeffects.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Parallel", Export = false)]
+    public class Parallel : Effect
+    {
+        public Parallel(JsArray<Effect> subEffects, EffectOptions options) 
+            : base("", options) { }
+    }
+
+
+    #endregion
+
+    /// <summary>
+    /// This effect flashes a color as the background of an element.
+    /// It is mostly used to draw attention to a part of the page that has been updated via JavaScript or AJAX, when the update would not otherwise be obvious.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Templet", Export = false)]
+    public class Templet : Effect
+    {
+        public Templet(JsString id_of_element, HighlightOptions options)
+            : base(id_of_element, options)
+        {
+        }
+        public Templet(HtmlElement el, HighlightOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    [JsType(JsMode.Json)]
+    public class TempletOptions : EffectOptions
+    {
+        /// <summary>
+        /// Sets the color of first frame of the highlight. Defaults to ”#ffff99” (a light yellow).
+        /// </summary>
+        public JsString startcolor { get; set; }
+
+        /// <summary>
+        /// Sets the color of the last frame of the highlight. This is best set to the background color of the highlighted element. Defaults to ”#ffffff” (white).
+        /// </summary>
+        public JsString endcolor { get; set; }
+
+        /// <summary>
+        /// Sets the background-color of the element after the highlight has finished. Defaults to the current background-color of the highlighted element.
+        /// If the restorecolor option is not given,
+        /// Effect.Highlight tries to find out the current background color of the element,
+        /// which will only work reliably across browsers if the color is given with a CSS rgb triplet, like rgb(0, 255, 0).
+        /// Also be aware that applying an effect (without setting a restorecolor), to an element that already has an highlight effect in progress,
+        /// will cause the restorecolor to be set to the elements background-color at the time of the new effect, and not the original background-color.
+        /// For example, click the example below 4-5 times in quick succession, and the paragraph will stay yellow as opposed to the original white.
+        /// </summary>
+        public object restorecolor { get; set; }
+
+        /// <summary>
+        /// Unless this is set to true, any background image on the element will not be preserved.
+        /// </summary>
+        public bool keepBackgroundImage { get; set; }
+    }
+
+
+    /// <summary>
+    /// Make an element appear. 
+    /// If the element was previously set to display:none inside the style attribute of the element, the effect will automatically show the element. 
+    /// This means that display must be set within the style attribute of an object, and not in the CSS in the head of the document or a linked file.
+    /// In other words, this Effect will not work if display:none is set within style tag or linked CSS file. Alternatively,
+    /// display:none can be set using a document.getElementById script even if no style is set in the style attribute.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Appear", Export = false)]
+    public class Appear : Effect
+    {
+        public Appear(JsString id_of_element, EffectOptions options)
+            : base(id_of_element, options)
+        {
+        }
+        public Appear(HtmlElement el, EffectOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+
+    /// <summary>
+    /// This effect simulates a window blind, where the contents of the affected elements stay in place.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.BlindDown", Export = false)]
+    public class BlindDown : Effect
+    {
+        public BlindDown(JsString id_of_element, BlindOptions options)
+            : base(id_of_element, options)
+        {
+        }
+        public BlindDown(HtmlElement el, BlindOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    [JsType(JsMode.Json)]
+    public class BlindOptions : EffectOptions
+    {
+        /// <summary>
+        /// defaults to false
+        /// Sets whether the element should be scaled horizontally, defaults to true.
+        /// </summary>
+        public bool scaleX { get; set; }
+
+        /// <summary>
+        /// defaults to true
+        /// Sets whether the element should be scaled vertically, defaults to true.
+        /// </summary>
+        public bool scaleY { get; set; }
+
+        /// <summary>
+        /// defaults to true
+        /// Sets whether content scaling should be enabled, defaults to true.
+        /// </summary>
+        public bool scaleContent { get; set; }
+
+        /// <summary>
+        /// defaults to false
+        /// If true, scale the element in a way that the center of the element stays on the same position on the screen, defaults to false.
+        /// </summary>
+        public bool scaleFromCenter { get; set; }
+
+        /// <summary>
+        /// Either ‘box’ (default, scales the visible area of the element) or ‘contents’ (scales the complete element,
+        /// that is parts normally only visible byscrolling are taken into account).
+        /// You can also precisely control the size the element will become by assigning the originalHeight and originalWidth variables to scaleMode.
+        /// Example: scaleMode: { originalHeight: 900, originalWidth: 900 }
+        /// </summary>
+        public JsString scaleMode { get; set; }
+
+        /// <summary>
+        /// integer value, percentage (0%–100%), defaults to 100
+        /// </summary>
+        public JsNumber scaleFrom { get; set; }
+
+        /// <summary>
+        /// integer value, percentage (0%–100%), defaults to 0
+        /// </summary>
+        public JsNumber scaleTo { get; set; }
+    }
+
+    /// <summary>
+    /// This effect simulates a window blind, where the contents of the affected elements stay in place.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.BlindUp", Export = false)]
+    public class BlindUp : Effect
+    {
+        public BlindUp(JsString id_of_element, BlindOptions options)
+            : base(id_of_element, options)
+        {
+        }
+        public BlindUp(HtmlElement el, BlindOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Makes an element drop and fade out at the same time.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.DropOut", Export = false)]
+    public class DropOut : Effect
+    {
+        public DropOut(JsString id_of_element)
+            : base(id_of_element, null)
+        {
+        }
+
+        public DropOut(HtmlElement el)
+            : base(el, null)
+        {
+        }
+
+        public DropOut(JsString id_of_element, EffectOptions options)
+            : base(id_of_element, options)
+        {
+        }
+        public DropOut(HtmlElement el, EffectOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Makes an element fade away and takes it out of the document flow when the effect is complete by setting the CSS display property to none. Opposite of Effect.Appear.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Fade", Export = false)]
+    public class Fade : Effect
+    {
+        public Fade(JsString id_of_element, EffectOptions options)
+            : base(id_of_element, options)
+        {
+        }
+        public Fade(HtmlElement el, EffectOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    [JsType(JsMode.Prototype, Name = "Effect.Fold", Export = false)]
+    public class Fold : Effect
+    {
+        public Fold(JsString id_of_element)
+            : base(id_of_element, null)
+        {
+        }
+
+        public Fold(HtmlElement el)
+            : base(el, null)
+        {
+        }
+
+        public Fold(JsString id_of_element, EffectOptions options)
+            : base(id_of_element, options)
+        {
+        }
+        public Fold(HtmlElement el, EffectOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    public class Transitions
+    {
+
+        //TODO:
+    }
+
+
 }
