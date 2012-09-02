@@ -1228,14 +1228,6 @@ namespace SharpKit.Scriptaculous
     //TODO: Unit Testing (don't work...)
     #endregion
 
-    //TODO: all effects!!!! WTF?
-
-    public enum DirectionType
-    {
-        horizontal,
-        vertical,
-    }
-
     #region Core Effects
 
     /// <summary>
@@ -1333,7 +1325,7 @@ namespace SharpKit.Scriptaculous
         /// Effect.Transitions.none,
         /// Effect.Transitions.full.
         /// </summary>
-        public Transitions transition { get; set; }
+        public object transition { get; set; }
 
         /// <summary>
         /// Sets the starting point of the transition, a float between 0.0 and 1.0. Defaults to 0.0.
@@ -1368,8 +1360,6 @@ namespace SharpKit.Scriptaculous
         /// Sets the number of seconds to wait before the effect actually starts. Defaults to 0.0.
         /// </summary>
         public JsNumber delay { get; set; }
-
-        //TODO: should the following be in this class? "Effect instances have the following useful properties and methods:"
 
         //TODO: callback
     }
@@ -1572,12 +1562,14 @@ namespace SharpKit.Scriptaculous
     [JsType(JsMode.Prototype, Name = "Effect.Parallel", Export = false)]
     public class Parallel : Effect
     {
-        public Parallel(JsArray<Effect> subEffects, EffectOptions options) 
+        public Parallel(JsArray<Effect> subEffects, EffectOptions options)
             : base("", options) { }
     }
 
 
     #endregion
+
+    #region Combination Effects
 
     /// <summary>
     /// This effect flashes a color as the background of an element.
@@ -1626,7 +1618,6 @@ namespace SharpKit.Scriptaculous
         public bool keepBackgroundImage { get; set; }
     }
 
-
     /// <summary>
     /// Make an element appear. 
     /// If the element was previously set to display:none inside the style attribute of the element, the effect will automatically show the element. 
@@ -1647,7 +1638,6 @@ namespace SharpKit.Scriptaculous
         }
     }
 
-
     /// <summary>
     /// This effect simulates a window blind, where the contents of the affected elements stay in place.
     /// </summary>
@@ -1660,6 +1650,15 @@ namespace SharpKit.Scriptaculous
         }
         public BlindDown(HtmlElement el, BlindOptions options)
             : base(el, options)
+        {
+        }
+
+        public BlindDown(JsString id_of_element)
+            : base(id_of_element, null)
+        {
+        }
+        public BlindDown(HtmlElement el)
+            : base(el, null)
         {
         }
     }
@@ -1768,6 +1767,9 @@ namespace SharpKit.Scriptaculous
         }
     }
 
+    /// <summary>
+    /// Reduce the element to its top then to left to make it disappear.
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "Effect.Fold", Export = false)]
     public class Fold : Effect
     {
@@ -1785,11 +1787,231 @@ namespace SharpKit.Scriptaculous
             : base(id_of_element, options)
         {
         }
+
         public Fold(HtmlElement el, EffectOptions options)
             : base(el, options)
         {
         }
     }
+
+    /// <summary>
+    /// “Grows” an element into a specific direction (see demo for better understanding).
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Grow", Export = false)]
+    public class Grow : Effect
+    {
+        public Grow(JsString id_of_element)
+            : base(id_of_element, null)
+        {
+        }
+
+        public Grow(HtmlElement el)
+            : base(el, null)
+        {
+        }
+
+        public Grow(JsString id_of_element, GrowOptions options)
+            : base(id_of_element, options)
+        {
+        }
+
+        public Grow(HtmlElement el, GrowOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    [JsType(JsMode.Json)]
+    public class GrowOptions : EffectOptions
+    {
+        /// <summary>
+        /// string, defaults to 'center', can also be: 'top-left', 'top-right', 'bottom-left', 'bottom-right', specifying the origin from which to “grow” the element
+        /// </summary>
+        public JsString direction { get; set; }
+    }
+
+    /// <summary>
+    /// Gives the illusion of the element puffing away (like a in a cloud of smoke).
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Puff", Export = false)]
+    public class Puff : Effect
+    {
+        public Puff(JsString id_of_element, EffectOptions options)
+            : base(id_of_element, options)
+        {
+        }
+        public Puff(HtmlElement el, EffectOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Pulsates the element, loops over five times over fading out and in.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Pulsate", Export = false)]
+    public class Pulsate : Effect
+    {
+        public Pulsate(JsString id_of_element, EffectOptions options)
+            : base(id_of_element, options)
+        {
+        }
+        public Pulsate(HtmlElement el, EffectOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Moves the element slightly to the left, then to the right, repeatedly.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Shake", Export = false)]
+    public class Shake : Effect
+    {
+        public Shake(JsString id_of_element)
+            : base(id_of_element, null)
+        {
+        }
+
+        public Shake(HtmlElement el)
+            : base(el, null)
+        {
+        }
+
+        public Shake(JsString id_of_element, ShakeOptions options)
+            : base(id_of_element, options)
+        {
+        }
+
+        public Shake(HtmlElement el, ShakeOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    [JsType(JsMode.Json)]
+    public class ShakeOptions : EffectOptions
+    {
+        /// <summary>
+        /// integer value, defaults to 20, the number of pixels to move horizontally
+        /// </summary>
+        public JsNumber distance { get; set; }
+    }
+
+    /// <summary>
+    /// “Shrinks” an element into a specific direction (see demo for better understanding), hides it when the effect is complete.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Shrink", Export = false)]
+    public class Shrink : Effect
+    {
+        public Shrink(JsString id_of_element)
+            : base(id_of_element, null)
+        {
+        }
+
+        public Shrink(HtmlElement el)
+            : base(el, null)
+        {
+        }
+
+        public Shrink(JsString id_of_element, GrowOptions options)
+            : base(id_of_element, options)
+        {
+        }
+
+        public Shrink(HtmlElement el, GrowOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    /// <summary>
+    /// This effect simulates a window blind, where the contents of the affected elements scroll up and down accordingly.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.SlideDown", Export = false)]
+    public class SlideDown : Effect
+    {
+        public SlideDown(JsString id_of_element, BlindOptions options)
+            : base(id_of_element, options)
+        {
+        }
+        public SlideDown(HtmlElement el, BlindOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    /// <summary>
+    /// This effect simulates a window blind, where the contents of the affected elements scroll up accordingly.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.SlideUp", Export = false)]
+    public class SlideUp : Effect
+    {
+        public SlideUp(JsString id_of_element, BlindOptions options)
+            : base(id_of_element, options)
+        {
+        }
+        public SlideUp(HtmlElement el, BlindOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Reduce the element to its top-left corner.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.Squish", Export = false)]
+    public class Squish : Effect
+    {
+        public Squish(JsString id_of_element)
+            : base(id_of_element, null)
+        {
+        }
+
+        public Squish(HtmlElement el)
+            : base(el, null)
+        {
+        }
+
+        public Squish(JsString id_of_element, EffectOptions options)
+            : base(id_of_element, options)
+        {
+        }
+
+        public Squish(HtmlElement el, EffectOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Gives the illusion of a TV-style switch off.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Effect.SwitchOff", Export = false)]
+    public class SwitchOff : Effect
+    {
+        public SwitchOff(JsString id_of_element)
+            : base(id_of_element, null)
+        {
+        }
+
+        public SwitchOff(HtmlElement el)
+            : base(el, null)
+        {
+        }
+
+        public SwitchOff(JsString id_of_element, EffectOptions options)
+            : base(id_of_element, options)
+        {
+        }
+
+        public SwitchOff(HtmlElement el, EffectOptions options)
+            : base(el, options)
+        {
+        }
+    }
+
+    #endregion
 
     public class Transitions
     {
@@ -1797,5 +2019,47 @@ namespace SharpKit.Scriptaculous
         //TODO:
     }
 
+    public enum DirectionType
+    {
+        horizontal,
+        vertical,
+    }
 
+    //TODO: Effect.Methods
+
+
+    //[JsType(JsMode.Prototype, Name = "Effect.tagifyText", Export = false)]
+    //public class tagifyText
+    //{
+    //    /// <summary>
+    //    /// Effect.tagifyText transforms any text string contained in a specific element into a chain of span elements, each containing one character of the string.
+    //    /// </summary>
+    //    /// <param name="element"></param>
+    //    public static void tagifyText(HtmlElement element) { }
+
+    //    //TODO: check!!!
+    //}
+
+    //[JsType(JsMode.Prototype, Name = "Effect.multiple", Export = false)]
+    //public class multiple: Effect
+    //{
+
+    //    public static void multiple(JsArray<HtmlElement> elements, Effect effect, MultipleOptions options) { }
+    //}
+
+    //[JsType(JsMode.Json)]
+    //public class MultipleOptions : EffectOptions
+    //{
+    //    /// <summary>
+    //    /// float value, defaults to 0.1, a delay offset for each subsequent effect
+    //    /// </summary>
+    //    public JsNumber speed { get; set; }
+
+    //    /// <summary>
+    //    /// float value, defaults to 0.0, the effects start delay
+    //    /// </summary>
+    //    public JsNumber delay { get; set; }
+    //}
+    
+    //TODO: Effect helpers: Effect.Transitions, Effect.Methods, Effect.tagifyText, Effect.multiple, Effect.toggle
 }
