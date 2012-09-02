@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKitGridSample", "Sharp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit_SDK", "SharpKit_SDK\SharpKit_SDK.csproj", "{14D06C2F-6A7E-40BF-A29B-BD987FE5B13A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jQueryUISamples", "jQueryUISamples\jQueryUISamples.csproj", "{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -153,6 +155,14 @@ Global
 		{14D06C2F-6A7E-40BF-A29B-BD987FE5B13A}.v3.5|Any CPU.Build.0 = v3.5|Any CPU
 		{14D06C2F-6A7E-40BF-A29B-BD987FE5B13A}.v4.0|Any CPU.ActiveCfg = v4.0|Any CPU
 		{14D06C2F-6A7E-40BF-A29B-BD987FE5B13A}.v4.0|Any CPU.Build.0 = v4.0|Any CPU
+		{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}.v4.0|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
