@@ -267,7 +267,7 @@ namespace SharpKit.PrototypeJs.Ajax
         /// If you plan to use unregister, be sure to assign your responder to a variable before passing it into Ajax.Responders#register — don't pass it an object literal.
         /// </summary>
         /// <param name="responder">  A list of functions with keys corresponding to the names of possible callbacks.</param>
-        public void register(object responder) { }
+        public void unregister(object responder) { }
     }
     //TODO: think it is a namespce not a class
 
