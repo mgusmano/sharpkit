@@ -164,6 +164,7 @@ namespace SharpKit.jQuery
         public jQueryUIEvent<UIAccordion> changestart { get; set; }
     }
 
+    [JsType(JsMode.Json)]
     public class IconOptions
     {
         public object header { get; set; }
