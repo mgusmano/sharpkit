@@ -128,7 +128,7 @@ namespace SharpKit.jQuery
         ///Icons to use for headers. Icons may be specified for 'header' and 'headerSelected', and we recommend using the icons native to the jQuery UI CSS Framework manipulated by jQuery UI ThemeRoller
         ///Default: { 'header': 'ui-icon-triangle-1-e', 'headerSelected': 'ui-icon-triangle-1-s' }
         ///</summary>
-        public object icons { get; set; }
+        public IconOptions icons { get; set; }
         ///<summary>
         ///If set, looks for the anchor that matches location.href and activates it. Great for href-based state-saving. Use navigationFilter to implement your own matcher.
         ///Default: false
@@ -162,6 +162,12 @@ namespace SharpKit.jQuery
         /// });
         ///</summary>
         public jQueryUIEvent<UIAccordion> changestart { get; set; }
+    }
+
+    public class IconOptions
+    {
+        public object header { get; set; }
+        public object headerSelected { get; set; }
     }
     #endregion
     #region Autocomplete
