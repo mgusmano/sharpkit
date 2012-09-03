@@ -15,14 +15,8 @@
 	.demo ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
 	.demo li { margin: 5px; padding: 5px; width: 150px; }
 	</style>
-	<script>
-	    $(OnReady);
-	    function OnReady() {
-	        $("#sortable").sortable({ revert: true });
-	        $("#draggable").draggable({ connectToSortable: "#sortable", helper: "clone", revert: "invalid" });
-	        $('ul, li').disableSelection(); ;
-	    };
-	</script>
+		<script src="Sortable.js"></script>
+
 </head>
 <body>
 

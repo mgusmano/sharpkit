@@ -2,19 +2,19 @@
 using SharpKit.jQuery;
 using SharpKit.Html4;
 
-namespace jQueryUISamples.demos.draggable
+namespace jQueryUISamples.demos.accordion
 {
     [JsType(JsMode.Global)]
-    public class Default
+    public class collapsible
     {
-        static Default()
+        static collapsible()
         {
             new jQuery(OnReady);
         }
 
         static void OnReady()
         {
-            new jQuery("#draggable").draggable();
+            new jQuery("#accordion").accordion(new AccordionOptions { collapsible = true });
         }
     }
 }

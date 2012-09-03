@@ -2,7 +2,8 @@
 using SharpKit.jQuery;
 using SharpKit.Html4;
 
-namespace jQueryUISamples.demos.draggable
+
+namespace jQueryUISamples.demos.accordion
 {
     [JsType(JsMode.Global)]
     public class Default
@@ -14,7 +15,7 @@ namespace jQueryUISamples.demos.draggable
 
         static void OnReady()
         {
-            new jQuery("#draggable").draggable();
+            new jQuery( "#accordion" ).accordion();
         }
     }
 }
