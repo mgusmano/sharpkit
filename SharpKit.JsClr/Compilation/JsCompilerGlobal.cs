@@ -267,6 +267,7 @@ namespace SharpKit.JavaScript.Compilation
                 throw new JsError("type expected").As<Exception>();
             }
             var objType = GetObjectType(obj);
+            if (objType == null) return false;
             var isIt = TypeIs(objType, type);
             //Profiler.Data.push([1, new Date().getTime(), true, 1]);
             return isIt;
@@ -295,7 +296,7 @@ namespace SharpKit.JavaScript.Compilation
 	{
 		objType = obj.constructor._type;
 	}
-	return objType;
+	return objType === undefined ? null : objType;
 ")]
         static JsType GetObjectType(object obj)
         {
