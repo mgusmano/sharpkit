@@ -72,7 +72,7 @@ namespace WebIDLParser
 
 			jsAttributes.Add("Export", "false");
 			jsAttributes.Add("PropertiesAsFields", "true");
-			jsAttributes.Add("OmitCasts", "true");
+			jsAttributes.Add("NativeCasts", "true");
 
 			if (aliasName != "" && aliasName != name) jsAttributes.Add("Name", "\"" + aliasName + "\"");
 
