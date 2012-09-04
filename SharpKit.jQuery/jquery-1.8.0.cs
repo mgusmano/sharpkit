@@ -2709,21 +2709,9 @@ namespace SharpKit.jQuery
     /// <summary>
     /// Tip: you can animate every CSS numeric property.
     /// </summary>
-    public class AnimationProperties
+    [JsType(JsMode.Json)]
+    public class AnimationProperties : HtmlElementStyle
     {
-        public JsNumber width { get; set; }
-        public JsNumber height { get; set; }
-        public JsNumber left { get; set; }
-        public JsNumber opacity { get; set; }
-        public JsNumber top { get; set; }
-        [JsProperty(Name="border-width")]
-        public JsNumber border_width { get; set; }
-        [JsProperty(Name = "margin-left")]
-        public JsNumber margin_left { get; set; }
-        [JsProperty(Name = "padding-left")]
-        public JsNumber padding_left { get; set; }
-        [JsProperty(Name = "font-size")]
-        public JsNumber font_size { get; set; }
     }
 
 	#endregion
