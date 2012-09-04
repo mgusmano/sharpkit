@@ -43,6 +43,10 @@
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
       <Name>SharpKit.JavaScript</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharpKit.jQuery\SharpKit.jQuery.csproj">
+      <Project>{872605DE-E8EC-4D3D-8CEE-A62449A8DAEB}</Project>
+      <Name>SharpKit.jQuery</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

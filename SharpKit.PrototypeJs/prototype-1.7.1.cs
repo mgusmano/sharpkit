@@ -432,6 +432,8 @@ namespace SharpKit.PrototypeJs
 
     #endregion
 
+    #region Element
+
     /// <summary>
     /// The Element object provides a variety of powerful DOM methods for interacting with DOM elements — creating them, updating them, traversing them, etc.
     /// You can access these either as methods of Element itself, passing in the element to work with as the first argument, or as methods on extended element instances
@@ -505,7 +507,7 @@ namespace SharpKit.PrototypeJs
         /// </summary>
         /// <param name="selector">(String) – A CSS selector.</param>
         /// <returns></returns>
-        public Element adjacent(params JsString selector) { return null; }
+        public Element adjacent(params JsString[] selector) { return null; }
 
         /// <summary>
         /// Collects all of element's ancestor elements and returns them as an array of extended elements.
@@ -602,8 +604,866 @@ namespace SharpKit.PrototypeJs
         /// <returns></returns>
         public Offset cumulativeScrollOffset() { return null; }
 
-        //TODO: you are here
+        /// <summary>
+        /// Checks if element is a descendant of ancestor.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="ancestor"> (Element | String) – The element to check against (or its ID).</param>
+        /// <returns></returns>
+        public bool descendantOf(Element ancestor) { return false; }
+        /// <summary>
+        /// Checks if element is a descendant of ancestor.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="ancestor"> (Element | String) – The element to check against (or its ID).</param>
+        /// <returns></returns>
+        public bool descendantOf(JsString ancestor) { return false; }
 
+        /// <summary>
+        /// Collects all of the element's descendants (its children, their children, etc.) and returns them as an array of extended elements.
+        /// As with all of Prototype's DOM traversal methods, only Elements are returned, other nodes (text nodes, etc.) are skipped.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsArray<Element> descendants() { return null; }
+
+        /// <summary>
+        /// Returns element's first descendant (or the Nth descendant, if index is specified) that matches expression.
+        /// If no expression is provided, all descendants are considered.
+        /// If no descendant matches these criteria, undefined is returned.
+        /// The Element.down method is part of Prototype's ultimate DOM traversal toolkit
+        /// (check out Element.up, Element.next and Element.previous for some more Prototypish niceness).
+        /// It allows precise index-based and/or CSS rule-based selection of any of the element's descendants.
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extend) allowing chaining:
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="expression">(String) – A CSS selector.</param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Element down(JsString expression, JsNumber index) { return null; }
+        /// <summary>
+        /// Returns element's first descendant (or the Nth descendant, if index is specified) that matches expression.
+        /// If no expression is provided, all descendants are considered.
+        /// If no descendant matches these criteria, undefined is returned.
+        /// The Element.down method is part of Prototype's ultimate DOM traversal toolkit
+        /// (check out Element.up, Element.next and Element.previous for some more Prototypish niceness).
+        /// It allows precise index-based and/or CSS rule-based selection of any of the element's descendants.
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extend) allowing chaining:
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="expression">(String) – A CSS selector.</param>
+        /// <returns></returns>
+        public Element down(JsString expression) { return null; }
+        /// <summary>
+        /// Returns element's first descendant (or the Nth descendant, if index is specified) that matches expression.
+        /// If no expression is provided, all descendants are considered.
+        /// If no descendant matches these criteria, undefined is returned.
+        /// The Element.down method is part of Prototype's ultimate DOM traversal toolkit
+        /// (check out Element.up, Element.next and Element.previous for some more Prototypish niceness).
+        /// It allows precise index-based and/or CSS rule-based selection of any of the element's descendants.
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extend) allowing chaining:
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Element down(JsNumber index) { return null; }
+        /// <summary>
+        /// Returns element's first descendant (or the Nth descendant, if index is specified) that matches expression.
+        /// If no expression is provided, all descendants are considered.
+        /// If no descendant matches these criteria, undefined is returned.
+        /// The Element.down method is part of Prototype's ultimate DOM traversal toolkit
+        /// (check out Element.up, Element.next and Element.previous for some more Prototypish niceness).
+        /// It allows precise index-based and/or CSS rule-based selection of any of the element's descendants.
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extend) allowing chaining:
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element down() { return null; }
+
+        /// <summary>
+        /// See Event.fire.
+        /// Fires a custom event with the current element as its target.
+        /// Element.fire creates a custom event with the given name, then triggers it on the given element. The custom event has all the same properties and methods of native events. Like a native event, it will bubble up through the DOM unless its propagation is explicitly stopped.
+        /// The optional second argument will be assigned to the memo property of the event object so that it can be read by event handlers.
+        /// Custom events are dispatched synchronously: Element.fire waits until the event finishes its life cycle, then returns the event itself.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <param name="memo"></param>
+        /// <param name="bubble"></param>
+        /// <returns></returns>
+        public Event fire(JsString eventName, object memo, bool bubble) { return null; }
+        /// <summary>
+        /// See Event.fire.
+        /// Fires a custom event with the current element as its target.
+        /// Element.fire creates a custom event with the given name, then triggers it on the given element. The custom event has all the same properties and methods of native events. Like a native event, it will bubble up through the DOM unless its propagation is explicitly stopped.
+        /// The optional second argument will be assigned to the memo property of the event object so that it can be read by event handlers.
+        /// Custom events are dispatched synchronously: Element.fire waits until the event finishes its life cycle, then returns the event itself.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <param name="memo"></param>
+        /// <returns></returns>
+        public Event fire(JsString eventName, object memo) { return null; }
+        /// <summary>
+        /// See Event.fire.
+        /// Fires a custom event with the current element as its target.
+        /// Element.fire creates a custom event with the given name, then triggers it on the given element. The custom event has all the same properties and methods of native events. Like a native event, it will bubble up through the DOM unless its propagation is explicitly stopped.
+        /// The optional second argument will be assigned to the memo property of the event object so that it can be read by event handlers.
+        /// Custom events are dispatched synchronously: Element.fire waits until the event finishes its life cycle, then returns the event itself.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <returns></returns>
+        public Event fire(JsString eventName) { return null; }
+
+        /// <summary>
+        /// Returns the first child that is an element.
+        /// This is opposed to the firstChild DOM property, which will return any node, including text nodes and comment nodes.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element firstDescendant() { return null; }
+
+        /// <summary>
+        /// Finds the computed width and height of element and returns them as key/value pairs of an object.
+        /// For backwards-compatibility, these dimensions represent the dimensions of the element's "border box" (including CSS padding and border).
+        /// This is equivalent to the built-in offsetWidth and offsetHeight browser properties.
+        /// Note that all values are returned as numbers only although they are expressed in pixels.
+        /// Caveats:
+        /// If the element is hidden via display: none in CSS, this method will attempt to measure the element by temporarily removing that CSS and applying visibility:
+        /// hidden and position: absolute. This gives the element dimensions without making it visible or affecting the positioning of surrounding elements —
+        /// but may not give accurate results in some cases. Element.measure is designed to give more accurate results.
+        /// In order to avoid calling the method twice, you should consider caching the returned values in a variable, as shown in the example below.
+        /// For more complex use cases, use Element.measure, which is able to measure many different aspects of an element's dimensions and offsets.
+        /// </summary>
+        /// <returns></returns>
+        public object getDimensions() { return null; }
+
+        /// <summary>
+        /// Alias of: Element#select
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="selector"></param>
+        /// <returns></returns>
+        public JsArray<Element> getElementsBySelector(JsString selector) { return null; }
+
+        /// <summary>
+        /// Returns the height of element.
+        /// This method returns correct values on elements whose display is set to none either in an inline style rule or in an CSS stylesheet.
+        /// For performance reasons, if you need to query both width and height of element, you should consider using Element.getDimensions instead.
+        /// Note that the value returned is a number only although it is expressed in pixels.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getHeight() { return null; }
+
+        /// <summary>
+        /// Returns an instance of Element.Layout for measuring an element's dimensions.
+        /// Note that this method returns a new Element.Layout object each time it's called.
+        /// If you want to take advantage of measurement caching,
+        /// retain a reference to one Element.Layout object, rather than calling Element.getLayout whenever you need a measurement.
+        /// You should call Element.getLayout again only when the values in an existing Element.Layout object have become outdated.
+        /// Remember that instances of Element.Layout compute values the first time they're asked for and remember those values for later retrieval.
+        /// If you want to compute all an element's measurements at once, pass
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="preCompute"></param>
+        /// <returns></returns>
+        public Layout getLayout(Element element, bool preCompute) { return null; }
+        /// <summary>
+        /// Returns an instance of Element.Layout for measuring an element's dimensions.
+        /// Note that this method returns a new Element.Layout object each time it's called.
+        /// If you want to take advantage of measurement caching,
+        /// retain a reference to one Element.Layout object, rather than calling Element.getLayout whenever you need a measurement.
+        /// You should call Element.getLayout again only when the values in an existing Element.Layout object have become outdated.
+        /// Remember that instances of Element.Layout compute values the first time they're asked for and remember those values for later retrieval.
+        /// If you want to compute all an element's measurements at once, pass
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public Layout getLayout(Element element) { return null; }
+        /// <summary>
+        /// Returns an instance of Element.Layout for measuring an element's dimensions.
+        /// Note that this method returns a new Element.Layout object each time it's called.
+        /// If you want to take advantage of measurement caching,
+        /// retain a reference to one Element.Layout object, rather than calling Element.getLayout whenever you need a measurement.
+        /// You should call Element.getLayout again only when the values in an existing Element.Layout object have become outdated.
+        /// Remember that instances of Element.Layout compute values the first time they're asked for and remember those values for later retrieval.
+        /// If you want to compute all an element's measurements at once, pass
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="preCompute"></param>
+        /// <returns></returns>
+        public Layout getLayout(bool preCompute) { return null; }
+        /// <summary>
+        /// Returns an instance of Element.Layout for measuring an element's dimensions.
+        /// Note that this method returns a new Element.Layout object each time it's called.
+        /// If you want to take advantage of measurement caching,
+        /// retain a reference to one Element.Layout object, rather than calling Element.getLayout whenever you need a measurement.
+        /// You should call Element.getLayout again only when the values in an existing Element.Layout object have become outdated.
+        /// Remember that instances of Element.Layout compute values the first time they're asked for and remember those values for later retrieval.
+        /// If you want to compute all an element's measurements at once, pass
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Layout getLayout() { return null; }
+
+        /// <summary>
+        /// Returns element's closest positioned ancestor. If none is found, the body element is returned.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element getOffsetParent() { return null; }
+
+        /// <summary>
+        /// Returns the opacity of the element.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsString getOpacity() { return null; }
+
+        /// <summary>
+        /// Returns the Hash object that stores custom metadata for this element.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Hash getStorage() { return null; }
+
+        /// <summary>
+        /// Returns the given CSS property value of element. The property can be specified in either its CSS form (font-size) or its camelized form (fontSize).
+        /// This method looks up the CSS property of an element whether it was applied inline or in a stylesheet.
+        /// It works around browser inconsistencies regarding float, opacity, which returns a value between 0 (fully transparent) and 1 (fully opaque),
+        /// position properties (left, top, right and bottom) and when getting the dimensions (width or height) of hidden elements.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="style"> (String) – The property name to be retrieved.</param>
+        /// <returns></returns>
+        public JsString getStyle(JsString style) { return null; }
+
+        /// <summary>
+        /// Returns the width of element.
+        /// This method returns correct values on elements whose display is set to none either in an inline style rule or in an CSS stylesheet.
+        /// For performance reasons, if you need to query both width and height of element, you should consider using Element.getDimensions instead.
+        /// Note that the value returned is a number only although it is expressed in pixels.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber getWidth() { return null; }
+
+        /// <summary>
+        /// Simulates the standard compliant DOM method hasAttribute for browsers missing it (Internet Explorer 6 and 7).
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="attribute"></param>
+        /// <returns></returns>
+        public bool hasAttribute(JsString attribute) { return false; }
+
+        /// <summary>
+        /// Checks for the presence of CSS class className on element.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="className"></param>
+        /// <returns></returns>
+        public bool hasClassName(JsString className) { return false; }
+
+        /// <summary>
+        /// Sets display: none on element. Returns element.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element hide() { return null; }
+
+        /// <summary>
+        /// Returns element's ID. If element does not have an ID, one is generated, assigned to element, and returned.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsString identify() { return null; }
+
+        /// <summary>
+        /// This method is deprecated, please see Element.childElements.
+        /// Alias of: Element#childElements
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsArray<Element> immediateDescendants() { return null; }
+
+        /// <summary>
+        /// Inserts content above, below, at the top, and/or at the bottom of the given element, depending on the option(s) given.
+        /// insert accepts content in any of these forms: - String: A string of HTML to be parsed and rendered -
+        /// Element: An Element instance to insert - ...any object with a toElement method: The method is called and the resulting element used -
+        /// ...any object with a toHTML method: The method is called and the resulting HTML string is parsed and rendered
+        /// The content argument can be the content to insert, in which case the implied insertion point is bottom, or an object that specifies one or more insertion points
+        /// (e.g., { bottom: "foo", top: "bar" }).
+        /// Accepted insertion points are: - before (as element's previous sibling) - after (as element's next sibling) - top (as element's first child) -
+        /// bottom (as element's last child)
+        /// Note that if the inserted HTML contains any &lt;script> tag, these will be automatically evaluated after the insertion
+        /// (insert internally calls String.evalScripts when inserting HTML).
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="content">(String | Element | Object) – The content to insert.</param>
+        /// <returns></returns>
+        public Element insert(JsString content) { return null; }
+        /// <summary>
+        /// Inserts content above, below, at the top, and/or at the bottom of the given element, depending on the option(s) given.
+        /// insert accepts content in any of these forms: - String: A string of HTML to be parsed and rendered -
+        /// Element: An Element instance to insert - ...any object with a toElement method: The method is called and the resulting element used -
+        /// ...any object with a toHTML method: The method is called and the resulting HTML string is parsed and rendered
+        /// The content argument can be the content to insert, in which case the implied insertion point is bottom, or an object that specifies one or more insertion points
+        /// (e.g., { bottom: "foo", top: "bar" }).
+        /// Accepted insertion points are: - before (as element's previous sibling) - after (as element's next sibling) - top (as element's first child) -
+        /// bottom (as element's last child)
+        /// Note that if the inserted HTML contains any &lt;script> tag, these will be automatically evaluated after the insertion
+        /// (insert internally calls String.evalScripts when inserting HTML).
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="content">(String | Element | Object) – The content to insert.</param>
+        /// <returns></returns>
+        public Element insert(HtmlElement content) { return null; }
+        /// <summary>
+        /// Inserts content above, below, at the top, and/or at the bottom of the given element, depending on the option(s) given.
+        /// insert accepts content in any of these forms: - String: A string of HTML to be parsed and rendered -
+        /// Element: An Element instance to insert - ...any object with a toElement method: The method is called and the resulting element used -
+        /// ...any object with a toHTML method: The method is called and the resulting HTML string is parsed and rendered
+        /// The content argument can be the content to insert, in which case the implied insertion point is bottom, or an object that specifies one or more insertion points
+        /// (e.g., { bottom: "foo", top: "bar" }).
+        /// Accepted insertion points are: - before (as element's previous sibling) - after (as element's next sibling) - top (as element's first child) -
+        /// bottom (as element's last child)
+        /// Note that if the inserted HTML contains any &lt;script> tag, these will be automatically evaluated after the insertion
+        /// (insert internally calls String.evalScripts when inserting HTML).
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="content">(String | Element | Object) – The content to insert.</param>
+        /// <returns></returns>
+        public Element insert(object content) { return null; }
+
+        /// <summary>
+        /// Returns the debug-oriented string representation of element.
+        /// For more information on inspect methods, see Object.inspect.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsString inspect() { return null; }
+
+        /// <summary>
+        /// Simulates the poorly-supported CSS clip property by setting element's overflow value to hidden.
+        /// To undo clipping, use Element.undoClipping.
+        /// The visible area is determined by element's width and height.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element makeClipping() { return null; }
+
+        /// <summary>
+        /// Allows for the easy creation of a CSS containing block by setting element's CSS position to relative if its initial position is either static or undefined.
+        /// To revert back to element's original CSS position, use Element.undoPositioned.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element makePositioned() { return null; }
+
+        /// <summary>
+        /// Checks if element matches the given CSS selector.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="selector">(String) – A CSS selector.</param>
+        /// <returns></returns>
+        public bool match(JsString selector) { return false; }
+
+        /// <summary>
+        /// Gives the pixel value of element's dimension specified by property.
+        /// Useful for one-off measurements of elements. If you find yourself calling this method frequently over short spans of code,
+        /// you might want to call Element.getLayout and operate on the Element.Layout object itself (thereby taking advantage of measurement caching).
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <returns></returns>
+        public JsNumber measure(JsString property) { return null; }
+
+        /// <summary>
+        /// Returns element's first following sibling (or the Nth, if index is specified) that matches expression.
+        /// If no expression is provided, all following siblings are considered. If none matches these criteria, undefined is returned.
+        /// More information:
+        /// The Element.next method is part of Prototype's ultimate DOM traversal toolkit (check out Element.up,
+        /// Element.down and Element.previous for some more Prototypish niceness).
+        /// It allows precise index-based and/or CSS expression-based selection of any of element's following siblings.
+        /// (Note that two elements are considered siblings if they have the same parent, so for example, the head and body elements are siblings—their parent is the html element.)
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extend) allowing chaining.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="expression">(String) – A CSS selector.</param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Element next(JsString expression, JsNumber index) { return null; }
+        /// <summary>
+        /// Returns element's first following sibling (or the Nth, if index is specified) that matches expression.
+        /// If no expression is provided, all following siblings are considered. If none matches these criteria, undefined is returned.
+        /// More information:
+        /// The Element.next method is part of Prototype's ultimate DOM traversal toolkit (check out Element.up,
+        /// Element.down and Element.previous for some more Prototypish niceness).
+        /// It allows precise index-based and/or CSS expression-based selection of any of element's following siblings.
+        /// (Note that two elements are considered siblings if they have the same parent, so for example, the head and body elements are siblings—their parent is the html element.)
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extend) allowing chaining.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="expression">(String) – A CSS selector.</param>
+        /// <returns></returns>
+        public Element next(JsString expression) { return null; }
+        /// <summary>
+        /// Returns element's first following sibling (or the Nth, if index is specified) that matches expression.
+        /// If no expression is provided, all following siblings are considered. If none matches these criteria, undefined is returned.
+        /// More information:
+        /// The Element.next method is part of Prototype's ultimate DOM traversal toolkit (check out Element.up,
+        /// Element.down and Element.previous for some more Prototypish niceness).
+        /// It allows precise index-based and/or CSS expression-based selection of any of element's following siblings.
+        /// (Note that two elements are considered siblings if they have the same parent, so for example, the head and body elements are siblings—their parent is the html element.)
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extend) allowing chaining.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Element next(JsNumber index) { return null; }
+        /// <summary>
+        /// Returns element's first following sibling (or the Nth, if index is specified) that matches expression.
+        /// If no expression is provided, all following siblings are considered. If none matches these criteria, undefined is returned.
+        /// More information:
+        /// The Element.next method is part of Prototype's ultimate DOM traversal toolkit (check out Element.up,
+        /// Element.down and Element.previous for some more Prototypish niceness).
+        /// It allows precise index-based and/or CSS expression-based selection of any of element's following siblings.
+        /// (Note that two elements are considered siblings if they have the same parent, so for example, the head and body elements are siblings—their parent is the html element.)
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extend) allowing chaining.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element next() { return null; }
+
+        /// <summary>
+        /// Collects all of element's next siblings and returns them as an Array of elements.
+        /// Two elements are siblings if they have the same parent. So for example, the head and body elements are siblings
+        /// (their parent is the html element). Next-siblings are simply the ones which follow element in the document.
+        /// The returned Array reflects the siblings order in the document (e.g. an index of 0 refers to the sibling right below element).
+        /// Note that all of Prototype's DOM traversal methods ignore text nodes and return element nodes only.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsArray<Element> nextSiblings() { return null; }
+
+        /// <summary>
+        /// See Event.observe.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <param name="handler"></param>
+        /// <returns></returns>
+        public Element observe(JsString eventName, JsAction handler) { return null; }
+
+        /// <summary>
+        /// See Event.on.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <param name="selector"></param>
+        /// <param name="callback"></param>
+        /// <returns></returns>
+        public Handler on(JsString eventName, JsString selector, JsAction callback) { return null; }
+        /// <summary>
+        /// See Event.on.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <param name="selector"></param>
+        /// <returns></returns>
+        public Handler on(JsString eventName, JsString selector) { return null; }
+        /// <summary>
+        /// See Event.on.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <returns></returns>
+        public Handler on(JsString eventName) { return null; }
+
+        /// <summary>
+        /// Returns element's offset relative to its closest positioned ancestor (the element that would be returned by Element.getOffsetParent).
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Offset positionedOffset() { return null; }
+
+        /// <summary>
+        /// Returns element's first previous sibling (or the Nth, if index is specified) that matches expression. If no expression is provided, all previous siblings are considered. If none matches these criteria, undefined is returned.
+        /// More information:
+        /// The Element.previous method is part of Prototype's ultimate DOM traversal toolkit (check out Element.up, Element.down and Element.next for some more Prototypish niceness). It allows precise index-based and/or CSS expression-based selection of any of element's previous siblings. (Note that two elements are considered siblings if they have the same parent, so for example, the head and body elements are siblings—their parent is the html element.)
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extend) allowing chaining.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="expression">(String) – A CSS selector.</param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Element previous(JsString expression, JsNumber index) { return null; }
+        /// <summary>
+        /// Returns element's first previous sibling (or the Nth, if index is specified) that matches expression. If no expression is provided, all previous siblings are considered. If none matches these criteria, undefined is returned.
+        /// More information:
+        /// The Element.previous method is part of Prototype's ultimate DOM traversal toolkit (check out Element.up, Element.down and Element.next for some more Prototypish niceness). It allows precise index-based and/or CSS expression-based selection of any of element's previous siblings. (Note that two elements are considered siblings if they have the same parent, so for example, the head and body elements are siblings—their parent is the html element.)
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extend) allowing chaining.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="expression">(String) – A CSS selector.</param>
+        /// <returns></returns>
+        public Element previous(JsString expression) { return null; }
+        /// <summary>
+        /// Returns element's first previous sibling (or the Nth, if index is specified) that matches expression. If no expression is provided, all previous siblings are considered. If none matches these criteria, undefined is returned.
+        /// More information:
+        /// The Element.previous method is part of Prototype's ultimate DOM traversal toolkit (check out Element.up, Element.down and Element.next for some more Prototypish niceness). It allows precise index-based and/or CSS expression-based selection of any of element's previous siblings. (Note that two elements are considered siblings if they have the same parent, so for example, the head and body elements are siblings—their parent is the html element.)
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extend) allowing chaining.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Element previous(JsNumber index) { return null; }
+        /// <summary>
+        /// Returns element's first previous sibling (or the Nth, if index is specified) that matches expression. If no expression is provided, all previous siblings are considered. If none matches these criteria, undefined is returned.
+        /// More information:
+        /// The Element.previous method is part of Prototype's ultimate DOM traversal toolkit (check out Element.up, Element.down and Element.next for some more Prototypish niceness). It allows precise index-based and/or CSS expression-based selection of any of element's previous siblings. (Note that two elements are considered siblings if they have the same parent, so for example, the head and body elements are siblings—their parent is the html element.)
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extend) allowing chaining.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element previous() { return null; }
+
+        /// <summary>
+        /// Collects all of element's previous siblings and returns them as an Array of elements.
+        /// Two elements are siblings if they have the same parent. So for example, the &lt;head> and &lt;body> elements are siblings (their parent is the &lt;html> element).
+        /// Previous-siblings are simply the ones which precede element in the document.
+        /// The returned Array reflects the siblings inversed order in the document (e.g. an index of 0 refers to the lowest sibling i.e., the one closest to element).
+        /// Note that all of Prototype's DOM traversal methods ignore text nodes and return element nodes only.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsArray<Element> previousSiblings() { return null; }
+
+        /// <summary>
+        /// Removes all event listeners and storage keys from an element.
+        /// To be used just before removing an element from the page.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsString purge() { return null; }
+
+        /// <summary>
+        /// Returns the value of element's attribute or null if attribute has not been specified.
+        /// This method serves two purposes. First it acts as a simple wrapper around getAttribute which isn't a "real" function in Safari and Internet Explorer
+        /// (it doesn't have .apply or .call for instance). Secondly, it cleans up the horrible mess Internet Explorer makes when handling attributes.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="attributeName"></param>
+        /// <returns></returns>
+        public JsString readAttribute(JsString attributeName) { return null; }
+
+        /// <summary>
+        /// Recursively collects elements whose relationship to element is specified by property. property has to be a property (a method won't do!)
+        /// of element that points to a single DOM node (e.g., nextSibling or parentNode).
+        /// More information:
+        /// This method is used internally by Element.ancestors, Element.descendants, Element.nextSiblings,
+        /// Element.previousSiblings and Element.siblings which offer really convenient way to grab elements,
+        /// so directly accessing Element.recursivelyCollect should seldom be needed. However, if you are after something out of the ordinary, it is the way to go.
+        /// Note that all of Prototype's DOM traversal methods ignore text nodes and return element nodes only.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <returns></returns>
+        public JsArray<Element> recursivelyCollect(JsString property) { return null; }
+
+        /// <summary>
+        /// Turns element into a relatively-positioned element without changing its position in the page layout.
+        /// Used to undo a call to Element.absolutize.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element relativize() { return null; }
+
+        /// <summary>
+        /// Completely removes element from the document and returns it.
+        /// If you would rather just hide the element and keep it around for further use, try Element.hide instead.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element remove() { return null; }
+
+        /// <summary>
+        /// Removes CSS class className from element.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="className"></param>
+        /// <returns></returns>
+        public Element removeClassName(JsString className) { return null; }
+
+        /// <summary>
+        /// Replaces element itself with newContent and returns element.
+        /// Keep in mind that this method returns the element that has just been removed — not the element that took its place.
+        /// newContent can be either plain text, an HTML snippet or any JavaScript object which has a toString() method.
+        /// If newContent contains any &lt;script> tags, these will be evaluated after element has been replaced (Element.replace internally calls String#evalScripts).
+        /// Note that if no argument is provided, Element.replace will simply clear element of its content.
+        /// However, using Element.remove to do so is both faster and more standard compliant.
+        /// Warning:
+        /// Using Element.replace as an instance method (e.g., $('foo').replace('&lt;p>Bar&lt;/p>')) causes errors in Opera 9 when used on input elements.
+        /// The replace property is reserved on input elements as part of Web Forms 2. As a workaround, use the generic version instead (Element.replace('foo', '&lt;p>Bar&lt;/p>')).
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="newContent"></param>
+        /// <returns></returns>
+        public Element replace(object newContent) { return null; }
+
+        //TODO: Element#retrieve http://api.prototypejs.org/dom/Element/prototype/retrieve/
+
+        /// <summary>
+        /// Scrolls the window so that element appears at the top of the viewport.
+        /// This has a similar effect than what would be achieved using HTML anchors (except the browser's history is not modified).
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element scrollTo() { return null; }
+
+        /// <summary>
+        /// Takes an arbitrary number of CSS selectors and returns an array of descendants of element that match any of them.
+        /// This method is very similar to $$ but can be used within the context of one element, rather than the whole document.
+        /// The supported CSS syntax is identical, so please refer to the $$ docs for details.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public Element select(JsString expression) { return null; }
+        /// <summary>
+        /// Takes an arbitrary number of CSS selectors and returns an array of descendants of element that match any of them.
+        /// This method is very similar to $$ but can be used within the context of one element, rather than the whole document.
+        /// The supported CSS syntax is identical, so please refer to the $$ docs for details.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public JsArray<Element> select(params JsString[] expression) { return null; }
+        //TODO: check
+
+        /// <summary>
+        /// Sets the visual opacity of an element while working around inconsistencies in various browsers. The opacity argument should be a floating point number, where the value of 0 is fully transparent and 1 is fully opaque.
+        /// Element.setStyle method uses Element.setOpacity internally when needed.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="opacity"></param>
+        /// <returns></returns>
+        public JsArray<Element> setOpacity(JsNumber opacity) { return null; }
+
+        /// <summary>
+        /// Modifies element's CSS style properties. Styles are passed as a hash of property-value pairs in which the properties are specified in their camelized form.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="styles"></param>
+        /// <returns></returns>
+        public Element setStyle(object styles) { return null; }
+        //TODO: i think i shuld create a class for styles... http://api.prototypejs.org/dom/Element/prototype/setStyle/
+
+        /// <summary>
+        /// Removes display: none on element. Returns element.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element show() { return null; }
+
+        /// <summary>
+        /// Collects all of element's siblings and returns them as an Array of elements.
+        /// Two elements are siblings if they have the same parent. So for example, the head and body elements are siblings (their parent is the html element).
+        /// The returned Array reflects the siblings' order in the document (e.g. an index of 0 refers to element's topmost sibling).
+        /// Note that all of Prototype's DOM traversal methods ignore text nodes and return element nodes only.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsArray<Element> siblings() { return null; }
+
+        /// <summary>
+        /// See Event.stopObserving.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <param name="handler"></param>
+        /// <returns></returns>
+        public Element stopObserving(JsString eventName, Action handler) { return null; }
+
+        /// <summary>
+        /// Stores a key/value pair of custom metadata on the element.
+        /// The metadata can later be retrieved with Element.retrieve.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public Element store(object key, object value) { return null; }
+        //TODO: ?
+
+        /// <summary>
+        /// Toggles the visibility of element. Returns element.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element toggle() { return null; }
+
+        /// <summary>
+        /// Toggles the presence of CSS class className on element.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="className"></param>
+        /// <returns></returns>
+        public Element toggleClassName(JsString className) { return null; }
+
+        /// <summary>
+        /// Sets element's CSS overflow property back to the value it had before Element.makeClipping was applied.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element undoClipping() { return null; }
+
+        /// <summary>
+        /// Sets element back to the state it was in before Element.makePositioned was applied to it.
+        /// element's absolutely positioned children will now have their positions set relatively to element's nearest ancestor with a CSS position of 'absolute', 'relative' or 'fixed'.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element undoPositioned() { return null; }
+
+        /// <summary>
+        /// Returns element's first ancestor (or the Nth ancestor, if index is specified) that matches expression.
+        /// If no expression is provided, all ancestors are considered. If no ancestor matches these criteria, undefined is returned.
+        /// More information:
+        /// The Element.up method is part of Prototype's ultimate DOM traversal toolkit (check out Element.down,
+        /// Element.next and Element.previous for some more Prototypish niceness). It allows precise index-based and/or CSS rule-based selection of any of element's ancestors.
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extended) allowing chaining.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Element up(JsString expression, JsNumber index) { return null; }
+        /// <summary>
+        /// Returns element's first ancestor (or the Nth ancestor, if index is specified) that matches expression.
+        /// If no expression is provided, all ancestors are considered. If no ancestor matches these criteria, undefined is returned.
+        /// More information:
+        /// The Element.up method is part of Prototype's ultimate DOM traversal toolkit (check out Element.down,
+        /// Element.next and Element.previous for some more Prototypish niceness). It allows precise index-based and/or CSS rule-based selection of any of element's ancestors.
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extended) allowing chaining.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public Element up(JsString expression) { return null; }
+        /// <summary>
+        /// Returns element's first ancestor (or the Nth ancestor, if index is specified) that matches expression.
+        /// If no expression is provided, all ancestors are considered. If no ancestor matches these criteria, undefined is returned.
+        /// More information:
+        /// The Element.up method is part of Prototype's ultimate DOM traversal toolkit (check out Element.down,
+        /// Element.next and Element.previous for some more Prototypish niceness). It allows precise index-based and/or CSS rule-based selection of any of element's ancestors.
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extended) allowing chaining.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Element up(JsNumber index) { return null; }
+        /// <summary>
+        /// Returns element's first ancestor (or the Nth ancestor, if index is specified) that matches expression.
+        /// If no expression is provided, all ancestors are considered. If no ancestor matches these criteria, undefined is returned.
+        /// More information:
+        /// The Element.up method is part of Prototype's ultimate DOM traversal toolkit (check out Element.down,
+        /// Element.next and Element.previous for some more Prototypish niceness). It allows precise index-based and/or CSS rule-based selection of any of element's ancestors.
+        /// As it totally ignores text nodes (it only returns elements), you don't have to worry about whitespace nodes.
+        /// And as an added bonus, all elements returned are already extended (see Element.extended) allowing chaining.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element up() { return null; }
+
+        /// <summary>
+        /// Replaces the content of element with the newContent argument and returns element.
+        /// newContent may be in any of these forms:
+        /// - String: A string of HTML to be parsed and rendered 
+        /// - Element: An Element instance to insert 
+        /// -...any object with a toElement method: The method is called and the resulting element used 
+        /// - ...any object with a toHTML method: The method is called and the resulting HTML string is parsed and rendered
+        /// If newContent is omitted, the element's content is blanked out (i.e., replaced with an empty string).
+        /// If newContent is a string and contains one or more inline <script> tags, the scripts are scheduled to be evaluated after a very brief pause (using Function#defer) to allow the browser to finish updating the DOM. Note that the scripts are evaluated in the scope of String#evalScripts, not in the global scope, which has important ramifications for your vars and functions. See String#evalScripts for details.
+        /// Note that this method allows seamless content update of table related elements in Internet Explorer 6 and beyond.
+        /// Any nodes replaced with Element.update will first have event listeners unregistered and storage keys removed. This frees up memory and prevents leaks in certain versions of Internet Explorer. (See Element.purge).
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="newContent"></param>
+        /// <returns></returns>
+        public Element update(object newContent) { return null; }
+
+        /// <summary>
+        /// Returns the X/Y coordinates of element relative to the viewport.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Offset viewportOffset() { return null; }
+
+        /// <summary>
+        /// Tells whether element is visible (i.e., whether its inline display CSS property is set to none.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public bool visible() { return false; }
+
+        /// <summary>
+        /// Wraps an element inside another, then returns the wrapper.
+        /// If the given element exists on the page, Element.wrap will wrap it in place — its position will remain the same.
+        /// The wrapper argument can be either an existing Element or a string representing the tag name of an element to be created.
+        /// The optional attributes argument can contain a list of attribute/value pairs that will be set on the wrapper using Element.writeAttribute.
+        /// </summary>
+        /// <param name="wrapper"> (Element | String) – An element to wrap element inside, or else a string representing the tag name of an element to be created.</param>
+        /// <param name="attributes"> (Object) – A set of attributes to apply to the wrapper element. Refer to the Element constructor for usage.</param>
+        /// <returns></returns>
+        public Element wrap(HtmlElement wrapper, object attributes) { return null; }
+        /// <summary>
+        /// Wraps an element inside another, then returns the wrapper.
+        /// If the given element exists on the page, Element.wrap will wrap it in place — its position will remain the same.
+        /// The wrapper argument can be either an existing Element or a string representing the tag name of an element to be created.
+        /// The optional attributes argument can contain a list of attribute/value pairs that will be set on the wrapper using Element.writeAttribute.
+        /// </summary>
+        /// <param name="wrapper"> (Element | String) – An element to wrap element inside, or else a string representing the tag name of an element to be created.</param>
+        /// <param name="attributes"> (Object) – A set of attributes to apply to the wrapper element. Refer to the Element constructor for usage.</param>
+        /// <returns></returns>
+        public Element wrap(JsString wrapper, object attributes) { return null; }
+
+        /// <summary>
+        /// Adds, specifies or removes attributes passed as either a hash or a name/value pair.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="attribute"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public Element writeAttribute(object attribute, bool value) { return null; }
+        /// <summary>
+        /// Adds, specifies or removes attributes passed as either a hash or a name/value pair.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="attributes"></param>
+        /// <returns></returns>
+        public Element writeAttribute(object attributes) { return null; }
+        //TODO: ?
     }
 
     [JsType(JsMode.Json)]
@@ -900,6 +1760,183 @@ namespace SharpKit.PrototypeJs
 
         public JsString toString { get; set; }
     }
+
+    #endregion
+
+    #region Event
+
+    /// <summary>
+    /// The namespace for Prototype's event system.
+    /// Events: a fine mess:
+    /// Event management is one of the really sore spots of cross-browser scripting.
+    /// True, the prevalent issue is: everybody does it the W3C way, and MSIE does it another way altogether. But there are quite a few subtler, sneakier issues here and there waiting to bite your ankle — such as the keypress/keydown issue with KHTML-based browsers (Konqueror and Safari). Also, MSIE has a tendency to leak memory when it comes to discarding event handlers.
+    /// Prototype to the rescue:
+    /// Of course, Prototype smooths it over so well you'll forget these troubles even exist. Enter the Event namespace. It is replete with methods that help to normalize the information reported by events across browsers.
+    /// Event also provides a standardized list of key codes you can use with keyboard-related events, including KEY_BACKSPACE, KEY_TAB, KEY_RETURN, KEY_ESC, KEY_LEFT, KEY_UP, KEY_RIGHT, KEY_DOWN, KEY_DELETE, KEY_HOME, KEY_END, KEY_PAGEUP, KEY_PAGEDOWN and KEY_INSERT.
+    /// The functions you're most likely to use a lot are Event.observe, Event.element and Event.stop. If your web app uses custom events, you'll also get a lot of mileage out of Event.fire.
+    /// Instance methods on event objects:
+    /// As of Prototype 1.6, all methods on the Event object are now also available as instance methods on the event object itself:
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Event", Export = false)]
+    public class Event
+    {
+        //TODO: Class methods
+
+        /// <summary>
+        /// Returns the DOM element on which the event occurred. This method is deprecated, use Event.findElement instead.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element element() { return null; }
+
+        /// <summary>
+        /// Extends event with all of the methods contained in Event.Methods.
+        /// Note that all events inside handlers that were registered using Event.observe or Element.observe will be extended automatically.
+        /// You need only call Event.extend manually if you register a handler a different way (e.g., the onclick attribute). We really can't encourage that sort of thing, though.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element extend() { return null; }
+
+        /// <summary>
+        /// Returns the first DOM element that matches a given CSS selector — starting with the element on which the event occurred,
+        /// then moving up its ancestor chain. If expression is not given, the element which fired the event is returned.
+        /// If no matching element is found, the document itself (HTMLDocument node) is returned.
+        /// </summary>
+        /// <param name="expression">(String) – An optional CSS selector</param>
+        /// <returns></returns>
+        public Element findElement(JsString expression) { return null; }
+        /// <summary>
+        /// Returns the first DOM element that matches a given CSS selector — starting with the element on which the event occurred,
+        /// then moving up its ancestor chain. If expression is not given, the element which fired the event is returned.
+        /// If no matching element is found, the document itself (HTMLDocument node) is returned.
+        /// </summary>
+        /// <returns></returns>
+        public Element findElement() { return null; }
+
+        /// <summary>
+        /// Determines whether a button-related mouse event involved the left mouse button.
+        /// Keep in mind that the "left" mouse button is actually the "primary" mouse button.
+        /// When a mouse is in left-handed mode, the browser will report clicks of the right button as "left-clicks."
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public bool isLeftClick() { return false; }
+
+        /// <summary>
+        /// Determines whether a button-related mouse event involved the middle mouse button.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public bool isMiddleClick() { return false; }
+
+        /// <summary>
+        /// Determines whether a button-related mouse event involved the right mouse button.
+        /// Keep in mind that the "left" mouse button is actually the "secondary" mouse button. When a mouse is in left-handed mode, the browser will report clicks of the left button as "left-clicks."\
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public bool isRightClick() { return false; }
+
+        /// <summary>
+        /// Returns the absolute position of the pointer for a mouse event.
+        /// Returns an object in the form { x: Number, y: Number}.
+        /// Note that this position is absolute on the page, not on the viewport.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public PointerConfig pointer() { return null; }
+
+        /// <summary>
+        /// Returns the absolute horizontal position of the pointer for a mouse event.
+        /// Note that this position is absolute on the <body>, not on the viewport: scrolling right increases the returned value for events on the same viewport location.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber pointerX() { return null; }
+
+        /// <summary>
+        /// Returns the absolute vertical position of the pointer for a mouse event.
+        /// Note that this position is absolute on the <body>, not on the viewport: scrolling down increases the returned value for events on the same viewport location.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber pointerY() { return null; }
+
+        /// <summary>
+        /// Stops the event's propagation and prevents its eventual default action from being triggered.
+        /// Stopping an event also sets a stopped property on that event for future inspection.
+        /// There are two aspects to how your browser handles an event once it fires up:
+        /// The browser usually triggers event handlers on the actual element the event occurred on,
+        /// then on its parent element, and so on and so forth, until the document's root element is reached. This is called event bubbling,
+        /// and is the most common form of event propagation. You may very well want to stop this propagation when you just handled an event,
+        /// and don't want it to keep bubbling up (or see no need for it).
+        /// Once your code had a chance to process the event, the browser handles it as well, if that event has a default behavior.
+        /// For instance, clicking on links navigates to them; submitting forms sends them over to the server side;
+        /// hitting the Return key in a single-line form field submits it; etc. You may very well want to prevent this default behavior if you do your own handling.
+        /// Because stopping one of those aspects means, in 99.9% of the cases, preventing the other one as well, Prototype bundles both in this stop function.
+        /// Calling it on an event object, stops propagation and prevents the default behavior.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        public void stop() { }
+    }
+
+    [JsType(JsMode.Json)]
+    public class PointerConfig
+    {
+        public JsNumber y { get; set; }
+
+        public JsNumber x { get; set; }
+    }
+
+    /// <summary>
+    /// Creates an observer on an element that listens for a particular event on that element's descendants, optionally filtering by a CSS selector.
+    /// This class simplifies the common "event delegation" pattern, in which one avoids adding an observer to a number of individual elements and instead listens on a common ancestor element.
+    /// For more information on usage, see Event.on.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Event.Handler", Export = false)]
+    public class Handler
+    {
+        /// <summary>
+        /// Instantiates an Event.Handler. Will not begin observing until Event.Handler#start is called.
+        /// </summary>
+        /// <param name="element">(Element) – The element to listen on.</param>
+        /// <param name="eventName">(String) – An event to listen for. Can be a standard browser event or a custom event.</param>
+        /// <param name="selector">(String) – A CSS selector. If specified, will call callback only when it can find an element
+        /// that matches selector somewhere in the ancestor chain between the event's target element and the given element.</param>
+        /// <param name="callback"> (Function) – The event handler function. Should expect two arguments: the event object and the element that received the event.
+        /// (If selector was given, this element will be the one that satisfies the criteria described just above; if not, it will be the one specified in the element argument).</param>
+        public Handler(Element element, JsString eventName, JsString selector, JsAction callback) { }
+        /// <summary>
+        /// Instantiates an Event.Handler. Will not begin observing until Event.Handler#start is called.
+        /// </summary>
+        /// <param name="element">(Element) – The element to listen on.</param>
+        /// <param name="eventName">(String) – An event to listen for. Can be a standard browser event or a custom event.</param>
+        /// <param name="selector">(String) – A CSS selector. If specified, will call callback only when it can find an element
+        /// that matches selector somewhere in the ancestor chain between the event's target element and the given element.</param>
+        public Handler(Element element, JsString eventName, JsString selector) { }
+        /// <summary>
+        /// Instantiates an Event.Handler. Will not begin observing until Event.Handler#start is called.
+        /// </summary>
+        /// <param name="element">(Element) – The element to listen on.</param>
+        /// <param name="eventName">(String) – An event to listen for. Can be a standard browser event or a custom event.</param>
+        public Handler(Element element, JsString eventName) { }
+
+        /// <summary>
+        /// Starts listening for events. Returns itself.
+        /// </summary>
+        public Handler start { get; set; }
+        //TODO: seems wird that it is a propertye...
+
+        /// <summary>
+        /// Stops listening for events. Returns itself.
+        /// </summary>
+        public Handler stop { get; set; }
+        //TODO: seems wird that it is a propertye...
+
+    }
+
+    #endregion
 
 }
 
@@ -1470,6 +2507,192 @@ namespace SharpKit.PrototypeJs.Abstract
     }
 }
 
+namespace SharpKit.PrototypeJs.Form
+{
+    //TODO: Form.Element http://api.prototypejs.org/dom/Form/Element/ (a siffrent Element class)
+
+    [JsType(JsMode.Prototype, Name = "Form.EventObserver", Export = false)]
+    public class EventObserver : Abstract.EventObserver
+    {
+    }
+
+    /// <summary>
+    /// An Abstract.TimedObserver subclass that watches for changes to a form.
+    /// The callback is triggered when the form changes — e.g., when any of its fields' values changes,
+    /// when fields are added/removed, etc.; anything that affects the serialized form of the form (see Form#serialize).
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Form.Observer", Export = false)]
+    public class Observer : Abstract.TimedObserver
+    {
+        /// <summary>
+        /// Creates a Form.Observer.
+        /// </summary>
+        /// <param name="element">(String | Element) – The element of the form to watch. Can be an element instance or an ID.</param>
+        /// <param name="frequency"> (Number) – The frequency, in seconds -- e.g., 0.33 to check for changes every third of a second.</param>
+        /// <param name="callback">(Function) – The callback to trigger when the form changes.</param>
+        public Observer(JsString element, JsNumber frequency, JsAction callback) : base(element, frequency, callback) { }
+        /// <summary>
+        /// Creates a Form.Observer.
+        /// </summary>
+        /// <param name="element">(String | Element) – The element of the form to watch. Can be an element instance or an ID.</param>
+        /// <param name="frequency"> (Number) – The frequency, in seconds -- e.g., 0.33 to check for changes every third of a second.</param>
+        /// <param name="callback">(Function) – The callback to trigger when the form changes.</param>
+        public Observer(HtmlElement element, JsNumber frequency, JsAction callback) : base(element, frequency, callback) { }
+
+    }
+
+    [JsType(JsMode.Prototype, Name = "Form", Export = false)]
+    public class Form
+    {
+        /// <summary>
+        /// Disables the form as a whole. Form controls will be visible but uneditable.
+        /// Disabling the form is done by iterating over form elements and calling Form.Element.disable on them.
+        /// Note :Keep in mind that disabled elements are skipped by serialization methods! You cannot serialize a disabled form.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element disable() { return null; }
+
+        /// <summary>
+        /// Enables a fully- or partially-disabled form.
+        /// Enabling the form is done by iterating over form elements and calling Form.Element.enable on them.
+        /// Note :This will enable all form controls regardless of how they were disabled (by scripting or by HTML attributes).
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element enable() { return null; }
+
+        /// <summary>
+        /// Finds the first non-hidden, non-disabled control within the form.
+        /// The returned object is either an INPUT, SELECT or TEXTAREA element. This method is used by the Form.focusFirstElement method.
+        /// Note : The result of this method is the element that comes first in the document order, not the tabindex order.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element findFirstElement() { return null; }
+
+        /// <summary>
+        /// Gives keyboard focus to the first element of the form. Returns the form.
+        /// Uses Form.findFirstElement to get the first element and calls Form.Element.activate on it.
+        /// This is useful for enhancing usability on your site by bringing focus
+        /// on page load to forms such as search forms or contact forms where a user is ready to start typing right away.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element focusFirstElement() { return null; }
+
+        /// <summary>
+        /// Returns a collection of all controls within a form.
+        /// Note: OPTION elements are not included in the result; only their parent SELECT control is.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsArray<Element> getElements() { return null; }
+
+        /// <summary>
+        /// Returns a collection of all INPUT elements in a form.
+        /// Use optional type and name arguments to restrict the search on these attributes.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="type">(String) – A value for the type attribute against which to filter.</param>
+        /// <param name="name"> (String) – A value for the name attribute against which to filter.</param>
+        /// <returns></returns>
+        public JsArray<Element> getInputs(JsString type, JsString name) { return null; }
+        /// <summary>
+        /// Returns a collection of all INPUT elements in a form.
+        /// Use optional type and name arguments to restrict the search on these attributes.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="type">(String) – A value for the type attribute against which to filter.</param>
+        /// <returns></returns>
+        public JsArray<Element> getInputs(JsString type) { return null; }
+        /// <summary>
+        /// Returns a collection of all INPUT elements in a form.
+        /// Use optional type and name arguments to restrict the search on these attributes.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public JsArray<Element> getInputs() { return null; }
+
+        /// <summary>
+        /// A convenience method for serializing and submitting the form via an Ajax.Request to the URL of the form's action attribute.
+        /// The options parameter is passed to the Ajax.Request instance, allowing one to override the HTTP method and/or specify additional parameters and callbacks.
+        /// If the form has a method attribute, its value is used for the Ajax.Request method option. If a method option is passed to request(),
+        /// it takes precedence over the form's method attribute. If neither is specified, method defaults to "POST".
+        /// Key-value pairs specified in the parameters option (either as a hash or a query string) will be merged with (and take precedence over) the serialized form parameters.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="options">(Object) – Options to pass along to the Ajax.Request constructor.</param>
+        /// <returns></returns>
+        public Ajax.Request request(object options) { return null; }
+        /// <summary>
+        /// A convenience method for serializing and submitting the form via an Ajax.Request to the URL of the form's action attribute.
+        /// The options parameter is passed to the Ajax.Request instance, allowing one to override the HTTP method and/or specify additional parameters and callbacks.
+        /// If the form has a method attribute, its value is used for the Ajax.Request method option. If a method option is passed to request(),
+        /// it takes precedence over the form's method attribute. If neither is specified, method defaults to "POST".
+        /// Key-value pairs specified in the parameters option (either as a hash or a query string) will be merged with (and take precedence over) the serialized form parameters.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Ajax.Request request() { return null; }
+
+        /// <summary>
+        /// Resets a form to its default values.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <returns></returns>
+        public Element reset() { return null; }
+
+        /// <summary>
+        /// Serializes form data to a string suitable for Ajax requests (default behavior) or, if the hash option evaluates to true,
+        /// an object hash where keys are form control names and values are data.
+        /// Depending of whether or not the hash option evaluates to true,
+        /// the result is either an object of the form {name: "johnny", color: "blue"} or a String of the form "name=johnny&color=blue",
+        /// suitable for parameters in an Ajax request. This method mimics the way browsers serialize forms natively so that form data can be sent without refreshing the page.
+        /// See Form.serializeElements for more details on the options.
+        /// This method can be called either as an instance method or as a generic method. If calling as a generic, pass the instance in as the first argument.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public JsString serialize(SerializeOptions options) { return null; }
+
+    }
+
+    /// <summary>
+    /// The options allow you to control two things: What kind of return value you get (an object or a string),
+    /// and whether and which submit fields are included in that object or string.
+    /// If you do not supply an options object at all, the options { hash: false } are used.
+    /// If you supply an options object, it may have the following options:
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class SerializeOptions
+    {
+        /// <summary>
+        ///  true to return a plain object with keys and values (not a Hash; see below), false to return a String in query string format.
+        ///  If you supply an options object with no hash member, hash defaults to true.
+        ///  Note that this is not the same as leaving off the options object entirely (see above)
+        /// </summary>
+        public bool hash { get; set; }
+
+        /// <summary>
+        ///  In essence: If you omit this option the first submit button in the form is included;
+        ///  if you supply false, no submit buttons are included; if you supply the name of a submit button, the first button with that name is included.
+        ///  Note that the false value must really be false, not falsey; falsey-but-not-false is like omitting the option.
+        /// </summary>
+        public bool submit { get; set; }
+        /// <summary>
+        ///  In essence: If you omit this option the first submit button in the form is included;
+        ///  if you supply false, no submit buttons are included; if you supply the name of a submit button, the first button with that name is included.
+        ///  Note that the false value must really be false, not falsey; falsey-but-not-false is like omitting the option.
+        /// </summary>
+        [JsProperty(Name = "submit")]
+        public JsString submitString { get; set; }
+
+    }
+
+    //TODO: Selector http://api.prototypejs.org/dom/Selector/
+}
+
 public class Template
 {
     //TODO: http://api.prototypejs.org/language/Template/
@@ -1477,9 +2700,6 @@ public class Template
 
 
 
-public class Event
-{
-}
 
 public class Hash
 {
@@ -1933,6 +3153,8 @@ public static class JsStringExtensions
     [JsMethod(ExtensionImplementedInInstance = true)]
     public static JsString unfilterJSON(this JsString s, object filter) { return null; }
 }
+
+
 
 
 
