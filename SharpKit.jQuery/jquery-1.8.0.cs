@@ -173,47 +173,95 @@ namespace SharpKit.jQuery
 		/// <summary>
 		/// Perform a custom animation of a set of CSS properties.
 		/// </summary>
-		public jQuery animate(object properties) { return null; }
+        public jQuery animate(AnimationProperties properties) { return null; }
 		/// <summary>
 		/// Perform a custom animation of a set of CSS properties.
 		/// </summary>
-		public jQuery animate(object properties, object options) { return null; }
+        public jQuery animate(AnimationProperties properties, AnimateOptions options) { return null; }
 		/// <summary>
 		/// Perform a custom animation of a set of CSS properties.
 		/// </summary>
-		public jQuery animate(object properties, JsAction callback) { return null; }
+        public jQuery animate(AnimationProperties properties, JsAction callback) { return null; }
 		/// <summary>
 		/// Perform a custom animation of a set of CSS properties.
 		/// </summary>
-		public jQuery animate(object properties, JsString easing) { return null; }
+        public jQuery animate(AnimationProperties properties, JsString easing) { return null; }
 		/// <summary>
 		/// Perform a custom animation of a set of CSS properties.
 		/// </summary>
-		public jQuery animate(object properties, JsNumber duration) { return null; }
+        public jQuery animate(AnimationProperties properties, JsNumber duration) { return null; }
 		/// <summary>
 		/// Perform a custom animation of a set of CSS properties.
 		/// </summary>
-		public jQuery animate(object properties, JsString duration, JsString easing) { return null; }
+        public jQuery animate(AnimationProperties properties, JsString duration, JsString easing) { return null; }
 		/// <summary>
 		/// Perform a custom animation of a set of CSS properties.
 		/// </summary>
-		public jQuery animate(object properties, JsString easing, JsAction callback) { return null; }
+        public jQuery animate(AnimationProperties properties, JsString easing, JsAction callback) { return null; }
 		/// <summary>
 		/// Perform a custom animation of a set of CSS properties.
 		/// </summary>
-		public jQuery animate(object properties, JsNumber duration, JsAction callback) { return null; }
+        public jQuery animate(AnimationProperties properties, JsNumber duration, JsAction callback) { return null; }
 		/// <summary>
 		/// Perform a custom animation of a set of CSS properties.
 		/// </summary>
-		public jQuery animate(object properties, JsNumber duration, JsString easing) { return null; }
+        public jQuery animate(AnimationProperties properties, JsNumber duration, JsString easing) { return null; }
 		/// <summary>
 		/// Perform a custom animation of a set of CSS properties.
 		/// </summary>
-		public jQuery animate(object properties, JsString duration, JsString easing, JsAction callback) { return null; }
+        public jQuery animate(AnimationProperties properties, JsString duration, JsString easing, JsAction callback) { return null; }
 		/// <summary>
 		/// Perform a custom animation of a set of CSS properties.
 		/// </summary>
-		public jQuery animate(object properties, JsNumber duration, JsString easing, JsAction callback) { return null; }
+        public jQuery animate(AnimationProperties properties, JsNumber duration, JsString easing, JsAction callback) { return null; }
+        /// <summary>
+        /// Perform a custom animation of a set of CSS properties.
+        /// </summary>
+        public jQuery animate(object properties) { return null; }
+        /// <summary>
+        /// Perform a custom animation of a set of CSS properties.
+        /// </summary>
+        public jQuery animate(object properties, AnimateOptions options) { return null; }
+        /// <summary>
+        /// Perform a custom animation of a set of CSS properties.
+        /// </summary>
+        public jQuery animate(object properties, JsAction callback) { return null; }
+        /// <summary>
+        /// Perform a custom animation of a set of CSS properties.
+        /// </summary>
+        public jQuery animate(object properties, JsString easing) { return null; }
+        /// <summary>
+        /// Perform a custom animation of a set of CSS properties.
+        /// </summary>
+        public jQuery animate(object properties, JsNumber duration) { return null; }
+        /// <summary>
+        /// Perform a custom animation of a set of CSS properties.
+        /// </summary>
+        public jQuery animate(object properties, JsString duration, JsString easing) { return null; }
+        /// <summary>
+        /// Perform a custom animation of a set of CSS properties.
+        /// </summary>
+        public jQuery animate(object properties, JsString easing, JsAction callback) { return null; }
+        /// <summary>
+        /// Perform a custom animation of a set of CSS properties.
+        /// </summary>
+        public jQuery animate(object properties, JsNumber duration, JsAction callback) { return null; }
+        /// <summary>
+        /// Perform a custom animation of a set of CSS properties.
+        /// </summary>
+        public jQuery animate(object properties, JsNumber duration, JsString easing) { return null; }
+        /// <summary>
+        /// Perform a custom animation of a set of CSS properties.
+        /// </summary>
+        public jQuery animate(object properties, JsString duration, JsString easing, JsAction callback) { return null; }
+        /// <summary>
+        /// Perform a custom animation of a set of CSS properties.
+        /// </summary>
+        public jQuery animate(object properties, JsNumber duration, JsString easing, JsAction callback) { return null; }
+        /// <summary>
+        /// Add the previous set of elements on the stack to the current set.
+        /// </summary>
+        public jQuery andSelf() { return null; }
 		/// <summary>
 		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
 		/// </summary>
@@ -2621,6 +2669,65 @@ namespace SharpKit.jQuery
 
 		#endregion
 	}
+
+    public class AnimateOptions
+    {
+        /// <summary>
+        /// A string or number determining how long the animation will run.
+        /// </summary>
+        [JsProperty(Name= "duration")]
+        public JsString durationString { get; set; }
+        /// <summary>
+        /// A string or number determining how long the animation will run.
+        /// </summary>
+        public JsNumber duration { get; set; }
+
+        /// <summary>
+        /// A string indicating which easing function to use for the transition.
+        /// </summary>
+        public JsString easing { get; set; }
+
+        /// <summary>
+        /// A function to call once the animation is complete.
+        /// </summary>
+        public JsAction  complete { get; set; }
+
+        /// <summary>
+        /// A function to be called after each step of the animation.
+        /// </summary>
+        public JsAction step { get; set; }
+
+        /// <summary>
+        /// A Boolean indicating whether to place the animation in the effects queue. If false, the animation will begin immediately.
+        /// As of jQuery 1.7, the queue option can also accept a string, in which case the animation is added to the queue represented by that string.
+        /// </summary>
+        public bool queue { get; set; }
+
+        /// <summary>
+        ///  A map of one or more of the CSS properties defined by the properties argument and their corresponding easing functions (added 1.4).
+        /// </summary>
+        public object specialEasing { get; set; }
+    }
+
+    /// <summary>
+    /// Tip: you can animate every CSS numeric property.
+    /// </summary>
+    public class AnimationProperties
+    {
+        public JsNumber width { get; set; }
+        public JsNumber height { get; set; }
+        public JsNumber left { get; set; }
+        public JsNumber opacity { get; set; }
+        public JsNumber top { get; set; }
+        [JsProperty(Name="border-width")]
+        public JsNumber border_width { get; set; }
+        [JsProperty(Name = "margin-left")]
+        public JsNumber margin_left { get; set; }
+        [JsProperty(Name = "padding-left")]
+        public JsNumber padding_left { get; set; }
+        [JsProperty(Name = "font-size")]
+        public JsNumber font_size { get; set; }
+    }
 
 	#endregion
 	#region jQueryContext
