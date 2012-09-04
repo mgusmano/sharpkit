@@ -60,6 +60,17 @@
     <Content Include="demos\accordion\Default.js" />
     <Content Include="demos\accordion\FillSpace.js" />
     <Content Include="demos\accordion\Mouseover.htm" />
+    <Content Include="demos\accordion\Mouseover.js" />
+    <Content Include="demos\accordion\NoAutoHeight.htm" />
+    <Content Include="demos\accordion\NoAutoHeight.js" />
+    <Content Include="demos\accordion\Sortable.htm" />
+    <Content Include="demos\accordion\Sortable.js" />
+    <Content Include="demos\button\Checkbox.htm" />
+    <Content Include="demos\button\Checkbox.js" />
+    <Content Include="demos\button\Default.htm" />
+    <Content Include="demos\button\Default.js" />
+    <Content Include="demos\button\Icons.htm" />
+    <Content Include="demos\button\Icons.js" />
     <Content Include="demos\draggable\Default.htm" />
     <Content Include="demos\draggable\Default.js" />
     <Content Include="demos\draggable\DelayStart.htm" />
@@ -273,7 +284,12 @@
     <Compile Include="demos\accordion\Mouseover.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="demos\addClass\Default.cs" />
+    <Compile Include="demos\accordion\NoAutoHeight.cs" />
+    <Compile Include="demos\accordion\Sortable.cs" />
+    <Compile Include="demos\animate\Default.cs" />
+    <Compile Include="demos\button\Checkbox.cs" />
+    <Compile Include="demos\button\Default.cs" />
+    <Compile Include="demos\button\Icons.cs" />
     <Compile Include="demos\draggable\Default.cs" />
     <Compile Include="demos\draggable\DelayStart.cs" />
     <Compile Include="demos\draggable\Events.cs" />
@@ -283,6 +299,9 @@
     <Compile Include="demos\draggable\SnapTo.cs" />
     <Compile Include="demos\draggable\Sortable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="demos\addClass\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

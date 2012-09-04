@@ -12,32 +12,13 @@ namespace jQueryUISamples.demos.accordion
             new jQuery(OnReady);
         }
 
-
         static void OnReady()
         {
-            var x = "shuki";
-            var icon = new IconOptions { header = "ui-icon-circle-arrow-e", headerSelected = "ui-icon-circle-arrow-s" };
-            new jQuery("#accordion").accordion(new AccordionOptions { icons = icon });
+            var icons = new IconOptions { header = "ui-icon-circle-arrow-e", headerSelected = "ui-icon-circle-arrow-s" };
+            new jQuery("#accordion").accordion(new AccordionOptions { icons = icons });
             new jQuery("#toggle").button().toggle(e => new jQuery("#accordion").accordion("option", "icons", false),
-                e => new jQuery("#accordion").accordion("option", "icons", icon)
+                e => new jQuery("#accordion").accordion("option", "icons", icons)
             );
-
-
-            //    $(function() {
-            //      var icons = {
-            //        header: "ui-icon-circle-arrow-e",
-            //        headerSelected: "ui-icon-circle-arrow-s"
-            //       };
-            //      $( "#accordion" ).accordion({
-            //        icons: icons
-            //        });
-            //      $( "#toggle" ).button().toggle(function() {
-            //           $( "#accordion" ).accordion( "option", "icons", false );
-            //      }, function() {
-            //        $( "#accordion" ).accordion( "option", "icons", icons );
-            //    });
-            //});
-
         }
     }
 }

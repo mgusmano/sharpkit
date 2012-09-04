@@ -2,14 +2,13 @@
 $(OnReady);
 function OnReady()
 {
-    var x="shuki";
-    var icon={header:"ui-icon-circle-arrow-e",headerSelected:"ui-icon-circle-arrow-s"};
-    $("#accordion").accordion({icons:icon});
+    var icons={header:"ui-icon-circle-arrow-e",headerSelected:"ui-icon-circle-arrow-s"};
+    $("#accordion").accordion({icons:icons});
     $("#toggle").button().toggle(function(e)
     {
         $("#accordion").accordion("option","icons",false);
     },function(e)
     {
-        $("#accordion").accordion("option","icons",icon);
+        $("#accordion").accordion("option","icons",icons);
     });
 };

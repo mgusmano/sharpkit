@@ -5,16 +5,16 @@ using SharpKit.Html4;
 namespace jQueryUISamples.demos.accordion
 {
     [JsType(JsMode.Global)]
-    public class Mouseover
+    public class NoAutoHeight
     {
-        static Mouseover()
+        static NoAutoHeight()
         {
             new jQuery(OnReady);
         }
 
         static void OnReady()
         {
-            new jQuery( "#accordion" ).accordion(new AccordionOptions { @event = "mouseover" });
+            new jQuery("#accordion").accordion(new AccordionOptions { autoHeight = false, navigation = true });
         }
     }
 }

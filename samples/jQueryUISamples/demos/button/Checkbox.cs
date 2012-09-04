@@ -2,19 +2,20 @@
 using SharpKit.jQuery;
 using SharpKit.Html4;
 
-namespace jQueryUISamples.demos.accordion
+namespace jQueryUISamples.demos.button
 {
     [JsType(JsMode.Global)]
-    public class Mouseover
+    public class Checkbox
     {
-        static Mouseover()
+        static Checkbox()
         {
             new jQuery(OnReady);
         }
 
         static void OnReady()
         {
-            new jQuery( "#accordion" ).accordion(new AccordionOptions { @event = "mouseover" });
+            new jQuery("#check").button();
+            new jQuery("#format").buttonset();
         }
     }
 }
