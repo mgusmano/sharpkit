@@ -1316,7 +1316,7 @@ namespace SharpKit.jQuery
         /// <param name="callback">A function that is called after the effect is completed.</param>
         /// <returns>jQuery</returns>
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery effect(this jQuery query, string effect, AnimationPropertiesExtensions options, object speed, jQueryUIEvent callback) { return default(jQuery); }
+        public static jQuery effect(this jQuery query, string effect, AnimationPropertiesEx options, object speed, jQueryUIEvent callback) { return default(jQuery); }
         /// <summary>
         /// Uses a specific effect on an element (without the show/hide logic).
         /// </summary>
@@ -1326,7 +1326,7 @@ namespace SharpKit.jQuery
         /// <param name="speed">A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</param>
         /// <returns>jQuery</returns>
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery effect(this jQuery query, string effect, AnimationPropertiesExtensions options, object speed) { return default(jQuery); }
+        public static jQuery effect(this jQuery query, string effect, AnimationPropertiesEx options, object speed) { return default(jQuery); }
         /// <summary>
         /// Uses a specific effect on an element (without the show/hide logic).
         /// </summary>
@@ -1335,7 +1335,7 @@ namespace SharpKit.jQuery
         /// <param name="options">A object/hash including specific options for the effect.</param>
         /// <returns>jQuery</returns>
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery effect(this jQuery query, string effect, AnimationPropertiesExtensions options) { return default(jQuery); }
+        public static jQuery effect(this jQuery query, string effect, AnimationPropertiesEx options) { return default(jQuery); }
         /// <summary>
         /// Uses a specific effect on an element (without the show/hide logic).
         /// </summary>
@@ -1346,7 +1346,7 @@ namespace SharpKit.jQuery
         /// <param name="callback">A function that is called after the effect is completed.</param>
         /// <returns>jQuery</returns>
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery effect(this jQuery query, EffectType effect, AnimationPropertiesExtensions options, object speed, jQueryUIEvent callback) { return default(jQuery); }
+        public static jQuery effect(this jQuery query, EffectType effect, AnimationPropertiesEx options, object speed, jQueryUIEvent callback) { return default(jQuery); }
         /// <summary>
         /// Uses a specific effect on an element (without the show/hide logic).
         /// </summary>
@@ -1356,7 +1356,7 @@ namespace SharpKit.jQuery
         /// <param name="speed">A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</param>
         /// <returns>jQuery</returns>
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery effect(this jQuery query, EffectType effect, AnimationPropertiesExtensions options, object speed) { return default(jQuery); }
+        public static jQuery effect(this jQuery query, EffectType effect, AnimationPropertiesEx options, object speed) { return default(jQuery); }
         /// <summary>
         /// Uses a specific effect on an element (without the show/hide logic).
         /// </summary>
@@ -1365,7 +1365,7 @@ namespace SharpKit.jQuery
         /// <param name="options">A object/hash including specific options for the effect.</param>
         /// <returns>jQuery</returns>
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery effect(this jQuery query, EffectType effect, AnimationPropertiesExtensions options) { return default(jQuery); }
+        public static jQuery effect(this jQuery query, EffectType effect, AnimationPropertiesEx options) { return default(jQuery); }
 
     }
 
@@ -4188,30 +4188,15 @@ namespace SharpKit.jQuery
         #endregion
 
     [JsType(JsMode.Json)]
-    public class AnimationPropertiesExtensions : AnimationProperties
+    public class AnimationPropertiesEx : AnimationProperties
     {
-        [JsProperty(Name = "backgroundColor")]
-        public JsString backgroundColorString { get; set; }
-        [JsProperty(Name = "borderBottomColor")]
-        public JsString borderBottomColorString { get; set; }
-        [JsProperty(Name = "borderLeftColor")]
-        public JsString borderLeftColorString { get; set; }
-        [JsProperty(Name = "borderRightColor")]
-        public JsString borderRightColorString { get; set; }
-        [JsProperty(Name = "color")]
-        public JsString colorString { get; set; }
-        [JsProperty(Name = "borderTopColor")]
-        public JsString borderTopColorString { get; set; }
-        [JsProperty(Name = "outlineColor")]
-        public JsString outlineColorString { get; set; }
-
-        public JsNumber backgroundColor { get; set; }
-        public JsNumber borderBottomColor { get; set; }
-        public JsNumber borderLeftColor { get; set; }
-        public JsNumber borderRightColor { get; set; }
-        public JsNumber color { get; set; }
-        public JsNumber borderTopColor { get; set; }
-        public JsNumber outlineColor { get; set; }
+        //public JsString backgroundColor { get; set; }
+        public JsString borderTopColor { get; set; }
+        public JsString borderBottomColor { get; set; }
+        public JsString borderLeftColor { get; set; }
+        public JsString borderRightColor { get; set; }
+        //public JsString color { get; set; }
+        public JsString outlineColor { get; set; }
 
     }
 
