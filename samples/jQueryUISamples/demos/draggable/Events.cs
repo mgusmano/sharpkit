@@ -20,10 +20,11 @@ namespace jQueryUISamples.demos.draggable
             var stop_counter = "#event-stop";
             int[] counts = new int[3] { 0, 0, 0 };
             new jQuery( "#draggable" ).draggable(new DraggableOptions { 
-                start = (e, ui) => {counts[0]++; updateCounterStatus(drag_counter, counts[0] )},
-                drag = (e, ui)
+              //  start = (e, ui) => {counts[0]++; updateCounterStatus(drag_counter, counts[0] )},
+               // drag = (e, ui)
             
-            };
+          //  };
+            });
 
 
     //        $(function() {
@@ -65,7 +66,7 @@ namespace jQueryUISamples.demos.draggable
             //    }
             //    new jQuery( "span.count", event_counter ).text(new_count);
             // }
-        }
+       }
         //jQuery updateCounterStatus(JsString event_counter, int new_count)
         //{
         //    if (event_counter.hasClass("ui-state-hover"))
