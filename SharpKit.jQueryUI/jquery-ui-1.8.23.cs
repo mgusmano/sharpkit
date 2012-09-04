@@ -167,6 +167,8 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public class IconOptions
     {
+        public JsString secondary { get; set; }
+        public JsString primary { get; set; }
         public JsString header { get; set; }
         public JsString headerSelected { get; set; }
     }
