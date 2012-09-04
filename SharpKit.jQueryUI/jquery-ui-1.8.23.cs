@@ -371,7 +371,7 @@ namespace SharpKit.jQuery
         /// For using only one icon: icons: {primary:'ui-icon-locked'}. For using two icons: icons: {primary:'ui-icon-gear',secondary:'ui-icon-triangle-1-s'}
         /// Default:{ primary: null, secondary: null }
         /// </summary>
-        public object icons { get; set; }
+        public IconOptions icons { get; set; }
         /// <summary>
         /// Text to show on the button. When not specified (null), the element's html content is used, or its value attribute when it's an
         /// input element of type submit or reset; or the html content of the associated label element if its an input of type radio or checkbox
@@ -2495,7 +2495,7 @@ namespace SharpKit.jQuery
         ///The effect to be used. Possible values: 'blind', 'clip', 'drop', 'explode', 'fold', 'puff', 'slide', 'scale', 'size', 'pulsate'.
         ///Default: null
         ///</summary>
-        public string effect { get; set; }
+        public EffectType effect { get; set; }
         ///<summary>
         ///A object/hash including specific options for the effect.
         ///Default: null
@@ -4122,6 +4122,35 @@ namespace SharpKit.jQuery
 
     }
         #endregion
+
+    [JsType(JsMode.Json)]
+    public class AnimationPropertiesExtensions : AnimationProperties
+    {
+        [JsProperty(Name = "backgroundColor")]
+        public JsString backgroundColorString { get; set; }
+        [JsProperty(Name = "borderBottomColor")]
+        public JsString borderBottomColorString { get; set; }
+        [JsProperty(Name = "borderLeftColor")]
+        public JsString borderLeftColorString { get; set; }
+        [JsProperty(Name = "borderRightColor")]
+        public JsString borderRightColorString { get; set; }
+        [JsProperty(Name = "color")]
+        public JsString colorString { get; set; }
+        [JsProperty(Name = "borderTopColor")]
+        public JsString borderTopColorString { get; set; }
+        [JsProperty(Name = "outlineColor")]
+        public JsString outlineColorString { get; set; }
+
+        public JsNumber backgroundColor { get; set; }
+        public JsNumber borderBottomColor { get; set; }
+        public JsNumber borderLeftColor { get; set; }
+        public JsNumber borderRightColor { get; set; }
+        public JsNumber color { get; set; }
+        public JsNumber borderTopColor { get; set; }
+        public JsNumber outlineColor { get; set; }
+
+    }
+
 
 
 }
