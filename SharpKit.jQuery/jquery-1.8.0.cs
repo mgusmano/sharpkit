@@ -258,10 +258,7 @@ namespace SharpKit.jQuery
         /// Perform a custom animation of a set of CSS properties.
         /// </summary>
         public jQuery animate(object properties, JsNumber duration, JsString easing, JsAction callback) { return null; }
-        /// <summary>
-        /// Add the previous set of elements on the stack to the current set.
-        /// </summary>
-        public jQuery andSelf() { return null; }
+
 		/// <summary>
 		/// Insert content, specified by the parameter, to the end of each element in the set of matched elements.
 		/// </summary>
