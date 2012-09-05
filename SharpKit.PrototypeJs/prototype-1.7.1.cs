@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using SharpKit.JavaScript;
+﻿using SharpKit.JavaScript;
 using SharpKit.Html4;
 
 namespace SharpKit.PrototypeJs
@@ -31,7 +27,6 @@ namespace SharpKit.PrototypeJs
         public bool MobileSafari { get; set; }
         public bool Gecko { get; set; }
     }
-    //TODO: think it is a namespace, not sure i did it right. maybe shuld have an eunm?
 
     /// <summary>
     /// A collection of Boolean values indicating the presence of specific browser features.
@@ -52,7 +47,6 @@ namespace SharpKit.PrototypeJs
         /// </summary>
         public bool XPath { get; set; }
     }
-    //TODO: think it is a namespace
 
     /// <summary>
     /// A namespace that acts as a wrapper around the choosen selector engine (Sizzle by default).
@@ -81,7 +75,7 @@ namespace SharpKit.PrototypeJs
         /// </summary>
         /// <param name="elements">elements (Enumerable) – a collection of DOM elements.</param>
         /// <returns></returns>
-        public Enumerable extendElements(Enumerable elements) { return null; }
+        public Enumerable<HtmlElement> extendElements(Enumerable<HtmlElement> elements) { return null; }
         //TODO: check
 
         /// <summary>
@@ -91,16 +85,14 @@ namespace SharpKit.PrototypeJs
         /// <param name="expression">(String) – A CSS selector.</param>
         /// <param name="index">Numeric index of the match to return, defaults to 0.</param>
         /// <returns></returns>
-        public HtmlElement find(Enumerable elements, JsString expression, JsNumber index) { return null; }
-        //TODO: check
+        public HtmlElement find(Enumerable<HtmlElement> elements, JsString expression, JsNumber index) { return null; }
         /// <summary>
         /// Filters the given collection of elements with expression and returns the first matching element (or the indexth matching element if index is specified).
         /// </summary>
         /// <param name="elements">(Enumerable) – a collection of DOM elements.</param>
         /// <param name="expression">(String) – A CSS selector.</param>
         /// <returns></returns>
-        public HtmlElement find(Enumerable elements, JsString expression) { return null; }
-        //TODO: check
+        public HtmlElement find(Enumerable<HtmlElement> elements, JsString expression) { return null; }
 
         /// <summary>
         /// Tests whether element matches the CSS selector.
@@ -117,7 +109,6 @@ namespace SharpKit.PrototypeJs
         /// <param name="root">(Element | document) – A "scope" to search within. All results will be descendants of this node.</param>
         /// <returns></returns>
         public JsArray<HtmlElement> select(JsString expression, HtmlElement root) { return null; }
-        //TODO: check return type
         /// <summary>
         /// Searches root for elements that match the provided CSS selector and returns an array of extended Element objects.
         /// </summary>
@@ -125,80 +116,9 @@ namespace SharpKit.PrototypeJs
         /// <param name="root">(Element | document) – A "scope" to search within. All results will be descendants of this node.</param>
         /// <returns></returns>
         public JsArray<HtmlElement> select(JsString expression, HtmlDocument root) { return null; }
-        //TODO: check return type
     }
 
-    public class Enumerable
-    {
-        /// <summary>
-        /// Determines whether all the elements are "truthy" (boolean-equivalent to true), either directly or through computation by the provided iterator.
-        /// Stops on the first falsy element found (e.g., the first element that is boolean-equivalent to false, such as undefined, 0, or indeed false);
-        /// </summary>
-        /// <param name="iterator">iterator (Function) – An optional function to use to evaluate each element in the enumeration;
-        /// the function should return the value to test. If this is not provided, the element itself is tested.
-        /// context (Object) – An optional object to use as this within calls to the iterator.</param>
-        /// <returns></returns>
-        ///<example>
-        ///usage
-        ///<code>
-        ///[].all();
-        /// // -> true (empty arrays have no elements that could be falsy)
-        ///  $R(1, 5).all();
-        /// // -> true (all values in [1..5] are truthy)
-        ///  [0, 1, 2].all();
-        /// // -> false (with only one loop cycle: 0 is falsy)
-        ///  [9, 10, 15].all(function(n) { return n >= 10; });
-        /// // -> false (the iterator returns false on 9)
-        ///</code>
-        ///</example>
-        public bool all(JsFunc<object, JsNumber> iterator) { return false; }
-        //TODO: must check.
-        /// <summary>
-        /// Determines whether all the elements are "truthy" (boolean-equivalent to true), either directly or through computation by the provided iterator.
-        /// Stops on the first falsy element found (e.g., the first element that is boolean-equivalent to false, such as undefined, 0, or indeed false);
-        /// </summary>
-        /// <param name="iterator">iterator (Function) – An optional function to use to evaluate each element in the enumeration;
-        /// the function should return the value to test. If this is not provided, the element itself is tested.
-        /// context (Object) – An optional object to use as this within calls to the iterator.</param>
-        /// <returns></returns>
-        ///<example>
-        ///usage
-        ///<code>
-        ///[].all();
-        /// // -> true (empty arrays have no elements that could be falsy)
-        ///  $R(1, 5).all();
-        /// // -> true (all values in [1..5] are truthy)
-        ///  [0, 1, 2].all();
-        /// // -> false (with only one loop cycle: 0 is falsy)
-        ///  [9, 10, 15].all(function(n) { return n >= 10; });
-        /// // -> false (the iterator returns false on 9)
-        ///</code>
-        ///</example>
-        public bool all(JsFunc<JsNumber> iterator) { return false; }
-        //TODO: must check.
-        /// <summary>
-        /// Determines whether all the elements are "truthy" (boolean-equivalent to true), either directly or through computation by the provided iterator.
-        /// Stops on the first falsy element found (e.g., the first element that is boolean-equivalent to false, such as undefined, 0, or indeed false);
-        /// </summary>
-        /// <returns></returns>
-        ///<example>
-        ///usage
-        ///<code>
-        ///[].all();
-        /// // -> true (empty arrays have no elements that could be falsy)
-        ///  $R(1, 5).all();
-        /// // -> true (all values in [1..5] are truthy)
-        ///  [0, 1, 2].all();
-        /// // -> false (with only one loop cycle: 0 is falsy)
-        ///  [9, 10, 15].all(function(n) { return n >= 10; });
-        /// // -> false (the iterator returns false on 9)
-        ///</code>
-        ///</example>
-        public bool all() { return false; }
-        //TODO: must check.
 
-        //TODO: finish the class: http://api.prototypejs.org/language/Enumerable/
-    }
 
     public class Prototype
     {
@@ -304,13 +224,10 @@ namespace SharpKit.PrototypeJs
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
-        //[JsProperty(Name = "$F")]
-        //public static JsArray<JsString> DF(HtmlElement element) { return null; }
-        //TODO: "only multiple select boxes return an array of values."
+        [JsMethod(Name = "$F")]
+        public static JsArray<JsString> DF(params HtmlElement[] element) { return null; }
 
     }
-
-    #endregion
 
     #region document
 
@@ -1228,6 +1145,9 @@ namespace SharpKit.PrototypeJs
         /// <returns></returns>
         public Element replace(object newContent) { return null; }
 
+        public T retrieve<T>(JsString key, T defaultValue) { return default(T); }
+        public object retrieve(JsString key) { return null; }
+        public T retrieve<T>(JsString key) { return default(T); }
         //TODO: Element#retrieve http://api.prototypejs.org/dom/Element/prototype/retrieve/
 
         /// <summary>
@@ -1300,7 +1220,7 @@ namespace SharpKit.PrototypeJs
         /// <param name="eventName"></param>
         /// <param name="handler"></param>
         /// <returns></returns>
-        public Element stopObserving(JsString eventName, Action handler) { return null; }
+        public Element stopObserving(JsString eventName, JsAction handler) { return null; }
 
         /// <summary>
         /// Stores a key/value pair of custom metadata on the element.
@@ -1938,6 +1858,1178 @@ namespace SharpKit.PrototypeJs
 
     #endregion
 
+    /// <summary>
+    /// A class that queries the document for elements that match a given CSS selector.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Selector", Export = false)]
+    public class DOMSelector
+    {
+        /// <summary>
+        /// Creates a Selector with the given CSS selector.
+        /// </summary>
+        /// <param name="expression">(String) – A CSS selector.</param>
+        public DOMSelector(JsString expression) { }
+
+        //TODO: class methodes
+
+        /// <summary>
+        /// Searches the document for elements that match the instance's CSS selector.
+        /// </summary>
+        /// <param name="root">(Element | document) – A "scope" to search within. All results will be descendants of this node.</param>
+        /// <returns></returns>
+        public JsArray<Element> findElements(HtmlElement root) { return null; }
+        /// <summary>
+        /// Searches the document for elements that match the instance's CSS selector.
+        /// </summary>
+        /// <param name="root">(Element | document) – A "scope" to search within. All results will be descendants of this node.</param>
+        /// <returns></returns>
+        public JsArray<Element> findElements(HtmlDocument root) { return null; }
+
+        /// <summary>
+        /// Tests whether a element matches the instance's CSS selector.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public bool match(HtmlElement element) { return false; }
+    }
+    //TODO: class name is Selector
+    #endregion
+
+    #region Language
+
+
+    /// <summary>
+    /// Extensions to the built-in String class.
+    /// Prototype enhances the String object with a series of useful methods for ranging from the trivial to the complex.
+    /// Tired of stripping trailing whitespace? Try String#strip. Want to replace replace? Have a look at String#sub and String#gsub.
+    /// Need to parse a query string? We have what you need.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "JsStringExtensions", Export = false)]
+    public static class JsStringExtensions
+    {
+
+        //TODO: Class methods
+
+        /// <summary>
+        /// Check if the string is "blank" — either empty (length of 0) or containing only whitespace.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static bool blank(this JsString s) { return false; }
+
+        /// <summary>
+        /// Converts a string separated by dashes into a camelCase equivalent. For instance, 'foo-bar' would be converted to 'fooBar'.
+        /// Prototype uses this internally for translating CSS properties into their DOM style property equivalents.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString camelize(this JsString s) { return null; }
+
+        /// <summary>
+        /// Capitalizes the first letter of a string and downcases all the others.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString capitalize(this JsString s) { return null; }
+
+        /// <summary>
+        /// Replaces every instance of the underscore character "_" by a dash "-".
+        /// Note: Used in conjunction with String#underscore, String#dasherize converts a DOM style into its CSS equivalent.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString dasherize(this JsString s) { return null; }
+
+        /// <summary>
+        /// Checks if the string is empty.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static bool empty(this JsString s) { return false; }
+
+        /// <summary>
+        /// Checks if the string ends with substring.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString endsWith(this JsString s) { return null; }
+
+        /// <summary>
+        /// Converts HTML special characters to their entity equivalents.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString escapeHTML(this JsString s) { return null; }
+
+        /// <summary>
+        /// Evaluates the JSON in the string and returns the resulting object.
+        /// If the optional sanitize parameter is set to true, the string is checked for possible malicious attempts; if one is detected, eval is not called.
+        /// Warning:
+        /// If the JSON string is not well formated or if a malicious attempt is detected a SyntaxError is thrown.
+        /// Note:
+        /// Always set the sanitize parameter to true for data coming from externals sources to prevent XSS attacks.
+        /// As String#evalJSON internally calls String#unfilterJSON, optional security comment delimiters (defined in Prototype.JSONFilter) are automatically removed.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="sanitize"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static object evalJSON(this JsString s, bool sanitize) { return null; }
+        /// <summary>
+        /// Evaluates the JSON in the string and returns the resulting object.
+        /// If the optional sanitize parameter is set to true, the string is checked for possible malicious attempts; if one is detected, eval is not called.
+        /// Warning:
+        /// If the JSON string is not well formated or if a malicious attempt is detected a SyntaxError is thrown.
+        /// Note:
+        /// Always set the sanitize parameter to true for data coming from externals sources to prevent XSS attacks.
+        /// As String#evalJSON internally calls String#unfilterJSON, optional security comment delimiters (defined in Prototype.JSONFilter) are automatically removed.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static object evalJSON(this JsString s) { return null; }
+
+        /// <summary>
+        /// Evaluates the content of any inline &lt;script> block present in the string.
+        /// Returns an array containing the value returned by each script. &lt;script> blocks referencing external files will be treated as though they were empty
+        /// (the result for that position in the array will be undefined);
+        /// external files are not loaded and processed by String#evalScripts.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray evalScripts(this JsString s) { return null; }
+
+        /// <summary>
+        /// Extracts the content of any &lt;script> blocks present in the string and returns them as an array of strings.
+        /// This method is used internally by String#evalScripts. It does not evaluate the scripts (use String#evalScripts to do that),
+        /// but can be usefull if you need to evaluate the scripts at a later date.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray extractScripts(this JsString s) { return null; }
+
+        /// <summary>
+        /// Returns the string with every occurence of a given pattern replaced by either a regular string, the returned value of a function or a Template string.
+        /// The pattern can be a string or a regular expression.
+        /// If its second argument is a string String#gsub works just like the native JavaScript method replace() set to global match.
+        /// If you pass it a function, it will be invoked for every occurrence of the pattern with the match of the current pattern as its unique argument.
+        /// Note that this argument is the returned value of the match() method called on the current pattern.
+        /// It is in the form of an array where the first element is the entire match and every subsequent one corresponds to a parenthesis group in the regex.
+        /// Lastly, you can pass String#gsub a Template string in which you can also access the returned value of the match() method using the ruby inspired notation:
+        /// #{0} for the first element of the array, #{1} for the second one, and so on. So our last example could be easily re-written as:
+        /// If you need an equivalent to String#gsub but without global match set on, try String#sub.
+        /// Note: Do not use the "g" flag on the regex as this will create an infinite loop.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="pattern"></param>
+        /// <param name="replacement"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString gsub(this JsString s, JsString pattern, JsFunc<JsString> replacement) { return null; }
+        /// <summary>
+        /// Returns the string with every occurence of a given pattern replaced by either a regular string, the returned value of a function or a Template string.
+        /// The pattern can be a string or a regular expression.
+        /// If its second argument is a string String#gsub works just like the native JavaScript method replace() set to global match.
+        /// If you pass it a function, it will be invoked for every occurrence of the pattern with the match of the current pattern as its unique argument.
+        /// Note that this argument is the returned value of the match() method called on the current pattern.
+        /// It is in the form of an array where the first element is the entire match and every subsequent one corresponds to a parenthesis group in the regex.
+        /// Lastly, you can pass String#gsub a Template string in which you can also access the returned value of the match() method using the ruby inspired notation:
+        /// #{0} for the first element of the array, #{1} for the second one, and so on. So our last example could be easily re-written as:
+        /// If you need an equivalent to String#gsub but without global match set on, try String#sub.
+        /// Note: Do not use the "g" flag on the regex as this will create an infinite loop.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="pattern"></param>
+        /// <param name="replacement"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString gsub(this JsString s, JsString pattern, JsString replacement) { return null; }
+        /// <summary>
+        /// Returns the string with every occurence of a given pattern replaced by either a regular string, the returned value of a function or a Template string.
+        /// The pattern can be a string or a regular expression.
+        /// If its second argument is a string String#gsub works just like the native JavaScript method replace() set to global match.
+        /// If you pass it a function, it will be invoked for every occurrence of the pattern with the match of the current pattern as its unique argument.
+        /// Note that this argument is the returned value of the match() method called on the current pattern.
+        /// It is in the form of an array where the first element is the entire match and every subsequent one corresponds to a parenthesis group in the regex.
+        /// Lastly, you can pass String#gsub a Template string in which you can also access the returned value of the match() method using the ruby inspired notation:
+        /// #{0} for the first element of the array, #{1} for the second one, and so on. So our last example could be easily re-written as:
+        /// If you need an equivalent to String#gsub but without global match set on, try String#sub.
+        /// Note: Do not use the "g" flag on the regex as this will create an infinite loop.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="pattern"></param>
+        /// <param name="replacement"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString gsub(this JsString s, JsString pattern, Template replacement) { return null; }
+
+        /// <summary>
+        /// Checks if the string contains substring.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="substring"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static bool include(this JsString s, JsString substring) { return false; }
+
+        /// <summary>
+        /// Returns a debug-oriented version of the string (i.e. wrapped in single or double quotes, with backslashes and quotes escaped).
+        /// For more information on inspect methods, see Object.inspect.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="useDoubleQuotes"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString inspect(this JsString s, bool useDoubleQuotes) { return null; }
+        /// <summary>
+        /// Returns a debug-oriented version of the string (i.e. wrapped in single or double quotes, with backslashes and quotes escaped).
+        /// For more information on inspect methods, see Object.inspect.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString inspect(this JsString s) { return null; }
+
+        /// <summary>
+        /// Treats the string as a Template and fills it with object's properties.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="object"></param>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString interpolate(this JsString s, object @object, JsString pattern) { return null; }
+        /// <summary>
+        /// Treats the string as a Template and fills it with object's properties.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="object"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString interpolate(this JsString s, object @object) { return null; }
+
+        /// <summary>
+        /// Check if the string is valid JSON by the use of regular expressions. This security method is called internally.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static bool isJSON(this JsString s) { return false; }
+
+        /// <summary>
+        /// Aliased as: String#toQueryParams:
+        /// Parses a URI-like query string and returns an object composed of parameter/value pairs.
+        /// This method is realy targeted at parsing query strings (hence the default value of"&" for the separator argument).
+        /// For this reason, it does not consider anything that is either before a question mark (which signals the beginning of a query string)
+        /// or beyond the hash symbol ("#"), and runs decodeURIComponent() on each parameter/value pair.
+        /// String#toQueryParams also aggregates the values of identical keys into an array of values.
+        /// Note that parameters which do not have a specified value will be set to undefined.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="separator"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static object parseQuery(this JsString s, JsString separator) { return null; }
+
+        /// <summary>
+        /// Allows iterating over every occurrence of the given pattern (which can be a string or a regular expression). Returns the original string.
+        /// Internally just calls String#gsub passing it pattern and iterator as arguments.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="pattern"></param>
+        /// <param name="iterator"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString scan(this JsString s, JsString pattern, JsAction<JsRegExpResult> iterator) { return null; }
+        /// <summary>
+        /// Allows iterating over every occurrence of the given pattern (which can be a string or a regular expression). Returns the original string.
+        /// Internally just calls String#gsub passing it pattern and iterator as arguments.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="pattern"></param>
+        /// <param name="iterator"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString scan(this JsString s, JsRegExp pattern, JsAction<JsRegExpResult> iterator) { return null; }
+
+        /// <summary>
+        /// Checks if the string starts with substring.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="substring"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static bool startsWith(this JsString s, JsString substring) { return false; }
+
+        /// <summary>
+        /// Strips all leading and trailing whitespace from a string.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString strip(this JsString s) { return null; }
+
+        /// <summary>
+        /// Strips a string of things that look like an HTML script blocks.
+        /// Note that the processing String#stripScripts does is good enough for most purposes, but you cannot rely on it for security purposes.
+        /// If you're processing end-user-supplied content, String#stripScripts is probably not sufficiently robust to prevent hack attacks.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///&quot;&lt;p&gt;This is a test.&lt;script&gt;alert(&quot;Look, a test!&quot;);&lt;/script&gt;End of test&lt;/p&gt;&quot;.stripScripts();
+        /// // =&gt; &quot;&lt;p&gt;This is a test.End of test&lt;/p&gt;&quot;
+        ///</code>
+        ///</example>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString stripScripts(this JsString s) { return null; }
+
+        /// <summary>
+        /// Strips a string of any HTML tags.
+        /// Note that String#stripTags will only strip HTML 4.01 tags — like div, span, and abbr. It will not strip namespace-prefixed tags such as h:table or xsl:template.
+        /// Watch out for &lt;script> tags in your string, as String#stripTags will not remove their content. Use String#stripScripts to do so.
+        /// Caveat User:
+        /// Note that the processing String#stripTags does is good enough for most purposes, but you cannot rely on it for security purposes.
+        /// If you're processing end-user-supplied content, String#stripTags is not sufficiently robust to ensure that the content is completely
+        /// devoid of HTML tags in the case of a user intentionally trying to circumvent tag restrictions.
+        /// But then, you'll be running them through String#escapeHTML anyway, won't you?
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///&#39;a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;&#39;.stripTags();
+        ///  // -&gt; &#39;a link&#39;
+        ///  &#39;a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;&lt;script&gt;alert(&quot;hello world!&quot;);&lt;/script&gt;&#39;.stripTags();
+        /// // -&gt; &#39;a linkalert(&quot;hello world!&quot;);&#39;
+        ///  &#39;a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;&lt;script&gt;alert(&quot;hello world!&quot;);&lt;/script&gt;&#39;.stripScripts().stripTags();
+        /// // -&gt; &#39;a link&#39;
+        ///</code>
+        ///</example>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString stripTags(this JsString s) { return null; }
+
+        /// <summary>
+        /// Returns a string with the first count occurrences of pattern replaced by either a regular string, the returned value of a function or a Template string.
+        /// pattern can be a string or a regular expression.
+        /// Unlike String#gsub, String#sub takes a third optional parameter which specifies the number of occurrences of the pattern which will be replaced.
+        /// If not specified, it will default to 1.
+        /// Apart from that, String#sub works just like String#gsub. Please refer to it for a complete explanation.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="pattern"></param>
+        /// <param name="replacement"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString sub(this JsString s, JsString pattern, object replacement, JsNumber count) { return null; }
+        /// <summary>
+        /// Returns a string with the first count occurrences of pattern replaced by either a regular string, the returned value of a function or a Template string.
+        /// pattern can be a string or a regular expression.
+        /// Unlike String#gsub, String#sub takes a third optional parameter which specifies the number of occurrences of the pattern which will be replaced.
+        /// If not specified, it will default to 1.
+        /// Apart from that, String#sub works just like String#gsub. Please refer to it for a complete explanation.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="pattern"></param>
+        /// <param name="replacement"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString sub(this JsString s, JsRegExp pattern, object replacement, JsNumber count) { return null; }
+
+        /// <summary>
+        /// Used internally by ObjectRange.
+        /// Converts the last character of the string to the following character in the Unicode alphabet.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString succ(this JsString s) { return null; }
+
+        /// <summary>
+        /// Concatenates the string count times.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString times(this JsString s, JsNumber count) { return null; }
+
+        /// <summary>
+        /// Splits the string character-by-character and returns an array with the result.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray toArray(this JsString s) { return null; }
+
+        /// <summary>
+        /// Parses a URI-like query string and returns an object composed of parameter/value pairs.
+        /// This method is realy targeted at parsing query strings (hence the default value of"&" for the separator argument).
+        /// For this reason, it does not consider anything that is either before a question mark (which signals the beginning of a query string) or beyond the hash symbol ("#"),
+        /// and runs decodeURIComponent() on each parameter/value pair.
+        /// String#toQueryParams also aggregates the values of identical keys into an array of values.
+        /// Note that parameters which do not have a specified value will be set to undefined.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="separator"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static object toQueryParams(this JsString s, JsString separator) { return null; }
+        /// <summary>
+        /// Parses a URI-like query string and returns an object composed of parameter/value pairs.
+        /// This method is realy targeted at parsing query strings (hence the default value of"&" for the separator argument).
+        /// For this reason, it does not consider anything that is either before a question mark (which signals the beginning of a query string) or beyond the hash symbol ("#"),
+        /// and runs decodeURIComponent() on each parameter/value pair.
+        /// String#toQueryParams also aggregates the values of identical keys into an array of values.
+        /// Note that parameters which do not have a specified value will be set to undefined.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static object toQueryParams(this JsString s) { return null; }
+
+        /// <summary>
+        /// Truncates a string to given length and appends suffix to it (indicating that it is only an excerpt).
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="length"></param>
+        /// <param name="suffix"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString truncate(this JsString s, JsNumber length, JsString suffix) { return null; }
+        /// <summary>
+        /// Truncates a string to given length and appends suffix to it (indicating that it is only an excerpt).
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString truncate(this JsString s, JsNumber length) { return null; }
+        /// <summary>
+        /// Truncates a string to given length and appends suffix to it (indicating that it is only an excerpt).
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString truncate(this JsString s) { return null; }
+
+        /// <summary>
+        /// Converts a camelized string into a series of words separated by an underscore (_).
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString underscore(this JsString s) { return null; }
+
+        /// <summary>
+        /// Strips tags and converts the entity forms of special HTML characters to their normal form.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString unescapeHTML(this JsString s) { return null; }
+
+        /// <summary>
+        /// Strips comment delimiters around Ajax JSON or JavaScript responses. This security method is called internally.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString unfilterJSON(this JsString s, object filter) { return null; }
+    }
+
+    /// <summary>
+    /// Prototype extends all native JavaScript arrays with quite a few powerful methods.
+    /// This is done in two ways:
+    /// It mixes in the Enumerable module, which brings in a ton of methods.
+    /// It adds quite a few extra methods, which are documented in this section.
+    /// With Prototype, arrays become much, much more than the trivial objects we used to manipulate,
+    /// limiting ourselves to using their length property and their [] indexing operator.
+    /// They become very powerful objects that greatly simplify the code for 99% of the common use cases involving them.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "JsArrayExtensions", Export = false)]
+    public static class JsArrayExtensions
+    {
+
+        //TODO: Class methods
+
+        /// <summary>
+        /// Clears the array (makes it empty) and returns the array reference.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray clear(this JsArray a) { return null; }
+
+        /// <summary>
+        /// Returns a duplicate of the array, leaving the original array intact.
+        /// Aliased as: Array#toArray
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray clone(this JsArray a) { return null; }
+
+        /// <summary>
+        /// Returns a copy of the array without any null or undefined values.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray compact(this JsArray a) { return null; }
+
+        /// <summary>
+        /// Returns the array's first item (e.g., array[0]).
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static object first(this JsArray a) { return null; }
+
+        /// <summary>
+        /// Returns a flattened (one-dimensional) copy of the array, leaving the original array unchanged.
+        /// Nested arrays are recursively injected inline. This can prove very useful when handling the results of a recursive collection algorithm, for instance.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray flatten(this JsArray a) { return null; }
+
+        /// <summary>
+        /// Returns the index of the first occurrence of item within the array, or -1 if item doesn't exist in the array. Array#indexOf compares items using strict equality (===).
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="item">(?) – A value that may or may not be in the array.</param>
+        /// <param name="offset">(Number) – The number of initial items to skip before beginning the search.</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsNumber indexOf(this JsArray a, object item, JsNumber offset) { return null; }
+        /// <summary>
+        /// Returns the index of the first occurrence of item within the array, or -1 if item doesn't exist in the array. Array#indexOf compares items using strict equality (===).
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="item">(?) – A value that may or may not be in the array.</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsNumber indexOf(this JsArray a, object item) { return null; }
+
+        /// <summary>
+        /// Returns the debug-oriented string representation of an array.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString inspect(this JsArray a) { return null; }
+
+        /// <summary>
+        /// Returns an array containing every item that is shared between the two given arrays.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="array">(Array) – A collection of values.</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray intersect(this JsArray a, JsArray array) { return null; }
+        //TODO: check
+
+        /// <summary>
+        /// Returns the array's last item (e.g., array[array.length - 1]).
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static object last(this JsArray a) { return null; }
+
+        /// <summary>
+        /// Returns the position of the last occurrence of item within the array — or -1 if item doesn't exist in the array.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="item">(?) – A value that may or may not be in the array.</param>
+        /// <param name="offset"> (Number) – The number of items at the end to skip before beginning the search.</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsNumber lastIndexOf(this JsArray a, object item, JsNumber offset) { return null; }
+        /// <summary>
+        /// Returns the position of the last occurrence of item within the array — or -1 if item doesn't exist in the array.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="item">(?) – A value that may or may not be in the array.</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsNumber lastIndexOf(this JsArray a, object item) { return null; }
+
+        /// <summary>
+        /// Reverses the array's contents, optionally cloning it first.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="inline"> (Boolean) – Whether to modify the array in place. Defaults to true. Clones the original array when false.</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray reverse(this JsArray a, bool inline) { return null; }
+        /// <summary>
+        /// Reverses the array's contents, optionally cloning it first.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray reverse(this JsArray a) { return null; }
+
+        /// <summary>
+        /// Returns the size of the array (e.g., array.length).
+        /// This is just a local optimization of the mixed-in Enumerable#size which avoids array cloning and uses the array's native length property.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsNumber size(this JsArray a) { return null; }
+
+        /// <summary>
+        /// Alias of: Array#clone
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray toArray(this JsArray a) { return null; }
+
+        /// <summary>
+        /// Produces a duplicate-free version of an array. If no duplicates are found, the original array is returned.
+        /// On large arrays when sorted is false, this method has a potentially large performance cost.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="sorted"> (Boolean) – Whether the array has already been sorted. If true, a less-costly algorithm will be used.</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray uniq(this JsArray a, bool sorted) { return null; }
+        /// <summary>
+        /// Produces a duplicate-free version of an array. If no duplicates are found, the original array is returned.
+        /// On large arrays when sorted is false, this method has a potentially large performance cost.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray uniq(this JsArray a) { return null; }
+
+        /// <summary>
+        /// Produces a new version of the array that does not contain any of the specified values, leaving the original array unchanged.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="value"> (?) – A value to exclude.</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray<T> without<T>(this JsArray<T> a, params T[] value) { return null; }
+        /// <summary>
+        /// Produces a new version of the array that does not contain any of the specified values, leaving the original array unchanged.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="value"> (?) – A value to exclude.</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsArray<T> without<T>(this JsArray<T> a, T value) { return null; }
+
+
+        //TODO: Includes: Enumerable
+
+    }
+
+    /// <summary>
+    /// Extensions to the built-in Date object.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "JsDateExtensions", Export = false)]
+    public static class JsDateExtensions
+    {
+        /// <summary>
+        /// Produces a string representation of the date in ISO 8601 format. The time zone is always UTC, as denoted by the suffix "Z".
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString toISOString(this JsDate d) { return null; }
+
+        /// <summary>
+        /// Internally calls Date#toISOString.
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString toJSON(this JsDate d) { return null; }
+
+    }
+
+    /// <summary>
+    /// Enumerable provides a large set of useful methods for enumerations — objects that act as collections of values. It is a cornerstone of Prototype.
+    /// Enumerable is a mixin: a set of methods intended not for standaone use, but for incorporation into other objects.
+    /// Prototype mixes Enumerable into several classes. The most visible cases are Array and Hash,
+    /// but you'll find it in less obvious spots as well, such as in ObjectRange and various DOM- or Ajax-related objects.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    [JsType(JsMode.Prototype, Export = false)]
+    public class Enumerable<T>
+    {
+        /// <summary>
+        /// Determines whether all the elements are "truthy" (boolean-equivalent to true), either directly or through computation by the provided iterator.
+        /// Stops on the first falsy element found (e.g., the first element that is boolean-equivalent to false, such as undefined, 0, or indeed false);
+        /// </summary>
+        /// <param name="iterator">iterator (Function) – An optional function to use to evaluate each element in the enumeration;
+        /// the function should return the value to test. If this is not provided, the element itself is tested.
+        /// context (Object) – An optional object to use as this within calls to the iterator.</param>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///[].all();
+        /// // -> true (empty arrays have no elements that could be falsy)
+        ///  $R(1, 5).all();
+        /// // -> true (all values in [1..5] are truthy)
+        ///  [0, 1, 2].all();
+        /// // -> false (with only one loop cycle: 0 is falsy)
+        ///  [9, 10, 15].all(function(n) { return n >= 10; });
+        /// // -> false (the iterator returns false on 9)
+        ///</code>
+        ///</example>
+        public bool all<R>(JsFunc<T, R> iterator) { return false; }
+        //TODO: must check.
+        /// <summary>
+        /// Determines whether all the elements are "truthy" (boolean-equivalent to true), either directly or through computation by the provided iterator.
+        /// Stops on the first falsy element found (e.g., the first element that is boolean-equivalent to false, such as undefined, 0, or indeed false);
+        /// </summary>
+        /// <param name="iterator">iterator (Function) – An optional function to use to evaluate each element in the enumeration;
+        /// the function should return the value to test. If this is not provided, the element itself is tested.
+        /// context (Object) – An optional object to use as this within calls to the iterator.</param>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///[].all();
+        /// // -> true (empty arrays have no elements that could be falsy)
+        ///  $R(1, 5).all();
+        /// // -> true (all values in [1..5] are truthy)
+        ///  [0, 1, 2].all();
+        /// // -> false (with only one loop cycle: 0 is falsy)
+        ///  [9, 10, 15].all(function(n) { return n >= 10; });
+        /// // -> false (the iterator returns false on 9)
+        ///</code>
+        ///</example>
+        public bool all(JsFunc<T> iterator) { return false; }
+        //TODO: must check.
+        /// <summary>
+        /// Determines whether all the elements are "truthy" (boolean-equivalent to true), either directly or through computation by the provided iterator.
+        /// Stops on the first falsy element found (e.g., the first element that is boolean-equivalent to false, such as undefined, 0, or indeed false);
+        /// </summary>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///[].all();
+        /// // -> true (empty arrays have no elements that could be falsy)
+        ///  $R(1, 5).all();
+        /// // -> true (all values in [1..5] are truthy)
+        ///  [0, 1, 2].all();
+        /// // -> false (with only one loop cycle: 0 is falsy)
+        ///  [9, 10, 15].all(function(n) { return n >= 10; });
+        /// // -> false (the iterator returns false on 9)
+        ///</code>
+        ///</example>
+        public bool all() { return false; }
+        //TODO: must check.
+
+        //TODO: finish the class: http://api.prototypejs.org/language/Enumerable/
+    }
+
+    //TODO: FunctionExtensions 
+
+    /// <summary>
+    /// A set of key/value pairs.
+    /// Hash can be thought of as an associative array, binding unique keys to values (which are not necessarily unique),
+    /// though it can not guarantee consistent order its elements when iterating. Because of the nature of JavaScript, every object is in fact a hash;
+    /// but Hash adds a number of methods that let you enumerate keys and values, iterate over key/value pairs, merge two hashes together, and much more.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Hash", Export = false)]
+    public class Hash
+    {
+
+        //TODO: Includes: Enumerable
+
+        /// <summary>
+        /// Creates a new Hash. If object is given, the new hash will be populated with all the object's properties. See $H.
+        /// </summary>
+        /// <param name="object"></param>
+        public Hash(object @object) { }
+        /// <summary>
+        /// Creates a new Hash. If object is given, the new hash will be populated with all the object's properties. See $H.
+        /// </summary>
+        public Hash() { }
+
+        /// <summary>
+        /// Returns a clone of this Hash.
+        /// </summary>
+        /// <returns></returns>
+        public Hash clone() { return null; }
+
+        //TODO: each http://api.prototypejs.org/language/Hash/prototype/each/
+
+        /// <summary>
+        /// Returns the stored value for the given key.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public object get(JsString key) { return null; }
+
+        /// <summary>
+        /// Returns the first key in the hash whose value matches value. Returns false if there is no such key.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public JsString index(object value) { return null; }
+
+        /// <summary>
+        /// Returns the debug-oriented string representation of the Hash.
+        /// </summary>
+        /// <returns></returns>
+        public JsString inspect() { return null; }
+
+        /// <summary>
+        /// Provides an Array containing the keys for items stored in the hash.
+        /// The order of the keys is not guaranteed.
+        /// </summary>
+        /// <returns></returns>
+        public JsArray<JsString> keys() { return null; }
+
+        /// <summary>
+        /// Returns a new Hash instance with object's key/value pairs merged in; this hash remains unchanged.
+        /// To modify the original hash in place, use Hash#update.
+        /// </summary>
+        /// <param name="object">(Object | Hash) – The object to merge with this hash to produce the resulting hash.</param>
+        /// <returns></returns>
+        public Hash merge(object @object) { return null; }
+        /// <summary>
+        /// Returns a new Hash instance with object's key/value pairs merged in; this hash remains unchanged.
+        /// To modify the original hash in place, use Hash#update.
+        /// </summary>
+        /// <param name="object">(Object | Hash) – The object to merge with this hash to produce the resulting hash.</param>
+        /// <returns></returns>
+        public Hash merge(Hash @object) { return null; }
+
+        /// <summary>
+        /// Stores value in the hash using the key key and returns value.
+        /// </summary>
+        /// <param name="key">(String) – The key to use for this value.</param>
+        /// <param name="value"> (?) – The value to use for this key.</param>
+        /// <returns></returns>
+        public object set(JsString key, object value) { return null; }
+
+        /// <summary>
+        /// Alias of: Hash#toObject
+        /// </summary>
+        /// <returns></returns>
+        public object toJSON() { return null; }
+
+        /// <summary>
+        /// Returns a cloned, vanilla object whose properties (and property values) match the keys (and values) from the hash.
+        /// </summary>
+        /// <returns></returns>
+        public object toObject() { return null; }
+
+        /// <summary>
+        /// Returns a URL-encoded string containing the hash's contents as query parameters according to the following rules:
+        /// An undefined value results a parameter with no value portion at all (simply the key name, no equal sign).
+        /// A null value results a parameter with a blank value (the key followed by an equal sign and nothing else).
+        /// A boolean value results a parameter with the value "true" or "false".
+        /// An Array value results in a parameter for each array element, in array order, each using the same key.
+        /// All keys and values are URI-encoded using JavaScript's native encodeURIComponent function.
+        /// The order of pairs in the string is not guaranteed, other than the order of array values described above.
+        /// </summary>
+        /// <returns></returns>
+        public JsString toQueryString() { return null; }
+
+        /// <summary>
+        /// Alias of: Hash#toObject
+        /// </summary>
+        /// <returns></returns>
+        public object toTemplateReplacements() { return null; }
+
+        /// <summary>
+        /// Deletes the stored pair for the given key from the hash and returns its value.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public object unset(JsString key) { return null; }
+
+        /// <summary>
+        /// Updates a hash in place with the key/value pairs of object, returns the hash.
+        /// Hash#update modifies the hash. To get a new hash instead, use Hash#merge.
+        /// </summary>
+        /// <param name="object"> (Object | Hash) – The object to merge with this hash to produce the resulting hash.</param>
+        /// <returns></returns>
+        public Hash update(object @object) { return null; }
+
+        /// <summary>
+        /// Collects the values of the hash and returns them in an array.
+        /// The order of the values is not guaranteed.
+        /// </summary>
+        /// <returns></returns>
+        public JsArray values() { return null; }
+    }
+
+    /// <summary>
+    /// Extensions to the built-in Number object.
+    /// Prototype extends native JavaScript numbers in order to provide:
+    /// ObjectRange compatibility, through Number#succ.
+    /// Numerical loops with Number#times.
+    /// Simple utility methods such as Number#toColorPart and Number#toPaddedString.
+    /// Instance-method aliases of many functions in the Math namespace.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "JsNumberExtensions", Export = false)]
+    public static class JsNumberExtensions
+    {
+        /// <summary>
+        /// Returns the absolute value of the number. Convenience method that simply calls Math.abs on this instance and returns the result.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsNumber abs(this JsNumber n) { return null; }
+
+        /// <summary>
+        /// Returns the smallest integer greater than or equal to the number. Convenience method that simply calls Math.ceil on this instance and returns the result.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsNumber ceil(this JsNumber n) { return null; }
+
+        /// <summary>
+        /// Returns the largest integer less than or equal to the number. Convenience method that simply calls Math.floor on this instance and returns the result.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsNumber floor(this JsNumber n) { return null; }
+
+        /// <summary>
+        /// Rounds the number to the nearest integer. Convenience method that simply calls Math.round on this instance and returns the result.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsNumber round(this JsNumber n) { return null; }
+
+        /// <summary>
+        /// Returns the successor of the current Number, as defined by current + 1. Used to make numbers compatible with ObjectRange.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsNumber succ(this JsNumber n) { return null; }
+
+        /// <summary>
+        /// Calls iterator the specified number of times, passing in a number as the first parameter.
+        /// The number will be 0 on first call, 1 on second call, etc. times returns the number instance it was called on.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="iterator"> (Function) – An iterator function to call.</param>
+        /// <param name="context">(Object) – An optional context (this value) to use when calling iterator.</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsNumber times(this JsNumber n, JsAction iterator, object context) { return null; }
+        /// <summary>
+        /// Calls iterator the specified number of times, passing in a number as the first parameter.
+        /// The number will be 0 on first call, 1 on second call, etc. times returns the number instance it was called on.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="iterator"> (Function) – An iterator function to call.</param>
+        /// <param name="context">(Object) – An optional context (this value) to use when calling iterator.</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsNumber times(this JsNumber n, JsAction iterator) { return null; }
+
+        /// <summary>
+        /// Produces a 2-digit hexadecimal representation of the number (which is therefore assumed to be in the [0..255] range, inclusive). Useful for composing CSS color strings.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString toColorPart(this JsNumber n) { return null; }
+
+        /// <summary>
+        /// Returns a string representation of the number padded with leading 0s so that the string's length is at least equal to length.
+        /// Takes an optional radix argument which specifies the base to use for conversion.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="length">(Number) – The minimum length for the resulting string.</param>
+        /// <param name="radix"> (Number) – An optional radix for the string representation, defaults to 10 (decimal).</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString toPaddedString(this JsNumber n, JsNumber length, JsNumber radix) { return null; }
+        /// <summary>
+        /// Returns a string representation of the number padded with leading 0s so that the string's length is at least equal to length.
+        /// Takes an optional radix argument which specifies the base to use for conversion.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="length">(Number) – The minimum length for the resulting string.</param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static JsString toPaddedString(this JsNumber n, JsNumber length) { return null; }
+
+    }
+
+    /// <summary>
+    /// Extensions to the built-in Object object.
+    /// Because it is dangerous and invasive to augment Object.prototype (i.e., add instance methods to objects),
+    /// all these methods are static methods that take an Object as their first parameter.
+    /// Object is used by Prototype as a namespace; that is, it just keeps a few new methods together,
+    /// which are intended for namespaced access (i.e. starting with "Object.").
+    /// For the regular developer (who simply uses Prototype without tweaking it),
+    /// the most commonly used methods are probably Object.inspect and, to a lesser degree, Object.clone.
+    /// Advanced users, who wish to create their own objects like Prototype does, or explore objects as if they were hashes,
+    /// will turn to Object.extend, Object.keys, and Object.values.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "ObjectExtensions", Export = false)]
+    public static class ObjectExtensions
+    {
+        //TODO: Class methods
+    }
+
+    /// <summary>
+    /// A succession of values.
+    /// An ObjectRange can model a range of any value that implements a succ method (which links that value to its "successor").
+    /// Prototype provides such a method for Number and String, but you are (of course) welcome to implement useful semantics in your own objects,
+    /// in order to enable ranges based on them.
+    /// ObjectRange mixes in Enumerable, which makes ranges very versatile. It takes care, however, to override the default code for include, to achieve better efficiency.
+    /// While ObjectRange does provide a constructor, the preferred way to obtain a range is to use the $R utility function, which is strictly equivalent (only way more concise to use).
+    /// See $R for more information.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "ObjectRange", Export = false)]
+    public class ObjectRange
+    {
+        /// <summary>
+        /// Creates a new ObjectRange.
+        /// The exclusive argument specifies whether end itself is a part of the range.
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="exclusive"></param>
+        public ObjectRange(object start, object end, bool exclusive) { }
+        //TODO: start, end type?
+        /// <summary>
+        /// Creates a new ObjectRange.
+        /// The exclusive argument specifies whether end itself is a part of the range.
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        public ObjectRange(object start, object end) { }
+        //TODO: start, end type?
+
+        /// <summary>
+        /// Determines whether the value is included in the range.
+        /// This assumes the values in the range have a valid strict weak ordering (have valid semantics for the &lt; operator).
+        /// While ObjectRange mixes in Enumerable, this method overrides the default version of Enumerable#include, and is much more efficient (it uses a maximum of two comparisons).
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public bool include(object value) { return false; }
+
+        /// <summary>
+        /// The upper bounding value of the range.
+        /// </summary>
+        public object end { get; set; }
+        //TODO: ?
+
+        /// <summary>
+        /// The lower bounding value of the range.
+        /// </summary>
+        public object start { get; set; }
+        //TODO: ?
+    }
+
+    /// <summary>
+    /// Oversees the calling of a particular function periodically.
+    /// PeriodicalExecuter shields you from multiple parallel executions of a callback function, should it take longer than the given interval to execute.
+    /// This is especially useful if you use one to interact with the user at given intervals (e.g. use a prompt or confirm call):
+    /// this will avoid multiple message boxes all waiting to be actioned.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "PeriodicalExecuter", Export = false)]
+    public class PeriodicalExecuter
+    {
+        /// <summary>
+        /// Creates a PeriodicalExecuter.
+        /// </summary>
+        /// <param name="callback">(Function) – the function to be executed at each interval.</param>
+        /// <param name="frequency"> (Number) – the amount of time, in seconds, to wait in between callbacks.</param>
+        public PeriodicalExecuter(JsAction callback, JsNumber frequency) { }
+
+        /// <summary>
+        /// Stops the periodical executer (there will be no further triggers).
+        /// Once a PeriodicalExecuter is created, it constitues an infinite loop, triggering at the given interval until the page unloads.
+        /// This method lets you stop it any time you want.
+        /// </summary>
+        public void stop() { }
+    }
+
+
+    /// <summary>
+    /// Extensions to the built-in RegExp object.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "JsRegExpExtensions", Export = false)]
+    public static class JsRegExpExtensions
+    {
+
+        //TODO: Class methods
+
+        /// <summary>
+        /// Alias of the native RegExp#test method. Returns true if str matches the regular expression, false otherwise.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static bool match(this JsRegExp r, JsString str) { return false; }
+    }
+    //TODO: $A, $H, $R, $w.
+
+    /// <summary>
+    /// A class for sophisticated string interpolation.
+    /// Any time you have a group of similar objects and you need to produce formatted output for these objects,
+    /// maybe inside a loop, you typically resort to concatenating string literals with the object's fields:
+    /// "The TV show " + title + " was created by " + author + "."
+    /// There's nothing wrong with this approach, except that it is hard to visualize the output immediately just by glancing at the concatenation expression.
+    /// The Template class provides a much nicer and clearer way of achieving this formatting.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Template", Export = false)]
+    public class Template
+    {
+        /// <summary>
+        /// Creates a Template object.
+        /// The optional pattern argument expects a RegExp that defines a custom syntax for the replaceable symbols in template.
+        /// </summary>
+        /// <param name="template"></param>
+        /// <param name="pattern"></param>
+        public Template(JsString template, JsString pattern) { }
+
+        /// <summary>
+        /// Applies the template to object's data, producing a formatted string with symbols replaced by object's corresponding properties.
+        /// </summary>
+        /// <param name="object"></param>
+        /// <returns></returns>
+        public JsString evaluate(object @object) { return null; }
+    }
+
+    //TODO: Try- http://api.prototypejs.org/language/Try/
+
+    #endregion
+
 }
 
 namespace SharpKit.PrototypeJs.Ajax
@@ -2509,8 +3601,6 @@ namespace SharpKit.PrototypeJs.Abstract
 
 namespace SharpKit.PrototypeJs.Form
 {
-    //TODO: Form.Element http://api.prototypejs.org/dom/Form/Element/ (a siffrent Element class)
-
     [JsType(JsMode.Prototype, Name = "Form.EventObserver", Export = false)]
     public class EventObserver : Abstract.EventObserver
     {
@@ -2693,466 +3783,43 @@ namespace SharpKit.PrototypeJs.Form
     //TODO: Selector http://api.prototypejs.org/dom/Selector/
 }
 
-public class Template
+namespace SharpKit.PrototypeJs.Form.Element2
 {
-    //TODO: http://api.prototypejs.org/language/Template/
+    [JsType(JsMode.Prototype, Name = "Form.Element.EventObserver", Export = false)]
+    public class EventObserver : Abstract.EventObserver
+    {
+    }
+
+    /// <summary>
+    /// An Abstract.TimedObserver subclass that watches for changes to a form field's value.
+    /// This triggers the callback when the form field's value (according to Form.Element.getValue) changes.
+    /// (Note that when the value actually changes can vary from browser to browser, particularly with select boxes.)
+    /// Form.Element observer implements the getValue() method using Form.Element.getValue on the given element.
+    /// See Abstract.TimedObserver for general documentation on timed observers.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Form.Element.Observer", Export = false)]
+    public class Observer : Abstract.TimedObserver
+    {
+        /// <summary>
+        /// Creates a Form.Element.Observer.
+        /// </summary>
+        /// <param name="element">(String | Element) – The form element to watch. Can be an element instance or an ID.</param>
+        /// <param name="frequency"> (Number) – The frequency, in seconds — e.g., 0.33 to check for changes every third of a second.</param>
+        /// <param name="callback">(Function) – The callback to trigger when the value changes.</param>
+        public Observer(JsString element, JsNumber frequency, JsAction callback) : base(element, frequency, callback) { }
+        /// <summary>
+        /// Creates a Form.Element.Observer.
+        /// </summary>
+        /// <param name="element">(String | Element) – The form element to watch. Can be an element instance or an ID.</param>
+        /// <param name="frequency"> (Number) – The frequency, in seconds — e.g., 0.33 to check for changes every third of a second.</param>
+        /// <param name="callback">(Function) – The callback to trigger when the value changes.</param>
+        public Observer(HtmlElement element, JsNumber frequency, JsAction callback) : base(element, frequency, callback) { }
+
+    }
 }
+//TODO: namespace name
 
 
-
-
-public class Hash
-{
-}
-
-
-public static class JsStringExtensions
-{
-
-    //TODO: interpret
-
-    /// <summary>
-    /// Check if the string is "blank" — either empty (length of 0) or containing only whitespace.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static bool blank(this JsString s) { return false; }
-
-    /// <summary>
-    /// Converts a string separated by dashes into a camelCase equivalent. For instance, 'foo-bar' would be converted to 'fooBar'.
-    /// Prototype uses this internally for translating CSS properties into their DOM style property equivalents.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString camelize(this JsString s) { return null; }
-
-    /// <summary>
-    /// Capitalizes the first letter of a string and downcases all the others.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString capitalize(this JsString s) { return null; }
-
-    /// <summary>
-    /// Replaces every instance of the underscore character "_" by a dash "-".
-    /// Note: Used in conjunction with String#underscore, String#dasherize converts a DOM style into its CSS equivalent.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString dasherize(this JsString s) { return null; }
-
-    /// <summary>
-    /// Checks if the string is empty.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static bool empty(this JsString s) { return false; }
-
-    /// <summary>
-    /// Checks if the string ends with substring.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString endsWith(this JsString s) { return null; }
-
-    /// <summary>
-    /// Converts HTML special characters to their entity equivalents.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString escapeHTML(this JsString s) { return null; }
-
-    /// <summary>
-    /// Evaluates the JSON in the string and returns the resulting object.
-    /// If the optional sanitize parameter is set to true, the string is checked for possible malicious attempts; if one is detected, eval is not called.
-    /// Warning:
-    /// If the JSON string is not well formated or if a malicious attempt is detected a SyntaxError is thrown.
-    /// Note:
-    /// Always set the sanitize parameter to true for data coming from externals sources to prevent XSS attacks.
-    /// As String#evalJSON internally calls String#unfilterJSON, optional security comment delimiters (defined in Prototype.JSONFilter) are automatically removed.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="sanitize"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static object evalJSON(this JsString s, bool sanitize) { return null; }
-    /// <summary>
-    /// Evaluates the JSON in the string and returns the resulting object.
-    /// If the optional sanitize parameter is set to true, the string is checked for possible malicious attempts; if one is detected, eval is not called.
-    /// Warning:
-    /// If the JSON string is not well formated or if a malicious attempt is detected a SyntaxError is thrown.
-    /// Note:
-    /// Always set the sanitize parameter to true for data coming from externals sources to prevent XSS attacks.
-    /// As String#evalJSON internally calls String#unfilterJSON, optional security comment delimiters (defined in Prototype.JSONFilter) are automatically removed.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static object evalJSON(this JsString s) { return null; }
-
-    /// <summary>
-    /// Evaluates the content of any inline &lt;script> block present in the string.
-    /// Returns an array containing the value returned by each script. &lt;script> blocks referencing external files will be treated as though they were empty
-    /// (the result for that position in the array will be undefined);
-    /// external files are not loaded and processed by String#evalScripts.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsArray evalScripts(this JsString s) { return null; }
-
-    /// <summary>
-    /// Extracts the content of any &lt;script> blocks present in the string and returns them as an array of strings.
-    /// This method is used internally by String#evalScripts. It does not evaluate the scripts (use String#evalScripts to do that),
-    /// but can be usefull if you need to evaluate the scripts at a later date.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsArray extractScripts(this JsString s) { return null; }
-
-    /// <summary>
-    /// Returns the string with every occurence of a given pattern replaced by either a regular string, the returned value of a function or a Template string.
-    /// The pattern can be a string or a regular expression.
-    /// If its second argument is a string String#gsub works just like the native JavaScript method replace() set to global match.
-    /// If you pass it a function, it will be invoked for every occurrence of the pattern with the match of the current pattern as its unique argument.
-    /// Note that this argument is the returned value of the match() method called on the current pattern.
-    /// It is in the form of an array where the first element is the entire match and every subsequent one corresponds to a parenthesis group in the regex.
-    /// Lastly, you can pass String#gsub a Template string in which you can also access the returned value of the match() method using the ruby inspired notation:
-    /// #{0} for the first element of the array, #{1} for the second one, and so on. So our last example could be easily re-written as:
-    /// If you need an equivalent to String#gsub but without global match set on, try String#sub.
-    /// Note: Do not use the "g" flag on the regex as this will create an infinite loop.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="pattern"></param>
-    /// <param name="replacement"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString gsub(this JsString s, JsString pattern, JsFunc<JsString> replacement) { return null; }
-    /// <summary>
-    /// Returns the string with every occurence of a given pattern replaced by either a regular string, the returned value of a function or a Template string.
-    /// The pattern can be a string or a regular expression.
-    /// If its second argument is a string String#gsub works just like the native JavaScript method replace() set to global match.
-    /// If you pass it a function, it will be invoked for every occurrence of the pattern with the match of the current pattern as its unique argument.
-    /// Note that this argument is the returned value of the match() method called on the current pattern.
-    /// It is in the form of an array where the first element is the entire match and every subsequent one corresponds to a parenthesis group in the regex.
-    /// Lastly, you can pass String#gsub a Template string in which you can also access the returned value of the match() method using the ruby inspired notation:
-    /// #{0} for the first element of the array, #{1} for the second one, and so on. So our last example could be easily re-written as:
-    /// If you need an equivalent to String#gsub but without global match set on, try String#sub.
-    /// Note: Do not use the "g" flag on the regex as this will create an infinite loop.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="pattern"></param>
-    /// <param name="replacement"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString gsub(this JsString s, JsString pattern, JsString replacement) { return null; }
-    /// <summary>
-    /// Returns the string with every occurence of a given pattern replaced by either a regular string, the returned value of a function or a Template string.
-    /// The pattern can be a string or a regular expression.
-    /// If its second argument is a string String#gsub works just like the native JavaScript method replace() set to global match.
-    /// If you pass it a function, it will be invoked for every occurrence of the pattern with the match of the current pattern as its unique argument.
-    /// Note that this argument is the returned value of the match() method called on the current pattern.
-    /// It is in the form of an array where the first element is the entire match and every subsequent one corresponds to a parenthesis group in the regex.
-    /// Lastly, you can pass String#gsub a Template string in which you can also access the returned value of the match() method using the ruby inspired notation:
-    /// #{0} for the first element of the array, #{1} for the second one, and so on. So our last example could be easily re-written as:
-    /// If you need an equivalent to String#gsub but without global match set on, try String#sub.
-    /// Note: Do not use the "g" flag on the regex as this will create an infinite loop.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="pattern"></param>
-    /// <param name="replacement"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString gsub(this JsString s, JsString pattern, Template replacement) { return null; }
-
-    /// <summary>
-    /// Checks if the string contains substring.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="substring"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static bool include(this JsString s, JsString substring) { return false; }
-
-    /// <summary>
-    /// Returns a debug-oriented version of the string (i.e. wrapped in single or double quotes, with backslashes and quotes escaped).
-    /// For more information on inspect methods, see Object.inspect.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="useDoubleQuotes"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString inspect(this JsString s, bool useDoubleQuotes) { return null; }
-    /// <summary>
-    /// Returns a debug-oriented version of the string (i.e. wrapped in single or double quotes, with backslashes and quotes escaped).
-    /// For more information on inspect methods, see Object.inspect.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString inspect(this JsString s) { return null; }
-
-    /// <summary>
-    /// Treats the string as a Template and fills it with object's properties.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="object"></param>
-    /// <param name="pattern"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString interpolate(this JsString s, object @object, JsString pattern) { return null; }
-    /// <summary>
-    /// Treats the string as a Template and fills it with object's properties.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="object"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString interpolate(this JsString s, object @object) { return null; }
-
-    /// <summary>
-    /// Check if the string is valid JSON by the use of regular expressions. This security method is called internally.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static bool isJSON(this JsString s) { return false; }
-
-    /// <summary>
-    /// Aliased as: String#toQueryParams:
-    /// Parses a URI-like query string and returns an object composed of parameter/value pairs.
-    /// This method is realy targeted at parsing query strings (hence the default value of"&" for the separator argument).
-    /// For this reason, it does not consider anything that is either before a question mark (which signals the beginning of a query string)
-    /// or beyond the hash symbol ("#"), and runs decodeURIComponent() on each parameter/value pair.
-    /// String#toQueryParams also aggregates the values of identical keys into an array of values.
-    /// Note that parameters which do not have a specified value will be set to undefined.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="separator"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static object parseQuery(this JsString s, JsString separator) { return null; }
-
-    /// <summary>
-    /// Allows iterating over every occurrence of the given pattern (which can be a string or a regular expression). Returns the original string.
-    /// Internally just calls String#gsub passing it pattern and iterator as arguments.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="pattern"></param>
-    /// <param name="iterator"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString scan(this JsString s, JsString pattern, JsAction<JsRegExpResult> iterator) { return null; }
-    /// <summary>
-    /// Allows iterating over every occurrence of the given pattern (which can be a string or a regular expression). Returns the original string.
-    /// Internally just calls String#gsub passing it pattern and iterator as arguments.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="pattern"></param>
-    /// <param name="iterator"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString scan(this JsString s, JsRegExp pattern, JsAction<JsRegExpResult> iterator) { return null; }
-
-    /// <summary>
-    /// Checks if the string starts with substring.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="substring"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static bool startsWith(this JsString s, JsString substring) { return false; }
-
-    /// <summary>
-    /// Strips all leading and trailing whitespace from a string.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString strip(this JsString s) { return null; }
-
-    /// <summary>
-    /// Strips a string of things that look like an HTML script blocks.
-    /// Note that the processing String#stripScripts does is good enough for most purposes, but you cannot rely on it for security purposes.
-    /// If you're processing end-user-supplied content, String#stripScripts is probably not sufficiently robust to prevent hack attacks.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    ///<example>
-    ///usage
-    ///<code>
-    ///&quot;&lt;p&gt;This is a test.&lt;script&gt;alert(&quot;Look, a test!&quot;);&lt;/script&gt;End of test&lt;/p&gt;&quot;.stripScripts();
-    /// // =&gt; &quot;&lt;p&gt;This is a test.End of test&lt;/p&gt;&quot;
-    ///</code>
-    ///</example>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString stripScripts(this JsString s) { return null; }
-
-    /// <summary>
-    /// Strips a string of any HTML tags.
-    /// Note that String#stripTags will only strip HTML 4.01 tags — like div, span, and abbr. It will not strip namespace-prefixed tags such as h:table or xsl:template.
-    /// Watch out for &lt;script> tags in your string, as String#stripTags will not remove their content. Use String#stripScripts to do so.
-    /// Caveat User:
-    /// Note that the processing String#stripTags does is good enough for most purposes, but you cannot rely on it for security purposes.
-    /// If you're processing end-user-supplied content, String#stripTags is not sufficiently robust to ensure that the content is completely
-    /// devoid of HTML tags in the case of a user intentionally trying to circumvent tag restrictions.
-    /// But then, you'll be running them through String#escapeHTML anyway, won't you?
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    ///<example>
-    ///usage
-    ///<code>
-    ///&#39;a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;&#39;.stripTags();
-    ///  // -&gt; &#39;a link&#39;
-    ///  &#39;a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;&lt;script&gt;alert(&quot;hello world!&quot;);&lt;/script&gt;&#39;.stripTags();
-    /// // -&gt; &#39;a linkalert(&quot;hello world!&quot;);&#39;
-    ///  &#39;a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;&lt;script&gt;alert(&quot;hello world!&quot;);&lt;/script&gt;&#39;.stripScripts().stripTags();
-    /// // -&gt; &#39;a link&#39;
-    ///</code>
-    ///</example>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString stripTags(this JsString s) { return null; }
-
-    /// <summary>
-    /// Returns a string with the first count occurrences of pattern replaced by either a regular string, the returned value of a function or a Template string.
-    /// pattern can be a string or a regular expression.
-    /// Unlike String#gsub, String#sub takes a third optional parameter which specifies the number of occurrences of the pattern which will be replaced.
-    /// If not specified, it will default to 1.
-    /// Apart from that, String#sub works just like String#gsub. Please refer to it for a complete explanation.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="pattern"></param>
-    /// <param name="replacement"></param>
-    /// <param name="count"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString sub(this JsString s, JsString pattern, object replacement, JsNumber count) { return null; }
-    /// <summary>
-    /// Returns a string with the first count occurrences of pattern replaced by either a regular string, the returned value of a function or a Template string.
-    /// pattern can be a string or a regular expression.
-    /// Unlike String#gsub, String#sub takes a third optional parameter which specifies the number of occurrences of the pattern which will be replaced.
-    /// If not specified, it will default to 1.
-    /// Apart from that, String#sub works just like String#gsub. Please refer to it for a complete explanation.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="pattern"></param>
-    /// <param name="replacement"></param>
-    /// <param name="count"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString sub(this JsString s, JsRegExp pattern, object replacement, JsNumber count) { return null; }
-
-    /// <summary>
-    /// Used internally by ObjectRange.
-    /// Converts the last character of the string to the following character in the Unicode alphabet.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString succ(this JsString s) { return null; }
-
-    /// <summary>
-    /// Concatenates the string count times.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="count"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString times(this JsString s, JsNumber count) { return null; }
-
-    /// <summary>
-    /// Splits the string character-by-character and returns an array with the result.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsArray toArray(this JsString s) { return null; }
-
-    /// <summary>
-    /// Parses a URI-like query string and returns an object composed of parameter/value pairs.
-    /// This method is realy targeted at parsing query strings (hence the default value of"&" for the separator argument).
-    /// For this reason, it does not consider anything that is either before a question mark (which signals the beginning of a query string) or beyond the hash symbol ("#"),
-    /// and runs decodeURIComponent() on each parameter/value pair.
-    /// String#toQueryParams also aggregates the values of identical keys into an array of values.
-    /// Note that parameters which do not have a specified value will be set to undefined.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="separator"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static object toQueryParams(this JsString s, JsString separator) { return null; }
-    /// <summary>
-    /// Parses a URI-like query string and returns an object composed of parameter/value pairs.
-    /// This method is realy targeted at parsing query strings (hence the default value of"&" for the separator argument).
-    /// For this reason, it does not consider anything that is either before a question mark (which signals the beginning of a query string) or beyond the hash symbol ("#"),
-    /// and runs decodeURIComponent() on each parameter/value pair.
-    /// String#toQueryParams also aggregates the values of identical keys into an array of values.
-    /// Note that parameters which do not have a specified value will be set to undefined.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static object toQueryParams(this JsString s) { return null; }
-
-    /// <summary>
-    /// Truncates a string to given length and appends suffix to it (indicating that it is only an excerpt).
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="length"></param>
-    /// <param name="suffix"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString truncate(this JsString s, JsNumber length, JsString suffix) { return null; }
-    /// <summary>
-    /// Truncates a string to given length and appends suffix to it (indicating that it is only an excerpt).
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="length"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString truncate(this JsString s, JsNumber length) { return null; }
-    /// <summary>
-    /// Truncates a string to given length and appends suffix to it (indicating that it is only an excerpt).
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString truncate(this JsString s) { return null; }
-
-    /// <summary>
-    /// Converts a camelized string into a series of words separated by an underscore (_).
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString underscore(this JsString s) { return null; }
-
-    /// <summary>
-    /// Strips tags and converts the entity forms of special HTML characters to their normal form.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString unescapeHTML(this JsString s) { return null; }
-
-    /// <summary>
-    /// Strips comment delimiters around Ajax JSON or JavaScript responses. This security method is called internally.
-    /// </summary>
-    /// <param name="s"></param>
-    /// <param name="filter"></param>
-    /// <returns></returns>
-    [JsMethod(ExtensionImplementedInInstance = true)]
-    public static JsString unfilterJSON(this JsString s, object filter) { return null; }
-}
 
 
 
