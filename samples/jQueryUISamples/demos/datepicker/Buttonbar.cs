@@ -2,20 +2,19 @@
 using SharpKit.jQuery;
 using SharpKit.Html4;
 
-namespace jQueryUISamples.demos.button
+namespace jQueryUISamples.demos.datepicker
 {
     [JsType(JsMode.Global)]
-    public class Default
+    public class Buttonbar
     {
-        static Default()
+        static Buttonbar()
         {
             new jQuery(OnReady);
         }
 
         static void OnReady()
         {
-            new jQuery("input:submit, a, button", ".demo").button();
-            new jQuery("a", ".demo").click(e => JsContext.@return(false));
+            new jQuery("#datepicker").datepicker(new DatepickerOptions { showButtonPanel = true });
         }
     }
 }

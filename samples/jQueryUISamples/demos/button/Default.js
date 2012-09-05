@@ -3,5 +3,8 @@ $(OnReady);
 function OnReady()
 {
     $("input:submit, a, button",".demo").button();
-    $("a",".demo").click();
+    $("a",".demo").click(function(e)
+    {
+        return false;
+    });
 };
