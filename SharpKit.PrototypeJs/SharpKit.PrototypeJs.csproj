@@ -29,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\SharpKit.PrototypeJs.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="prototype-1.7.1.cs" />
