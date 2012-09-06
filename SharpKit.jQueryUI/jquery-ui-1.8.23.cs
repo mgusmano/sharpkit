@@ -4198,6 +4198,9 @@ namespace SharpKit.jQuery
         //public JsString color { get; set; }
         public JsString outlineColor { get; set; }
 
+        [JsProperty(Name="width")]
+        public JsNumber widthNumber { get; set; }
+
     }
 
 
