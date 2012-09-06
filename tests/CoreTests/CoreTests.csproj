@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AnonymousObjects\AnonymousObjects.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Class2.cs" />
     <Compile Include="Class3.cs" />
@@ -41,7 +43,9 @@
     <Compile Include="Constants\Constants.cs" />
     <Compile Include="Constructors\Constructors.cs" />
     <Compile Include="Dynamics\Dynamics.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Events\CustomEvents.cs" />
+    <Compile Include="Fixed\Fixed.cs" />
     <Compile Include="Interfaces\Interface1.cs" />
     <Compile Include="Methods\NamedParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

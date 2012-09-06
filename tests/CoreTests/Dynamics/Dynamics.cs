@@ -11,7 +11,7 @@ namespace CoreTests.Dynamics
     {
         private JsArray data;
         private int selectedIndex;
-        private object HOW_LONG;
+        private int HOW_LONG;
         void TestMethod() { dynamic d; }
 
 
@@ -57,14 +57,155 @@ namespace CoreTests.Dynamics
             dynamic arrivingViewProps = new JsObject();
             arrivingViewProps.left = 0;
             arrivingViewProps.leaveTransforms = true;
- 
+
             animate(arrivingViewProps, HOW_LONG);
-    }
+        }
 
         private void animate(dynamic arrivingViewProps, object HOW_LONG)
         {
             throw new NotImplementedException();
         }
 
+        void foo2()
+        {
+            FakeQuery arrivingView=null;
+ 
+ 
+            dynamic arrivingViewProps = new JsObject();
+            arrivingViewProps.left = 0;
+            arrivingViewProps.leaveTransforms = true;
+            var newLeftSide = 7;
+ 
+            arrivingView.show();
+            arrivingView.css("left", newLeftSide);
+            arrivingView.animate(arrivingViewProps, HOW_LONG);
+        }
+
+        void foo3()
+        {
+            dynamic reminders = null;
+            foreach (dynamic item in reminders)
+            {
+            }
+        }
+
+        void foo4()
+        {
+
+            JsAction<object> parseResult = foo5;
+            //delegate(object o)
+            // {
+            //     dynamic result = o;
+            //     JsArray data = new JsArray();
+            //     JsArray reminders = new JsArray();// DataUtils.toArray(result.PatientReminder);
+            //     JsObject reminder;
+            //     JsDate now = new JsDate();
+            //     JsDate startOfToday = new JsDate(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
+            //     JsDate dueDate;
+            //     foreach (dynamic item in reminders)
+            //     {
+            //         dueDate = new JsDate(item.DueDate["$t"]);
+            //         reminder = new JsObject();
+            //         reminder["Due"] = item.DueDate["$t"];
+            //         reminder["Done"] = item.PrevDate["$t"];
+            //         reminder["Subject"] = item.Description["$t"];
+            //         reminder["PastDue"] = dueDate.getTime() < startOfToday.getTime() ? "red" : "";
+            //         data.push(reminder);
+            //     }
+            //     //bool success = true;
+            //     //if (success != null)
+            //     //{
+            //     //    success(data);
+            //     //}
+            // };
+
+           // send(json, "query", parseResult);
+
+        }
+
+        void foo5(object obj)
+        {
+            //dynamic result = obj;
+            //JsArray data = new JsArray();
+            JsArray reminders = new JsArray();// DataUtils.toArray(result.PatientReminder);
+            JsObject reminder;
+            JsDate now = new JsDate();
+            JsDate startOfToday = new JsDate(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
+            JsDate dueDate;
+            foreach (dynamic item in reminders)
+            {
+                dueDate = new JsDate(item.DueDate["$t"]);
+                reminder = new JsObject();
+                reminder["Due"] = item.DueDate["$t"];
+                reminder["Done"] = item.PrevDate["$t"];
+                reminder["Subject"] = item.Description["$t"];
+                reminder["PastDue"] = dueDate.getTime() < startOfToday.getTime() ? "red" : "";
+                data.push(reminder);
+            }
+            //bool success = true;
+            //if (success != null)
+            //{
+            //    success(data);
+            //}
+        }
+    }
+
+    [JsType(JsMode.Prototype, Export=false)]
+    class FakeQuery
+    {
+        internal void show()
+        {
+            throw new NotImplementedException();
+        }
+
+        //
+        // Summary:
+        //     Perform a custom animation of a set of CSS properties.
+        public FakeQuery animate(object properties) { return null; }
+        //
+        // Summary:
+        //     Perform a custom animation of a set of CSS properties.
+        public FakeQuery animate(object properties, JsAction callback) { return null; }
+        //
+        // Summary:
+        //     Perform a custom animation of a set of CSS properties.
+        public FakeQuery animate(object properties, JsNumber duration) { return null; }
+        //
+        // Summary:
+        //     Perform a custom animation of a set of CSS properties.
+        public FakeQuery animate(object properties, JsString easing) { return null; }
+        //
+        // Summary:
+        //     Perform a custom animation of a set of CSS properties.
+        public FakeQuery animate(object properties, object options) { return null; }
+        //
+        // Summary:
+        //     Perform a custom animation of a set of CSS properties.
+        public FakeQuery animate(object properties, JsNumber duration, JsAction callback) { return null; }
+        //
+        // Summary:
+        //     Perform a custom animation of a set of CSS properties.
+        public FakeQuery animate(object properties, JsNumber duration, JsString easing) { return null; }
+        //
+        // Summary:
+        //     Perform a custom animation of a set of CSS properties.
+        public FakeQuery animate(object properties, JsString easing, JsAction callback) { return null; }
+        //
+        // Summary:
+        //     Perform a custom animation of a set of CSS properties.
+        public FakeQuery animate(object properties, JsString duration, JsString easing) { return null; }
+        //
+        // Summary:
+        //     Perform a custom animation of a set of CSS properties.
+        public FakeQuery animate(object properties, JsNumber duration, JsString easing, JsAction callback) { return null; }
+        //
+        // Summary:
+        //     Perform a custom animation of a set of CSS properties.
+        public FakeQuery animate(object properties, JsString duration, JsString easing, JsAction callback) { return null; }
+
+        internal void css(string p, int newLeftSide)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
