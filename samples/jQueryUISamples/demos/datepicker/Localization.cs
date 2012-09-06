@@ -9,27 +9,28 @@ namespace jQueryUISamples.demos.datepicker
     {
         static Localization()
         {
+            new jQuery(OnReady);
         }
 
         static void OnReady()
-
-           // DatePicker.setDefaults(DatePicker.regional[""]);
-            
-            
         {
-           
             
-       //  new jQuery().datepicker(
-     //       new jQuery("#datepicker").datepicker();
+            //TODO:   DatePicker.setDefaults(DatePicker.regional[""]);
+            
+            //TODO: $("#datepicker").datepicker($.datepicker.regional["fr"]);
+            new jQuery("#datepicker").datepicker();
+
+            //TODO: $("#locale").change(function () { $("#datepicker").datepicker("option",$.datepicker.regional[$(this).val()]);});
+            new jQuery("#locale").change(e => new jQuery("#datepicker").datepicker("option"));
         }
-        //        $(function () {
-        //    $.datepicker.setDefaults($.datepicker.regional[""]);
-        //    $("#datepicker").datepicker($.datepicker.regional["fr"]);
-        //    $("#locale").change(function () {
-        //        $("#datepicker").datepicker("option",
-        //        $.datepicker.regional[$(this).val()]);
-        //    });
-        //});
+    //        $(function () {
+    //    $.datepicker.setDefaults($.datepicker.regional[""]);
+    //    $("#datepicker").datepicker($.datepicker.regional["fr"]);
+    //    $("#locale").change(function () {
+    //        $("#datepicker").datepicker("option",
+    //        $.datepicker.regional[$(this).val()]);
+    //    });
+    //});
 
     }
 }

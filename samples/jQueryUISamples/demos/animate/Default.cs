@@ -1,32 +1,34 @@
-﻿//using SharpKit.JavaScript;
-//using SharpKit.jQuery;
-//using SharpKit.Html4;
+﻿using SharpKit.JavaScript;
+using SharpKit.jQuery;
+using SharpKit.Html4;
 
-//namespace jQueryUISamples.demos.animate
-//{
-//    [JsType(JsMode.Global)]
-//    public class Default
-//    {
-//        static Default()
-//        {
-//            new jQuery(OnReady);
-//        }
+namespace jQueryUISamples.demos.animate
+{
+    [JsType(JsMode.Global)]
+    public class Default
+    {
+        static Default()
+        {
+            new jQuery(OnReady);
+        }
 
-//        static void OnReady()
-//        {
-//            new jQuery("#button").toggle(
-//                e => new jQuery("#effect").animate(new AnimationPropertiesExtensions
-//                {
-//                    backgroundColorString = "#aa0000",
-//                    colorString = "#fff",
-//                    width = 500
-//                }, 1000),
-//                e => new jQuery("#effect").animate(new AnimationPropertiesExtensions
-//                {
-//                    backgroundColorString = "#fff",
-//                    colorString = "#000",
-//                    width = 240
-//                }, 1000));
-//        }
-//    }
-//}
+        static void OnReady()
+        {
+            new jQuery("#button").toggle(
+                e =>
+                        new jQuery("#effect").animate(new AnimationProperties
+                {
+                    backgroundColor = "#aa0000",
+                    color = "#fff",
+                    width = "500"
+                }, 1000),
+
+                    e => new jQuery("#effect").animate(new AnimationProperties
+                    {
+                        backgroundColor = "#fff",
+                        color = "#000",
+                        width = "240"
+                    }, 1000));
+        }
+    }
+}

@@ -4,9 +4,9 @@ function OnReady()
 {
     $("#button").toggle(function(e)
     {
-        $("#effect").animate({backgroundColor:"#aa0000",color:"#fff",width:500},1000);
+        $("#effect").animate({backgroundColor:"#aa0000",color:"#fff",width:"500"},1000);
     },function(e)
     {
-        $("#effect").animate({backgroundColor:"#fff",color:"#000",width:240},1000);
+        $("#effect").animate({backgroundColor:"#fff",color:"#000",width:"240"},1000);
     });
 };
