@@ -46,6 +46,7 @@
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="Events\CustomEvents.cs" />
     <Compile Include="Fixed\Fixed.cs" />
+    <Compile Include="GenericsInheritance\GenericsInheritance.cs" />
     <Compile Include="Interfaces\Interface1.cs" />
     <Compile Include="Methods\NamedParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
