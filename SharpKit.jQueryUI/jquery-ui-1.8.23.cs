@@ -680,10 +680,10 @@ namespace SharpKit.jQuery
     }
 
     [JsType(JsMode.Json)]
-    public class DialogButton<T>
+    public class DialogButton
     {
         public JsString text { get; set; }
-        public JsAction<T> click { get; set; }
+        public JsAction click { get; set; }
     }
     #endregion
     #region DialogOptions
