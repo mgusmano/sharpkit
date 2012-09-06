@@ -2646,7 +2646,7 @@ namespace SharpKit.PrototypeJs
         public bool all() { return false; }
         //TODO: must check.
 
-        //TODO: finish the class: http://api.prototypejs.org/language/Enumerable/
+        //TODO: finish the class with Danel: http://api.prototypejs.org/language/Enumerable/
     }
 
     //TODO: FunctionExtensions 
@@ -3304,7 +3304,6 @@ namespace SharpKit.PrototypeJs.Ajax
         /// <param name="name"> The name of an HTTP header that may have been part of the response.</param>
         /// <returns></returns>
         public static JsString getHeader(JsString name) { return null; }
-        //TODO: can also return null
 
         /// <summary>
         /// Tests whether the request was successful.
@@ -3326,7 +3325,6 @@ namespace SharpKit.PrototypeJs.Ajax
         /// </summary>
         /// <returns></returns>
         public static JsString getAllHeaders() { return null; }
-        //TODO: can also return null
 
         /// <summary>
         /// Returns a String containing all headers separated by line breaks; throws an error if no headers exist.
@@ -3341,7 +3339,6 @@ namespace SharpKit.PrototypeJs.Ajax
         /// <param name="name"></param>
         /// <returns></returns>
         public static JsString getHeader(JsString name) { return null; }
-        //TODO: can also return null
 
         /// <summary>
         /// Returns the value of the requested header if present; throws an error otherwise.
@@ -3372,8 +3369,7 @@ namespace SharpKit.PrototypeJs.Ajax
         /// 3 : "Interactive"
         /// 4 : "Complete"
         /// </summary>
-        public JsNumber readyState { get; set; }
-        //TODO: maybe eunm?
+        public StateType readyState { get; set; }
 
         /// <summary>
         /// The request object itself (an instance of Ajax.Request or Ajax.Updater).
@@ -3415,6 +3411,16 @@ namespace SharpKit.PrototypeJs.Ajax
         /// The native XmlHttpRequest object itself.
         /// </summary>
         public XMLHttpRequest transport { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public enum StateType
+    {
+        Uninitialized = 0,
+        Loading= 1,
+        Loaded=2,
+        Interactive=3,
+        Complete=4,
     }
 
     /// <summary>
@@ -3780,7 +3786,7 @@ namespace SharpKit.PrototypeJs.Form
 
     }
 
-    //TODO: Selector http://api.prototypejs.org/dom/Selector/
+
 }
 
 namespace SharpKit.PrototypeJs.Form.Element2
