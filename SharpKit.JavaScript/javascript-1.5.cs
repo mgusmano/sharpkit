@@ -15,6 +15,7 @@ using System.ComponentModel;
 [assembly: JsType(TargetType = typeof(Delegate), NativeOperatorOverloads = true)]
 [assembly: JsType(TargetType = typeof(MulticastDelegate), NativeOperatorOverloads = true)]
 
+[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "Format", NativeParams=false)]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToUpper", Name = "toUpperCase")]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToLower", Name = "toLowerCase")]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "IndexOf", Name = "indexOf", NativeOverloads = true)]
