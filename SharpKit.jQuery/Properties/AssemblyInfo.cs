@@ -33,7 +33,7 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.6.4.0")]
-[assembly: AssemblyFileVersion("4.29.4000")]
+[assembly: AssemblyFileVersion("4.29.8000")]
 /// <summary>
 /// SharpKit interface for jQuery.
 /// jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript.

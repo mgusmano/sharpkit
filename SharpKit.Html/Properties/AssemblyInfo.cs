@@ -1,7 +1,6 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SharpKit.JavaScript;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -34,14 +33,4 @@ using SharpKit.JavaScript;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("4.29.2000")]
-
-[assembly: JsNamespace(Namespace = "SharpKit.Html", JsNamespace = "")]
-[assembly: JsType(JsMode.Prototype, Name = "", Export = false, PropertiesAsFields = true, OmitCasts = true)]
-
-/// <summary>
-/// SharpKit interface for HTML 5
-/// </summary>
-class AssemblyDoc
-{
-}
+[assembly: AssemblyFileVersion("4.29.8000")]
