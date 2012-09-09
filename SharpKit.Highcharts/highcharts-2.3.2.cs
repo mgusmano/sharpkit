@@ -75,6 +75,43 @@ namespace SharpKit.Highcharts
         /// The legend is a box containing a symbol and name for each series item or point item in the chart.
         /// </summary>
         public LegendOptions legend { get; set; }
+
+        /// <summary>
+        /// The loading options control the appearance of the loading screen that covers the plot area on chart operations.
+        /// This screen only appears after an explicit call to chart.showLoading().
+        /// It is a utility for developers to communicate to the end user that something is going on, for example while retrieving new data via an XHR connection.
+        /// The "Loading..." text itself is not part of this configuration object, but part of the lang object.
+        /// </summary>
+        public LoadingOptions loading { get; set; }
+
+        /// <summary>
+        /// A collection of options for buttons and menus appearing in the exporting module.
+        /// </summary>
+        public NavigationOptions navigation { get; set; }
+
+        /// <summary>
+        /// Applies only to polar charts and angular gauges.
+        /// This configuration object holds general options for the combined X and Y axes set. Each xAxis or yAxis can reference the pane by index.
+        /// </summary>
+        public PaneOptions pane { get; set; }
+
+        /// <summary>
+        /// The actual series to append to the chart.
+        /// In addition to the members listed below, any member of the plotOptions for that specific type of plot can be added to a series individually.
+        /// For example, even though a general lineWidth is specified in plotOptions.series, an individual lineWidth can be specified for each series.
+        /// </summary>
+        public JsArray<SeriesOptions> series { get; set; }
+        //TODO: it is an array right?
+
+        /// <summary>
+        /// The chart's subtitle
+        /// </summary>
+        public SubtitleOptions subtitle { get; set; }
+
+        /// <summary>
+        /// The chart's main title.
+        /// </summary>
+        public TitleOptions title { get; set; }
     }
 
     #region chart
@@ -347,7 +384,7 @@ namespace SharpKit.Highcharts
         /// The default series type for the chart. Can be one of line, spline, area, areaspline, column, bar, pie and scatter.
         /// From version 2.3, arearange, areasplinerange and columnrange are supported with the highcharts-more.js component. Defaults to "line".
         /// </summary>
-        public ChartType type { get; set; }
+        public TypeOptions type { get; set; }
 
 
         /// <summary>
@@ -452,7 +489,7 @@ namespace SharpKit.Highcharts
 
     [JsType(JsMode.Json)]
     [JsEnum(ValuesAsNames = true)]
-    public enum ChartType
+    public enum TypeOptions
     {
         line,
         spline,
@@ -531,7 +568,7 @@ namespace SharpKit.Highcharts
     [JsType(JsMode.Json)]
     public class CreditsPositionOptions
     {
-        public JsString align { get; set; }
+        public HorizontalAlignType align { get; set; }
         public JsNumber x { get; set; }
         public VerticalAlignType verticalAlign { get; set; }
         public JsNumber y { get; set; }
@@ -613,7 +650,7 @@ namespace SharpKit.Highcharts
         /// <summary>
         /// Alignment for the buttons. Defaults to "right".
         /// </summary>
-        public JsString align { get; set; }
+        public HorizontalAlignType align { get; set; }
 
         /// <summary>
         /// backgroundColor: ColorSince 2.0
@@ -749,7 +786,7 @@ namespace SharpKit.Highcharts
         /// <summary>
         /// Alignment for the buttons. Defaults to "right".
         /// </summary>
-        public JsString align { get; set; }
+        public HorizontalAlignType align { get; set; }
 
         /// <summary>
         /// backgroundColor: ColorSince 2.0
@@ -1075,7 +1112,7 @@ namespace SharpKit.Highcharts
         /// <summary>
         /// The horizontal alignment of the legend box within the chart area. Defaults to "center".
         /// </summary>
-        public JsString align { get; set; }
+        public HorizontalAlignType align { get; set; }
 
         /// <summary>
         /// The background color of the legend, filling the rounded corner border. Defaults to null.
@@ -1185,7 +1222,7 @@ namespace SharpKit.Highcharts
         /// <summary>
         /// Options for the paging or navigation appearing when the legend is overflown.
         /// </summary>
-        public NavigationOptions navigation { get; set; }
+        public LegendNavigationOptions navigation { get; set; }
 
         /// <summary>
         /// The inner padding of the legend box. Defaults to 8.
@@ -1274,7 +1311,7 @@ namespace SharpKit.Highcharts
     /// Options for the paging or navigation appearing when the legend is overflown.
     /// </summary>
     [JsType(JsMode.Json)]
-    public class NavigationOptions
+    public class LegendNavigationOptions
     {
         /// <summary>
         /// The color for the active up or down arrow in the legend page navigation. Defaults to #3E576F.
@@ -1315,6 +1352,562 @@ namespace SharpKit.Highcharts
         public object style { get; set; }
         //TODO: type?
 
+    }
+
+    #endregion
+
+    #region loading
+
+    /// <summary>
+    /// The loading options control the appearance of the loading screen that covers the plot area on chart operations.
+    /// This screen only appears after an explicit call to chart.showLoading().
+    /// It is a utility for developers to communicate to the end user that something is going on, for example while retrieving new data via an XHR connection.
+    /// The "Loading..." text itself is not part of this configuration object, but part of the lang object.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class LoadingOptions
+    {
+        /// <summary>
+        /// The duration in milliseconds of the fade out effect. Defaults to 100.
+        /// </summary>
+        public JsNumber hideDuration { get; set; }
+
+        /// <summary>
+        /// CSS styles for the loading label span. Defaults to:
+        /// labelStyle: {
+        /// 	fontWeight: 'bold',
+        /// 	position: 'relative',
+        /// 	top: '1em'
+        /// }
+        /// </summary>
+        public object labelStyle { get; set; }
+        //TODO: type
+
+        /// <summary>
+        /// The duration in milliseconds of the fade in effect. Defaults to 100.
+        /// </summary>
+        public JsNumber showDuration { get; set; }
+
+        /// <summary>
+        /// CSS styles for the loading screen that covers the plot area. Defaults to:
+        /// style: {
+        /// 	position: 'absolute',
+        /// 	backgroundColor: 'white',
+        /// 	opacity: 0.5,
+        /// 	textAlign: 'center'
+        /// }
+        /// </summary>
+        public object style { get; set; }
+        //TODO: type
+
+    }
+
+    #endregion
+
+    #region navigation
+
+    /// <summary>
+    /// A collection of options for buttons and menus appearing in the exporting module.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class NavigationOptions
+    {
+        /// <summary>
+        /// A collection of options for buttons appearing in the exporting module.
+        /// </summary>
+        public ButtonOptions buttonOptions { get; set; }
+
+        /// <summary>
+        /// CSS styles for the hover state of the individual items within the popup menu appearing by default when the export icon is clicked. The menu items are rendered in HTML. Defaults to
+        /// menuItemHoverStyle: {
+        /// 	background: '#4572A5',
+        /// 	color: '#FFFFFF'
+        /// }
+        /// </summary>
+        public object menuItemHoverStyle { get; set; }
+        //TODO: type?
+
+        /// <summary>
+        /// CSS styles for the individual items within the popup menu appearing by default when the export icon is clicked. The menu items are rendered in HTML. Defaults to
+        /// menuItemStyle: {
+        /// 	padding: '0 5px',
+        /// 	background: NONE,
+        /// 	color: '#303030'
+        /// }
+        /// </summary>
+        public object menuItemStyle { get; set; }
+        //TODO: type?
+
+        /// <summary>
+        /// CSS styles for the popup menu appearing by default when the export icon is clicked. This menu is rendered in HTML. Defaults to
+        /// menuStyle: {
+        /// 	border: '1px solid #A0A0A0',
+        /// 	background: '#FFFFFF'
+        /// }
+        /// </summary>
+        public object menuStyle { get; set; }
+        //TODO: type?
+    }
+
+    /// <summary>
+    /// A collection of options for buttons appearing in the exporting module.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class ButtonOptions
+    {
+        /// <summary>
+        /// Alignment for the buttons. Defaults to "right".
+        /// </summary>
+        public HorizontalAlignType align { get; set; }
+
+        /// <summary>
+        /// Background color or gradient for the buttons. Defaults to
+        /// backgroundColor: {
+        /// 	linearGradient: [0, 0, 0, 20],
+        /// 	stops: [
+        /// 		[0.4, '#F7F7F7'],
+        /// 		[0.6, '#E3E3E3']
+        /// 	]
+        /// }
+        /// </summary>
+        public object backgroundColor { get; set; }
+
+        /// <summary>
+        /// The border color of the buttons. Defaults to "#B0B0B0".
+        /// </summary>
+        public JsString borderColor { get; set; }
+
+        /// <summary>
+        /// The border corner radius of the buttons. Defaults to 3.
+        /// </summary>
+        public JsNumber borderRadius { get; set; }
+
+        /// <summary>
+        /// The border width of the buttons. Defaults to 1.
+        /// </summary>
+        public JsNumber borderWidth { get; set; }
+
+        /// <summary>
+        /// Whether to enable buttons. Defaults to true.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// Pixel height of the buttons. Defaults to 20.
+        /// </summary>
+        public JsNumber height { get; set; }
+
+        /// <summary>
+        /// Color of the button border on hover. Defaults to #909090.
+        /// </summary>
+        public JsString hoverBorderColor { get; set; }
+
+        /// <summary>
+        /// Fill color for the symbol within the button on hover. Defaults to #81A7CF.
+        /// </summary>
+        public JsString hoverSymbolFill { get; set; }
+
+        /// <summary>
+        /// Stroke (line) color for the symbol within the button on hover. Defaults to #4572A5.
+        /// </summary>
+        public JsString hoverSymbolStroke { get; set; }
+
+        /// <summary>
+        /// Fill color for the symbol within the button. Defaults to #E0E0E0.
+        /// </summary>
+        public JsString symbolFill { get; set; }
+
+        /// <summary>
+        /// The pixel size of the symbol on the button. Defaults to 12.
+        /// </summary>
+        public JsNumber symbolSize { get; set; }
+
+        /// <summary>
+        /// The color of the symbol's stroke or line. Defaults to "#A0A0A0".
+        /// </summary>
+        public JsString symbolStroke { get; set; }
+
+        /// <summary>
+        /// The pixel stroke width of the symbol on the button. Defaults to 1.
+        /// </summary>
+        public JsNumber symbolStrokeWidth { get; set; }
+
+        /// <summary>
+        /// The x position of the center of the symbol inside the button. Defaults to 11.5.
+        /// </summary>
+        public JsNumber symbolX { get; set; }
+
+        /// <summary>
+        /// The y position of the center of the symbol inside the button. Defaults to 10.5.
+        /// </summary>
+        public JsNumber symbolY { get; set; }
+
+        /// <summary>
+        /// The vertical alignment of the buttons. Can be one of "top", "middle" or "bottom". Defaults to "top".
+        /// </summary>
+        public VerticalAlignType verticalAlign { get; set; }
+
+        /// <summary>
+        /// The pixel width of the button. Defaults to 24.
+        /// </summary>
+        public JsNumber width { get; set; }
+
+        ///// <summary>
+        ///// The horizontal positioin of the button relative to the align option. Defaults to 10.
+        ///// </summary>
+        //public JsNumber x { get; set; }
+        //TODO: there is a Y property but no X property(?) (this property is copied from diffrent class...)
+
+        /// <summary>
+        /// The vertical offset of the button's position relative to its verticalAlign.	 . Defaults to 10.
+        /// </summary>
+        public JsNumber y { get; set; }
+
+    }
+
+    #endregion
+
+    #region pane
+
+    /// <summary>
+    /// Applies only to polar charts and angular gauges.
+    /// This configuration object holds general options for the combined X and Y axes set. Each xAxis or yAxis can reference the pane by index.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class PaneOptions
+    {
+        /// <summary>
+        /// An object, or array of objects, for backgrounds.
+        /// Sub options include backgroundColor (which can be solid or gradient), innerWidth, outerWidth, borderWidth, borderColor.
+        /// </summary>
+        public object background { get; set; }
+        //TODO: read summary, does it need a options class?
+        /// <summary>
+        /// An object, or array of objects, for backgrounds.
+        /// Sub options include backgroundColor (which can be solid or gradient), innerWidth, outerWidth, borderWidth, borderColor.
+        /// </summary>
+        [JsProperty(Name = "background")]
+        public JsArray<object> backgroundArray { get; set; }
+        //TODO: read summary, does it need a options class?
+
+        /// <summary>
+        /// The center of a polar chart or angular gauge, given as an array of [x, y] positions.
+        /// Positions can be given as integers that transform to pixels, or as percentages of the plot area size. Defaults to ['50%', '50%'].
+        /// </summary>
+        public JsArray<CenterOptions> center { get; set; }
+
+        /// <summary>
+        /// The end angle of the polar X axis or gauge value axis, given in degrees where 0 is north. Defaults to startAngle + 360.
+        /// </summary>
+        public JsNumber endAngle { get; set; }
+
+        /// <summary>
+        /// The start angle of the polar X axis or gauge axis, given in degrees where 0 is north. Defaults to 0.
+        /// </summary>
+        public JsNumber startAngle { get; set; }
+    }
+
+    /// <summary>
+    /// The center of a polar chart or angular gauge, given as an array of [x, y] positions.
+    /// Positions can be given as integers that transform to pixels, or as percentages of the plot area size. Defaults to ['50%', '50%'].
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class CenterOptions
+    {
+
+        public JsNumber x { get; set; }
+        public JsNumber y { get; set; }
+
+        [JsProperty(Name = "x")]
+        public JsString xString { get; set; }
+        [JsProperty(Name = "y")]
+        public JsString yString { get; set; }
+
+    }
+
+    #endregion
+
+    //TODO: plotOptions http://api.highcharts.com/highcharts#plotOptions. (A BIG BIG BIG class, not sure where it is in use)
+
+    #region series
+
+    /// <summary>
+    /// The actual series to append to the chart.
+    /// In addition to the members listed below, any member of the plotOptions for that specific type of plot can be added to a series individually.
+    /// For example, even though a general lineWidth is specified in plotOptions.series, an individual lineWidth can be specified for each series.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class SeriesOptions
+    {
+        /// <summary>
+        /// An array of data points for the series. The points can be given in three ways:
+        /// A list of numerical values. In this case, the numberical values will be interpreted and y values, and x values will be automatically calculated, either starting at 0 and incrementing by 1, or from pointStart and pointInterval given in the plotOptions. If the axis is has categories, these will be used. This option is not available for range series. Example:
+        /// data: [0, 5, 3, 5]
+        /// A list of arrays with two values. In this case, the first value is the x value and the second is the y value. If the first value is a string, it is applied as the name of the point, and the x value is incremented following the above rules.
+        /// 
+        /// For range series, the arrays will be interpreted as [x, low, high]. In this cases, the X value can be skipped altogether to make use of pointStart and pointRange.
+        /// 
+        /// Example:
+        /// data: [[5, 2], [6, 3], [8, 2]]
+        /// A list of object with named values. In this case the objects are point configuration objects as seen below.
+        /// 
+        /// Range series values are given by low and high.
+        /// 
+        /// Example:
+        /// data: [{
+        /// 	name: 'Point 1',
+        /// 	color: '#00FF00',
+        /// 	y: 0
+        /// }, {
+        /// 	name: 'Point 2',
+        /// 	color: '#FF00FF',
+        /// 	y: 5
+        /// }]
+        /// </summary>
+        public object data { get; set; }
+        //TODO: needs some help with the overloads. look at the summary.
+
+        /// <summary>
+        /// *Deprecated*
+        /// This method is deprecated as of version 2.0. Instead, use options preprocessing as described in the how-to, section #3.
+        /// </summary>
+        public JsAction dataParser { get; set; }
+
+        /// <summary>
+        /// *Deprecated*
+        /// This method is deprecated as of version 2.0. Instead, load the data using jQuery.ajax and use options preprocessing as described in the how-to, section #3. Defaults to null.
+        /// </summary>
+        public JsString dataURL { get; set; }
+
+        /// <summary>
+        /// The index of the series in the chart, affecting the internal index in the chart.series array, the visible Z index as well as the order in the legend.
+        /// Defaults to undefined.
+        /// </summary>
+        public JsNumber index { get; set; }
+
+        /// <summary>
+        /// The sequential index of the series in the legend.
+        /// </summary>
+        public JsNumber legendIndex { get; set; }
+
+        /// <summary>
+        /// The name of the series as shown in the legend, tooltip etc. Defaults to "".
+        /// </summary>
+        public JsString name { get; set; }
+
+        /// <summary>
+        /// This option allows grouping series in a stacked chart.
+        /// The stack option can be a string or a number or anything else, as long as the grouped series' stack options match each other. Defaults to null.
+        /// </summary>
+        public object stack { get; set; }
+
+        /// <summary>
+        /// The type of series. Can be one of area, areaspline, bar, column, line, pie, scatter or spline.
+        /// From version 2.3, arearange, areasplinerange and columnrange are supported with the highcharts-more.js component. Defaults to "line".
+        /// </summary>
+        public TypeOptions type { get; set; }
+
+        /// <summary>
+        /// When using dual or multiple x axes, this number defines which xAxis the particular series is connected to.
+        /// It refers to the index of the axis in the xAxis array, with 0 being the first. Defaults to 0.
+        /// </summary>
+        public JsNumber xAxis { get; set; }
+
+        /// <summary>
+        /// When using dual or multiple y axes, this number defines which yAxis the particular series is connected to.
+        /// It refers to the index of the axis in the yAxis array, with 0 being the first. Defaults to 0.
+        /// </summary>
+        public JsNumber yAxis { get; set; }
+    }
+
+    /// <summary>
+    /// An array of data points for the series. The points can be given in three ways:
+    /// A list of numerical values. In this case, the numberical values will be interpreted and y values, and x values will be automatically calculated, either starting at 0 and incrementing by 1, or from pointStart and pointInterval given in the plotOptions. If the axis is has categories, these will be used. This option is not available for range series. Example:
+    /// data: [0, 5, 3, 5]
+    /// A list of arrays with two values. In this case, the first value is the x value and the second is the y value. If the first value is a string, it is applied as the name of the point, and the x value is incremented following the above rules.
+    /// 
+    /// For range series, the arrays will be interpreted as [x, low, high]. In this cases, the X value can be skipped altogether to make use of pointStart and pointRange.
+    /// 
+    /// Example:
+    /// data: [[5, 2], [6, 3], [8, 2]]
+    /// A list of object with named values. In this case the objects are point configuration objects as seen below.
+    /// 
+    /// Range series values are given by low and high.
+    /// 
+    /// Example:
+    /// data: [{
+    /// 	name: 'Point 1',
+    /// 	color: '#00FF00',
+    /// 	y: 0
+    /// }, {
+    /// 	name: 'Point 2',
+    /// 	color: '#FF00FF',
+    /// 	y: 5
+    /// }]
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class SeriesDataOptions
+    {
+        /// <summary>
+        /// Individual color for the point. Defaults to null.
+        /// </summary>
+        public object color { get; set; }
+
+        /// <summary>
+        /// Individual data label for each point. The options are the same as the ones for plotOptions.series.dataLabels
+        /// </summary>
+        public object dataLabels { get; set; }
+        //TODO: (FOR MAY) change type to plotOptions.series.dataLabels after creating the class
+
+        /// <summary>
+        /// An id for the point. This can be used after render time to get a pointer to the point object through chart.get(). Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// Pies only. The sequential index of the pie slice in the legend.	 . Defaults to undefined.
+        /// </summary>
+        public JsNumber legendIndex { get; set; }
+
+        /// <summary>
+        /// The name of the point as shown in the legend, tooltip, dataLabel etc. Defaults to "".
+        /// </summary>
+        public JsString name { get; set; }
+
+        /// <summary>
+        /// Pie series only. Whether to display a slice offset from the center. Defaults to false.
+        /// </summary>
+        public bool sliced { get; set; }
+
+        /// <summary>
+        /// The x value of the point. Defaults to null.
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// The y value of the point. Defaults to null.
+        /// </summary>
+        public JsNumber y { get; set; }
+
+        //TODO: events and marker
+    }
+
+    #endregion
+
+    #region subtitle
+
+    /// <summary>
+    /// The chart's subtitle
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class SubtitleOptions
+    {
+        /// <summary>
+        /// The horizontal alignment of the subtitle. Can be one of "left", "center" and "right". Defaults to "center".
+        /// </summary>
+        public HorizontalAlignType align { get; set; }
+
+        /// <summary>
+        /// When the subtitle is floating, the plot area will not move to make space for it. Defaults to false.
+        /// </summary>
+        public bool floating { get; set; }
+
+        /// <summary>
+        /// CSS styles for the title. Exact positioning of the title can be achieved by changing the margin property, or by adding position: "absolute" and left and top properties. Defaults to:
+        /// {
+        /// 	color: '#3E576F'
+        /// }
+        /// </summary>
+        public object style { get; set; }
+        //TODO: type
+
+        /// <summary>
+        /// The subtitle of the chart. Defaults to "".
+        /// </summary>
+        public JsString text { get; set; }
+
+        /// <summary>
+        /// The vertical alignment of the title. Can be one of "top", "middle" and "bottom". Defaults to "top".
+        /// </summary>
+        public VerticalAlignType verticalAlign { get; set; }
+
+        /// <summary>
+        /// The x position of the subtitle relative to the alignment within chart.spacingLeft and chart.spacingRight. Defaults to 0.
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// The y position of the subtitle relative to the alignment within chart.spacingTop and chart.spacingBottom. Defaults to 30.
+        /// </summary>
+        public JsNumber y { get; set; }
+    }
+
+    /// <summary>
+    /// The horizontal alignment. Can be one of "left", "center" and "right". Defaults to "center".
+    /// </summary>
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum HorizontalAlignType
+    {
+        left,
+        center,
+        right,
+    }
+
+    #endregion
+
+    #region title
+
+    /// <summary>
+    /// The chart's main title.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class TitleOptions
+    {
+        /// <summary>
+        /// The horizontal alignment of the title. Can be one of "left", "center" and "right". Defaults to "center".
+        /// </summary>
+        public HorizontalAlignType align { get; set; }
+
+        /// <summary>
+        /// When the title is floating, the plot area will not move to make space for it. Defaults to false.
+        /// </summary>
+        public bool floating { get; set; }
+
+        /// <summary>
+        /// The margin between the title and the plot area, or if a subtitle is present, the margin between the subtitle and the plot area. Defaults to 15.
+        /// </summary>
+        public JsNumber margin { get; set; }
+
+        /// <summary>
+        /// CSS styles for the title. Use this for font styling, but use align, x and yfor text alignment. Defaults to:
+        /// {
+        /// 	color: '#3E576F',
+        /// 	fontSize: '16px'
+        /// }
+        /// </summary>
+        public object style { get; set; }
+        //TODO: type
+
+        /// <summary>
+        /// The title of the chart. To disable the title, set the text to null. Defaults to "Chart title".
+        /// </summary>
+        public JsString text { get; set; }
+
+        /// <summary>
+        /// The vertical alignment of the title. Can be one of "top", "middle" and "bottom". Defaults to "top".
+        /// </summary>
+        public VerticalAlignType verticalAlign { get; set; }
+
+        /// <summary>
+        /// The x position of the title relative to the alignment within chart.spacingLeft and chart.spacingRight. Defaults to 0.
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// The y position of the title relative to the alignment within chart.spacingTop and chart.spacingBottom. Defaults to 15.
+        /// </summary>
+        public JsNumber y { get; set; }
     }
 
     #endregion
