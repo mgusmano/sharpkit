@@ -16,6 +16,7 @@ namespace jQueryUISamples.demos.dialog
         {
             // increase the default animation speed to exaggerate the effect
             // TODO: //$.fx.speeds._default = 1000;
+            
             new jQuery("#dialog").dialog(new DialogOptions
             {
                 autoOpen = false,

@@ -104,6 +104,7 @@
     <Content Include="demos\dialog\Modal.htm" />
     <Content Include="demos\dialog\Modal.js" />
     <Content Include="demos\dialog\ModalConfirmation.htm" />
+    <Content Include="demos\dialog\ModelCnfirmation.js" />
     <Content Include="demos\draggable\Default.htm" />
     <Content Include="demos\draggable\Default.js" />
     <Content Include="demos\draggable\DelayStart.htm" />
@@ -136,6 +137,27 @@
     <Content Include="demos\droppable\Propagation.js" />
     <Content Include="demos\droppable\Revert.js" />
     <Content Include="demos\droppable\ShoppingCart.js" />
+    <Content Include="demos\resizable\Animate.htm" />
+    <Content Include="demos\resizable\Animate.js" />
+    <Content Include="demos\resizable\AspectRatio.htm" />
+    <Content Include="demos\resizable\AspectRatio.js" />
+    <Content Include="demos\resizable\ConstrainArea.htm" />
+    <Content Include="demos\resizable\ConstrainArea.js" />
+    <Content Include="demos\tabs\Ajax.js" />
+    <Content Include="demos\tabs\ajax\content1.html" />
+    <Content Include="demos\tabs\ajax\content2.html" />
+    <Content Include="demos\tabs\Bottom.htm" />
+    <Content Include="demos\tabs\Collapsible.htm" />
+    <Content Include="demos\tabs\Collapsible.js" />
+    <Content Include="demos\tabs\Cookie.htm" />
+    <Content Include="demos\tabs\Mouseover.htm" />
+    <Content Include="demos\tabs\Mouseover.js" />
+    <Content Include="demos\tabs\Sortable.htm" />
+    <Content Include="demos\tabs\Sortable.js" />
+    <Content Include="demos\tabs\Vertical.htm" />
+    <Content Include="demos\tabs\Vertical.js" />
+    <Content Include="demos\toggleClass\Default.htm" />
+    <Content Include="demos\toggleClass\Default.js" />
     <Content Include="jquery-1.8.0.js" />
     <Content Include="themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -370,10 +392,27 @@
     <Compile Include="demos\droppable\Revert.cs" />
     <Compile Include="demos\droppable\ShoppingCart.cs" />
     <Compile Include="demos\effect\Default.cs" />
+    <Compile Include="demos\resizable\Animate.cs" />
+    <Compile Include="demos\resizable\AspectRatio.cs" />
+    <Compile Include="demos\resizable\ConstrainArea.cs" />
+    <Compile Include="demos\tabs\Ajax.cs" />
+    <Compile Include="demos\tabs\Bottom.cs" />
+    <Compile Include="demos\tabs\Collapsible.cs" />
+    <Compile Include="demos\tabs\Cookie.cs" />
+    <Compile Include="demos\tabs\Mouseover.cs" />
+    <Compile Include="demos\tabs\Sortable.cs" />
+    <Compile Include="demos\tabs\Vertical.cs" />
+    <Compile Include="demos\toggleClass\Default.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="demos\addClass\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="demos\tabs\ajax\content3-slow.php" />
+    <None Include="demos\tabs\ajax\content4-broken.php" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
