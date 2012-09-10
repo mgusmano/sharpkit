@@ -2592,6 +2592,8 @@ namespace SharpKit.jQuery
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery toggleclass(this jQuery query, JsString @class, JsNumber duration) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery toggleclass(this jQuery query, JsString @class, JsString duration) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery toggleclass(this jQuery query, JsString @class) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery toggleclass(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
