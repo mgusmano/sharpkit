@@ -2221,7 +2221,7 @@ namespace SharpKit.jQuery
         ///<summary>
         ///This event is triggered when sorting was stopped, is propagated to all possible connected lists.
         ///</summary>
-        public jQueryUIEvent<UIDraggable> deactivate { get; set; }
+        public jQueryUIEvent<UISortable> deactivate { get; set; }
     }
     #endregion
     #region SwitchClass
