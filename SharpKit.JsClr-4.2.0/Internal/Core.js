@@ -76,6 +76,800 @@ var System$Attribute=
     }
 };
 JsTypes.push(System$Attribute);
+var System$SByte=
+{
+    fullname:"System.SByte",
+    baseTypeName:"Int8Array",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            ArrayBuffer.prototype.Set.call(this,val,0);
+        },
+        GetValue:function()
+        {
+            return Array.prototype..call[this,0];
+        },
+        SetValue:function(val)
+        {
+            return Array.prototype..call[this,0] = val;
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(this,0,null);
+        }
+    }
+};
+JsTypes.push(System$SByte);
+var System$Byte=
+{
+    fullname:"System.Byte",
+    baseTypeName:"Uint8Array",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            ArrayBuffer.prototype.Set.call(this,val,0);
+        },
+        GetValue:function()
+        {
+            return Array.prototype..call[this,0];
+        },
+        SetValue:function(val)
+        {
+            return Array.prototype..call[this,0] = val;
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(this,0,null);
+        }
+    }
+};
+JsTypes.push(System$Byte);
+var System$Int16=
+{
+    fullname:"System.Int16",
+    baseTypeName:"Int16Array",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            ArrayBuffer.prototype.Set.call(this,val,0);
+        },
+        GetValue:function()
+        {
+            return Array.prototype..call[this,0];
+        },
+        SetValue:function(val)
+        {
+            return Array.prototype..call[this,0] = val;
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(this,0,null);
+        }
+    }
+};
+JsTypes.push(System$Int16);
+var System$Int32=
+{
+    fullname:"System.Int32",
+    baseTypeName:"Int16Array",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            ArrayBuffer.prototype.Set.call(this,val,0);
+        },
+        GetValue:function()
+        {
+            return Array.prototype..call[this,0];
+        },
+        SetValue:function(val)
+        {
+            return Array.prototype..call[this,0] = val;
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(this,0,null);
+        }
+    }
+};
+JsTypes.push(System$Int32);
+var System$Int64=
+{
+    fullname:"System.Int64",
+    baseTypeName:"Float64Array",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            ArrayBuffer.prototype.Set.call(this,val,0);
+        },
+        GetValue:function()
+        {
+            return Array.prototype..call[this,0];
+        },
+        SetValue:function(val)
+        {
+            return Array.prototype..call[this,0] = val;
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(this,0,null);
+        }
+    }
+};
+JsTypes.push(System$Int64);
+var System$Double=
+{
+    fullname:"System.Double",
+    baseTypeName:"Float64Array",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            ArrayBuffer.prototype.Set.call(this,val,0);
+        },
+        GetValue:function()
+        {
+            return Array.prototype..call[this,0];
+        },
+        SetValue:function(val)
+        {
+            return Array.prototype..call[this,0] = val;
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(this,0,null);
+        }
+    }
+};
+JsTypes.push(System$Double);
+var System$Single=
+{
+    fullname:"System.Single",
+    baseTypeName:"Float32Array",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            ArrayBuffer.prototype.Set.call(this,val,0);
+        },
+        GetValue:function()
+        {
+            return Array.prototype..call[this,0];
+        },
+        SetValue:function(val)
+        {
+            return Array.prototype..call[this,0] = val;
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(this,0,null);
+        }
+    }
+};
+JsTypes.push(System$Single);
+var System$UInt16=
+{
+    fullname:"System.UInt16",
+    baseTypeName:"UInt16Array",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            ArrayBuffer.prototype.Set.call(this,val,0);
+        },
+        GetValue:function()
+        {
+            return Array.prototype..call[this,0];
+        },
+        SetValue:function(val)
+        {
+            return Array.prototype..call[this,0] = val;
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(this,0,null);
+        }
+    }
+};
+JsTypes.push(System$UInt16);
+var System$UInt32=
+{
+    fullname:"System.UInt32",
+    baseTypeName:"Int16Array",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            ArrayBuffer.prototype.Set.call(this,val,0);
+        },
+        GetValue:function()
+        {
+            return Array.prototype..call[this,0];
+        },
+        SetValue:function(val)
+        {
+            return Array.prototype..call[this,0] = val;
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(this,0,null);
+        }
+    }
+};
+JsTypes.push(System$UInt32);
+var System$UInt64=
+{
+    fullname:"System.UInt64",
+    baseTypeName:"Float64Array",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            ArrayBuffer.prototype.Set.call(this,val,0);
+        },
+        GetValue:function()
+        {
+            return Array.prototype..call[this,0];
+        },
+        SetValue:function(val)
+        {
+            return Array.prototype..call[this,0] = val;
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(this,0,null);
+        }
+    }
+};
+JsTypes.push(System$UInt64);
+var System$Decimal=
+{
+    fullname:"System.Decimal",
+    baseTypeName:"Float64Array",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            ArrayBuffer.prototype.Set.call(this,val,0);
+        },
+        GetValue:function()
+        {
+            return Array.prototype..call[this,0];
+        },
+        SetValue:function(val)
+        {
+            return Array.prototype..call[this,0] = val;
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(this,0,null);
+        }
+    }
+};
+JsTypes.push(System$Decimal);
+var System$Char=
+{
+    fullname:"System.Char",
+    baseTypeName:"System.Object",
+    staticDefinition:
+    {
+        IsWhiteSpace:function(c)
+        {
+            return /\s/.test(c);
+        },
+        Convert:function(val)
+        {
+            return new System.Int16.ctor(val);
+        },
+        IsUpper:function(c)
+        {
+            return c.toUpperCase() == c;
+        }
+    },
+    assemblyName:"SharpKit.JsClr",
+    interfaceNames:["SharpKit.JsClr.System.IUpdatePointerValue"],
+    Kind:"Class",
+    definition:
+    {
+        ctor:function()
+        {
+            this.Value = new String();
+            System.Object.ctor.call(this);
+        },
+        ctor$$Object:function(val)
+        {
+            this.Value = new String();
+            System.Object.ctor.call(this);
+            if(Is(val,System.String.ctor))
+            {
+                this.Value = (As(val,System.String.ctor)).Value.charAt(0);
+            }
+            else if(Is(val,System.Char.ctor))
+            {
+                this.Value = (As(val,System.Char.ctor)).Value;
+            }
+            else if(val instanceof String)
+            {
+                this.Value = (val instanceof String?val:null).charAt(0);
+            }
+            else if(val != null)
+            {
+                this.Value = val.toString();
+            }
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(JSHelper.helpers.StringToArrayBuffer(this),0,this);
+        },
+        GetValue:function()
+        {
+            return this.Value;
+        },
+        SetValue:function(val)
+        {
+            return this.Value = val;
+        },
+        Update:function(Array)
+        {
+            this.Value = Array.toString();
+        }
+    }
+};
+JsTypes.push(System$Char);
+var System$String=
+{
+    fullname:"System.String",
+    baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr",
+    interfaceNames:["SharpKit.JsClr.System.IUpdatePointerValue"],
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            this.Value = new String();
+            System.Object.ctor.call(this);
+            if(Is(val,System.String.ctor))
+            {
+                this.Value = (As(val,System.String.ctor)).Value;
+            }
+            else if(Is(val,System.Char.ctor))
+            {
+                this.Value = (As(val,System.Char.ctor)).Value;
+            }
+            else if(val instanceof String)
+            {
+                this.Value = val instanceof String?val:null;
+            }
+            else if(val != null)
+            {
+                this.Value = val.toString();
+            }
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(JSHelper.helpers.StringToArrayBuffer(this),0,this);
+        },
+        GetValue:function()
+        {
+            return this.Value;
+        },
+        SetValue:function(val)
+        {
+            return this.Value = val;
+        },
+        Update:function(Array)
+        {
+            this.Value = Array.toString();
+        }
+    }
+};
+JsTypes.push(System$String);
+var System$Boolean=
+{
+    fullname:"System.Boolean",
+    baseTypeName:"Uint8Array",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(val)
+        {
+            ArrayBuffer.prototype.Set.call(this,val,0);
+        },
+        GetValue:function()
+        {
+            return Array.prototype..call[this,0];
+        },
+        SetValue:function(val)
+        {
+            return Array.prototype..call[this,0] = val;
+        },
+        GetPointer:function()
+        {
+            return new BaseType.Pointer.ctor(this,0,null);
+        }
+    }
+};
+JsTypes.push(System$Boolean);
+var BaseType$Pointer=
+{
+    fullname:"BaseType.Pointer",
+    baseTypeName:"System.Object",
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function(b,p,o)
+        {
+            this.ObejctPointer = null;
+            this.Array = null;
+            this.Pos = 0;
+            System.Object.ctor.call(this);
+            this.Array = b;
+            this.Pos = p;
+            this.ObejctPointer = o;
+        },
+        GetValue:function()
+        {
+            return this.Array.slice(this.Pos,this.Pos + 1);
+        },
+        GetByte:function()
+        {
+            return Cast((this.Array.slice(this.Pos,this.Pos + 1)[0]),System.Byte.ctor);
+        },
+        GetByte$$Int32$$Int32:function(start,end)
+        {
+            return this.Array.slice(start,end);
+        },
+        Item$$:"System.Byte",
+        get_Item$$Int32:function(i)
+        {
+            return Cast(this.Array[i],System.Byte.ctor);
+        },
+        set_Item$$Int32:function(i,value)
+        {
+            this.Array[i] = value;
+            if(this.ObejctPointer != null)
+                this.ObejctPointer.Update(this.Array);
+        },
+        SetValue:function(value)
+        {
+            this.Pos = value;
+        }
+    }
+};
+JsTypes.push(BaseType$Pointer);
+var System$BitConverter=
+{
+    fullname:"System.BitConverter",
+    baseTypeName:"System.Object",
+    staticDefinition:
+    {
+        cctor:function()
+        {
+            System.BitConverter.SwappedWordsInDouble = System.BitConverter.DoubleWordsAreSwapped();
+            System.BitConverter.IsLittleEndian = System.BitConverter.AmILittleEndian();
+        },
+        AmILittleEndian:function()
+        {
+            var d=1;
+            return (SharpKit.JsClr.System.Dummy.GetPointer$$Double(d).get_Item$$Int32(0) == 0);
+        },
+        DoubleWordsAreSwapped:function()
+        {
+            var d=1;
+            return SharpKit.JsClr.System.Dummy.GetPointer$$Double(d).get_Item$$Int32(2) == 240;
+        },
+        DoubleToInt64Bits:function(value)
+        {
+            return Cast(value,System.Int64.ctor);
+        },
+        Int64BitsToDouble:function(value)
+        {
+            return value;
+        },
+        InternalInt64BitsToDouble:function(value)
+        {
+            return System.BitConverter.SwappableToDouble(System.BitConverter.GetBytes$$Int64(value),0);
+        },
+        GetBytes$$Pointer$$Int32:function(ptr,count)
+        {
+            var ret=[];
+            for(var i=0;i < count;i++)
+            {
+                ret[i] = ptr.get_Item$$Int32(i);
+            }
+            return ret;
+        },
+        GetBytes$$Boolean:function(value)
+        {
+            return System.BitConverter.GetBytes$$Pointer$$Int32(SharpKit.JsClr.System.Dummy.GetPointer$$Boolean(value),1);
+        },
+        GetBytes$$Char:function(value)
+        {
+            return System.BitConverter.GetBytes$$Pointer$$Int32(SharpKit.JsClr.System.Dummy.GetPointer$$Char(value),2);
+        },
+        GetBytes$$Int16:function(value)
+        {
+            return System.BitConverter.GetBytes$$Pointer$$Int32(SharpKit.JsClr.System.Dummy.GetPointer$$Int16(value),2);
+        },
+        GetBytes$$Int32:function(value)
+        {
+            return System.BitConverter.GetBytes$$Pointer$$Int32(SharpKit.JsClr.System.Dummy.GetPointer$$Int32(value),4);
+        },
+        GetBytes$$Int64:function(value)
+        {
+            return System.BitConverter.GetBytes$$Pointer$$Int32(SharpKit.JsClr.System.Dummy.GetPointer$$Int64(value),8);
+        },
+        GetBytes$$UInt16:function(value)
+        {
+            return System.BitConverter.GetBytes$$Pointer$$Int32(SharpKit.JsClr.System.Dummy.GetPointer$$UInt16(value),2);
+        },
+        GetBytes$$UInt32:function(value)
+        {
+            return System.BitConverter.GetBytes$$Pointer$$Int32(SharpKit.JsClr.System.Dummy.GetPointer$$UInt32(value),4);
+        },
+        GetBytes$$UInt64:function(value)
+        {
+            return System.BitConverter.GetBytes$$Pointer$$Int32(SharpKit.JsClr.System.Dummy.GetPointer$$UInt64(value),8);
+        },
+        GetBytes$$Single:function(value)
+        {
+            return System.BitConverter.GetBytes$$Pointer$$Int32(SharpKit.JsClr.System.Dummy.GetPointer$$Single(value),4);
+        },
+        GetBytes$$Double:function(value)
+        {
+            if(System.BitConverter.SwappedWordsInDouble)
+            {
+                var data=[];
+                var p=SharpKit.JsClr.System.Dummy.GetPointer$$Double(value);
+                data[0] = p.get_Item$$Int32(4);
+                data[1] = p.get_Item$$Int32(5);
+                data[2] = p.get_Item$$Int32(6);
+                data[3] = p.get_Item$$Int32(7);
+                data[4] = p.get_Item$$Int32(0);
+                data[5] = p.get_Item$$Int32(1);
+                data[6] = p.get_Item$$Int32(2);
+                data[7] = p.get_Item$$Int32(3);
+                return data;
+            }
+            else
+            {
+                return System.BitConverter.GetBytes$$Pointer$$Int32(SharpKit.JsClr.System.Dummy.GetPointer$$Double(value),8);
+            }
+        },
+        PutBytes:function(dst,src,start_index,count)
+        {
+            if(src == null)
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("value"),new Error());
+            if(start_index < 0 || (start_index > src.length - 1))
+                throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String$$String("startIndex","Index was out of range. Must be non-negative and less than the size of the collection."),new Error());
+            if(src.length - count < start_index)
+                throw $CreateException(new System.ArgumentException.ctor$$String("Destination array is not long enough to copy all the items in the collection. Check array index and length."),new Error());
+            for(var i=0;i < count;i++)
+                dst.set_Item$$Int32(i,src[i + start_index]);
+        },
+        ToBoolean:function(value,startIndex)
+        {
+            if(value == null)
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("value"),new Error());
+            if(startIndex < 0 || (startIndex > value.length - 1))
+                throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String$$String("startIndex","Index was out of range. Must be non-negative and less than the size of the collection."),new Error());
+            if(value[startIndex] != 0)
+                return true;
+            return false;
+        },
+        ToChar:function(value,startIndex)
+        {
+            var ret="\0";
+            System.BitConverter.PutBytes(SharpKit.JsClr.System.Dummy.GetPointer$$Char(ret),value,startIndex,2);
+            return ret;
+        },
+        ToInt16:function(value,startIndex)
+        {
+            var ret=0;
+            System.BitConverter.PutBytes(SharpKit.JsClr.System.Dummy.GetPointer$$Int16(ret),value,startIndex,2);
+            return ret;
+        },
+        ToInt32:function(value,startIndex)
+        {
+            var ret=0;
+            System.BitConverter.PutBytes(SharpKit.JsClr.System.Dummy.GetPointer$$Int32(ret),value,startIndex,4);
+            return ret;
+        },
+        ToInt64:function(value,startIndex)
+        {
+            var ret=0;
+            System.BitConverter.PutBytes(SharpKit.JsClr.System.Dummy.GetPointer$$Int64(ret),value,startIndex,8);
+            return ret;
+        },
+        ToUInt16:function(value,startIndex)
+        {
+            var ret=0;
+            System.BitConverter.PutBytes(SharpKit.JsClr.System.Dummy.GetPointer$$UInt16(ret),value,startIndex,2);
+            return ret;
+        },
+        ToUInt32:function(value,startIndex)
+        {
+            var ret=0;
+            System.BitConverter.PutBytes(SharpKit.JsClr.System.Dummy.GetPointer$$UInt32(ret),value,startIndex,4);
+            return ret;
+        },
+        ToUInt64:function(value,startIndex)
+        {
+            var ret=0;
+            System.BitConverter.PutBytes(SharpKit.JsClr.System.Dummy.GetPointer$$UInt64(ret),value,startIndex,8);
+            return ret;
+        },
+        ToSingle:function(value,startIndex)
+        {
+            var ret=0;
+            System.BitConverter.PutBytes(SharpKit.JsClr.System.Dummy.GetPointer$$Single(ret),value,startIndex,4);
+            return ret;
+        },
+        ToDouble:function(value,startIndex)
+        {
+            var ret=0;
+            if(System.BitConverter.SwappedWordsInDouble)
+            {
+                var p=SharpKit.JsClr.System.Dummy.GetPointer$$Double(ret);
+                if(value == null)
+                    throw $CreateException(new System.ArgumentNullException.ctor$$String("value"),new Error());
+                if(startIndex < 0 || (startIndex > value.length - 1))
+                    throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String$$String("startIndex","Index was out of range. Must be non-negative and less than the size of the collection."),new Error());
+                if(value.length - 8 < startIndex)
+                    throw $CreateException(new System.ArgumentException.ctor$$String("Destination array is not long enough to copy all the items in the collection. Check array index and length."),new Error());
+                p.set_Item$$Int32(0,value[startIndex + 4]);
+                p.set_Item$$Int32(1,value[startIndex + 5]);
+                p.set_Item$$Int32(2,value[startIndex + 6]);
+                p.set_Item$$Int32(3,value[startIndex + 7]);
+                p.set_Item$$Int32(4,value[startIndex + 0]);
+                p.set_Item$$Int32(5,value[startIndex + 1]);
+                p.set_Item$$Int32(6,value[startIndex + 2]);
+                p.set_Item$$Int32(7,value[startIndex + 3]);
+                return ret;
+            }
+            System.BitConverter.PutBytes(SharpKit.JsClr.System.Dummy.GetPointer$$Double(ret),value,startIndex,8);
+            return ret;
+        },
+        SwappableToDouble:function(value,startIndex)
+        {
+            var ret=0;
+            if(System.BitConverter.SwappedWordsInDouble)
+            {
+                var p=SharpKit.JsClr.System.Dummy.GetPointer$$Double(ret);
+                if(value == null)
+                    throw $CreateException(new System.ArgumentNullException.ctor$$String("value"),new Error());
+                if(startIndex < 0 || (startIndex > value.length - 1))
+                    throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String$$String("startIndex","Index was out of range. Must be non-negative and less than the size of the collection."),new Error());
+                if(value.length - 8 < startIndex)
+                    throw $CreateException(new System.ArgumentException.ctor$$String("Destination array is not long enough to copy all the items in the collection. Check array index and length."),new Error());
+                p.set_Item$$Int32(0,value[startIndex + 4]);
+                p.set_Item$$Int32(1,value[startIndex + 5]);
+                p.set_Item$$Int32(2,value[startIndex + 6]);
+                p.set_Item$$Int32(3,value[startIndex + 7]);
+                p.set_Item$$Int32(4,value[startIndex + 0]);
+                p.set_Item$$Int32(5,value[startIndex + 1]);
+                p.set_Item$$Int32(6,value[startIndex + 2]);
+                p.set_Item$$Int32(7,value[startIndex + 3]);
+                return ret;
+            }
+            else if(!System.BitConverter.IsLittleEndian)
+            {
+                var p=SharpKit.JsClr.System.Dummy.GetPointer$$Double(ret);
+                if(value == null)
+                    throw $CreateException(new System.ArgumentNullException.ctor$$String("value"),new Error());
+                if(startIndex < 0 || (startIndex > value.length - 1))
+                    throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String$$String("startIndex","Index was out of range. Must be non-negative and less than the size of the collection."),new Error());
+                if(value.length - 8 < startIndex)
+                    throw $CreateException(new System.ArgumentException.ctor$$String("Destination array is not long enough to copy all the items in the collection. Check array index and length."),new Error());
+                p.set_Item$$Int32(0,value[startIndex + 7]);
+                p.set_Item$$Int32(1,value[startIndex + 6]);
+                p.set_Item$$Int32(2,value[startIndex + 5]);
+                p.set_Item$$Int32(3,value[startIndex + 4]);
+                p.set_Item$$Int32(4,value[startIndex + 3]);
+                p.set_Item$$Int32(5,value[startIndex + 2]);
+                p.set_Item$$Int32(6,value[startIndex + 1]);
+                p.set_Item$$Int32(7,value[startIndex + 0]);
+                return ret;
+            }
+            System.BitConverter.PutBytes(SharpKit.JsClr.System.Dummy.GetPointer$$Double(ret),value,startIndex,8);
+            return ret;
+        },
+        ToString$$Byte$Array:function(value)
+        {
+            if(value == null)
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("value"),new Error());
+            return System.BitConverter.ToString$$Byte$Array$$Int32$$Int32(value,0,value.length);
+        },
+        ToString$$Byte$Array$$Int32:function(value,startIndex)
+        {
+            if(value == null)
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("value"),new Error());
+            return System.BitConverter.ToString$$Byte$Array$$Int32$$Int32(value,startIndex,value.length - startIndex);
+        },
+        ToString$$Byte$Array$$Int32$$Int32:function(value,startIndex,length)
+        {
+            if(value == null)
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("byteArray"),new Error());
+            if(startIndex < 0 || startIndex >= value.length)
+            {
+                if((startIndex == 0) && (value.length == 0))
+                    return System.String.Empty;
+                throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String$$String("startIndex","Index was out of range. Must be non-negative and less than the size of the collection."),new Error());
+            }
+            if(length < 0)
+                throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String$$String("length","Value must be positive."),new Error());
+            if(startIndex > value.length - length)
+                throw $CreateException(new System.ArgumentException.ctor$$String("startIndex + length > value.Length"),new Error());
+            if(length == 0)
+                return System.String.Empty;
+            var builder=new System.Text.StringBuilder.ctor$$Int32(length * 3 - 1);
+            var end=startIndex + length;
+            for(var i=startIndex;i < end;i++)
+            {
+                if(i > startIndex)
+                    builder.Append$$Char("-");
+                var high=Cast(((value[i] >> 4) & 15),System.Char.ctor);
+                var low=Cast((value[i] & 15),System.Char.ctor);
+                if(high < "\n")
+                    high += 48;
+                else
+                {
+                    high -= 10;
+                    high += 65;
+                }
+                if(low < "\n")
+                    low += 48;
+                else
+                {
+                    low -= 10;
+                    low += 65;
+                }
+                builder.Append$$Char(high);
+                builder.Append$$Char(low);
+            }
+            return builder.toString();
+        }
+    },
+    assemblyName:"SharpKit.JsClr",
+    Kind:"Class",
+    definition:
+    {
+        ctor:function()
+        {
+            System.Object.ctor.call(this);
+        }
+    }
+};
+JsTypes.push(System$BitConverter);
 var System$Collections$Generic$IEnumerator$1={fullname:"System.Collections.Generic.IEnumerator$1",baseTypeName:"System.Object",assemblyName:"SharpKit.JsClr",Kind:"Interface"};
 JsTypes.push(System$Collections$Generic$IEnumerator$1);
 var System$Collections$Generic$IEnumerable$1={fullname:"System.Collections.Generic.IEnumerable$1",baseTypeName:"System.Object",assemblyName:"SharpKit.JsClr",interfaceNames:["System.Collections.IEnumerable"],Kind:"Interface"};
@@ -1048,152 +1842,6 @@ var System$StringSplitOptions=
     Kind:"Enum"
 };
 JsTypes.push(System$StringSplitOptions);
-var System$Char=
-{
-    fullname:"System.Char",
-    baseTypeName:"System.Object",
-    staticDefinition:
-    {
-        IsWhiteSpace:function(c)
-        {
-            return /\s/.test(c);
-        },
-        IsUpper:function(c)
-        {
-            return c.toUpperCase() == c;
-        }
-    },
-    assemblyName:"SharpKit.JsClr",
-    Kind:"Class",
-    definition:
-    {
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-    }
-};
-JsTypes.push(System$Char);
-var System$Byte=
-{
-    fullname:"System.Byte",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    Kind:"Class",
-    definition:
-    {
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-    }
-};
-JsTypes.push(System$Byte);
-var System$Int16=
-{
-    fullname:"System.Int16",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    Kind:"Class",
-    definition:
-    {
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-    }
-};
-JsTypes.push(System$Int16);
-var System$Int64=
-{
-    fullname:"System.Int64",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    Kind:"Class",
-    definition:
-    {
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-    }
-};
-JsTypes.push(System$Int64);
-var System$IntSingle=
-{
-    fullname:"System.IntSingle",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    Kind:"Class",
-    definition:
-    {
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-    }
-};
-JsTypes.push(System$IntSingle);
-var System$SByte=
-{
-    fullname:"System.SByte",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    Kind:"Class",
-    definition:
-    {
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-    }
-};
-JsTypes.push(System$SByte);
-var System$UInt16=
-{
-    fullname:"System.UInt16",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    Kind:"Class",
-    definition:
-    {
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-    }
-};
-JsTypes.push(System$UInt16);
-var System$UInt32=
-{
-    fullname:"System.UInt32",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    Kind:"Class",
-    definition:
-    {
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-    }
-};
-JsTypes.push(System$UInt32);
-var System$UInt64=
-{
-    fullname:"System.UInt64",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    Kind:"Class",
-    definition:
-    {
-        ctor:function()
-        {
-            System.Object.ctor.call(this);
-        }
-    }
-};
-JsTypes.push(System$UInt64);
 var System$CharEnumerator=
 {
     fullname:"System.CharEnumerator",

@@ -30,6 +30,7 @@
 //
 
 using System;
+using SharpKit.JsClr.System;
 
 namespace Mono.Security
 {
@@ -38,7 +39,7 @@ namespace Mono.Security
 		private BitConverterLE ()
 		{
 		}
-		unsafe private static byte[] GetUShortBytes (byte *bytes)
+		private static byte[] GetUShortBytes (Pointer bytes)
 		{
 			if (BitConverter.IsLittleEndian)
 				return new byte [] { bytes [0], bytes [1] };
@@ -46,7 +47,7 @@ namespace Mono.Security
 				return new byte [] { bytes [1], bytes [0] };
 		}
 
-		unsafe private static byte[] GetUIntBytes (byte *bytes)
+        private static byte[] GetUIntBytes(Pointer bytes)
 		{
 			if (BitConverter.IsLittleEndian)
 				return new byte [] { bytes [0], bytes [1], bytes [2], bytes [3] };
@@ -54,7 +55,7 @@ namespace Mono.Security
 				return new byte [] { bytes [3], bytes [2], bytes [1], bytes [0] };
 		}
 
-		unsafe private static byte[] GetULongBytes (byte *bytes)
+		private static byte[] GetULongBytes (Pointer bytes)
 		{
 			if (BitConverter.IsLittleEndian)
 				return new byte [] { bytes [0], bytes [1], bytes [2], bytes [3],
@@ -64,57 +65,57 @@ namespace Mono.Security
 						     bytes [3], bytes [2], bytes [1], bytes [0] };
 		}
 
-		unsafe internal static byte[] GetBytes (bool value)
+		internal static byte[] GetBytes (bool value)
 		{
 			return new byte [] { value ? (byte)1 : (byte)0 };
 		}
 
-		unsafe internal static byte[] GetBytes (char value)
+		internal static byte[] GetBytes (char value)
 		{
-			return GetUShortBytes ((byte *) &value);
+			return GetUShortBytes (value.GetPointer());
 		}
 
-		unsafe internal static byte[] GetBytes (short value)
+		internal static byte[] GetBytes (short value)
 		{
-			return GetUShortBytes ((byte *) &value);
+			return GetUShortBytes (value.GetPointer());
 		}
 
-		unsafe internal static byte[] GetBytes (int value)
+		internal static byte[] GetBytes (int value)
 		{
-			return GetUIntBytes ((byte *) &value);
+			return GetUIntBytes (value.GetPointer());
 		}
 
-		unsafe internal static byte[] GetBytes (long value)
+		internal static byte[] GetBytes (long value)
 		{
-			return GetULongBytes ((byte *) &value);
+			return GetULongBytes (value.GetPointer());
 		}
 
-		unsafe internal static byte[] GetBytes (ushort value)
+		internal static byte[] GetBytes (ushort value)
 		{
-			return GetUShortBytes ((byte *) &value);
+            return GetUShortBytes(value.GetPointer());
 		}
 
-		unsafe internal static byte[] GetBytes (uint value)
+		internal static byte[] GetBytes (uint value)
 		{
-			return GetUIntBytes ((byte *) &value);
+            return GetUIntBytes(value.GetPointer());
 		}
 
-		unsafe internal static byte[] GetBytes (ulong value)
+		internal static byte[] GetBytes (ulong value)
 		{
-			return GetULongBytes ((byte *) &value);
+            return GetULongBytes(value.GetPointer());
 		}
 
-		unsafe internal static byte[] GetBytes (float value)
+		internal static byte[] GetBytes (float value)
 		{
-			return GetUIntBytes ((byte *) &value);
+            return GetUIntBytes(value.GetPointer());
 		}
 
-		unsafe internal static byte[] GetBytes (double value)
+		internal static byte[] GetBytes (double value)
 		{
-			return GetULongBytes ((byte *) &value);
+            return GetULongBytes(value.GetPointer());
 		}
 
-		unsafe private static void UShortFromBytes (byte *dst, byte[] src, int startIndex)
+		private static void UShortFromBytes (Pointer dst, byte[] src, int startIndex)
 		{
 			if (BitConverter.IsLittleEndian) {
 				dst [0] = src [startIndex];
@@ -126,82 +127,82 @@ namespace Mono.Security
 		}
 
 
-		unsafe internal static bool ToBoolean (byte[] value, int startIndex)
+		internal static bool ToBoolean (byte[] value, int startIndex)
 		{
 			return value [startIndex] != 0;
 		}
 
-		unsafe internal static char ToChar (byte[] value, int startIndex)
+		internal static char ToChar (byte[] value, int startIndex)
 		{
-			char ret;
+			char ret = '\0';
 
-			UShortFromBytes ((byte *) &ret, value, startIndex);
+			UShortFromBytes (ret.GetPointer(), value, startIndex);
 
 			return ret;
 		}
 
-		unsafe internal static short ToInt16 (byte[] value, int startIndex)
+		internal static short ToInt16 (byte[] value, int startIndex)
 		{
-			short ret;
+			short ret = 0;
 
-			UShortFromBytes ((byte *) &ret, value, startIndex);
+            UShortFromBytes(ret.GetPointer(), value, startIndex);
 
 			return ret;
 		}
 
-		unsafe internal static int ToInt32 (byte[] value, int startIndex)
+		internal static int ToInt32 (byte[] value, int startIndex)
 		{
-			int ret;
+			int ret = 0;
 
-			UIntFromBytes ((byte *) &ret, value, startIndex);
+            UIntFromBytes(ret.GetPointer(), value, startIndex);
 
 			return ret;
 		}
 
-		unsafe internal static long ToInt64 (byte[] value, int startIndex)
+		internal static long ToInt64 (byte[] value, int startIndex)
 		{
-			long ret;
+			long ret = 0;
 
-			ULongFromBytes ((byte *) &ret, value, startIndex);
+            ULongFromBytes(ret.GetPointer(), value, startIndex);
 
 			return ret;
 		}
 
-		unsafe internal static ushort ToUInt16 (byte[] value, int startIndex)
-		{
-			ushort ret;
+		internal static ushort ToUInt16 (byte[] value, int startIndex)
+        {
+			ushort ret = 0;
 
-			UShortFromBytes ((byte *) &ret, value, startIndex);
-
-			return ret;
-		}
-
-		unsafe internal static uint ToUInt32 (byte[] value, int startIndex)
-		{
-			uint ret;
-
-			UIntFromBytes ((byte *) &ret, value, startIndex);
+            UShortFromBytes(ret.GetPointer(), value, startIndex);
 
 			return ret;
 		}
 
-		unsafe internal static ulong ToUInt64 (byte[] value, int startIndex)
+		internal static uint ToUInt32 (byte[] value, int startIndex)
 		{
-			ulong ret;
+			uint ret = 0;
 
-			ULongFromBytes ((byte *) &ret, value, startIndex);
+            UIntFromBytes(ret.GetPointer(), value, startIndex);
 
 			return ret;
 		}
-        unsafe internal static float ToSingle (byte[] value, int startIndex)
-		{
-			float ret;
 
-			UIntFromBytes ((byte *) &ret, value, startIndex);
+		internal static ulong ToUInt64 (byte[] value, int startIndex)
+		{
+			ulong ret = 0;
+
+			ULongFromBytes (ret.GetPointer(), value, startIndex);
 
 			return ret;
 		}
-        unsafe private static void ULongFromBytes(byte* dst, byte[] src, int startIndex)
+        internal static float ToSingle (byte[] value, int startIndex)
+		{
+			float ret = 0;
+
+            UIntFromBytes(ret.GetPointer(), value, startIndex);
+
+			return ret;
+		}
+        private static void ULongFromBytes(Pointer dst, byte[] src, int startIndex)
         {
             if (BitConverter.IsLittleEndian)
             {
@@ -214,7 +215,8 @@ namespace Mono.Security
                     dst[i] = src[startIndex + (7 - i)];
             }
         }
-        unsafe private static void UIntFromBytes(byte* dst, byte[] src, int startIndex)
+        
+        private static void UIntFromBytes(Pointer dst, byte[] src, int startIndex)
         {
             if (BitConverter.IsLittleEndian)
             {
@@ -231,11 +233,11 @@ namespace Mono.Security
                 dst[3] = src[startIndex];
             }
         }
-		unsafe internal static double ToDouble (byte[] value, int startIndex)
+		internal static double ToDouble (byte[] value, int startIndex)
 		{
-			double ret;
+			double ret = 0;
 
-            ULongFromBytes((byte*)&ret, value, startIndex);
+            ULongFromBytes(ret.GetPointer(), value, startIndex);
 
 			return ret;
 		}

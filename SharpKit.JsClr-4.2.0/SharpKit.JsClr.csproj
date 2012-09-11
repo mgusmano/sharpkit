@@ -26,7 +26,7 @@
     <DefineConstants>JAVASCRIPT, NET_4_0</DefineConstants>
     <DocumentationFile>..\..\bin\v4.0\SharpKit.JsClr.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'v3.5'">
@@ -52,6 +52,7 @@
     <Compile Include="Compilation\VM.cs" />
     <Compile Include="System\Activator.cs" />
     <Compile Include="System\Attribute.cs" />
+    <Compile Include="System\BaseType.cs" />
     <Compile Include="System\BitConverter.cs" />
     <Compile Include="System\Collections\ArrayList.cs" />
     <Compile Include="System\Collections\Generic\Dictionary.cs" />

@@ -27,55 +27,52 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 //
+//Modified for JS: 9/10/12 
+//Niels Linders (nielsLinders@gmail.com)
+//StatusQuote Inc.
 //
+
 using System;
 using System.Text;
 using SharpKit.JavaScript;
+using SharpKit.JsClr.System;
 
 namespace SQSystem
 {
-    [JsType(Name = "System.BitConverter", Filename = "~/Internal/Core.js")]
+    [JsType(Name = "System.BitConverter", Filename = "~/Internal/Core.js", Mode = JsMode.Clr)]
 	public static class BitConverter
 	{
 		static readonly bool SwappedWordsInDouble = DoubleWordsAreSwapped ();
 		public static readonly bool IsLittleEndian = AmILittleEndian ();
 
-		static unsafe bool AmILittleEndian ()
+		static bool AmILittleEndian ()
 		{
 			// binary representations of 1.0:
 			// big endian: 3f f0 00 00 00 00 00 00
 			// little endian: 00 00 00 00 00 00 f0 3f
 			// arm fpa little endian: 00 00 f0 3f 00 00 00 00
 			double d = 1.0;
-		    //byte b = BitConverter.GetBytes(d);
-			//byte *b = (byte*)&d;
-            //todo 
-			//return (b [0] == 0);
-		    throw new NotImplementedException();
+		    return ((int)d.GetPointer()[0] == 0);
 		}
 
-		static unsafe bool DoubleWordsAreSwapped ()
+		static bool DoubleWordsAreSwapped ()
 		{
 			// binary representations of 1.0:
 			// big endian: 3f f0 00 00 00 00 00 00
 			// little endian: 00 00 00 00 00 00 f0 3f
 			// arm fpa little endian: 00 00 f0 3f 00 00 00 00
-            throw new NotImplementedException();
-            //double d = 1.0;
-            //byte *b = (byte*)&d;
-            //return b [2] == 0xf0;
+            double d = 1.0;
+            return (int)d.GetPointer()[2] == 0xf0;
 		}
 
-		public unsafe static long DoubleToInt64Bits (double value)
+		public static long DoubleToInt64Bits (double value)
 		{
-			//return *(long *) &value;
-		    return (long) value;
+			return (long) value;
 		}
 
-		public unsafe static double Int64BitsToDouble (long value)
+		public static double Int64BitsToDouble (long value)
 		{
-			//return *(double *) &value;
-            return (double)value;
+			return value;
 		}
 
 		internal static double InternalInt64BitsToDouble (long value)
@@ -83,7 +80,7 @@ namespace SQSystem
 			return SwappableToDouble (GetBytes (value), 0);
 		}
 		
-		unsafe static byte[] GetBytes (byte *ptr, int count)
+		static byte[] GetBytes (Pointer ptr, int count)
 		{
 			byte [] ret = new byte [count];
 
@@ -94,73 +91,73 @@ namespace SQSystem
 			return ret;
 		}
 
-		unsafe public static byte[] GetBytes (bool value)
+		public static byte[] GetBytes (bool value)
 		{
-			return GetBytes ((byte *) &value, 1);
+			return GetBytes (value.GetPointer(), 1);
 		}
 
-		unsafe public static byte[] GetBytes (char value)
+		public static byte[] GetBytes (char value)
 		{
-			return GetBytes ((byte *) &value, 2);
+            return GetBytes(value.GetPointer(), 2);
 		}
 
-		unsafe public static byte[] GetBytes (short value)
+		public static byte[] GetBytes (short value)
 		{
-			return GetBytes ((byte *) &value, 2);
+            return GetBytes(value.GetPointer(), 2);
 		}
 
-		unsafe public static byte[] GetBytes (int value)
+		public static byte[] GetBytes (int value)
 		{
-			return GetBytes ((byte *) &value, 4);
+			return GetBytes (value.GetPointer(), 4);
 		}
 
-		unsafe public static byte[] GetBytes (long value)
+		public static byte[] GetBytes (long value)
 		{
-			return GetBytes ((byte *) &value, 8);
+			return GetBytes (value.GetPointer(), 8);
 		}
 
-		unsafe public static byte[] GetBytes (ushort value)
+		public static byte[] GetBytes (ushort value)
 		{
-			return GetBytes ((byte *) &value, 2);
-		}
-
-		
-		unsafe public static byte[] GetBytes (uint value)
-		{
-			return GetBytes ((byte *) &value, 4);
+			return GetBytes (value.GetPointer(), 2);
 		}
 
 		
-		unsafe public static byte[] GetBytes (ulong value)
+		public static byte[] GetBytes (uint value)
 		{
-			return GetBytes ((byte *) &value, 8);
+			return GetBytes (value.GetPointer(), 4);
 		}
 
-		unsafe public static byte[] GetBytes (float value)
+		
+		public static byte[] GetBytes (ulong value)
 		{
-			return GetBytes ((byte *) &value, 4);
+			return GetBytes (value.GetPointer(), 8);
 		}
 
-		unsafe public static byte[] GetBytes (double value)
+		public static byte[] GetBytes (float value)
+		{
+            return GetBytes(value.GetPointer(), 4);
+		}
+
+		public static byte[] GetBytes (double value)
 		{
 			if (SwappedWordsInDouble) {
 				byte[] data = new byte [8];
-				byte *p = (byte*)&value;
+                Pointer p = value.GetPointer();
 				data [0] = p [4];
-				data [1] = p [5];
-				data [2] = p [6];
-				data [3] = p [7];
-				data [4] = p [0];
-				data [5] = p [1];
-				data [6] = p [2];
-				data [7] = p [3];
+                data[1] = p[5];
+                data[2] = p[6];
+                data[3] = p[7];
+                data[4] = p[0];
+                data[5] = p[1];
+                data[6] = p[2];
+                data[7] = p[3];
 				return data;
 			} else {
-				return GetBytes ((byte *) &value, 8);
+                return GetBytes(value.GetPointer(), 8);
 			}
 		}
 
-		unsafe static void PutBytes (byte *dst, byte[] src, int start_index, int count)
+		static void PutBytes (Pointer dst, byte[] src, int start_index, int count)
 		{
 			if (src == null)
 				throw new ArgumentNullException ("value");
@@ -180,7 +177,7 @@ namespace SQSystem
 				dst[i] = src[i + start_index];
 		}
 
-		unsafe public static bool ToBoolean (byte[] value, int startIndex)
+		public static bool ToBoolean (byte[] value, int startIndex)
 		{
 			if (value == null) 
 				throw new ArgumentNullException ("value");
@@ -196,86 +193,86 @@ namespace SQSystem
 			return false;
 		}
 
-		unsafe public static char ToChar (byte[] value, int startIndex)
+		public static char ToChar (byte[] value, int startIndex)
 		{
-			char ret;
+			char ret = '\0';
 
-			PutBytes ((byte *) &ret, value, startIndex, 2);
+			PutBytes (ret.GetPointer(), value, startIndex, 2);
 
 			return ret;
 		}
 
-		unsafe public static short ToInt16 (byte[] value, int startIndex)
+		public static short ToInt16 (byte[] value, int startIndex)
 		{
-			short ret;
+            short ret = 0;
 
-			PutBytes ((byte *) &ret, value, startIndex, 2);
+			PutBytes (ret.GetPointer(), value, startIndex, 2);
 
 			return ret;
 		}
 
-		unsafe public static int ToInt32 (byte[] value, int startIndex)
+		public static int ToInt32 (byte[] value, int startIndex)
 		{
-			int ret;
+		    int ret = 0;
 
-			PutBytes ((byte *) &ret, value, startIndex, 4);
+			PutBytes (ret.GetPointer(), value, startIndex, 4);
 
 			return ret;
 		}
 
-		unsafe public static long ToInt64 (byte[] value, int startIndex)
+		public static long ToInt64 (byte[] value, int startIndex)
 		{
-			long ret;
+			long ret = 0; 
 
-			PutBytes ((byte *) &ret, value, startIndex, 8);
+			PutBytes (ret.GetPointer(), value, startIndex, 8);
 
 			return ret;
 		}
 
-		unsafe public static ushort ToUInt16 (byte[] value, int startIndex)
+		public static ushort ToUInt16 (byte[] value, int startIndex)
 		{
-			ushort ret;
+			ushort ret = 0;
 
-			PutBytes ((byte *) &ret, value, startIndex, 2);
-
-			return ret;
-		}
-
-		
-		unsafe public static uint ToUInt32 (byte[] value, int startIndex)
-		{
-			uint ret;
-
-			PutBytes ((byte *) &ret, value, startIndex, 4);
+			PutBytes (ret.GetPointer(), value, startIndex, 2);
 
 			return ret;
 		}
 
 		
-		unsafe public static ulong ToUInt64 (byte[] value, int startIndex)
+		public static uint ToUInt32 (byte[] value, int startIndex)
 		{
-			ulong ret;
+			uint ret = 0;
 
-			PutBytes ((byte *) &ret, value, startIndex, 8);
+			PutBytes (ret.GetPointer(), value, startIndex, 4);
 
 			return ret;
 		}
 
-		unsafe public static float ToSingle (byte[] value, int startIndex)
+		
+		public static ulong ToUInt64 (byte[] value, int startIndex)
 		{
-			float ret;
+			ulong ret = 0;
 
-			PutBytes ((byte *) &ret, value, startIndex, 4);
+			PutBytes (ret.GetPointer(), value, startIndex, 8);
 
 			return ret;
 		}
 
-		unsafe public static double ToDouble (byte[] value, int startIndex)
+		public static float ToSingle (byte[] value, int startIndex)
 		{
-			double ret;
+			float ret = 0;
+
+			PutBytes (ret.GetPointer(), value, startIndex, 4);
+
+			return ret;
+		}
+
+		public static double ToDouble (byte[] value, int startIndex)
+		{
+			double ret = 0;
 
 			if (SwappedWordsInDouble) {
-				byte* p = (byte*)&ret;
+                var p = ret.GetPointer();
 				if (value == null)
 					throw new ArgumentNullException ("value");
 
@@ -302,17 +299,17 @@ namespace SQSystem
 				return ret;
 			}
 
-			PutBytes ((byte *) &ret, value, startIndex, 8);
+            PutBytes(ret.GetPointer(), value, startIndex, 8);
 
 			return ret;
 		}
 
-		unsafe internal static double SwappableToDouble (byte[] value, int startIndex)
+		internal static double SwappableToDouble (byte[] value, int startIndex)
 		{
-			double ret;
+			double ret = 0;
 
 			if (SwappedWordsInDouble) {
-				byte* p = (byte*)&ret;
+                var p = ret.GetPointer();
 				if (value == null)
 					throw new ArgumentNullException ("value");
 
@@ -338,7 +335,7 @@ namespace SQSystem
 
 				return ret;
 			} else if (!IsLittleEndian) {
-				byte* p = (byte*)&ret;
+                var p = ret.GetPointer();
 				if (value == null)
 					throw new ArgumentNullException ("value");
 
@@ -365,7 +362,7 @@ namespace SQSystem
 				return ret;
 			}
 
-			PutBytes ((byte *) &ret, value, startIndex, 8);
+            PutBytes(ret.GetPointer(), value, startIndex, 8);
 
 			return ret;
 		}
