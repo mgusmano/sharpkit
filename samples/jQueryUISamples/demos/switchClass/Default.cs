@@ -2,7 +2,7 @@
 using SharpKit.jQuery;
 using SharpKit.Html4;
 
-namespace jQueryUISamples.demos.toggleClass
+namespace jQueryUISamples.demos.switchClass
 {
     [JsType(JsMode.Global)]
     public class Default
@@ -11,20 +11,23 @@ namespace jQueryUISamples.demos.toggleClass
         {
             new jQuery(OnReady);
         }
+
         static void OnReady()
         {
             new jQuery("#button").click(e =>
                 {
-                    //TODO: $("#effect").toggleClass("newClass", 1000);
-                 //  new jQuery("#effect").toggleClass( "newClass", 1000);
+                    // TODO: new jQuery(".newClass").switchClass("newClass", "anotherNewClass", 1000);
+                    //TODO: new jQuery(".anotherNewClass").swithClass("newClass", "anotherNewClass", 1000);
                     JsContext.@return(false);
                 });
         }
-        //$(function () {
+        //        $(function () {
         //    $("#button").click(function () {
-        //        $("#effect").toggleClass("newClass", 1000);
+        //        $(".newClass").switchClass("newClass", "anotherNewClass", 1000);
+        //        $(".anotherNewClass").switchClass("anotherNewClass", "newClass", 1000);
         //        return false;
         //    });
-        //});    
+        //});
+
     }
 }

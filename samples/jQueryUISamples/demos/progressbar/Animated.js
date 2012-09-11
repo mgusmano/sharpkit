@@ -2,8 +2,5 @@
 $(OnReady);
 function OnReady()
 {
-    $("#button").click(function(e)
-    {
-        return false;
-    });
+    $("#progressbar").progressbar({value:59});
 };
