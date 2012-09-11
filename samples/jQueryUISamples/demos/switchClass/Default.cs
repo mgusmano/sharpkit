@@ -16,18 +16,10 @@ namespace jQueryUISamples.demos.switchClass
         {
             new jQuery("#button").click(e =>
                 {
-                    // TODO: new jQuery(".newClass").switchClass("newClass", "anotherNewClass", 1000);
-                    //TODO: new jQuery(".anotherNewClass").swithClass("newClass", "anotherNewClass", 1000);
+                    new jQuery(".newClass").switchClass("newClass", "anotherNewClass", 1000);
+                    new jQuery(".anotherNewClass").switchClass("anotherNewClass", "newClass", 1000);
                     JsContext.@return(false);
                 });
         }
-        //        $(function () {
-        //    $("#button").click(function () {
-        //        $(".newClass").switchClass("newClass", "anotherNewClass", 1000);
-        //        $(".anotherNewClass").switchClass("anotherNewClass", "newClass", 1000);
-        //        return false;
-        //    });
-        //});
-
     }
 }

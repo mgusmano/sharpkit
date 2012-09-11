@@ -110,6 +110,7 @@
     <Content Include="demos\draggable\DelayStart.htm" />
     <Content Include="demos\draggable\DelayStart.js" />
     <Content Include="demos\draggable\Events.js" />
+    <Content Include="demos\draggable\Evrents.htm" />
     <Content Include="demos\draggable\Handle.htm" />
     <Content Include="demos\draggable\Handle.js" />
     <Content Include="demos\draggable\Revert.htm" />
@@ -176,6 +177,7 @@
     <Content Include="demos\tabs\ajax\content1.html" />
     <Content Include="demos\tabs\ajax\content2.html" />
     <Content Include="demos\tabs\Bottom.htm" />
+    <Content Include="demos\tabs\Bottom.js" />
     <Content Include="demos\tabs\Collapsible.htm" />
     <Content Include="demos\tabs\Collapsible.js" />
     <Content Include="demos\tabs\Cookie.htm" />
@@ -388,6 +390,7 @@
     </Compile>
     <Compile Include="demos\accordion\NoAutoHeight.cs" />
     <Compile Include="demos\accordion\Sortable.cs" />
+    <Compile Include="demos\addClass\Default.cs" />
     <Compile Include="demos\animate\Default.cs" />
     <Compile Include="demos\button\Checkbox.cs" />
     <Compile Include="demos\button\Default.cs" />
@@ -451,9 +454,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="demos\addClass\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="demos\tabs\ajax\content3-slow.php" />
     <None Include="demos\tabs\ajax\content4-broken.php" />

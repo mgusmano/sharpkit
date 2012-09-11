@@ -4,6 +4,8 @@ function OnReady()
 {
     $("#button").click(function(e)
     {
+        $(".newClass").switchClass("newClass","anotherNewClass",1000);
+        $(".anotherNewClass").switchClass("anotherNewClass","newClass",1000);
         return false;
     });
 };

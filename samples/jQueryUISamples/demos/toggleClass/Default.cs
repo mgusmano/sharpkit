@@ -15,16 +15,9 @@ namespace jQueryUISamples.demos.toggleClass
         {
             new jQuery("#button").click(e =>
                 {
-                    //TODO: $("#effect").toggleClass("newClass", 1000);
-                 //  new jQuery("#effect").toggleClass( "newClass", 1000);
+                    new jQuery("#effect").toggleClass("newClass", 1000);
                     JsContext.@return(false);
                 });
         }
-        //$(function () {
-        //    $("#button").click(function () {
-        //        $("#effect").toggleClass("newClass", 1000);
-        //        return false;
-        //    });
-        //});    
     }
 }

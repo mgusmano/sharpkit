@@ -4,6 +4,7 @@ function OnReady()
 {
     $("#button").click(function(e)
     {
+        $("#effect").toggleClass("newClass",1000);
         return false;
     });
 };
