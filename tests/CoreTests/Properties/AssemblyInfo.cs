@@ -36,8 +36,10 @@ using SharpKit.JavaScript;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("4.29.8000")]
 
-#if ORIGINAL
-[assembly: JsExport(FilenameFormat = "versions/original/{0}", DefaultFilenameAsCsFilename = true)]
-#else
-[assembly: JsExport(FilenameFormat = "versions/current/{0}", DefaultFilenameAsCsFilename = true)]
-#endif
+//#if ORIGINAL
+//[assembly: JsExport(FilenameFormat = "versions/original/{0}", DefaultFilenameAsCsFilename = true)]
+//#else
+//[assembly: JsExport(FilenameFormat = "versions/current/{0}", DefaultFilenameAsCsFilename = true)]
+//#endif
+
+[assembly: JsExport(FilenameFormat = "res/{0}", DefaultFilenameAsCsFilename = true)]
