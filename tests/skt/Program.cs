@@ -15,7 +15,7 @@ namespace skt
         private static ArgumentDictionary ArgHash;
         private static string ProjectDir;
         private static int ErrorCount;
-        private static string SvnExe = @"C:\Program Files (x86)\CollabNet\Subversion Client\svn.exe";
+        private static string SvnExe = @"svn.exe";
         private static string SvnUrl = "http://sharpkit.googlecode.com/svn/trunk/tests/CoreTests";
 
         public static int Main(string[] args)
@@ -48,7 +48,7 @@ namespace skt
             }
             finally
             {
-                if (ArgHash!=null && ArgHash.ContainsKey("wait"))
+                if (ArgHash != null && ArgHash.ContainsKey("wait"))
                 {
                     Console.WriteLine("Press any key to continue...");
                     Console.ReadKey();
@@ -81,7 +81,7 @@ namespace skt
             var jsDir = ProjectDir;// +"\\res";
             var tmpDir = appDir + "\\tmp";
 
-            if (Directory.Exists(tmpDir)) 
+            if (Directory.Exists(tmpDir))
                 Directory.Delete(tmpDir, true);
             Directory.CreateDirectory(tmpDir);
 
@@ -154,6 +154,7 @@ namespace skt
 
         private static IEnumerable<CompareFile> IterateFolderComparison(string currentDir, string originalDir)
         {
+
             if (!Directory.Exists(currentDir))
             {
                 throw new Exception("currentDir is missing");
@@ -164,15 +165,12 @@ namespace skt
                 throw new Exception("originalDir is missing");
             }
 
-            foreach (var file in Directory.GetFiles(currentDir, "*.js"))
+            foreach (var origFile in Directory.GetFiles(originalDir, "*.js", SearchOption.AllDirectories))
             {
-                var file2 = Path.Combine(originalDir, Path.GetFileName(file));
-                yield return CompareFile.Compare(file, file2);
+                var currFile = currentDir + origFile.Substring(originalDir.Length);
+                yield return CompareFile.Compare(currFile, origFile);
             }
 
-            foreach (var subDir in new DirectoryInfo(currentDir).GetDirectories())
-                foreach (var itm in IterateFolderComparison(subDir.FullName, originalDir + "\\" + subDir.Name))
-                    yield return itm;
         }
 
     }
