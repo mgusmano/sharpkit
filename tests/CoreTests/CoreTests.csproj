@@ -33,13 +33,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AnonymousObjects\AnonymousObjects.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
-    <Compile Include="Class3.cs" />
-    <Compile Include="Class4.cs" />
-    <Compile Include="Class5.cs" />
-    <Compile Include="Class6.cs" />
-    <Compile Include="Class7.cs" />
+    <Compile Include="CustomAttributes\Class1.cs" />
+    <Compile Include="Arrays\Class2.cs" />
+    <Compile Include="Interfaces\Class3.cs" />
+    <Compile Include="OutRefParameters\Class4.cs" />
+    <Compile Include="ForEach\Class5.cs" />
+    <Compile Include="Properties_\Class6.cs" />
+    <Compile Include="Properties_\Class7.cs" />
     <Compile Include="Constants\Constants.cs" />
     <Compile Include="Constructors\Constructors.cs" />
     <Compile Include="Dynamics\Dynamics.cs" />
@@ -58,21 +58,20 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="res\AnonymousObjects\AnonymousObjects.js" />
-    <Content Include="res\Class1.js" />
-    <Content Include="res\Class2.js" />
-    <Content Include="res\Class3.js" />
-    <Content Include="res\Class4.js" />
-    <Content Include="res\Class5.js" />
-    <Content Include="res\Class6.js" />
-    <Content Include="res\Class7.js" />
-    <Content Include="res\Constants\Constants.js" />
-    <Content Include="res\Constructors\Constructors.js" />
-    <Content Include="res\Dynamics\Dynamics.js" />
-    <Content Include="res\Enums\Enums.js" />
-    <Content Include="res\Events\CustomEvents.js" />
-    <Content Include="res\GenericsInheritance\GenericsInheritance.js" />
-    <Content Include="res\Methods\NamedParameters.js" />
+    <Content Include="AnonymousObjects\AnonymousObjects.js" />
+    <Content Include="Constants\Constants.js" />
+    <Content Include="Constructors\Constructors.js" />
+    <Content Include="CustomAttributes\Class1.js" />
+    <Content Include="Dynamics\Dynamics.js" />
+    <Content Include="Enums\Enums.js" />
+    <Content Include="Events\CustomEvents.js" />
+    <Content Include="ForEach\Class5.js" />
+    <Content Include="GenericsInheritance\GenericsInheritance.js" />
+    <Content Include="Interfaces\Class3.js" />
+    <Content Include="Methods\NamedParameters.js" />
+    <Content Include="Params\Params.js" />
+    <Content Include="Properties_\Class6.js" />
+    <Content Include="Properties_\Class7.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildToolsPath)\SharpKit\5\SharpKit.Build.targets" />
