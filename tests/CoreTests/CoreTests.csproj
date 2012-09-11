@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AnonymousObjects\AnonymousObjects.js" />
+    <Content Include="Arrays\Class2.js" />
     <Content Include="Constants\Constants.js" />
     <Content Include="Constructors\Constructors.js" />
     <Content Include="CustomAttributes\Class1.js" />
@@ -69,6 +70,7 @@
     <Content Include="GenericsInheritance\GenericsInheritance.js" />
     <Content Include="Interfaces\Class3.js" />
     <Content Include="Methods\NamedParameters.js" />
+    <Content Include="OutRefParameters\Class4.js" />
     <Content Include="Params\Params.js" />
     <Content Include="Properties_\Class6.js" />
     <Content Include="Properties_\Class7.js" />
