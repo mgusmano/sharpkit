@@ -15,6 +15,8 @@ namespace skt
         private static ArgumentDictionary ArgHash;
         private static string ProjectDir;
         private static int ErrorCount;
+        private static string SvnExe = @"C:\Program Files\TortoiseSVN\bin\svn.exe";
+        private static string SvnUrl = "http://sharpkit.googlecode.com/svn/trunk/tests/CoreTests/res";
 
         public static int Main(string[] args)
         {
@@ -23,7 +25,7 @@ namespace skt
             {
                 ArgHash = GetArguments(args);
 
-                //ProjectDir = @"D:\projects\Sharpkit\SharpkitTest";
+                //ProjectDir = @"C:\Users\sebastian.sharpkit\Documents\Visual Studio 2010\Projects\tests\CoreTests";
                 ProjectDir = Environment.CurrentDirectory;
 
                 if (ArgHash.GetValue("compile", "1") == "1") //--> /compile:0 for skip compiling
@@ -54,10 +56,10 @@ namespace skt
 
         public static void Compile()
         {
-            var version = ArgHash.GetValue("version", "current");
+            //var version = ArgHash.GetValue("version", "current");
 
             var runner = new MSBuildRunner(ProjectDir);
-            runner.Defines.Add(version.ToUpper());
+            //runner.Defines.Add(version.ToUpper());
 
             if (!runner.Execute())
             {
@@ -72,20 +74,30 @@ namespace skt
 
         public static void Compare()
         {
-            var list = IterateFolderComparison(ProjectDir + "\\versions\\current", ProjectDir + "\\versions\\original");
+            var appDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            var jsDir = ProjectDir + "\\res";
+            var tmpDir = appDir + "\\tmp";
+
+            if (Directory.Exists(tmpDir)) Directory.Delete(tmpDir, true);
+            Directory.CreateDirectory(tmpDir);
+
+            Utils.ExecuteProcess(tmpDir, SvnExe, "checkout " + SvnUrl + " \"" + tmpDir + "\"");
+
+            var list = IterateFolderComparison(jsDir, tmpDir);
             if (list == null)
                 throw new Exception("unknown error");
 
             foreach (var itm in list)
             {
-                Console.WriteLine(itm.FileOriginal + " -> " + itm.Status);
+                var wellFileName = itm.FileOriginal.Replace(tmpDir, "");
+                Console.WriteLine(wellFileName + " -> " + itm.Status);
                 if (itm.Status == CompareFileStatus.Ok)
                     continue;
                 ErrorCount++;
 
                 var lineNumberStr = "";
                 if (itm.Status == CompareFileStatus.LineDiff) lineNumberStr = ":" + itm.Diff.LineNumber;
-                Console.Write(Path.GetFileName(itm.FileOriginal) + lineNumberStr + " ");
+                Console.Write(wellFileName + lineNumberStr + " ");
 
                 Console.Write("[");
                 Write(itm.Status.ToString().ToUpper(), ConsoleColor.Red);

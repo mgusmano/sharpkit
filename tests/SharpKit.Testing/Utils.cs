@@ -9,7 +9,7 @@ namespace SharpKit.Testing
 {
 
 
-     static class Extensions
+    public static class Extensions
     {
 
         public static bool IsEmpty(this string self)
@@ -19,7 +19,7 @@ namespace SharpKit.Testing
 
     }
 
-     class Utils
+    public class Utils
     {
 
         public static ExecuteResult ExecuteProcess(string dir, string file, string args)
