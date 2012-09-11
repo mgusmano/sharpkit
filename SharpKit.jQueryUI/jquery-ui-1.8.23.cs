@@ -2586,17 +2586,17 @@ namespace SharpKit.jQuery
     public static partial class ToggleClassExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery toggleclass(this jQuery query) { return default(jQuery); }
+        public static jQuery toggleClass(this jQuery query) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery toggleclass(this jQuery query, ToggleClassOptions options) { return default(jQuery); }
+        public static jQuery toggleClass(this jQuery query, ToggleClassOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery toggleclass(this jQuery query, JsString @class, JsNumber duration) { return default(jQuery); }
+        public static jQuery toggleClass(this jQuery query, JsString @class, JsNumber duration) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery toggleclass(this jQuery query, JsString @class, JsString duration) { return default(jQuery); }
+        public static jQuery toggleClass(this jQuery query, JsString @class, JsString duration) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery toggleclass(this jQuery query, JsString @class) { return default(jQuery); }
+        public static jQuery toggleClass(this jQuery query, JsString @class) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery toggleclass(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+        public static jQuery toggleClass(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
     #endregion
     #region ToggleClassOptions
