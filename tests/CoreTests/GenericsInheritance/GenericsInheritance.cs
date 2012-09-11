@@ -24,18 +24,18 @@ namespace CoreTests.GenericInheritance
 
     }
 
-    //[JsType(JsMode.Clr)]
-    //public class KCatCollection : SQParams<KCat>
-    //{
-    //    //it creates the proper function to the base
-    //    //        ctor:function()
-    //    //    {
-    //    //      NGShared.SQParams$1.ctor.call(this,NGMobileShared.KCat);
-    //    // }
-    //}
+    [JsType(JsMode.Clr)]
+    public class KCatCollection : SQParams<KCat>
+    {
+        //it creates the proper function to the base
+        //        ctor:function()
+        //    {
+        //      NGShared.SQParams$1.ctor.call(this,NGMobileShared.KCat);
+        // }
+    }
 
     [JsType(JsMode.Clr)]
-    public class KCatCollection : SQParamCollection<KCat>
+    public class KCatCollection2 : List<KCat>
     {
         //it does not create the proper function to the base
         //
@@ -47,4 +47,5 @@ namespace CoreTests.GenericInheritance
         //       }
         //   }
     }
+
 }

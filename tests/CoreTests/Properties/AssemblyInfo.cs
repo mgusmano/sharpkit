@@ -42,4 +42,4 @@ using SharpKit.JavaScript;
 //[assembly: JsExport(FilenameFormat = "versions/current/{0}", DefaultFilenameAsCsFilename = true)]
 //#endif
 
-[assembly: JsExport(FilenameFormat = "res/{0}", DefaultFilenameAsCsFilename = true)]
+[assembly: JsExport(DefaultFilenameAsCsFilename = true)]

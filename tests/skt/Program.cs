@@ -15,7 +15,7 @@ namespace skt
         private static ArgumentDictionary ArgHash;
         private static string ProjectDir;
         private static int ErrorCount;
-        private static string SvnExe = @"C:\Program Files\TortoiseSVN\bin\svn.exe";
+        private static string SvnExe = @"C:\Program Files (x86)\CollabNet\Subversion Client\svn.exe";
         private static string SvnUrl = "http://sharpkit.googlecode.com/svn/trunk/tests/CoreTests/res";
 
         public static int Main(string[] args)
@@ -42,14 +42,17 @@ namespace skt
             catch (Exception e)
             {
                 WriteLine(e.Message, ConsoleColor.Red);
-                if (ArgHash.ContainsKey("wait"))
+                if (ErrorCount == 0)
+                    return -1;
+                return ErrorCount;
+            }
+            finally
+            {
+                if (ArgHash!=null && ArgHash.ContainsKey("wait"))
                 {
                     Console.WriteLine("Press any key to continue...");
                     Console.ReadKey();
                 }
-                if (ErrorCount == 0)
-                    return -1;
-                return ErrorCount;
             }
 
         }
