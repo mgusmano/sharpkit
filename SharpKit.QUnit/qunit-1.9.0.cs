@@ -1,7 +1,9 @@
 ﻿using SharpKit.JavaScript;
 
+//[assembly:JsNamespace("SharpKit.QUnit"
 namespace SharpKit.QUnit
 {
+    [JsType(JsMode.Global, Export = false)]
     public class Assert
     {
         /// <summary>
@@ -117,6 +119,7 @@ namespace SharpKit.QUnit
 
     }
 
+    [JsType(JsMode.Global, Export = false)]
     public class AsyncControl
     {
 
@@ -160,6 +163,7 @@ namespace SharpKit.QUnit
 
     }
 
+    [JsType(JsMode.Global, Export = false)]
     public class QUnit
     {
         public QUnit(QUnitConfiguration cofig) { }
@@ -231,6 +235,7 @@ namespace SharpKit.QUnit
     /// <remarks>
     /// QUnit has a bunch of internal configuration defaults, some of which are useful to override. Check the description for each option for details.
     /// </remarks>
+    [JsType(JsMode.Global, Export = false)]
     public class QUnitConfiguration
     {
         /// <summary>
@@ -263,6 +268,7 @@ namespace SharpKit.QUnit
 
     }
 
+    [JsType(JsMode.Global, Export = false)]
     public class DoneDetailsOptions
     {
         /// <summary>
@@ -286,6 +292,7 @@ namespace SharpKit.QUnit
         public JsNumber runtime { get; set; }
     }
 
+    [JsType(JsMode.Global, Export = false)]
     public class LogDetailsOptions
     {
         /// <summary>
@@ -309,6 +316,7 @@ namespace SharpKit.QUnit
         public JsString message { get; set; }
     }
 
+    [JsType(JsMode.Global, Export = false)]
     public class Test
     {
         /// <summary>
