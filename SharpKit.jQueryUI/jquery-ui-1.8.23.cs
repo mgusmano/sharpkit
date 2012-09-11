@@ -307,11 +307,11 @@ namespace SharpKit.jQuery
     public static partial class AddClassExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery addclass(this jQuery query) { return default(jQuery); }
+        public static jQuery addClass(this jQuery query) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery addclass(this jQuery query, AddClassOptions options) { return default(jQuery); }
+        public static jQuery addClass(this jQuery query, AddClassOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery addclass(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+        public static jQuery addClass(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
     #endregion
     #region AddClassOptions
@@ -2236,8 +2236,11 @@ namespace SharpKit.jQuery
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery switchClass(this jQuery query, SwitchClassOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery switchClass(this jQuery query, string methodName, JsNumber duration) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery switchClass(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
-    }
+        
+          }
     #endregion
     #region SwitchClassOptions
     ///<summary>
@@ -4191,7 +4194,7 @@ namespace SharpKit.jQuery
         //TODO: event name without the"event"
 
     }
-        #endregion
+    #endregion
 
     [JsType(JsMode.Json)]
     public class AnimationPropertiesEx : AnimationProperties
@@ -4204,7 +4207,7 @@ namespace SharpKit.jQuery
         //public JsString color { get; set; }
         public JsString outlineColor { get; set; }
 
-        [JsProperty(Name="width")]
+        [JsProperty(Name = "width")]
         public JsNumber widthNumber { get; set; }
 
     }
