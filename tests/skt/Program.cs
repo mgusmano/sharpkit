@@ -16,7 +16,7 @@ namespace skt
         private static string ProjectDir;
         private static int ErrorCount;
         private static string SvnExe = @"C:\Program Files (x86)\CollabNet\Subversion Client\svn.exe";
-        private static string SvnUrl = "http://sharpkit.googlecode.com/svn/trunk/tests/CoreTests/res";
+        private static string SvnUrl = "http://sharpkit.googlecode.com/svn/trunk/tests/CoreTests";
 
         public static int Main(string[] args)
         {
@@ -78,10 +78,11 @@ namespace skt
         public static void Compare()
         {
             var appDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            var jsDir = ProjectDir + "\\res";
+            var jsDir = ProjectDir;// +"\\res";
             var tmpDir = appDir + "\\tmp";
 
-            if (Directory.Exists(tmpDir)) Directory.Delete(tmpDir, true);
+            if (Directory.Exists(tmpDir)) 
+                Directory.Delete(tmpDir, true);
             Directory.CreateDirectory(tmpDir);
 
             Utils.ExecuteProcess(tmpDir, SvnExe, "checkout " + SvnUrl + " \"" + tmpDir + "\"");
