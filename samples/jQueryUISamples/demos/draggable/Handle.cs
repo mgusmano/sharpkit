@@ -22,9 +22,7 @@ namespace jQueryUISamples.demos.draggable
         {
             new jQuery("#draggable").draggable(new DraggableOptions { handle = "p" });
             new jQuery("#draggable2").draggable(new DraggableOptions { cancel = "p.ui-widget-header" });
-            //TODO: undocumented core util method: $( "div, p" ).disableSelection();
-            JsContext.JsCode("$( 'div, p' ).disableSelection();");
+            new jQuery( "div, p" ).disableSelection();
         }
-
     }
 }

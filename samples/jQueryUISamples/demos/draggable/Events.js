@@ -31,4 +31,5 @@ function updateCounterStatus(event_counter,new_count)
     {
         event_counter.addClass("ui-state-hover").siblings().removeclass("ui-state-hover");
     }
+     $( 'span.count', $event_counter ).text( new_count );;
 };

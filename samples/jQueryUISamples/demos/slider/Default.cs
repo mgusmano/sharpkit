@@ -2,7 +2,7 @@
 using SharpKit.jQuery;
 using SharpKit.Html4;
 
-namespace jQueryUISamples.demos.sortable
+namespace jQueryUISamples.demos.slider
 {
     [JsType(JsMode.Global)]
     public class Default
@@ -11,10 +11,10 @@ namespace jQueryUISamples.demos.sortable
         {
             new jQuery(OnReady);
         }
+
         static void OnReady()
         {
-            new jQuery("#sortable").sortable();
-            new jQuery("#sortable").disableSelection();
+            new jQuery("#slider").slider();
         }
     }
 }

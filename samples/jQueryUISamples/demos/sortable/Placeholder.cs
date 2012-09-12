@@ -5,15 +5,16 @@ using SharpKit.Html4;
 namespace jQueryUISamples.demos.sortable
 {
     [JsType(JsMode.Global)]
-    public class Default
+    public class Placeholder
     {
-        static Default()
+        static Placeholder()
         {
             new jQuery(OnReady);
         }
+
         static void OnReady()
         {
-            new jQuery("#sortable").sortable();
+            new jQuery("#sortable").sortable(new SortableOptions { placeholder = "ui-state-highlight" });
             new jQuery("#sortable").disableSelection();
         }
     }

@@ -15,7 +15,7 @@ namespace jQueryUISamples.demos.sortable
         {
             new jQuery("#sortable1").sortable(new SortableOptions { delay = 300 });
             new jQuery("#sortable2").sortable(new SortableOptions { distance = 15 });
-            //TODO: new jQuery("li").disableSelection();
+            new jQuery("li").disableSelection();
         }
     }
 }

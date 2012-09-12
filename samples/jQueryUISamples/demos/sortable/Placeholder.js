@@ -2,6 +2,6 @@
 $(OnReady);
 function OnReady()
 {
-    $("#sortable").sortable();
+    $("#sortable").sortable({placeholder:"ui-state-highlight"});
     $("#sortable").disableSelection();
 };

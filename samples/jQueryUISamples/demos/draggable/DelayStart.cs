@@ -21,9 +21,7 @@ namespace jQueryUISamples.demos.draggable
         {
             new jQuery("#draggable").draggable(new DraggableOptions { distance = 20 });
             new jQuery("#draggable2").draggable(new DraggableOptions { delay = 1000 });
-            //TODO: undocumented core util method: new jQuery(".ui-draggable").disableSelection();
-            JsContext.JsCode("$('.ui-draggable').disableSelection();");
-
+            new jQuery(".ui-draggable").disableSelection();
         }
     }
 }

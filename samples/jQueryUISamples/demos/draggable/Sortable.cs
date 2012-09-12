@@ -21,8 +21,7 @@ namespace jQueryUISamples.demos.draggable
         {
             new jQuery("#sortable").sortable(new SortableOptions { revert = true });
             new jQuery("#draggable").draggable(new DraggableOptions { connectToSortable = "#sortable", helper = "clone", revert = "invalid" });
-            //TODO: undocumented core util method: $( "ul, li" ).disableSelection();
-            JsContext.JsCode("$( 'ul, li' ).disableSelection();");
+            new jQuery("ul, li").disableSelection();
         }
     }
 }

@@ -14,13 +14,11 @@ namespace jQueryUISamples.demos.datepicker
 
         static void OnReady()
         {
-            new jQuery("#datepicker").datepicker(new DatepickerOptions { firstDay = 1 }); //TODO: showWeek: true
-        //        $(function () {
-        //    $("#datepicker").datepicker({
-        //        showWeek: true,
-        //        firstDay: 1
-        //    });
-        //});
+            new jQuery("#datepicker").datepicker(new DatepickerOptions
+            {
+                showWeek = true,
+                firstDay = 1
+            });
         }
     }
 }

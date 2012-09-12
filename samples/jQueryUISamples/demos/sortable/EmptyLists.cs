@@ -15,7 +15,7 @@ namespace jQueryUISamples.demos.sortable
         {
             new jQuery("ul.droptrue").sortable(new SortableOptions { connectWith = "ul" });
             new jQuery("ul.dropfalse").sortable(new SortableOptions { connectWith = "ul", dropOnEmpty = false });
-            // TODO: new jQuery("#sortable1, #sortable2, #sortable3").disableSelection();
+            new jQuery("#sortable1, #sortable2, #sortable3").disableSelection();
         }
     }
 }

@@ -2,5 +2,5 @@
 $(OnReady);
 function OnReady()
 {
-    $("#datepicker").datepicker({firstDay:1});
+    $("#slider").slider();
 };

@@ -4,5 +4,5 @@ function OnReady()
 {
     $("#draggable").draggable({handle:"p"});
     $("#draggable2").draggable({cancel:"p.ui-widget-header"});
-     $( 'div, p' ).disableSelection();;
+    $("div, p").disableSelection();
 };

@@ -2,6 +2,5 @@
 $(OnReady);
 function OnReady()
 {
-    $("#sortable").sortable();
-    $("#sortable").disableSelection();
+    $("#datepicker").datepicker({showWeek:true,firstDay:1});
 };

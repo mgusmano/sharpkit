@@ -16,7 +16,7 @@ namespace jQueryUISamples.demos.addClass
             new jQuery("#button").click(x =>
             {
                 //TODO: $( "#effect" ).addClass( "newClass", 1000, callback );
-                //new jQuery("#effect").addClass("newClas", 1000, callback);
+               // new jQuery("#effect").addClass("newClass", 1000, callback);
             });
 
         }

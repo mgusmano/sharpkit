@@ -12,7 +12,8 @@ namespace jQueryUISamples.demos.draggable
             new jQuery(OnReady);
         }
 
-        //TODO
+        //TODO: the draggable doesn't work..
+
         static void OnReady()
         {
 
@@ -50,6 +51,7 @@ namespace jQueryUISamples.demos.draggable
             		// ...then update the numbersKD
 			// TODO: $( "span.count", $event_counter ).text( new_count ); - text doesn't get jsNumber
              // new jQuery("span.count", event_counter).text(new_count);
+            JsContext.JsCode("$( 'span.count', $event_counter ).text( new_count );");
         }
     }
 }

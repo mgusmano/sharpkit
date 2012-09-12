@@ -12,6 +12,7 @@ namespace jQueryUISamples.demos.droppable
             new jQuery(OnReady);
         }
 
+        // TODO: the example does not work correctly.
         static void OnReady()
         {
             new jQuery("#catalog").accordion();
@@ -27,7 +28,7 @@ namespace jQueryUISamples.demos.droppable
                 accept = ":not(.ui-sortable-helper)",
                 drop = (e, ui) =>
                     {
-                        new jQuery(e.currentTarget).find(".placeholder").remove();
+                        new jQuery(ui).find(".placeholder").remove();
                         new jQuery("<li></li>").text(ui.draggable.text()).appendTo(e.currentTarget);
                     }
             })
