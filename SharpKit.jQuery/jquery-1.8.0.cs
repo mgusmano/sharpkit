@@ -2654,6 +2654,8 @@ namespace SharpKit.jQuery
 		/// <returns></returns>
 		public static HtmlDocument parseXML(JsString data) { return null; }
 
+        public jQuery disableSelection() { return null; }
+
 		#region IEnumerable<HtmlElement> Members
 
 		public IEnumerator<HtmlElement> GetEnumerator() {
