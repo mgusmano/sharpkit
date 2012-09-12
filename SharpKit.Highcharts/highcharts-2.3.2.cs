@@ -1,10 +1,20 @@
 ﻿
 using SharpKit.JavaScript;
+using SharpKit.Html4;
+using System;
 
 namespace SharpKit.Highcharts
 {
     [JsType(JsMode.Prototype, Name = "Highcharts.Chart", Export = false)]
     public class Chart
+    {
+        public Chart(ChartConfiguration Config) { }
+        public JsArray<xAxis> xAxis { get; set; }
+
+        //TODO: Highcharts.setOptions() 
+    }
+
+    public class xAxis
     {
 
     }
@@ -32,7 +42,6 @@ namespace SharpKit.Highcharts
         /// ]
         /// </summary>
         public JsArray<JsString> colors { get; set; }
-        //TODO: JsArray<JsString> OR JsArray?
 
         /// <summary>
         /// Highchart by default puts a credits label in the lower right corner of the chart. This can be changed using these options.
@@ -96,12 +105,20 @@ namespace SharpKit.Highcharts
         public PaneOptions pane { get; set; }
 
         /// <summary>
+        /// The plotOptions is a wrapper object for config objects for each series type.
+        /// The config objects for each series can also be overridden for each series item as given in the series array.
+        /// Configuration options for the series are given in three levels. Options for all series in a chart are given in the plotOptions.series object.
+        /// Then options for all series of a specific type are given in the plotOptions of that type, for example plotOptions.line.
+        /// Next, options for one single series are given in the series array.
+        /// </summary>
+        public PlotOptions plotOptions { get; set; }
+
+        /// <summary>
         /// The actual series to append to the chart.
         /// In addition to the members listed below, any member of the plotOptions for that specific type of plot can be added to a series individually.
         /// For example, even though a general lineWidth is specified in plotOptions.series, an individual lineWidth can be specified for each series.
         /// </summary>
         public JsArray<SeriesOptions> series { get; set; }
-        //TODO: it is an array right?
 
         /// <summary>
         /// The chart's subtitle
@@ -112,6 +129,40 @@ namespace SharpKit.Highcharts
         /// The chart's main title.
         /// </summary>
         public TitleOptions title { get; set; }
+
+        /// <summary>
+        /// Options for the tooltip that appears when the user hovers over a series or point.
+        /// </summary>
+        public TooltipOptions tooltip { get; set; }
+
+        /// <summary>
+        /// The X axis or category axis. Normally this is the horizontal axis, though if the chart is inverted this is the vertical axis.
+        /// In case of multiple axes, the xAxis node is an array of configuration objects.
+        /// See the Axis object for programmatic access to the axis.
+        /// </summary>
+        public XAxisOptions xAxis { get; set; }
+        /// <summary>
+        /// The X axis or category axis. Normally this is the horizontal axis, though if the chart is inverted this is the vertical axis.
+        /// In case of multiple axes, the xAxis node is an array of configuration objects.
+        /// See the Axis object for programmatic access to the axis.
+        /// </summary>
+        [JsProperty(Name = "xAxis")]
+        public JsArray<XAxisOptions> xAxisArray { get; set; }
+
+        /// <summary>
+        /// The Y axis or value axis. Normally this is the vertical axis, though if the chart is inverted this is the horiontal axis.
+        /// In case of multiple axes, the yAxis node is an array of configuration objects.
+        /// See the Axis object for programmatic access to the axis.
+        /// </summary>
+        public XAxisOptions yAxis { get; set; }
+        /// <summary>
+        /// The Y axis or value axis. Normally this is the vertical axis, though if the chart is inverted this is the horiontal axis.
+        /// In case of multiple axes, the yAxis node is an array of configuration objects.
+        /// See the Axis object for programmatic access to the axis.
+        /// </summary>
+        [JsProperty(Name = "yAxis")]
+        public JsArray<XAxisOptions> yAxisArray { get; set; }
+
     }
 
     #region chart
@@ -166,13 +217,11 @@ namespace SharpKit.Highcharts
         /// The background color or gradient for the outer chart area. Defaults to "#FFFFFF".
         /// </summary>
         public JsString backgroundColor { get; set; }
-        //TODO: type is color (?)
 
         /// <summary>
         /// The color of the outer chart border. The border is painted using vector graphic techniques to allow rounded corners. Defaults to "#4572A7".
         /// </summary>
         public JsString borderColor { get; set; }
-        //TODO: type is color (?)
 
         /// <summary>
         /// The corner radius of the outer chart border. Defaults to 5.
@@ -251,7 +300,6 @@ namespace SharpKit.Highcharts
         /// The background color or gradient for the plot area. Defaults to null.
         /// </summary>
         public JsString plotBackgroundColor { get; set; }
-        //TODO: type is color (?)
 
         /// <summary>
         /// The URL for an image to use as the plot background.
@@ -263,7 +311,6 @@ namespace SharpKit.Highcharts
         /// The color of the inner chart or plot area border. Defaults to "#C0C0C0".
         /// </summary>
         public JsString plotBorderColor { get; set; }
-        //TODO: type is color (?)
 
         /// <summary>
         /// The pixel width of the plot area border. Defaults to 0.
@@ -318,8 +365,7 @@ namespace SharpKit.Highcharts
         /// <summary>
         /// The background color of the marker square when selecting (zooming in on) an area of the chart. Defaults to rgba(69,114,167,0.25). Defaults to rgba(69114,167,0.25),.
         /// </summary>
-        public object selectionMarkerFill { get; set; }
-        //TODO: type is color (?)
+        public JsString selectionMarkerFill { get; set; }
 
         /// <summary>
         /// Whether to apply a drop shadow to the outer chart area. Requires that backgroundColor be set.
@@ -377,8 +423,7 @@ namespace SharpKit.Highcharts
         /// 	fontSize: '12px'
         /// }
         /// </summary>
-        public object style { get; set; }
-        //TODO: type?
+        public HtmlElementStyle style { get; set; }
 
         /// <summary>
         /// The default series type for the chart. Can be one of line, spline, area, areaspline, column, bar, pie and scatter.
@@ -416,7 +461,6 @@ namespace SharpKit.Highcharts
         /// When using MooTools as the general framework, use the property name transition instead of easing.
         /// </summary>
         public EasingType easing { get; set; }
-        //TODO: More easing functions are available with the use of jQuery plug-ins, 
     }
 
     [JsType(JsMode.Json)]
@@ -474,7 +518,6 @@ namespace SharpKit.Highcharts
         /// </summary>
         public object theme { get; set; }
     }
-    //TODO: check name
 
     /// <summary>
     /// What frame the button should be placed related to. Can be either "plot" or "chart".
@@ -553,8 +596,7 @@ namespace SharpKit.Highcharts
         /// 
         /// }
         /// </summary>
-        public object style { get; set; }
-        //TODO: type?
+        public HtmlElementStyle style { get; set; }
 
         /// <summary>
         /// The text for the credits label. Defaults to "Highcharts.com".
@@ -639,7 +681,6 @@ namespace SharpKit.Highcharts
         public PrintButtonOptions printButton { get; set; }
 
     }
-    //TODO: check name
 
     /// <summary>
     /// Options for the export button.
@@ -775,7 +816,6 @@ namespace SharpKit.Highcharts
         public JsNumber y { get; set; }
 
     }
-    //TODO: check name
 
     /// <summary>
     /// Options for the print button.
@@ -903,7 +943,6 @@ namespace SharpKit.Highcharts
         public JsNumber y { get; set; }
 
     }
-    //TODO: check name
 
     /// <summary>
     /// The vertical alignment of the buttons. Can be one of "top", "middle" or "bottom". 
@@ -974,8 +1013,7 @@ namespace SharpKit.Highcharts
         /// 	color: '#3E576F'
         /// }
         /// </summary>
-        public object style { get; set; }
-        //TODO: type?
+        public HtmlElementStyle style { get; set; }
 
     }
 
@@ -998,8 +1036,7 @@ namespace SharpKit.Highcharts
         /// 	top: '100px'
         /// }
         /// </summary>
-        public object style { get; set; }
-        //TODO: type?
+        public HtmlElementStyle style { get; set; }
     }
 
     #endregion
@@ -1097,7 +1134,6 @@ namespace SharpKit.Highcharts
         /// </summary>
         public JsArray<JsString> Name { get; set; }
     }
-    //TODO: danel- read class sammary!
 
     #endregion
 
@@ -1118,13 +1154,11 @@ namespace SharpKit.Highcharts
         /// The background color of the legend, filling the rounded corner border. Defaults to null.
         /// </summary>
         public JsString backgroundColor { get; set; }
-        //TODO: type is color (?)
 
         /// <summary>
         /// The color of the drawn border around the legend. Defaults to #909090.
         /// </summary>
         public JsString borderColor { get; set; }
-        //TODO: type is color (?)
 
         /// <summary>
         /// The border corner radius of the legend. Defaults to 5.
@@ -1152,8 +1186,7 @@ namespace SharpKit.Highcharts
         /// 	color: '#CCC'
         /// }
         /// </summary>
-        public object itemHiddenStyle { get; set; }
-        //TODO: type?
+        public HtmlElementStyle itemHiddenStyle { get; set; }
 
         /// <summary>
         /// CSS styles for each legend item in hover mode. Properties are inherited from style unless overridden here. Defaults to:
@@ -1161,8 +1194,7 @@ namespace SharpKit.Highcharts
         /// 	color: '#000'
         /// }
         /// </summary>
-        public object itemHoverStyle { get; set; }
-        //TODO: type?
+        public HtmlElementStyle itemHoverStyle { get; set; }
 
         /// <summary>
         /// The pixel bottom margin for each legend item. Defaults to 0.
@@ -1181,8 +1213,7 @@ namespace SharpKit.Highcharts
         /// 	color: '#3E576F'
         /// }
         /// </summary>
-        public object itemStyle { get; set; }
-        //TODO: type?
+        public HtmlElementStyle itemStyle { get; set; }
 
         /// <summary>
         /// The width for each legend item. This is useful in a horizontal layout with many items when you want the items to align vertically. . Defaults to null.
@@ -1261,8 +1292,7 @@ namespace SharpKit.Highcharts
         /// CSS styles for the legend area. In the 1.x versions the position of the legend area was determined by CSS. In 2.x,
         /// the position is determined by properties like align, verticalAlign, x and y, but the styles are still parsed for backwards compatibility.
         /// </summary>
-        public object style { get; set; }
-        //TODO: type?
+        public HtmlElementStyle style { get; set; }
 
         /// <summary>
         /// The pixel padding between the legend item symbol and the legend item text. Defaults to 5.
@@ -1349,8 +1379,7 @@ namespace SharpKit.Highcharts
         /// <summary>
         /// Text styles for the legend page navigation.
         /// </summary>
-        public object style { get; set; }
-        //TODO: type?
+        public HtmlElementStyle style { get; set; }
 
     }
 
@@ -1380,8 +1409,7 @@ namespace SharpKit.Highcharts
         /// 	top: '1em'
         /// }
         /// </summary>
-        public object labelStyle { get; set; }
-        //TODO: type
+        public HtmlElementStyle labelStyle { get; set; }
 
         /// <summary>
         /// The duration in milliseconds of the fade in effect. Defaults to 100.
@@ -1397,8 +1425,7 @@ namespace SharpKit.Highcharts
         /// 	textAlign: 'center'
         /// }
         /// </summary>
-        public object style { get; set; }
-        //TODO: type
+        public HtmlElementStyle style { get; set; }
 
     }
 
@@ -1424,8 +1451,7 @@ namespace SharpKit.Highcharts
         /// 	color: '#FFFFFF'
         /// }
         /// </summary>
-        public object menuItemHoverStyle { get; set; }
-        //TODO: type?
+        public HtmlElementStyle menuItemHoverStyle { get; set; }
 
         /// <summary>
         /// CSS styles for the individual items within the popup menu appearing by default when the export icon is clicked. The menu items are rendered in HTML. Defaults to
@@ -1435,8 +1461,7 @@ namespace SharpKit.Highcharts
         /// 	color: '#303030'
         /// }
         /// </summary>
-        public object menuItemStyle { get; set; }
-        //TODO: type?
+        public HtmlElementStyle menuItemStyle { get; set; }
 
         /// <summary>
         /// CSS styles for the popup menu appearing by default when the export icon is clicked. This menu is rendered in HTML. Defaults to
@@ -1445,8 +1470,7 @@ namespace SharpKit.Highcharts
         /// 	background: '#FFFFFF'
         /// }
         /// </summary>
-        public object menuStyle { get; set; }
-        //TODO: type?
+        public HtmlElementStyle menuStyle { get; set; }
     }
 
     /// <summary>
@@ -1552,12 +1576,6 @@ namespace SharpKit.Highcharts
         /// </summary>
         public JsNumber width { get; set; }
 
-        ///// <summary>
-        ///// The horizontal positioin of the button relative to the align option. Defaults to 10.
-        ///// </summary>
-        //public JsNumber x { get; set; }
-        //TODO: there is a Y property but no X property(?) (this property is copied from diffrent class...)
-
         /// <summary>
         /// The vertical offset of the button's position relative to its verticalAlign.	 . Defaults to 10.
         /// </summary>
@@ -1581,14 +1599,12 @@ namespace SharpKit.Highcharts
         /// Sub options include backgroundColor (which can be solid or gradient), innerWidth, outerWidth, borderWidth, borderColor.
         /// </summary>
         public object background { get; set; }
-        //TODO: read summary, does it need a options class?
         /// <summary>
         /// An object, or array of objects, for backgrounds.
         /// Sub options include backgroundColor (which can be solid or gradient), innerWidth, outerWidth, borderWidth, borderColor.
         /// </summary>
         [JsProperty(Name = "background")]
         public JsArray<object> backgroundArray { get; set; }
-        //TODO: read summary, does it need a options class?
 
         /// <summary>
         /// The center of a polar chart or angular gauge, given as an array of [x, y] positions.
@@ -1627,7 +1643,2629 @@ namespace SharpKit.Highcharts
 
     #endregion
 
-    //TODO: plotOptions http://api.highcharts.com/highcharts#plotOptions. (A BIG BIG BIG class, not sure where it is in use)
+    #region plotOptions
+
+    /// <summary>
+    /// The plotOptions is a wrapper object for config objects for each series type.
+    /// The config objects for each series can also be overridden for each series item as given in the series array.
+    /// Configuration options for the series are given in three levels. Options for all series in a chart are given in the plotOptions.series object.
+    /// Then options for all series of a specific type are given in the plotOptions of that type, for example plotOptions.line.
+    /// Next, options for one single series are given in the series array.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class PlotOptions
+    {
+        public PlotAreaOptions area { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PlotAreaRangeOptions arearange { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PlotAreaSplineOptions areaspline { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PlotAreaSplineRangeOptions areasplinerange { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PlotBarOptions bar { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PlotColumnOptions column { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PlotColumnRangeOptions columnrange { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PlotGaugeOptions gauge { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PlotLineOptions line { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PlotPieOptions pie { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PlotScatterOptions scatter { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PlotSeriesOptions series { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PlotSplineOptions spline { get; set; }
+
+
+    }
+
+    #region area
+
+    [JsType(JsMode.Json)]
+    public class PlotAreaOptions
+    {
+        /// <summary>
+        /// Allow this series' points to be selected by clicking on the markers, bars or pie slices. Defaults to false.
+        /// </summary>
+        public bool allowPointSelect { get; set; }
+
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        public AnimationOptions animation { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public bool animationBoolean { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public object animationObject { get; set; }
+
+        /// <summary>
+        /// The main color or the series. In line type series it applies to the line and the point markers unless otherwise specified.
+        /// In bar type series it applies to the bars unless a color is specified per point. The default value is pulled from the options.colors array.
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// Polar charts only. Whether to connect the ends of a line series plot across the extremes. Defaults to true.
+        /// </summary>
+        public bool connectEnds { get; set; }
+
+        /// <summary>
+        /// Whether to connect a graph line across null points. Defaults to false.
+        /// </summary>
+        public bool connectNulls { get; set; }
+
+        /// <summary>
+        /// When the series contains less points than the crop threshold, all points are drawn, event if the points fall outside the visible plot area at the current zoom.
+        /// The advantage of drawing all points (including markers and columns), is that animation is performed on updates.
+        /// On the other hand, when the series contains more points than the crop threshold, the series data is cropped to only contain points that fall within the plot area.
+        /// The advantage of cropping away invisible points is to increase performance on large series. . Defaults to 300.
+        /// </summary>
+        public JsNumber cropThreshold { get; set; }
+
+        /// <summary>
+        /// You can set the cursor to "pointer" if you have click events attached to the series, to signal to the user that the points and lines can be clicked. Defaults to ''.
+        /// </summary>
+        public JsString cursor { get; set; }
+
+        /// <summary>
+        /// A name for the dash style to use for the graph. Applies only to series type having a graph, like line, spline, area and scatter in case it has a lineWidth. The value for the dashStyle include:
+        /// Solid
+        /// ShortDash
+        /// ShortDot
+        /// ShortDashDot
+        /// ShortDashDotDot
+        /// Dot
+        /// Dash
+        /// LongDash
+        /// DashDot
+        /// LongDashDot
+        /// LongDashDotDot
+        /// . Defaults to null.
+        /// </summary>
+        public DashStyleType dashStyle { get; set; }
+
+        public AreaDataLabelsOptions dataLabels { get; set; }
+
+        /// <summary>
+        /// Enable or disable the mouse tracking for a specific series.
+        /// This includes point tooltips and click events on graphs and points. For large datasets it improves performance. Defaults to true.
+        /// </summary>
+        public bool enableMouseTracking { get; set; }
+
+        //TODO: events
+
+        /// <summary>
+        /// Fill color or gradient for the area. When null, the series' color is used with the series' fillOpacity. Defaults to null.
+        /// </summary>
+        public JsString fillColor { get; set; }
+
+        /// <summary>
+        /// Fill opacity for the area. Defaults to .75.
+        /// </summary>
+        public JsNumber fillOpacity { get; set; }
+
+        /// <summary>
+        /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// A separate color for the graph line. By default the line takes the color of the series,
+        /// but the lineColor setting allows setting a separate color for the line without altering the fillColor. Defaults to null.
+        /// </summary>
+        public JsString lineColor { get; set; }
+
+        /// <summary>
+        /// Pixel with of the graph line. Defaults to 2.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        public AreaMarkerOptions marker { get; set; }
+
+        /// <summary>
+        /// Properties for each single point
+        /// </summary>
+        public PointOptions point { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointInterval defines the interval of the x values.
+        /// For example, if a series contains one value every decade starting from year 0, set pointInterval to 10.
+        /// . Defaults to 1.
+        /// </summary>
+        public JsNumber pointInterval { get; set; }
+
+        /// <summary>
+        /// Possible values: null, "on", "between".
+        /// In a column chart, when pointPlacement is "on", the point will not create any padding of the X axis.
+        /// In a polar column chart this means that the first column points directly north.
+        /// If the pointPlacement is "between", the columns will be laid out between ticks.
+        /// This is useful for example for visualising an amount between two points in time or in a certain sector of a polar chart.
+        /// Defaults to null in cartesian charts, "between" in polar charts.
+        /// </summary>
+        public PointPlacementType pointPlacement { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointStart defines on what value to start.
+        /// For example, if a series contains one yearly value starting from 1945, set pointStart to 1945. Defaults to 0.
+        /// </summary>
+        public JsNumber pointStart { get; set; }
+
+        /// <summary>
+        /// Whether to select the series initially. If showCheckbox is true, the checkbox next to the series name will be checked for a selected series. Defaults to false.
+        /// </summary>
+        public bool selected { get; set; }
+
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public bool shadowBoolean { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public object shadowObject { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        public ShadowOptions shadow { get; set; }
+
+        /// <summary>
+        /// If true, a checkbox is displayed next to the legend item to allow selecting the series.
+        /// The state of the checkbox is determined by the selected option. Defaults to false.
+        /// </summary>
+        public bool showCheckbox { get; set; }
+
+        /// <summary>
+        /// Whether to display this particular series or series type in the legend. Defaults to true.
+        /// </summary>
+        public bool showInLegend { get; set; }
+
+        /// <summary>
+        /// Whether to stack the values of each series on top of each other.
+        /// Possible values are null to disable, "normal" to stack by value or "percent". Defaults to null.
+        /// </summary>
+        public JsString stacking { get; set; }
+
+        /// <summary>
+        /// A wrapper object for all the series options in specific states.
+        /// </summary>
+        public AreaStatesOptions states { get; set; }
+
+        /// <summary>
+        /// Sticky tracking of mouse events.
+        /// When true, the mouseOut event on a series isn't triggered until the mouse moves over another series, or out of the plot area.
+        /// When false, the mouseOut event on a series is triggered when the mouse leaves the area around the series' graph or markers.
+        /// This also implies the tooltip. When stickyTracking is false, the tooltip will be hidden when moving the mouse between series.
+        /// Defaults to true.
+        /// </summary>
+        public bool stickyTracking { get; set; }
+
+        /// <summary>
+        /// The Y axis value to serve as the base for the area, for distinguishing between values above and below a threshold. Defaults to 0.
+        /// </summary>
+        public JsNumber threshold { get; set; }
+
+        /// <summary>
+        /// A configuration object for the tooltip rendering of each single series. Properties are inherited from tooltip.
+        /// Overridable properties are headerFormat, pointFormat, valueDecimals, xDateFormat, valuePrefix and valueSuffix.
+        /// Defaults to {}.
+        /// </summary>
+        public AreaTooltipOptions tooltip { get; set; }
+
+        /// <summary>
+        /// Whether the whole area or just the line should respond to mouseover tooltips and other mouse or touch events. Defaults to false.
+        /// </summary>
+        public bool trackByArea { get; set; }
+
+        /// <summary>
+        /// When a series contains a data array that is longer than this, only one dimensional arrays of numbers, or two dimensional arrays with x and y values are allowed.
+        /// Also, only the first point is tested, and the rest are assumed to be the same format. This saves expensive data checking and indexing in long series. Defaults to 1000.
+        /// </summary>
+        public JsNumber turboThreshold { get; set; }
+
+        /// <summary>
+        /// Set the initial visibility of the series. Defaults to true.
+        /// </summary>
+        public bool visible { get; set; }
+
+        /// <summary>
+        /// Define the z index of the series. Defaults to null.
+        /// </summary>
+        public JsNumber zIndex { get; set; }
+    }
+
+    /// <summary>
+    /// A name for the dash style to use for the graph.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum DashStyleType
+    {
+        Solid,
+        ShortDash,
+        ShortDot,
+        ShortDashDot,
+        ShortDashDotDot,
+        Dot,
+        Dash,
+        LongDash,
+        DashDot,
+        LongDashDot,
+        LongDashDotDot,
+    }
+
+    [JsType(JsMode.Json)]
+    public class AreaDataLabelsOptions
+    {
+        /// <summary>
+        /// The alignment of the data label compared to the point. Can be one of "left", "center" or "right". Defaults to "center". Defaults to "center".
+        /// </summary>
+        public HorizontalAlignType align { get; set; }
+
+        /// <summary>
+        /// The background color or gradient for the data label. Defaults to undefined. Defaults to undefined.
+        /// </summary>
+        public JsString backgroundColor { get; set; }
+
+        /// <summary>
+        /// The border color for the data label. Defaults to undefined. Defaults to undefined.
+        /// </summary>
+        public JsString borderColor { get; set; }
+
+        /// <summary>
+        /// The border radius in pixels for the data label. Defaults to 0. Defaults to 0.
+        /// </summary>
+        public JsNumber borderRadius { get; set; }
+
+        /// <summary>
+        /// The border width in pixels for the data label. Defaults to 0. Defaults to 0.
+        /// </summary>
+        public JsNumber borderWidth { get; set; }
+
+        /// <summary>
+        /// The text color for the data labels. Defaults to null. Defaults to null.
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// Enable or disable the data labels. Defaults to false. Defaults to false.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// Callback JavaScript function to format the data label. Available data are:
+        /// this.percentage	Stacked series and pies only. The point's percentage of the total.
+        /// this.point	The point object. The point name, if defined, is available through this.point.name.
+        /// this.series:	The series object. The series name is available through this.series.name.
+        /// this.total	Stacked series only. The total value at this point's x value.
+        /// this.x:	The y value.
+        /// this.y:	The y value.
+        /// Default value:
+        /// formatter: function() {
+        /// 	return this.y;
+        /// }
+        /// </summary>
+        public JsAction formatter { get; set; }
+        //TODO: Callback JavaScript function (REED SUMMARY)
+
+        /// <summary>
+        ///How to handle overflowing labels on horizontal axis. Can be undefined or "justify". If "justify", labels will not render outside the plot area.
+        ///If there is room to move it, it will be aligned to the edge, else it will be removed. Defaults to undefined.
+        /// </summary>
+        public JsString overflow { get; set; }
+
+        /// <summary>
+        /// When either the borderWidth or the backgroundColor is set, this is the padding within the box. Defaults to 2. Defaults to 2.
+        /// </summary>
+        public JsNumber padding { get; set; }
+
+        /// <summary>
+        /// Text rotation in degrees. Defaults to 0. Defaults to 0.
+        /// </summary>
+        public JsNumber rotation { get; set; }
+
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public bool shadowBoolean { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public object shadowObject { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        public ShadowOptions shadow { get; set; }
+
+        /// <summary>
+        /// n/a for data labels
+        /// </summary>
+        public JsNumber staggerLines { get; set; }
+
+        /// <summary>
+        /// n/a for data labels
+        /// </summary>
+        public JsNumber step { get; set; }
+
+        /// <summary>
+        /// Styles for the label.
+        /// </summary>
+        public HtmlElementStyle style { get; set; }
+
+        /// <summary>
+        /// The x position offset of the label relative to the point. Defaults to 0.
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// The y position offset of the label relative to the point. Defaults to -6. 
+        /// </summary>
+        public JsNumber y { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class AreaMarkerOptions
+    {
+        /// <summary>
+        /// Enable or disable the point marker. Defaults to true.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// The fill color of the point marker. When null, the series' or point's color is used. Defaults to null.
+        /// </summary>
+        public JsString fillColor { get; set; }
+
+        /// <summary>
+        /// The color of the point marker's outline. When null, the series' or point's color is used. Defaults to "#FFFFFF".
+        /// </summary>
+        public JsString lineColor { get; set; }
+
+        /// <summary>
+        /// The width of the point marker's outline. Defaults to 0.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        /// <summary>
+        /// The radius of the point marker. Defaults to 0.
+        /// </summary>
+        public JsNumber radius { get; set; }
+
+        public AreaMarkerStatesOptions states { get; set; }
+
+        /// <summary>
+        /// A predefined shape or symbol for the marker. When null, the symbol is pulled from options.symbols.
+        /// Other possible values are "circle", "square", "diamond", "triangle" and "triangle-down".
+        /// Additionally, the URL to a graphic can be given on this form: "url(graphic.png)". Defaults to null.
+        /// </summary>
+        public JsString symbol { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class AreaMarkerStatesOptions
+    {
+
+        public AreaMarkerStatesHoverOptions hover { get; set; }
+
+        /// <summary>
+        /// The appearance of the point marker when selected. In order to allow a point to be selected, set the series.allowPointSelect option to true.
+        /// </summary>
+        public object select { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class AreaMarkerStatesHoverOptions
+    {
+        /// <summary>
+        ///Enable or disable the point marker. Defaults to true.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// The fill color of the point marker. When null, the series' or point's color is used. Defaults to null.
+        /// </summary>
+        public JsString fillColor { get; set; }
+
+        /// <summary>
+        /// The color of the point marker's outline. When null, the series' or point's color is used. Defaults to "#FFFFFF".
+        /// </summary>
+        public JsString lineColor { get; set; }
+
+        /// <summary>
+        /// The width of the point marker's outline. Defaults to 0.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        /// <summary>
+        /// The radius of the point marker. In hover state, it defaults to the normal state's radius + 2.
+        /// </summary>
+        public JsNumber radius { get; set; }
+    }
+
+    /// <summary>
+    /// The appearance of the point marker when selected. In order to allow a point to be selected, set the series.allowPointSelect option to true.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class AreaMarkerStatesSelectOptions
+    {
+        /// <summary>
+        ///Enable or disable visible feedback for selection. Defaults to true.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// The fill color of the point marker. When null, the series' or point's color is used. Defaults to null.
+        /// </summary>
+        public JsString fillColor { get; set; }
+
+        /// <summary>
+        /// The color of the point marker's outline. When null, the series' or point's color is used. Defaults to "#000000".
+        /// </summary>
+        public JsString lineColor { get; set; }
+
+        /// <summary>
+        /// The width of the point marker's outline. Defaults to 0.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        /// <summary>
+        /// The radius of the point marker. In hover state, it defaults to the normal state's radius + 2.
+        /// </summary>
+        public JsNumber radius { get; set; }
+    }
+
+    /// <summary>
+    /// Properties for each single point
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class PointOptions
+    {
+        //TODO: events
+    }
+
+    /// <summary>
+    /// Possible values: null, "on", "between".
+    /// </summary>
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum PointPlacementType
+    {
+        on,
+        between,
+    }
+
+    [JsType(JsMode.Json)]
+    public class AreaStatesOptions : SeriesStatesOptions
+    {
+    }
+
+    /// <summary>
+    /// A configuration object for the tooltip rendering of each single series. Properties are inherited from tooltip.
+    /// Overridable properties are headerFormat, pointFormat, valueDecimals, xDateFormat, valuePrefix and valueSuffix.	. Defaults to {}.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class AreaTooltipOptions : TooltipOptions
+    {
+    }
+
+    #endregion
+
+    #region arearange
+
+    /// <summary>
+    /// The area range is a cartesian series type with higher and lower Y values along an X axis. Requires highcharts-more.js.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class PlotAreaRangeOptions
+    {
+        /// <summary>
+        /// Allow this series' points to be selected by clicking on the markers, bars or pie slices. Defaults to false.
+        /// </summary>
+        public bool allowPointSelect { get; set; }
+
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        public AnimationOptions animation { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public bool animationBoolean { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public object animationObject { get; set; }
+
+        /// <summary>
+        /// The main color or the series. In line type series it applies to the line and the point markers unless otherwise specified.
+        /// In bar type series it applies to the bars unless a color is specified per point. The default value is pulled from the options.colors array.
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// Whether to connect a graph line across null points. Defaults to false.
+        /// </summary>
+        public bool connectNulls { get; set; }
+
+        /// <summary>
+        /// When the series contains less points than the crop threshold, all points are drawn,
+        /// event if the points fall outside the visible plot area at the current zoom.
+        /// The advantage of drawing all points (including markers and columns), is that animation is performed on updates.
+        /// On the other hand, when the series contains more points than the crop threshold,
+        /// the series data is cropped to only contain points that fall within the plot area.
+        /// The advantage of cropping away invisible points is to increase performance on large series. . Defaults to 300.
+        /// </summary>
+        public JsNumber cropThreshold { get; set; }
+
+        /// <summary>
+        /// You can set the cursor to "pointer" if you have click events attached to the series, to signal to the user that the points and lines can be clicked. Defaults to ''.
+        /// </summary>
+        public JsString cursor { get; set; }
+
+        /// <summary>
+        /// A name for the dash style to use for the graph. Applies only to series type having a graph, like line, spline, area and scatter in case it has a lineWidth.
+        /// The value for the dashStyle include:
+        /// Solid
+        /// ShortDash
+        /// ShortDot
+        /// ShortDashDot
+        /// ShortDashDotDot
+        /// Dot
+        /// Dash
+        /// LongDash
+        /// DashDot
+        /// LongDashDot
+        /// LongDashDotDot
+        /// . Defaults to null.
+        /// </summary>
+        public DashStyleType dashStyle { get; set; }
+
+        /// <summary>
+        /// Extended data labels for range series types. Range series data labels have no x and y options.
+        /// Instead, they have xLow, xHigh, yLow and yHigh options to allow the higher and lower data label sets individually.
+        /// </summary>
+        public AreaRangeDataLabelsOptions dataLabels { get; set; }
+
+        /// <summary>
+        /// Enable or disable the mouse tracking for a specific series.
+        /// This includes point tooltips and click events on graphs and points. For large datasets it improves performance. Defaults to true.
+        /// </summary>
+        public bool enableMouseTracking { get; set; }
+
+        //TODO: events
+
+        /// <summary>
+        /// Fill color or gradient for the area. When null, the series' color is used with the series' fillOpacity. Defaults to null.
+        /// </summary>
+        public JsString fillColor { get; set; }
+
+        /// <summary>
+        /// Fill opacity for the area. Defaults to .75.
+        /// </summary>
+        public JsNumber fillOpacity { get; set; }
+
+        /// <summary>
+        /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// A separate color for the graph line. By default the line takes the color of the series,
+        /// but the lineColor setting allows setting a separate color for the line without altering the fillColor. Defaults to null.
+        /// </summary>
+        public JsString lineColor { get; set; }
+
+        /// <summary>
+        /// Pixel with of the graph line. Defaults to 2.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        /// <summary>
+        /// Properties for each single point
+        /// </summary>
+        public PointOptions point { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointInterval defines the interval of the x values.
+        /// For example, if a series contains one value every decade starting from year 0, set pointInterval to 10.
+        /// . Defaults to 1.
+        /// </summary>
+        public JsNumber pointInterval { get; set; }
+
+        /// <summary>
+        /// Possible values: null, "on", "between".
+        /// In a column chart, when pointPlacement is "on", the point will not create any padding of the X axis.
+        /// In a polar column chart this means that the first column points directly north.
+        /// If the pointPlacement is "between", the columns will be laid out between ticks.
+        /// This is useful for example for visualising an amount between two points in time or in a certain sector of a polar chart.
+        /// Defaults to null in cartesian charts, "between" in polar charts.
+        /// </summary>
+        public PointPlacementType pointPlacement { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointStart defines on what value to start.
+        /// For example, if a series contains one yearly value starting from 1945, set pointStart to 1945. Defaults to 0.
+        /// </summary>
+        public JsNumber pointStart { get; set; }
+
+        /// <summary>
+        /// Whether to select the series initially. If showCheckbox is true, the checkbox next to the series name will be checked for a selected series. Defaults to false.
+        /// </summary>
+        public bool selected { get; set; }
+
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public bool shadowBoolean { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public object shadowObject { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        public ShadowOptions shadow { get; set; }
+
+        /// <summary>
+        /// If true, a checkbox is displayed next to the legend item to allow selecting the series.
+        /// The state of the checkbox is determined by the selected option. Defaults to false.
+        /// </summary>
+        public bool showCheckbox { get; set; }
+
+        /// <summary>
+        /// Whether to display this particular series or series type in the legend. Defaults to true.
+        /// </summary>
+        public bool showInLegend { get; set; }
+
+        /// <summary>
+        /// Whether to stack the values of each series on top of each other.
+        /// Possible values are null to disable, "normal" to stack by value or "percent". Defaults to null.
+        /// </summary>
+        public JsString stacking { get; set; }
+
+        /// <summary>
+        /// A wrapper object for all the series options in specific states.
+        /// </summary>
+        public AreaRangeStatesOptions states { get; set; }
+
+        /// <summary>
+        /// Sticky tracking of mouse events.
+        /// When true, the mouseOut event on a series isn't triggered until the mouse moves over another series, or out of the plot area.
+        /// When false, the mouseOut event on a series is triggered when the mouse leaves the area around the series' graph or markers.
+        /// This also implies the tooltip. When stickyTracking is false, the tooltip will be hidden when moving the mouse between series.
+        /// Defaults to true.
+        /// </summary>
+        public bool stickyTracking { get; set; }
+
+        /// <summary>
+        /// A configuration object for the tooltip rendering of each single series. Properties are inherited from tooltip.
+        /// Overridable properties are headerFormat, pointFormat, valueDecimals, xDateFormat, valuePrefix and valueSuffix.	. Defaults to {}.
+        /// </summary>
+        public AreaTooltipOptions tooltip { get; set; }
+
+        /// <summary>
+        /// Whether the whole area or just the line should respond to mouseover tooltips and other mouse or touch events. Defaults to false.
+        /// </summary>
+        public bool trackByArea { get; set; }
+
+        /// <summary>
+        /// When a series contains a data array that is longer than this, only one dimensional arrays of numbers, or two dimensional arrays with x and y values are allowed.
+        /// Also, only the first point is tested, and the rest are assumed to be the same format. This saves expensive data checking and indexing in long series. Defaults to 1000.
+        /// </summary>
+        public JsNumber turboThreshold { get; set; }
+
+        /// <summary>
+        /// Set the initial visibility of the series. Defaults to true.
+        /// </summary>
+        public bool visible { get; set; }
+
+        /// <summary>
+        /// Define the z index of the series. Defaults to null.
+        /// </summary>
+        public JsNumber zIndex { get; set; }
+    }
+
+    /// <summary>
+    /// Extended data labels for range series types. Range series data labels have no x and y options.
+    /// Instead, they have xLow, xHigh, yLow and yHigh options to allow the higher and lower data label sets individually.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class AreaRangeDataLabelsOptions
+    {
+        /// <summary>
+        /// The alignment of the data label compared to the point. Can be one of "left", "center" or "right". Defaults to "center". Defaults to "center".
+        /// </summary>
+        public HorizontalAlignType align { get; set; }
+
+        /// <summary>
+        /// The background color or gradient for the data label. Defaults to undefined. Defaults to undefined.
+        /// </summary>
+        public JsString backgroundColor { get; set; }
+
+        /// <summary>
+        /// The border color for the data label. Defaults to undefined. Defaults to undefined.
+        /// </summary>
+        public JsString borderColor { get; set; }
+
+        /// <summary>
+        /// The border radius in pixels for the data label. Defaults to 0. Defaults to 0.
+        /// </summary>
+        public JsNumber borderRadius { get; set; }
+
+        /// <summary>
+        /// The border width in pixels for the data label. Defaults to 0. Defaults to 0.
+        /// </summary>
+        public JsNumber borderWidth { get; set; }
+
+        /// <summary>
+        /// The text color for the data labels. Defaults to null. Defaults to null.
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// Enable or disable the data labels. Defaults to false. Defaults to false.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// Callback JavaScript function to format the data label. Available data are:
+        /// this.percentage	Stacked series and pies only. The point's percentage of the total.
+        /// this.point	The point object. The point name, if defined, is available through this.point.name.
+        /// this.series:	The series object. The series name is available through this.series.name.
+        /// this.total	Stacked series only. The total value at this point's x value.
+        /// this.x:	The y value.
+        /// this.y:	The y value.
+        /// Default value:
+        /// formatter: function() {
+        /// 	return this.y;
+        /// }
+        /// </summary>
+        public JsAction formatter { get; set; }
+        //TODO: Callback JavaScript function (REED SUMMARY)
+
+        /// <summary>
+        ///How to handle overflowing labels on horizontal axis. Can be undefined or "justify". If "justify", labels will not render outside the plot area.
+        ///If there is room to move it, it will be aligned to the edge, else it will be removed. Defaults to undefined.
+        /// </summary>
+        public JsString overflow { get; set; }
+
+        /// <summary>
+        /// When either the borderWidth or the backgroundColor is set, this is the padding within the box. Defaults to 2. Defaults to 2.
+        /// </summary>
+        public JsNumber padding { get; set; }
+
+        /// <summary>
+        /// Text rotation in degrees. Defaults to 0. Defaults to 0.
+        /// </summary>
+        public JsNumber rotation { get; set; }
+
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public bool shadowBoolean { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public object shadowObject { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        public ShadowOptions shadow { get; set; }
+
+        /// <summary>
+        /// n/a for data labels
+        /// </summary>
+        public JsNumber staggerLines { get; set; }
+
+        /// <summary>
+        /// n/a for data labels
+        /// </summary>
+        public JsNumber step { get; set; }
+
+        /// <summary>
+        /// Styles for the label.
+        /// </summary>
+        public HtmlElementStyle style { get; set; }
+
+        /// <summary>
+        /// X offset of the higher data labels relative to the point value. Defaults to 0.
+        /// </summary>
+        public JsNumber xHigh { get; set; }
+
+        /// <summary>
+        /// X offset of the lower data labels relative to the point value. Defaults to 0.
+        /// </summary>
+        public JsNumber xLow { get; set; }
+
+        /// <summary>
+        /// Y offset of the higher data labels relative to the point value. Defaults to -6.
+        /// </summary>
+        public JsNumber yHigh { get; set; }
+
+        /// <summary>
+        /// Y offset of the lower data labels relative to the point value. Defaults to 16.
+        /// </summary>
+        public JsNumber yLow { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class AreaRangeStatesOptions : SeriesStatesOptions
+    {
+    }
+
+    #endregion
+
+    #region PlotAreaOptions
+
+    [JsType(JsMode.Json)]
+    public class PlotAreaSplineOptions : PlotAreaOptions
+    {
+    }
+
+    #endregion
+
+    #region areasplinerange
+
+    [JsType(JsMode.Json)]
+    public class PlotAreaSplineRangeOptions : PlotAreaRangeOptions
+    {
+    }
+
+    #endregion
+
+    #region bar
+
+    [JsType(JsMode.Json)]
+    public class PlotBarOptions
+    {
+        /// <summary>
+        /// Allow this series' points to be selected by clicking on the markers, bars or pie slices. Defaults to false.
+        /// </summary>
+        public bool allowPointSelect { get; set; }
+
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        public AnimationOptions animation { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public bool animationBoolean { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public object animationObject { get; set; }
+
+        /// <summary>
+        /// The color of the border surronding each column or bar. Defaults to "#FFFFFF".
+        /// </summary>
+        public JsString borderColor { get; set; }
+
+        /// <summary>
+        /// The corner radius of the border surronding each column or bar. Defaults to 0.
+        /// </summary>
+        public JsNumber borderRadius { get; set; }
+
+        /// <summary>
+        /// The width of the border surronding each column or bar. Defaults to 1.
+        /// </summary>
+        public JsNumber borderWidth { get; set; }
+
+        /// <summary>
+        /// The main color or the series. In line type series it applies to the line and the point markers unless otherwise specified.
+        /// In bar type series it applies to the bars unless a color is specified per point. The default value is pulled from the options.colors array.
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// When using automatic point colors pulled from the options.colors collection,
+        /// this option determines whether the chart should receive one color per series or one color per point. Defaults to false.
+        /// </summary>
+        public bool colorByPoint { get; set; }
+
+        /// <summary>
+        /// When the series contains less points than the crop threshold, all points are drawn, event if the points fall outside the visible plot area at the current zoom.
+        /// The advantage of drawing all points (including markers and columns), is that animation is performed on updates.
+        /// On the other hand, when the series contains more points than the crop threshold, the series data is cropped to only contain points that fall within the plot area.
+        /// The advantage of cropping away invisible points is to increase performance on large series. . Defaults to 50.
+        /// </summary>
+        public JsNumber cropThreshold { get; set; }
+
+        /// <summary>
+        /// You can set the cursor to "pointer" if you have click events attached to the series, to signal to the user that the points and lines can be clicked. Defaults to ''.
+        /// </summary>
+        public JsString cursor { get; set; }
+
+        /// <summary>
+        /// A name for the dash style to use for the graph. Applies only to series type having a graph, like line, spline, area and scatter in case it has a lineWidth. The value for the dashStyle include:
+        /// Solid
+        /// ShortDash
+        /// ShortDot
+        /// ShortDashDot
+        /// ShortDashDotDot
+        /// Dot
+        /// Dash
+        /// LongDash
+        /// DashDot
+        /// LongDashDot
+        /// LongDashDotDot
+        /// . Defaults to null.
+        /// </summary>
+        public DashStyleType dashStyle { get; set; }
+
+        public BarDataLabelsOptions dataLabels { get; set; }
+
+        /// <summary>
+        /// Enable or disable the mouse tracking for a specific series.
+        /// This includes point tooltips and click events on graphs and points. For large datasets it improves performance. Defaults to true.
+        /// </summary>
+        public bool enableMouseTracking { get; set; }
+
+        //TODO: events
+
+        /// <summary>
+        /// Padding between each value groups, in x axis units. Defaults to 0.2.
+        /// </summary>
+        public JsNumber groupPadding { get; set; }
+
+        /// <summary>
+        /// Whether to group non-stacked columns or to let them render independent of each other.
+        /// Non-grouped columns will be laid out individually and overlap each other. Defaults to true.
+        /// </summary>
+        public bool grouping { get; set; }
+
+        /// <summary>
+        /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// The minimal height for a column or width for a bar. By default, 0 values are not shown.
+        /// To visualize a 0 (or close to zero) point, set the minimal point length to a pixel value like 3.
+        /// In stacked column charts, minPointLength might not be respected for tightly packed values. Defaults to 0.
+        /// </summary>
+        public JsNumber minPointLength { get; set; }
+
+        /// <summary>
+        /// Properties for each single point
+        /// </summary>
+        public PointOptions point { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointInterval defines the interval of the x values.
+        /// For example, if a series contains one value every decade starting from year 0, set pointInterval to 10.
+        /// . Defaults to 1.
+        /// </summary>
+        public JsNumber pointInterval { get; set; }
+
+        /// <summary>
+        /// Padding between each column or bar, in x axis units. Defaults to 0.1.
+        /// </summary>
+        public JsNumber pointPadding { get; set; }
+
+        /// <summary>
+        /// Possible values: null, "on", "between".
+        /// In a column chart, when pointPlacement is "on", the point will not create any padding of the X axis.
+        /// In a polar column chart this means that the first column points directly north.
+        /// If the pointPlacement is "between", the columns will be laid out between ticks.
+        /// This is useful for example for visualising an amount between two points in time or in a certain sector of a polar chart.
+        /// Defaults to null in cartesian charts, "between" in polar charts.
+        /// </summary>
+        public PointPlacementType pointPlacement { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointStart defines on what value to start.
+        /// For example, if a series contains one yearly value starting from 1945, set pointStart to 1945. Defaults to 0.
+        /// </summary>
+        public JsNumber pointStart { get; set; }
+
+        /// <summary>
+        /// A pixel value specifying a fixed width for each column or bar. When null, the width is calculated from the pointPadding and groupPadding. Defaults to null.
+        /// </summary>
+        public JsNumber pointWidth { get; set; }
+
+        /// <summary>
+        /// Whether to select the series initially. If showCheckbox is true, the checkbox next to the series name will be checked for a selected series. Defaults to false.
+        /// </summary>
+        public bool selected { get; set; }
+
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public bool shadowBoolean { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public object shadowObject { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        public ShadowOptions shadow { get; set; }
+
+        /// <summary>
+        /// If true, a checkbox is displayed next to the legend item to allow selecting the series.
+        /// The state of the checkbox is determined by the selected option. Defaults to false.
+        /// </summary>
+        public bool showCheckbox { get; set; }
+
+        /// <summary>
+        /// Whether to display this particular series or series type in the legend. Defaults to true.
+        /// </summary>
+        public bool showInLegend { get; set; }
+
+        /// <summary>
+        /// Whether to stack the values of each series on top of each other.
+        /// Possible values are null to disable, "normal" to stack by value or "percent". Defaults to null.
+        /// </summary>
+        public JsString stacking { get; set; }
+
+        /// <summary>
+        /// A wrapper object for all the series options in specific states.
+        /// </summary>
+        public BarStatesOptions states { get; set; }
+
+        /// <summary>
+        /// Sticky tracking of mouse events.
+        /// When true, the mouseOut event on a series isn't triggered until the mouse moves over another series, or out of the plot area.
+        /// When false, the mouseOut event on a series is triggered when the mouse leaves the area around the series' graph or markers.
+        /// This also implies the tooltip. When stickyTracking is false, the tooltip will be hidden when moving the mouse between series.
+        /// Defaults to true.
+        /// </summary>
+        public bool stickyTracking { get; set; }
+
+        /// <summary>
+        /// A configuration object for the tooltip rendering of each single series. Properties are inherited from tooltip.
+        /// Overridable properties are headerFormat, pointFormat, valueDecimals, xDateFormat, valuePrefix and valueSuffix.
+        /// Defaults to {}.
+        /// </summary>
+        public AreaTooltipOptions tooltip { get; set; }
+
+        /// <summary>
+        /// When a series contains a data array that is longer than this, only one dimensional arrays of numbers, or two dimensional arrays with x and y values are allowed.
+        /// Also, only the first point is tested, and the rest are assumed to be the same format. This saves expensive data checking and indexing in long series. Defaults to 1000.
+        /// </summary>
+        public JsNumber turboThreshold { get; set; }
+
+        /// <summary>
+        /// Set the initial visibility of the series. Defaults to true.
+        /// </summary>
+        public bool visible { get; set; }
+
+        /// <summary>
+        /// Define the z index of the series. Defaults to null.
+        /// </summary>
+        public JsNumber zIndex { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class BarDataLabelsOptions : AreaDataLabelsOptions
+    {
+    }
+
+    [JsType(JsMode.Json)]
+    public class BarStatesOptions : SeriesStatesOptions
+    {
+    }
+
+    #endregion
+
+    #region column
+    
+    [JsType(JsMode.Json)]
+    public class PlotColumnOptions : PlotBarOptions
+    {
+    }
+
+    #endregion
+
+    #region columnrange
+
+    [JsType(JsMode.Json)]
+    public class PlotColumnRangeOptions : PlotBarOptions
+    {
+    }
+
+    #endregion
+
+    #region gauge
+    
+    [JsType(JsMode.Json)]
+    public class PlotGaugeOptions
+    {
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        public AnimationOptions animation { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public bool animationBoolean { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public object animationObject { get; set; }
+
+        /// <summary>
+        /// The main color or the series. In line type series it applies to the line and the point markers unless otherwise specified.
+        /// In bar type series it applies to the bars unless a color is specified per point. The default value is pulled from the options.colors array.
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// You can set the cursor to "pointer" if you have click events attached to the series, to signal to the user that the points and lines can be clicked. Defaults to ''.
+        /// </summary>
+        public JsString cursor { get; set; }
+
+        public GaugeDataLabelsOptions dataLabels { get; set; }
+
+        /// <summary>
+        /// Options for the dial or arrow pointer of the gauge.
+        /// </summary>
+        public GaugeDialOptions dial { get; set; }
+
+        /// <summary>
+        /// Enable or disable the mouse tracking for a specific series.
+        /// This includes point tooltips and click events on graphs and points. For large datasets it improves performance. Defaults to true.
+        /// </summary>
+        public bool enableMouseTracking { get; set; }
+
+        //TODO: events
+
+        /// <summary>
+        /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// Options for the pivot or the center point of the gauge.
+        /// </summary>
+        public GaugePivotOptions pivot { get; set; }
+
+        /// <summary>
+        /// Properties for each single point
+        /// </summary>
+        public PointOptions point { get; set; }
+
+        /// <summary>
+        /// Whether to select the series initially. If showCheckbox is true, the checkbox next to the series name will be checked for a selected series. Defaults to false.
+        /// </summary>
+        public bool selected { get; set; }
+
+        /// <summary>
+        /// If true, a checkbox is displayed next to the legend item to allow selecting the series.
+        /// The state of the checkbox is determined by the selected option. Defaults to false.
+        /// </summary>
+        public bool showCheckbox { get; set; }
+
+        /// <summary>
+        /// Whether to display this particular series or series type in the legend. Defaults to true.
+        /// </summary>
+        public bool showInLegend { get; set; }
+
+        /// <summary>
+        /// A wrapper object for all the series options in specific states.
+        /// </summary>
+        public GaugeStatesOptions states { get; set; }
+
+        /// <summary>
+        /// Sticky tracking of mouse events.
+        /// When true, the mouseOut event on a series isn't triggered until the mouse moves over another series, or out of the plot area.
+        /// When false, the mouseOut event on a series is triggered when the mouse leaves the area around the series' graph or markers.
+        /// This also implies the tooltip. When stickyTracking is false, the tooltip will be hidden when moving the mouse between series.
+        /// Defaults to true.
+        /// </summary>
+        public bool stickyTracking { get; set; }
+
+        /// <summary>
+        /// A configuration object for the tooltip rendering of each single series. Properties are inherited from tooltip.
+        /// Overridable properties are headerFormat, pointFormat, valueDecimals, xDateFormat, valuePrefix and valueSuffix.
+        /// Defaults to {}.
+        /// </summary>
+        public AreaTooltipOptions tooltip { get; set; }
+
+        /// <summary>
+        /// Set the initial visibility of the series. Defaults to true.
+        /// </summary>
+        public bool visible { get; set; }
+
+        /// <summary>
+        /// Define the z index of the series. Defaults to null.
+        /// </summary>
+        public JsNumber zIndex { get; set; }
+    }
+
+    /// <summary>
+    /// Data labels for the gauge. For gauges, the data labels are enabled by default and shown in a bordered box below the point.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class GaugeDataLabelsOptions : AreaRangeDataLabelsOptions
+    {
+    }
+
+    /// <summary>
+    /// Options for the dial or arrow pointer of the gauge.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class GaugeDialOptions
+    {
+        /// <summary>
+        /// The background or fill color of the gauge's dial. Defaults to black.
+        /// </summary>
+        public JsString backgroundColor { get; set; }
+
+        /// <summary>
+        /// The length of the dial's base part, relative to the total radius or length of the dial. Defaults to 70%.
+        /// </summary>
+        public JsString baseLength { get; set; }
+
+        /// <summary>
+        /// The pixel width of the base of the gauge dial. The base is the part closest to the pivot, defined by baseLength. Defaults to 3.
+        /// </summary>
+        public JsNumber baseWidth { get; set; }
+
+        /// <summary>
+        /// The border color or stroke of the gauge's dial. By default, the borderWidth is 0, so this must be set in addition to a custom border color. Defaults to silver.
+        /// </summary>
+        public JsString borderColor { get; set; }
+
+        /// <summary>
+        /// The width of the gauge dial border in pixels. Defaults to 0.
+        /// </summary>
+        public JsNumber borderWidth { get; set; }
+
+        /// <summary>
+        /// The radius or length of the dial, in percentages relative to the radius of the gauge itself. Defaults to 80%.
+        /// </summary>
+        public JsString radius { get; set; }
+
+        /// <summary>
+        /// The length of the dial's rear end, the part that extends out on the other side of the pivot. Relative to the dial's length. Defaults to 10%.
+        /// </summary>
+        public JsString rearLength { get; set; }
+
+        /// <summary>
+        /// The width of the top of the dial, closest to the perimeter. The pivot narrows in from the base to the top. Defaults to 1.
+        /// </summary>
+        public JsNumber topWidth { get; set; }
+    }
+
+    /// <summary>
+    ///Options for the pivot or the center point of the gauge.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class GaugePivotOptions
+    {
+        /// <summary>
+        /// The background or fill color of the gauge's dial. Defaults to black.
+        /// </summary>
+        public JsString backgroundColor { get; set; }
+
+        /// <summary>
+        /// The border color or stroke of the gauge's dial. By default, the borderWidth is 0, so this must be set in addition to a custom border color. Defaults to silver.
+        /// </summary>
+        public JsString borderColor { get; set; }
+
+        /// <summary>
+        /// The width of the gauge dial border in pixels. Defaults to 0.
+        /// </summary>
+        public JsNumber borderWidth { get; set; }
+
+        /// <summary>
+        /// The pixel radius of the pivot. Defaults to 5.
+        /// </summary>
+        public JsNumber radius { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class GaugeStatesOptions : SeriesStatesOptions
+    {
+    }
+
+    #endregion
+
+    #region MyRegion
+    
+    [JsType(JsMode.Json)]
+    public class PlotLineOptions
+    {
+        /// <summary>
+        /// Allow this series' points to be selected by clicking on the markers, bars or pie slices. Defaults to false.
+        /// </summary>
+        public bool allowPointSelect { get; set; }
+
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        public AnimationOptions animation { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public bool animationBoolean { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public object animationObject { get; set; }
+
+        /// <summary>
+        /// The main color or the series. In line type series it applies to the line and the point markers unless otherwise specified.
+        /// In bar type series it applies to the bars unless a color is specified per point. The default value is pulled from the options.colors array.
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// Polar charts only. Whether to connect the ends of a line series plot across the extremes. Defaults to true.
+        /// </summary>
+        public bool connectEnds { get; set; }
+
+        /// <summary>
+        /// Whether to connect a graph line across null points. Defaults to false.
+        /// </summary>
+        public bool connectNulls { get; set; }
+
+        /// <summary>
+        /// When the series contains less points than the crop threshold, all points are drawn, event if the points fall outside the visible plot area at the current zoom.
+        /// The advantage of drawing all points (including markers and columns), is that animation is performed on updates.
+        /// On the other hand, when the series contains more points than the crop threshold, the series data is cropped to only contain points that fall within the plot area.
+        /// The advantage of cropping away invisible points is to increase performance on large series. . Defaults to 300.
+        /// </summary>
+        public JsNumber cropThreshold { get; set; }
+
+        /// <summary>
+        /// You can set the cursor to "pointer" if you have click events attached to the series, to signal to the user that the points and lines can be clicked. Defaults to ''.
+        /// </summary>
+        public JsString cursor { get; set; }
+
+        /// <summary>
+        /// A name for the dash style to use for the graph. Applies only to series type having a graph, like line, spline, area and scatter in case it has a lineWidth. The value for the dashStyle include:
+        /// Solid
+        /// ShortDash
+        /// ShortDot
+        /// ShortDashDot
+        /// ShortDashDotDot
+        /// Dot
+        /// Dash
+        /// LongDash
+        /// DashDot
+        /// LongDashDot
+        /// LongDashDotDot
+        /// . Defaults to null.
+        /// </summary>
+        public DashStyleType dashStyle { get; set; }
+
+        public AreaDataLabelsOptions dataLabels { get; set; }
+
+        /// <summary>
+        /// Enable or disable the mouse tracking for a specific series.
+        /// This includes point tooltips and click events on graphs and points. For large datasets it improves performance. Defaults to true.
+        /// </summary>
+        public bool enableMouseTracking { get; set; }
+
+        //TODO: events
+
+        /// <summary>
+        /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// Pixel with of the graph line. Defaults to 2.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        public AreaMarkerOptions marker { get; set; }
+
+        /// <summary>
+        /// Properties for each single point
+        /// </summary>
+        public PointOptions point { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointInterval defines the interval of the x values.
+        /// For example, if a series contains one value every decade starting from year 0, set pointInterval to 10.
+        /// . Defaults to 1.
+        /// </summary>
+        public JsNumber pointInterval { get; set; }
+
+        /// <summary>
+        /// Possible values: null, "on", "between".
+        /// In a column chart, when pointPlacement is "on", the point will not create any padding of the X axis.
+        /// In a polar column chart this means that the first column points directly north.
+        /// If the pointPlacement is "between", the columns will be laid out between ticks.
+        /// This is useful for example for visualising an amount between two points in time or in a certain sector of a polar chart.
+        /// Defaults to null in cartesian charts, "between" in polar charts.
+        /// </summary>
+        public PointPlacementType pointPlacement { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointStart defines on what value to start.
+        /// For example, if a series contains one yearly value starting from 1945, set pointStart to 1945. Defaults to 0.
+        /// </summary>
+        public JsNumber pointStart { get; set; }
+
+        /// <summary>
+        /// Whether to select the series initially. If showCheckbox is true, the checkbox next to the series name will be checked for a selected series. Defaults to false.
+        /// </summary>
+        public bool selected { get; set; }
+
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public bool shadowBoolean { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public object shadowObject { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        public ShadowOptions shadow { get; set; }
+
+        /// <summary>
+        /// If true, a checkbox is displayed next to the legend item to allow selecting the series.
+        /// The state of the checkbox is determined by the selected option. Defaults to false.
+        /// </summary>
+        public bool showCheckbox { get; set; }
+
+        /// <summary>
+        /// Whether to display this particular series or series type in the legend. Defaults to true.
+        /// </summary>
+        public bool showInLegend { get; set; }
+
+        /// <summary>
+        /// Whether to stack the values of each series on top of each other.
+        /// Possible values are null to disable, "normal" to stack by value or "percent". Defaults to null.
+        /// </summary>
+        public JsString stacking { get; set; }
+
+        /// <summary>
+        /// A wrapper object for all the series options in specific states.
+        /// </summary>
+        public AreaStatesOptions states { get; set; }
+
+        /// <summary>
+        /// Whether to apply steps to the line. Defaults to false.
+        /// </summary>
+        public bool step { get; set; }
+
+        /// <summary>
+        /// Sticky tracking of mouse events.
+        /// When true, the mouseOut event on a series isn't triggered until the mouse moves over another series, or out of the plot area.
+        /// When false, the mouseOut event on a series is triggered when the mouse leaves the area around the series' graph or markers.
+        /// This also implies the tooltip. When stickyTracking is false, the tooltip will be hidden when moving the mouse between series.
+        /// Defaults to true.
+        /// </summary>
+        public bool stickyTracking { get; set; }
+
+        /// <summary>
+        /// A configuration object for the tooltip rendering of each single series. Properties are inherited from tooltip.
+        /// Overridable properties are headerFormat, pointFormat, valueDecimals, xDateFormat, valuePrefix and valueSuffix.
+        /// Defaults to {}.
+        /// </summary>
+        public AreaTooltipOptions tooltip { get; set; }
+
+        /// <summary>
+        /// When a series contains a data array that is longer than this, only one dimensional arrays of numbers, or two dimensional arrays with x and y values are allowed.
+        /// Also, only the first point is tested, and the rest are assumed to be the same format. This saves expensive data checking and indexing in long series. Defaults to 1000.
+        /// </summary>
+        public JsNumber turboThreshold { get; set; }
+
+        /// <summary>
+        /// Set the initial visibility of the series. Defaults to true.
+        /// </summary>
+        public bool visible { get; set; }
+
+        /// <summary>
+        /// Define the z index of the series. Defaults to null.
+        /// </summary>
+        public JsNumber zIndex { get; set; }
+    }
+
+    #endregion
+
+    #region pie
+
+    [JsType(JsMode.Json)]
+    public class PlotPieOptions
+    {
+        /// <summary>
+        /// Allow this series' points to be selected by clicking on the markers, bars or pie slices. Defaults to false.
+        /// </summary>
+        public bool allowPointSelect { get; set; }
+
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        public AnimationOptions animation { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public bool animationBoolean { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public object animationObject { get; set; }
+
+        /// <summary>
+        /// The color of the border surronding each slice. Defaults to "#FFFFFF".
+        /// </summary>
+        public object borderColor { get; set; }
+
+        /// <summary>
+        /// The width of the border surronding each slice. Defaults to 1.
+        /// </summary>
+        public JsNumber borderWidth { get; set; }
+
+        /// <summary>
+        /// The center of the pie chart relative to the plot area. Can be percentages or pixel values. Defaults to ['50%', '50%']. Defaults to ['50%' '50%'],.
+        /// </summary>
+        public JsArray<JsString> center { get; set; }
+
+        /// <summary>
+        /// The main color or the series. In line type series it applies to the line and the point markers unless otherwise specified.
+        /// In bar type series it applies to the bars unless a color is specified per point. The default value is pulled from the options.colors array.
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// You can set the cursor to "pointer" if you have click events attached to the series, to signal to the user that the points and lines can be clicked. Defaults to ''.
+        /// </summary>
+        public JsString cursor { get; set; }
+
+        public AreaDataLabelsOptions dataLabels { get; set; }
+
+        /// <summary>
+        /// Enable or disable the mouse tracking for a specific series.
+        /// This includes point tooltips and click events on graphs and points. For large datasets it improves performance. Defaults to true.
+        /// </summary>
+        public bool enableMouseTracking { get; set; }
+
+        //TODO: events
+
+        /// <summary>
+        /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// The size of the inner diameter for the pie. A size greater than 0 renders a donut chart.
+        /// Can be a percentage or pixel value. Percentages are relative to the size of the plot area. Pixel values are given as integers. Defaults to 0.
+        /// </summary>
+        public JsNumber innerSize { get; set; }
+        /// <summary>
+        /// The size of the inner diameter for the pie. A size greater than 0 renders a donut chart.
+        /// Can be a percentage or pixel value. Percentages are relative to the size of the plot area. Pixel values are given as integers. Defaults to 0.
+        /// </summary>
+        [JsProperty(Name = "innerSize")]
+        public JsString innerSizeString { get; set; }
+
+        /// <summary>
+        /// Pixel with of the graph line. Defaults to 2.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        public AreaMarkerOptions marker { get; set; }
+
+        /// <summary>
+        /// Properties for each single point
+        /// </summary>
+        public PointOptions point { get; set; }
+
+        /// <summary>
+        /// Possible values: null, "on", "between".
+        /// In a column chart, when pointPlacement is "on", the point will not create any padding of the X axis.
+        /// In a polar column chart this means that the first column points directly north.
+        /// If the pointPlacement is "between", the columns will be laid out between ticks.
+        /// This is useful for example for visualising an amount between two points in time or in a certain sector of a polar chart.
+        /// Defaults to null in cartesian charts, "between" in polar charts.
+        /// </summary>
+        public PointPlacementType pointPlacement { get; set; }
+
+        /// <summary>
+        /// Whether to select the series initially. If showCheckbox is true, the checkbox next to the series name will be checked for a selected series. Defaults to false.
+        /// </summary>
+        public bool selected { get; set; }
+
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public bool shadowBoolean { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public object shadowObject { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        public ShadowOptions shadow { get; set; }
+
+        /// <summary>
+        /// Whether to display this particular series or series type in the legend. Defaults to true.
+        /// </summary>
+        public bool showInLegend { get; set; }
+
+        /// <summary>
+        /// The diameter of the pie relative to the plot area. Can be a percentage or pixel value. Pixel values are given as integers. Defaults to "75%".
+        /// </summary>
+        [JsProperty(Name = "size")]
+        public JsString sizeString { get; set; }
+        /// <summary>
+        /// The diameter of the pie relative to the plot area. Can be a percentage or pixel value. Pixel values are given as integers. Defaults to "75%".
+        /// </summary>
+        public JsNumber size { get; set; }
+
+        /// <summary>
+        /// If a point is sliced, moved out from the center, how many pixels should it be moved?. Defaults to 10.
+        /// </summary>
+        public JsNumber slicedOffset { get; set; }
+
+        /// <summary>
+        /// A wrapper object for all the series options in specific states.
+        /// </summary>
+        public AreaStatesOptions states { get; set; }
+
+        /// <summary>
+        /// Sticky tracking of mouse events.
+        /// When true, the mouseOut event on a series isn't triggered until the mouse moves over another series, or out of the plot area.
+        /// When false, the mouseOut event on a series is triggered when the mouse leaves the area around the series' graph or markers.
+        /// This also implies the tooltip. When stickyTracking is false, the tooltip will be hidden when moving the mouse between series.
+        /// Defaults to true.
+        /// </summary>
+        public bool stickyTracking { get; set; }
+
+        /// <summary>
+        /// A configuration object for the tooltip rendering of each single series. Properties are inherited from tooltip.
+        /// Overridable properties are headerFormat, pointFormat, valueDecimals, xDateFormat, valuePrefix and valueSuffix.
+        /// Defaults to {}.
+        /// </summary>
+        public AreaTooltipOptions tooltip { get; set; }
+
+        /// <summary>
+        /// Set the initial visibility of the series. Defaults to true.
+        /// </summary>
+        public bool visible { get; set; }
+
+        /// <summary>
+        /// Define the z index of the series. Defaults to null.
+        /// </summary>
+        public JsNumber zIndex { get; set; }
+    }
+
+    #endregion
+
+    #region scatter
+
+    [JsType(JsMode.Json)]
+    public class PlotScatterOptions
+    {
+        /// <summary>
+        /// Allow this series' points to be selected by clicking on the markers, bars or pie slices. Defaults to false.
+        /// </summary>
+        public bool allowPointSelect { get; set; }
+
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        public AnimationOptions animation { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public bool animationBoolean { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public object animationObject { get; set; }
+
+        /// <summary>
+        /// The main color or the series. In line type series it applies to the line and the point markers unless otherwise specified.
+        /// In bar type series it applies to the bars unless a color is specified per point. The default value is pulled from the options.colors array.
+        /// </summary>
+        public JsString color { get; set; }
+
+
+        /// <summary>
+        /// Whether to connect a graph line across null points. Defaults to false.
+        /// </summary>
+        public bool connectNulls { get; set; }
+
+        /// <summary>
+        /// Whether to connect a graph line across null points. Defaults to false.
+        /// </summary>
+        public AreaDataLabelsOptions dataLabels { get; set; }
+
+        /// <summary>
+        /// /When the series contains less points than the crop threshold, all points are drawn, event if the points fall outside the visible plot area at the current zoom.
+        /// The advantage of drawing all points (including markers and columns), is that animation is performed on updates.
+        /// On the other hand, when the series contains more points than the crop threshold, the series data is cropped to only contain points that fall within the plot area.
+        /// The advantage of cropping away invisible points is to increase performance on large series. . Defaults to 300.
+        /// </summary>
+        public JsNumber cropThreshold { get; set; }
+
+        /// <summary>
+        /// You can set the cursor to "pointer" if you have click events attached to the series, to signal to the user that the points and lines can be clicked. Defaults to ''.
+        /// </summary>
+        public JsString cursor { get; set; }
+
+        /// <summary>
+        /// A name for the dash style to use for the graph. Applies only to series type having a graph, like line, spline, area and scatter in case it has a lineWidth. The value for the dashStyle include:
+        /// Solid
+        /// ShortDash
+        /// ShortDot
+        /// ShortDashDot
+        /// ShortDashDotDot
+        /// Dot
+        /// Dash
+        /// LongDash
+        /// DashDot
+        /// LongDashDot
+        /// LongDashDotDot
+        /// . Defaults to null.
+        /// </summary>
+        public DashStyleType dashStyle { get; set; }
+
+        /// <summary>
+        /// Enable or disable the mouse tracking for a specific series.
+        /// This includes point tooltips and click events on graphs and points. For large datasets it improves performance. Defaults to true.
+        /// </summary>
+        public bool enableMouseTracking { get; set; }
+
+        //TODO: events
+
+        /// <summary>
+        /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// Pixel with of the graph line. Defaults to 2.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        public AreaMarkerOptions marker { get; set; }
+
+        /// <summary>
+        /// Properties for each single point
+        /// </summary>
+        public PointOptions point { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointInterval defines the interval of the x values.
+        /// For example, if a series contains one value every decade starting from year 0, set pointInterval to 10.
+        /// . Defaults to 1.
+        /// </summary>
+        public JsNumber pointInterval { get; set; }
+
+        /// <summary>
+        /// Possible values: null, "on", "between".
+        /// In a column chart, when pointPlacement is "on", the point will not create any padding of the X axis.
+        /// In a polar column chart this means that the first column points directly north.
+        /// If the pointPlacement is "between", the columns will be laid out between ticks.
+        /// This is useful for example for visualising an amount between two points in time or in a certain sector of a polar chart.
+        /// Defaults to null in cartesian charts, "between" in polar charts.
+        /// </summary>
+        public PointPlacementType pointPlacement { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointStart defines on what value to start.
+        /// For example, if a series contains one yearly value starting from 1945, set pointStart to 1945. Defaults to 0.
+        /// </summary>
+        public JsNumber pointStart { get; set; }
+
+        /// <summary>
+        /// Whether to select the series initially. If showCheckbox is true, the checkbox next to the series name will be checked for a selected series. Defaults to false.
+        /// </summary>
+        public bool selected { get; set; }
+
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public bool shadowBoolean { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public object shadowObject { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        public ShadowOptions shadow { get; set; }
+
+        /// <summary>
+        /// If true, a checkbox is displayed next to the legend item to allow selecting the series.
+        /// The state of the checkbox is determined by the selected option. Defaults to false.
+        /// </summary>
+        public bool showCheckbox { get; set; }
+
+        /// <summary>
+        /// Whether to display this particular series or series type in the legend. Defaults to true.
+        /// </summary>
+        public bool showInLegend { get; set; }
+
+        /// <summary>
+        /// A wrapper object for all the series options in specific states.
+        /// </summary>
+        public AreaStatesOptions states { get; set; }
+
+        /// <summary>
+        /// Sticky tracking of mouse events.
+        /// When true, the mouseOut event on a series isn't triggered until the mouse moves over another series, or out of the plot area.
+        /// When false, the mouseOut event on a series is triggered when the mouse leaves the area around the series' graph or markers.
+        /// This also implies the tooltip. When stickyTracking is false, the tooltip will be hidden when moving the mouse between series.
+        /// Defaults to true.
+        /// </summary>
+        public bool stickyTracking { get; set; }
+
+        /// <summary>
+        /// A configuration object for the tooltip rendering of each single series. Properties are inherited from tooltip.
+        /// Overridable properties are headerFormat, pointFormat, valueDecimals, xDateFormat, valuePrefix and valueSuffix.
+        /// Defaults to {}.
+        /// </summary>
+        public AreaTooltipOptions tooltip { get; set; }
+
+        /// <summary>
+        /// When a series contains a data array that is longer than this, only one dimensional arrays of numbers, or two dimensional arrays with x and y values are allowed.
+        /// Also, only the first point is tested, and the rest are assumed to be the same format. This saves expensive data checking and indexing in long series. Defaults to 1000.
+        /// </summary>
+        public JsNumber turboThreshold { get; set; }
+
+        /// <summary>
+        /// Set the initial visibility of the series. Defaults to true.
+        /// </summary>
+        public bool visible { get; set; }
+
+        /// <summary>
+        /// Define the z index of the series. Defaults to null.
+        /// </summary>
+        public JsNumber zIndex { get; set; }
+    }
+
+    #endregion
+
+    #region series
+
+    /// <summary>
+    /// General options for all series types.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class PlotSeriesOptions
+    {
+        /// <summary>
+        /// Allow this series' points to be selected by clicking on the markers, bars or pie slices. Defaults to false.
+        /// </summary>
+        public bool allowPointSelect { get; set; }
+
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        public AnimationOptions animation { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public bool animationBoolean { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public object animationObject { get; set; }
+
+        /// <summary>
+        /// The main color or the series. In line type series it applies to the line and the point markers unless otherwise specified.
+        /// In bar type series it applies to the bars unless a color is specified per point. The default value is pulled from the options.colors array.
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// Polar charts only. Whether to connect the ends of a line series plot across the extremes. Defaults to true.
+        /// </summary>
+        public bool connectEnds { get; set; }
+
+        /// <summary>
+        /// Whether to connect a graph line across null points. Defaults to false.
+        /// </summary>
+        public bool connectNulls { get; set; }
+
+        /// <summary>
+        /// When the series contains less points than the crop threshold, all points are drawn, event if the points fall outside the visible plot area at the current zoom.
+        /// The advantage of drawing all points (including markers and columns), is that animation is performed on updates.
+        /// On the other hand, when the series contains more points than the crop threshold, the series data is cropped to only contain points that fall within the plot area.
+        /// The advantage of cropping away invisible points is to increase performance on large series. . Defaults to 300.
+        /// </summary>
+        public JsNumber cropThreshold { get; set; }
+
+        /// <summary>
+        /// You can set the cursor to "pointer" if you have click events attached to the series, to signal to the user that the points and lines can be clicked. Defaults to ''.
+        /// </summary>
+        public JsString cursor { get; set; }
+
+        /// <summary>
+        /// A name for the dash style to use for the graph. Applies only to series type having a graph, like line, spline, area and scatter in case it has a lineWidth. The value for the dashStyle include:
+        /// Solid
+        /// ShortDash
+        /// ShortDot
+        /// ShortDashDot
+        /// ShortDashDotDot
+        /// Dot
+        /// Dash
+        /// LongDash
+        /// DashDot
+        /// LongDashDot
+        /// LongDashDotDot
+        /// . Defaults to null.
+        /// </summary>
+        public DashStyleType dashStyle { get; set; }
+
+        public AreaDataLabelsOptions dataLabels { get; set; }
+
+        /// <summary>
+        /// Enable or disable the mouse tracking for a specific series.
+        /// This includes point tooltips and click events on graphs and points. For large datasets it improves performance. Defaults to true.
+        /// </summary>
+        public bool enableMouseTracking { get; set; }
+
+        //TODO: events
+
+        /// <summary>
+        /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// Pixel with of the graph line. Defaults to 2.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        public AreaMarkerOptions marker { get; set; }
+
+        /// <summary>
+        /// Properties for each single point
+        /// </summary>
+        public PointOptions point { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointInterval defines the interval of the x values.
+        /// For example, if a series contains one value every decade starting from year 0, set pointInterval to 10.
+        /// . Defaults to 1.
+        /// </summary>
+        public JsNumber pointInterval { get; set; }
+
+        /// <summary>
+        /// Possible values: null, "on", "between".
+        /// In a column chart, when pointPlacement is "on", the point will not create any padding of the X axis.
+        /// In a polar column chart this means that the first column points directly north.
+        /// If the pointPlacement is "between", the columns will be laid out between ticks.
+        /// This is useful for example for visualising an amount between two points in time or in a certain sector of a polar chart.
+        /// Defaults to null in cartesian charts, "between" in polar charts.
+        /// </summary>
+        public PointPlacementType pointPlacement { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointStart defines on what value to start.
+        /// For example, if a series contains one yearly value starting from 1945, set pointStart to 1945. Defaults to 0.
+        /// </summary>
+        public JsNumber pointStart { get; set; }
+
+        /// <summary>
+        /// Whether to select the series initially. If showCheckbox is true, the checkbox next to the series name will be checked for a selected series. Defaults to false.
+        /// </summary>
+        public bool selected { get; set; }
+
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public bool shadowBoolean { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public object shadowObject { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        public ShadowOptions shadow { get; set; }
+
+        /// <summary>
+        /// If true, a checkbox is displayed next to the legend item to allow selecting the series.
+        /// The state of the checkbox is determined by the selected option. Defaults to false.
+        /// </summary>
+        public bool showCheckbox { get; set; }
+
+        /// <summary>
+        /// Whether to display this particular series or series type in the legend. Defaults to true.
+        /// </summary>
+        public bool showInLegend { get; set; }
+
+        /// <summary>
+        /// Whether to stack the values of each series on top of each other.
+        /// Possible values are null to disable, "normal" to stack by value or "percent". Defaults to null.
+        /// </summary>
+        public JsString stacking { get; set; }
+
+        /// <summary>
+        /// A wrapper object for all the series options in specific states.
+        /// </summary>
+        public SeriesStatesOptions states { get; set; }
+
+        /// <summary>
+        /// Sticky tracking of mouse events.
+        /// When true, the mouseOut event on a series isn't triggered until the mouse moves over another series, or out of the plot area.
+        /// When false, the mouseOut event on a series is triggered when the mouse leaves the area around the series' graph or markers.
+        /// This also implies the tooltip. When stickyTracking is false, the tooltip will be hidden when moving the mouse between series.
+        /// Defaults to true.
+        /// </summary>
+        public bool stickyTracking { get; set; }
+
+        /// <summary>
+        /// A configuration object for the tooltip rendering of each single series. Properties are inherited from tooltip.
+        /// Overridable properties are headerFormat, pointFormat, valueDecimals, xDateFormat, valuePrefix and valueSuffix.
+        /// Defaults to {}.
+        /// </summary>
+        public AreaTooltipOptions tooltip { get; set; }
+
+        /// <summary>
+        /// When a series contains a data array that is longer than this, only one dimensional arrays of numbers, or two dimensional arrays with x and y values are allowed.
+        /// Also, only the first point is tested, and the rest are assumed to be the same format. This saves expensive data checking and indexing in long series. Defaults to 1000.
+        /// </summary>
+        public JsNumber turboThreshold { get; set; }
+
+        /// <summary>
+        /// Set the initial visibility of the series. Defaults to true.
+        /// </summary>
+        public bool visible { get; set; }
+
+        /// <summary>
+        /// Define the z index of the series. Defaults to null.
+        /// </summary>
+        public JsNumber zIndex { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class SeriesStatesOptions
+    {
+        public SeriesStatesHoverOptions hover { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class SeriesStatesHoverOptions
+    {
+        /// <summary>
+        /// Enable separate styles for the hovered series to visualize that the user hovers either the series itself or the legend.	 . Defaults to true.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// Pixel with of the graph line. Defaults to 2.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        public SeriesStatesHoverMarkerOptions marker { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class SeriesStatesHoverMarkerOptions
+    {
+        /// <summary>
+        /// Enable or disable the point marker. Defaults to true.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// The fill color of the point marker. When null, the series' or point's color is used. Defaults to null.
+        /// </summary>
+        public JsString fillColor { get; set; }
+
+        /// <summary>
+        /// The color of the point marker's outline. When null, the series' or point's color is used. Defaults to "#FFFFFF".
+        /// </summary>
+        public JsString lineColor { get; set; }
+
+        /// <summary>
+        /// The width of the point marker's outline. Defaults to 0.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        /// <summary>
+        /// The radius of the point marker. Defaults to 0.
+        /// </summary>
+        public JsNumber radius { get; set; }
+
+        public AreaMarkerStatesOptions states { get; set; }
+
+        /// <summary>
+        /// A predefined shape or symbol for the marker. When null, the symbol is pulled from options.symbols.
+        /// Other possible values are "circle", "square", "diamond", "triangle" and "triangle-down".
+        /// Additionally, the URL to a graphic can be given on this form: "url(graphic.png)". Defaults to null.
+        /// </summary>
+        public JsString symbol { get; set; }
+    }
+
+    #endregion
+
+    #region spline
+    
+    [JsType(JsMode.Json)]
+    public class PlotSplineOptions
+    {
+        /// <summary>
+        /// Allow this series' points to be selected by clicking on the markers, bars or pie slices. Defaults to false.
+        /// </summary>
+        public bool allowPointSelect { get; set; }
+
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        public AnimationOptions animation { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public bool animationBoolean { get; set; }
+        /// <summary>
+        /// Enable or disable the initial animation when a series is displayed. Since version 2.1, the animation can be set as a configuration object. Please note that this option only applies to the initial animation of the series itself. For other animations, see #chart.animation and the animation parameter under the API methods. The following properties are supported:
+        /// duration:
+        /// The duration of the animation in milliseconds.
+        /// easing:
+        /// When using jQuery as the general framework, the easing can be set to linear or swing. More easing functions are available with the use of jQuery plug-ins, most notably the jQuery UI suite. See the jQuery docs. When using MooToos as the general framework, use the property name transition instead of easing.
+        /// . For polar charts, the animation is disabled in legacy IE browsers. Defaults to true.
+        /// </summary>
+        [JsProperty(Name = "animation")]
+        public object animationObject { get; set; }
+
+        /// <summary>
+        /// The main color or the series. In line type series it applies to the line and the point markers unless otherwise specified.
+        /// In bar type series it applies to the bars unless a color is specified per point. The default value is pulled from the options.colors array.
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// Polar charts only. Whether to connect the ends of a line series plot across the extremes. Defaults to true.
+        /// </summary>
+        public bool connectEnds { get; set; }
+
+        /// <summary>
+        /// Whether to connect a graph line across null points. Defaults to false.
+        /// </summary>
+        public bool connectNulls { get; set; }
+
+        /// <summary>
+        /// When the series contains less points than the crop threshold, all points are drawn, event if the points fall outside the visible plot area at the current zoom.
+        /// The advantage of drawing all points (including markers and columns), is that animation is performed on updates.
+        /// On the other hand, when the series contains more points than the crop threshold, the series data is cropped to only contain points that fall within the plot area.
+        /// The advantage of cropping away invisible points is to increase performance on large series. . Defaults to 300.
+        /// </summary>
+        public JsNumber cropThreshold { get; set; }
+
+        /// <summary>
+        /// You can set the cursor to "pointer" if you have click events attached to the series, to signal to the user that the points and lines can be clicked. Defaults to ''.
+        /// </summary>
+        public JsString cursor { get; set; }
+
+        /// <summary>
+        /// A name for the dash style to use for the graph. Applies only to series type having a graph, like line, spline, area and scatter in case it has a lineWidth. The value for the dashStyle include:
+        /// Solid
+        /// ShortDash
+        /// ShortDot
+        /// ShortDashDot
+        /// ShortDashDotDot
+        /// Dot
+        /// Dash
+        /// LongDash
+        /// DashDot
+        /// LongDashDot
+        /// LongDashDotDot
+        /// . Defaults to null.
+        /// </summary>
+        public DashStyleType dashStyle { get; set; }
+
+        public AreaDataLabelsOptions dataLabels { get; set; }
+
+        /// <summary>
+        /// Enable or disable the mouse tracking for a specific series.
+        /// This includes point tooltips and click events on graphs and points. For large datasets it improves performance. Defaults to true.
+        /// </summary>
+        public bool enableMouseTracking { get; set; }
+
+        //TODO: events
+
+        /// <summary>
+        /// Fill color or gradient for the area. When null, the series' color is used with the series' fillOpacity. Defaults to null.
+        /// </summary>
+        public JsString fillColor { get; set; }
+
+        /// <summary>
+        /// Fill opacity for the area. Defaults to .75.
+        /// </summary>
+        public JsNumber fillOpacity { get; set; }
+
+        /// <summary>
+        /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// A separate color for the graph line. By default the line takes the color of the series,
+        /// but the lineColor setting allows setting a separate color for the line without altering the fillColor. Defaults to null.
+        /// </summary>
+        public JsString lineColor { get; set; }
+
+        /// <summary>
+        /// Pixel with of the graph line. Defaults to 2.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        public AreaMarkerOptions marker { get; set; }
+
+        /// <summary>
+        /// Properties for each single point
+        /// </summary>
+        public PointOptions point { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointInterval defines the interval of the x values.
+        /// For example, if a series contains one value every decade starting from year 0, set pointInterval to 10.
+        /// . Defaults to 1.
+        /// </summary>
+        public JsNumber pointInterval { get; set; }
+
+        /// <summary>
+        /// Possible values: null, "on", "between".
+        /// In a column chart, when pointPlacement is "on", the point will not create any padding of the X axis.
+        /// In a polar column chart this means that the first column points directly north.
+        /// If the pointPlacement is "between", the columns will be laid out between ticks.
+        /// This is useful for example for visualising an amount between two points in time or in a certain sector of a polar chart.
+        /// Defaults to null in cartesian charts, "between" in polar charts.
+        /// </summary>
+        public PointPlacementType pointPlacement { get; set; }
+
+        /// <summary>
+        /// If no x values are given for the points in a series, pointStart defines on what value to start.
+        /// For example, if a series contains one yearly value starting from 1945, set pointStart to 1945. Defaults to 0.
+        /// </summary>
+        public JsNumber pointStart { get; set; }
+
+        /// <summary>
+        /// Whether to select the series initially. If showCheckbox is true, the checkbox next to the series name will be checked for a selected series. Defaults to false.
+        /// </summary>
+        public bool selected { get; set; }
+
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public bool shadowBoolean { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        [JsProperty(Name = "shadow")]
+        public object shadowObject { get; set; }
+        /// <summary>
+        /// The shadow of the box. Works best with borderWidth or backgroundColor.
+        /// Since 2.3 the shadow can be an object configuration containing color, offsetX, offsetY, opacity and width. Defaults to false.
+        /// </summary>
+        public ShadowOptions shadow { get; set; }
+
+        /// <summary>
+        /// If true, a checkbox is displayed next to the legend item to allow selecting the series.
+        /// The state of the checkbox is determined by the selected option. Defaults to false.
+        /// </summary>
+        public bool showCheckbox { get; set; }
+
+        /// <summary>
+        /// Whether to display this particular series or series type in the legend. Defaults to true.
+        /// </summary>
+        public bool showInLegend { get; set; }
+
+        /// <summary>
+        /// Whether to stack the values of each series on top of each other.
+        /// Possible values are null to disable, "normal" to stack by value or "percent". Defaults to null.
+        /// </summary>
+        public JsString stacking { get; set; }
+
+        /// <summary>
+        /// A wrapper object for all the series options in specific states.
+        /// </summary>
+        public AreaStatesOptions states { get; set; }
+
+        /// <summary>
+        /// Sticky tracking of mouse events.
+        /// When true, the mouseOut event on a series isn't triggered until the mouse moves over another series, or out of the plot area.
+        /// When false, the mouseOut event on a series is triggered when the mouse leaves the area around the series' graph or markers.
+        /// This also implies the tooltip. When stickyTracking is false, the tooltip will be hidden when moving the mouse between series.
+        /// Defaults to true.
+        /// </summary>
+        public bool stickyTracking { get; set; }
+
+        /// <summary>
+        /// The Y axis value to serve as the base for the area, for distinguishing between values above and below a threshold. Defaults to 0.
+        /// </summary>
+        public JsNumber threshold { get; set; }
+
+        /// <summary>
+        /// A configuration object for the tooltip rendering of each single series. Properties are inherited from tooltip.
+        /// Overridable properties are headerFormat, pointFormat, valueDecimals, xDateFormat, valuePrefix and valueSuffix.
+        /// Defaults to {}.
+        /// </summary>
+        public AreaTooltipOptions tooltip { get; set; }
+
+        /// <summary>
+        /// Whether the whole area or just the line should respond to mouseover tooltips and other mouse or touch events. Defaults to false.
+        /// </summary>
+        public bool trackByArea { get; set; }
+
+        /// <summary>
+        /// When a series contains a data array that is longer than this, only one dimensional arrays of numbers, or two dimensional arrays with x and y values are allowed.
+        /// Also, only the first point is tested, and the rest are assumed to be the same format. This saves expensive data checking and indexing in long series. Defaults to 1000.
+        /// </summary>
+        public JsNumber turboThreshold { get; set; }
+
+        /// <summary>
+        /// Set the initial visibility of the series. Defaults to true.
+        /// </summary>
+        public bool visible { get; set; }
+
+        /// <summary>
+        /// Define the z index of the series. Defaults to null.
+        /// </summary>
+        public JsNumber zIndex { get; set; }
+    }
+
+    #endregion
+
+    #endregion
 
     #region series
 
@@ -1641,7 +4279,9 @@ namespace SharpKit.Highcharts
     {
         /// <summary>
         /// An array of data points for the series. The points can be given in three ways:
-        /// A list of numerical values. In this case, the numberical values will be interpreted and y values, and x values will be automatically calculated, either starting at 0 and incrementing by 1, or from pointStart and pointInterval given in the plotOptions. If the axis is has categories, these will be used. This option is not available for range series. Example:
+        /// A list of numerical values. In this case, the numberical values will be interpreted and y values,
+        /// and x values will be automatically calculated, either starting at 0 and incrementing by 1, or from pointStart and pointInterval given in the plotOptions.
+        /// If the axis is has categories, these will be used. This option is not available for range series. Example:
         /// data: [0, 5, 3, 5]
         /// A list of arrays with two values. In this case, the first value is the x value and the second is the y value. If the first value is a string, it is applied as the name of the point, and the x value is incremented following the above rules.
         /// 
@@ -1665,7 +4305,6 @@ namespace SharpKit.Highcharts
         /// }]
         /// </summary>
         public object data { get; set; }
-        //TODO: needs some help with the overloads. look at the summary.
 
         /// <summary>
         /// *Deprecated*
@@ -1886,8 +4525,7 @@ namespace SharpKit.Highcharts
         /// 	fontSize: '16px'
         /// }
         /// </summary>
-        public object style { get; set; }
-        //TODO: type
+        public HtmlElementStyle style { get; set; }
 
         /// <summary>
         /// The title of the chart. To disable the title, set the text to null. Defaults to "Chart title".
@@ -1906,6 +4544,1263 @@ namespace SharpKit.Highcharts
 
         /// <summary>
         /// The y position of the title relative to the alignment within chart.spacingTop and chart.spacingBottom. Defaults to 15.
+        /// </summary>
+        public JsNumber y { get; set; }
+    }
+
+    #endregion
+
+    #region tooltip
+
+    /// <summary>
+    /// Options for the tooltip that appears when the user hovers over a series or point.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class TooltipOptions
+    {
+
+        /// <summary>
+        /// Enable or disable animation of the tooltip. In old browsers combined with data-heavy charts, the animation may be slow, so turning it off can be a good idea.
+        /// Defaults to true.
+        /// </summary>
+        public bool animation { get; set; }
+
+        /// <summary>
+        /// The background color or gradient for the tooltip. Defaults to "rgba(255, 255, 255, .85)". Defaults to "rgba(255 255, 255, .85)",.
+        /// </summary>
+        public JsString backgroundColor { get; set; }
+
+        /// <summary>
+        /// The color of the tooltip border. When null, the border takes the color of the corresponding series or point. Defaults to "auto".
+        /// </summary>
+        public JsString borderColor { get; set; }
+
+        /// <summary>
+        /// The radius of the rounded border corners. Defaults to 5.
+        /// </summary>
+        public JsNumber borderRadius { get; set; }
+
+        /// <summary>
+        /// The pixel width of the tooltip border. Defaults to 2.
+        /// </summary>
+        public JsNumber borderWidth { get; set; }
+
+        /// <summary>
+        /// Display crosshairs to connect the points with their corresponding axis values. The crosshairs can be defined as a boolean, an array of booleans or an object.
+        /// Boolean:
+        /// If the crosshairs option is true, a single crosshair relating to the x axis will be shown.
+        /// Array of booleans:
+        /// In an array of booleans, the first value turns on the x axis crosshair and the second value to the y axis crosshair. Use [true, true] to show complete crosshairs.
+        /// Array of objects:
+        /// In an array of objects, the first value applies to the x axis crosshair and the second value to the y axis crosshair. For each dimension, a width, color, dashStyle and zIndex can be given.
+        /// Defaults to null. Defaults to null.
+        /// </summary>
+        [JsProperty(Name = "crosshairs")]
+        public bool crosshairsBoolean { get; set; }
+        /// <summary>
+        /// Display crosshairs to connect the points with their corresponding axis values. The crosshairs can be defined as a boolean, an array of booleans or an object.
+        /// Boolean:
+        /// If the crosshairs option is true, a single crosshair relating to the x axis will be shown.
+        /// Array of booleans:
+        /// In an array of booleans, the first value turns on the x axis crosshair and the second value to the y axis crosshair. Use [true, true] to show complete crosshairs.
+        /// Array of objects:
+        /// In an array of objects, the first value applies to the x axis crosshair and the second value to the y axis crosshair. For each dimension, a width, color, dashStyle and zIndex can be given.
+        /// Defaults to null. Defaults to null.
+        /// </summary>
+        [JsProperty(Name = "crosshairs")]
+        public JsArray<bool> crosshairsBooleanArray { get; set; }
+        /// <summary>
+        /// Display crosshairs to connect the points with their corresponding axis values. The crosshairs can be defined as a boolean, an array of booleans or an object.
+        /// Boolean:
+        /// If the crosshairs option is true, a single crosshair relating to the x axis will be shown.
+        /// Array of booleans:
+        /// In an array of booleans, the first value turns on the x axis crosshair and the second value to the y axis crosshair. Use [true, true] to show complete crosshairs.
+        /// Array of objects:
+        /// In an array of objects, the first value applies to the x axis crosshair and the second value to the y axis crosshair. For each dimension, a width, color, dashStyle and zIndex can be given.
+        /// Defaults to null. Defaults to null.
+        /// </summary>
+        [JsProperty(Name = "crosshairs")]
+        public JsArray<object> crosshairsObjectArray { get; set; }
+
+        /// <summary>
+        /// Enable or disable the tooltip. Defaults to true.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// A string to append to the tooltip format. Defaults to false.
+        /// </summary>
+        public JsString footerFormat { get; set; }
+
+        /// <summary>
+        /// Callback function to format the text of the tooltip. Return false to disable tooltip for a specific point on series.
+        /// A subset of HTML is supported. The HTML of the tooltip is parsed and converted to SVG, therefore this isn't a complete HTML renderer.
+        /// The following tabs are supported: &lt;b>, &lt;strong>, &lt;i>, &lt;em>, &lt;br/>, &lt;span>.
+        /// Spans can be styled with a style attribute, but only text-related CSS that is shared with SVG is handled.
+        /// Since version 2.1 the tooltip can be shared between multiple series through the shared option.
+        /// The available data in the formatter differ a bit depending on whether the tooltip is shared or not. In a shared tooltip, all properties except x, which is common for all points, are kept in an array, this.points.
+        /// Available data are:
+        /// this.percentage (not shared) / this.points[i].percentage (shared)
+        /// Stacked series and pies only. The point's percentage of the total.
+        /// this.point (not shared) / this.points[i].point (shared)
+        /// The point object. The point name, if defined, is available through this.point.name.
+        /// this.points
+        /// In a shared tooltip, this is an array containing all other properties for each point.
+        /// this.series (not shared) / this.points[i].series (shared)
+        /// The series object. The series name is available through this.series.name.
+        /// this.total (not shared) / this.points[i].total (shared)
+        /// Stacked series only. The total value at this point's x value.
+        /// this.x
+        /// The x value. This property is the same regardless of the tooltip being shared or not.
+        /// this.y (not shared) / this.points[i].y (shared)
+        /// The y value.
+        /// </summary>
+        public JsAction formatter { get; set; }
+
+        /// <summary>
+        /// The HTML of the point's line in the tooltip. Variables are enclosed by curly brackets.
+        /// Available variables are point.x, point.y, series.name and series.color and other properties on the same form.
+        /// Furthermore, point.y can be extended by the tooltip.yPrefix and tooltip.ySuffix variables.
+        /// This can also be overridden for each series, which makes it a good hook for displaying units.
+        /// Defaults to &lt;span style="color:{series.color}">{series.name}&lt;/span>: &lt;b>{point.y}&lt;/b>&lt;br/>
+        /// </summary>
+        public JsString pointFormat { get; set; }
+
+        /// <summary>
+        /// A callback function to place the tooltip in a default position.
+        /// The callback receives three parameters: labelWidth, labelHeight and point,
+        /// where point contains values for plotX and plotY telling where the reference point is in the plot area.
+        /// The return should be an object containing x and y values, for example { x: 100, y: 100 }.
+        /// </summary>
+        public JsAction positioner { get; set; }
+        //TODO: this is a complicted stuff.  danel reed summary
+
+        /// <summary>
+        /// Whether to apply a drop shadow to the tooltip. Defaults to true.
+        /// </summary>
+        public bool shadow { get; set; }
+
+        /// <summary>
+        /// When the tooltip is shared, the entire plot area will capture mouse movement, and tooltip texts for all series will be shown in a single bubble.
+        /// This is recommended for single series charts and for iPad optimized sites. Defaults to false.
+        /// </summary>
+        public bool shared { get; set; }
+
+        /// <summary>
+        /// Proximity snap for graphs or single points. Does not apply to bars, columns and pie slices.
+        /// It defaults to 10 for mouse-powered devices and 25 for touch devices. Defaults to 10/25.
+        /// </summary>
+        public JsNumber snap { get; set; }
+
+        /// <summary>
+        /// CSS styles for the tooltip. The tooltip can also be styled through the CSS class .highcharts-tooltip. Default value:
+        /// style: {
+        /// 	color: '#333333',
+        /// 	fontSize: '9pt',
+        /// 	padding: '5px'
+        /// }
+        /// </summary>
+        public object style { get; set; }
+
+        /// <summary>
+        /// Use HTML to render the contents of the tooltip instead of SVG. Using HTML allows advanced formatting like tables and images in the tooltip.
+        /// It is also recommended for rtl languages as it works around rtl bugs in early Firefox. Defaults to false.
+        /// </summary>
+        public bool useHTML { get; set; }
+
+        /// <summary>
+        /// How many decimals to show in each series' y value. This is overridable in each series' tooltip options object. The default is to preserve all decimals.
+        /// </summary>
+        public JsNumber valueDecimals { get; set; }
+
+        /// <summary>
+        /// A string to prepend to each series' y value. Overridable in each series' tooltip options object. Defaults to "".
+        /// </summary>
+        public JsString valuePrefix { get; set; }
+
+        /// <summary>
+        /// A string to append to each series' y value. Overridable in each series' tooltip options object. Defaults to "".
+        /// </summary>
+        public JsString valueSuffix { get; set; }
+
+        /// <summary>
+        /// The format for the date in the tooltip header if the X axis is a datetime axis.
+        /// The default is a best guess based on the smallest distance between points in the chart.
+        /// </summary>
+        public JsString xDateFormat { get; set; }
+    }
+
+    #endregion
+
+    #region xAxis
+
+    /// <summary>
+    /// The X axis or category axis. Normally this is the horizontal axis, though if the chart is inverted this is the vertical axis.
+    /// In case of multiple axes, the xAxis node is an array of configuration objects.
+    /// See the Axis object for programmatic access to the axis.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class XAxisOptions
+    {
+        /// <summary>
+        /// Whether to allow decimals in this axis' ticks.
+        /// When counting integers, like persons or hits on a web page, decimals must be avoided in the axis tick labels. Defaults to true.
+        /// </summary>
+        public bool allowDecimals { get; set; }
+
+        /// <summary>
+        /// When using an alternate grid color, a band is painted across the plot area between every other grid line. Defaults to null.
+        /// </summary>
+        public JsString alternateGridColor { get; set; }
+
+        /// <summary>
+        /// If categories are present for the xAxis, names are used instead of numbers for that axis. Example:
+        /// categories: ['Apples', 'Bananas', 'Oranges']
+        /// Defaults to []. Defaults to [].
+        /// </summary>
+        public JsArray categories { get; set; }
+
+        /// <summary>
+        /// For a datetime axis, the scale will automatically adjust to the appropriate unit.
+        /// This member gives the default string representations used for each unit. For an overview of the replacement codes, see dateFormat. Defaults to:
+        /// {
+        /// 	second: '%H:%M:%S',
+        /// 	minute: '%H:%M',
+        /// 	hour: '%H:%M',
+        /// 	day: '%e. %b',
+        /// 	week: '%e. %b',
+        /// 	month: '%b \'%y',
+        /// 	year: '%Y'
+        /// }
+        /// </summary>
+        public object dateTimeLabelFormats { get; set; }
+
+        /// <summary>
+        /// Whether to force the axis to end on a tick. Use this option with the maxPadding option to control the axis end. Defaults to false.
+        /// </summary>
+        public bool endOnTick { get; set; }
+
+        //TODO: events
+
+        /// <summary>
+        /// Color of the grid lines extending the ticks across the plot area. Defaults to "#C0C0C0".
+        /// </summary>
+        public JsString gridLineColor { get; set; }
+
+        /// <summary>
+        /// The dash or dot style of the grid lines. For possible values, see this demonstration. Defaults to Solid.
+        /// </summary>
+        public DashStyleType gridLineDashStyle { get; set; }
+
+        /// <summary>
+        /// The width of the grid lines extending the ticks across the plot area. Defaults to 0.
+        /// </summary>
+        public JsNumber gridLineWidth { get; set; }
+
+        /// <summary>
+        /// An id for the axis. This can be used after render time to get a pointer to the axis object through chart.get(). Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// The axis labels show the number or category for each tick.
+        /// </summary>
+        public XAxisLabelsOptions labels { get; set; }
+
+        /// <summary>
+        /// The color of the line marking the axis itself. Defaults to "#C0D0E0".
+        /// </summary>
+        public JsString lineColor { get; set; }
+
+        /// <summary>
+        /// The width of the line marking the axis itself. Defaults to 1.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        /// <summary>
+        /// Index of another axis that this axis is linked to.
+        /// When an axis is linked to a master axis, it will take the same extremes as the master, but as assigned by min or max or by setExtremes.
+        /// It can be used to show additional info, or to ease reading the chart by duplicating the scales. Defaults to null.
+        /// </summary>
+        public JsNumber linkedTo { get; set; }
+
+        /// <summary>
+        /// The maximum value of the axis. If null, the max value is automatically calculated. If the endOnTick option is true, the max value might be rounded up.
+        /// The actual maximum value is also influenced by chart.alignTicks. Defaults to null.
+        /// </summary>
+        public JsNumber max { get; set; }
+
+        /// <summary>
+        /// Padding of the max value relative to the length of the axis.
+        /// A padding of 0.05 will make a 100px axis 5px longer. This is useful when you don't want the highest data value to appear on the edge of the plot area.
+        /// When the axis' max option is set or a max extreme is set using axis.setExtremes(), the maxPadding will be ignored. Defaults to 0.01.
+        /// </summary>
+        public JsNumber maxPadding { get; set; }
+
+        /// <summary>
+        /// Deprecated. Renamed to minRange as of Highcharts 2.2.
+        /// </summary>
+        public JsNumber maxZoom { get; set; }
+
+        /// <summary>
+        /// The minimum value of the axis.
+        /// If null the min value is automatically calculated. If the startOnTick option is true, the min value might be rounded down. Defaults to null.
+        /// </summary>
+        public JsNumber min { get; set; }
+
+        /// <summary>
+        /// Padding of the min value relative to the length of the axis.
+        /// A padding of 0.05 will make a 100px axis 5px longer. This is useful when you don't want the lowest data value to appear on the edge of the plot area.
+        /// When the axis' min option is set or a min extreme is set using axis.setExtremes(), the minPadding will be ignored. Defaults to 0.01.
+        /// </summary>
+        public JsNumber minPadding { get; set; }
+
+        /// <summary>
+        /// The minimum range to display on this axis. The entire axis will not be allowed to span over a smaller interval than this.
+        /// For example, for a datetime axis the main unit is milliseconds. If minRange is set to 3600000, you can't zoom in more than to one hour.
+        /// The default minRange for the x axis is five times the smallest interval between any of the data points.
+        /// On a logarithmic axis, the unit for the minimum range is the power. So a minRange of 1 means that the axis can be zoomed to 10-100, 100-1000, 1000-10000 etc.
+        /// </summary>
+        public JsNumber minRange { get; set; }
+
+        /// <summary>
+        /// The minimum tick interval allowed in axis values.
+        /// For example on zooming in on an axis with daily data, this can be used to prevent the axis from showing hours. Defaults to undefined.
+        /// </summary>
+        public JsNumber minTickInterval { get; set; }
+
+        /// <summary>
+        /// Color of the minor, secondary grid lines. Defaults to #E0E0E0.
+        /// </summary>
+        public JsString minorGridLineColor { get; set; }
+
+        /// <summary>
+        /// The dash or dot style of the minor grid lines. For possible values, see this demonstration. Defaults to Solid.
+        /// </summary>
+        public DashStyleType minorGridLineDashStyle { get; set; }
+
+        /// <summary>
+        /// Width of the minor, secondary grid lines. Defaults to 1.
+        /// </summary>
+        public JsNumber minorGridLineWidth { get; set; }
+
+        /// <summary>
+        /// Color for the minor tick marks. Defaults to #A0A0A0.
+        /// </summary>
+        public JsString minorTickColor { get; set; }
+
+        /// <summary>
+        /// Tick interval in scale units for the minor ticks.
+        /// On a linear axis, if "auto", the minor tick interval is calculated as a fifth of the tickInterval. If null, minor ticks are not shown.
+        /// On logarithmic axes, the unit is the power of the value.
+        /// For example, setting the minorTickInterval to 1 puts one tick on each of 0.1, 1, 10, 100 etc. Setting the minorTickInterval to 0.1 produces 9 ticks between 1 and 10, 10 and 100 etc.
+        /// A minorTickInterval of "auto" on a log axis results in a best guess, attempting to enter approximately 5 minor ticks between each major tick.
+        /// . Defaults to null.
+        /// </summary>
+        public JsNumber minorTickInterval { get; set; }
+
+        /// <summary>
+        /// The pixel length of the minor tick marks. Defaults to 2.
+        /// </summary>
+        public JsNumber minorTickLength { get; set; }
+
+        /// <summary>
+        /// The position of the minor tick marks relative to the axis line. Can be one of inside and outside. Defaults to outside.
+        /// </summary>
+        public TickPositionType minorTickPosition { get; set; }
+
+        /// <summary>
+        /// The pixel width of the minor tick mark. Defaults to 0.
+        /// </summary>
+        public JsNumber minorTickWidth { get; set; }
+
+        /// <summary>
+        /// The distance in pixels from the plot area to the axis line. A positive offset moves the axis with it's line, labels and ticks away from the plot area.
+        /// This is typically used when two or more axes are displayed on the same side of the plot. Defaults to 0.
+        /// </summary>
+        public JsNumber offset { get; set; }
+
+        /// <summary>
+        /// Whether to display the axis on the opposite side of the normal.
+        /// The normal is on the left side for vertical axes and bottom for horizontal, so the opposite sides will be right and top respectively.
+        /// This is typically used with dual or multiple axes. Defaults to false.
+        /// </summary>
+        public bool opposite { get; set; }
+
+        /// <summary>
+        /// A colored band stretching across the plot area marking an interval on the axis.
+        /// </summary>
+        public AxisPlotBandsOptions plotBands { get; set; }
+
+        /// <summary>
+        /// A line streching across the plot area, marking a specific value on one of the axes.
+        /// </summary>
+        public AxisPlotLinesOptions plotLines { get; set; }
+
+        /// <summary>
+        /// Whether to reverse the axis so that the highest number is closest to origo. If the chart is inverted, the x axis is reversed by default. Defaults to false.
+        /// </summary>
+        public bool reversed { get; set; }
+
+        /// <summary>
+        /// Whether to show the axis line and title when the axis has no data. Defaults to true.
+        /// </summary>
+        public bool showEmpty { get; set; }
+
+        /// <summary>
+        /// Whether to show the first tick label. Defaults to true.
+        /// </summary>
+        public bool showFirstLabel { get; set; }
+
+        /// <summary>
+        /// Whether to show the last tick label. Defaults to false.
+        /// </summary>
+        public bool showLastLabel { get; set; }
+
+        /// <summary>
+        /// For datetime axes, this decides where to put the tick between weeks. 0 = Sunday, 1 = Monday. Defaults to 1.
+        /// </summary>
+        public JsNumber startOfWeek { get; set; }
+
+        /// <summary>
+        /// Whether to force the axis to start on a tick. Use this option with the maxPadding option to control the axis start. Defaults to false.
+        /// </summary>
+        public bool startOnTick { get; set; }
+
+        /// <summary>
+        /// Color for the main tick marks. Defaults to #C0D0E0.
+        /// </summary>
+        public JsString tickColor { get; set; }
+
+        /// <summary>
+        /// The interval of the tick marks in axis units. When null, the tick interval is computed to approximately follow the tickPixelInterval on linear and datetime axes.
+        /// On categorized axes, a null tickInterval will default to 1, one category.
+        /// Note that datetime axes are based on milliseconds, so for example an interval of one day is expressed as 24 * 3600 * 1000.
+        /// On logarithmic axes, the tickInterval is based on powers, so a tickInterval of 1 means one tick on each of 0.1, 1, 10, 100 etc.
+        /// A tickInterval of 2 means a tick of 0.1, 10, 1000 etc. A tickInterval of 0.2 puts a tick on 0.1, 0.2, 0.4, 0.6, 0.8, 1, 2, 4, 6, 8, 10, 20, 40 etc.
+        /// . Defaults to null.
+        /// </summary>
+        public JsNumber tickInterval { get; set; }
+
+        /// <summary>
+        /// The pixel length of the main tick marks. Defaults to 5.
+        /// </summary>
+        public JsNumber tickLength { get; set; }
+
+        /// <summary>
+        /// If tickInterval is null this option sets the approximate pixel interval of the tick marks. Not applicable to categorized axis.
+        /// Defaults to 72 for the Y axis and 100 for	the X axis.
+        /// </summary>
+        public JsNumber tickPixelInterval { get; set; }
+
+        /// <summary>
+        /// The position of the major tick marks relative to the axis line. Can be one of inside and outside. Defaults to "outside".
+        /// </summary>
+        public TickPositionType tickPosition { get; set; }
+
+        /// <summary>
+        /// The pixel width of the major tick marks. Defaults to 1.
+        /// </summary>
+        public JsNumber tickWidth { get; set; }
+
+        /// <summary>
+        /// For categorized axes only. If "on" the tick mark is placed in the center of the category, if "between" the tick mark is placed between categories. Defaults to "between".
+        /// </summary>
+        public JsString tickmarkPlacement { get; set; }
+
+        /// <summary>
+        /// The axis title, showing next to the axis line.
+        /// </summary>
+        public AxisTitleOptions title { get; set; }
+
+        /// <summary>
+        /// The type of axis. Can be one of "linear", "logarithmic" or "datetime". In a datetime axis, the numbers are given in milliseconds,
+        /// and tick marks are placed on appropriate values like full hours or days. Defaults to "linear".
+        /// </summary>
+        public AxisType type { get; set; }
+
+    }
+
+    /// <summary>
+    /// The axis labels show the number or category for each tick.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class XAxisLabelsOptions
+    {
+        /// <summary>
+        /// What part of the string the given position is anchored to.
+        /// Can be one of "left", "center" or "right". In inverted charts, x axis label alignment and y axis alignment are swapped. Defaults to "center".
+        /// </summary>
+        public HorizontalAlignType align { get; set; }
+
+        /// <summary>
+        /// Enable or disable the axis labels. Defaults to true.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// Callback JavaScript function to format the label. The value is given by this.value.
+        /// Additional properties for this are axis, chart, isFirst and isLast. Defaults to:
+        /// function() {
+        /// 	return this.value;
+        /// }
+        /// </summary>
+        public JsAction formatter { get; set; }
+        //TODO: Callback JavaScript function (REED SUMMARY)
+
+        /// <summary>
+        /// How to handle overflowing labels on horizontal axis. Can be undefined or "justify". If "justify", labels will not render outside the plot area.
+        /// If there is room to move it, it will be aligned to the edge, else it will be removed. Defaults to undefined.
+        /// </summary>
+        public JsString overflow { get; set; }
+
+        /// <summary>
+        /// Rotation of the labels in degrees. Defaults to 0.
+        /// </summary>
+        public JsNumber rotation { get; set; }
+
+        /// <summary>
+        /// Horizontal axes only. The number of lines to spread the labels over to make room or tighter labels. . Defaults to null.
+        /// </summary>
+        public JsNumber staggerLines { get; set; }
+
+        /// <summary>
+        /// To show only every n'th label on the axis, set the step to n. Setting the step to 2 shows every other label. Defaults to null.
+        /// </summary>
+        public JsNumber step { get; set; }
+
+        /// <summary>
+        /// CSS styles for the label. Defaults to:
+        /// style: {
+        /// 	color: '#6D869F',
+        /// 	fontWeight: 'bold'
+        /// }
+        /// </summary>
+        public HtmlElementStyle style { get; set; }
+
+        /// <summary>
+        /// The x position offset of the label relative to the tick position on the axis. Defaults to 0.
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// The y position offset of the label relative to the tick position on the axis. Defaults to 0.
+        /// </summary>
+        public JsNumber y { get; set; }
+    }
+
+    /// <summary>
+    /// The position of the minor tick marks relative to the axis line. Can be one of inside and outside
+    /// </summary>
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum TickPositionType
+    {
+        inside,
+        outside,
+    }
+
+    /// <summary>
+    /// A colored band stretching across the plot area marking an interval on the axis.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class AxisPlotBandsOptions
+    {
+
+        /// <summary>
+        /// The color of the plot band. Defaults to null.
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// An object defining mouse events for the plot band. Supported properties are click, mouseover, mouseout, mousemove.
+        /// </summary>
+        public PlotBandsEventsOptions events { get; set; }
+
+        /// <summary>
+        /// The start position of the plot band in axis units. Defaults to null.
+        /// </summary>
+        public JsNumber from { get; set; }
+
+        /// <summary>
+        /// An id used for identifying the plot band in Axis.removePlotBand. Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// Text labels for the plot bands
+        /// </summary>
+        public PlotBandsLabelOptions label { get; set; }
+
+        /// <summary>
+        /// The end position of the plot band in axis units. Defaults to null.
+        /// </summary>
+        public JsNumber to { get; set; }
+
+        /// <summary>
+        /// The z index of the plot band within the chart. Defaults to null.
+        /// </summary>
+        public JsNumber zIndex { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class PlotBandsEventsOptions
+    {
+        public JsAction click { get; set; }
+        public JsAction mouseover { get; set; }
+        public JsAction mouseout { get; set; }
+        public JsAction mousemove { get; set; }
+    }
+
+    /// <summary>
+    /// Text labels for the plot bands
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class PlotBandsLabelOptions
+    {
+        /// <summary>
+        /// Horizontal alignment of the label. Can be one of "left", "center" or "right". Defaults to "center".
+        /// </summary>
+        public HorizontalAlignType align { get; set; }
+
+        /// <summary>
+        /// Rotation of the text label in degrees . Defaults to 0.
+        /// </summary>
+        public JsNumber rotation { get; set; }
+
+        /// <summary>
+        /// CSS styles for the text label.
+        /// </summary>
+        public HtmlElementStyle style { get; set; }
+
+        /// <summary>
+        /// The string text itself. A subset of HTML is supported.
+        /// </summary>
+        public TextAlignType textAlign { get; set; }
+
+        /// <summary>
+        /// Vertical alignment of the label relative to the plot band. Can be one of "top", "middle" or "bottom". Defaults to "top".
+        /// </summary>
+        public VerticalAlignType verticalAlign { get; set; }
+
+        /// <summary>
+        /// Horizontal position relative the alignment. Default varies by orientation.
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// Vertical position of the text baseline relative to the alignment. Default varies by orientation.
+        /// </summary>
+        public JsNumber y { get; set; }
+    }
+
+    /// <summary>
+    /// The text alignment for the label. While align determines where the texts anchor point is placed within the plot band,
+    /// textAlign determines how the text is aligned against its anchor point.
+    /// Possible values are "left", "center" and "right".
+    /// </summary>
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum TextAlignType
+    {
+        left,
+        center,
+        right,
+    }
+
+    /// <summary>
+    /// A line streching across the plot area, marking a specific value on one of the axes.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class AxisPlotLinesOptions
+    {
+
+        /// <summary>
+        /// The color of the line. Defaults to null.
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// The dashing or dot style for the plot line. For possible values see this overview. Defaults to Solid.
+        /// </summary>
+        public DashStyleType dashStyle { get; set; }
+
+        /// <summary>
+        /// An object defining mouse events for the plot line. Supported properties are click, mouseover, mouseout, mousemove.
+        /// </summary>
+        public PlotBandsEventsOptions events { get; set; }
+
+        /// <summary>
+        /// An id used for identifying the plot line in Axis.removePlotLine. Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// Text labels for the plot bands
+        /// </summary>
+        public PlotLinesLabelOptions label { get; set; }
+
+        /// <summary>
+        /// The position of the line in axis units. Defaults to null.
+        /// </summary>
+        public JsNumber value { get; set; }
+
+        /// <summary>
+        /// The width or thickness of the plot line. Defaults to null.
+        /// </summary>
+        public JsNumber width { get; set; }
+
+        /// <summary>
+        /// The z index of the plot line within the chart. Defaults to null.
+        /// </summary>
+        public JsNumber zIndex { get; set; }
+    }
+
+    /// <summary>
+    /// Text labels for the plot bands
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class PlotLinesLabelOptions
+    {
+        /// <summary>
+        /// Horizontal alignment of the label. Can be one of "left", "center" or "right". Defaults to "center".
+        /// </summary>
+        public HorizontalAlignType align { get; set; }
+
+        /// <summary>
+        /// Rotation of the text label in degrees. Defaults to 0 for horizontal plot lines and 90 for vertical lines.
+        /// </summary>
+        public JsNumber rotation { get; set; }
+
+        /// <summary>
+        /// CSS styles for the text label.
+        /// </summary>
+        public HtmlElementStyle style { get; set; }
+
+        /// <summary>
+        /// The text alignment for the label.
+        /// While align determines where the texts anchor point is placed within the plot band, textAlign determines how the text is aligned against its anchor point.
+        /// Possible values are "left", "center" and "right". Defaults to the same as the align option.
+        /// </summary>
+        public TextAlignType textAlign { get; set; }
+
+        /// <summary>
+        /// Vertical alignment of the label relative to the plot band. Can be one of "top", "middle" or "bottom". Defaults to "top".
+        /// </summary>
+        public VerticalAlignType verticalAlign { get; set; }
+
+        /// <summary>
+        /// Horizontal position relative the alignment. Default varies by orientation.
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// Vertical position of the text baseline relative to the alignment. Default varies by orientation.
+        /// </summary>
+        public JsNumber y { get; set; }
+    }
+
+    /// <summary>
+    /// The axis title, showing next to the axis line.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class AxisTitleOptions
+    {
+        /// <summary>
+        /// Alignment of the title relative to the axis values. Possible values are "low", "middle" or "high". Defaults to "middle".
+        /// </summary>
+        public AxisTitleAlignType align { get; set; }
+
+        /// <summary>
+        /// Deprecated. Set the text to null to disable the title.
+        /// </summary>
+        [Obsolete]
+        public JsString enabled { get; set; }
+
+        /// <summary>
+        /// The pixel distance between the axis labels or line and the title. Defaults to 0 for horizontal axes, 10 for vertical
+        /// </summary>
+        public JsNumber margin { get; set; }
+
+        /// <summary>
+        /// The distance of the axis title from the axis line.
+        /// By default, this distance is computed from the offset width of the labels, the labels' distance from the axis and the title's margin.
+        /// However when the offset option is set, it overrides all this. Defaults to undefined.
+        /// </summary>
+        public JsNumber offset { get; set; }
+
+        /// <summary>
+        /// The rotation of the text in degrees. 0 is horizontal, 270 is vertical reading from bottom to top. Defaults to 0.
+        /// </summary>
+        public JsNumber rotation { get; set; }
+
+        /// <summary>
+        /// CSS styles for the title. When titles are rotated they are rendered using vector graphic techniques and not all styles are applicable. Most noteworthy, a bug in IE8 renders all rotated strings bold and italic. Defaults to:
+        /// style: {
+        /// 	color: '#6D869F',
+        /// 	fontWeight: 'bold'
+        /// }
+        /// </summary>
+        public object style { get; set; }
+
+        /// <summary>
+        /// The actual text of the axis title. It can contain basic HTML text markup like &lt;b>, &lt;i> and spans with style. Defaults to null.
+        /// </summary>
+        public JsString text { get; set; }
+    }
+
+    /// <summary>
+    /// Alignment of the title relative to the axis values. Possible values are "low", "middle" or "high". 
+    /// </summary>
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum AxisTitleAlignType
+    {
+        low,
+        middle,
+        high,
+    }
+
+    /// <summary>
+    /// The type of axis. Can be one of "linear", "logarithmic" or "datetime".
+    /// In a datetime axis, the numbers are given in milliseconds, and tick marks are placed on appropriate values like full hours or days
+    /// </summary>
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum AxisType
+    {
+        linear,
+        logarithmic,
+        datetime,
+    }
+
+    #endregion
+
+    #region yAxis
+
+    /// <summary>
+    /// The Y axis or value axis. Normally this is the vertical axis, though if the chart is inverted this is the horiontal axis.
+    /// In case of multiple axes, the yAxis node is an array of configuration objects.
+    /// See the Axis object for programmatic access to the axis.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class YAxisOptions
+    {
+        /// <summary>
+        /// Whether to allow decimals in this axis' ticks.
+        /// When counting integers, like persons or hits on a web page, decimals must be avoided in the axis tick labels. Defaults to true.
+        /// </summary>
+        public bool allowDecimals { get; set; }
+
+        /// <summary>
+        /// When using an alternate grid color, a band is painted across the plot area between every other grid line. Defaults to null.
+        /// </summary>
+        public JsString alternateGridColor { get; set; }
+
+        /// <summary>
+        /// If categories are present for the xAxis, names are used instead of numbers for that axis. Example:
+        /// categories: ['Apples', 'Bananas', 'Oranges']
+        /// Defaults to [].
+        /// </summary>
+        public JsArray categories { get; set; }
+
+        /// <summary>
+        /// For a datetime axis, the scale will automatically adjust to the appropriate unit. This member gives the default string representations used for each unit. For an overview of the replacement codes, see dateFormat. Defaults to:
+        /// {
+        /// 	second: '%H:%M:%S',
+        /// 	minute: '%H:%M',
+        /// 	hour: '%H:%M',
+        /// 	day: '%e. %b',
+        /// 	week: '%e. %b',
+        /// 	month: '%b \'%y',
+        /// 	year: '%Y'
+        /// }
+        /// </summary>
+        public object dateTimeLabelFormats { get; set; }
+
+        /// <summary>
+        /// Whether to force the axis to end on a tick. Use this option with the maxPadding option to control the axis end. Defaults to true.
+        /// </summary>
+        public bool endOnTick { get; set; }
+
+        //TODO: events
+
+        /// <summary>
+        /// Color of the grid lines extending the ticks across the plot area. Defaults to "#C0C0C0".
+        /// </summary>
+        public JsString gridLineColor { get; set; }
+
+        /// <summary>
+        /// The dash or dot style of the grid lines. For possible values, see this demonstration. Defaults to Solid.
+        /// </summary>
+        public DashStyleType gridLineDashStyle { get; set; }
+
+        /// <summary>
+        /// The width of the grid lines extending the ticks across the plot area. Defaults to 1.
+        /// </summary>
+        public JsNumber gridLineWidth { get; set; }
+
+        /// <summary>
+        /// An id for the axis. This can be used after render time to get a pointer to the axis object through chart.get(). Defaults to null.
+        /// </summary>
+        public JsString id { get; set; }
+
+        /// <summary>
+        /// The axis labels show the number or category for each tick.
+        /// </summary>
+        public YAxisLabelsOptions labels { get; set; }
+
+        /// <summary>
+        /// The color of the line marking the axis itself. Defaults to "#C0D0E0".
+        /// </summary>
+        public JsString lineColor { get; set; }
+
+        /// <summary>
+        /// The width of the line marking the axis itself. Defaults to 0.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        /// <summary>
+        /// Index of another axis that this axis is linked to.
+        /// When an axis is linked to a master axis, it will take the same extremes as the master, but as assigned by min or max or by setExtremes.
+        /// It can be used to show additional info, or to ease reading the chart by duplicating the scales. Defaults to null.
+        /// </summary>
+        public JsNumber linkedTo { get; set; }
+
+        /// <summary>
+        /// The maximum value of the axis. If null, the max value is automatically calculated. If the endOnTick option is true, the max value might be rounded up.
+        /// The actual maximum value is also influenced by chart.alignTicks. Defaults to null.
+        /// </summary>
+        public JsNumber max { get; set; }
+
+        /// <summary>
+        /// Padding of the max value relative to the length of the axis. A padding of 0.05 will make a 100px axis 5px longer.
+        /// This is useful when you don't want the highest data value to appear on the edge of the plot area. Defaults to 0.05.
+        /// </summary>
+        public JsNumber maxPadding { get; set; }
+
+        /// <summary>
+        /// Deprecated. Renamed to minRange as of Highcharts 2.2.
+        /// </summary>
+        public JsNumber maxZoom { get; set; }
+
+        /// <summary>
+        /// The minimum value of the axis.
+        /// If null the min value is automatically calculated. If the startOnTick option is true, the min value might be rounded down. Defaults to null.
+        /// </summary>
+        public JsNumber min { get; set; }
+
+        /// <summary>
+        /// Padding of the min value relative to the length of the axis. A padding of 0.05 will make a 100px axis 5px longer.
+        /// This is useful when you don't want the lowest data value to appear on the edge of the plot area. Defaults to 0.05.
+        /// </summary>
+        public JsNumber minPadding { get; set; }
+
+        /// <summary>
+        /// The minimum range to display on this axis. The entire axis will not be allowed to span over a smaller interval than this.
+        /// For example, for a datetime axis the main unit is milliseconds. If minRange is set to 3600000, you can't zoom in more than to one hour.
+        /// The default minRange for the x axis is five times the smallest interval between any of the data points.
+        /// On a logarithmic axis, the unit for the minimum range is the power. So a minRange of 1 means that the axis can be zoomed to 10-100, 100-1000, 1000-10000 etc.
+        /// </summary>
+        public JsNumber minRange { get; set; }
+
+        /// <summary>
+        /// The minimum tick interval allowed in axis values.
+        /// For example on zooming in on an axis with daily data, this can be used to prevent the axis from showing hours. Defaults to undefined.
+        /// </summary>
+        public JsNumber minTickInterval { get; set; }
+
+        /// <summary>
+        /// Color of the minor, secondary grid lines. Defaults to #E0E0E0.
+        /// </summary>
+        public JsString minorGridLineColor { get; set; }
+
+        /// <summary>
+        /// The dash or dot style of the minor grid lines. For possible values, see this demonstration. Defaults to Solid.
+        /// </summary>
+        public DashStyleType minorGridLineDashStyle { get; set; }
+
+        /// <summary>
+        /// Width of the minor, secondary grid lines. Defaults to 1.
+        /// </summary>
+        public JsNumber minorGridLineWidth { get; set; }
+
+        /// <summary>
+        /// Color for the minor tick marks. Defaults to #A0A0A0.
+        /// </summary>
+        public JsString minorTickColor { get; set; }
+
+        /// <summary>
+        /// Tick interval in scale units for the minor ticks. On a linear axis, if "auto", the minor tick interval is calculated as a fifth of the tickInterval.
+        /// If null, minor ticks are not shown.
+        /// On logarithmic axes, the unit is the power of the value.
+        /// For example, setting the minorTickInterval to 1 puts one tick on each of 0.1, 1, 10, 100 etc.
+        /// Setting the minorTickInterval to 0.1 produces 9 ticks between 1 and 10, 10 and 100 etc.
+        /// A minorTickInterval of "auto" on a log axis results in a best guess, attempting to enter approximately 5 minor ticks between each major tick.
+        /// . Defaults to null.
+        /// </summary>
+        public JsNumber minorTickInterval { get; set; }
+
+        /// <summary>
+        /// The pixel length of the minor tick marks. Defaults to 2.
+        /// </summary>
+        public JsNumber minorTickLength { get; set; }
+
+        /// <summary>
+        /// The position of the minor tick marks relative to the axis line. Can be one of inside and outside. Defaults to outside.
+        /// </summary>
+        public TickPositionType minorTickPosition { get; set; }
+
+        /// <summary>
+        /// The pixel width of the minor tick mark. Defaults to 0.
+        /// </summary>
+        public JsNumber minorTickWidth { get; set; }
+
+        /// <summary>
+        /// The distance in pixels from the plot area to the axis line. A positive offset moves the axis with it's line, labels and ticks away from the plot area.
+        /// This is typically used when two or more axes are displayed on the same side of the plot. Defaults to 0.
+        /// </summary>
+        public JsNumber offset { get; set; }
+
+        /// <summary>
+        /// Whether to display the axis on the opposite side of the normal.
+        /// The normal is on the left side for vertical axes and bottom for horizontal, so the opposite sides will be right and top respectively.
+        /// This is typically used with dual or multiple axes. Defaults to false.
+        /// </summary>
+        public bool opposite { get; set; }
+
+        /// <summary>
+        /// A colored band stretching across the plot area marking an interval on the axis.
+        /// </summary>
+        public AxisPlotBandsOptions plotBands { get; set; }
+
+        /// <summary>
+        /// A line streching across the plot area, marking a specific value on one of the axes.
+        /// </summary>
+        public AxisPlotLinesOptions plotLines { get; set; }
+
+        /// <summary>
+        /// Whether to reverse the axis so that the highest number is closest to origo. If the chart is inverted, the x axis is reversed by default. Defaults to false.
+        /// </summary>
+        public bool reversed { get; set; }
+
+        /// <summary>
+        /// Whether to show the axis line and title when the axis has no data. Defaults to true.
+        /// </summary>
+        public bool showEmpty { get; set; }
+
+        /// <summary>
+        /// Whether to show the first tick label. Defaults to true.
+        /// </summary>
+        public bool showFirstLabel { get; set; }
+
+        /// <summary>
+        /// Whether to show the last tick label. Defaults to true.
+        /// </summary>
+        public bool showLastLabel { get; set; }
+
+        /// <summary>
+        /// The stack labels show the total value for each bar in a stacked column or bar chart. The label will be placed on top of positive columns and below negative columns.
+        /// In case of an inverted column chart or a bar chart the label is placed to the right of positive bars and to the left of negative bars.
+        /// </summary>
+        public YAxisStackLabelsOptions stackLabels { get; set; }
+
+        /// <summary>
+        /// For datetime axes, this decides where to put the tick between weeks. 0 = Sunday, 1 = Monday. Defaults to 1.
+        /// </summary>
+        public JsNumber startOfWeek { get; set; }
+
+        /// <summary>
+        /// Whether to force the axis to start on a tick. Use this option with the maxPadding option to control the axis start. Defaults to true.
+        /// </summary>
+        public bool startOnTick { get; set; }
+
+        /// <summary>
+        /// Color for the main tick marks. Defaults to #C0D0E0.
+        /// </summary>
+        public JsString tickColor { get; set; }
+
+        /// <summary>
+        /// The interval of the tick marks in axis units. When null, the tick interval is computed to approximately follow the tickPixelInterval on linear and datetime axes.
+        /// On categorized axes, a null tickInterval will default to 1, one category.
+        /// Note that datetime axes are based on milliseconds, so for example an interval of one day is expressed as 24 * 3600 * 1000.
+        /// On logarithmic axes, the tickInterval is based on powers, so a tickInterval of 1 means one tick on each of 0.1, 1, 10, 100 etc.
+        /// A tickInterval of 2 means a tick of 0.1, 10, 1000 etc. A tickInterval of 0.2 puts a tick on 0.1, 0.2, 0.4, 0.6, 0.8, 1, 2, 4, 6, 8, 10, 20, 40 etc.
+        /// . Defaults to null.
+        /// </summary>
+        public JsNumber tickInterval { get; set; }
+
+        /// <summary>
+        /// The pixel length of the main tick marks. Defaults to 5.
+        /// </summary>
+        public JsNumber tickLength { get; set; }
+
+        /// <summary>
+        /// If tickInterval is null this option sets the approximate pixel interval of the tick marks.
+        /// Not applicable to categorized axis. Defaults to 72 for the Y axis and 100 for	the X axis.
+        /// </summary>
+        public JsNumber tickPixelInterval { get; set; }
+
+        /// <summary>
+        /// The position of the major tick marks relative to the axis line. Can be one of inside and outside. Defaults to "outside".
+        /// </summary>
+        public TickPositionType tickPosition { get; set; }
+
+        /// <summary>
+        /// The pixel width of the major tick marks. Defaults to 0.
+        /// </summary>
+        public JsNumber tickWidth { get; set; }
+
+        /// <summary>
+        /// For categorized axes only. If "on" the tick mark is placed in the center of the category, if "between" the tick mark is placed between categories.
+        /// Defaults to "between".
+        /// </summary>
+        public JsString tickmarkPlacement { get; set; }
+
+        /// <summary>
+        /// The axis title, showing next to the axis line.
+        /// </summary>
+        public AxisTitleOptions title { get; set; }
+
+        /// <summary>
+        /// The type of axis. Can be one of "linear", "logarithmic" or "datetime". In a datetime axis,
+        /// the numbers are given in milliseconds, and tick marks are placed on appropriate values like full hours or days. Defaults to "linear".
+        /// </summary>
+        public AxisType type { get; set; }
+    }
+
+    /// <summary>
+    /// The axis labels show the number or category for each tick.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class YAxisLabelsOptions
+    {
+        /// <summary>
+        /// What part of the string the given position is anchored to. Can be one of "left", "center" or "right". Defaults to "right".
+        /// </summary>
+        public HorizontalAlignType align { get; set; }
+
+        /// <summary>
+        /// Enable or disable the axis labels. Defaults to true.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// Callback JavaScript function to format the label. The value is given by this.value. Additional properties for this are axis, chart, isFirst and isLast. Defaults to:
+        /// function() {
+        /// 	return this.value;
+        /// }
+        /// </summary>
+        public JsAction formatter { get; set; }
+        //TODO: Callback JavaScript function (REED SUMMARY)
+
+        /// <summary>
+        /// How to handle overflowing labels on horizontal axis. Can be undefined or "justify". If "justify", labels will not render outside the plot area.
+        /// If there is room to move it, it will be aligned to the edge, else it will be removed. Defaults to undefined.
+        /// </summary>
+        public JsString overflow { get; set; }
+
+        /// <summary>
+        /// Rotation of the labels in degrees. Defaults to 0.
+        /// </summary>
+        public JsNumber rotation { get; set; }
+
+        /// <summary>
+        /// Horizontal axes only. The number of lines to spread the labels over to make room or tighter labels. . Defaults to null.
+        /// </summary>
+        public JsNumber staggerLines { get; set; }
+
+        /// <summary>
+        /// To show only every n'th label on the axis, set the step to n. Setting the step to 2 shows every other label. Defaults to null.
+        /// </summary>
+        public JsNumber step { get; set; }
+
+        /// <summary>
+        /// CSS styles for the label. Defaults to:
+        /// style: {
+        /// 	color: '#6D869F',
+        /// 	fontWeight: 'bold'
+        /// }
+        /// </summary>
+        public HtmlElement style { get; set; }
+
+        /// <summary>
+        /// The x position offset of the label relative to the tick position on the axis. Defaults to -8.
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// The y position offset of the label relative to the tick position on the axis. Defaults to 3.
+        /// </summary>
+        public JsNumber y { get; set; }
+    }
+
+    /// <summary>
+    /// The stack labels show the total value for each bar in a stacked column or bar chart. The label will be placed on top of positive columns and below negative columns.
+    /// In case of an inverted column chart or a bar chart the label is placed to the right of positive bars and to the left of negative bars.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class YAxisStackLabelsOptions
+    {
+        /// <summary>
+        /// Defines the horizontal alignment of the stack total label. Can be one of "left", "center" or "right".
+        /// The default value is calculated at runtime and depends on orientation and whether the stack is positive or negative.
+        /// </summary>
+        public HorizontalAlignType align { get; set; }
+
+        /// <summary>
+        /// Enable or disable the stack total labels. Defaults to false.
+        /// </summary>
+        public bool enabled { get; set; }
+
+        /// <summary>
+        /// formatter: FunctionSince 2.1.5
+        /// Callback JavaScript function to format the label. The value is given by this.total. Defaults to:
+        /// function() {
+        /// 	return this.total;
+        /// }
+        /// </summary>
+        public JsAction formatter { get; set; }
+        //TODO: Callback JavaScript function (REED SUMMARY)
+
+        /// <summary>
+        /// Rotation of the labels in degrees. Defaults to 0.
+        /// </summary>
+        public JsNumber rotation { get; set; }
+
+        /// <summary>
+        /// CSS styles for the label. Defaults to:
+        /// style: {
+        /// 	color: '#666',
+        /// 	'font-size': '11px',
+        /// 	'line-height': '14px'
+        /// }
+        /// </summary>
+        public HtmlElementStyle style { get; set; }
+
+        /// <summary>
+        /// The text alignment for the label.
+        /// While align determines where the texts anchor point is placed with regards to the stack, textAlign determines how the text is aligned against its anchor point.
+        /// Possible values are "left", "center" and "right".
+        /// The default value is calculated at runtime and depends on orientation and whether the stack is positive or negative.
+        /// </summary>
+        public TextAlignType textAlign { get; set; }
+
+        /// <summary>
+        /// Defines the vertical alignment of the stack total label. Can be one of "top", "middle" or "bottom".
+        /// The default value is calculated at runtime and depends on orientation and whether the stack is positive or negative.
+        /// </summary>
+        public VerticalAlignType verticalAlign { get; set; }
+
+        /// <summary>
+        /// The x position offset of the label relative to the left of the stacked bar.
+        /// The default value is calculated at runtime and depends on orientation and whether the stack is positive or negative.
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// The y position offset of the label relative to the tick position on the axis.
+        /// The default value is calculated at runtime and depends on orientation and whether the stack is positive or negative.
         /// </summary>
         public JsNumber y { get; set; }
     }
