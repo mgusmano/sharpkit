@@ -621,6 +621,11 @@ namespace SharpKit.jQuery
         ///Default: false
         ///</summary>
         public bool showOtherMonths { get; set; }
+        /// <summary>
+        /// When true a column is added to show the week of the year. The calculateWeek option determines how the week of the year is calculated. You may also want to change the firstDay option.
+        ///Default: false
+        /// </summary>
+        public bool showWeek { get; set; }
         ///<summary>
         ///Set how many months to move when clicking the Previous/Next links.
         ///Default: 1
