@@ -11,7 +11,7 @@ function OnReady()
         accept:":not(.ui-sortable-helper)",
         drop:function(e,ui)
         {
-            $(e.currentTarget).find(".placeholder").remove();
+            $(ui).find(".placeholder").remove();
             $("<li></li>").text(ui.draggable.text()).appendTo(e.currentTarget);
         }
     }).sortable(

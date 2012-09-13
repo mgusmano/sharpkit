@@ -4,5 +4,5 @@ function OnReady()
 {
     $("#draggable").draggable({distance:20});
     $("#draggable2").draggable({delay:1000});
-     $('.ui-draggable').disableSelection();;
+    $(".ui-draggable").disableSelection();
 };

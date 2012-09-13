@@ -13,7 +13,9 @@ namespace jQueryUISamples.demos.tabs
         }
         static void OnReady()
         {
-          //  new jQuery("#tabs").tabs(new TabsOptions { cookie = new 
+            // TODO : CookieOption
+
+           // new jQuery("#tabs").tabs(new TabsOptions 
         //            $(function () {
         //    $("#tabs").tabs({
         //        cookie: {

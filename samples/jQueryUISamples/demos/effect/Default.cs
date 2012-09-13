@@ -27,7 +27,7 @@ namespace jQueryUISamples.demos.effect
                 //}
                 //        $( "#effect" ).effect( selectedEffect, options, 500, callback );
 
-                //new jQuery("#effect").effect(selectedEffect, options, 500, callback);
+          //      new jQuery("#effect").effect(selectedEffect, options, 500, callback);
             }
         }
 
