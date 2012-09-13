@@ -5,18 +5,1032 @@ using System;
 
 namespace SharpKit.Highcharts
 {
+    //TODO: make sure all the methos that return HtmlElement are correct. (there is also an Element class so i didn't know wich one...)
+    //TODO: was i suposed to do something after creating the class? like writh a propertye or else?
+
+    /// <summary>
+    /// The namespace under which all other Highcharts variables are assembled is called Highcharts.
+    /// var chart1 = new Highcharts.Chart(options);
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Highcharts", Export = false)]
+    public class Highcharts
+    {
+        /// <summary>
+        /// This is the constructor for creating a new chart object.
+        /// </summary>
+        /// <param name="options">The chart options, as documented under the heading "The options object"in the left menu.</param>
+        /// <param name="callback">A function to execute when the chart object is finished loading and rendering.
+        /// In most cases the chart is built in one thread, but in Internet Explorer version 8 or lessthe chart is sometimes initiated before the document is ready,
+        /// and in thesecases the chart object will not be finished directly after callingnew Highcharts.Chart().
+        /// As a consequence, code that relies on the newly built Chart object should always run in the callback.
+        /// Defining a chart.event.load handler is equivalent.</param>
+        /// <returns></returns>
+        public Chart Chart(ChartOptions options, JsAction callback) { return null; }
+        //TODO: must check, they say it is a constractor
+
+        /// <summary>
+        /// Formats a JavaScript date timestamp (milliseconds since Jan 1st 1970) into a human readable date string.
+        /// The format is a subset of the formats for PHP's strftime function.
+        /// </summary>
+        /// <param name="format">A string containing some of the formats above.</param>
+        /// <param name="time">The JavaScript time to format.</param>
+        /// <param name="capitalize">Whether to capitalize words in the return string.</param>
+        /// <returns></returns>
+        public JsString dateFormat(JsString format, JsNumber time, bool capitalize) { return null; }
+        /// <summary>
+        /// Formats a JavaScript date timestamp (milliseconds since Jan 1st 1970) into a human readable date string.
+        /// The format is a subset of the formats for PHP's strftime function.
+        /// </summary>
+        /// <param name="format">A string containing some of the formats above.</param>
+        /// <param name="time">The JavaScript time to format.</param>
+        /// <returns></returns>
+        public JsString dateFormat(JsString format, JsNumber time) { return null; }
+        /// <summary>
+        /// Formats a JavaScript date timestamp (milliseconds since Jan 1st 1970) into a human readable date string.
+        /// The format is a subset of the formats for PHP's strftime function.
+        /// </summary>
+        /// <param name="format">A string containing some of the formats above.</param>
+        /// <returns></returns>
+        public JsString dateFormat(JsString format) { return null; }
+
+        /// <summary>
+        /// Formats a JavaScript number with grouped thousands, a fixed amount of decimals and an optional decimal point.
+        /// It is a port of PHP's function with the same name. See PHP number_format for a full explanation of the parameters.
+        /// </summary>
+        /// <param name="number">The raw number to format.</param>
+        /// <param name="decimals">The desired number of decimals.</param>
+        /// <param name="decimalPoint">The decimal point. Defaults to "." or to the string specified globally in options.lang.decimalPoint.</param>
+        /// <param name="thousandsSep">The thousands separator. Defaults to "," or to the string specified globallyin options.lang.thousandsSep.</param>
+        /// <returns></returns>
+        public JsString numberFormat(JsNumber number, JsNumber decimals, JsString decimalPoint, JsString thousandsSep) { return null; }
+        /// <summary>
+        /// Formats a JavaScript number with grouped thousands, a fixed amount of decimals and an optional decimal point.
+        /// It is a port of PHP's function with the same name. See PHP number_format for a full explanation of the parameters.
+        /// </summary>
+        /// <param name="number">The raw number to format.</param>
+        /// <param name="decimals">The desired number of decimals.</param>
+        /// <param name="decimalPoint">The decimal point. Defaults to "." or to the string specified globally in options.lang.decimalPoint.</param>
+        /// <returns></returns>
+        public JsString numberFormat(JsNumber number, JsNumber decimals, JsString decimalPoint) { return null; }
+        /// <summary>
+        /// Formats a JavaScript number with grouped thousands, a fixed amount of decimals and an optional decimal point.
+        /// It is a port of PHP's function with the same name. See PHP number_format for a full explanation of the parameters.
+        /// </summary>
+        /// <param name="number">The raw number to format.</param>
+        /// <param name="decimals">The desired number of decimals.</param>
+        /// <returns></returns>
+        public JsString numberFormat(JsNumber number, JsNumber decimals) { return null; }
+        /// <summary>
+        /// Formats a JavaScript number with grouped thousands, a fixed amount of decimals and an optional decimal point.
+        /// It is a port of PHP's function with the same name. See PHP number_format for a full explanation of the parameters.
+        /// </summary>
+        /// <param name="number">The raw number to format.</param>
+        /// <returns></returns>
+        public JsString numberFormat(JsNumber number) { return null; }
+
+        /// <summary>
+        /// Sets the options globally for all charts created after this has been called.
+        /// Takes an options JavaScript object structure as the argument. These options are merged with the default options and the result is returned.
+        /// </summary>
+        /// <param name="options">The chart configuration object.</param>
+        /// <returns></returns>
+        public object setOptions(ChartConfiguration options) { return null; }
+        //TODO: options type is ChartConfiguration or ChartOptions?
+    }
+    //TODO: this is a namespce not a class
+
+    /// <summary>
+    /// The chart object is the JavaScript object representing a single chart in the web page.The pointer to your chart object
+    /// is returned when a chart is created using the Highcharts.Chart() constructor:
+    /// var chart1 = new Highcharts.Chart(options);
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "Highcharts.Chart", Export = false)]
     public class Chart
     {
         public Chart(ChartConfiguration Config) { }
-        public JsArray<xAxis> xAxis { get; set; }
 
-        //TODO: Highcharts.setOptions() 
+        /// <summary>
+        /// An array of the chart's x axes. If only one x axis, it is referenced by chart.xAxis[0].
+        /// </summary>
+        public JsArray<Axis> xAxis { get; set; }
+
+        /// <summary>
+        /// An array of the chart's y axes. If only one y axis, it is referenced by chart.yAxis[0].
+        /// </summary>
+        public JsArray<Axis> yAxis { get; set; }
+
+        /// <summary>
+        /// Add a series to the chart after render time.
+        /// Note that this method should never be usedwhen adding data synchronously at chart render time, as it adds expense to the calculationsand rendering.
+        /// When adding data at the same time as the chart is initiated, add the seriesas a configuration option instead.
+        /// </summary>
+        /// <param name="options">The series options, as documented under plotOptions.seriesand under the plotOptions for each series type.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the series is added. See the redraw()method below.</param>
+        /// <param name="animation">Defaults to true. When true, the series' updating will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        /// <returns></returns>
+        public Series addSeries(PlotSeriesOptions options, bool redraw, bool animation) { return null; }
+        /// <summary>
+        /// Add a series to the chart after render time.
+        /// Note that this method should never be usedwhen adding data synchronously at chart render time, as it adds expense to the calculationsand rendering.
+        /// When adding data at the same time as the chart is initiated, add the seriesas a configuration option instead.
+        /// </summary>
+        /// <param name="options">The series options, as documented under plotOptions.seriesand under the plotOptions for each series type.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the series is added. See the redraw()method below.</param>
+        /// <param name="animation">Defaults to true. When true, the series' updating will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        /// <returns></returns>
+        public Series addSeries(PlotSeriesOptions options, bool redraw, AnimationOptions animation) { return null; }
+        /// <summary>
+        /// Add a series to the chart after render time.
+        /// Note that this method should never be usedwhen adding data synchronously at chart render time, as it adds expense to the calculationsand rendering.
+        /// When adding data at the same time as the chart is initiated, add the seriesas a configuration option instead.
+        /// </summary>
+        /// <param name="options">The series options, as documented under plotOptions.seriesand under the plotOptions for each series type.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the series is added. See the redraw()method below.</param>
+        /// <returns></returns>
+        public Series addSeries(PlotSeriesOptions options, bool redraw) { return null; }
+        /// <summary>
+        /// Add a series to the chart after render time.
+        /// Note that this method should never be usedwhen adding data synchronously at chart render time, as it adds expense to the calculationsand rendering.
+        /// When adding data at the same time as the chart is initiated, add the seriesas a configuration option instead.
+        /// </summary>
+        /// <param name="options">The series options, as documented under plotOptions.seriesand under the plotOptions for each series type.</param>
+        /// <returns></returns>
+        public Series addSeries(PlotSeriesOptions options) { return null; }
+
+        /// <summary>
+        /// A reference to the containing HTML element as given in chart.renderTo.
+        /// </summary>
+        public object container { get; set; }
+        //TODO: must check
+
+        /// <summary>
+        /// Removes the chart and purges memory.
+        /// This method should be called beforewriting a new chart into the same container. It is called internally on window unloadto prevent leaks.
+        /// </summary>
+        public void destroy() { }
+
+        /// <summary>
+        /// Exporting module required. Submit an SVG version of the chart to a serveralong with some parameters for conversion.
+        /// </summary>
+        /// <param name="options">Exporting options. Out of the exportingoptions,
+        /// the following options can be given as parameters to the exportChart method.All options default to the values given in the exporting config
+        /// optins.filename: the filename for the export without extension,
+        /// url: the URL for the server module to do the conversion,
+        /// width: the width of the PNG or JPEG image generated on the server,
+        /// type: the MIME type of the converted image.</param>
+        /// <param name="chartOptions">Additional chart options for the exported chart. For example a different background color can be added here.</param>
+        /// <returns>null</returns>
+        public object exportChart(ExportingOptions options, ChartOptions chartOptions) { return null; }
+        //TODO: return null?
+        /// <summary>
+        /// Exporting module required. Submit an SVG version of the chart to a serveralong with some parameters for conversion.
+        /// </summary>
+        /// <param name="options">Exporting options. Out of the exportingoptions,
+        /// the following options can be given as parameters to the exportChart method.All options default to the values given in the exporting config
+        /// optins.filename: the filename for the export without extension,
+        /// url: the URL for the server module to do the conversion,
+        /// width: the width of the PNG or JPEG image generated on the server,
+        /// type: the MIME type of the converted image.</param>
+        /// <returns>null</returns>
+        public object exportChart(ExportingOptions options) { return null; }
+        //TODO: return null?
+        /// <summary>
+        /// Exporting module required. Submit an SVG version of the chart to a serveralong with some parameters for conversion.
+        /// </summary>
+        /// <returns>null</returns>
+        public object exportChart() { return null; }
+        //TODO: return null?
+
+        /// <summary>
+        /// Get an axis, series or point by its id as given in the configuration options.
+        /// </summary>
+        /// <param name="id">The id of the axis, series or point to get.</param>
+        /// <returns></returns>
+        [JsMethod(Name = "get")]
+        public Axis getAxis(JsString id) { return null; }
+        /// <summary>
+        /// Get an axis, series or point by its id as given in the configuration options.
+        /// </summary>
+        /// <param name="id">The id of the axis, series or point to get.</param>
+        /// <returns></returns>
+        [JsMethod(Name = "get")]
+        public Series getSeries(JsString id) { return null; }
+        /// <summary>
+        /// Get an axis, series or point by its id as given in the configuration options.
+        /// </summary>
+        /// <param name="id">The id of the axis, series or point to get.</param>
+        /// <returns></returns>
+        [JsMethod(Name = "get")]
+        public Point getPoint(JsString id) { return null; }
+        //TODO: must check.
+
+        /// <summary>
+        /// Exporting module required. Get an SVG string representing the chart.
+        /// </summary>
+        /// <param name="additionalOptions">Chart options to add to the exported chart in addition to the options given forthe original chart.
+        /// For example if series.lineWidth should be greater in the exported chart than in the original,
+        /// or the chart should have a different background color, this is added here.</param>
+        /// <returns></returns>
+        public JsString getSVG(ChartOptions additionalOptions) { return null; }
+        /// <summary>
+        /// Exporting module required. Get an SVG string representing the chart.
+        /// </summary>
+        /// <returns></returns>
+        public JsString getSVG() { return null; }
+
+        /// <summary>
+        /// Returns an array of all currently selected points in the chart. Points can be selected either programmatically by the point.select() method or by clicking.
+        /// </summary>
+        /// <returns>An array of the selected points.</returns>
+        public JsArray<Point> getSelectedPoints() { return null; }
+        //TODO: must check
+
+        /// <summary>
+        /// Returns an array of all currently selected series in the chart.
+        /// Series can be selected either programmatically by the series.select() method or by checking the checkboxnext to the legend item if series.showCheckBox is true.
+        /// </summary>
+        /// <returns></returns>
+        public JsArray<Series> getSelectedSeries() { return null; }
+
+        /// <summary>
+        /// Hide the loading screen. Options for the loadingscreen are defined at options.loading.
+        /// </summary>
+        /// <returns></returns>
+        public object hideLoading() { return null; }
+        //TODO: check, return null
+
+        /// <summary>
+        /// The options stucture for the chart.
+        /// </summary>
+        public ChartOptions options { get; set; }
+        //TODO: check
+
+        /// <summary>
+        /// Redraw the chart after changes have been done to the data or axis extremes.
+        /// All methodsfor updating axes, series or points have a parameter for redrawing the chart. This istrue by default.
+        /// But in many cases you want to do more than one operationon the chart before redrawing, for example add a number of points.
+        /// In those cases it isa waste of resources to redraw the chart for each new point added. So you add the pointsand call chart.redraw() after.
+        /// </summary>
+        /// <returns></returns>
+        public object redraw() { return null; }
+        //TODO: return null
+
+        /// <summary>
+        /// An array of all the chart's series.
+        /// </summary>
+        public JsArray<Series> series { get; set; }
+
+        /// <summary>
+        /// Resize the chart to a given width and height.
+        /// </summary>
+        /// <param name="width">The new pixel width of the chart.</param>
+        /// <param name="height">The new pixel height of the chart.</param>
+        /// <param name="animation">Defaults to true. When true, the resize will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void setSize(JsNumber width, JsNumber height, bool animation) { }
+        /// <summary>
+        /// Resize the chart to a given width and height.
+        /// </summary>
+        /// <param name="width">The new pixel width of the chart.</param>
+        /// <param name="height">The new pixel height of the chart.</param>
+        /// <param name="animation">Defaults to true. When true, the resize will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void setSize(JsNumber width, JsNumber height, AnimationOptions animation) { }
+        /// <summary>
+        /// Resize the chart to a given width and height.
+        /// </summary>
+        /// <param name="width">The new pixel width of the chart.</param>
+        /// <param name="height">The new pixel height of the chart.</param>
+        public void setSize(JsNumber width, JsNumber height) { }
+
+        /// <summary>
+        /// Set a new title or subtitle for the chart
+        /// </summary>
+        /// <param name="title">A configuration object for the new title as defined at #title.</param>
+        /// <param name="subtitle">A configuration object for the new subtitle as defined at #subtitle.</param>
+        public void setTitle(TitleOptions title, SubtitleOptions subtitle) { }
+
+        /// <summary>
+        /// Dim the chart's plot area and show a loading label text.
+        /// Options for the loadingscreen are defined at options.loading. A customtext can be given as a parameter for loadind
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public object showLoading(JsString str) { return null; }
+        //TODO: return null
+
+        /// <summary>
+        /// This method is deprecated as of 2.0.1. Updating the chart position after a move operation is no longer necessary.
+        /// </summary>
+        /// <returns></returns>
+        public object updatePosition() { return null; }
+        //TODO: return null
     }
 
-    public class xAxis
+    /// <summary>
+    /// A chart can have from 0 axes (pie chart) to multiples. In a normal, single seriescartesian chart, there is one X axis and one Y axis.
+    /// The X axis or axes are referencedby chart.xAxis, which is an array of Axis objects.
+    /// If there is only oneaxis, it can be referenced through chart.xAxis[0], and multiple axes haveincreasing indices. The same pattern goes for Y axes.
+    /// If you need to get the axes from a series object, use the series.xAxis andseries.yAxis properties.
+    /// These are not arrays, as one series can only be associateddto one X and one Y axis.
+    /// A third way to reference the axis programmatically is by id. Add an id in the axis configuration options, and get the axis by chart.get(id).
+    /// Configuration options for the axes are given in options.xAxis and options.yAxis.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Highcharts.Axis", Export = false)]
+    public class Axis
     {
+        /// <summary>
+        /// Add a plot band after render time.
+        /// </summary>
+        /// <param name="options">A configuration object consisting of the same members as options.xAxis.plotBands</param>
+        public void addPlotBand(AxisPlotBandsOptions options) { }
 
+        /// <summary>
+        /// Add a plot line after render time.
+        /// </summary>
+        /// <param name="options">A configuration object consisting of the same members as options.xAxis.plotLines</param>
+        public void addPlotLine(AxisPlotLinesOptions options) { }
+
+        /// <summary>
+        /// Get the current extremes for the axis.
+        /// </summary>
+        /// <param name="dataMax">The maximum value of the axis' associated series.</param>
+        /// <param name="dataMin">The minimum value of the axis' associated series.</param>
+        /// <param name="max">The maximum axis value, either automatic or set manually. If the max option is not set and maxPadding is0, this value will be the same as dataMax.</param>
+        /// <param name="min">The minimum axis value, either automatic or set manually. If the min option is not set and minPadding is0, this value will be the same as dataMin.</param>
+        /// <returns></returns>
+        public object getExtremes(object dataMax, object dataMin, object max, object min) { return null; }
+        //TODO: DANEL MUST CHECK
+
+        /// <summary>
+        /// Remove a plot band by its id.
+        /// </summary>
+        /// <param name="id">The plot band's id as given in the original configuration object orin the addPlotBand method.</param>
+        public void removePlotBand(JsString id) { }
+
+        /// <summary>
+        /// Remove a plot line by its id.
+        /// </summary>
+        /// <param name="id">The plot line's id as given in the original configuration object orin the addPlotLine method.</param>
+        public void removePlotLine(JsString id) { }
+
+        /// <summary>
+        /// Set new categories for the axis.
+        /// </summary>
+        /// <param name="cateories">The new category names.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the axis or wait for an explicit call to chart.redraw().</param>
+        public void setCategories(JsArray cateories, bool redraw) { }
+        /// <summary>
+        /// Set new categories for the axis.
+        /// </summary>
+        /// <param name="cateories">The new category names.</param>
+        public void setCategories(JsArray cateories) { }
+
+        /// <summary>
+        /// Set the minimum and maximum of the axes after render time.
+        /// If the startOnTick and endOnTick options are true,the minimum and maximum values are rounded off to the nearest tick.
+        /// To preventthis, these options can be set to false before calling setExtremes.
+        /// </summary>
+        /// <param name="min">The new minimum value</param>
+        /// <param name="max">The new maximum value</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart or wait for an explicit call to chart.redraw().</param>
+        /// <param name="animation">Defaults to true. When true, the resize will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void setExtremes(JsNumber min, JsNumber max, bool redraw, bool animation) { }
+        /// <summary>
+        /// Set the minimum and maximum of the axes after render time.
+        /// If the startOnTick and endOnTick options are true,the minimum and maximum values are rounded off to the nearest tick.
+        /// To preventthis, these options can be set to false before calling setExtremes.
+        /// </summary>
+        /// <param name="min">The new minimum value</param>
+        /// <param name="max">The new maximum value</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart or wait for an explicit call to chart.redraw().</param>
+        /// <param name="animation">Defaults to true. When true, the resize will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void setExtremes(JsNumber min, JsNumber max, bool redraw, AnimationOptions animation) { }
+        /// <summary>
+        /// Set the minimum and maximum of the axes after render time.
+        /// If the startOnTick and endOnTick options are true,the minimum and maximum values are rounded off to the nearest tick.
+        /// To preventthis, these options can be set to false before calling setExtremes.
+        /// </summary>
+        /// <param name="min">The new minimum value</param>
+        /// <param name="max">The new maximum value</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart or wait for an explicit call to chart.redraw().</param>
+        public void setExtremes(JsNumber min, JsNumber max, bool redraw) { }
+        /// <summary>
+        /// Set the minimum and maximum of the axes after render time.
+        /// If the startOnTick and endOnTick options are true,the minimum and maximum values are rounded off to the nearest tick.
+        /// To preventthis, these options can be set to false before calling setExtremes.
+        /// </summary>
+        /// <param name="min">The new minimum value</param>
+        /// <param name="max">The new maximum value</param>
+        public void setExtremes(JsNumber min, JsNumber max) { }
+
+        /// <summary>
+        /// Update the title of the axis after render time.
+        /// </summary>
+        /// <param name="title">The new title options on the same format as given in xAxis.title.</param>
+        /// <param name="redraw">Whether to redraw the chart now or hold until the next chart.redraw()</param>
+        public void setTitle(AxisTitleOptions title, bool redraw) { }
+        /// <summary>
+        /// Update the title of the axis after render time.
+        /// </summary>
+        /// <param name="title">The new title options on the same format as given in xAxis.title.</param>
+        public void setTitle(AxisTitleOptions title) { }
+
+    }
+
+    /// <summary>
+    /// The Element class is a JavaScript wrapper for SVG elements used in the rendering layer of Highchart.
+    /// Combinedwith the Renderer object, these elements allows freeform annotation in the charts or even in your HTML pages without creating a chart at all.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Highcharts.Element", Export = false)]
+    public class Element
+    {
+        /// <summary>
+        /// Add the element to the renderer canvas.
+        /// </summary>
+        /// <param name="parent">The element can be added to a g (group) element.</param>
+        /// <returns>Element</returns>
+        public HtmlElement add(object parent) { return null; }
+        /// <summary>
+        /// Add the element to the renderer canvas.
+        /// </summary>
+        /// <returns>Element</returns>
+        public HtmlElement add() { return null; }
+
+        /// <summary>
+        /// Apply attributes to the SVG/VML elements. These attributes for the most parts correspondto SVG, but some are specific to Highcharts, like zIndex and rotationfor text.
+        /// </summary>
+        /// <param name="hash">A set of attributes to apply.</param>
+        /// <returns>Element</returns>
+        public HtmlElement attr(object hash) { return null; }
+
+        /// <summary>
+        /// Apply some CSS properties to the element
+        /// </summary>
+        /// <param name="hash">The object literal of CSS properties to apply. Properties should be hyphenated, not camelCased.</param>
+        /// <returns>Element</returns>
+        public HtmlElement css(object hash) { return null; }
+
+        /// <summary>
+        /// Destroy the element and free up memory
+        /// </summary>
+        public object destroy { get; set; }
+
+        /// <summary>
+        /// Get the bounding box of the element
+        /// </summary>
+        /// <param name="hash">A hash object containing x, y, width and height values for the element.</param>
+        /// <returns>Element</returns>
+        public HtmlElement getBBox(object hash) { return null; }
+        /// <summary>
+        /// Get the bounding box of the element
+        /// </summary>
+        /// <returns>Element</returns>
+        public HtmlElement getBBox() { return null; }
+
+        /// <summary>
+        /// Apply an event handler to the element
+        /// </summary>
+        /// <param name="eventType">The event type to attach, for example 'click', 'mouseover', 'touch'.</param>
+        /// <param name="handler">The event handler function.</param>
+        /// <returns>Element</returns>
+        public HtmlElement on(JsString eventType, JsAction handler) { return null; }
+
+        /// <summary>
+        /// Bring the element to the front. Alternatively, a zIndex attribute can be given.
+        /// </summary>
+        /// <param name="e">The element object</param>
+        /// <returns>Element</returns>
+        public HtmlElement toFront(HtmlElement e) { return null; }
+    }
+
+    /// <summary>
+    /// The Series object is the JavaScript representation of each line, area series, pie etc.
+    /// The object can be accessed in a number of ways.
+    /// All series and point event handlersgive a reference to the series object.
+    /// The chart object has a seriesproperty that is a collection of all the chart's series.
+    /// The point objectsalso have the same reference.
+    /// Another way to reference the series programmatically is by id.
+    /// Add an id in the series configuration options, and get the series object by chart.get(id).
+    /// Configuration options for the series are given in three levels.
+    /// Optionsfor all series in a chart are given in the plotOptions.series object.
+    /// Then options for all seriesof a specific type are given in the plotOptions of that type,
+    /// for example plotOptions.line.Next, options for one single series are given in the series array.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Highcharts.Series", Export = false)]
+    public class Series
+    {
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is added.
+        /// When adding more thanone point, it is highly recommended that the redraw option beset to false,
+        /// and instead chart.redraw() is explicitly calledafter the adding of points is finished.</param>
+        /// <param name="shift">Defaults to false. When shift is true, one point is shifted off the start of the series as one is appended to the end.
+        /// Use this option for live charts monitoring a value over time.</param>
+        /// <param name="animation">Defaults to true. When true, the graph will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void addPoint(JsArray options, bool redraw, bool shift, bool animation) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is added.
+        /// When adding more thanone point, it is highly recommended that the redraw option beset to false,
+        /// and instead chart.redraw() is explicitly calledafter the adding of points is finished.</param>
+        /// <param name="shift">Defaults to false. When shift is true, one point is shifted off the start of the series as one is appended to the end.
+        /// Use this option for live charts monitoring a value over time.</param>
+        /// <param name="animation">Defaults to true. When true, the graph will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void addPoint(JsArray options, bool redraw, bool shift, AnimationOptions animation) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is added.
+        /// When adding more thanone point, it is highly recommended that the redraw option beset to false,
+        /// and instead chart.redraw() is explicitly calledafter the adding of points is finished.</param>
+        /// <param name="shift">Defaults to false. When shift is true, one point is shifted off the start of the series as one is appended to the end.
+        /// Use this option for live charts monitoring a value over time.</param>
+        public void addPoint(JsArray options, bool redraw, bool shift) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is added.
+        /// When adding more thanone point, it is highly recommended that the redraw option beset to false,
+        /// and instead chart.redraw() is explicitly calledafter the adding of points is finished.</param>
+        public void addPoint(JsArray options, bool redraw) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        public void addPoint(JsArray options) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is added.
+        /// When adding more thanone point, it is highly recommended that the redraw option beset to false,
+        /// and instead chart.redraw() is explicitly calledafter the adding of points is finished.</param>
+        /// <param name="shift">Defaults to false. When shift is true, one point is shifted off the start of the series as one is appended to the end.
+        /// Use this option for live charts monitoring a value over time.</param>
+        /// <param name="animation">Defaults to true. When true, the graph will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void addPoint(PointOptions options, bool redraw, bool shift, bool animation) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is added.
+        /// When adding more thanone point, it is highly recommended that the redraw option beset to false,
+        /// and instead chart.redraw() is explicitly calledafter the adding of points is finished.</param>
+        /// <param name="shift">Defaults to false. When shift is true, one point is shifted off the start of the series as one is appended to the end.
+        /// Use this option for live charts monitoring a value over time.</param>
+        /// <param name="animation">Defaults to true. When true, the graph will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void addPoint(PointOptions options, bool redraw, bool shift, AnimationOptions animation) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is added.
+        /// When adding more thanone point, it is highly recommended that the redraw option beset to false,
+        /// and instead chart.redraw() is explicitly calledafter the adding of points is finished.</param>
+        /// <param name="shift">Defaults to false. When shift is true, one point is shifted off the start of the series as one is appended to the end.
+        /// Use this option for live charts monitoring a value over time.</param>
+        public void addPoint(PointOptions options, bool redraw, bool shift) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is added.
+        /// When adding more thanone point, it is highly recommended that the redraw option beset to false,
+        /// and instead chart.redraw() is explicitly calledafter the adding of points is finished.</param>
+        public void addPoint(PointOptions options, bool redraw) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        public void addPoint(PointOptions options) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is added.
+        /// When adding more thanone point, it is highly recommended that the redraw option beset to false,
+        /// and instead chart.redraw() is explicitly calledafter the adding of points is finished.</param>
+        /// <param name="shift">Defaults to false. When shift is true, one point is shifted off the start of the series as one is appended to the end.
+        /// Use this option for live charts monitoring a value over time.</param>
+        /// <param name="animation">Defaults to true. When true, the graph will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void addPoint(JsNumber options, bool redraw, bool shift, bool animation) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is added.
+        /// When adding more thanone point, it is highly recommended that the redraw option beset to false,
+        /// and instead chart.redraw() is explicitly calledafter the adding of points is finished.</param>
+        /// <param name="shift">Defaults to false. When shift is true, one point is shifted off the start of the series as one is appended to the end.
+        /// Use this option for live charts monitoring a value over time.</param>
+        /// <param name="animation">Defaults to true. When true, the graph will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void addPoint(JsNumber options, bool redraw, bool shift, AnimationOptions animation) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is added.
+        /// When adding more thanone point, it is highly recommended that the redraw option beset to false,
+        /// and instead chart.redraw() is explicitly calledafter the adding of points is finished.</param>
+        /// <param name="shift">Defaults to false. When shift is true, one point is shifted off the start of the series as one is appended to the end.
+        /// Use this option for live charts monitoring a value over time.</param>
+        public void addPoint(JsNumber options, bool redraw, bool shift) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is added.
+        /// When adding more thanone point, it is highly recommended that the redraw option beset to false,
+        /// and instead chart.redraw() is explicitly calledafter the adding of points is finished.</param>
+        public void addPoint(JsNumber options, bool redraw) { }
+        /// <summary>
+        /// Add a point to the series after render time.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number,
+        /// a point with that y value is appended to the series.If it is an array, it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        public void addPoint(JsNumber options) { }
+
+        /// <summary>
+        /// Read only. The chart that the series belongs to.
+        /// </summary>
+        public Chart chart { get; set; }
+
+        /// <summary>
+        /// Read only. An array with the series' data point objects.
+        /// </summary>
+        public JsArray data { get; set; }
+
+        /// <summary>
+        /// Hides the series if visible. If the chart.ignoreHiddenSeries option is true,the chart is redrawn without this series.
+        /// </summary>
+        public void hide() { }
+
+        /// <summary>
+        /// The series' name as given in the options.
+        /// </summary>
+        public JsString name { get; set; }
+
+        /// <summary>
+        /// Read only. The series' options.
+        /// </summary>
+        public SeriesOptions options { get; set; }
+
+        /// <summary>
+        /// Remove the series from the chart.
+        /// </summary>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the series is removed.If doing more operations on the chart,
+        /// it is a good idea to set redraw to falseand call chart.redraw() after.</param>
+        public void remove(bool redraw) { }
+        /// <summary>
+        /// Remove the series from the chart.
+        /// </summary>
+        public void remove() { }
+
+        /// <summary>
+        /// Select or unselect the series. This means its selected property is set,the checkbox in the legend is toggled and when selected,
+        /// the series is returned in the chart.getSelectedSeries() method.
+        /// </summary>
+        /// <param name="selected">When true, the series is selected. When false it is unselected.When null or undefined, the series' selection state is toggled.</param>
+        public void select(bool selected) { }
+
+        /// <summary>
+        /// Read only. The series' selected state as set by series.select().
+        /// </summary>
+        public bool selected { get; set; }
+
+        /// <summary>
+        /// Apply a new set of data to the series and optionally redraw it.
+        /// </summary>
+        /// <param name="data">Takes an array of data in the same format as given at options.series => data.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the series is altered.If doing more operations on the chart,
+        /// it is a good idea to set redraw to falseand call chart.redraw() after.</param>
+        public void setData(JsArray<JsNumber> data, bool redraw) { }
+        /// <summary>
+        /// Apply a new set of data to the series and optionally redraw it.
+        /// </summary>
+        /// <param name="data">Takes an array of data in the same format as given at options.series => data.</param>
+        public void setData(JsArray<JsNumber> data) { }
+        /// <summary>
+        /// Apply a new set of data to the series and optionally redraw it.
+        /// </summary>
+        /// <param name="data">Takes an array of data in the same format as given at options.series => data.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the series is altered.If doing more operations on the chart,
+        /// it is a good idea to set redraw to falseand call chart.redraw() after.</param>
+        public void setData(JsArray<JsArray> data, bool redraw) { }
+        /// <summary>
+        /// Apply a new set of data to the series and optionally redraw it.
+        /// </summary>
+        /// <param name="data">Takes an array of data in the same format as given at options.series => data.</param>
+        public void setData(JsArray<JsArray> data) { }
+        /// <summary>
+        /// Apply a new set of data to the series and optionally redraw it.
+        /// </summary>
+        /// <param name="data">Takes an array of data in the same format as given at options.series => data.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the series is altered.If doing more operations on the chart,
+        /// it is a good idea to set redraw to falseand call chart.redraw() after.</param>
+        public void setData(JsArray<object> data, bool redraw) { }
+        /// <summary>
+        /// Apply a new set of data to the series and optionally redraw it.
+        /// </summary>
+        /// <param name="data">Takes an array of data in the same format as given at options.series => data.</param>
+        public void setData(JsArray<object> data) { }
+
+        /// <summary>
+        /// Shows the series if hidden.
+        /// </summary>
+        public void show() { }
+
+        /// <summary>
+        /// Read only. The series' type, like "line", "area" etc.
+        /// </summary>
+        public JsString type { get; set; }
+
+        /// <summary>
+        /// Read only. The series' visibility state as set by series.show(), series.hide(), or the initial configuration.
+        /// </summary>
+        public bool visible { get; set; }
+
+        /// <summary>
+        /// Read only. The unique xAxis object associated with the series.
+        /// </summary>
+        public Axis xAxis { get; set; }
+
+        /// <summary>
+        /// Read only. The unique yAxis object associated with the series.
+        /// </summary>
+        public Axis yAxis { get; set; }
+    }
+
+    /// <summary>
+    /// The Point object is the JavaScript representation of each data point
+    /// The object can be accessed in a number of ways. In all point event handlers the point object is this.
+    /// In the series object all the pointsare accessed by the series.data array.
+    /// Another way to reference the point programmatically is by id.
+    /// Add an id in the point configuration options, and get the point object by chart.get(id).
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Highcharts.Point", Export = false)]
+    public class Point
+    {
+        /// <summary>
+        /// For categorized axes this property holds the category name for the point. For otheraxis it holds the x value.
+        /// </summary>
+        [JsProperty(Name = "category")]
+        public JsString categoryString { get; set; }
+        /// <summary>
+        /// For categorized axes this property holds the category name for the point. For otheraxis it holds the x value.
+        /// </summary>
+        public JsNumber category { get; set; }
+
+        /// <summary>
+        /// The percentage for points in a stacked series or pies.
+        /// </summary>
+        public JsNumber percentage { get; set; }
+
+        /// <summary>
+        /// Remove the point from the series.
+        /// </summary>
+        /// <param name="redraw">Defaults to true.
+        /// Whether to redraw the chart after the point is removed.If doing more operations on the chart,
+        /// it is a good idea to set redraw to falseand call chart.redraw() after.</param>
+        /// <param name="animation">Defaults to true. When true, the graph's updating will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void remove(bool redraw, bool animation) { }
+        /// <summary>
+        /// Remove the point from the series.
+        /// </summary>
+        /// <param name="redraw">Defaults to true.
+        /// Whether to redraw the chart after the point is removed.If doing more operations on the chart,
+        /// it is a good idea to set redraw to falseand call chart.redraw() after.</param>
+        /// <param name="animation">Defaults to true. When true, the graph's updating will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void remove(bool redraw, AnimationOptions animation) { }
+        /// <summary>
+        /// Remove the point from the series.
+        /// </summary>
+        /// <param name="redraw">Defaults to true.
+        /// Whether to redraw the chart after the point is removed.If doing more operations on the chart,
+        /// it is a good idea to set redraw to falseand call chart.redraw() after.</param>
+        public void remove(bool redraw) { }
+        /// <summary>
+        /// Remove the point from the series.
+        /// </summary>
+        public void remove() { }
+
+        /// <summary>
+        /// Select or unselect the point.
+        /// </summary>
+        /// <param name="select">When true, the point is selected.
+        /// When false, the point is unselected. When null or undefined, the selectionstate is toggled.</param>
+        /// <param name="accumulate">When true, the selection is added to other selected points. When false, other selected points are deselected.
+        /// Internally in Highcharts,selected points are accumulated on Control, Shift or Cmd clicking the point.</param>
+        public void select(bool select, bool accumulate) { }
+        /// <summary>
+        /// Select or unselect the point.
+        /// </summary>
+        /// <param name="select">When true, the point is selected.
+        /// When false, the point is unselected. When null or undefined, the selectionstate is toggled.</param>
+        public void select(bool select) { }
+        /// <summary>
+        /// Select or unselect the point.
+        /// </summary>
+        public void select() { }
+
+        /// <summary>
+        /// Whether the point is selected or not.
+        /// </summary>
+        public bool selected { get; set; }
+
+        /// <summary>
+        /// The series object associated with the point.
+        /// </summary>
+        public Series series { get; set; }
+
+        /// <summary>
+        /// Update the point with new values.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number, the point will be given that number as the y value.If it is an array,
+        /// it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is updated.If doing more operations on the chart,
+        /// it is a good idea to set redraw to falseand call chart.redraw() after.</param>
+        /// <param name="animation">Defaults to true. When true, the update will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void slice(object options, bool redraw, bool animation) { }
+        /// <summary>
+        /// Update the point with new values.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number, the point will be given that number as the y value.If it is an array,
+        /// it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is updated.If doing more operations on the chart,
+        /// it is a good idea to set redraw to falseand call chart.redraw() after.</param>
+        /// <param name="animation">Defaults to true. When true, the update will be animated with default animationoptions.
+        /// The animation can also be a configuration object with properties durationand easing.</param>
+        public void slice(object options, bool redraw, AnimationOptions animation) { }
+        /// <summary>
+        /// Update the point with new values.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number, the point will be given that number as the y value.If it is an array,
+        /// it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        /// <param name="redraw">Defaults to true. Whether to redraw the chart after the point is updated.If doing more operations on the chart,
+        /// it is a good idea to set redraw to falseand call chart.redraw() after.</param>
+        public void slice(object options, bool redraw) { }
+        /// <summary>
+        /// Update the point with new values.
+        /// </summary>
+        /// <param name="options">The point options. If options isa single number, the point will be given that number as the y value.If it is an array,
+        /// it will be interpreted as x and y values respectively.
+        /// If it is an object, advanced options as outlined under options.point are applied.</param>
+        public void slice(object options) { }
+        /// <summary>
+        /// Update the point with new values.
+        /// </summary>
+        public void slice() { }
+
+        /// <summary>
+        /// The x value for the point.
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// The y value for the point.
+        /// </summary>
+        public JsNumber y { get; set; }
+    }
+
+    /// <summary>
+    /// Allows direct access to the Highcharts rendering layer in order to draw primitive shapes like circles, rectangles,paths or text directly on a chart,
+    /// or independent from any chart. The Renderer represents a wrapper object for SVGin modern browsers and VML in IE &lt; 8.
+    /// An existing chart's renderer can be accessed through chart.renderer. To create a renderer independentfrom a chart,
+    /// use var renderer = new Highcharts.Renderer(parentNode, width, height); where parentNodeis the HTML element where you want to add it.
+    /// The Renderer's methods are chained whereever possible, so you can initiate an element then call for example attrand css and add on that element in one statement.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Highcharts.Renderer", Export = false)]
+    public class Renderer
+    {
+        /// <summary>
+        /// An existing chart's renderer can be accessed through chart.renderer. To create a renderer independentfrom a chart,
+        /// use var renderer = new Highcharts.Renderer(parentNode, width, height); where parentNodeis the HTML element where you want to add it.
+        /// </summary>
+        /// <param name="parentNode"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        public Renderer(HtmlElement parentNode, JsNumber width, JsNumber height) { }
+
+        /// <summary>
+        /// Draw an arc on the renderer canvas.
+        /// </summary>
+        /// <param name="centerX">The x position of the arc's center in the SVG element.</param>
+        /// <param name="centerY">The y position of the arc's center in the SVG element.</param>
+        /// <param name="outerRadius">The outer radius of the arc.</param>
+        /// <param name="innerRadius">The inner radius of the arc.</param>
+        /// <param name="start">The starting angle of the arc in radians, where 0 is to the right and -Math.PI/2 is up.</param>
+        /// <param name="end">The ending angle of the arc in radians, where 0 is to the right and -Math.PI/2 is up.</param>
+        /// <returns>Element</returns>
+        public HtmlElement arc(JsNumber centerX, JsNumber centerY, JsNumber outerRadius, JsNumber innerRadius, JsNumber start, JsNumber end) { return null; }
+
+        /// <summary>
+        /// Draw circle on the renderer canvas.
+        /// </summary>
+        /// <param name="centerX">The x position of the circle's center in the SVG element.</param>
+        /// <param name="centerY">The y position of the circle's center in the SVG element.</param>
+        /// <param name="radius">The radius of the circle.</param>
+        /// <returns>Element</returns>
+        public HtmlElement circle(JsNumber centerX, JsNumber centerY, JsNumber radius) { return null; }
+
+        /// <summary>
+        /// Add an SVG/VML group.
+        /// </summary>
+        /// <param name="name">The name of the group. This will be used in the class name, which will be "highcharts-"+ name.
+        /// Other Element objects are added to the group by using the group as the first parameter in .add() for thewrappers.</param>
+        /// <returns>Element</returns>
+        public HtmlElement g(JsString name) { return null; }
+
+        /// <summary>
+        /// Add an image from an external resource.
+        /// </summary>
+        /// <param name="source">The URL of the image.</param>
+        /// <param name="x">The x position of the image's upper left corner.</param>
+        /// <param name="y">The y position of the image's upper left corner.</param>
+        /// <param name="width">The width of the image.</param>
+        /// <param name="height">The height of the image.</param>
+        /// <returns></returns>
+        public HtmlElement image(JsString source, JsNumber x, JsNumber y, JsNumber width, JsNumber height) { return null; }
+
+        /// <summary>
+        /// Add a path based on SVG's path commands.
+        /// In SVGcapable browsers all path commands are supported, but in VML only a subset is supported, most notably moveTo, lineTo and curve commands.
+        /// </summary>
+        /// <param name="path">An SVG path split up in array form.</param>
+        /// <returns>Element</returns>
+        public HtmlElement path(JsArray path) { return null; }
+
+        /// <summary>
+        /// Add a rectangle.
+        /// </summary>
+        /// <param name="x">The x position of the rectangle's upper left corner.</param>
+        /// <param name="y">The y position of the rectangle's upper left corner.</param>
+        /// <param name="width">The width of the rectangle.</param>
+        /// <param name="height">The height of the rectangle.</param>
+        /// <param name="cornerRadius">The corner radius of all the rectangle's corners.</param>
+        /// <returns>Element</returns>
+        public HtmlElement rect(JsNumber x, JsNumber y, JsNumber width, JsNumber height, JsNumber cornerRadius) { return null; }
+
+        /// <summary>
+        /// Draw text. The text can contain a subset of HTML, like spans and anchors and some basic text stylingof these.
+        /// </summary>
+        /// <param name="str">The text or HTML to draw</param>
+        /// <param name="x">The x position of the text's lower left corner.</param>
+        /// <param name="y">The y position of the text's lower left corner.</param>
+        /// <returns></returns>
+        public HtmlElement text(JsString str, JsNumber x, JsNumber y) { return null; }
     }
 
     [JsType(JsMode.Json)]
@@ -243,7 +1257,10 @@ namespace SharpKit.Highcharts
         /// </summary>
         public JsString defaultSeriesType { get; set; }
 
-        //TODO: events!
+        /// <summary>
+        /// Event listeners for the chart.
+        /// </summary>
+        public ChartEvent events { get; set; }
 
         /// <summary>
         /// An explicit height for the chart. By default the height is calculated from the offset height of the containing element. Defaults to null.
@@ -443,6 +1460,76 @@ namespace SharpKit.Highcharts
         public ZoomType zoomType { get; set; }
 
     }
+
+    /// <summary>
+    /// Event listeners for the chart.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class ChartEvent
+    {
+        /// <summary>
+        /// Fires when a series is added to the chart after load time, using the addSeries method. The this keyword refers to the chart object itself
+        /// One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// Through event.options you can access the series options that was passed to the addSeries method. Returning false prevents the series from being added.
+        /// </summary>
+        public JsAction<object> addSeries { get; set; }
+
+        /// <summary>
+        /// Fires when clicking on the plot background. The this keyword refers to the chart object itself.
+        /// One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// 
+        /// Information on the clicked spot can be found through event.xAxis and event.yAxis,
+        /// which are arrays containing the axes of each dimension and each axis' value at the clicked spot. The primary axes are event.xAxis[0] and event.yAxis[0].
+        /// Remember the unit of a datetime axis is milliseconds since 1970-01-01 00:00:00.
+        /// 
+        /// click: function(e) {
+        /// 	console.log(
+        /// 		Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', e.xAxis[0].value), 
+        /// 		e.yAxis[0].value
+        /// 	)
+        /// }
+        /// </summary>
+        public JsAction<object> click { get; set; }
+
+        /// <summary>
+        /// Fires when the chart is finished loading. The this keyword refers to the chart object itself. One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// From version 2.0.4, there is also a second parameter to Highcharts.Chart where a callback function can be passed to be executed on chart.load.
+        /// </summary>
+        public JsAction<object> load { get; set; }
+
+        /// <summary>
+        /// Fires when the chart is redrawn, either after a call to chart.redraw() or after an axis, series or point is modified with the redraw option set to true.
+        /// The this keyword refers to the chart object itself. One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// </summary>
+        public JsAction<object> redraw { get; set; }
+
+        /// <summary>
+        /// Fires when an area of the chart has been selected. Selection is enabled by setting the chart's zoomType.
+        /// The this keyword refers to the chart object itself. One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// The default action for the selection event is to zoom the chart to the selected area. It can be prevented by calling event.preventDefault().
+        /// Information on the selected area can be found through event.xAxis and event.yAxis,
+        /// which are arrays containing the axes of each dimension and each axis' min and max values.
+        /// The primary axes are event.xAxis[0] and event.yAxis[0]. Remember the unit of a datetime axis is milliseconds since 1970-01-01 00:00:00.
+        /// 
+        /// selection: function(event) {
+        /// 	// log the min and max of the primary, datetime x-axis
+        /// 	console.log(
+        /// 		Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', event.xAxis[0].min),
+        /// 		Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', event.xAxis[0].max)
+        /// 	);
+        /// 	// log the min and max of the y axis
+        /// 	console.log(event.yAxis[0].min, event.yAxis[0].max);
+        /// }
+        /// </summary>
+        public JsAction<object> selection { get; set; }
+
+    }
+    //TODO: must check all events!
 
     /// <summary>
     /// The animation can either be set as a boolean or a configuration object.
@@ -1814,7 +2901,7 @@ namespace SharpKit.Highcharts
         /// </summary>
         public bool enableMouseTracking { get; set; }
 
-        //TODO: events
+        public PlotAreaEvent events { get; set; }
 
         /// <summary>
         /// Fill color or gradient for the area. When null, the series' color is used with the series' fillOpacity. Defaults to null.
@@ -1959,6 +3046,60 @@ namespace SharpKit.Highcharts
         /// </summary>
         public JsNumber zIndex { get; set; }
     }
+
+    [JsType(JsMode.Json)]
+    public class PlotAreaEvent
+    {
+        /// <summary>
+        /// Fires when the checkbox next to the series' name in the legend is clicked.. The this keyword refers to the series object itself.
+        /// One parameter, event, is passed to the function.
+        /// The state of the checkbox is found by event.checked. Return false to prevent the default action which is to toggle the select state of the series.
+        /// </summary>
+        public JsAction checkboxClick { get; set; }
+
+        /// <summary>
+        /// Fires when the series is clicked. The this keyword refers to the series object itself.
+        /// One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// Additionally, event.point holds a pointer to the nearest point on the graph.
+        /// </summary>
+        public JsAction<object> click { get; set; }
+
+        /// <summary>
+        /// Fires when the series is hidden after chart generation time, either by clicking the legend item or by calling .hide().
+        /// </summary>
+        public JsAction hide { get; set; }
+
+        /// <summary>
+        /// Fires when the legend item belonging to the series is clicked.
+        /// The this keyword refers to the series object itself. One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// The default action is to toggle the visibility of the series. This can be prevented by returning false or calling event.preventDefault().
+        /// </summary>
+        public JsAction<object> legendItemClick { get; set; }
+
+        /// <summary>
+        /// Fires when the mouse leaves the graph. The this keyword refers to the series object itself.
+        /// One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// If the stickyTracking option is true, mouseOut doesn't happen before the mouse enters another graph or leaves the plot area.
+        /// </summary>
+        public JsAction<object> mouseOut { get; set; }
+
+        /// <summary>
+        /// Fires when the mouse enters the graph. The this keyword refers to the series object itself.
+        /// One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// </summary>
+        public JsAction<object> mouseOver { get; set; }
+
+        /// <summary>
+        /// Fires when the series is shown after chart generation time, either by clicking the legend item or by calling .show().
+        /// </summary>
+        public JsAction show { get; set; }
+
+    }
+    //TODO: must check all events
 
     /// <summary>
     /// A name for the dash style to use for the graph.
@@ -2212,8 +3353,67 @@ namespace SharpKit.Highcharts
     [JsType(JsMode.Json)]
     public class PointOptions
     {
-        //TODO: events
+        /// <summary>
+        /// Events for each single point
+        /// </summary>
+        public PointEvent events { get; set; }
     }
+
+    /// <summary>
+    /// Events for each single point
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class PointEvent
+    {
+
+        /// <summary>
+        /// Fires when a point is clicked. The this keyword refers to the point object itself.
+        /// One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// If the series.allowPointSelect option is true, the default action for the point's click event is to toggle the point's select state.
+        /// Returning false cansels this action.
+        /// </summary>
+        public JsAction<object> click { get; set; }
+
+        /// <summary>
+        /// Fires when the mouse leaves the area close to the point. The this keyword refers to the point object itself. One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// </summary>
+        public JsAction<object> mouseOut { get; set; }
+
+        /// <summary>
+        /// Fires when the mouse enters the area close to the point. The this keyword refers to the point object itself. One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// </summary>
+        public JsAction<object> mouseOver { get; set; }
+
+        /// <summary>
+        /// Fires when the point is removed using the .remove() method.
+        /// The this keyword refers to the point object itself. One parameter, event, is passed to the function. Returning false cancels the operation.
+        /// </summary>
+        public JsAction<object> remove { get; set; }
+
+        /// <summary>
+        /// Fires when the point is selected either programatically or following a click on the point.
+        /// The this keyword refers to the point object itself. One parameter, event, is passed to the function. Returning false cancels the operation.
+        /// </summary>
+        public JsAction<object> select { get; set; }
+
+        /// <summary>
+        /// Fires when the point is unselected either programatically or following a click on the point.
+        /// The this keyword refers to the point object itself. One parameter, event, is passed to the function. Returning false cancels the operation.
+        /// </summary>
+        public JsAction<object> unselect { get; set; }
+
+        /// <summary>
+        /// Fires when the point is updated programmatically through the .update() method. The this keyword refers to the point object itself.
+        /// One parameter, event, is passed to the function. The new point options can be accessed through event.options. Returning false cancels the operation.
+        /// </summary>
+        public JsAction<object> update { get; set; }
+
+
+    }
+    //TODO: must check all events
 
     /// <summary>
     /// Possible values: null, "on", "between".
@@ -2341,7 +3541,7 @@ namespace SharpKit.Highcharts
         /// </summary>
         public bool enableMouseTracking { get; set; }
 
-        //TODO: events
+        public PlotAreaRangeEvent events { get; set; }
 
         /// <summary>
         /// Fill color or gradient for the area. When null, the series' color is used with the series' fillOpacity. Defaults to null.
@@ -2477,6 +3677,59 @@ namespace SharpKit.Highcharts
         /// Define the z index of the series. Defaults to null.
         /// </summary>
         public JsNumber zIndex { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class PlotAreaRangeEvent
+    {
+        /// <summary>
+        /// Fires when the checkbox next to the series' name in the legend is clicked.. The this keyword refers to the series object itself.
+        /// One parameter, event, is passed to the function.
+        /// The state of the checkbox is found by event.checked. Return false to prevent the default action which is to toggle the select state of the series.
+        /// </summary>
+        public JsAction checkboxClick { get; set; }
+
+        /// <summary>
+        /// Fires when the series is clicked. The this keyword refers to the series object itself.
+        /// One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// Additionally, event.point holds a pointer to the nearest point on the graph.
+        /// </summary>
+        public JsAction<object> click { get; set; }
+
+        /// <summary>
+        /// Fires when the series is hidden after chart generation time, either by clicking the legend item or by calling .hide().
+        /// </summary>
+        public JsAction hide { get; set; }
+
+        /// <summary>
+        /// Fires when the legend item belonging to the series is clicked.
+        /// The this keyword refers to the series object itself. One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// The default action is to toggle the visibility of the series. This can be prevented by returning false or calling event.preventDefault().
+        /// </summary>
+        public JsAction<object> legendItemClick { get; set; }
+
+        /// <summary>
+        /// Fires when the mouse leaves the graph. The this keyword refers to the series object itself.
+        /// One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// If the stickyTracking option is true, mouseOut doesn't happen before the mouse enters another graph or leaves the plot area.
+        /// </summary>
+        public JsAction<object> mouseOut { get; set; }
+
+        /// <summary>
+        /// Fires when the mouse enters the graph. The this keyword refers to the series object itself.
+        /// One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// </summary>
+        public JsAction<object> mouseOver { get; set; }
+
+        /// <summary>
+        /// Fires when the series is shown after chart generation time, either by clicking the legend item or by calling .show().
+        /// </summary>
+        public JsAction show { get; set; }
+
     }
 
     /// <summary>
@@ -2738,7 +3991,7 @@ namespace SharpKit.Highcharts
         /// </summary>
         public bool enableMouseTracking { get; set; }
 
-        //TODO: events
+        public PlotAreaEvent events { get; set; }
 
         /// <summary>
         /// Padding between each value groups, in x axis units. Defaults to 0.2.
@@ -2892,7 +4145,7 @@ namespace SharpKit.Highcharts
     #endregion
 
     #region column
-    
+
     [JsType(JsMode.Json)]
     public class PlotColumnOptions : PlotBarOptions
     {
@@ -2910,7 +4163,7 @@ namespace SharpKit.Highcharts
     #endregion
 
     #region gauge
-    
+
     [JsType(JsMode.Json)]
     public class PlotGaugeOptions
     {
@@ -2968,7 +4221,7 @@ namespace SharpKit.Highcharts
         /// </summary>
         public bool enableMouseTracking { get; set; }
 
-        //TODO: events
+        public PlotAreaEvent events { get; set; }
 
         /// <summary>
         /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
@@ -3122,8 +4375,8 @@ namespace SharpKit.Highcharts
 
     #endregion
 
-    #region MyRegion
-    
+    #region line
+
     [JsType(JsMode.Json)]
     public class PlotLineOptions
     {
@@ -3216,7 +4469,7 @@ namespace SharpKit.Highcharts
         /// </summary>
         public bool enableMouseTracking { get; set; }
 
-        //TODO: events
+        public PlotAreaEvent events { get; set; }
 
         /// <summary>
         /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
@@ -3417,7 +4670,7 @@ namespace SharpKit.Highcharts
         /// </summary>
         public bool enableMouseTracking { get; set; }
 
-        //TODO: events
+        public PlotAreaEvent events { get; set; }
 
         /// <summary>
         /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
@@ -3628,7 +4881,7 @@ namespace SharpKit.Highcharts
         /// </summary>
         public bool enableMouseTracking { get; set; }
 
-        //TODO: events
+        public PlotAreaEvent events { get; set; }
 
         /// <summary>
         /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
@@ -3841,7 +5094,7 @@ namespace SharpKit.Highcharts
         /// </summary>
         public bool enableMouseTracking { get; set; }
 
-        //TODO: events
+        public PlotAreaEvent events { get; set; }
 
         /// <summary>
         /// An id for the series. This can be used after render time to get a pointer to the series object through chart.get(). Defaults to null.
@@ -4024,7 +5277,7 @@ namespace SharpKit.Highcharts
     #endregion
 
     #region spline
-    
+
     [JsType(JsMode.Json)]
     public class PlotSplineOptions
     {
@@ -4117,7 +5370,7 @@ namespace SharpKit.Highcharts
         /// </summary>
         public bool enableMouseTracking { get; set; }
 
-        //TODO: events
+        public PlotAreaEvent events { get; set; }
 
         /// <summary>
         /// Fill color or gradient for the area. When null, the series' color is used with the series' fillOpacity. Defaults to null.
@@ -4428,7 +5681,7 @@ namespace SharpKit.Highcharts
         /// </summary>
         public JsNumber y { get; set; }
 
-        //TODO: events and marker
+        public PlotAreaEvent events { get; set; }
     }
 
     #endregion
@@ -4780,7 +6033,10 @@ namespace SharpKit.Highcharts
         /// </summary>
         public bool endOnTick { get; set; }
 
-        //TODO: events
+        /// <summary>
+        /// Event handlers for the axis.
+        /// </summary>
+        public AxisEvent events { get; set; }
 
         /// <summary>
         /// Color of the grid lines extending the ticks across the plot area. Defaults to "#C0C0C0".
@@ -5019,6 +6275,22 @@ namespace SharpKit.Highcharts
         /// </summary>
         public AxisType type { get; set; }
 
+    }
+
+    /// <summary>
+    /// Event handlers for the axis.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class AxisEvent
+    {
+        /// <summary>
+        /// Fires when the minimum and maximum is set for the axis, either by calling the .setExtremes() method or by selecting an area in the chart.
+        /// The this keyword refers to the axis object itself.
+        /// One parameter, event, is passed to the function.
+        /// This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.
+        /// The new user set minimum and maximum values can be found by event.min and event.max.
+        /// </summary>
+        public JsAction<object> setExtremes { get; set; }
     }
 
     /// <summary>
@@ -5423,7 +6695,10 @@ namespace SharpKit.Highcharts
         /// </summary>
         public bool endOnTick { get; set; }
 
-        //TODO: events
+        /// <summary>
+        /// Event handlers for the axis.
+        /// </summary>
+        public AxisEvent events { get; set; }
 
         /// <summary>
         /// Color of the grid lines extending the ticks across the plot area. Defaults to "#C0C0C0".
