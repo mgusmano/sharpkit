@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using SharpKit.Testing;
-
+using System.Diagnostics;
 
 namespace skt
 {
@@ -57,7 +57,7 @@ namespace skt
 
         }
 
-        public static void Compile()
+        static void Compile()
         {
             //var version = ArgHash.GetValue("version", "current");
 
@@ -70,12 +70,32 @@ namespace skt
             }
         }
 
-        public static bool HasErrors(List<CompareFile> files)
+        static bool HasErrors(List<CompareFile> files)
         {
             return files.Any(t => t.Status == CompareFileStatus.Ok);
         }
 
-        public static void Compare()
+        static void getSVNFile(string origFile, string destFile)
+        {
+            if (File.Exists(destFile)) File.Delete(destFile);
+
+            //svn cat -r BASE Dynamics\Dynamics.cs
+            var psi = new ProcessStartInfo(SvnExe, "cat -r BASE \"" + origFile + "\"");
+            psi.UseShellExecute = false;
+            psi.RedirectStandardOutput = true;
+            var p = Process.Start(psi);
+            var content = p.StandardOutput.ReadToEnd();
+            p.WaitForExit();
+
+            if (p.ExitCode != 0)
+                throw new Exception("SVN exited with code " + p.ExitCode.ToString());
+
+            var dirName = Path.GetDirectoryName(destFile);
+            if (!Directory.Exists(dirName)) Directory.CreateDirectory(dirName);
+            File.WriteAllText(destFile, content);
+        }
+
+        static void Compare()
         {
             var appDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             var jsDir = ProjectDir;// +"\\res";
@@ -84,8 +104,6 @@ namespace skt
             if (Directory.Exists(tmpDir))
                 Directory.Delete(tmpDir, true);
             Directory.CreateDirectory(tmpDir);
-
-            Utils.ExecuteProcess(tmpDir, SvnExe, "checkout " + SvnUrl + " \"" + tmpDir + "\"");
 
             var list = IterateFolderComparison(jsDir, tmpDir);
             if (list == null)
@@ -121,7 +139,7 @@ namespace skt
             Console.WriteLine("Files have no diffs.");
         }
 
-        private static void Write(string text, ConsoleColor color)
+        static void Write(string text, ConsoleColor color)
         {
             var oldColor = Console.ForegroundColor;
             Console.ForegroundColor = color;
@@ -129,12 +147,12 @@ namespace skt
             Console.ForegroundColor = oldColor;
         }
 
-        private static void WriteLine(string text, ConsoleColor color)
+        static void WriteLine(string text, ConsoleColor color)
         {
             Write(text + "\n", color);
         }
 
-        private static ArgumentDictionary GetArguments(string[] args)
+        static ArgumentDictionary GetArguments(string[] args)
         {
             var dic = new ArgumentDictionary();
             foreach (var arg in args)
@@ -152,22 +170,29 @@ namespace skt
             return dic;
         }
 
-        private static IEnumerable<CompareFile> IterateFolderComparison(string currentDir, string originalDir)
+        static bool updateSourceFromLocalHistory = true;
+        static IEnumerable<CompareFile> IterateFolderComparison(string currentDir, string originalDir)
         {
 
-            if (!Directory.Exists(currentDir))
+            if (!Directory.Exists(originalDir))
             {
                 throw new Exception("currentDir is missing");
             }
 
-            if (!Directory.Exists(originalDir))
+            if (!Directory.Exists(currentDir))
             {
                 throw new Exception("originalDir is missing");
             }
 
-            foreach (var origFile in Directory.GetFiles(originalDir, "*.js", SearchOption.AllDirectories))
+            foreach (var currFile in Directory.GetFiles(currentDir, "*.js", SearchOption.AllDirectories))
             {
-                var currFile = currentDir + origFile.Substring(originalDir.Length);
+                var origFile = originalDir + currFile.Substring(currentDir.Length);
+
+                if (updateSourceFromLocalHistory)
+                {
+                    getSVNFile(currFile, origFile);
+                }
+
                 yield return CompareFile.Compare(currFile, origFile);
             }
 
@@ -185,12 +210,13 @@ namespace skt
         }
     }
 
-    public class CompareFile
+    class CompareFile
     {
         public CompareFile()
         {
             Status = CompareFileStatus.Ok;
         }
+
         public CompareFileStatus Status { get; set; }
         public string FileOriginal { get; set; }
         public string FileCurrent { get; set; }
@@ -229,14 +255,14 @@ namespace skt
 
     }
 
-    public class CompareFileDiff
+    class CompareFileDiff
     {
         public int LineNumber;
         public string LineContentOriginal;
         public string LineContentCurrent;
     }
 
-    public enum CompareFileStatus
+    enum CompareFileStatus
     {
         Ok,
         Missing,
