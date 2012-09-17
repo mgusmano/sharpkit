@@ -15,7 +15,7 @@ var CoreTests$Params$Params=
         },
         foo:function()
         {
-            var x=System.String.Format$$String$$Object$Array("{0}{1}{2}","a","b","c","d");
+            var x=System.String.Format$$String$$Object$Array("{0}{1}{2}",["a","b","c","d"]);
             this.foo2(["a","b","c"]);
         },
         foo2:function(prms)

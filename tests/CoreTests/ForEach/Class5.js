@@ -15,10 +15,8 @@ var SharpKitWebApp5$Class5=
         },
         foo:function()
         {
-            var $it1=new RegExp("expression...").exec("sdf").GetEnumerator();
-            while($it1.MoveNext())
+            for(var $i2=0,$t2=new RegExp("expression...").exec("sdf"),$l2=$t2.length,match=$t2[$i2];$i2 < $l2;$i2++,match = $t2[$i2])
             {
-                var match=$it1.get_Current();
             }
         }
     }

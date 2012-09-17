@@ -11,7 +11,7 @@ namespace SharpKitWebApp5
         void foo()
         {
             foreach (var match in new JsRegExp(@"expression...").exec("sdf")) 
-            { 
+            {
             }
         }
     }
