@@ -248,6 +248,7 @@ namespace WebIDLParser
         {
             switch (tagName)
             {
+                case "image": return "img";
                 case "anchor": return "a";
                 case "tablecaption": return "caption";
                 case "tablecell": return "td";
