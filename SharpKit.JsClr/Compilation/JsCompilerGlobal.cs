@@ -12,7 +12,7 @@ namespace SharpKit.JavaScript.Compilation
     {
         internal static JsDelegateFunction RemoveDelegate(JsDelegateFunction delOriginal, JsDelegateFunction delToRemove)
         {
-            if (delToRemove == null || delOriginal==null)
+            if (delToRemove == null || delOriginal == null)
                 return delOriginal;
 
             if (delOriginal.isMulticastDelegate)
@@ -77,9 +77,11 @@ namespace SharpKit.JavaScript.Compilation
         }
         static JsDelegateFunction CreateMulticastDelegateFunction()
         {
+
+            JsDelegateFunction del2 = null;
+
             var del = new JsNativeFunc<object>(delegate()
             {
-                var del2 = arguments.callee.As<JsDelegateFunction>();
                 var x = undefined;
                 for (var i = 0; i < del2.delegates.length; i++)
                 {
@@ -89,6 +91,9 @@ namespace SharpKit.JavaScript.Compilation
                 return x;
             }).As<JsDelegateFunction>();
             del.isMulticastDelegate = true;
+
+            del2 = del;
+
             return del;
         }
         internal static JsDelegateFunction CreateClrDelegate(JsType type, JsArray<JsType> genericArgs, object target, JsFunction func)
@@ -96,8 +101,8 @@ namespace SharpKit.JavaScript.Compilation
             return JsTypeHelper.GetDelegate(target, func).As<JsDelegateFunction>(); //TODO: support delegate.getType()
         }
 
-        
-        [JsProperty(Export=false, NativeField=true)]//avoid initialization to null
+
+        [JsProperty(Export = false, NativeField = true)]//avoid initialization to null
         public static JsArray<JsType> JsTypes { get; set; }
 
         private static JsImplType Typeof(object jsTypeOrName)
@@ -108,7 +113,7 @@ namespace SharpKit.JavaScript.Compilation
             {
                 jsTypeOrName = JsTypeHelper.GetType(jsTypeOrName);
             }
-            if (JsTypeOf(jsTypeOrName) ==  JavaScript.JsTypes.@string)
+            if (JsTypeOf(jsTypeOrName) == JavaScript.JsTypes.@string)
                 return JsImplType.GetType(jsTypeOrName.As<string>(), true);
             return JsImplType._TypeOf(jsTypeOrName.As<JsType>());
         }
@@ -255,7 +260,7 @@ namespace SharpKit.JavaScript.Compilation
                 {
                     var ctor = typeOrName.As<JsFunction>();
                     var i = 0;
-                    while (ctor != null && i<20) //avoid circular base types (infinite loop)
+                    while (ctor != null && i < 20) //avoid circular base types (infinite loop)
                     {
                         if (obj.instanceof(ctor))
                             return true;
