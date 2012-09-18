@@ -33,211 +33,257 @@ using System.Xml.Linq;
 namespace WebIDLParser
 {
 
-	public class TFileType
-	{
-		public string name = "";
-		public string aliasName = "";
-		public TMemberList members = new TMemberList();
-		public TNamespace ns;
-		public TTypeList baseType = new TTypeList();
-		public TJsAttributeList jsAttributes = new TJsAttributeList();
+    public class TFileType
+    {
+        public string name = "";
+        public string aliasName = "";
+        public TMemberList members = new TMemberList();
+        public TNamespace ns;
+        public TTypeList baseType = new TTypeList();
+        public TJsAttributeList jsAttributes = new TJsAttributeList();
 
-		public void rename(string newName) {
-			//AliasName = newName;
-			//if (Name == "Event") {
-			//  return;
-			//}
-			foreach (var t in Generator.allTypes) {
-				if (t.name == name) {
-					t.name = newName;
-					if (t.genericType != null && t.genericType.name == name) t.genericType.name = newName;
-				}
-			}
-			this.name = newName;
-		}
+        public void rename(string newName)
+        {
+            //AliasName = newName;
+            //if (Name == "Event") {
+            //  return;
+            //}
+            foreach (var t in Generator.allTypes)
+            {
+                if (t.name == name)
+                {
+                    t.name = newName;
+                    if (t.genericType != null && t.genericType.name == name) t.genericType.name = newName;
+                }
+            }
+            this.name = newName;
+        }
 
-		public void write(System.Text.StringBuilder sb) {
-			string strAlias = "";
-			if (aliasName != "") {
-				strAlias = ", Name = \"" + aliasName + "\"";
-			}
+        public void write(System.Text.StringBuilder sb)
+        {
+            string strAlias = "";
+            if (aliasName != "")
+            {
+                strAlias = ", Name = \"" + aliasName + "\"";
+            }
 
-			if (isDelegate()) {
-				var del = members[0] as TMethod;
-				sb.Append("public delegate " + del.resultType.ToString() + " " + Generator.getName(name));
-				del.parameters.write(sb);
-				sb.Append(";" + Environment.NewLine);
-				return;
-			}
+            if (isDelegate())
+            {
+                var del = members[0] as TMethod;
+                sb.Append("public delegate " + del.resultType.ToString() + " " + Generator.getName(name));
+                del.parameters.write(sb);
+                sb.Append(";" + Environment.NewLine);
+                return;
+            }
 
-			jsAttributes.Add("Export", "false");
-			jsAttributes.Add("PropertiesAsFields", "true");
-			jsAttributes.Add("NativeCasts", "true");
+            jsAttributes.Add("Export", "false");
+            jsAttributes.Add("PropertiesAsFields", "true");
+            jsAttributes.Add("NativeCasts", "true");
 
-			if (aliasName != "" && aliasName != name) jsAttributes.Add("Name", "\"" + aliasName + "\"");
+            if (aliasName != "" && aliasName != name) jsAttributes.Add("Name", "\"" + aliasName + "\"");
 
-			sb.Append("[JsType(JsMode.Prototype, " + jsAttributes.ToString() + ")]" + Environment.NewLine);
-			string typeType = "class";
-			if (isInterface) typeType = "interface";
-			sb.Append("public partial " + typeType + " " + name);
-			if (baseType.Count != 0) {
-				sb.Append(" : ");
-				for (var tIdx = 0; tIdx < baseType.Count; tIdx++) {
-					if (tIdx != 0) sb.Append(", ");
-					sb.Append(baseType[tIdx].ToString());
-				}
-			}
-			sb.Append(Environment.NewLine + "{" + Environment.NewLine);
-			foreach (TMember mem in members) {
-				mem.write(sb);
-			}
+            sb.Append("[JsType(JsMode.Prototype, " + jsAttributes.ToString() + ")]" + Environment.NewLine);
+            string typeType = "class";
+            if (isInterface) typeType = "interface";
+            sb.Append("public partial " + typeType + " " + name);
+            if (baseType.Count != 0)
+            {
+                sb.Append(" : ");
+                for (var tIdx = 0; tIdx < baseType.Count; tIdx++)
+                {
+                    if (tIdx != 0) sb.Append(", ");
+                    sb.Append(baseType[tIdx].ToString());
+                }
+            }
+            sb.Append(Environment.NewLine + "{" + Environment.NewLine);
+            foreach (TMember mem in members)
+            {
+                mem.write(sb);
+            }
 
-			if (!isInterface)
-				writeInterfaceTypes(sb);
+            if (!isInterface)
+                writeInterfaceTypes(sb);
 
-			sb.Append("}" + Environment.NewLine + Environment.NewLine);
-		}
+            sb.Append("}" + Environment.NewLine + Environment.NewLine);
+        }
 
-		public bool isDelegate() {
-			foreach (var attr in attributes) {
-				if (attr is TNameAttribute) {
-					var nameAttr = attr as TNameAttribute;
-					if (nameAttr.name == "Callback") {
-						return true;
-					}
-				}
-			}
-			foreach (var mem in members) {
-				if (mem.name == "handleEvent") return true;
-			}
-			return false;
-		}
+        public bool isDelegate()
+        {
+            foreach (var attr in attributes)
+            {
+                if (attr is TNameAttribute)
+                {
+                    var nameAttr = attr as TNameAttribute;
+                    if (nameAttr.name == "Callback")
+                    {
+                        return true;
+                    }
+                }
+            }
+            foreach (var mem in members)
+            {
+                if (mem.name == "handleEvent") return true;
+            }
+            return false;
+        }
 
-		public void writeInterfaceTypes(System.Text.StringBuilder sb) {
-			for (var i = 0; i < baseType.Count; i++) {
-				var t = Generator.findType(baseType[i].name);
-				if (t != null && t.isInterface) {
-					foreach (var mem in t.members) {
-						mem.write(sb, true);
-					}
-					//foreach (var intBaseType in t.baseType) {
-					//  var intType = Program.findType(intBaseType.name);
-					//  if (intType != null) intType.writeInterfaceTypes(sb);
-					//}
-					t.writeInterfaceTypes(sb);
-				}
-			}
-		}
+        public void writeInterfaceTypes(System.Text.StringBuilder sb)
+        {
+            for (var i = 0; i < baseType.Count; i++)
+            {
+                var t = Generator.findType(baseType[i].name);
+                if (t != null && t.isInterface)
+                {
+                    foreach (var mem in t.members)
+                    {
+                        mem.write(sb, true);
+                    }
+                    //foreach (var intBaseType in t.baseType) {
+                    //  var intType = Program.findType(intBaseType.name);
+                    //  if (intType != null) intType.writeInterfaceTypes(sb);
+                    //}
+                    t.writeInterfaceTypes(sb);
+                }
+            }
+        }
 
-		public void write(string File) {
-			System.Text.StringBuilder sb = new System.Text.StringBuilder();
-			write(sb);
-			LarneFunctions.StringSaveToFile(File, sb.ToString());
-		}
+        public void write(string File)
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            write(sb);
+            LarneFunctions.StringSaveToFile(File, sb.ToString());
+        }
 
-		public void checkAlias() {
-			//switch (Name) {
-			//  case "HTMLImageElement":
-			//    AliasName = "Image";
-			//    break;
-			//}
-			//if (name.StartsWith("HTML")) {
-			//  aliasName = name;
-			//  name = name.Replace("HTML", "Html");
-			//}
-		}
+        public void checkAlias()
+        {
+            //switch (Name) {
+            //  case "HTMLImageElement":
+            //    AliasName = "Image";
+            //    break;
+            //}
+            //if (name.StartsWith("HTML")) {
+            //  aliasName = name;
+            //  name = name.Replace("HTML", "Html");
+            //}
+        }
 
-		public TAttributeList attributes = new TAttributeList();
+        public TAttributeList attributes = new TAttributeList();
 
-		public bool isInterface = false;
+        public bool isInterface = false;
 
-		public void convertToInterface() {
-			if (isInterface) return;
-			isInterface = true;
-			for (var i = 0; i < members.Count; i++) {
-				var mem = members[i];
-				if (mem is TField) {
-					var prop = new TProperty(this);
-					prop.name = mem.name;
-					//prop.modifier = "";
-					prop.resultType = mem.resultType;
-					prop.canWrite = false;
-					members[i] = prop;
-				}
-				else {
-					//mem.modifier = "";
-				}
-			}
-		}
+        public void convertToInterface()
+        {
+            if (isInterface) return;
+            isInterface = true;
+            for (var i = 0; i < members.Count; i++)
+            {
+                var mem = members[i];
+                if (mem is TField)
+                {
+                    var prop = new TProperty(this);
+                    prop.name = mem.name;
+                    //prop.modifier = "";
+                    prop.resultType = mem.resultType;
+                    prop.canWrite = false;
+                    members[i] = prop;
+                }
+                else
+                {
+                    //mem.modifier = "";
+                }
+            }
+        }
 
-		public void checkConvertToInterface() {
-			for (var i = 1; i < baseType.Count; i++) {
-				var t = Generator.findType(baseType[i].name);
-				if (t != null) t.convertToInterface();
-			}
-		}
+        public void checkConvertToInterface()
+        {
+            for (var i = 1; i < baseType.Count; i++)
+            {
+                var t = Generator.findType(baseType[i].name);
+                if (t != null) t.convertToInterface();
+            }
+        }
 
-		public void generateConstructors() {
-			var memList = new TMemberList();
-			foreach (var attr in attributes) {
-				if (attr is TConstructorAttribute) {
-					var ctorAttr = attr as TConstructorAttribute;
-					memList.Insert(0, ctorAttr.constructor);
-				}
-			}
-			if (memList.Count == 0) {
-				if (name.StartsWith("Html") && name.EndsWith("Element"))
-					memList.Add(createElementMethod(name.Substring(0, name.Length - ("Element".Length)).Substring("Html".Length).ToLower(), name));
-				if (name.StartsWith("Svg") && name.EndsWith("Element"))
-					memList.Add(createElementMethod(name.Substring(0, name.Length - ("Element".Length)).Substring("Svg".Length).ToLower(), name));
-			}
-			if (memList.Count != 0) {
-				members.InsertRange(0, memList);
-				createSubConstructors();
-			}
-		}
+        public void generateConstructors()
+        {
+            var memList = new TMemberList();
+            foreach (var attr in attributes)
+            {
+                if (attr is TConstructorAttribute)
+                {
+                    var ctorAttr = attr as TConstructorAttribute;
+                    memList.Insert(0, ctorAttr.constructor);
+                }
+            }
+            if (memList.Count == 0)
+            {
+                if (name.StartsWith("Html") && name.EndsWith("Element"))
+                    tryCreateElementMethod(memList, name.Substring(0, name.Length - ("Element".Length)).Substring("Html".Length).ToLower(), name);
+                if (name.StartsWith("Svg") && name.EndsWith("Element"))
+                    tryCreateElementMethod(memList, name.Substring(0, name.Length - ("Element".Length)).Substring("Svg".Length).ToLower(), name);
+            }
+            if (memList.Count != 0)
+            {
+                members.InsertRange(0, memList);
+                createSubConstructors();
+            }
+        }
 
-		private TMethod createElementMethod(string tagName, string typeName) {
-			tagName = getCreateElementMethodTagName(tagName, typeName);
-			if(string.IsNullOrEmpty(tagName)) return null;
-			var method = new TMethod(this) { name = "ctor", aliasName = "document.createElement('" + tagName + "')" };
-			method.jsAttributes.Add("OmitParanthesis", "true");
-			method.jsAttributes.Add("OmitNewOperator", "true");
-			return method;
-		}
+        private void tryCreateElementMethod(TMemberList memList, string tagName, string typeName)
+        {
+            var mem = createElementMethod(tagName, typeName);
+            if (mem != null) memList.Add(mem);
+        }
 
-		private string getCreateElementMethodTagName(string tagName, string typeName) { 
-			switch (tagName) {
-				case "anchor": return "a";
-				case "tablecaption": return "caption";
-				case "tablecell": return "td";
-				case "tablecol": return "col";
-				case "tablerow": return "tr";
-				case "tablesection": return "tbody"; //Notice: It can be thead or tfoot, too!
-				default: return tagName;
-			}
-		}
+        private TMethod createElementMethod(string tagName, string typeName)
+        {
+            tagName = getCreateElementMethodTagName(tagName, typeName);
+            if (string.IsNullOrEmpty(tagName)) return null;
+            var method = new TMethod(this) { name = "ctor", aliasName = "document.createElement('" + tagName + "')" };
+            method.jsAttributes.Add("OmitParanthesis", "true");
+            method.jsAttributes.Add("OmitNewOperator", "true");
+            return method;
+        }
 
-		public void checkGenerateEnumerator() {
-			foreach (var attr in attributes) {
-				if (attr is TNameAttribute) {
-					var nameAttr = attr as TNameAttribute;
-					if (nameAttr.name == "IndexedGetter") {
+        private string getCreateElementMethodTagName(string tagName, string typeName)
+        {
+            switch (tagName)
+            {
+                case "anchor": return "a";
+                case "tablecaption": return "caption";
+                case "tablecell": return "td";
+                case "tablecol": return "col";
+                case "tablerow": return "tr";
+                case "tablesection": return "tbody"; //Notice: It can be thead or tfoot, too!
+                default: return tagName;
+            }
+        }
 
-						var typeName = "";
-						foreach (var mem in members) {
-							if (mem.name == "this") {
-								typeName = mem.resultType.ToString();
-								break;
-							}
-						}
-						if (typeName == "") return;
+        public void checkGenerateEnumerator()
+        {
+            foreach (var attr in attributes)
+            {
+                if (attr is TNameAttribute)
+                {
+                    var nameAttr = attr as TNameAttribute;
+                    if (nameAttr.name == "IndexedGetter")
+                    {
 
-						jsAttributes.Add("NativeEnumerator", "false");
-						jsAttributes.Add("NativeArrayEnumerator", "true");
+                        var typeName = "";
+                        foreach (var mem in members)
+                        {
+                            if (mem.name == "this")
+                            {
+                                typeName = mem.resultType.ToString();
+                                break;
+                            }
+                        }
+                        if (typeName == "") return;
 
-						baseType.Add(new TType() { name = "IJsArrayEnumerable", genericType = new TType() { name = typeName }, canCorrect = false });
-						var str = @"
+                        jsAttributes.Add("NativeEnumerator", "false");
+                        jsAttributes.Add("NativeArrayEnumerator", "true");
+
+                        baseType.Add(new TType() { name = "IJsArrayEnumerable", genericType = new TType() { name = typeName }, canCorrect = false });
+                        var str = @"
 	{TYPE} IJsArrayEnumerable<{TYPE}>.this[JsNumber index] {
 		get { throw new NotImplementedException(); }
 	}
@@ -254,431 +300,505 @@ namespace WebIDLParser
 		throw new NotImplementedException();
 	}
 ";
-						str = str.Replace("{TYPE}", typeName);
-						members.Add(new TFragmentMember(this) { text = str });
-					}
-				}
-			}
-		}
+                        str = str.Replace("{TYPE}", typeName);
+                        members.Add(new TFragmentMember(this) { text = str });
+                    }
+                }
+            }
+        }
 
-		public void createSubConstructors() {
-			var types = Generator.findByBaseType(name);
-			foreach (var t in types) {
-				var memList = new TMemberList();
-				foreach (var mem in members) {
-					if (mem.name == "ctor") {
-						var method = (mem as TMethod);
-						if (method.parameters.Count > 0) {
-							var ctor = new TMethod(t);
-							ctor.name = method.name;
-							ctor.resultType = method.resultType;
-							ctor.baseMethod = method;
-							memList.Add(ctor);
-						}
-					}
-				}
-				if (memList.Count > 0) {
-					t.members.InsertRange(0, memList);
-				}
-			}
-		}
+        public void createSubConstructors()
+        {
+            var types = Generator.findByBaseType(name);
+            foreach (var t in types)
+            {
+                var memList = new TMemberList();
+                foreach (var mem in members)
+                {
+                    if (mem.name == "ctor")
+                    {
+                        var method = (mem as TMethod);
+                        if (method.parameters.Count > 0)
+                        {
+                            var ctor = new TMethod(t);
+                            ctor.name = method.name;
+                            ctor.resultType = method.resultType;
+                            ctor.baseMethod = method;
+                            memList.Add(ctor);
+                        }
+                    }
+                }
+                if (memList.Count > 0)
+                {
+                    t.members.InsertRange(0, memList);
+                }
+            }
+        }
 
-		public void checkProp() {
-			TMemberList memList = new TMemberList();
-			memList.AddRange(members);
-			foreach (TMember mem in memList) {
-				if (mem is TMethod) {
-					TMethod func = (TMethod)mem;
-					if ((func.name.StartsWith("get") && func.parameters.Count == 0) || (func.name == "item" || func.name == "namedItem")) {
-						if (func.name == "item" || func.name == "namedItem") {
-							TProperty prop = new TProperty(this);
-							prop.name = "this";
-							prop.Parameters.AddRange(func.parameters);
-							prop.resultType = func.resultType;
-							prop.canRead = true;
-							int idx = members.IndexOf(func);
-							members[idx] = prop;
-						}
-						else {
-							//string n1 = func.Name.Substring(3);
-							//var propName = char.ToLower(n1[0]).ToString() + n1.Substring(1);
-							//TProperty prop = new TProperty();
-							//prop.Name = propName;
-							//prop.resultType = func.resultType;
-							//prop.canRead = true;
-							//int idx = Members.IndexOf(func);
-							//Members[idx] = prop;
-							//TMethod setMem = (TMethod)Members.Find("set" + n1);
-							//if (setMem != null) {
-							//  prop.canWrite = true;
-							//  Members.Remove(setMem);
-							//}
-						}
-					}
-				}
-			}
-		}
+        public void checkProp()
+        {
+            TMemberList memList = new TMemberList();
+            memList.AddRange(members);
+            foreach (TMember mem in memList)
+            {
+                if (mem is TMethod)
+                {
+                    TMethod func = (TMethod)mem;
+                    if ((func.name.StartsWith("get") && func.parameters.Count == 0) || (func.name == "item" || func.name == "namedItem"))
+                    {
+                        if (func.name == "item" || func.name == "namedItem")
+                        {
+                            TProperty prop = new TProperty(this);
+                            prop.name = "this";
+                            prop.Parameters.AddRange(func.parameters);
+                            prop.resultType = func.resultType;
+                            prop.canRead = true;
+                            int idx = members.IndexOf(func);
+                            members[idx] = prop;
+                        }
+                        else
+                        {
+                            //string n1 = func.Name.Substring(3);
+                            //var propName = char.ToLower(n1[0]).ToString() + n1.Substring(1);
+                            //TProperty prop = new TProperty();
+                            //prop.Name = propName;
+                            //prop.resultType = func.resultType;
+                            //prop.canRead = true;
+                            //int idx = Members.IndexOf(func);
+                            //Members[idx] = prop;
+                            //TMethod setMem = (TMethod)Members.Find("set" + n1);
+                            //if (setMem != null) {
+                            //  prop.canWrite = true;
+                            //  Members.Remove(setMem);
+                            //}
+                        }
+                    }
+                }
+            }
+        }
 
-	}
+    }
 
-	//public class TClassComment : TMember
-	//{
-	//  public string text;
+    //public class TClassComment : TMember
+    //{
+    //  public string text;
 
-	//  public override void write(System.Text.StringBuilder sb) {
-	//    sb.Append(Environment.NewLine + "\t" + text + Environment.NewLine);
-	//  }
+    //  public override void write(System.Text.StringBuilder sb) {
+    //    sb.Append(Environment.NewLine + "\t" + text + Environment.NewLine);
+    //  }
 
-	//}
+    //}
 
-	public abstract class TMember
-	{
+    public abstract class TMember
+    {
 
-		public TMember(TFileType parentType) {
-			this.parentType = parentType;
-			resultType = new TType() { name = "void" };
-		}
+        public TMember(TFileType parentType)
+        {
+            this.parentType = parentType;
+            resultType = new TType() { name = "void" };
+        }
 
-		public bool isPrivate = false;
-		public TJsAttributeList jsAttributes = new TJsAttributeList();
+        public bool isPrivate = false;
+        public TJsAttributeList jsAttributes = new TJsAttributeList();
 
-		public TFileType parentType;
-		public string name = "";
-		public string aliasName = "";
-		public TType resultType;
+        public TFileType parentType;
+        public string name = "";
+        public string aliasName = "";
+        public TType resultType;
 
-		public abstract void write(System.Text.StringBuilder sb, bool impl = false);
+        public abstract void write(System.Text.StringBuilder sb, bool impl = false);
 
-	}
+    }
 
-	public class TFragmentMember : TMember
-	{
+    public class TFragmentMember : TMember
+    {
 
-		public TFragmentMember(TFileType parentType) : base(parentType) { }
+        public TFragmentMember(TFileType parentType) : base(parentType) { }
 
-		public string text = "";
+        public string text = "";
 
-		public override void write(System.Text.StringBuilder sb, bool impl = false) {
-			sb.Append(text);
-		}
+        public override void write(System.Text.StringBuilder sb, bool impl = false)
+        {
+            sb.Append(text);
+        }
 
-	}
+    }
 
-	public class TMethod : TMember
-	{
+    public class TMethod : TMember
+    {
 
-		public TMethod(TFileType parentType) : base(parentType) { }
+        public TMethod(TFileType parentType) : base(parentType) { }
 
-		public TParameterList parameters = new TParameterList();
-		public TMethod baseMethod;
+        public TParameterList parameters = new TParameterList();
+        public TMethod baseMethod;
 
-		public override void write(System.Text.StringBuilder sb, bool impl = false) {
-			var modifier = "public ";
-			if (isPrivate) modifier = "private ";
-			if (parentType.isInterface && !impl) modifier = "";
-			var rType = resultType.ToString();
+        public override void write(System.Text.StringBuilder sb, bool impl = false)
+        {
+            var modifier = "public ";
+            if (isPrivate) modifier = "private ";
+            if (parentType.isInterface && !impl) modifier = "";
+            var rType = resultType.ToString();
 
-			var sName = Generator.getName(name);
-			if (isConstructor) {
-				rType = "";
-				sName = Generator.getName(parentType.name);
-			}
-			if (aliasName != "") jsAttributes.Add("Name", "\"" + aliasName + "\"");
-			if (jsAttributes.Count > 0) {
-				sb.Append("\t[JsMethod(" + jsAttributes.ToString() + ")]" + Environment.NewLine);
-			}
-			sb.Append("\t" + modifier + " " + rType + " " + sName);
-			parameters.write(sb);
-			if (parentType.isInterface && !impl) {
-				sb.Append(";" + Environment.NewLine);
-			}
-			else {
-				if (isConstructor && baseMethod != null) {
-					sb.Append(" : base(");
-					for (var i = 0; i < baseMethod.parameters.Count; i++) {
-						if (i != 0) sb.Append(", ");
-						sb.Append("default(" + baseMethod.parameters[i].type.ToString() + ")");
-					}
-					sb.Append(")");
-				}
-				sb.Append(" {");
-				if (resultType != null) {
-					if (resultType.name != "void") {
-						sb.Append(" return default(" + resultType.ToString() + "); ");
-					}
-				}
-				sb.Append("}" + Environment.NewLine);
-			}
-		}
+            var sName = Generator.getName(name);
+            if (isConstructor)
+            {
+                rType = "";
+                sName = Generator.getName(parentType.name);
+            }
+            if (aliasName != "") jsAttributes.Add("Name", "\"" + aliasName + "\"");
+            if (jsAttributes.Count > 0)
+            {
+                sb.Append("\t[JsMethod(" + jsAttributes.ToString() + ")]" + Environment.NewLine);
+            }
+            sb.Append("\t" + modifier + " " + rType + " " + sName);
+            parameters.write(sb);
+            if (parentType.isInterface && !impl)
+            {
+                sb.Append(";" + Environment.NewLine);
+            }
+            else
+            {
+                if (isConstructor && baseMethod != null)
+                {
+                    sb.Append(" : base(");
+                    for (var i = 0; i < baseMethod.parameters.Count; i++)
+                    {
+                        if (i != 0) sb.Append(", ");
+                        sb.Append("default(" + baseMethod.parameters[i].type.ToString() + ")");
+                    }
+                    sb.Append(")");
+                }
+                sb.Append(" {");
+                if (resultType != null)
+                {
+                    if (resultType.name != "void")
+                    {
+                        sb.Append(" return default(" + resultType.ToString() + "); ");
+                    }
+                }
+                sb.Append("}" + Environment.NewLine);
+            }
+        }
 
-		public bool isConstructor {
-			get {
-				return name == "ctor";
-			}
-		}
-	}
+        public bool isConstructor
+        {
+            get
+            {
+                return name == "ctor";
+            }
+        }
+    }
 
-	public class TProperty : TMember
-	{
-		public TProperty(TFileType parentType) : base(parentType) { }
+    public class TProperty : TMember
+    {
+        public TProperty(TFileType parentType) : base(parentType) { }
 
-		public bool canRead = true;
-		public bool canWrite = true;
+        public bool canRead = true;
+        public bool canWrite = true;
 
-		public TParameterList Parameters = new TParameterList();
+        public TParameterList Parameters = new TParameterList();
 
-		public override void write(System.Text.StringBuilder sb, bool impl = false) {
-			if (name == parentType.name) {
-				sb.Append("\t" + "[JsProperty(Name=\"" + name + "\")]" + Environment.NewLine);
-				name += "_";
-			}
-			if (name == "this") {
-				sb.Append("\t" + "[JsProperty(NativeIndexer = true)]" + Environment.NewLine);
-			}
-			var modifier = "public ";
-			if (parentType.isInterface && !impl) modifier = "";
-			sb.Append("\t" + modifier + " " + resultType.ToString() + " " + Generator.getName(name));
-			if (name == "this") {
-				Parameters.write(sb, true);
-			}
-			sb.Append(" {");
-			if (canRead) {
-				if (name == "this") {
-					sb.Append("get { return default(" + resultType.ToString() + "); } ");
-				}
-				else {
-					sb.Append("get;");
-				}
-			}
-			if (canWrite) {
-				if (name == "this") {
-					sb.Append("set {}");
-				}
-				else {
-					sb.Append(" set; ");
-				}
-			}
-			else {
-				if (name != "this") {
-					if (parentType.isInterface && !impl) { }
-					else {
-						sb.Append(" private set; ");
-					}
-				}
-			}
-			sb.Append("}" + Environment.NewLine);
-		}
+        public override void write(System.Text.StringBuilder sb, bool impl = false)
+        {
+            if (name == parentType.name)
+            {
+                sb.Append("\t" + "[JsProperty(Name=\"" + name + "\")]" + Environment.NewLine);
+                name += "_";
+            }
+            if (name == "this")
+            {
+                sb.Append("\t" + "[JsProperty(NativeIndexer = true)]" + Environment.NewLine);
+            }
+            var modifier = "public ";
+            if (parentType.isInterface && !impl) modifier = "";
+            sb.Append("\t" + modifier + " " + resultType.ToString() + " " + Generator.getName(name));
+            if (name == "this")
+            {
+                Parameters.write(sb, true);
+            }
+            sb.Append(" {");
+            if (canRead)
+            {
+                if (name == "this")
+                {
+                    sb.Append("get { return default(" + resultType.ToString() + "); } ");
+                }
+                else
+                {
+                    sb.Append("get;");
+                }
+            }
+            if (canWrite)
+            {
+                if (name == "this")
+                {
+                    sb.Append("set {}");
+                }
+                else
+                {
+                    sb.Append(" set; ");
+                }
+            }
+            else
+            {
+                if (name != "this")
+                {
+                    if (parentType.isInterface && !impl) { }
+                    else
+                    {
+                        sb.Append(" private set; ");
+                    }
+                }
+            }
+            sb.Append("}" + Environment.NewLine);
+        }
 
-	}
+    }
 
-	public class TField : TMember
-	{
-		public TField(TFileType parentType) : base(parentType) { }
-		public string value;
+    public class TField : TMember
+    {
+        public TField(TFileType parentType) : base(parentType) { }
+        public string value;
 
-		public override void write(System.Text.StringBuilder sb, bool impl = false) {
-			var modifier = "public ";
-			if (parentType.isInterface && !impl) modifier = "";
-			sb.Append("\t" + modifier + " static " + resultType.ToString() + " " + name);
-			if (value != null) {
-				sb.Append(" = " + value);
-			}
-			sb.Append(";" + Environment.NewLine);
-		}
-	}
+        public override void write(System.Text.StringBuilder sb, bool impl = false)
+        {
+            var modifier = "public ";
+            if (parentType.isInterface && !impl) modifier = "";
+            sb.Append("\t" + modifier + " static " + resultType.ToString() + " " + name);
+            if (value != null)
+            {
+                sb.Append(" = " + value);
+            }
+            sb.Append(";" + Environment.NewLine);
+        }
+    }
 
-	public class TParameter
-	{
-		public string name;
-		public TType type;
-		public bool paramArray = false;
-		public TAttributeList attributes = new TAttributeList();
+    public class TParameter
+    {
+        public string name;
+        public TType type;
+        public bool paramArray = false;
+        public TAttributeList attributes = new TAttributeList();
 
-		public bool isOptional() {
-			foreach (var attr in attributes) {
-				if (attr is TNameAttribute && (attr as TNameAttribute).name == "Optional" && (attr as TNameAttribute).value == "") return true;
-			}
-			return false;
-		}
+        public bool isOptional()
+        {
+            foreach (var attr in attributes)
+            {
+                if (attr is TNameAttribute && (attr as TNameAttribute).name == "Optional" && (attr as TNameAttribute).value == "") return true;
+            }
+            return false;
+        }
 
-		public void write(System.Text.StringBuilder sb) {
-			if (this.paramArray) {
-				sb.Append("params ");
-			}
-			sb.Append(type.ToString() + " " + Generator.getName(name));
-			//if (isOptional()) {
-			//  sb.Append(" = default(" + type.ToString() + ")");
-			//}
-		}
+        public void write(System.Text.StringBuilder sb)
+        {
+            if (this.paramArray)
+            {
+                sb.Append("params ");
+            }
+            sb.Append(type.ToString() + " " + Generator.getName(name));
+            //if (isOptional()) {
+            //  sb.Append(" = default(" + type.ToString() + ")");
+            //}
+        }
 
-	}
+    }
 
-	public class TParameterList : List<TParameter>
-	{
+    public class TParameterList : List<TParameter>
+    {
 
-		public bool parametersEquals(TParameterList paramList) {
-			if (Count != paramList.Count) return false;
-			for (var i = 0; i < Count; i++) {
-				if (this[i].type.name != paramList[i].type.name) return false;
-			}
-			return true;
-		}
+        public bool parametersEquals(TParameterList paramList)
+        {
+            if (Count != paramList.Count) return false;
+            for (var i = 0; i < Count; i++)
+            {
+                if (this[i].type.name != paramList[i].type.name) return false;
+            }
+            return true;
+        }
 
-		public void write(System.Text.StringBuilder sb, bool indexer = false) {
-			if (indexer) {
-				sb.Append("[");
-			}
-			else {
-				sb.Append("(");
-			}
+        public void write(System.Text.StringBuilder sb, bool indexer = false)
+        {
+            if (indexer)
+            {
+                sb.Append("[");
+            }
+            else
+            {
+                sb.Append("(");
+            }
 
-			bool f = true;
-			foreach (TParameter param in this) {
-				if (f) {
-					f = false;
-				}
-				else {
-					sb.Append(", ");
-				}
-				param.write(sb);
-			}
-			if (indexer) {
-				sb.Append("]");
-			}
-			else {
-				sb.Append(")");
-			}
-		}
+            bool f = true;
+            foreach (TParameter param in this)
+            {
+                if (f)
+                {
+                    f = false;
+                }
+                else
+                {
+                    sb.Append(", ");
+                }
+                param.write(sb);
+            }
+            if (indexer)
+            {
+                sb.Append("]");
+            }
+            else
+            {
+                sb.Append(")");
+            }
+        }
 
-	}
+    }
 
-	public class TMemberList : List<TMember>
-	{
+    public class TMemberList : List<TMember>
+    {
 
-		public void addWithCheck(TMember mem) {
-			if (mem is TMethod)
-				foreach (var m in this) {
-					if (m.name == mem.name) {
-						if (m is TMethod) {
-							var met = m as TMethod;
-							if ((mem as TMethod).parameters.parametersEquals(met.parameters)) return;
-						}
-					}
-				}
-			Add(mem);
-		}
+        public void addWithCheck(TMember mem)
+        {
+            if (mem is TMethod)
+                foreach (var m in this)
+                {
+                    if (m.name == mem.name)
+                    {
+                        if (m is TMethod)
+                        {
+                            var met = m as TMethod;
+                            if ((mem as TMethod).parameters.parametersEquals(met.parameters)) return;
+                        }
+                    }
+                }
+            Add(mem);
+        }
 
-		public TMember find(string name) {
-			foreach (TMember mem in this) {
-				if (mem.name == name) {
-					return mem;
-				}
-			}
-			return null;
-		}
+        public TMember find(string name)
+        {
+            foreach (TMember mem in this)
+            {
+                if (mem.name == name)
+                {
+                    return mem;
+                }
+            }
+            return null;
+        }
 
-	}
+    }
 
-	public class TFileTypeList : List<TFileType>
-	{
-	}
+    public class TFileTypeList : List<TFileType>
+    {
+    }
 
-	public class TType
-	{
+    public class TType
+    {
 
-		public TType() {
-			Generator.allTypes.Add(this);
-		}
+        public TType()
+        {
+            Generator.allTypes.Add(this);
+        }
 
-		public string name;
-		public bool isArray = false;
-		public bool isNullable = false;
-		public TType genericType;
-		public bool isResult = true;
+        public string name;
+        public bool isArray = false;
+        public bool isNullable = false;
+        public TType genericType;
+        public bool isResult = true;
 
-		public bool canCorrect = true;
-		public void correctType() {
-			trySetNewTypes();
-			if (TParsedFile.isUnknownType(this)) {
-				name = "object";
-			}
-		}
+        public bool canCorrect = true;
+        public void correctType()
+        {
+            trySetNewTypes();
+            if (TParsedFile.isUnknownType(this))
+            {
+                name = "object";
+            }
+        }
 
-		private void trySetNewTypes() {
-			var dict = new Dictionary<string, string>();
-			dict.Add("TimeoutHandler", "JsAction");
+        private void trySetNewTypes()
+        {
+            var dict = new Dictionary<string, string>();
+            dict.Add("TimeoutHandler", "JsAction");
 
-			if (dict.ContainsKey(name)) name = dict[name];
-		}
+            if (dict.ContainsKey(name)) name = dict[name];
+        }
 
-		public override string ToString() {
-			if (canCorrect) correctType();
-			if (name == "sequence") return genericType.ToString();
-			string str = name;
-			if (isResult) str = getResultTypeName();
-			if (genericType != null) str += "<" + genericType.ToString() + ">";
-			if (isArray) str += "[]";
-			//if (isNullable && !isArray) str += "?";
-			return str;
-		}
+        public override string ToString()
+        {
+            if (canCorrect) correctType();
+            if (name == "sequence") return genericType.ToString();
+            string str = name;
+            if (isResult) str = getResultTypeName();
+            if (genericType != null) str += "<" + genericType.ToString() + ">";
+            if (isArray) str += "[]";
+            //if (isNullable && !isArray) str += "?";
+            return str;
+        }
 
-		public string getResultTypeName() {
-			switch (name) {
-				case "string":
-					return "JsString";
-				//case "object":
-				//  return "JsObject";
-				default:
-					return name;
-			}
-		}
+        public string getResultTypeName()
+        {
+            switch (name)
+            {
+                case "string":
+                    return "JsString";
+                //case "object":
+                //  return "JsObject";
+                default:
+                    return name;
+            }
+        }
 
 
 
-	}
+    }
 
-	public class TTypeList : List<TType> { }
+    public class TTypeList : List<TType> { }
 
-	public class TNamespace
-	{
-		public string name;
-		public TFileTypeList types = new TFileTypeList();
-		public List<string> importList = new List<string>();
+    public class TNamespace
+    {
+        public string name;
+        public TFileTypeList types = new TFileTypeList();
+        public List<string> importList = new List<string>();
 
-		private TParsedFile file;
-		public TNamespace(TParsedFile file) {
-			this.file = file;
-		}
+        private TParsedFile file;
+        public TNamespace(TParsedFile file)
+        {
+            this.file = file;
+        }
 
-		public void write(System.Text.StringBuilder sb) {
-			sb.Append("namespace " + name + Environment.NewLine);
-			sb.Append("{" + Environment.NewLine + Environment.NewLine);
-			sb.Append("using SharpKit.JavaScript;" + Environment.NewLine);
-			foreach (var usingName in Generator.namespaceNames)
-				sb.Append("using " + usingName + ";" + Environment.NewLine);
-			foreach (string imp in importList) {
-				string n = imp.Substring(imp.LastIndexOf(".") + 1);
-				sb.Append("using " + n + " = " + imp + ";" + Environment.NewLine);
-			}
-			sb.Append(Environment.NewLine);
-			foreach (TFileType t in types) {
-				t.write(sb);
-			}
-			sb.Append("}");
-		}
-	}
+        public void write(System.Text.StringBuilder sb)
+        {
+            sb.Append("namespace " + name + Environment.NewLine);
+            sb.Append("{" + Environment.NewLine + Environment.NewLine);
+            sb.Append("using SharpKit.JavaScript;" + Environment.NewLine);
+            foreach (var usingName in Generator.namespaceNames)
+                sb.Append("using " + usingName + ";" + Environment.NewLine);
+            foreach (string imp in importList)
+            {
+                string n = imp.Substring(imp.LastIndexOf(".") + 1);
+                sb.Append("using " + n + " = " + imp + ";" + Environment.NewLine);
+            }
+            sb.Append(Environment.NewLine);
+            foreach (TFileType t in types)
+            {
+                t.write(sb);
+            }
+            sb.Append("}");
+        }
+    }
 
-	public class TNamespaceList : List<TNamespace>
-	{
+    public class TNamespaceList : List<TNamespace>
+    {
 
-		private TParsedFile file;
-		public TNamespaceList(TParsedFile file) {
-			this.file = file;
-		}
+        private TParsedFile file;
+        public TNamespaceList(TParsedFile file)
+        {
+            this.file = file;
+        }
 
-		public void write(System.Text.StringBuilder sb) {
-			var path = file.inFile.Replace(Program.idlInDirectory, "").Replace("\\", "/");
-			sb.Append(@"
+        public void write(System.Text.StringBuilder sb)
+        {
+            var path = file.inFile.Replace(Program.idlInDirectory, "").Replace("\\", "/");
+            sb.Append(@"
 /*******************************************************************************************************
 
   This file was auto generated with the tool 'WebIDLParser' at {DATE}
@@ -715,61 +835,71 @@ namespace WebIDLParser
 
 *******************************************************************************************************/
 ".Replace("{DATE}", DateTime.Now.ToString("r")).Replace("{FILE}", path).Replace("'", "\"").Replace("{YEAR}", DateTime.Now.Year.ToString()));
-			sb.Append(Environment.NewLine);
-			sb.Append("using System;" + Environment.NewLine);
-			sb.Append(Environment.NewLine);
-			foreach (TNamespace ns in this) {
-				ns.write(sb);
-			}
-		}
+            sb.Append(Environment.NewLine);
+            sb.Append("using System;" + Environment.NewLine);
+            sb.Append(Environment.NewLine);
+            foreach (TNamespace ns in this)
+            {
+                ns.write(sb);
+            }
+        }
 
-	}
+    }
 
-	public class TAttribute { }
+    public class TAttribute { }
 
-	public class TNameAttribute : TAttribute
-	{
-		public string name = "";
-		public string value = "";
-	}
+    public class TNameAttribute : TAttribute
+    {
+        public string name = "";
+        public string value = "";
+    }
 
-	public class TConstructorAttribute : TAttribute
-	{
-		public TMethod constructor;
-		public string name = "";
-	}
+    public class TConstructorAttribute : TAttribute
+    {
+        public TConstructorAttribute(TMethod constructor)
+        {
+            this.constructor = constructor;
+        }
 
-	public class TAttributeList : List<TAttribute> { }
+        public TMethod constructor;
+        public string name = "";
+    }
 
-	public class TJsAttribute
-	{
-		public string name;
-		public string value;
-	}
-	public class TJsAttributeList : List<TJsAttribute>
-	{
-		public void Add(string name, string value) {
-			var attr = find(name);
-			if (attr == null)
-				Add(new TJsAttribute() { name = name, value = value });
-			else
-				attr.value = value;
-		}
+    public class TAttributeList : List<TAttribute> { }
 
-		public TJsAttribute find(string name) {
-			foreach (var attr in this)
-				if (attr.name == name) return attr;
-			return null;
-		}
+    public class TJsAttribute
+    {
+        public string name;
+        public string value;
+    }
+    public class TJsAttributeList : List<TJsAttribute>
+    {
+        public void Add(string name, string value)
+        {
+            var attr = find(name);
+            if (attr == null)
+                Add(new TJsAttribute() { name = name, value = value });
+            else
+                attr.value = value;
+        }
 
-		public override string ToString() {
-			var sb = new System.Text.StringBuilder();
-			for (var i = 0; i < Count; i++) {
-				if (i != 0) sb.Append(", ");
-				sb.Append(this[i].name + " = " + this[i].value);
-			}
-			return sb.ToString();
-		}
-	}
+        public TJsAttribute find(string name)
+        {
+            foreach (var attr in this)
+                if (attr.name == name) return attr;
+            return null;
+        }
+
+        public override string ToString()
+        {
+            var sb = new System.Text.StringBuilder();
+            for (var i = 0; i < Count; i++)
+            {
+                if (i != 0) sb.Append(", ");
+                sb.Append(this[i].name + " = " + this[i].value);
+            }
+            return sb.ToString();
+        }
+    }
 
 }

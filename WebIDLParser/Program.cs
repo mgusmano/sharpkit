@@ -25,29 +25,30 @@
 namespace WebIDLParser
 {
 
-	public class Program
-	{
+    public class Program
+    {
 
-		//Path to the existing project SharpKit.Html project
-		public static string csOutDirectory = @"D:\dotnet\sharpkit\sdk\src\SharpKit.Html.Idl\";
+        //Path to the existing project SharpKit.Html project
+        public static string csOutDirectory = @"D:\dotnet\sharpkit\sdk\sharpkit\SharpKit.Html.Idl\";
 
-		//Path to the WebKit(--> WebCore) sources. ( http://trac.webkit.org/browser/trunk/Source/WebCore/ )
-		public static string idlInDirectory = @"D:\dotnet\webkit\Source\WebCore\";
+        //Path to the WebKit(--> WebCore) sources. ( http://trac.webkit.org/browser/trunk/Source/WebCore/ )
+        public static string idlInDirectory = @"D:\dotnet\webkit\Source\WebCore\";
 
-		//An temporary directory, where the preprocessed IDL files will be stored.
-		public static string idlOutTempDirectory = @"D:\IdlCs\idl\";
+        //An temporary directory, where the preprocessed IDL files will be stored.
+        public static string idlOutTempDirectory = @"D:\IdlCs\idl\";
 
-		//Needs to be true. Set only to false, when you already have the preprocessed IDL files in the idlOutTempDirectory.
-		public static bool runPreprocessor = false;
+        //Needs to be true. Set only to false, when you already have the preprocessed IDL files in the idlOutTempDirectory.
+        public static bool runPreprocessor = false;
 
-		//Path to a c/c++ compiler, used for preprocessing the files.
-		public static string preprocessorExe = @"C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\amd64\cl.exe";
+        //Path to a c/c++ compiler, used for preprocessing the files.
+        public static string preprocessorExe = @"C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\amd64\cl.exe";
 
-		public static void Main(string[] args) {
-			Generator.start();
-		}
+        public static void Main(string[] args)
+        {
+            Generator.start();
+        }
 
-	}
+    }
 
 }
 

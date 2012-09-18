@@ -199,7 +199,7 @@ jQuery Selector;
 public AddClass(JsString selector, AddClassOptions options)
 {
 Selector = J(selector);
-Selector.addclass(options);
+Selector.addClass(options);
 }
 ///<summary>
 ///Creates a new instance of AddClass
@@ -229,11 +229,11 @@ set { Set("duration", value); }
 }
 object Get(JsString option)
 {
-return Selector.addclass("option", option);
+return Selector.addClass("option", option);
 }
 void Set(JsString option, object value)
 {
-Selector.addclass("option", option, value);
+Selector.addClass("option", option, value);
 }
 }
 #endregion
@@ -2670,7 +2670,7 @@ jQuery Selector;
 public SwitchClass(JsString selector, SwitchClassOptions options)
 {
 Selector = J(selector);
-Selector.switchclass(options);
+Selector.switchClass(options);
 }
 ///<summary>
 ///Creates a new instance of SwitchClass
@@ -2709,11 +2709,11 @@ set { Set("duration", value); }
 }
 object Get(JsString option)
 {
-return Selector.switchclass("option", option);
+return Selector.switchClass("option", option);
 }
 void Set(JsString option, object value)
 {
-Selector.switchclass("option", option, value);
+Selector.switchClass("option", option, value);
 }
 }
 #endregion
@@ -3053,7 +3053,7 @@ jQuery Selector;
 public ToggleClass(JsString selector, ToggleClassOptions options)
 {
 Selector = J(selector);
-Selector.toggleclass(options);
+Selector.toggleClass(options);
 }
 ///<summary>
 ///Creates a new instance of ToggleClass
@@ -3083,11 +3083,11 @@ set { Set("duration", value); }
 }
 object Get(JsString option)
 {
-return Selector.toggleclass("option", option);
+return Selector.toggleClass("option", option);
 }
 void Set(JsString option, object value)
 {
-Selector.toggleclass("option", option, value);
+//Selector.toggleClass("option", option, value); //TODO: Compilation error
 }
 }
 #endregion

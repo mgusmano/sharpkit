@@ -13,34 +13,30 @@ if (typeof($CreateException)=='undefined')
         return error;
     }
 }
-if(typeof(JsTypes) == "undefined")
-    var JsTypes=[];
-var System$Collections$ArrayList=
-{
-    fullname:"System.Collections.ArrayList",
-    baseTypeName:"System.Collections.Generic.List$1",
-    assemblyName:"SharpKit.JsClr",
-    Kind:"Class",
-    definition:
-    {
-        ctor:function()
-        {
-            System.Collections.Generic.List$1.ctor.call(this,System.Object.ctor);
+if (typeof(JsTypes) == "undefined") var JsTypes = [];
+var System$Collections$ArrayList = {
+    fullname: "System.Collections.ArrayList",
+    baseTypeName: "System.Collections.Generic.List$1",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition: {
+        
+        ctor: function () {
+            System.Collections.Generic.List$1.ctor.call(this, System.Object.ctor);
         }
+        
     }
 };
 JsTypes.push(System$Collections$ArrayList);
-var System$Collections$Generic$Dictionary$2=
-{
-    fullname:"System.Collections.Generic.Dictionary$2",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    interfaceNames:["System.Collections.Generic.IDictionary$2"],
-    Kind:"Class",
-    definition:
-    {
-        ctor:function(TKey,TValue)
-        {
+var System$Collections$Generic$Dictionary$2 = {
+    fullname: "System.Collections.Generic.Dictionary$2",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.Generic.IDictionary$2"],
+    Kind: "Class",
+    definition: {
+        
+        ctor: function (TKey, TValue) {
             this.TKey = TKey;
             this.TValue = TValue;
             this._table = null;
@@ -52,8 +48,8 @@ var System$Collections$Generic$Dictionary$2=
             this._keys = new Object();
             this._version = 0;
         },
-        ctor$$IEqualityComparer$1:function(TKey,TValue,comparer)
-        {
+        
+        ctor$$IEqualityComparer$1: function (TKey, TValue, comparer) {
             this.TKey = TKey;
             this.TValue = TValue;
             this._table = null;
@@ -66,116 +62,115 @@ var System$Collections$Generic$Dictionary$2=
             this._version = 0;
             this.Comparer = comparer;
         },
-        GetHashKey:function(key)
-        {
-            if(this.Comparer != null)
-                return this.Comparer.GetHashCode$$T(key);
+        
+        GetHashKey: function (key) {
+            if (this.Comparer != null ) return this.Comparer.GetHashCode$$T(key);
             return SharpKit.JavaScript.Utils.Js.GetHashKey(key);
         },
-        Add:function(key,value)
-        {
-            var hashKey=this.GetHashKey(key);
+        
+        Add: function (key, value) {
+            var hashKey = this.GetHashKey(key);
             this._table[hashKey] = value;
             this._keys[hashKey] = key;
             this._version++;
         },
-        Remove:function(key)
-        {
-            var hashKey=this.GetHashKey(key);
+        
+        Remove: function (key) {
+            var hashKey = this.GetHashKey(key);
             delete this._table[hashKey];
             delete this._keys[hashKey];
             this._version++;
             return true;
         },
-        Item$$:"`1",
-        get_Item$$TKey:function(key)
-        {
-            var hashKey=this.GetHashKey(key);
+        
+        Item$$: "`1",
+        
+        get_Item$$TKey: function (key) {
+            var hashKey = this.GetHashKey(key);
             return this._table[hashKey];
         },
-        set_Item$$TKey:function(key,value)
-        {
-            var hashKey=this.GetHashKey(key);
+        
+        set_Item$$TKey: function (key, value) {
+            var hashKey = this.GetHashKey(key);
             this._table[hashKey] = value;
             this._keys[hashKey] = key;
             this._version++;
         },
-        ContainsKey:function(key)
-        {
-            var hashKey=this.GetHashKey(key);
+        
+        ContainsKey: function (key) {
+            var hashKey = this.GetHashKey(key);
             return typeof(this._table[hashKey]) != "undefined";
         },
-        Keys$$:"System.Collections.Generic.ICollection`1[[`0]]",
-        get_Keys:function()
-        {
-            var keys= [];
-            for(var p in this._keys)
-            {
+        
+        Keys$$: "System.Collections.Generic.ICollection`1[[`0]]",
+        
+        get_Keys: function () {
+            var keys =  [];
+            for (var p in this._keys) {
                 keys.push(this._keys[p]);
             }
             return keys;
         },
-        Values$$:"System.Collections.Generic.ICollection`1[[`1]]",
-        get_Values:function()
-        {
-            var values= [];
-            for(var p in this._table)
-            {
+        
+        Values$$: "System.Collections.Generic.ICollection`1[[`1]]",
+        
+        get_Values: function () {
+            var values =  [];
+            for (var p in this._table) {
                 values.push(this._table[p]);
             }
             return values;
         },
-        GetEnumerator:function()
-        {
-            var array= [];
-            for(var hashKey in this._table)
-            {
-                array.push(new System.Collections.Generic.KeyValuePair$2.ctor(this.TKey,this.TValue,this._keys[hashKey],this._table[hashKey]));
+        
+        GetEnumerator: function () {
+            var array =  [];
+            for (var hashKey in this._table) {
+                array.push(new System.Collections.Generic.KeyValuePair$2.ctor(this.TKey, this.TValue, this._keys[hashKey], this._table[hashKey]));
             }
             return array.GetEnumerator();
         },
-        Clear:function()
-        {
-            for(var hashKey in this._table)
-            {
+        
+        Clear: function () {
+            for (var hashKey in this._table) {
                 this._keys = new Object();
                 this._table = new Object();
                 this._version++;
                 return;
             }
         },
-        Count$$:"System.Int32",
-        get_Count:function()
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        Count$$: "System.Int32",
+        
+        get_Count: function () {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
-        IsReadOnly$$:"System.Boolean",
-        get_IsReadOnly:function()
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        IsReadOnly$$: "System.Boolean",
+        
+        get_IsReadOnly: function () {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         }
+        
     }
 };
 JsTypes.push(System$Collections$Generic$Dictionary$2);
-var System$Collections$Generic$HashSet$1=
-{
-    fullname:"System.Collections.Generic.HashSet$1",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    interfaceNames:["System.Collections.Generic.ISet$1","System.Collections.Generic.ICollection$1","System.Collections.Generic.IEnumerable$1","System.Collections.IEnumerable"],
-    Kind:"Class",
-    definition:
-    {
-        ctor:function(T)
-        {
+var System$Collections$Generic$HashSet$1 = {
+    fullname: "System.Collections.Generic.HashSet$1",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.Generic.ISet$1", "System.Collections.Generic.ICollection$1", "System.Collections.Generic.IEnumerable$1", "System.Collections.IEnumerable"],
+    Kind: "Class",
+    definition: {
+        
+        ctor: function (T) {
             this.T = T;
             this.Hashtable = new Object();
             this.Comparer = null;
             this._Count = 0;
             System.Object.ctor.call(this);
         },
-        ctor$$IEqualityComparer$1:function(T,comparer)
-        {
+        
+        ctor$$IEqualityComparer$1: function (T, comparer) {
             this.T = T;
             this.Hashtable = new Object();
             this.Comparer = null;
@@ -183,185 +178,176 @@ var System$Collections$Generic$HashSet$1=
             System.Object.ctor.call(this);
             this.Comparer = comparer;
         },
-        GetHashKey:function(key)
-        {
-            if(this.Comparer != null)
-                return this.Comparer.GetHashCode$$T(key);
+        
+        GetHashKey: function (key) {
+            if (this.Comparer != null ) return this.Comparer.GetHashCode$$T(key);
             return SharpKit.JavaScript.Utils.Js.GetHashKey(key);
         },
-        Add:function(item)
-        {
-            var key=this.GetHashKey(item);
-            if(this.Hashtable[key] != null)
-                return false;
+        
+        Add: function (item) {
+            var key = this.GetHashKey(item);
+            if (this.Hashtable[key] != null ) return false;
             this.Hashtable[key] = item;
             this._Count++;
             return true;
         },
-        UnionWith:function(other)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        UnionWith: function (other) {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
-        IntersectWith:function(other)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        IntersectWith: function (other) {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
-        ExceptWith:function(other)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        ExceptWith: function (other) {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
-        SymmetricExceptWith:function(other)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        SymmetricExceptWith: function (other) {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
-        IsSubsetOf:function(other)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        IsSubsetOf: function (other) {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
-        IsSupersetOf:function(other)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        IsSupersetOf: function (other) {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
-        IsProperSupersetOf:function(other)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        IsProperSupersetOf: function (other) {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
-        IsProperSubsetOf:function(other)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        IsProperSubsetOf: function (other) {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
-        Overlaps:function(other)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        Overlaps: function (other) {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
-        SetEquals:function(other)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        SetEquals: function (other) {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
-        Count$$:"System.Int32",
-        get_Count:function()
-        {
+        
+        Count$$: "System.Int32",
+        
+        get_Count: function () {
             return this._Count;
         },
-        IsReadOnly$$:"System.Boolean",
-        get_IsReadOnly:function()
-        {
+        
+        IsReadOnly$$: "System.Boolean",
+        
+        get_IsReadOnly: function () {
             return false;
         },
-        Clear:function()
-        {
+        
+        Clear: function () {
             this.Hashtable = new Object();
             this._Count = 0;
         },
-        Contains:function(item)
-        {
-            var key=this.GetHashKey(item);
-            if(this.Hashtable[key] === item)
-                return true;
+        
+        Contains: function (item) {
+            var key = this.GetHashKey(item);
+            if (this.Hashtable[key] === item) return true;
             return false;
         },
-        CopyTo:function(array,arrayIndex)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+        
+        CopyTo: function (array, arrayIndex) {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
-        Remove:function(item)
-        {
-            var key=this.GetHashKey(item);
-            if(this.Hashtable[key] === item)
-            {
+        
+        Remove: function (item) {
+            var key = this.GetHashKey(item);
+            if (this.Hashtable[key] === item) {
                 delete this.Hashtable[key];
                 this._Count--;
                 return true;
             }
             return false;
         },
-        GetEnumerator:function()
-        {
-            var array= [];
-            for(var hashKey in this.Hashtable)
-            {
+        
+        GetEnumerator: function () {
+            var array =  [];
+            for (var hashKey in this.Hashtable) {
                 array.push(this.Hashtable[hashKey]);
             }
-            return new System.Collections.Generic.JsArrayEnumerator$1.ctor(this.T,array);
+            return new System.Collections.Generic.JsArrayEnumerator$1.ctor(this.T, array);
         }
+        
     }
 };
 JsTypes.push(System$Collections$Generic$HashSet$1);
-var System$StringComparer=
-{
-    fullname:"System.StringComparer",
-    baseTypeName:"System.Object",
-    staticDefinition:
-    {
-        cctor:function()
-        {
+var System$StringComparer = {
+    fullname: "System.StringComparer",
+    baseTypeName: "System.Object",
+    staticDefinition: {
+        
+        cctor: function () {
             System.StringComparer._InvariantCultureIgnoreCase = null;
         },
-        InvariantCultureIgnoreCase$$:"SharpKit.JavaScript.Private.StringComparer",
-        get_InvariantCultureIgnoreCase:function()
-        {
-            if(System.StringComparer._InvariantCultureIgnoreCase == null)
-                System.StringComparer._InvariantCultureIgnoreCase = new SharpKit.JavaScript.Private.StringComparer_InvariantCultureIgnoreCase.ctor();
+        
+        InvariantCultureIgnoreCase$$: "SharpKit.JavaScript.Private.StringComparer",
+        
+        get_InvariantCultureIgnoreCase: function () {
+            if (System.StringComparer._InvariantCultureIgnoreCase == null ) System.StringComparer._InvariantCultureIgnoreCase = new SharpKit.JavaScript.Private.StringComparer_InvariantCultureIgnoreCase.ctor();
             return System.StringComparer._InvariantCultureIgnoreCase;
         }
+        
     },
-    assemblyName:"SharpKit.JsClr",
-    interfaceNames:["System.Collection.Generic.IEqualityComparer"],
-    Kind:"Class",
-    definition:
-    {
-        ctor:function()
-        {
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collection.Generic.IEqualityComparer"],
+    Kind: "Class",
+    definition: {
+        
+        ctor: function () {
             System.Object.ctor.call(this);
         }
+        
     }
 };
 JsTypes.push(System$StringComparer);
-var SharpKit$JavaScript$Private$StringComparer_InvariantCultureIgnoreCase=
-{
-    fullname:"SharpKit.JavaScript.Private.StringComparer_InvariantCultureIgnoreCase",
-    baseTypeName:"System.StringComparer",
-    staticDefinition:
-    {
-        cctor:function()
-        {
+var SharpKit$JavaScript$Private$StringComparer_InvariantCultureIgnoreCase = {
+    fullname: "SharpKit.JavaScript.Private.StringComparer_InvariantCultureIgnoreCase",
+    baseTypeName: "System.StringComparer",
+    staticDefinition: {
+        
+        cctor: function () {
         }
+        
     },
-    assemblyName:"SharpKit.JsClr",
-    Kind:"Class",
-    definition:
-    {
-        ctor:function()
-        {
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition: {
+        
+        ctor: function () {
             System.StringComparer.ctor.call(this);
         },
-        Equals$$T$$T:function(x,y)
-        {
-            if(x == y)
-                return true;
-            if(x == null || y == null)
-                return false;
+        
+        Equals$$T$$T: function (x, y) {
+            if (x == y) return true;
+            if (x == null || y == null ) return false;
             return x.toLowerCase() == y.toLowerCase();
         },
-        GetHashCode$$T:function(obj)
-        {
-            if(obj == null)
-                return "null";
+        
+        GetHashCode$$T: function (obj) {
+            if (obj == null ) return "null";
             return obj.toLowerCase();
         }
+        
     }
 };
 JsTypes.push(SharpKit$JavaScript$Private$StringComparer_InvariantCultureIgnoreCase);
-var System$Collections$Generic$KeyValuePair$2=
-{
-    fullname:"System.Collections.Generic.KeyValuePair$2",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    Kind:"Class",
-    definition:
-    {
-        ctor:function(K,T,key,value)
-        {
+var System$Collections$Generic$KeyValuePair$2 = {
+    fullname: "System.Collections.Generic.KeyValuePair$2",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition: {
+        
+        ctor: function (K, T, key, value) {
             this.K = K;
             this.T = T;
             this._Key = null;
@@ -370,86 +356,85 @@ var System$Collections$Generic$KeyValuePair$2=
             this._Key = key;
             this._Value = value;
         },
-        Key$$:"`0",
-        get_Key:function()
-        {
+        
+        Key$$: "`0",
+        
+        get_Key: function () {
             return this._Key;
         },
-        Value$$:"`1",
-        get_Value:function()
-        {
+        
+        Value$$: "`1",
+        
+        get_Value: function () {
             return this._Value;
         }
+        
     }
 };
 JsTypes.push(System$Collections$Generic$KeyValuePair$2);
-var System$Collections$Generic$Stack$1=
-{
-    fullname:"System.Collections.Generic.Stack$1",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    interfaceNames:["System.Collections.Generic.IEnumerable$1","System.Collections.ICollection"],
-    Kind:"Class",
-    definition:
-    {
-        ctor:function(T)
-        {
+var System$Collections$Generic$Stack$1 = {
+    fullname: "System.Collections.Generic.Stack$1",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.Generic.IEnumerable$1", "System.Collections.ICollection"],
+    Kind: "Class",
+    definition: {
+        
+        ctor: function (T) {
             this.T = T;
             this._list = null;
             System.Object.ctor.call(this);
             this._list = new Array();
         },
-        Clear:function()
-        {
+        
+        Clear: function () {
             this._list.Clear();
         },
-        Count$$:"System.Int32",
-        get_Count:function()
-        {
+        
+        Count$$: "System.Int32",
+        
+        get_Count: function () {
             return this._list.length;
         },
-        GetEnumerator:function()
-        {
+        
+        GetEnumerator: function () {
             return this._list.GetEnumerator();
         },
-        ToArray:function()
-        {
+        
+        ToArray: function () {
             return this._list.Clone();
         },
-        Push:function(item)
-        {
+        
+        Push: function (item) {
             this._list.push(item);
         },
-        Pop:function()
-        {
-            if(this._list.length == 0)
-                throw $CreateException(new Error("Cannot pop from stack - stack is empty"),new Error());
+        
+        Pop: function () {
+            if (this._list.length == 0) throw $CreateException(new Error("Cannot pop from stack - stack is empty"), new Error());
             return this._list.pop();
         },
-        Peek:function()
-        {
-            if(this._list.length == 0)
-                throw $CreateException(new Error("Cannot peek in stack - stack is empty"),new Error());
+        
+        Peek: function () {
+            if (this._list.length == 0) throw $CreateException(new Error("Cannot peek in stack - stack is empty"), new Error());
             return this._list[this._list.length - 1];
         },
-        Contains:function(item)
-        {
+        
+        Contains: function (item) {
             return this._list.contains(item);
         }
+        
     }
 };
 JsTypes.push(System$Collections$Generic$Stack$1);
-var System$Collections$Generic$JsArrayEnumerator$1=
-{
-    fullname:"System.Collections.Generic.JsArrayEnumerator$1",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    interfaceNames:["System.Collections.Generic.IEnumerator$1"],
-    Kind:"Class",
-    definition:
-    {
-        ctor:function(T,list)
-        {
+var System$Collections$Generic$JsArrayEnumerator$1 = {
+    fullname: "System.Collections.Generic.JsArrayEnumerator$1",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.Generic.IEnumerator$1"],
+    Kind: "Class",
+    definition: {
+        
+        ctor: function (T, list) {
             this.T = T;
             this.List = null;
             this.Index = 0;
@@ -459,159 +444,156 @@ var System$Collections$Generic$JsArrayEnumerator$1=
             this.Index = -1;
             this.ListCount = list.length;
         },
-        Current$$:"`0",
-        get_Current:function()
-        {
+        
+        Current$$: "`0",
+        
+        get_Current: function () {
             return this.List[this.Index];
         },
-        Dispose:function()
-        {
+        
+        Dispose: function () {
             this.List = null;
         },
-        MoveNext:function()
-        {
+        
+        MoveNext: function () {
             this.Index++;
             return this.Index < this.ListCount;
         },
-        Reset:function()
-        {
+        
+        Reset: function () {
             this.Index = -1;
         }
+        
     }
 };
 JsTypes.push(System$Collections$Generic$JsArrayEnumerator$1);
-var System$Collections$Generic$List$1=
-{
-    fullname:"System.Collections.Generic.List$1",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    interfaceNames:["System.Collections.Generic.IList$1","System.Collections.IList"],
-    Kind:"Class",
-    definition:
-    {
-        ctor:function(T)
-        {
+var System$Collections$Generic$List$1 = {
+    fullname: "System.Collections.Generic.List$1",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.Generic.IList$1", "System.Collections.IList"],
+    Kind: "Class",
+    definition: {
+        
+        ctor: function (T) {
             this.T = T;
             this._list = null;
             System.Object.ctor.call(this);
             this._list = new Array();
         },
-        ctor$$IEnumerable$1:function(T,collection)
-        {
+        
+        ctor$$IEnumerable$1: function (T, collection) {
             this.T = T;
             this._list = null;
             System.Object.ctor.call(this);
             this._list = new Array();
             this.AddRange(collection);
         },
-        RemoveRange:function(index,count)
-        {
-            this._list.splice(index,count);
+        
+        RemoveRange: function (index, count) {
+            this._list.splice(index, count);
         },
-        Clear:function()
-        {
+        
+        Clear: function () {
             this._list.Clear();
         },
-        Item$$:"`0",
-        get_Item$$Int32:function(index)
-        {
-            if(index >= this._list.length || index < 0)
-                throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String("index"),new Error());
+        
+        Item$$: "`0",
+        
+        get_Item$$Int32: function (index) {
+            if (index >= this._list.length || index < 0) throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String("index"), new Error());
             return this._list[index];
         },
-        set_Item$$Int32:function(index,value)
-        {
-            if(index >= this._list.length || index < 0)
-                throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String("index"),new Error());
+        
+        set_Item$$Int32: function (index, value) {
+            if (index >= this._list.length || index < 0) throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String("index"), new Error());
             this._list[index] = value;
         },
-        Count$$:"System.Int32",
-        get_Count:function()
-        {
+        
+        Count$$: "System.Int32",
+        
+        get_Count: function () {
             return this._list.length;
         },
-        GetEnumerator:function()
-        {
-            return new System.Collections.IListEnumerator$1.ctor(this.T,this);
+        
+        GetEnumerator: function () {
+            return new System.Collections.IListEnumerator$1.ctor(this.T, this);
         },
-        ToArray:function()
-        {
+        
+        ToArray: function () {
             return this._list.Clone();
         },
-        AddRange:function(items)
-        {
-            var $it1=items.GetEnumerator();
-            while($it1.MoveNext())
-            {
-                var item=$it1.get_Current();
+        
+        AddRange: function (items) {
+            var $it1 = items.GetEnumerator();
+            while ($it1.MoveNext()) {
+                var item = $it1.get_Current();
                 this.Add(item);
             }
         },
-        Add:function(item)
-        {
+        
+        Add: function (item) {
             this._list.push(item);
         },
-        Remove:function(item)
-        {
-            var index=this._list.indexOf(item);
-            if(index == -1)
-                return false;
+        
+        Remove: function (item) {
+            var index = this._list.indexOf(item);
+            if (index == -1) return false;
             this._list.RemoveAt(index);
             return true;
         },
-        Contains:function(item)
-        {
+        
+        Contains: function (item) {
             return this._list.contains(item);
         },
-        SetItems:function(items)
-        {
+        
+        SetItems: function (items) {
             this.Clear();
-            if(items != null)
-                this.AddRange(items);
+            if (items != null ) this.AddRange(items);
         },
-        IndexOf:function(item)
-        {
+        
+        IndexOf: function (item) {
             return this._list.indexOf(item);
         },
-        Insert:function(index,item)
-        {
-            this._list.insert(index,item);
+        
+        Insert: function (index, item) {
+            this._list.insert(index, item);
         },
-        RemoveAt:function(index)
-        {
+        
+        RemoveAt: function (index) {
             this._list.RemoveAt(index);
         },
-        TryRemove:function(item)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor$$String("TryRemove"),new Error());
+        
+        TryRemove: function (item) {
+            throw $CreateException(new System.NotImplementedException.ctor$$String("TryRemove"), new Error());
         },
-        CopyTo:function(array,arrayIndex)
-        {
-            throw $CreateException(new System.NotImplementedException.ctor$$String("JsImplList$T"),new Error());
+        
+        CopyTo: function (array, arrayIndex) {
+            throw $CreateException(new System.NotImplementedException.ctor$$String("JsImplList$T"), new Error());
         },
-        IsReadOnly$$:"System.Boolean",
-        get_IsReadOnly:function()
-        {
-            throw $CreateException(new System.NotImplementedException.ctor$$String("JsImplList$T"),new Error());
+        
+        IsReadOnly$$: "System.Boolean",
+        
+        get_IsReadOnly: function () {
+            throw $CreateException(new System.NotImplementedException.ctor$$String("JsImplList$T"), new Error());
         },
-        Sort:function(comparison)
-        {
+        
+        Sort: function (comparison) {
             this._list.sort(SharpKit.JavaScript.Utils.Js.ToJsFunction(comparison));
         }
+        
     }
 };
 JsTypes.push(System$Collections$Generic$List$1);
-var System$Collections$IListEnumerator$1=
-{
-    fullname:"System.Collections.IListEnumerator$1",
-    baseTypeName:"System.Object",
-    assemblyName:"SharpKit.JsClr",
-    interfaceNames:["System.Collections.Generic.IEnumerator$1"],
-    Kind:"Class",
-    definition:
-    {
-        ctor:function(T,list)
-        {
+var System$Collections$IListEnumerator$1 = {
+    fullname: "System.Collections.IListEnumerator$1",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.Generic.IEnumerator$1"],
+    Kind: "Class",
+    definition: {
+        
+        ctor: function (T, list) {
             this.T = T;
             this.List = null;
             this.Index = 0;
@@ -621,24 +603,26 @@ var System$Collections$IListEnumerator$1=
             this.Index = -1;
             this.ListCount = list.get_Count();
         },
-        Current$$:"`0",
-        get_Current:function()
-        {
+        
+        Current$$: "`0",
+        
+        get_Current: function () {
             return this.List.get_Item$$Int32(this.Index);
         },
-        Dispose:function()
-        {
+        
+        Dispose: function () {
             this.List = null;
         },
-        MoveNext:function()
-        {
+        
+        MoveNext: function () {
             this.Index++;
             return this.Index < this.ListCount;
         },
-        Reset:function()
-        {
+        
+        Reset: function () {
             this.Index = -1;
         }
+        
     }
 };
 JsTypes.push(System$Collections$IListEnumerator$1);

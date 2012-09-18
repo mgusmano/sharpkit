@@ -825,8 +825,7 @@ namespace SharpKit.jQuery
         ///This event is triggered when dialog is opened.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent openEvent { get; set; }
-        //TODO: event name without the"event"
+        public jQueryUIEvent open { get; set; }
 
         ///<summary>
         ///This event is triggered when the dialog gains focus.
@@ -874,8 +873,7 @@ namespace SharpKit.jQuery
         ///This event is triggered when the dialog is closed.
         ///Default: null
         ///</summary>
-        public jQueryUIEvent closeEvent { get; set; }
-        //TODO: event name without the"event"
+        public jQueryUIEvent close { get; set; }
     }
     #endregion
     #region Draggable
@@ -1906,12 +1904,12 @@ namespace SharpKit.jQuery
         ///The maximum value of the slider.
         ///Default: 100
         ///</summary>
-        public int max { get; set; }
+        public JsNumber max { get; set; }
         ///<summary>
         ///The minimum value of the slider.
         ///Default: 0
         ///</summary>
-        public int min { get; set; }
+        public JsNumber min { get; set; }
         ///<summary>
         ///Normally you don't need to set this option because the plugin detects the slider orientation automatically. If the orientation is not correctly detected you can set this option to 'horizontal' or 'vertical'.
         ///Default: 'auto'
@@ -1927,7 +1925,7 @@ namespace SharpKit.jQuery
         ///Determines the size or amount of each interval or step the slider takes between min and max. The full specified value range of the slider (max - min) needs to be evenly divisible by the step.
         ///Default: 1
         ///</summary>
-        public int step { get; set; }
+        public JsNumber step { get; set; }
         ///<summary>
         ///Determines the value of the slider, if there's only one handle. If there is more than one handle, determines the value of the first handle.
         ///Default: 0
@@ -4202,7 +4200,7 @@ namespace SharpKit.jQuery
     #endregion
 
     [JsType(JsMode.Json)]
-    public class AnimationPropertiesEx : AnimationProperties
+    public class AnimationPropertiesEx : Map
     {
         //public JsString backgroundColor { get; set; }
         public JsString borderTopColor { get; set; }
