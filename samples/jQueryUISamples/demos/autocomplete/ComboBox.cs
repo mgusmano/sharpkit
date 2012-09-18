@@ -7,7 +7,7 @@ namespace jQueryUISamples.demos.autocomplete
     [JsType(JsMode.Global)]
     public class ComboBox
     {
-        //TODO
+        //TODO: jQuery.widget
         static ComboBox()
         {
         }

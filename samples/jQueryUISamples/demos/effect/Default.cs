@@ -19,19 +19,19 @@ namespace jQueryUISamples.demos.effect
         static void runEffect()
         {
             // run the currently selected effect
-            var selectedEffect = new jQuery("#effectTypes").val();
+            var selectedEffect = new jQuery("#effectTypes").val().As<EffectType>();
             var options = new AnimationPropertiesEx { };
             if (selectedEffect.ExactEquals("scale"))
             {
                      //options = {   };
                 //}
-                //        $( "#effect" ).effect( selectedEffect, options, 500, callback );
+                //TODO:  $( "#effect" ).effect( selectedEffect, options, 500, callback );
 
-          //      new jQuery("#effect").effect(selectedEffect, options, 500, callback);
+                new jQuery("#effect").effect(selectedEffect, options, 500, callback);
             }
         }
 
-        static void callback()
+        static void callback(Event ev, object ui)
         {
             HtmlContext.window.setTimeout(() =>
                 {

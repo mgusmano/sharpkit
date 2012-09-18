@@ -46,12 +46,11 @@ namespace jQueryUISamples.demos.draggable
             if (!event_counter.hasClass("ui-state-hover"))
             {
                 event_counter.addClass("ui-state-hover")
-                    .siblings().removeclass("ui-state-hover");
+                    .siblings().removeClass("ui-state-hover");
             }
             		// ...then update the numbersKD
-			// TODO: $( "span.count", $event_counter ).text( new_count ); - text doesn't get jsNumber
-             // new jQuery("span.count", event_counter).text(new_count);
-            JsContext.JsCode("$( 'span.count', $event_counter ).text( new_count );");
+             new jQuery("span.count", event_counter).text(new_count.As<JsString>());
+
         }
     }
 }

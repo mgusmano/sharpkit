@@ -10,9 +10,20 @@ namespace jQueryUISamples.demos.autocomplete
         static CustomData()
         {
         }
-
+        
+        //TODO: var projects = ?
         static void OnReady()
-        { 
+        {
+            var projects = new JsArray<AutocompleteItem>
+            {
+                new AutocompleteItem
+                {
+                     value= "jquery",
+                    label= "jQuery",
+                    desc= "the write less, do more, JavaScript library",
+                    icon= "jquery_32x32.png"
+                },
+            };
         }
 
     // 	$(function() {

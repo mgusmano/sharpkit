@@ -13,18 +13,18 @@ namespace jQueryUISamples.demos.slider
 
         static void OnReady()
         {
-            var select = new jQuery("#minbeds");
+            //var select = new jQuery("#minbeds");
             //var slider = new jQuery("<div id='slider'></div>").insertAfter(select).slider(new SliderOptions
             //{
             //    min = 1,
             //    max = 6,
             //    range = "min",
-            //     //TODO: 
-            //     //value = select[0].
+            //    //TODO: 
+            //    value = select[0].As<HtmlSelect>().selectedIndex
             //    //slide = (e, ui) =>
             //});
-            // TODO:  slider.slider( "value", this.selectedIndex + 1 );
-           // new jQuery("#minbeds").change(e => slider.slider("value", e.currentTarget));
+            ////slider.slider( "value", this.selectedIndex + 1 );
+            //new jQuery("#minbeds").change(e => slider.slider("value", e.currentTarget.As<HtmlSelect>().selectedIndex+1));
  
     //            $(function() {
     //    var select = $( "#minbeds" );

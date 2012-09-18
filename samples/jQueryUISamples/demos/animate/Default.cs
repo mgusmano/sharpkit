@@ -16,14 +16,14 @@ namespace jQueryUISamples.demos.animate
         {
             new jQuery("#button").toggle(
                 e =>
-                        new jQuery("#effect").animate(new AnimationProperties
+                        new jQuery("#effect").animate(new AnimationPropertiesEx
                 {
                     backgroundColor = "#aa0000",
                     color = "#fff",
                     width = "500"
                 }, 1000),
 
-                    e => new jQuery("#effect").animate(new AnimationProperties
+                    e => new jQuery("#effect").animate(new AnimationPropertiesEx
                     {
                         backgroundColor = "#fff",
                         color = "#000",

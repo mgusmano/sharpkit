@@ -29,7 +29,7 @@ function updateCounterStatus(event_counter,new_count)
 {
     if(!event_counter.hasClass("ui-state-hover"))
     {
-        event_counter.addClass("ui-state-hover").siblings().removeclass("ui-state-hover");
+        event_counter.addClass("ui-state-hover").siblings().removeClass("ui-state-hover");
     }
-     $( 'span.count', $event_counter ).text( new_count );;
+    $("span.count",event_counter).text(new_count);
 };

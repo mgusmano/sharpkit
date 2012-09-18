@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using SharpKit.jQuery;
+﻿using SharpKit.jQuery;
 using SharpKit.Html4;
 using SharpKit.JavaScript;
-
 
 namespace jQueryUISamples.demos.draggable
 {

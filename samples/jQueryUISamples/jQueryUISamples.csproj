@@ -66,6 +66,8 @@
     <Content Include="demos\accordion\NoAutoHeight.js" />
     <Content Include="demos\accordion\Sortable.htm" />
     <Content Include="demos\accordion\Sortable.js" />
+    <Content Include="demos\addClass\Default.js" />
+    <Content Include="demos\addClass\Default.htm" />
     <Content Include="demos\animate\Default.htm" />
     <Content Include="demos\animate\Default.js" />
     <Content Include="demos\autocomplete\images\jqueryui_32x32.png" />
@@ -75,6 +77,8 @@
     <Content Include="demos\autocomplete\images\ui-anim_basic_16x16.gif" />
     <Content Include="demos\button\Checkbox.htm" />
     <Content Include="demos\button\Checkbox.js" />
+    <Content Include="demos\button\datepicker\DateRange.htm" />
+    <Content Include="demos\button\datepicker\DateRange.js" />
     <Content Include="demos\button\Default.htm" />
     <Content Include="demos\button\Default.js" />
     <Content Include="demos\button\Toolbar.htm" />
@@ -115,7 +119,7 @@
     <Content Include="demos\draggable\DelayStart.htm" />
     <Content Include="demos\draggable\DelayStart.js" />
     <Content Include="demos\draggable\Events.js" />
-    <Content Include="demos\draggable\Evrents.htm" />
+    <Content Include="demos\draggable\Events.htm" />
     <Content Include="demos\draggable\Handle.htm" />
     <Content Include="demos\draggable\Handle.js" />
     <Content Include="demos\draggable\Revert.htm" />
@@ -408,6 +412,7 @@
     <Compile Include="demos\autocomplete\ComboBox.cs" />
     <Compile Include="demos\autocomplete\CustomData.cs" />
     <Compile Include="demos\button\Checkbox.cs" />
+    <Compile Include="demos\button\datepicker\DateRange.cs" />
     <Compile Include="demos\button\Default.cs" />
     <Compile Include="demos\button\Icons.cs" />
     <Compile Include="demos\button\Radio.cs" />

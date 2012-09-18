@@ -9,6 +9,7 @@ namespace jQueryUISamples.demos.addClass
     {
         static Default()
         {
+            new jQuery(OnReady);
         }
 
         static void OnReady()
@@ -16,7 +17,8 @@ namespace jQueryUISamples.demos.addClass
             new jQuery("#button").click(x =>
             {
                 //TODO: $( "#effect" ).addClass( "newClass", 1000, callback );
-               // new jQuery("#effect").addClass("newClass", 1000, callback);
+                new jQuery("#effect").addClass("newClass", 1000, callback);
+                JsContext.@return(false);
             });
 
         }

@@ -14,7 +14,8 @@ namespace jQueryUISamples.demos.removeClass
         {
             new jQuery("#button").click(e =>
             {
-                new jQuery("#effect").removeClass();//"newClass", 1000, @callback);//("newClass", 1000, callback);
+                //TODO
+                new jQuery("#effect").removeClass();//"newClass", 1000, callback);
                 JsContext.@return(false);
             });
         }
@@ -30,7 +31,7 @@ namespace jQueryUISamples.demos.removeClass
     //        }, 1500 );
     //    }
     //});
-        static void  @callback()
+        static void  callback()
         {
             HtmlContext.window.setTimeout(() =>
             {

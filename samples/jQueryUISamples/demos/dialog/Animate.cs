@@ -14,6 +14,7 @@ namespace jQueryUISamples.demos.dialog
 
         static void OnReady()
         {
+            //JsContext.JsCode("
             // increase the default animation speed to exaggerate the effect
             // TODO: //$.fx.speeds._default = 1000;
             //jQuery.fx.sp

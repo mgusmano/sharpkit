@@ -13,7 +13,6 @@ namespace jQueryUISamples.demos.resizable
         }
         static void OnReady()
         {
-
             new jQuery("#resizable").resizable(new ResizableOptions { maxHeight = 250, maxWidth = 350, minHeight = 150, minWidth = 200 });
         }
     }
