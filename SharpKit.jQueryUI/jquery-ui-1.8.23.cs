@@ -255,6 +255,13 @@ namespace SharpKit.jQuery
         /// </summary>
         public object source { get; set; }
 
+        /// <summary>
+        /// Defines the data to use, must be specified. See Overview section for more details, and look at the various demos.
+        /// Default:none, must be specified
+        /// </summary>
+        [JsProperty(Name="source")]
+        public JsArray<AutocompleteItem> sourceItems { get; set; }
+
 
         /// <summary>
         /// This event is triggered when autocomplete is created.
@@ -297,6 +304,14 @@ namespace SharpKit.jQuery
 
 
     }
+    [JsType(JsMode.Json)]
+    public class AutocompleteItem
+    {
+        public JsString value { get; set; }
+        public JsString label { get; set; }
+        public JsString desc { get; set; }
+        public JsString icon { get; set; }
+    }
     #endregion
 
     #region AddClass
@@ -312,6 +327,11 @@ namespace SharpKit.jQuery
         public static jQuery addClass(this jQuery query, AddClassOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery addClass(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery addClass(this jQuery query, string className, JsNumber duration, JsAction callback) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery addClass(this jQuery query, string className, JsNumber duration) { return default(jQuery); }
     }
     #endregion
     #region AddClassOptions
@@ -664,7 +684,7 @@ namespace SharpKit.jQuery
         ///Default: null
         ///Types: function(dateText, inst)
         ///</summary>
-        public jQueryUIEvent onSelect { get; set; }
+        public JsAction<JsString, object> onSelect { get; set; }
     }
     #endregion
     #region Dialog
@@ -1496,11 +1516,11 @@ namespace SharpKit.jQuery
     public static partial class RemoveClassExtension
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery removeclass(this jQuery query) { return default(jQuery); }
+        public static jQuery removeClass(this jQuery query) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery removeclass(this jQuery query, RemoveClassOptions options) { return default(jQuery); }
+        public static jQuery removeClass(this jQuery query, RemoveClassOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery removeclass(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+        public static jQuery removeClass(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
     #endregion
     #region RemoveClassOptions
