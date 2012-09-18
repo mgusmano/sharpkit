@@ -21,15 +21,6 @@
     <TargetFrameworkVersion Condition="'$(Configuration)' == 'v4.0'">v4.0</TargetFrameworkVersion>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)' == 'v4.0'">
-    <DefineConstants>
-    </DefineConstants>
-    <DocumentationFile>..\..\bin\v4.0\SharpKit.JsClr.xml</DocumentationFile>
-    <NoWarn>1591</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)' == 'v3.5'">
-    <DocumentationFile>..\..\bin\v3.5\SharpKit.JsClr.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
