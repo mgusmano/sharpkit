@@ -366,9 +366,9 @@ namespace SharpKit.Html
         public void framebufferTexture2D(int target, int attachment, int textarget, WebGLTexture texture, int level) { }
         public void frontFace(int mode) { }
         public void generateMipmap(int target) { }
-        public WebGLActiveInfo getActiveAttrib(int program, int index) { return default(WebGLActiveInfo); }
-        public WebGLActiveInfo getActiveUniform(int program, int index) { return default(WebGLActiveInfo); }
-        public WebGLObjectArray getAttachedShaders(int program) { return default(WebGLObjectArray); }
+        public WebGLActiveInfo getActiveAttrib(WebGLProgram program, int index) { return default(WebGLActiveInfo); }
+        public WebGLActiveInfo getActiveUniform(WebGLProgram program, int index) { return default(WebGLActiveInfo); }
+        public WebGLObjectArray getAttachedShaders(WebGLProgram program) { return default(WebGLObjectArray); }
         public int getAttribLocation(WebGLProgram program, string name) { return default(int); }
         public object getParameter(int pname) { return default(object); }
         public object getBufferParameter(int target, int pname) { return default(object); }
