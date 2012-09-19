@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit_SDK", "SharpKit_SD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jQueryUISamples", "jQueryUISamples\jQueryUISamples.csproj", "{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnockoutJsSamples", "KnockoutJsSamples\KnockoutJsSamples.csproj", "{57B76629-DE4F-47BF-9585-339296DE564B}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -163,6 +165,14 @@ Global
 		{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}.v3.5|Any CPU.Build.0 = Release|Any CPU
 		{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
 		{9CD5C775-A6B4-402E-83C8-3FEACED42BFB}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{57B76629-DE4F-47BF-9585-339296DE564B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B76629-DE4F-47BF-9585-339296DE564B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B76629-DE4F-47BF-9585-339296DE564B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B76629-DE4F-47BF-9585-339296DE564B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57B76629-DE4F-47BF-9585-339296DE564B}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{57B76629-DE4F-47BF-9585-339296DE564B}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{57B76629-DE4F-47BF-9585-339296DE564B}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{57B76629-DE4F-47BF-9585-339296DE564B}.v4.0|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
