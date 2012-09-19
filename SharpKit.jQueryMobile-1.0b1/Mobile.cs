@@ -69,6 +69,7 @@ namespace SharpKit.jQueryMobile
         public void removeData()
         {
         }
+
         /// <summary>
         /// Load an external page, enhance its content, and insert it into the DOM. This method is called internally by the changePage() function when its first argument is a URL. This function does not affect the current active page so it can be used to load pages in the background. The function returns a deferred promise object that gets resolved after the page has been enhanced and inserted into the document.
         /// </summary>
@@ -91,6 +92,117 @@ namespace SharpKit.jQueryMobile
         public void loadPage(object url, LoadPageOptions options)
         {
         }
+
+        public FixedToolbarsOptions fixedToolbars { get; set; }
+
+        /// <summary>
+        /// Show the page loading message, which is configurable via $.mobile.loadingMessage.
+        /// </summary>
+        /// <example>
+        /// cue the page loader
+        /// <code>
+        /// $.mobile.showPageLoadingMsg();
+        /// </code>
+        /// </example>
+        public void showPageLoadingMsg()
+        {
+        }
+        /// <summary>
+        /// Show the page loading message, which is configurable via $.mobile.loadingMessage.
+        /// </summary>
+        /// <param name="theme">(string, default: "a") The theme swatch for the message.</param>
+        /// <param name="msgText"> (string, default: "loading") The text of the message.</param>
+        /// <param name="textonly">(boolean, default: false) If true, the "spinner" image will be hidden when the message is shown.</param>
+        public void showPageLoadingMsg(JsString theme, JsString msgText, bool textonly)
+        {
+        }
+
+        /// <summary>
+        /// Hide the page loading message, which is configurable via $.mobile.loadingMessage.
+        /// </summary>
+        /// <example>
+        /// cue the page loader
+        /// <code>
+        /// $.mobile.hidePageLoadingMsg();
+        /// </code>
+        /// </example>
+        public void hidePageLoadingMsg()
+        {
+        }
+
+        public PathOptions path { get; set; }
+
+        /// <summary>
+        /// Utilities for working with generated base element. TODO: document as public API is finalized
+        /// </summary>
+        /// <param name="prms"></param>
+        /// <returns></returns>
+        public object @base(params object[] prms) { return null; }
+        //TODO: $.mobile.base (methods, properties) (?)
+
+        /// <summary>
+        /// Scroll to a particular Y position without triggering scroll event listeners.
+        /// </summary>
+        /// <param name="yPos">
+        /// (number, defaults to 0). Pass any number to scroll to that Y location.
+        /// </param>
+        /// <example>
+        /// scroll to Y 100px
+        /// <code>
+        /// $.mobile.silentScroll(100);
+        /// </code>
+        /// </example>
+        public void silentScroll(JsNumber yPos)
+        {
+        }
+        /// <summary>
+        /// Add width breakpoints to the min/max width classes that are added to the HTML element.
+        /// </summary>
+        /// <param name="values">
+        /// (number or array). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here: Orientation &amp;resolution targeting.
+        /// </param>
+        /// <example>
+        /// add a 400px breakpoint
+        /// <code>
+        /// $.mobile.addResolutionBreakpoints(400);
+        /// </code>
+        /// add 2 more breakpoints
+        /// <code>
+        /// $.mobile.addResolutionBreakpoints([600,800]);
+        /// </code>
+        /// </example>
+        public void addResolutionBreakpoints(JsNumber values)
+        {
+        }
+        /// <summary>
+        /// Add width breakpoints to the min/max width classes that are added to the HTML element.
+        /// </summary>
+        /// <param name="values">
+        /// (number or array). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here: Orientation &amp;resolution targeting.
+        /// </param>
+        /// <example>
+        /// add a 400px breakpoint
+        /// <code>
+        /// $.mobile.addResolutionBreakpoints(400);
+        /// </code>
+        /// add 2 more breakpoints
+        /// <code>
+        /// $.mobile.addResolutionBreakpoints([600,800]);
+        /// </code>
+        /// </example>
+        public void addResolutionBreakpoints(JsArray values)
+        {
+        }
+
+        /// <summary>
+        /// Reference to the page currently in view.
+        /// </summary>
+        public JsString activePage { get; set; } // TODO: ask dan-el.
+    }
+
+    [JsType(JsMode.Prototype, Name = "$.fn")]
+    public class jQueryFn
+    {
         /// <summary>
         /// Returns value at named data store for the element, as set by jQuery.data(element, name, value), or the full data store for the element.
         /// When working with jQuery Mobile, jqmData and jqmRemoveData should be used in place of jQuery core's data and removeData methods (note that this includes $.fn.data, $.fn.removeData, and the $.data, $.removeData, and $.hasData utilities), as they automatically incorporate getting and setting of namespaced data attributes (even if no namespace is currently in use).
@@ -121,33 +233,71 @@ namespace SharpKit.jQueryMobile
         /// When working with jQuery Mobile, jqmData and jqmRemoveData should be used in place of jQuery core's data and removeData methods (note that this includes $.fn.data, $.fn.removeData, and the $.data, $.removeData, and $.hasData utilities), as they automatically incorporate getting and setting of namespaced data attributes (even if no namespace is currently in use).
         /// </summary>
         public static jQuery jqmremoveData(HtmlElement element, JsString name) { return null; }
-       
-        // TODO:public static jQuery jqmHasData()
 
         /// <summary>
-        /// Show the page loading message, which is configurable via $.mobile.loadingMessage.
+        /// For users that wish to respect data-enhance=false parent elements during manual enhancement or custom plugin authoring jQuery Mobile provides the $.fn.jqmEnhanceable filter method.
+        /// · Settings:
+        /// If, and only if, $.mobile.ignoreContentEnabled is set to true, this method will traverse the parent nodes for each DOM element in the jQuery object and where it finds a data-enhance=false parent the child will be removed from the set.
+        /// · Warning:
+        /// The operation of traversing all parent elements can be expensive for even small jQuery object sets.
         /// </summary>
-        /// <example>
-        /// cue the page loader
-        /// <code>
-        /// $.mobile.showPageLoadingMsg();
-        /// </code>
-        /// </example>
-        public void showPageLoadingMsg()
-        { 
-        }
+        /// <returns></returns>
+        public static jQuery jqmEnhanceable() { return null; }
+        //TODO: can't understand the Arguments.
+
         /// <summary>
-        /// Hide the page loading message, which is configurable via $.mobile.loadingMessage.
+        /// For users that wish to respect data-ajax=false parent elements during custom form and link binding jQuery Mobile provides the $.fn.jqmHijackable filter method.
+        /// · Settings:
+        /// If, and only if, $.mobile.ignoreContentEnabled is set to true, this method will traverse the parent nodes for each DOM element in the jQuery object and where it finds a data-ajax=false parent the child form or link will be removed from the set.
+        /// · Warning:
+        /// The operation of traversing all parent elements can be expensive for even small jQuery object sets.        /// </summary>
+        /// <returns></returns>
+        public static jQuery jqmHijackable() { return null; }
+        //TODO: can't understand the Arguments.
+
+        //TODO: $.fn.jqmEnhanceable(), $.fn.jqmHijackable()
+        // TODO:public static jQuery jqmHasData()
+    }
+
+    [JsType(JsMode.Json)]
+    public partial class FixedToolbarsOptions
+    {
+        /// <summary>
+        /// Utility method for displaying the fixed header and/or footer of the current active page within the viewport.
+        /// Note that fixed headers/footers are never really hidden.
+        /// Toggling the show/hide state of a toolbar is really toggling whether or not they are inline within the page content,
+        /// or displayed within the viewport as if they were fixed.
         /// </summary>
-        /// <example>
-        /// cue the page loader
-        /// <code>
-        /// $.mobile.hidePageLoadingMsg();
-        /// </code>
-        /// </example>
-        public void hidePageLoadingMsg()
-        {
-        }
+        /// <param name="immediately">immediately (boolean, optional) If true, any fixed header or footer for the current active page is displayed immediately within the viewport.
+        /// If false or unspecified, the fixed header/footer will fade-in after a 100 millisecond delay.
+        /// Note that other events such as a document resize or scroll event can result in an additional delay before the start of the header/footer display animation.</param>
+        public void show(bool immediately) { }
+        /// <summary>
+        /// Utility method for displaying the fixed header and/or footer of the current active page within the viewport.
+        /// Note that fixed headers/footers are never really hidden.
+        /// Toggling the show/hide state of a toolbar is really toggling whether or not they are inline within the page content,
+        /// or displayed within the viewport as if they were fixed.
+        /// </summary>
+        public void show() { }
+
+        /// <summary>
+        /// Utility method for hiding the fixed header and/or footer of the current active page.
+        /// </summary>
+        /// <param name="immediately">immediately (boolean, optional) If true, any fixed header or footer for the current active page is immediately placed inline (back in flow)
+        /// with the page content, which means it will scroll along with the content and will only be visible when viewing the top or bottom of the page within the viewport.
+        /// If false or unspecified, the fixed header/footer will fade-out after a 100 millisecond delay.
+        /// Note that other events such as a document resize or scroll event can result in the header/footer being immediately hidden.</param>
+        public void hide(bool immediately) { }
+        /// <summary>
+        /// Utility method for hiding the fixed header and/or footer of the current active page.
+        /// </summary>
+        public void hide() { }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public partial class PathOptions
+    {
         /// <summary>
         /// Utility method for parsing a URL and its relative variants into an object that makes accessing the components of the URL easy. When parsing relative variants, the resulting object will contain empty string values for missing components (like protocol, host, etc). Also, when parsing URLs that have no authority, such as tel: urls, the pathname property of the object will contain the data after the protocol/scheme colon.
         /// </summary>
@@ -238,7 +388,7 @@ namespace SharpKit.jQueryMobile
         /// var absUrl = $.mobile.path.makeUrlAbsolute("#bar", "http://foo.com/a/b/c/test.html");
         /// </code>
         /// </example>
-        public JsString makeUrlAbsolute(JsString relUrl, JsString absUrl)   { return null; }
+        public JsString makeUrlAbsolute(JsString relUrl, JsString absUrl) { return null; }
         /// <summary>
         /// Utility method for comparing the domain of 2 URLs.
         /// </summary>
@@ -342,75 +492,15 @@ namespace SharpKit.jQueryMobile
         /// </code>
         /// </example>
         public bool isAbsoluteUrl(JsString url) { return false; }
-        /// <summary>
-        /// Utilities for working with generated base element. TODO: document as public API is finalized
-        /// </summary>
-        /// <param name="prms"></param>
-        /// <returns></returns>
-        public object @base(params object[] prms) { return null; }
-        /// <summary>
-        /// Scroll to a particular Y position without triggering scroll event listeners.
-        /// </summary>
-        /// <param name="yPos">
-        /// (number, defaults to 0). Pass any number to scroll to that Y location.
-        /// </param>
-        /// <example>
-        /// scroll to Y 100px
-        /// <code>
-        /// $.mobile.silentScroll(100);
-        /// </code>
-        /// </example>
-        public void silentScroll(JsNumber yPos)
-        {
-        }
-        /// <summary>
-        /// Add width breakpoints to the min/max width classes that are added to the HTML element.
-        /// </summary>
-        /// <param name="values">
-        /// (number or array). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here: Orientation &amp;resolution targeting.
-        /// </param>
-        /// <example>
-        /// add a 400px breakpoint
-        /// <code>
-        /// $.mobile.addResolutionBreakpoints(400);
-        /// </code>
-        /// add 2 more breakpoints
-        /// <code>
-        /// $.mobile.addResolutionBreakpoints([600,800]);
-        /// </code>
-        /// </example>
-        public void addResolutionBreakpoints(JsNumber values) 
-        {
-        }
-        /// <summary>
-        /// Add width breakpoints to the min/max width classes that are added to the HTML element.
-        /// </summary>
-        /// <param name="values">
-        /// (number or array). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here: Orientation &amp;resolution targeting.
-        /// </param>
-        /// <example>
-        /// add a 400px breakpoint
-        /// <code>
-        /// $.mobile.addResolutionBreakpoints(400);
-        /// </code>
-        /// add 2 more breakpoints
-        /// <code>
-        /// $.mobile.addResolutionBreakpoints([600,800]);
-        /// </code>
-        /// </example>
-        public void addResolutionBreakpoints(JsArray values)
-        {
-        }
-        /// <summary>
-        /// Reference to the page currently in view.
-        /// </summary>
-        public JsString activePage { get; set; } // TODO: ask dan-el.
-	
 
-
-}
-
-     
+        /// <summary>
+        /// Utility method for determining the directory portion of an URL. If the URL has no trailing slash, the last component of the URL is considered to be a file.
+        /// </summary>
+        /// <param name="url">(string, required) A relative or absolute URL.</param>
+        /// <returns>This function returns the directory portion of a given URL.</returns>
+        public object get(JsString url) { return null; }
+        //TODO: return value?
+    }
 
     [JsType(JsMode.Json)]
     [JsEnum(ValuesAsNames = true)]
@@ -443,6 +533,7 @@ namespace SharpKit.jQueryMobile
         /// </summary>
         swiperight,
     }
+
     [JsType(JsMode.Json)]
     [JsEnum(ValuesAsNames = true)]
     public enum OrientationChangeEvent
@@ -501,6 +592,7 @@ namespace SharpKit.jQueryMobile
         /// </summary>
         pagehide
     }
+
     /// <summary>
     /// Internally, jQuery Mobile auto-initializes plugins based on the markup conventions found in a given "page". For example, an input element with a type of range will automatically generate a custom slider control.
     ///This auto-initialization is controlled by the "page" plugin, which dispatches events before and after it executes, allowing you to manipulate a page either pre-or-post initialization, or even provide your own intialization behavior and prevent the auto-initializations from occuring. Note that these events will only fire once per "page", as opposed to the show/hide events, which fire every time a page is shown and hidden.
@@ -534,6 +626,7 @@ namespace SharpKit.jQueryMobile
         /// </example>
         pagecreate,
     }
+
     /// <summary>
     /// We provide a set of "virtual" click events that normalize mouse and touch events. This allows the developer to register listeners for the basic mouse events, such as mousedown, mousemove, mouseup, and click, and the plugin will take care of registering the correct listeners behind the scenes to invoke the listener at the fastest possible time for that device. This still retains the order of event firing in the traditional mouse environment, should multiple handlers be registered on the same element for different events.
     /// </summary>
@@ -582,10 +675,10 @@ namespace SharpKit.jQueryMobile
     public class Event
     {
     }
+
     public class UI
     {
     }
-
 
     [JsType(JsMode.Json)]
     public partial class ChangePageOptions
@@ -625,13 +718,44 @@ namespace SharpKit.jQueryMobile
         /// </summary>
         public object data { get; set; }
         /// <summary>
+        /// (object or	JsString,	default: undefined) The data to send with an Ajax page request.
+        /// <list type="bullet">
+        /// Used only when the 'to' argument of changePage() is a URL. 
+        /// </list>
+        /// </summary>
+        [JsProperty(Name = "data")]
+        public JsString dataString { get; set; }
+        /// <summary>
         /// (boolean, default: false) Forces a reload of a page, even if it is already in the DOM of the page container.
         /// <list type="bullet">
         ///Used only when the 'to' argument of changePage() is a URL. 
         /// </list>
         /// </summary>
         public bool reloadPage { get; set; }
+
+        /// <summary>
+        /// default: false.
+        /// By default, changePage() ignores requests to change to the current active page.
+        /// Setting this option to true, allows the request to execute.
+        /// Developers should note that some of the page transitions assume that the fromPage and toPage of a changePage request are different,
+        /// so they may not animate as expected. Developers are responsible for either providing a proper transition, or turning it off for this specific case.
+        /// </summary>
+        public bool allowSamePageTransition { get; set; }
+
+        /// <summary>
+        /// default: undefined
+        /// The URL to use when updating the browser location upon changePage completion.
+        /// If not specified, the value of the data-url attribute of the page element is used.
+        /// </summary>
+        public JsString dataUrl { get; set; }
+
+        /// <summary>
+        /// default: true
+        /// Decides whether or not to show the loading message when loading external pages.
+        /// </summary>
+        public bool showLoadMsg { get; set; }
     }
+
     /// <summary>
     /// Load an external page, enhance its content, and insert it into the DOM. This method is called internally by the changePage() function when its first argument is a URL. This function does not affect the current active page so it can be used to load pages in the background. The function returns a deferred promise object that gets resolved after the page has been enhanced and inserted into the document.
     /// </summary>
@@ -655,6 +779,11 @@ namespace SharpKit.jQueryMobile
         /// </summary>
         public object data { get; set; }
         /// <summary>
+        /// (object or	string,	default: undefined) The data to send with an Ajax page request.
+        /// </summary>
+        [JsProperty(Name = "data")]
+        public JsString dataString { get; set; }
+        /// <summary>
         /// (boolean, default: false) Forces a reload of a page, even if it is already in the DOM of the page container.
         /// </summary>
         public bool reloadPage { get; set; }
@@ -664,11 +793,10 @@ namespace SharpKit.jQueryMobile
         public JsNumber loadMsgDelay { get; set; }
     }
 
-
-
     /// <summary>
     /// The following defaults are configurable via the $.mobile object:
     /// </summary>
+    [JsType(JsMode.Prototype)]
     public class MobileOptions
     {
         /// <summary>
@@ -745,7 +873,81 @@ namespace SharpKit.jQueryMobile
         ///  Any support conditions that must be met in order to proceed.
         /// </summary>
         public JsFunc<bool> gradeA { get; set; }
+
+        /// <summary>
+        /// default: false
+        /// When jQuery Mobile attempts to load an external page, the request runs through $.mobile.loadPage().
+        /// This will only allow cross-domain requests if $.mobile.allowCrossDomainPages is set to true.
+        /// Because the jQuery Mobile framework tracks what page is being viewed within the browser's location hash,
+        /// it is possible for a cross-site scripting (XSS) attack to occur if the XSS code in question can manipulate the hash and set it to a cross-domain URL of its choice.
+        /// This is the main reason that the default setting for $.mobile.allowCrossDomainPages is set to false.
+        /// In PhoneGap apps that must "phone home" by loading assets off a remote server, both the $.support.cors AND $.mobile.allowCrossDomainPages must be set to true.
+        /// </summary>
+        public bool allowCrossDomainPages { get; set; }
+
+        public ButtonMarkupOptions buttonMarkup { get; set; }
+
+        /// <summary>
+        /// default: false
+        /// Warning: Setting this property to true will cause performance degradation on enhancement.
+        /// Once set, all automatic enhancements made by the framework to each enhanceable element of the user's markup will first check for a data-enhance=false parent node.
+        /// If one is found the markup will be ignored.
+        /// This setting and the accompanying data attribute provide a mechanism through which users can prevent enhancement over large sections of markup.
+        /// </summary>
+        public bool ignoreContentEnabled { get; set; }
+
+        /// <summary>
+        ///  default: true
+        ///  jQuery Mobile will automatically bind the clicks on anchor tags in your document.
+        ///  Setting this options to false will prevent all anchor click handling including the addition of active button state and alternate link bluring.
+        ///  This should only be used when attempting to delegate the click management to another library or custom code.
+        /// </summary>
+        public bool linkBindingEnabled { get; set; }
+
+        /// <summary>
+        /// default: false
+        /// Whether the text should be visible when a loading message is shown. The text is always visible for loading errors.
+        /// </summary>
+        public bool loadingMessageTextVisible { get; set; }
+
+        /// <summary>
+        /// default: "a"
+        /// The theme that the loading message box uses when text is visible.
+        /// </summary>
+        public JsString loadingMessageTheme { get; set; }
+
+        /// <summary>
+        ///  default: "e"
+        ///  Set the theme that the error message box uses.
+        /// </summary>
+        public JsString pageLoadErrorMessageTheme { get; set; }
+
+        /// <summary>
+        ///  default: true
+        ///  Enhancement to use history.replaceState in supported browsers, to convert the hash-based Ajax URL into the full document path.
+        ///  Note that we recommend disabling this feature if Ajax is disabled or if extensive use of external links are used.
+        /// </summary>
+        public bool pushStateEnabled { get; set; }
+
+        /// <summary>
+        /// Deprecated in 1.1.0
+        /// Enable smoother page transitions and true fixed toolbars in devices that support both the overflow: and overflow-scrolling: touch; CSS properties.
+        /// </summary>
+        public bool touchOverflowEnabled { get; set; }
+
     }
+
+    [JsType(JsMode.Prototype)]
+    public class ButtonMarkupOptions
+    {
+        /// <summary>
+        /// default: 200
+        /// Set the delay for touch devices to add the hover and down classes on touch interactions for buttons throughout the framework.
+        /// Reducing the delay here results in a more responsive feeling ui, but will often result in the downstate being applied during page scrolling.
+        /// </summary>
+        public JsNumber hoverDelay { get; set; }
+    }
+
     /// <summary>
     /// This function returns an object that contains the various components of the URL as strings. The properties on the object mimic the browser's location object:
     /// </summary>
@@ -784,7 +986,7 @@ namespace SharpKit.jQueryMobile
         /// The query component of the URL including the leading '?' character.
         /// But it also contains additional properties that provide access to additional components as well as some common forms of the URL developers access:
         /// </summary>
-        public JsString searchDt { get; set; }
+        public JsString search { get; set; }
         /// <summary>
         /// The username, password, and host components of the URL
         /// </summary>
@@ -817,8 +1019,8 @@ namespace SharpKit.jQueryMobile
         /// The username contained within the authority component.
         /// </summary>
         public JsString username { get; set; }
-          
-        
+
+
 
 
 
