@@ -369,6 +369,11 @@ namespace SharpKit.JavaScript
         /// </summary>
         public bool UseExactEquals { get { return _UseExactEquals.GetValueOrDefault(); } set { _UseExactEquals = value; } } public bool? _UseExactEquals;
 
+        /// <summary>
+        /// Uses the ECMAScript5 strict mode.
+        /// </summary>
+        public bool UseStrict { get { return _UseStrict.GetValueOrDefault(); } set { _UseStrict = value; } } public bool? _UseStrict;
+
     }
     #endregion
 
