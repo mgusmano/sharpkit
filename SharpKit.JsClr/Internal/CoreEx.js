@@ -49,7 +49,9 @@ if (ENABLE_PROFILER) {
 var envDebugFunction = (typeof (Debug) != "undefined" && Debug != null && Debug.writeln) ||
 											 (typeof (console) != "undefined" && console != null && console.log) ||
 											 function (t) { };
-Debug = { writeln: envDebugFunction }
+if (typeof (Debug) != "undefined")
+	var Debug = { writeln: envDebugFunction }
+
 Array.parse = function (value) {
 	return eval('(' + value + ')');
 }
@@ -61,8 +63,9 @@ JsTypes.push(
 	toString: function () {
 		return "{" + this.constructor._type.fullname + "}";
 	},
-	construct: function () {
-		arguments.callee.caller._type.baseType.ctor.apply(this, arguments);
+	construct: function (type) {
+		//		arguments.callee.caller._type.baseType.ctor.apply(this, arguments);
+		type.baseType.ctor.apply(this, arguments);
 	},
 	GetType: function () {
 		return System.Type._TypeOf(this.constructor._type);
@@ -74,9 +77,11 @@ JsTypes.push(
 		return this.constructor._type.name;
 	},
 	base: function () {
+		//TODO: remove use of callee/caller!
 		return arguments.callee.caller._type.baseType.ctor.prototype[arguments.callee.caller._name].apply(this, arguments);
 	},
 	callBase: function (methodName) {
+		//TODO: remove use of callee/caller!
 		return arguments.callee.caller._type.baseType.ctor.prototype[methodName].apply(this, Arguments.from(arguments, 1));
 	}
 }, staticDefinition:
@@ -558,7 +563,7 @@ JsTypes.push({ fullname: "System.String", baseTypeName: "System.Object", definit
 	}
 }
 });
-Arguments = function () {
+var Arguments = function () {
 }
 //TODO: this method doesn't work good when argsObject contains undefineds
 Arguments.from = function (argsObject, start) {

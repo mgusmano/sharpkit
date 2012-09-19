@@ -24,7 +24,7 @@ namespace SharpKit.JavaScript.Compilation
             foreach (var action in BeforeCompilationFunctions)
                 action();
             BeforeCompilationFunctions = new JsArray<JsAction>();
-            foreach(var jsType in JsTypes)
+            foreach (var jsType in JsTypes)
             {
                 var fullName = jsType.fullname;
                 var type = Types[fullName].As<JsType>();
@@ -183,8 +183,9 @@ namespace SharpKit.JavaScript.Compilation
         {
             throw new NotImplementedException();
         }
-        [JsMethod(NativeOverloads = true, Code = @"return function(){this.construct();};")]
-        static JsFunction CreateBaseCtor()
+        //[JsMethod(NativeOverloads = true, Code = @"return function(){this.construct();};")]
+        [JsMethod(NativeOverloads = true, Code = @"return function(){this.construct(type);};")]
+        static JsFunction CreateBaseCtor(JsType type)
         {
             throw new NotImplementedException();
         }
@@ -291,10 +292,10 @@ namespace SharpKit.JavaScript.Compilation
                         //}
                         //if (createCtor)
                         //{
-                            if (currentType.baseType != null)
-                                currentType.ctor = CreateBaseCtor();
-                            else
-                                currentType.ctor = CreateEmptyCtor();
+                        if (currentType.baseType != null)
+                            currentType.ctor = CreateBaseCtor(currentType);
+                        else
+                            currentType.ctor = CreateEmptyCtor();
                         //}
                     }
                     if (currentType.ctor != null)
@@ -329,7 +330,7 @@ namespace SharpKit.JavaScript.Compilation
                 if (type.definition.As<JsCompilerPrototype>().toString != JsCompilerObject.prototype.toString)
                 {
                     currentType.commonPrototype.toString = type.definition.As<JsCompilerPrototype>().toString;
-                    currentType.commonPrototype.toString.name = "toString";
+                    //currentType.commonPrototype.toString.name = "toString"; //It's always readonly! (and forbidden in strict mode)
                     currentType.commonPrototype.toString._type = currentType;
                 }
                 foreach (var p in type.staticDefinition)
