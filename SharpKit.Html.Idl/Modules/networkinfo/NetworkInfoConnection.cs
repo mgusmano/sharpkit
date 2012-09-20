@@ -1,7 +1,7 @@
 
 /*******************************************************************************************************
 
-  This file was auto generated with the tool "WebIDLParser" at Tue, 18 Sep 2012 07:57:01 GMT
+  This file was auto generated with the tool "WebIDLParser" at Thu, 20 Sep 2012 15:27:33 GMT
 
   Content was generated from IDL file:
   http://trac.webkit.org/browser/trunk/Source/WebCore/Modules/networkinfo/NetworkInfoConnection.idl
@@ -52,7 +52,6 @@ public partial class NetworkInfoConnection
 {
 	public  double bandwidth {get; set; }
 	public  bool metered {get; set; }
-	public  EventListener onwebkitnetworkinfochange {get; set; }
 	public  void addEventListener(string type, EventListener listener) {}
 	public  void addEventListener(string type, EventListener listener, bool useCapture) {}
 	public  void removeEventListener(string type, EventListener listener) {}

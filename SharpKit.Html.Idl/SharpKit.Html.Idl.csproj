@@ -47,12 +47,6 @@
     <Compile Include="css\StyleMedia.cs" />
     <Compile Include="css\StyleSheet.cs" />
     <Compile Include="css\StyleSheetList.cs" />
-    <Compile Include="css\WebKitCSSFilterValue.cs" />
-    <Compile Include="css\WebKitCSSKeyframeRule.cs" />
-    <Compile Include="css\WebKitCSSKeyframesRule.cs" />
-    <Compile Include="css\WebKitCSSMatrix.cs" />
-    <Compile Include="css\WebKitCSSRegionRule.cs" />
-    <Compile Include="css\WebKitCSSTransformValue.cs" />
     <Compile Include="dom\Attr.cs" />
     <Compile Include="dom\BeforeLoadEvent.cs" />
     <Compile Include="dom\CDATASection.cs" />
@@ -70,7 +64,6 @@
     <Compile Include="dom\Document.cs" />
     <Compile Include="dom\DocumentFragment.cs" />
     <Compile Include="dom\DocumentType.cs" />
-    <Compile Include="dom\DOMCoreException.cs" />
     <Compile Include="dom\DOMError.cs" />
     <Compile Include="dom\DOMImplementation.cs" />
     <Compile Include="dom\DOMStringList.cs" />
@@ -80,7 +73,6 @@
     <Compile Include="dom\EntityReference.cs" />
     <Compile Include="dom\ErrorEvent.cs" />
     <Compile Include="dom\Event.cs" />
-    <Compile Include="dom\EventException.cs" />
     <Compile Include="dom\EventListener.cs" />
     <Compile Include="dom\EventTarget.cs" />
     <Compile Include="dom\HashChangeEvent.cs" />
@@ -105,7 +97,6 @@
     <Compile Include="dom\ProcessingInstruction.cs" />
     <Compile Include="dom\ProgressEvent.cs" />
     <Compile Include="dom\Range.cs" />
-    <Compile Include="dom\RangeException.cs" />
     <Compile Include="dom\RequestAnimationFrameCallback.cs" />
     <Compile Include="dom\ShadowRoot.cs" />
     <Compile Include="dom\StringCallback.cs" />
@@ -116,19 +107,14 @@
     <Compile Include="dom\TouchList.cs" />
     <Compile Include="dom\TreeWalker.cs" />
     <Compile Include="dom\UIEvent.cs" />
-    <Compile Include="dom\WebKitAnimationEvent.cs" />
-    <Compile Include="dom\WebKitNamedFlow.cs" />
-    <Compile Include="dom\WebKitTransitionEvent.cs" />
     <Compile Include="dom\WheelEvent.cs" />
     <Compile Include="editing\UndoManager.cs" />
     <Compile Include="fileapi\Blob.cs" />
     <Compile Include="fileapi\File.cs" />
     <Compile Include="fileapi\FileError.cs" />
-    <Compile Include="fileapi\FileException.cs" />
     <Compile Include="fileapi\FileList.cs" />
     <Compile Include="fileapi\FileReader.cs" />
     <Compile Include="fileapi\FileReaderSync.cs" />
-    <Compile Include="fileapi\WebKitBlobBuilder.cs" />
     <Compile Include="HtmlContext.cs" />
     <Compile Include="html\canvas\ArrayBuffer.cs" />
     <Compile Include="html\canvas\ArrayBufferView.cs" />
@@ -312,7 +298,6 @@
     <Compile Include="Modules\indexeddb\IDBCursor.cs" />
     <Compile Include="Modules\indexeddb\IDBCursorWithValue.cs" />
     <Compile Include="Modules\indexeddb\IDBDatabase.cs" />
-    <Compile Include="Modules\indexeddb\IDBDatabaseException.cs" />
     <Compile Include="Modules\indexeddb\IDBFactory.cs" />
     <Compile Include="Modules\indexeddb\IDBIndex.cs" />
     <Compile Include="Modules\indexeddb\IDBKey.cs" />
@@ -401,7 +386,6 @@
     <Compile Include="Modules\webdatabase\DatabaseSync.cs" />
     <Compile Include="Modules\webdatabase\DOMWindowWebDatabase.cs" />
     <Compile Include="Modules\webdatabase\SQLError.cs" />
-    <Compile Include="Modules\webdatabase\SQLException.cs" />
     <Compile Include="Modules\webdatabase\SQLResultSet.cs" />
     <Compile Include="Modules\webdatabase\SQLResultSetRowList.cs" />
     <Compile Include="Modules\webdatabase\SQLStatementCallback.cs" />
@@ -441,9 +425,6 @@
     <Compile Include="page\SpeechInputEvent.cs" />
     <Compile Include="page\SpeechInputResult.cs" />
     <Compile Include="page\SpeechInputResultList.cs" />
-    <Compile Include="page\WebKitAnimation.cs" />
-    <Compile Include="page\WebKitAnimationList.cs" />
-    <Compile Include="page\WebKitPoint.cs" />
     <Compile Include="page\WorkerNavigator.cs" />
     <Compile Include="plugins\DOMMimeType.cs" />
     <Compile Include="plugins\DOMMimeTypeArray.cs" />
@@ -487,7 +468,6 @@
     <Compile Include="svg\SVGElementInstance.cs" />
     <Compile Include="svg\SVGElementInstanceList.cs" />
     <Compile Include="svg\SVGEllipseElement.cs" />
-    <Compile Include="svg\SVGException.cs" />
     <Compile Include="svg\SVGExternalResourcesRequired.cs" />
     <Compile Include="svg\SVGFEBlendElement.cs" />
     <Compile Include="svg\SVGFEColorMatrixElement.cs" />
@@ -614,12 +594,10 @@
     <Compile Include="workers\WorkerLocation.cs" />
     <Compile Include="xml\DOMParser.cs" />
     <Compile Include="xml\XMLHttpRequest.cs" />
-    <Compile Include="xml\XMLHttpRequestException.cs" />
     <Compile Include="xml\XMLHttpRequestProgressEvent.cs" />
     <Compile Include="xml\XMLHttpRequestUpload.cs" />
     <Compile Include="xml\XMLSerializer.cs" />
     <Compile Include="xml\XPathEvaluator.cs" />
-    <Compile Include="xml\XPathException.cs" />
     <Compile Include="xml\XPathExpression.cs" />
     <Compile Include="xml\XPathNSResolver.cs" />
     <Compile Include="xml\XPathResult.cs" />

@@ -1,7 +1,7 @@
 
 /*******************************************************************************************************
 
-  This file was auto generated with the tool "WebIDLParser" at Tue, 18 Sep 2012 07:57:02 GMT
+  This file was auto generated with the tool "WebIDLParser" at Thu, 20 Sep 2012 15:27:34 GMT
 
   Content was generated from IDL file:
   http://trac.webkit.org/browser/trunk/Source/WebCore/svg/SVGImageElement.idl
@@ -50,7 +50,7 @@ using SharpKit.Html.svg;
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "SVGImageElement")]
 public partial class SvgImageElement : SvgElement, SvgURIReference, SvgTests, SvgLangSpace, SvgExternalResourcesRequired, SvgStylable, SvgTransformable
 {
-	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('image')")]
+	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('img')")]
 	public   SvgImageElement() {}
 	public  SvgAnimatedLength x {get; set; }
 	public  SvgAnimatedLength y {get; set; }

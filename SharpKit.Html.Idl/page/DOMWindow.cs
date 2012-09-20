@@ -1,7 +1,7 @@
 
 /*******************************************************************************************************
 
-  This file was auto generated with the tool "WebIDLParser" at Tue, 18 Sep 2012 07:57:01 GMT
+  This file was auto generated with the tool "WebIDLParser" at Thu, 20 Sep 2012 15:27:33 GMT
 
   Content was generated from IDL file:
   http://trac.webkit.org/browser/trunk/Source/WebCore/page/DOMWindow.idl
@@ -192,10 +192,6 @@ public partial class Window
 	public  EventListener onwaiting {get; set; }
 	public  EventListener onreset {get; set; }
 	public  EventListener onsearch {get; set; }
-	public  EventListener onwebkitanimationend {get; set; }
-	public  EventListener onwebkitanimationiteration {get; set; }
-	public  EventListener onwebkitanimationstart {get; set; }
-	public  EventListener onwebkittransitionend {get; set; }
 	public  EventListener ontouchstart {get; set; }
 	public  EventListener ontouchmove {get; set; }
 	public  EventListener ontouchend {get; set; }

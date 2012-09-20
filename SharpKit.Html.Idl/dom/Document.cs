@@ -1,7 +1,7 @@
 
 /*******************************************************************************************************
 
-  This file was auto generated with the tool "WebIDLParser" at Tue, 18 Sep 2012 07:57:00 GMT
+  This file was auto generated with the tool "WebIDLParser" at Thu, 20 Sep 2012 15:27:32 GMT
 
   Content was generated from IDL file:
   http://trac.webkit.org/browser/trunk/Source/WebCore/dom/Document.idl
@@ -165,10 +165,6 @@ public partial class Document : Node
 	public  EventListener ontouchmove {get; set; }
 	public  EventListener ontouchend {get; set; }
 	public  EventListener ontouchcancel {get; set; }
-	public  EventListener onwebkitfullscreenchange {get; set; }
-	public  EventListener onwebkitfullscreenerror {get; set; }
-	public  EventListener onwebkitpointerlockchange {get; set; }
-	public  EventListener onwebkitpointerlockerror {get; set; }
 }
 
 }
