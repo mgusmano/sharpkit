@@ -233,7 +233,7 @@ namespace WebIDLParser
                 TMember mem = readMember();
                 if (mem != null)
                 {
-                    if (!mem.name.ToLower().StartsWith("webkit"))
+                    if (!mem.name.ToLower().StartsWith("webkit") && !mem.name.ToLower().StartsWith("onwebkit"))
                     {
                         if (mem is TMethod)
                         {
