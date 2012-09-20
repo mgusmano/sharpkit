@@ -68,14 +68,14 @@ namespace CoreTests.Dynamics
 
         void foo2()
         {
-            FakeQuery arrivingView=null;
- 
- 
+            FakeQuery arrivingView = null;
+
+
             dynamic arrivingViewProps = new JsObject();
             arrivingViewProps.left = 0;
             arrivingViewProps.leaveTransforms = true;
             var newLeftSide = 7;
- 
+
             arrivingView.show();
             arrivingView.css("left", newLeftSide);
             arrivingView.animate(arrivingViewProps, HOW_LONG);
@@ -119,7 +119,7 @@ namespace CoreTests.Dynamics
             //     //}
             // };
 
-           // send(json, "query", parseResult);
+            // send(json, "query", parseResult);
 
         }
 
@@ -150,7 +150,7 @@ namespace CoreTests.Dynamics
         }
     }
 
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class FakeQuery
     {
         internal void show()
@@ -208,4 +208,20 @@ namespace CoreTests.Dynamics
             throw new NotImplementedException();
         }
     }
+
+    [JsType(JsMode.Clr)]
+    public class Bug1
+    {
+
+        private void send()
+        {
+            send(new { cmd = 5 });
+        }
+
+        private void send(dynamic json)
+        {
+        }
+
+    }
+
 }
