@@ -42,6 +42,11 @@ namespace WebIDLParser
         public TTypeList baseType = new TTypeList();
         public TJsAttributeList jsAttributes = new TJsAttributeList();
 
+        public bool CheckExport()
+        {
+            return !name.StartsWith("WebKit");
+        }
+
         public void rename(string newName)
         {
             //AliasName = newName;

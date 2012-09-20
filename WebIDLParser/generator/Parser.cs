@@ -166,6 +166,13 @@ namespace WebIDLParser
 
         public void saveFile()
         {
+            var export = false;
+            foreach (var ns in nsList)
+                foreach (var t in ns.types)
+                    if (t.CheckExport()) export = true;
+
+            if (!export) return;
+
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             nsList.write(sb);
             LarneFunctions.StringSaveToFile(outFile, sb.ToString());
