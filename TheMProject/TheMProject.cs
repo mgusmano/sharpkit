@@ -2112,6 +2112,13 @@ namespace TheMProject
         public void show(JsString title) { }
     }
 
+    /// <summary>
+    /// Display a map, based of the Google Maps Javascript API V3.
+    /// M.MapView defines a set of methods for displaying a map, setting markers on that map and displaying the user's current location.
+    /// It is based on the Google Maps Javascript API V3 and basically wraps all important features available in this great API.
+    /// Note: Since the map data is loaded dynamically using the Google Maps Javascript API V3 and is not part of the application itself,
+    /// M.MapView only works if there is a network connection available.
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "M.MapView", Export = false)]
     public class MapView
     {
@@ -2140,6 +2147,357 @@ namespace TheMProject
         /// This allows you to specify styling stuff like the width and height of your map view. So we recommend to always assign a css class ... just in case.
         /// </summary>
         public JsString cssClass { get; set; }
+
+        /// <summary>
+        /// This property specifies the initial location for this map view, as an M.Location object.
+        /// Its latitude and longitude properties are directly mapped to the center property of a google map view.
+        /// By default this is set to the headquarter of developer team of The-M-Project in Stuttgart, Germany.
+        /// </summary>
+        public Location initialLocation { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This property specifies whether the map is draggable or not.
+        /// If set to NO, a user won't be able to move the map, respectively the visible sector.
+        /// For further information see the google maps API specification: http://code.google.com/intl/en-US/apis/maps/documentation/javascript/reference.html#MapOptions
+        /// </summary>
+        public bool isDraggable { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This property determines whether to display the map view 'inset' or at full width.
+        /// </summary>
+        public bool isInset { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This flag can be used to specify whether or not to load the google places library.
+        /// By default this property is set to YES. If you do not need the library, you should set this to NO in order to save some bandwidth
+        /// </summary>
+        public bool loadPlacesLibrary { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: M.MAP_ROADMAP	
+        /// This property specifies the map type for this map view. It is directly mapped to the 'mapTypeId' property of a google map view. Possible values for this property are:
+        /// M.MAP_ROADMAP --> This map type displays a normal street map.
+        /// M.MAP_HYBRID --> This map type displays a transparent layer of major streets on satellite images.
+        /// M.MAP_SATELLITE --> This map type displays satellite images.
+        /// M.MAP_TERRAIN --> This map type displays maps with physical features such as terrain and vegetation.
+        /// For further information see the google maps API specification: http://code.google.com/intl/en-US/apis/maps/documentation/javascript/reference.html#MapOptions
+        /// </summary>
+        public JsString mapType { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: M.MAP_MARKER_ANIMATION_NONE
+        /// This property can be used to specify the animation type for this map view's markers. The following three values are possible:
+        /// M.MAP_MARKER_ANIMATION_NONE --> no animation
+        /// M.MAP_MARKER_ANIMATION_DROP --> the marker drops onto the map
+        /// M.MAP_MARKER_ANIMATION_BOUNCE --> the marker constantly bounces
+        /// </summary>
+        public JsString markerAnimationType { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This property specifies whether or not to remove all existing markers on a map update.
+        /// A map update can either be an automatic update due to content binding or a implicit call of the map view's updateMap() method.
+        /// </summary>
+        public bool removeMarkersOnUpdate { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// This property determines whether or not to show a marker at the map view's initial location.
+        /// This location can be specified by the initialLocation property of this map view.
+        /// </summary>
+        public bool setMarkerAtInitialLocation { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// This property specifies whether or not to display the map type controls inside of this map view.
+        /// For further information see the google maps API specification: http://code.google.com/intl/en-US/apis/maps/documentation/javascript/reference.html#MapOptions
+        /// </summary>
+        public bool showMapTypeControl { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// This property specifies whether or not to display the navigation controls inside of this map view.
+        /// For further information see the google maps API specification: http://code.google.com/intl/en-US/apis/maps/documentation/javascript/reference.html#MapOptions
+        /// </summary>
+        public bool showNavigationControl { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// This property specifies whether or not to display the street view controls inside of this map view.
+        /// For further information see the google maps API specification: http://code.google.com/intl/en-US/apis/maps/documentation/javascript/reference.html#MapOptions
+        /// </summary>
+        public bool showStreetViewControl { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 15
+        /// This property specifies the zoom level for this map view. 
+        /// It is directly mapped to the zoom property of a google map view.
+        /// For further information see the google maps API specification: http://code.google.com/intl/de-DE/apis/maps/documentation/javascript/reference.html#MapOptions
+        /// </summary>
+        public JsNumber zoomLevel { get; set; }
+
+        /// <summary>
+        /// This method can be used to add a marker to the map view. 
+        /// Simply pass a valid M.MapMarkerView object and a map marker is created automatically, displayed on the map and added to this map view's markers property.
+        /// </summary>
+        /// <param name="marker">The marker to be added.</param>
+        public void addMarker(MapMarkerView marker) { }
+
+        /// <summary>
+        /// This method is used to initialize a map view, typically out of a controller. With its options parameter you can set or update almost every parameter of a map view. This allows you to define a map view within your view, but then update its parameters later when you want this view to display a map.
+        /// The options parameter must be passed as a simple object, containing all of the M.MapView's properties you want to be updated. Such an options object could look like the following:
+        /// {
+        ///     zoomLevel: 12,
+        ///     mapType: M.MAP_HYBRID,
+        ///     initialLocation: location
+        /// }
+        /// </summary>
+        /// <param name="options">The options for the map view.</param>
+        public void initMap(object options) { }
+        //TODO: maybe needs a new options class?
+
+        /// <summary>
+        /// This method removes all markers from this map view. It both cleans up the markers array and deletes the marker's visual representation from the map view.
+        /// </summary>
+        public void removeAllMarkers() { }
+
+        /// <summary>
+        /// This method can be used to remove a certain marker from the map view.
+        /// In order to do this, you need to pass the M.MapMarkerView object that you want to be removed from the map view.
+        /// </summary>
+        /// <param name="marker">The marker to be removed.</param>
+        public void removeMarker(MapMarkerView marker) { }
+
+        /// <summary>
+        /// This method is used to update a map view, that has already been initialized.
+        /// You would typically call this method out of a controller. Besides some internal stuff, this method pretty much does the same as initMap().
+        /// So simply pass an object containing valid options for the already existing map view.
+        /// </summary>
+        /// <param name="options">The options for the map view.</param>
+        public void updateMap(object options) { }
+        //TODO: maybe needs a new options class?
+
+        //TODO: events
+    }
+
+    /// <summary>
+    /// Its latitude and longitude properties are directly mapped to the center property of a google map view.
+    /// By default this is set to the headquarter of developer team of The-M-Project in Stuttgart, Germany.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.Location", Export = false)]
+    public class Location
+    {
+        public JsNumber latitude { get; set; }
+        public JsNumber longitude { get; set; }
+    }
+    //TODO: maybe JSON mode?
+
+    /// <summary>
+    /// Set markers on a map to indicate important places.
+    /// A map marker view defines a set of methods for adding, removing and managing the markers of a M.MapView.
+    /// Such a marker can be used to show the user of an application a certain location on a map view or the location of the user himself.
+    /// The map marker view within The-M-Project is based on google maps markers.
+    /// Note: Map markers can't be used stand-alone. You'll always need a map to place them on.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.MapMarkerView", Export = false)]
+    public class MapMarkerView
+    {
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// This property can be used to store additional information about a marker.
+        /// Since this property is an object, you can store pretty much anything in this property.
+        /// This can be useful especially if you are using the click event for map markers.
+        /// So you can store any information with a marker and retrieve this information on the click event.
+        /// </summary>
+        public object data { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// This property can be used to specify a custom marker icon. Simply pass a valid path to an image and it will be shown instead of google's default marker.
+        /// </summary>
+        public JsString icon { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// This property specifies whether the marker is draggable or not.
+        /// If set to NO, a user won't be able to move the marker. For further information see the google maps API specification: http://code.google.com/intl/en-US/apis/maps/documentation/javascript/reference.html#MarkerOptions
+        /// </summary>
+        public bool isDraggable { get; set; }
+
+        /// <summary>
+        /// recommended
+        /// Default: location: M.Location.extend({ latitude: 48.813338, longitude: 9.178463 })
+        /// This property specifies the location for this map marker view, as an M.Location object.
+        /// Its latitude and longitude properties are directly mapped to the position property of a google maps marker.
+        /// </summary>
+        public Location location { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: M.MAP_MARKER_ANIMATION_NONE
+        /// This property can be used to specify the animation type for this map marker view. If this property is set, the markerAnimationType property of the parent map view is ignored. The following three values are possible:
+        /// M.MAP_MARKER_ANIMATION_NONE --> no animation
+        /// M.MAP_MARKER_ANIMATION_DROP --> the marker drops onto the map
+        /// M.MAP_MARKER_ANIMATION_BOUNCE --> the marker constantly bounces
+        /// </summary>
+        public JsString markerAnimationType { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// This property specifies the message of a map marker view respectively for its annotation.
+        /// </summary>
+        public JsString message { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// This property can be used to specify whether or not to show the annotation, if title and/or message are defined, automatically on click event.
+        /// </summary>
+        public bool showAnnotationOnClick { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// This property specifies the title of a map marker view. It can be used in an annotation.
+        /// </summary>
+        public JsString title { get; set; }
+
+        /// <summary>
+        /// This method initializes a map marker view. It connects a map marker directly with the parent map view and returns the created M.MapMarkerView object.
+        /// Note: By calling this method, the map marker won't be displayed on the map.
+        /// It only gets initialized and can no be displayed by using the map view's addMarker() or content binding.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public MapMarkerView init(object options) { return null; }
+        //TODO: options class?
+
+        /// <summary>
+        /// This method can be used to remove a map marker from a map view.
+        /// </summary>
+        public void remove() { }
+
+        /// <summary>
+        /// This method can be used to show a map markers annotation.
+        /// </summary>
+        public void showAnnotation() { }
+
+        //TODO: events
+    }
+
+    /// <summary>
+    /// The highest-leveled view of an application, the root of any screen.
+    /// The M.PageView is used in every application built with The-M-Project.
+    /// It is the container view for every view on one screen. This means, every page defines a screen in your application.
+    /// No methods of the PageView are available for public use. Beside the childViews property, there are also no properties to be used by the application developer.
+    /// But there are several important events that are fired in the context of the page.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.PageView", Export = false)]
+    public class PageView
+    {
+        /// <summary>
+        /// optional (not necessary when using content binding)
+        /// A string naming the child views of the page. E.g.
+        /// childViews: 'header content footer'
+        /// Those childViews have to be defined inside the definition of the page, see the examples.
+        /// </summary>
+        public JsString childViews { get; set; }
+
+        //TODO: Events
+    }
+
+    /// <summary>
+    /// modules/ui/scroll.js
+    /// The M.ScrollView is a container for the scrollable content on a single page.
+    /// It should be used as a wrapper for any content that isn't part of a header toolbar or footer toolbar/tabbar.
+    /// Note: It is very important to use this view for your scrollable content since
+    /// this view adds some important meta information to this area so jQuery Mobile recognizes it as the page's content area.
+    /// CSS Styles:
+    /// There actually only is one relevant CSS class when using a scroll view:
+    /// ui-content: This CSS class defines some basic styling (especially the padding) of an application's content area.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.PageView", Export = false)]
+    public class ScrollView
+    {
+        /// <summary>
+        /// recommended
+        /// A string naming the child views of the scroll view. E.g.
+        /// childViews: 'label button textfield'
+        /// Those childViews have to be defined inside the definition of the scroll view, as you can see within the samples.
+        /// </summary>
+        public JsString childViews { get; set; }
+
+        /// <summary>
+        /// This property can be used to set CSS classes for the scroll view.
+        /// </summary>
+        public JsString cssClass { get; set; }
+
+    }
+
+    /// <summary>
+    /// A special text field representing a search bar.
+    /// M.SearchBarView defines a search bar that can be used inside of a list view or independently as a plain input field with a search styling.
+    /// Basically a search bar view is the same as a default text field view except it is styled with a goggles icon at the left and there
+    /// appears a 'delete' button at the right once you entered some text to reset the text field.
+    /// There are a few CSS classes responsible for the look and feel of the search bar view:
+    /// CSS Styles:
+    /// ui-shadow-inset: This defines an inner shadow for the text field view.
+    /// ui-input-search: This class defines the basic size and dimension of the search bar view.
+    /// ui-icon-searchfield: This class is responsible for positioning the goggles/clear icon inside the search bar view.
+    /// ui-corner-all: This adds round corners to the search bar view.
+    /// ui-body-c: This class defines some styling stuff like border, text color, text-shadow or the background.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.SearchBarView", Export = false)]
+    public class SearchBarView
+    {
+        /// <summary>
+        /// optional
+        /// The initial text shown inside the search bar field describing the input or making a suggestion for input e.g. "Please enter your Name."
+        /// </summary>
+        public JsString initialText { get; set; }
+
+        /// <summary>
+        /// This method can be used to disable the search bar view. This leads to a visual 'disabled' look and disabled the text fields events.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// This method clears the search bar's value, both in the DOM and within the corresponding JS object.
+        /// </summary>
+        public void clearValue() { }
+
+        /// <summary>
+        /// This method can be used to enable a disabled search bar and make it usable again.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// This method sets the search bar's value and initiates its re-rendering.
+        /// </summary>
+        /// <param name="value">The value to be applied to the search bar view.</param>
+        public void setValue(JsString value) { }
+
+
+        //TODO: Events
     }
 
     public class TabBarView
@@ -2152,4 +2510,5 @@ namespace TheMProject
         //TODO: i have created this class cuse M.Page is the return type of getCurrentPage and getPage methodes, but i don't see ant doc for this class http://panacodalabs.github.com/The-M-Docs/#components_&_utilities/m_viewmanager
 
     }
+
 }
