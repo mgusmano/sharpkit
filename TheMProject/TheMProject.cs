@@ -1203,13 +1203,948 @@ namespace TheMProject
         public object callbacks { get; set; }
     }
 
+    /// <summary>
+    /// A container for other views. Only renders a code frame no representation.
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "M.ContainerView", Export = false)]
     public class ContainerView
     {
+        /// <summary>
+        /// optional
+        /// A string naming the child views of the container. E.g.
+        /// childViews: 'teaser main footer'
+        /// Those childViews have to be defined inside the definition of the container, see the examples.
+        /// </summary>
+        public JsString childViews { get; set; }
+
+        /// <summary>
+        /// optional
+        /// This property can be used to set CSS classes for a container.
+        /// </summary>
+        public JsString cssClass { get; set; }
+    }
+
+    /// <summary>
+    /// A dashboard view displays images and a corresponding text in a grid-like view and serves as the homescreen of an application.
+    /// By tapping on of the icons, a user can access certain features of an app.
+    /// By default, there are three icons in a row and three rows per page possible. But you can easily adjust this to your custom needs.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.DashboardView", Export = false)]
+    public class DashboardView
+    {
+
+        /// <summary>
+        /// optional
+        /// This property can be used to statically assign dashboard items to the dashboard. For a more dynamic way use content binding.
+        /// </summary>
+        public JsString childViews { get; set; }
+
+        /// <summary>
+        /// optional
+        /// With this property a dynamic content (dashboard items) can be bound to the dashboard view.
+        /// Everytime the bound property changes, the dashboard view will automatically update its items and re-render itself.
+        /// </summary>
+        public JsArray contentBinding { get; set; }
+
+        /// <summary>
+        /// optional
+        /// This property can be used to set CSS classes for the dashboard.
+        /// </summary>
+        public JsString cssClass { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// This property can be used to specify whether or not the dashboard can be re-arranged by a user.
+        /// </summary>
+        public bool isEditable { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 3
+        /// This property can be used to customize the number of items a dashboard shows per line. By default this is set to three.
+        /// </summary>
+        public JsNumber itemsPerLine { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: dashboard
+        /// This property defines the dashboard's name. This is used internally to identify the dashboard inside the DOM.
+        /// Note: If you are using more than one dashboard inside your application, make sure you provide different names.
+        /// </summary>
+        public JsString name { get; set; }
+
+        /// <summary>
+        /// This method removes all of the dashboard view's items by removing all of its content in the DOM. This method is based on jQuery's empty().
+        /// </summary>
+        public void removeAllItems() { }
+
+        //TODO: Events
+    }
+
+    /// <summary>
+    /// A dashboard itm view contains an icon and a label and can be used as the only kind of child views for a dashboard view.
+    /// While a dashboard view specifies the container of a dashboard, the dashboard item view is used to specify the actual visible items on that dashboard.
+    /// They can be attached to a dashboard as either static child views or dynamically via content binding.
+    /// CSS Styles:
+    /// There are a few CSS classes that define the layout and the look and feel of a list item view:
+    /// tmp-dashboard-item: This class is responsible for the arrangement of the items on the dashboard.
+    /// tmp-dashboard-item-label: This class defines the layout and styling a list item's label.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.DashboardItemView", Export = false)]
+    public class DashboardItemView
+    {
+        /// <summary>
+        /// recommended
+        /// The path/url to the dashboard item's icon.
+        /// </summary>
+        public JsString icon { get; set; }
+
+        /// <summary>
+        /// optional
+        /// The label for the dashboard item. If no label is specified, the value will be displayed instead.
+        /// </summary>
+        public JsString label { get; set; }
+
+        /// <summary>
+        /// mandatory
+        /// This property specifies the dashboard item's value. If there is no label set, this value is used as a visual text.
+        /// </summary>
+        public JsString value { get; set; }
+
+        //TODO: Events
+    }
+
+    /// <summary>
+    /// A date picker is a special view, that can be called out of a controller.
+    /// It is shown as a date picker popup, based on the mobiscroll library.
+    /// You can either connect a date picker with an existing view and automatically pass the selected date to the source's value property,
+    /// or you can simply use the date picker to select a date, return it to the controller (respectively the callback) and handle the date by yourself.
+    /// Note: If you plan on using HTML5's date input type, you should stick with M.TextFieldView instead.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.DatePickerView", Export = false)]
+    public class DatePickerView
+    {
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// This property can be used to specify several callbacks for the date picker view. There are three types of callbacks available:
+        /// before:
+        /// This callback gets called, right before the date picker is shown. It passes along two parameters:
+        /// value: The initial date of the date picker, formatted as a string
+        /// date: The initial date of the date picker as d8 object
+        /// confirm:
+        /// This callback gets called, when a selected date was confirmed. It passes along two two parameters:
+        /// value: The initial date of the date picker, formatted as a string
+        /// date: The initial date of the date picker as d8 object
+        /// cancel:
+        /// This callback gets called, when the cancel button is hit. It doesn't pass any parameters.
+        /// Setting up one of those callbacks works the same as with other controls of The-M-Project.
+        /// You simply have to specify an object containing a target function, e.g.:
+        /// callbacks: {
+        ///     confirm: {
+        ///         target: this,
+        ///         action: 'dateSelected'
+        ///     },
+        ///     cancel: {
+        ///         action: function() {
+        ///             // do something
+        ///         }
+        ///     }
+        /// }
+        /// </summary>
+        public DatePickerCallbacksOptions callbacks { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: Cancel
+        /// This property can be used to specify the label of the date picker's cancel button. By default it shows 'Cancel'.
+        /// </summary>
+        public JsString cancelButtonValue { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: Ok
+        /// This property can be used to specify the label of the date picker's confirm button. By default it shows 'Ok'.
+        /// </summary>
+        public JsString confirmButtonValue { get; set; }
+
+        /// <summary>
+        /// recommended
+        /// Default: current + 20
+        /// This property can be used to specify the last year of the 'year' scroller. By default, this will be set to 20 years after the current year.
+        /// </summary>
+        public JsNumber endYear { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: M dd, yy
+        /// This property can be used to customize the date format of the date picker. This is important if you use the date picker on a valid source since the date picker will then automatically push the selected date/datetime to the 'value' property of the source - based on this format. 
+        /// The possible keys:
+        /// m: month (without leading zero)
+        /// mm: month (two-digit)
+        /// M: month name (short)
+        /// MM: month name (long)
+        /// d: day (without leading zero)
+        /// d: day (two digit)
+        /// D: day name (short)
+        /// DD: day name (long)
+        /// y: year (two digit)
+        /// yy: year (four digit)
+        /// </summary>
+        public JsString dateFormat { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: MM yy
+        /// This property can be used to customize the date format of the date picker if it is associated with a text input with the type 'month'.
+        /// It works the same as the dateFormat property.
+        /// </summary>
+        public JsString dateFormatMonthOnly { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: Mddyy
+        /// This property determines the order and formating of the date scrollers. The following keys are possible:
+        /// m : month (without leading zero
+        /// mm: month (two-digit
+        /// M : month name (short
+        /// MM: month name (long
+        /// d : day (without leading zero
+        /// d : day (two digit
+        /// y : year (two digit
+        /// yy: year (four digit
+        /// </summary>
+        public JsString dateOrder { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: Day
+        /// This property specified the label shown above of the 'day' scroller.
+        /// Note: This label is only shown if the 'showLabels' property is set to YES.
+        /// </summary>
+        public JsString dayLabel { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+        /// This property specifies a list of short day names.
+        /// </summary>
+        public JsArray dayNames { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: Hours
+        /// This property specified the label shown above of the 'hours' scroller.
+        /// Note: This label is only shown if the 'showLabels' property is set to YES.
+        /// </summary>
+        public JsString hoursLabel { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// This property can be used to specify the initial date for the date picker.
+        /// If you use the date picker without a source, this date is always picked as the initial date.
+        /// If nothing is specified, the current date will be displayed.
+        /// If you use the date picker with a valid source, the initial date is picked as long as there is no valid date available by the source.
+        /// Once a date was selected and assigned to the source, this is taken as initial date the next time the date picker is opened.
+        /// </summary>
+        public JsString initialDate { get; set; }
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// This property can be used to specify the initial date for the date picker.
+        /// If you use the date picker without a source, this date is always picked as the initial date.
+        /// If nothing is specified, the current date will be displayed.
+        /// If you use the date picker with a valid source, the initial date is picked as long as there is no valid date available by the source.
+        /// Once a date was selected and assigned to the source, this is taken as initial date the next time the date picker is opened.
+        /// </summary>
+        [JsProperty(Name = "initialDate")]
+        public object initialDateObject { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: Minutes
+        /// This property specified the label shown above of the 'minutes' scroller.
+        /// Note: This label is only shown if the 'showLabels' property is set to YES.
+        /// </summary>
+        public JsString minutesLabel { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: Month
+        /// This property specified the label shown above of the 'month' scroller.
+        /// Note: This label is only shown if the 'showLabels' property is set to YES.
+        /// </summary>
+        public JsString monthLabel { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+        /// This property specifies a list of full month names.
+        /// </summary>
+        public JsArray monthNames { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        /// This property specifies a list of short month names.
+        /// </summary>
+        public JsArray monthNamesShort { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// This property can be used to activate the seconds wheel on a time/date-time picker.
+        /// </summary>
+        public bool seconds { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// You can use this property to enable or disable the AM/PM scroller. If set to NO, the date picker will use the 24h format.
+        /// </summary>
+        public bool showAmPm { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This property can be used to specify whether to show scrollers for picking a date or not.
+        /// Note: If both this and the 'showTimePicker' property are set to NO, no date picker will be shown.
+        /// </summary>
+        public bool showDatePicker { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This property can be used to specify whether or not to show labels above of the scrollers.
+        /// If set to YES, the labels specified with the '...Label' properties are displayed above of the corresponding scroller.
+        /// </summary>
+        public bool showLabels { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This property can be used to specify whether to show scrollers for picking a time or not.
+        /// Note: If both this and the 'showDatePicker' property are set to NO, no date picker will be shown.
+        /// </summary>
+        public bool showTimePicker { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// This property is used to link the date picker to a source. You can either pass the DOM id of the corresponding source or the javascript object itself.
+        /// Linking the date picker directly to a source results in automatic value updates of this source.
+        /// Note: Valid sources need to provide a setValue() method.
+        /// If you do not pass a source, the date picker isn't linked to any view. It simply returns the selected value/date to given callbacks.
+        /// So you can call the date picker out of a controller and handle the selected date all by yourself.
+        /// </summary>
+        public JsString source { get; set; }
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// This property is used to link the date picker to a source. You can either pass the DOM id of the corresponding source or the javascript object itself.
+        /// Linking the date picker directly to a source results in automatic value updates of this source.
+        /// Note: Valid sources need to provide a setValue() method.
+        /// If you do not pass a source, the date picker isn't linked to any view. It simply returns the selected value/date to given callbacks.
+        /// So you can call the date picker out of a controller and handle the selected date all by yourself.
+        /// </summary>
+        [JsProperty(Name = "source")]
+        public object sourceObject { get; set; }
+
+        /// <summary>
+        /// recommended
+        /// Default: current - 20
+        /// This property can be used to specify the first year of the 'year' scroller. By default, this will be set to 20 years before the current year.
+        /// </summary>
+        public JsNumber startYear { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 1
+        /// This property can be used to specify the steps between hours in the time / date-time picker.
+        /// </summary>
+        public JsNumber stepHour { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 1
+        /// This property can be used to specify the steps between minutes in the time / date-time picker.
+        /// </summary>
+        public JsNumber stepMinute { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 1
+        /// This property can be used to specify the steps between seconds in the time / date-time picker.
+        /// </summary>
+        public JsNumber stepSecond { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: h:ii A
+        /// This property can be used to customize the time format of the date picker.
+        /// This is important if you use the date picker on a valid source since the date picker will then automatically
+        /// push the selected time/datetime to the 'value' property of the source - based on this format. 
+        /// The possible keys:
+        /// h: hours (without leading zero, 12h format
+        /// hh: hours (two-digit, 12h format
+        /// H: hours (without leading zero, 24h format
+        /// HH: hours (two-digit, 24h format
+        /// i: minutes (without leading zero
+        /// ii: minutes (two-digit
+        /// A: AM/PM
+        /// </summary>
+        public JsString timeFormat { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This property can be used to determine whether to use the data source's value as initial date or not. If there is no source specified, this property is irrelevant.
+        /// Note: If there is a source specified and this property is set to NO, the 'initialDate' property will be used anyway if there is no date value available for the source!
+        /// </summary>
+        public bool useSourceDateAsInitialDate { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: Year
+        /// This property specified the label shown above of the 'year' scroller.
+        /// Note: This label is only shown if the 'showLabels' property is set to YES.
+        /// </summary>
+        public JsString yearLabel { get; set; }
+
+        /// <summary>
+        /// This method is the only important method of a date picker view for 'the outside world'.
+        /// From within an application, simply call this method and pass along an object, containing all the properties you want to set, different from default.
+        /// </summary>
+        /// <param name="obj">An object containing all the configuration parameters for the date picker, based on its available properties.</param>
+        public void show(object obj) { }
+        //TODO: "An object containing all the configuration parameters"-> WICH configuration parameters?!?!
+
+        //TODO: Events
+    }
+
+    /// <summary>
+    /// Setting up one of those callbacks works the same as with other controls of The-M-Project. You simply have to specify an object containing a target function, 
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class DatePickerCallbacksOptions
+    {
+        /// <summary>
+        /// This callback gets called, right before the date picker is shown. It passes along two parameters:
+        /// value: The initial date of the date picker, formatted as a string
+        /// date: The initial date of the date picker as d8 object
+        /// </summary>
+        public JsAction<JsString, object> before { get; set; }
+
+        /// <summary>
+        /// This callback gets called, when a selected date was confirmed. It passes along two two parameters:
+        /// value: The initial date of the date picker, formatted as a string
+        /// date: The initial date of the date picker as d8 object
+        /// </summary>
+        public JsAction<JsString, object> confirm { get; set; }
+
+        /// <summary>
+        /// This callback gets called, when the cancel button is hit. It doesn't pass any parameters.
+        /// </summary>
+        public JsAction cancel { get; set; }
+
+    }
+
+    /// <summary>
+    /// The dialog view is a wrapper view for alert, confirm and action sheet dialogs. Within an application this view is used to initialize the concrete dialogs.
+    /// Since those views are well documented, we decided not to write it all down in here again.
+    /// So please check the concrete dialog view for further information and some code samples:
+    /// M.ActionSheetDialog
+    /// M.AlertDialogView
+    /// M.ConfirmDialogView
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.DialogView", Export = false)]
+    public class DialogView : ActionSheetDialog //TODO: sldo inhair from: AlertDialogView : ConfirmDialogView
+    {
+    }
+
+    /// <summary>
+    /// M.FormViews is the prototype of a form view, a container-like view for grouping input views, e.g. M.TextFieldView.
+    /// It covers a lot of the jobs concerning the validation of input views.
+    /// There is no visible representation of a M.FormView, it is only used to ease the validation process and its access from a controller.
+    /// A M.FormView can be seen similar to the <form> tag in HTML. It is a container for other views that together build a formular.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.FormView", Export = false)]
+    public class FormView
+    {
+        /// <summary>
+        /// recommended
+        /// Default: YES
+        /// A flag that determines whether to automatically show an alert dialog view out of the showError method if the validation failed or not.
+        /// So if set to YES, all error messages are shown in an alert dialog view once the showError method is called.
+        /// </summary>
+        public bool showAlertDialogOnError { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: Validation Error(s)
+        /// The title of the alert view that comes up automatically if the validation fails, depending one the showAlertOnError property.
+        /// </summary>
+        public JsString alertTitle { get; set; }
+
+        /// <summary>
+        /// This method triggers the validate() on all child views, respectively on their validators.
+        /// This method is used to determine whether all views have valid values according to their defined validators.
+        /// </summary>
+        /// <returns>The result of the validation process: valid or not.</returns>
+        public bool validate() { return false; }
+
+        /// <summary>
+        /// This method is a wrapper of M.View's getValues() method.
+        /// This method creates and returns an associative array of all child views and their values. 
+        /// The key of an array item is the name of the view specified in the view definition. The value of an array item is the value of the corresponding view.
+        /// </summary>
+        /// <returns>An object as an associative array containing all values of the views inside the form. Collects also values throughout further nesting in child views.
+        /// The values are saved as key/value-pairs. The key is the name of the respective view.</returns>
+        public object getFormValues() { return null; }
+
+        /// <summary>
+        /// This method is a wrapper of M.View's clearValues() method. 
+        /// It clears the value of the respective view and also walks through nested child views.
+        /// </summary>
+        public void clearForm() { }
+    }
+
+    /// <summary>
+    /// A layout component for arranging views in a grid.
+    /// When you are using the grid view with one of the default layouts, the following CSS classes (applied on div elements) are relevant for you:
+    /// ui-grid-a: This defines the outer box of the two column grid.
+    /// ui-grid-b: This defines the outer box of the three column grid.
+    /// ui-grid-c: This defines the outer box of the four column grid.
+    /// ui-block-a: This defines the first column of the grid.
+    /// ui-block-b: This defines the second column of the grid.
+    /// ui-block-c: This defines the third column of the grid.
+    /// ui-block-d: This defines the fourth column of the grid.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.GridView", Export = false)]
+    public class GridView
+    {
+        /// <summary>
+        /// mandatory
+        /// Default : null
+        /// The layout for the grid view. There are two predefined layouts available: 
+        /// - M.TWO_COLUMNS
+        ///    a two column layout, width: 50% / 50% 
+        /// - M.THREE_COLUMNS
+        ///    a three column layout, width: 33% / 33% / 33% 
+        /// - M.FOUR_COLUMNS
+        ///    a four column layout, width: 25% / 25% / 25% 
+        /// 
+        /// To specify your own layout, you will have to implement some css classes and then define your layout like: 
+        /// 
+        /// cssClass: 'cssClassForWholeGrid', 
+        /// columns: { 
+        ///     0: 'cssClassForColumn1', 
+        ///     1: 'cssClassForColumn2', 
+        ///     2: 'cssClassForColumn3', 
+        ///     3: 'cssClassForColumn4', 
+        ///     //........ 
+        /// }
+        /// </summary>
+        public object layout { get; set; }
+    }
+
+    /// <summary>
+    /// A view presenting an image in your app.
+    /// The M.ImageView is a very basic view, that simply renders an image by using HTML's img element.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.ImageView", Export = false)]
+    public class ImageView
+    {
+
+        /// <summary>
+        /// optional
+        /// This property can be used to set CSS classes for an image.
+        /// </summary>
+        public JsString cssClass { get; set; }
+
+        /// <summary>
+        /// mandatory (if computedValue is not used)
+        /// This property defines the value of the image, which means the source that is displayed.
+        /// You can either provide a valid path or a data URI.
+        /// </summary>
+        public JsString value { get; set; }
+
+        //TODO: Events
+    }
+
+    /// <summary>
+    /// The basic view for placing text in your UI. (read-only).
+    /// The M.LabelView is basically a view to display a text. E.g. the text that is often displayed in a M.ToolBarView is a LabelView inside this bar.
+    /// The value of the label can be statical or dynamical.
+    /// It's also a common task to localize the value of a label. It can also used as a link inside the application and to external URLs.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.LabelView", Export = false)]
+    public class LabelView
+    {
+
+        /// <summary>
+        /// optional
+        /// This property can be used to set CSS classes for a label.
+        /// </summary>
+        public JsString cssClass { get; set; }
+
+        /// <summary>
+        /// optional
+        /// This property can be used to specify a hyperlink target for this label.
+        /// It only works in combination with the hyperlinkType property.
+        /// </summary>
+        public JsString hyperlinkTarget { get; set; }
+
+        /// <summary>
+        /// optional
+        /// This property can be used to specify a certain hyperlink type for this label.
+        /// It only works in combination with the hyperlinkTarget property. Three types are available:
+        /// M.HYPERLINK_EMAIL, for linking to an e-mail adress.
+        /// M.HYPERLINK_WEBSITE, for linking to a URL.
+        /// M.HYPERLINK_PHONE, for linking to a phone number.
+        /// </summary>
+        public JsString hyperlinkType { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default:NO
+        /// Can be used to let a label float with another following label. Both labels need to have it set to YES.
+        /// </summary>
+        public bool isInline { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default:YES
+        /// Determines whether a new line '\n' within the label's value should be transformed into a line break '' before it is rendered.
+        /// </summary>
+        public bool newLineToBreak { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default:YES
+        /// Determines whether a tabulator '\t' within the label's value should be transformed into four spaces ' ' before it is rendered.
+        /// </summary>
+        public bool tabToSpaces { get; set; }
+
+        /// <summary>
+        /// mandatory (if computedValue is not used)
+        /// This property defines the value of the label, which means the text that is displayed.
+        /// </summary>
+        public bool value { get; set; }
+
+        /// <summary>
+        /// Sets the label's value and initiates its re-rendering.
+        /// </summary>
+        /// <param name="value">The value to be applied on the label view.</param>
+        public void setValue(JsString value) { }
+
+        //TODO: Events
+    }
+
+    /// <summary>
+    /// The basic UI component to list data. Uses ListItems to define the look.
+    /// M.ListView is the prototype of any list view. It is used to display static or dynamic content as vertically aligned list items (M.ListItemView).
+    /// A list view provides some easy to use helper method, e.g. an out-of-the-box delete view for items.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.ListView", Export = false)]
+    public class ListView
+    {
+
+        /// <summary>
+        /// mandatory
+        /// Default: 
+        /// This property is used to bind list items (resp. "content") to the list view. This has to be an array of objects that match the applied list item template.
+        /// Now everytime the bound property changes, the list view will automatically update its items and re-render itself.
+        /// </summary>
+        public JsArray contentBinding { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// This property can be used to set CSS classes for the List.
+        /// </summary>
+        public JsString cssClass { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// If the list view is a counted list, this property can be used to customize the style of the list item's counter.
+        /// </summary>
+        public JsString cssClassForCounter { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// If the list view is a divided list, this property can be used to customize the style of the list's dividers.
+        /// </summary>
+        public JsString cssClassForDivider { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// Determines whether to add margin at the bottom of the list or not.
+        /// This is useful whenever the list is not the last element within a page's content area to make sure the list does not overlap following elements.
+        /// </summary>
+        public bool doNotOverlapAtBottom { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// Determines whether to add margin at the top of the list or not.
+        /// This is useful whenever the list is not the first element within a page's content area to make sure the list does not overlap preceding elements.
+        /// </summary>
+        public bool doNotOverlapAtTop { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// Determines whether or not to display a search bar at the top of the list view.
+        /// </summary>
+        public bool hasSearchBar { get; set; }
+
+        /// <summary>
+        /// recommended
+        /// Default: 
+        /// An optional String defining the id property that is passed in view as record id
+        /// </summary>
+        public JsString idName { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// Determines whether to display the the number of child items for each list item view.
+        /// </summary>
+        public bool isCountedList { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// Determines whether to display the list as a divided list or not.
+        /// </summary>
+        public bool isDividedList { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// Determines whether to display the list view 'inset' or at full width.
+        /// </summary>
+        public bool isInset { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// Defines if the ListView is rendered with prefixed numbering for each item.
+        /// </summary>
+        public bool isNumberedList { get; set; }
+
+        /// <summary>
+        /// mandatory
+        /// Default: 
+        /// This property contains the list view's template view, the blueprint for every child view.
+        /// </summary>
+        public ListItemView listItemTemplateView { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// An object containing target and action to be triggered if the search string changes.
+        /// </summary>
+        public object onSearchStringDidChange { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// Determines whether to remove all item if the list is updated or not.
+        /// </summary>
+        public bool removeItemsOnUpdate { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// The list view's search bar.
+        /// </summary>
+        public object searchBar { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 'Search...'
+        /// If the hasSearchBar property is set to YES and the usesDefaultSearchBehaviour is set to YES, this property can be used to specify the inital text for the search bar.
+        /// This text will be shown as long as nothing else is entered into the search bar text field.
+        /// </summary>
+        public JsString searchBarInitialText { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 
+        /// If the hasSearchBar property is set to YES, this property determines whether to use the built-in simple search filters or not.
+        /// If set to YES, the list is simply filtered on the fly according to the entered search string. Only list items matching the entered search string will be visible.
+        /// If a custom search behaviour is needed, this property must be set to NO.
+        /// </summary>
+        public bool usesDefaultSearchBehaviour { get; set; }
+
+        /// <summary>
+        /// This method adds a new list item to the list view by simply appending its html representation to the list view inside the DOM.
+        /// This method is based on jQuery's append().
+        /// </summary>
+        /// <param name="item">The html representation of a list item to be added.</param>
+        public void addItem(JsString item) { }
+
+        /// <summary>
+        /// This method removes all of the list view's items by removing all of its content in the DOM. This method is based on jQuery's empty().
+        /// </summary>
+        public void removeAllItems() { }
+
+        /// <summary>
+        /// This method resets the list by applying the default css style to its currently activated list item.
+        /// </summary>
+        public void resetActiveListItem() { }
+
+        /// <summary>
+        /// This method activates a list item by applying the default 'isActive' css style to its DOM representation.
+        /// </summary>
+        /// <param name="listItemId">The id of the list item to be set active.</param>
+        public void setActiveListItem(JsString listItemId) { }
+
+        /// <summary>
+        /// This method activates the edit mode and forces the list view to re-render itself and to display a remove button for every list view item.
+        /// </summary>
+        /// <param name="options">options The options for the remove button.</param>
+        public void toggleRemove(object options) { }
+        //TODO: no class for the options proprtyes?
+
+        //TODO: Events
+    }
+
+    /// <summary>
+    /// The template for every list entry as a container for different other views.
+    /// A list item view serves as a template for each list item within a list view.
+    /// Therefore it can only be used as a child view (resp. a listItemTemplateView) of a list view (M.ListView).
+    /// Within your application you will use define a list item view for each list, that determines the layout of any list item within this list.
+    /// So the component serves as a container and can be filled with all basic views, e.g. a label, a button or an image. Learn more about this in the examples.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.ListItemView", Export = false)]
+    public class ListItemView
+    {
+        /// <summary>
+        /// optional
+        /// Default : M.ButtonView.design({ icon: 'delete',value: '' })
+        /// This property contains the list item's delete button that is automatically shown if the list view's built-in toggleRemove() functionality is used.
+        /// </summary>
+        public ButtonView deleteButton { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This property determines whether a list item has one single action that is triggered once there is a click anywhere inside the list item
+        /// or if there are specific actions defined for single ui elements within one list item.
+        /// </summary>
+        public bool hasSingleAction { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This property can be used to specify whether a selection list item can be selected or not.
+        /// Note, that this only affects styling stuff. If set to NO, you still can apply e.g. tap events.
+        /// </summary>
+        public bool isSelectable { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default : M.ButtonView.design({ value: 'delete', cssClass: 'a tmp-actionsheet-destructive-button tmp-swipe-button' })
+        /// This property can be used to specify a button that appears on a swipe left or swipe righ gesture (as known from the iphone).
+        /// Simply specify a tap event for that button and provide a custom method to handle the event. This can e.g. be used as a delete button. 
+        /// By default the button will look like a delete button (in red) and display 'delete'.
+        /// To change this, simply pass a value to set the label and make use of the cssClass property.
+        /// To get a standard button as you now it from the other parts of the framework, set the cssClass property's value to:
+        /// 'a' -> black
+        /// 'b' -> blue
+        /// 'c' -> light grey
+        /// 'd' -> white
+        /// 'e' -> yellow
+        /// Check the jQM docs for further information and visual samples of these themes: http://jquerymobile.com/test/docs/buttons/buttons-themes.html
+        /// </summary>
+        public ButtonView swipeButton { get; set; }
+
+        //TODO: Events
+
+    }
+
+    /// <summary>
+    /// Indicate a user that something is happening/gets loaded.
+    /// The loader view indicates a user that something is taking so much time that you need to inform him about it.
+    /// Typically a loader view would be shown everytime a request is done, a complex operation is performed or maybe even if the application switches to another page.
+    /// Besides showing and hiding a loader view, you can define the message that is displayed within the loader view.
+    /// Note: By showing the loader view, an internal reference counter will be increased, by hiding the loader view, this counter will be decreased.
+    /// We do this since it can happen, that your application fires several request at a time, but receives the responses asynchronously.
+    /// So without this internal stack, the first response would hide the loader view visually event though other operations are still in progress.
+    /// CSS Styles:
+    /// The styling of the loader view is done by jQuery Mobile. There are three css classes responsible for the layout:
+    /// ui-loader: This defines the size and position of the loader view.
+    /// ui-body-a: This defines the color and styling of the loader view.
+    /// ui-corner-all: This adds round corners to the loader view.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.LoaderView", Export = false)]
+    public class LoaderView
+    {
+
+        /// <summary>
+        /// optional
+        /// Default : "loading"
+        /// This property can be used to specify the default title of a loader.
+        /// </summary>
+        public JsString defaultTitle { get; set; }
+
+        /// <summary>
+        /// This method hides the loader. If the force parameter is not set to YES, this method only decreases the internal reference counter.
+        /// If the counter gets down to 0, the loader view visually disappears.
+        /// </summary>
+        /// <param name="force">Determines whether to force the hide of the loader.</param>
+        public void hide(bool force) { }
+
+        /// <summary>
+        /// This method shows the default loader. You can specify the displayed label with the title parameter.
+        /// By calling this method, the internal reference counter get increased by one.
+        /// </summary>
+        /// <param name="title">The loader view's current title.</param>
+        public void show(JsString title) { }
+    }
+
+    [JsType(JsMode.Prototype, Name = "M.MapView", Export = false)]
+    public class MapView
+    {
+        /// <summary>
+        /// recommended
+        /// This property, if set, contains the map view's callback in sub a object named 'error',
+        /// which will be called if no connection is available and the map service (google maps api) can not be loaded and a 'success' object,
+        /// defining a callback once the api was loaded. E.g. you can specify something like:
+        /// callbacks: {
+        ///     success: {
+        ///         target: MyApp.MyController,
+        ///         action: 'mapsAPILoaded'
+        ///     },
+        ///     error: {
+        ///         target: MyApp.MyController,
+        ///         action: 'noConnectionAvailable'
+        ///     }
+        /// }
+        /// 
+        /// </summary>
+        public object callbacks { get; set; }
+
+        /// <summary>
+        /// recommended
+        /// This property can be used to assign a certain css class to the map view's container.
+        /// This allows you to specify styling stuff like the width and height of your map view. So we recommend to always assign a css class ... just in case.
+        /// </summary>
+        public JsString cssClass { get; set; }
     }
 
     public class TabBarView
     {
+
     }
 
     public class Page
