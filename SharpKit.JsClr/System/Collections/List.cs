@@ -9,15 +9,6 @@ namespace SharpKit.JavaScript.Private
 	//[Remotable]
 	internal partial class JsImplList<T> : IList<T>, IList
 	{
-        //[JsType(Name = "System.Collections.Generic.List.Enumerator$1", Filename = "~/res/System.Collections.js")]
-        //class Enumerator : IListEnumerator<T>
-        //{
-        //    public Enumerator(List<T> list)
-        //        : base(list)
-        //    {
-        //    }
-        //}
-
 		public JsImplList()
 		{
 			this._list = new JsExtendedArray();
@@ -152,7 +143,21 @@ namespace SharpKit.JavaScript.Private
 		{
 			_list.sort(comparison.ToJsFunction());
 		}
-		
+
+        /// <summary>Performs the specified action on each element of the <see cref="T:System.Collections.Generic.List`1" />.</summary>
+        /// <param name="action">The <see cref="T:System.Action`1" /> delegate to perform on each element of the <see cref="T:System.Collections.Generic.List`1" />.</param>
+        /// <exception cref="T:System.ArgumentNullException">
+        ///   <paramref name="action" /> is null.</exception>
+        public void ForEach(Action<T> action)
+        {
+            if (action == null)
+                throw new ArgumentNullException("action");
+            for (int i = 0; i < _list.length; i++)
+            {
+                action(_list[i].As<T>());
+            }
+        }
+
 		#region IList Members
 
 		int IList.Add(object value)
