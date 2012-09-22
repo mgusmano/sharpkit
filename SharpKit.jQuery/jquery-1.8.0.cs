@@ -772,7 +772,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Display or hide the matched elements by animating their opacity.
         /// </summary>
-        
+
         public jQuery fadeToggle() { return null; }
         /// <summary>
         /// Display or hide the matched elements by animating their opacity.
@@ -2171,6 +2171,14 @@ namespace SharpKit.jQuery
         /// </summary>
         public static jqXHR ajax(AjaxSettings settings) { return null; }
         /// <summary>
+        /// Perform an asynchronous HTTP (Ajax) request.
+        /// </summary>
+        public static jqXHR ajax(JsString url, AjaxSettings settings) { return null; }
+        /// <summary>
+        /// Perform an asynchronous HTTP (Ajax) request.
+        /// </summary>
+        public static jqXHR ajax(JsString url) { return null; }
+        /// <summary>
         /// Set default values for future Ajax requests.
         /// </summary>
         public static void ajaxSetup(AjaxSettings options) { }
@@ -2924,9 +2932,12 @@ namespace SharpKit.jQuery
 
     #endregion
     #region jqXHR
-
+    /// <summary>
+    ///The jQuery XMLHttpRequest (jqXHR) object returned by $.ajax() as of jQuery 1.5 is a superset of the browser's native XMLHttpRequest object. For example, it contains responseText and responseXML properties, as well as a getResponseHeader() method. When the transport mechanism is something other than XMLHttpRequest (for example, a script tag for a JSONP request) the jqXHR object simulates native XHR functionality where possible.    
+    ///The jqXHR objects returned by $.ajax() as of jQuery 1.5 implement the Promise interface, giving them all the properties, methods, and behavior of a Promise (see Deferred object for more information). For convenience and consistency with the callback names used by $.ajax(), jqXHR also provides .error(), .success(), and .complete() methods. These methods take a function argument that is called when the $.ajax() request terminates, and the function receives the same arguments as the correspondingly-named $.ajax() callback. This allows you to assign multiple callbacks on a single request, and even to assign callbacks after the request may have completed. (If the request is already complete, the callback is fired immediately.)
+    /// </summary>
     [JsType(JsMode.Json)]
-    public class jqXHR
+    public class jqXHR : Promise
     {
         /// <summary>
         /// Retrieves the response body as a string.
@@ -2965,6 +2976,20 @@ namespace SharpKit.jQuery
         /// <param name="name"></param>
         /// <returns></returns>
         public JsString getResponseHeader(string name) { return null; }
+
+        /// <summary>
+        /// As of jQuery 1.5.1, the jqXHR object also contains the overrideMimeType() method (it was available in jQuery 1.4.x, as well, but was temporarily removed in jQuery 1.5). The .overrideMimeType() method may be used in the beforeSend() callback function, for example, to modify the response content-type header:
+        /// </summary>
+        /// <example>
+        ///<code>
+        ///jQuery.ajax(new AjaxSettings
+        ///{
+        ///  url= "http://fiddle.jshell.net/favicon.png",
+        ///  beforeSend = xhr => xhr.overrideMimeType("text/plain; charset=x-user-defined"),
+        ///}).done(data => console.log("Sample of data:", data.slice(0, 100)));
+        /// </code>
+        ///</example>
+        public void overrideMimeType(JsString mimeType) { }
     }
     #endregion
     #region AjaxSettings
@@ -3463,6 +3488,24 @@ namespace SharpKit.jQuery
         /// </example>
         public Deferred done(JsAction callback) { return null; }
         /// <summary>
+        /// Add handlers to be called when the Deferred object is resolved.
+        /// </summary>
+        /// <param name="callback">
+        /// doneCallbacks A function, or array of functions, that are called when the Deferred is resolved.
+        ///doneCallbacks Optional additional functions, or arrays of functions, that are called when the Deferred is resolved.
+        /// </param>
+        /// <returns>
+        /// returns the deferred object
+        /// </returns>
+        /// <example>
+        /// Since the jQuery.get method returns a jqXHR object, which is derived from a Deferred object, we can attach a success callback using the .done() method.
+        ///<code>
+        ///$.get("test.php").done(function() { alert("$.get succeeded"); });
+        ///</code>
+        ///Resolve a Deferred object when the user clicks a button, triggering a number of callback functions:
+        /// </example>
+        public Deferred done<T>(JsAction<T> callback) { return null; }
+        /// <summary>
         /// Add handlers to be called when the Deferred object is rejected.
         /// </summary>
         /// <param name="callback">
@@ -3777,8 +3820,9 @@ namespace SharpKit.jQuery
         /// </code>
         /// </example>
         public Deferred then(JsAction doneCallbacks, JsAction failCallbacks) { return null; }
-
     }
+
+
     #endregion
     #region TopLeft
     [JsType(JsMode.Json)]
@@ -3801,4 +3845,6 @@ namespace SharpKit.jQuery
 
 
 }
+
+
 
