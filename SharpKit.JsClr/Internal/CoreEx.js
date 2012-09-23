@@ -339,7 +339,7 @@ JsTypes.push({ fullname: "System.Double", baseTypeName: "System.ValueType", defi
 	tryParse: function (s) {
 		return parseFloat(s);
 	},
-	IsNan: isNaN,
+	IsNaN: isNaN,
 	PositiveInfinity: Number.POSITIVE_INFINITY,
 	NegativeInfinity: Number.NEGATIVE_INFINITY
 }

@@ -223,6 +223,38 @@ var System$DateTime =
         get_Now: function ()
         {
             return new System.DateTime.ctor$$Date(new Date());
+        },
+        op_Equality: function (t1, t2)
+        {
+            if (t1 == t2)
+                return true;
+            if (t1 == null || t2 == null)
+                return false;
+            return t1.date.getTime() == t2.date.getTime();
+        },
+        op_Inequality: function (t1, t2)
+        {
+            if (t1 != t2)
+                return true;
+            if (t1 == null || t2 == null)
+                return false;
+            return t1.date.getTime() != t2.date.getTime();
+        },
+        op_Subtraction$$DateTime$$DateTime: function (t1, t2)
+        {
+            return System.TimeSpan.FromMilliseconds(t1.date.getTime() - t2.date.getTime());
+        },
+        op_Subtraction$$DateTime$$TimeSpan: function (t1, t2)
+        {
+            return new System.DateTime.ctor$$Date(new Date(t1.date.getDate() - Cast(t2.get_TotalMilliseconds(), System.Int64.ctor)));
+        },
+        op_Addition$$DateTime$$DateTime: function (t1, t2)
+        {
+            return System.TimeSpan.FromMilliseconds(t1.date.getTime() + t2.date.getTime());
+        },
+        op_Addition$$DateTime$$TimeSpan: function (t1, t2)
+        {
+            return new System.DateTime.ctor$$Date(new Date(t1.date.getDate() + Cast(t2.get_TotalMilliseconds(), System.Int64.ctor)));
         }
     },
     assemblyName: "SharpKit.JsClr",

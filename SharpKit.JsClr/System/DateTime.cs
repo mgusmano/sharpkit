@@ -67,7 +67,8 @@ this.date = System.DateTime.MinValue.date;
         public static JsImplDateTime MinValue = null;
 
         [JsMethod(Name = "Parse$$String")]
-        public static DateTime Parse(string str) {
+        public static DateTime Parse(string str)
+        {
             return new DateTime(JsDate.parse(str));
         }
 
@@ -237,8 +238,40 @@ this.date = System.DateTime.MinValue.date;
             format = format.Replace("s", Second.ToString());
             return format;
         }
-    }
 
+        public static bool operator ==(JsImplDateTime t1, JsImplDateTime t2)
+        {
+            if (t1.As<object>() == t2.As<object>()) return true;
+            if (t1.As<object>() == null || t2.As<object>() == null) return false;
+            return t1.date.getTime() == t2.date.getTime();
+        }
+
+        public static bool operator !=(JsImplDateTime t1, JsImplDateTime t2)
+        {
+            if (t1.As<object>() != t2.As<object>()) return true;
+            if (t1.As<object>() == null || t2.As<object>() == null) return false;
+            return t1.date.getTime() != t2.date.getTime();
+        }
+
+        public static TimeSpan operator -(JsImplDateTime t1, JsImplDateTime t2)
+        {
+            return TimeSpan.FromMilliseconds(t1.date.getTime() - t2.date.getTime());
+        }
+        public static JsImplDateTime operator -(JsImplDateTime t1, TimeSpan t2)
+        {
+            return new JsImplDateTime(new JsDate((long)t1.date.getDate() - (long)t2.TotalMilliseconds));
+        }
+
+        public static TimeSpan operator +(JsImplDateTime t1, JsImplDateTime t2)
+        {
+            return TimeSpan.FromMilliseconds(t1.date.getTime() + t2.date.getTime());
+        }
+        public static JsImplDateTime operator +(JsImplDateTime t1, TimeSpan t2)
+        {
+            return new JsImplDateTime(new JsDate((long)t1.date.getDate() + (long)t2.TotalMilliseconds));
+        }
+
+    }
 
     [JsType(Filename = "~/Internal/Core.js")]
     static class Extensions
