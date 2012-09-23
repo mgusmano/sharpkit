@@ -1522,7 +1522,10 @@ namespace SharpKit.jQuery
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery removeClass(this jQuery query, RemoveClassOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery removeClass(this jQuery query, string methodName, object number, jQueryUIEvent callback) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery removeClass(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+
     }
     #endregion
     #region RemoveClassOptions
