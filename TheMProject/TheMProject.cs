@@ -2500,8 +2500,502 @@ namespace TheMProject
         //TODO: Events
     }
 
+    /// <summary>
+    /// Offer several options in a selectable way.
+    /// The M.SelectionListView is a very often used UI element. It is used, to give users the opportunity to choose between one or more values.
+    /// It combines the HTML elements radio box, checkbox and select box in a single view. When rendering the choices of the select box, the native look and feel is used. 
+    /// The type of box that is shown is defined by a property of the view.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.SelectionListView", Export = false)]
+    public class SelectionListView
+    {
+
+        /// <summary>
+        /// optional (not necessary when using content binding)
+        /// A string naming the child views of this element. E.g.
+        /// childViews: 'item1 item2 item3'
+        /// Those childViews have to be defined inside the definition of this view, see the examples.
+        /// </summary>
+        public JsString childViews { get; set; }
+
+        /// <summary>
+        /// optional
+        /// In a SelectionListView the content binding defines the content of a SelectionView, means: its selectable entries.
+        /// If childViews are also given, these are used until the first time contentBinding is 'activated'.
+        /// </summary>
+        public object contentBinding { get; set; }
+
+        /// <summary>
+        /// optional
+        /// The label property defines a text that is shown above or next to the selection list as a 'title' for the selection list. e.g. "Name:".
+        /// If no label is specified, no label will be displayed.
+        /// </summary>
+        public JsString label { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// Determines whether to remove all item if the list is updated (via content binding) or not.
+        /// </summary>
+        public bool removeItemsOnUpdate { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: M.SINGLE_SELECTION
+        /// Defines which type of SelectionView shall be rendered. There's tree possible types:
+        /// Single Selection: M.SINGLE_SELECTION. This selection mode will render a selection list with several list items of which only one can be selected.
+        /// Whenever a new item is selected, the previously selected item automatically gets de-selected.
+        /// This selection mode's behaviour is equivalent to the plain HTML's radio button.
+        /// Multiple Selection: M.MULTIPLE_SELECTION. This selection mode will render a selection list with several list items of which all be selected.
+        /// So the selection of a new item doesn't lead to automatic de-selected of previously selected items.
+        /// This selection mode's behaviour is equivalent to the plain HTML's checkboxes.
+        /// Single Selection Dialog: M.SINGLE_SELECTION_DIALOG. This selection mode will render a selection list equivalent to the plain HTML's select menu.
+        /// Only the currently selected item will be visible, and by clicking on this item, the selection list will be displayed in a dialog respectively a popup view.
+        /// By selecting on of the items, this popup will automatically close and the selected value will be displayed.
+        /// Single Selection Dialog: M.MULTIPLE_SELECTION_DIALOG. This selection mode will render a selection list equivalent to the plain HTML's select menu, but with the possibility to select multiple options.
+        /// In contrast to the single selection dialog mode, it also is possible to select no option at all.
+        /// As with the multiple selecton mode, the selection of a new item doesn't lead to automatic de-selected of previously selected items.
+        /// Note: This mode currently only works on mobile devices!!
+        /// If no value is passed, the default value is used.
+        /// </summary>
+        public JsString selectionMode { get; set; }
+
+        /// <summary>
+        /// This method disables the selection list by setting the isEnabled property to YES and initializing a corresponding re-painting.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// This method enables the selection list by setting the isEnabled property to NO and initializing a corresponding re-painting.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// This method returns the selected item's value(s) either as a String (single selection) or as an Array (multiple selection).
+        /// If YES/true is passed as parameter, object(s) (a M.SelectionListItemView (or an array of them) is returned.
+        /// </summary>
+        /// <param name="returnObject">Determines whether to return the selected item(s) as object or not.</param>
+        /// <returns>String, Object or Array</returns>
+        public object getSelection(bool returnObject) { return null; }
+
+        /// <summary>
+        /// This method can be used to reset the selection of a selection list regardless of the selection mode.
+        /// If the selection list is filled using content binding, this method will simply re-apply this bound content to its body.
+        /// Otherwise, if no content binding is used, the selection list automatically stores the initial state specified by its child views in an internal property.
+        /// On calling this method, this stored state will be applied to the selection list's content.
+        /// </summary>
+        public void resetSelection() { }
+
+        /// <summary>
+        /// This method can be used to select items programmatically. The given parameter can either be a String (single selection) or an Array (multiple selection).
+        /// </summary>
+        /// <param name="selection">(String or Array): The item/entry (its value) that should be selected.</param>
+        public void setSelection(JsString selection) { }
+        /// <summary>
+        /// This method can be used to select items programmatically. The given parameter can either be a String (single selection) or an Array (multiple selection).
+        /// </summary>
+        /// <param name="selection">(String or Array): The item/entry (its value) that should be selected.</param>
+        public void setSelection(JsArray selection) { }
+
+        //TODO: Events  
+
+    }
+
+    /// <summary>
+    /// Add selectable items to a selection list.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.SelectionListItemView", Export = false)]
+    public class SelectionListItemView
+    {
+        /// <summary>
+        /// optional
+        /// This property states whether a selection list item is selected or not.
+        /// </summary>
+        public bool isSelected { get; set; }
+
+        /// <summary>
+        /// optional
+        /// This property can be used to specify a label for a selection list item.
+        /// If set, the label will be displayed instead of the value, so you can use the item's value as an internal value. 
+        /// E.g. if you use a selection list to select a color, you could set an item's value to '#FF0000' but its label to 'Red'.
+        /// If there is no label specified, the value is displayed instead.
+        /// </summary>
+        public JsString label { get; set; }
+
+        /// <summary>
+        /// mandatory
+        /// This property can be used internally to identify an item. If no label is defined for the item, the value is also used as label.
+        /// </summary>
+        public JsString value { get; set; }
+    }
+
+    /// <summary>
+    /// A touch-optimized slider view.
+    /// The slider view renders a touch-optimized slider that can be used to set a number within a specified range.
+    /// CSS Styles:
+    /// The styling of the slider view is done by jQuery Mobile but refined by some TMP stuff. The following classes are relevant:
+    /// tmp-slider-container: This defines the container for the slider view.
+    /// tmp-slider-is-slider-only: If the isSliderOnly property is set to YES, this class is added to the slider.
+    /// ui-slider: This defines the jQuery Mobiel default styling for slider view.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.SliderView", Export = false)]
+    public class SliderView
+    {
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// This property determines whether or not to display the corresponding input of the slider.
+        /// If set to NO, a textfield will be visible, showing the slider's current value. If set to YES, only the slider will be visible.
+        /// </summary>
+        public bool isSliderOnly { get; set; }
+
+        /// <summary>
+        /// recommended
+        /// Default: 100
+        /// This property specifies the max value of the slider. The user can not set a higher value than specified with this property.
+        /// </summary>
+        public JsNumber max { get; set; }
+
+        /// <summary>
+        /// recommended
+        /// Default: 0
+        /// This property specifies the min value of the slider. The user can not set a lower value than specified with this property. with this property.
+        /// </summary>
+        public JsNumber min { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: 1
+        /// This property specifies the step value of the slider.
+        /// </summary>
+        public JsNumber step { get; set; }
+
+        /// <summary>
+        /// recommended
+        /// Default: 0
+        /// This property contains the slider's value. Set this to adjust the initial value of the slider.
+        /// Once the user moves the slider, this property gets automatically updated.
+        /// </summary>
+        public JsNumber value { get; set; }
+
+        /// <summary>
+        /// This method disables the slider so it can no longer be moved by a user.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// This method enables the slider so it can be moved by a user.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// This method resets the slider to its initial value.
+        /// </summary>
+        public void resetSlider() { }
+
+    }
+
+    /// <summary>
+    /// A convenient navigation bar as known from e.g. the iPhone.
+    /// A tab bar view is a special variant of a toolbar at the top or bottom of a page, that consists of up to five horizontally aligned tabs.
+    /// A M.TabBarView can be used as the top navigation level for an application since it is always visible an indicates the currently active part of the application by highlighting the corresponding tab.
+    /// CSS Styles:
+    /// The styling of the tab bar is done by jQuery Mobile. It is pretty much the same as with the M.ToolbarView. Depending on the anchorLocation property, some of the following css classes are responsible for the layout:
+    /// ui-header / ui-footer: This defines some basic layout and positioning setup for the tab bar.
+    /// ui-bar-a: This class defines the color and visual style of the tab bar.
+    /// ui-header-fixed / ui-footer-fixed: This indicates that the tab bar is fixed.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.TabBarView", Export = false)]
     public class TabBarView
     {
+        /// <summary>
+        /// recommended
+        /// Defines the position of the TabBar. Possible values are:
+        /// M.BOTTOM => is a footer tab bar
+        /// M.TOP => is a header tab bar
+        /// </summary>
+        public JsString anchorLocation { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: tab_bar
+        /// This property defines the tab bar's name. This is used internally to identify the tab bar inside the DOM.
+        /// If your application only uses one tab bar (the typical way), there is no need to specify a custom name.
+        /// </summary>
+        public JsString name { get; set; }
+
+        /// <summary>
+        /// This method visually activates / highlights a tab bar item.
+        /// Of course the previously activated tab will automatically be deactivated before.
+        /// </summary>
+        /// <param name="tab">The tab to set active.</param>
+        public void setActiveTab(TabBarItemView tab) { }
+    }
+
+    /// <summary>
+    /// A child view of a tab bar.
+    /// A tab bar item view is the one an only possible type of view that can be applied to a tab bar view as a child.
+    /// It represents the actual tab, whilst the tab bar is something like a container for several tab bar items.
+    /// CSS Styles:
+    /// The styling of the tab bar is mainly done by jQuery Mobile. For styling a tab bar item you way, you might want to take a look at the following css class:
+    /// ui-icon: This defines the styling and layout of the tab bar item's icon. If you are using custom icons, you likely will have to make some adjustments there.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.TabBarItemView", Export = false)]
+    public class TabBarItemView
+    {
+        /// <summary>
+        /// optional
+        /// This property can be used to specify an icon for a tab bar item. Regarding the markup, this will result in a data-icon attribute of the tab bar item.
+        /// If you want to use some of the default jQuery Mobile icons, it'll all work just fine out of the box.
+        /// If you want to use your own icons, there will be some more work to do. Check the examples for further information.
+        /// </summary>
+        public JsString icon { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// This property can be used to specify whether a tab bar item is active on startup or not.
+        /// Note: If you are setting this property to YES for more than one tab item, the first will win. All the others will automatically be set to not active instead.
+        /// Note 2: If you are setting this property to NO for all tab items, the application's entryPage property will decide which on to activate on startup.
+        /// </summary>
+        public bool isActive { get; set; }
+
+        /// <summary>
+        /// mandatory
+        /// This property specifies the corresponding page for this tab bar item so the framework knows which page to show once a user taps on a tab bar item.
+        /// </summary>
+        public JsString page { get; set; }
+
+        /// <summary>
+        /// recommended
+        /// Default: NO
+        /// This property specifies the tab bar item's visible value.
+        /// </summary>
+        public JsString value { get; set; }
+        //TODO: Default= NO, but it is not a boolean it is a string...?
+
+    }
+
+    /// <summary>
+    /// This view renders a HTML table element based on a bound content.
+    /// The M.TableView simply renders a HTML table element with an optional table header and based on a bound content. Whenever the content changes, the table re-paints itself.
+    /// CSS Styles:
+    /// The following CSS classes are relevant when using a table view:
+    /// tmp-table-container: This is applied the outer box of the table view.
+    /// tmp-table: This is applied to the table element.
+    /// tmp-table-th: This is applied to the th element.
+    /// tmp-table-td: This is applied to the td element.
+    /// tmp-table-tr-a: This is applied to every odd td element.
+    /// tmp-table-tr-b: This is applied to every even td element.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.TableView", Export = false)]
+    public class TableView
+    {
+        /// <summary>
+        /// optional
+        /// This property can be used to set CSS classes for the table.
+        /// </summary>
+        public JsString cssClass { get; set; }
+
+        /// <summary>
+        /// optional
+        /// This property can be used to specify the table's header and cols, independent from dynamically loaded table content.
+        /// It can be provided with the table's definition within a page component. The table's content, in contrast, can only be applied via content binding.
+        /// Note: If the removeHeaderRowOnUpdate property is set to YES, the header will be removed whenever a content binding is applied.
+        /// So if the header shall be statically specified by the view component, do not set that property to YES!
+        /// This property should look something like the following:
+        /// {
+        ///     data: ['col1', 'col2', 'col3'],
+        ///     cols: ['20%', '10%', '70%']
+        /// }
+        /// Note: the cols property of this object is optional. You can also let CSS take care of the columns arrangement or simply let the browser do all the work automatically.
+        /// </summary>
+        public JsString header { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This property determines whether to remove all content rows if the table is updated or not.
+        /// </summary>
+        public bool removeContentRowsOnUpdate { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// This property determines whether to remove the header rows if the table is updated or not.
+        /// </summary>
+        public bool removeHeaderRowOnUpdate { get; set; }
+
+        /// <summary>
+        /// This method adds a new row to the table view by simply appending its html representation to the table view inside the DOM. This method is based on jQuery's append().
+        /// </summary>
+        /// <param name="row">The html representation of a table row to be added.</param>
+        /// <param name="addToTableHeader">Determines whether or not to add the row to the table's header.</param>
+        public void addRow(JsString row, bool addToTableHeader) { }
+
+        /// <summary>
+        /// This method removes all of the table view's rows by removing all of its content in the DOM. This method is based on jQuery's empty().
+        /// </summary>
+        public void removeAllRows() { }
+
+        /// <summary>
+        /// This method removes all content rows of the table view by removing the corresponding html in the DOM. This method is based on jQuery's remove().
+        /// </summary>
+        public void removeContentRows() { }
+    }
+
+    /// <summary>
+    /// Offer a simple text field for some user input.
+    /// M.TextFieldView is the prototype of any text field input view.
+    /// It can be rendered as both a single line text field and a multiple line text field (a textbox). If it is styled as a multiple line text field,
+    /// is has a built-in autogrow mechanism so the textfield is getting larger depending on the number of lines of text a user enters.
+    /// CSS Styles:
+    /// There are a few CSS classes responsible for the look and feel of the text field view:
+    /// ui-shadow-inset: This defines an inner shadow for the text field view.
+    /// ui-input-text : This class defines the size, padding, line-height, font-size for the text field view.
+    /// ui-corner-all: This adds round corners to the text field view.
+    /// ui-body-c: This class defines some styling stuff like border, text color, text-shadow or the background.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.TextFieldView", Export = false)]
+    public class TextFieldView
+    {
+
+        /// <summary>
+        /// optional
+        /// This property can be used to assign a special css class to the text field while the initial text is visible (c.p. initialText).
+        /// </summary>
+        public JsString cssClassOnInit { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// TThis property specifies whether the text field view is a simple, single-line text field or a text box with multiple lines.
+        /// </summary>
+        public bool hasMultipleLines { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: ''
+        /// By setting this property, one can specify a initial text for a text field view.
+        /// So whenever the text field view's value is empty (e.g. on startup or when resetting a form view), the string specified with this property will be shown.
+        /// Note: To give this initial text a special styling, use the cssClassOnInit property.
+        /// </summary>
+        public JsString initialText { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: M.INPUT_TEXT
+        /// This property can be used to specify the input type of a text field view. Possible values are:
+        /// M.INPUT_TEXT --> text input (default)
+        /// M.INPUT_PASSWORD --> password
+        /// M.INPUT_NUMBER --> number
+        /// M.INPUT_TELEPHONE --> tel
+        /// M.INPUT_URL --> url
+        /// M.INPUT_EMAIL --> email
+        /// M.INPUT_TIME --> time
+        /// M.INPUT_DATE --> date
+        /// M.INPUT_MONTH --> month
+        /// M.INPUT_WEEK --> week
+        /// M.INPUT_DATETIME --> datetime
+        /// M.INPUT_DATETIME_LOCAL --> datetime-local
+        /// Note: These special input types are specified with HTML5 and not yet supported by all the browsers out there.
+        /// So it could happen, that a plain text input field will be rendered instead of e.g. a email input.
+        /// </summary>
+        public JsString inputType { get; set; }
+
+        /// <summary>
+        /// optional
+        /// The label proeprty defines a text that is shown above or next to the textfield as a 'title' for the textfield. e.g.
+        /// "Name:". If no label is specified, no label will be displayed.
+        /// </summary>
+        public JsString label { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This property can be used to specify whether to use the native implementation of one of the HTML5 input types if it is available.
+        /// If set to YES, e.g. iOS5 will render its own date/time picker controls to the corresponding input type.
+        /// If set to NO, the native implementation will be disabled.
+        /// </summary>
+        public bool useNativeImplementationIfAvailable { get; set; }
+
+        /// <summary>
+        /// This method can be used to disable the text field view. This leads to a visual 'disabled' look and disabled the text fields events.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// This method clears the text field's value, both in the DOM and within the corresponding JS object.
+        /// </summary>
+        public void clearValue() { }
+
+        /// <summary>
+        /// This method can be used to enable a disabled text field and make it usable again.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// This method sets the text field's value and initiates its re-rendering.
+        /// </summary>
+        /// <param name="value">The value to be applied to the text field view.</param>
+        public void setValue(JsString value) { }
+
+        //TODO: Events
+
+    }
+
+    /// <summary>
+    /// An easy way to toggle between two views
+    /// M.ToggleView defines the prototype of any toggle view.
+    /// A toggle view accepts exactly two child views and provides an easy mechanism to toggle between these two views.
+    /// An easy example would be to define two different button views that can be toggled,
+    /// a more complex scenario would be to define two content views (M.ScrollView) with own child views and toggle between them.
+    /// CSS Styles:
+    /// The hidden view is disabled via inline style "display:none;".
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.ToggleView", Export = false)]
+    public class ToggleView
+    {
+        /// <summary>
+        /// Default: M.ToggleView
+        /// The type of this object.
+        /// </summary>
+        public JsString type { get; set; }
+
+        /// <summary>
+        /// Default: YES
+        /// States whether the toggle view currently displays its first child view or its second child view.
+        /// </summary>
+        public bool isInFirstState { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// Determines whether to toggle the view on click. This might be useful if the child views are e.g. buttons.
+        /// </summary>
+        public bool toggleOnClick { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// TThis property specifies whether the text field view is a simple, single-line text field or a text box with multiple lines.
+        /// </summary>
+        public bool hasMultipleLines { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// TThis property specifies whether the text field view is a simple, single-line text field or a text box with multiple lines.
+        /// </summary>
+        public bool hasMultipleLines { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// TThis property specifies whether the text field view is a simple, single-line text field or a text box with multiple lines.
+        /// </summary>
+        public bool hasMultipleLines { get; set; }
 
     }
 
