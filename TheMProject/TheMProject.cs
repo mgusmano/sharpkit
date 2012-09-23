@@ -2977,31 +2977,151 @@ namespace TheMProject
         public bool toggleOnClick { get; set; }
 
         /// <summary>
+        /// Contains a reference to the currently displayed view.
+        /// </summary>
+        public View currentView { get; set; }
+
+        /// <summary>
+        /// This method toggles the child views by first emptying the toggle view's content and then rendering the next child view by calling renderUpdateChildViews().
+        /// </summary>
+        public void toggleView() { }
+
+        /// <summary>
+        /// This method can be used to set on of the toggle view's child views as the active one. Simply pass the view, its id or its name.
+        /// If a view or id is passed, that does not match on of the toggle view's child views, nothing will be done.
+        /// </summary>
+        /// <param name="view">The corresponding view.</param>
+        public void setView(object view) { }
+        /// <summary>
+        /// This method can be used to set on of the toggle view's child views as the active one. Simply pass the view, its id or its name.
+        /// If a view or id is passed, that does not match on of the toggle view's child views, nothing will be done.
+        /// </summary>
+        /// <param name="view">The corresponding view.</param>
+        public void setView(JsString view) { }
+
+    }
+
+    /// <summary>
+    /// A toggle switch view. You can think of it as an boolean switcher.
+    /// A binary "flip" switch is a common UI element on mobile devices that is used for binary on/off or true/false data input.
+    /// You can either drag the flip handle like a slider or tap one side of the switch.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.ToggleSwitchView", Export = false)]
+    public class ToggleSwitchView
+    {
+        /// <summary>
         /// optional
         /// Default: NO
-        /// TThis property specifies whether the text field view is a simple, single-line text field or a text box with multiple lines.
+        /// jQuery mobile: "All form controls accept a data-mini="true" attribute that renders a smaller version of the standard-sized form elements.
+        /// In the case of grouped buttons, the data-mini="true" attribute can be added to the containing controlgroup.
+        /// Compare mini and normal form elements side-by-side."
         /// </summary>
-        public bool hasMultipleLines { get; set; }
+        public bool isMini { get; set; }
+
+        /// <summary>
+        /// optional
+        /// With this property one or more css classes can be added to the togglesplit view.
+        /// </summary>
+        public JsString cssClass { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: true
+        /// The text displayed on the togglesplit view when it is on.
+        /// Think of it as an boolean switch so the on value is set default to true It is set through the render function.
+        /// If there is no label defined the label gets set by the value.
+        /// </summary>
+        public JsString onLabel { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: false
+        /// The text displayed on the togglesplit view when it is off.
+        /// Think of it as an boolean switch so the off value is set default to false It is set through the render function.
+        /// If there is no label defined the label gets set by the value.
+        /// </summary>
+        public JsString offLabel { get; set; }
+
+        /// <summary>
+        /// recommended
+        /// Default: YES
+        /// The value of the view when it is set to on. Think of it as an boolean switch so the on value is set default to true
+        /// </summary>
+        public bool onValue { get; set; }
+        /// <summary>
+        /// recommended
+        /// Default: YES
+        /// The value of the view when it is set to on. Think of it as an boolean switch so the on value is set default to true
+        /// </summary>
+        [JsProperty(Name="onValue")]
+        public JsString onValueString { get; set; }
+
+        /// <summary>
+        /// recommended
+        /// Default: NO
+        /// The value of the view when it is set to off. Think of it as an boolean switch so the off value is set default to false
+        /// </summary>
+        public bool offValue { get; set; }
+        /// <summary>
+        /// recommended
+        /// Default: NO
+        /// The value of the view when it is set to off. Think of it as an boolean switch so the off value is set default to false
+        /// </summary>
+        [JsProperty(Name = "onValue")]
+        public JsString offValueString { get; set; }
 
         /// <summary>
         /// optional
         /// Default: NO
-        /// TThis property specifies whether the text field view is a simple, single-line text field or a text box with multiple lines.
+        /// Optionally wrap the switch markup in a container with the data-role="fieldcontain" attribute to help visually group it in a longer form.
         /// </summary>
-        public bool hasMultipleLines { get; set; }
+        public bool fieldcontain { get; set; }
 
         /// <summary>
-        /// optional
-        /// Default: NO
-        /// TThis property specifies whether the text field view is a simple, single-line text field or a text box with multiple lines.
+        /// This method can be used to disable the togglesplitview. This leads to a visual 'disabled' look and disabled the togglesplitview tap/click/swipe events.
         /// </summary>
-        public bool hasMultipleLines { get; set; }
+        public void disable() { }
+
+        /// <summary>
+        /// This method can be used to enable a disabled togglesplitview and make it usable again.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// This method can be used to set the togglesplitview's value at runtime. You can either pass the label or value of the option. And toggle the View.
+        /// </summary>
+        /// <param name="value">The togglesplitview's new value.</param>
+        public void setValue(object value) { }
+
+        /// <summary>
+        /// Returns the value of the current selection.
+        /// </summary>
+        /// <returns>the value of the togglesplitview</returns>
+        public object getValue() { return null; }
+
+        /// <summary>
+        /// This method can be used to set the togglesplitview's value at runtime to the onLabel/onValue. And toggle the View.
+        /// </summary>
+        public void on() { }
+
+        /// <summary>
+        /// This method can be used to set the togglesplitview's value at runtime to the onLabel/onValue. And toggle the View.
+        /// </summary>
+        public void off() { }
+
+        //TODO: Events
 
     }
 
     public class Page
     {
         //TODO: i have created this class cuse M.Page is the return type of getCurrentPage and getPage methodes, but i don't see ant doc for this class http://panacodalabs.github.com/The-M-Docs/#components_&_utilities/m_viewmanager
+
+    }
+
+    public class View
+    {
+        //TODO: i have created this class cuse M.View is the type of currentView propertye, but i don't see ant doc for this class http://panacodalabs.github.com/The-M-Docs/#views/m_toggleview
 
     }
 
