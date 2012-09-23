@@ -937,7 +937,15 @@ namespace TheMProject
         /// <param name="value">The button's new value.</param>
         public void setValue(JsString value) { }
 
-        //TODO: Events
+        /// <summary>
+        /// This event is fired when a user clicks a button.
+        /// </summary>
+        public JsAction<MEventData> click { get; set; }
+
+        /// <summary>
+        /// This event is fired when a user taps a button. We recommend to use this event instead of click!
+        /// </summary>
+        public JsAction<MEventData> tap { get; set; }
 
     }
 
@@ -1013,7 +1021,10 @@ namespace TheMProject
         /// <param name="button">The button to be set active or its id.</param>
         public void setActiveButton(JsString button) { }
 
-        //TODO: Events
+        /// <summary>
+        /// This event is fired everytime the selection of the selection list did change.
+        /// </summary>
+        public JsAction<MEventData> change { get; set; }
 
     }
 
@@ -1279,7 +1290,22 @@ namespace TheMProject
         /// </summary>
         public void removeAllItems() { }
 
-        //TODO: Events
+        /// <summary>
+        /// This event is fired when a user clicks/selects a dashboard item.
+        /// </summary>
+        public JsAction<DashboardViewEventData> click { get; set; }
+
+        /// <summary>
+        /// This event is fired when a user taps/selects a dashboard item. We recommend to use this event instead of click!
+        /// </summary>
+        public JsAction<DashboardViewEventData> tap { get; set; }
+
+    }
+
+    public class DashboardViewEventData
+    {
+
+        public JsString domID { get; set; }
     }
 
     /// <summary>
@@ -1312,7 +1338,16 @@ namespace TheMProject
         /// </summary>
         public JsString value { get; set; }
 
-        //TODO: Events
+        /// <summary>
+        /// This event is fired when a user clicks/selects a dashboard item.
+        /// </summary>
+        public JsAction<DashboardViewEventData> click { get; set; }
+
+        /// <summary>
+        /// This event is fired when a user taps/selects a dashboard item. We recommend to use this event instead of click!
+        /// </summary>
+        public JsAction<DashboardViewEventData> tap { get; set; }
+
     }
 
     /// <summary>
@@ -1622,7 +1657,34 @@ namespace TheMProject
         public void show(object obj) { }
         //TODO: "An object containing all the configuration parameters"-> WICH configuration parameters?!?!
 
-        //TODO: Events
+        /// <summary>
+        /// This callback gets called, right before the date picker is shown.
+        /// </summary>
+        public JsAction<DatePickerViewEventData> before { get; set; }
+
+        /// <summary>
+        /// This callback gets called, when the cancel button is hit. It doesn't pass any parameters.
+        /// </summary>
+        public JsAction cancel { get; set; }
+
+        /// <summary>
+        /// This callback gets called, when a selected date was confirmed.
+        /// </summary>
+        public JsAction<DatePickerViewEventData> confirm { get; set; }
+
+    }
+
+    public class DatePickerViewEventData
+    {
+        /// <summary>
+        /// The initial date of the date picker, formatted as a string.
+        /// </summary>
+        public JsString value  { get; set; }
+
+        /// <summary>
+        /// The initial date of the date picker as d8 object.
+        /// </summary>
+        public object date { get; set; }
     }
 
     /// <summary>
@@ -1772,7 +1834,29 @@ namespace TheMProject
         /// </summary>
         public JsString value { get; set; }
 
-        //TODO: Events
+        /// <summary>
+        /// The event is fired when the image could not be loaded.
+        /// This can happen if e.g. the source is not valid or there is no network connection available.
+        /// </summary>
+        public JsAction<ImageViewEventData> error { get; set; }
+
+        /// <summary>
+        /// The event is fired when the image was successfully loaded.
+        /// </summary>
+        public JsAction<ImageViewEventData> load { get; set; }
+
+        /// <summary>
+        /// The event is fired when a user taps on the image.
+        /// </summary>
+        public JsAction<ImageViewEventData> tap { get; set; }
+
+    }
+
+    public class ImageViewEventData
+    {
+        public JsString viewId { get; set; }
+
+        public object @event { get; set; }
     }
 
     /// <summary>
@@ -1841,7 +1925,10 @@ namespace TheMProject
         /// <param name="value">The value to be applied on the label view.</param>
         public void setValue(JsString value) { }
 
-        //TODO: Events
+        /// <summary>
+        /// The event is fired when a user taps on the label.
+        /// </summary>
+        public JsAction<ImageViewEventData> tap { get; set; }
     }
 
     /// <summary>
@@ -2015,7 +2102,24 @@ namespace TheMProject
         public void toggleRemove(object options) { }
         //TODO: no class for the options proprtyes?
 
-        //TODO: Events
+        /// <summary>
+        /// This event is fired when a user clicks/selects a list item view.
+        /// </summary>
+        public JsAction<ListViewEventData> click { get; set; }
+
+        /// <summary>
+        /// This event is fired when a user taps/selects a list item view. We recommend to use this event instead of click!
+        /// </summary>
+        public JsAction<ListViewEventData> tap { get; set; }
+
+    }
+
+    public class ListViewEventData
+    {
+
+        public JsString domID  { get; set; }
+
+        public JsString itemID  { get; set; }
     }
 
     /// <summary>
@@ -2068,7 +2172,16 @@ namespace TheMProject
         /// </summary>
         public ButtonView swipeButton { get; set; }
 
-        //TODO: Events
+
+        /// <summary>
+        /// This event is fired when a user clicks/selects a list item view.
+        /// </summary>
+        public JsAction<ListViewEventData> click { get; set; }
+
+        /// <summary>
+        /// This event is fired when a user taps/selects a list item view. We recommend to use this event instead of click!
+        /// </summary>
+        public JsAction<ListViewEventData> tap { get; set; }
 
     }
 
@@ -2291,7 +2404,15 @@ namespace TheMProject
         public void updateMap(object options) { }
         //TODO: maybe needs a new options class?
 
-        //TODO: events
+        /// <summary>
+        /// This event is fired whenever a map marker is clicked and there is no special click event defined for this marker.
+        /// </summary>
+        public JsAction<MEventData> click { get; set; }
+
+        /// <summary>
+        /// This event is fired whenever a map marker is tapped and there is no special tap event defined for this marker.
+        /// </summary>
+        public JsAction<MEventData> tap { get; set; }
     }
 
     /// <summary>
@@ -2401,7 +2522,15 @@ namespace TheMProject
         /// </summary>
         public void showAnnotation() { }
 
-        //TODO: events
+        /// <summary>
+        /// This event is fired whenever a map marker is clicked and there is no special click event defined for this marker.
+        /// </summary>
+        public JsAction<MEventData> click { get; set; }
+
+        /// <summary>
+        /// This event is fired whenever a map marker is tapped and there is no special tap event defined for this marker.
+        /// </summary>
+        public JsAction<MEventData> tap { get; set; }
     }
 
     /// <summary>
@@ -2422,7 +2551,36 @@ namespace TheMProject
         /// </summary>
         public JsString childViews { get; set; }
 
-        //TODO: Events
+        /// <summary>
+        /// This event is triggered on the page being shown, before its transition begins.
+        /// </summary>
+        public JsAction<PageViewEventData> PageViewEventData { get; set; }
+
+        /// <summary>
+        /// This event is triggered on the page being shown, after its transition completes.
+        /// </summary>
+        public JsAction<PageViewEventData> pageshow { get; set; }
+
+        /// <summary>
+        /// This event is triggered on the page being hidden, before its transition begins.
+        /// </summary>
+        public JsAction<PageViewEventData> pagebeforehide { get; set; }
+
+        /// <summary>
+        /// This event is triggered on the page being hidden, after its transition completes.
+        /// </summary>
+        public JsAction<PageViewEventData> pagehide { get; set; }
+
+        //TODO: orientationchange EVENT
+
+    }
+
+    public class PageViewEventData
+    {
+        /// <summary>
+        /// A flag indicating whether this page is loaded for the very first time.
+        /// </summary>
+        public bool isFirstLoad  { get; set; }
     }
 
     /// <summary>
@@ -2496,8 +2654,26 @@ namespace TheMProject
         /// <param name="value">The value to be applied to the search bar view.</param>
         public void setValue(JsString value) { }
 
+        /// <summary>
+        /// This event is fired whenever the search bar view loses the focus.
+        /// </summary>
+        public JsAction<MEventData> blur { get; set; }
 
-        //TODO: Events
+        /// <summary>
+        /// This event is fired when a user hits the enter button while the search bar view has got the focus.
+        /// </summary>
+        public JsAction<MEventData> enter { get; set; }
+
+        /// <summary>
+        /// This event is fired whenever the search bar view gets the focus.
+        /// </summary>
+        public JsAction<MEventData> focus { get; set; }
+
+        /// <summary>
+        /// This event is fired when a user hits any button while the search bar view has got the focus.
+        /// Note: By accessing the keyCode property of the passed event object, you can get the information which key was pressed.
+        /// </summary>
+        public JsAction<MEventData> keyup { get; set; }
     }
 
     /// <summary>
@@ -2597,8 +2773,38 @@ namespace TheMProject
         /// <param name="selection">(String or Array): The item/entry (its value) that should be selected.</param>
         public void setSelection(JsArray selection) { }
 
-        //TODO: Events  
+        /// <summary>
+        /// This event is fired when a user changes the selection.
+        /// Note: No change event is fired, when the user sets the selection programmatically via setSelection.
+        /// </summary>
+        public JsAction<SelectionListViewEventData> change { get; set; }
 
+    }
+
+    public class SelectionListViewEventData
+    {
+        /// <summary>
+        /// The value of the selected item or an array of all selected values.
+        /// </summary>
+        public JsString value { get; set; }
+        /// <summary>
+        /// The value of the selected item or an array of all selected values.
+        /// </summary>
+        [JsProperty(Name = "M.SelectionListItemView")]
+        public JsArray valueArray { get; set; }
+        
+        /// <summary>
+        /// The selected item (single selection) or an array of items (multiple selection).
+        /// </summary>
+        [JsProperty(Name="M.SelectionListItemView")]
+        public object SelectionListItemView  { get; set; }
+        //TODO: must check
+        /// <summary>
+        /// The selected item (single selection) or an array of items (multiple selection).
+        /// </summary>
+        [JsProperty(Name = "M.SelectionListItemView")]
+        public JsArray SelectionListItemViewArray { get; set; }
+        //TODO: must check
     }
 
     /// <summary>
@@ -2941,7 +3147,27 @@ namespace TheMProject
         /// <param name="value">The value to be applied to the text field view.</param>
         public void setValue(JsString value) { }
 
-        //TODO: Events
+
+        /// <summary>
+        /// This event is fired whenever the text field view loses the focus.
+        /// </summary>
+        public JsAction<MEventData> blur { get; set; }
+
+        /// <summary>
+        /// This event is fired when a user hits the enter button while the text field view has got the focus.
+        /// </summary>
+        public JsAction<MEventData> enter { get; set; }
+
+        /// <summary>
+        /// This event is fired whenever the text field view gets the focus.
+        /// </summary>
+        public JsAction<MEventData> focus { get; set; }
+
+        /// <summary>
+        /// This event is fired when a user hits any button while the text field view has got the focus.
+        /// Note: By accessing the keyCode property of the passed event object, you can get the information which key was pressed.
+        /// </summary>
+        public JsAction<MEventData> keyup { get; set; }
 
     }
 
@@ -3109,7 +3335,12 @@ namespace TheMProject
         /// </summary>
         public void off() { }
 
-        //TODO: Events
+        /// <summary>
+        /// This event is fired when the toggleswitch's value changed through a tap, click or swipe.
+        /// </summary>
+        public JsAction<MEventData> change { get; set; }
+
+        public JsAction<JsString,object> change { get; set; }
 
     }
 
@@ -3165,6 +3396,10 @@ namespace TheMProject
 
     }
 
-    //TODO: all events!
+    public class MEventData
+    {
+        public JsString id  { get; set; }
+        public object @event { get; set; }
+    }
 
 }
