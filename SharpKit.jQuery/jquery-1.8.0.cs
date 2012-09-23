@@ -300,6 +300,10 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery appendTo(jQuery target) { return null; }
         /// <summary>
+        /// Insert every element in the set of matched elements to the end of the target.
+        /// </summary>
+        public jQuery appendTo(object target) { return null; }
+        /// <summary>
         /// Get the value of an attribute for the first element in the set of matched elements.
         /// </summary>
         public JsString attr(JsString attributeName) { return null; }
