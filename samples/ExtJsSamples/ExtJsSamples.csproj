@@ -52,28 +52,6 @@
     <Reference Include="SharpKit.jQuery" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.aspx" />
-    <Content Include="DefaultClient.js" />
-    <Content Include="bootstrap.js" />
-    <Content Include="examples\grid\array-grid.html" />
-    <Content Include="examples\grid\array-grid.js" />
-    <Content Include="examples\grid\binding-with-classes.html" />
-    <Content Include="examples\grid\binding-with-classes.js" />
-    <Content Include="examples\grid\binding.html" />
-    <Content Include="examples\grid\binding.js" />
-    <Content Include="examples\grid\buffer-grid.html" />
-    <Content Include="examples\grid\buffer-grid.js" />
-    <Content Include="examples\grid\cell-editing.html" />
-    <Content Include="examples\grid\cell-editing.js" />
-    <Content Include="examples\grid\grid-plugins.html" />
-    <Content Include="examples\grid\grid-plugins.js" />
-    <Content Include="examples\grid\group-header-grid.html" />
-    <Content Include="examples\grid\group-header-grid.js" />
-    <Content Include="examples\grid\group-summary-grid.html" />
-    <Content Include="examples\grid\group-summary-grid.js" />
-    <Content Include="examples\grid\groupdemodata.js" />
-    <Content Include="examples\grid\groupgrid.html" />
-    <Content Include="examples\grid\groupgrid.js" />
     <Content Include="examples\grid\images\thumbs\dance_fever.jpg" />
     <Content Include="examples\grid\images\thumbs\gangster_zack.jpg" />
     <Content Include="examples\grid\images\thumbs\kids_hug.jpg" />
@@ -87,110 +65,18 @@
     <Content Include="examples\grid\images\thumbs\zack_dress.jpg" />
     <Content Include="examples\grid\images\thumbs\zack_hat.jpg" />
     <Content Include="examples\grid\images\thumbs\zack_sink.jpg" />
-    <Content Include="examples\grid\infinite-scroll-grid-tuner.html" />
-    <Content Include="examples\grid\infinite-scroll-grid-tuner.js" />
-    <Content Include="examples\grid\infinite-scroll-with-filter.html" />
-    <Content Include="examples\grid\infinite-scroll-with-filter.js" />
-    <Content Include="examples\grid\infinite-scroll.html" />
-    <Content Include="examples\grid\infinite-scroll.js" />
-    <Content Include="examples\grid\list-view.css" />
-    <Content Include="examples\grid\list-view.html" />
-    <Content Include="examples\grid\list-view.js" />
-    <Content Include="examples\grid\live-search-grid.html" />
-    <Content Include="examples\grid\live-search-grid.js" />
-    <Content Include="examples\grid\locking-cell-editing-grid.html" />
-    <Content Include="examples\grid\locking-cell-editing-grid.js" />
-    <Content Include="examples\grid\locking-grid.html" />
-    <Content Include="examples\grid\locking-grid.js" />
-    <Content Include="examples\grid\locking-group-summary-grid.html" />
-    <Content Include="examples\grid\locking-group-summary-grid.js" />
-    <Content Include="examples\grid\locking-grp-summary-grp-hdrs-grid.html" />
-    <Content Include="examples\grid\locking-grp-summary-grp-hdrs-grid.js" />
-    <Content Include="examples\grid\locking-infinite-scroll.html" />
-    <Content Include="examples\grid\locking-infinite-scroll.js" />
-    <Content Include="examples\grid\locking-row-editing-grid.html" />
-    <Content Include="examples\grid\locking-row-editing-grid.js" />
-    <Content Include="examples\grid\multiple-sorting.css" />
-    <Content Include="examples\grid\multiple-sorting.html" />
-    <Content Include="examples\grid\multiple-sorting.js" />
-    <Content Include="examples\grid\paging.html" />
-    <Content Include="examples\grid\paging.js" />
-    <Content Include="examples\grid\plants.xml" />
-    <Content Include="examples\grid\progress-bar-pager.html" />
-    <Content Include="examples\grid\progress-bar-pager.js" />
-    <Content Include="examples\grid\property.html" />
-    <Content Include="examples\grid\property.js" />
-    <Content Include="examples\grid\remote-group-summary-grid-simjax.js" />
-    <Content Include="examples\grid\remote-group-summary-grid.html" />
-    <Content Include="examples\grid\remote-group-summary-grid.js" />
-    <Content Include="examples\grid\remotegroupgrid.html" />
-    <Content Include="examples\grid\remotegroupgrid.js" />
-    <Content Include="examples\grid\remove-all-recs.html" />
-    <Content Include="examples\grid\row-editing.html" />
-    <Content Include="examples\grid\row-editing.js" />
-    <Content Include="examples\grid\sheldon.xml" />
-    <Content Include="examples\grid\simjax-paging.html" />
-    <Content Include="examples\grid\simjax-paging.js" />
-    <Content Include="examples\grid\sliding-pager.html" />
-    <Content Include="examples\grid\sliding-pager.js" />
-    <Content Include="examples\grid\transform-dom.html" />
-    <Content Include="examples\grid\transform-dom.js" />
-    <Content Include="examples\grid\var-height-rows.html" />
-    <Content Include="examples\grid\var-height-rows.js" />
-    <Content Include="examples\grid\xml-grid.html" />
-    <Content Include="examples\grid\xml-grid.js" />
     <Content Include="examples\simple-tasks\app\model\List.js" />
     <Content Include="examples\simple-tasks\app\model\Task.js" />
-    <Content Include="examples\tree\album.gif" />
-    <Content Include="examples\tree\check-tree.html" />
-    <Content Include="examples\tree\check-tree.js" />
-    <Content Include="examples\tree\reorder.html" />
-    <Content Include="examples\tree\reorder.js" />
-    <Content Include="examples\tree\treegrid.html" />
-    <Content Include="examples\tree\treegrid.js" />
-    <Content Include="examples\tree\two-trees.html" />
-    <Content Include="examples\tree\two-trees.js" />
-    <Content Include="examples\tree\xml-tree.html" />
-    <Content Include="examples\tree\xml-tree.js" />
-    <Content Include="ext-all-debug-w-comments.js" />
-    <Content Include="ext-all-debug.js" />
-    <Content Include="ext-all-dev.js" />
-    <Content Include="ext-all.js" />
-    <Content Include="ext-debug-w-comments.js" />
-    <Content Include="ext-debug.js" />
-    <Content Include="ext-dev.js" />
-    <Content Include="ext-neptune-debug-w-comments.js" />
-    <Content Include="ext-neptune-debug.js" />
-    <Content Include="ext-neptune.js" />
-    <Content Include="ext.js" />
     <Content Include="res\ext-all.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="examples\grid\ArrayGrid.cs" />
     <Compile Include="examples\simple-tasks\app\model\Task.cs" />
-    <Compile Include="examples\tree\CheckTree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultClient.cs" />
-  </ItemGroup>
-  <ItemGroup>
+    <Folder Include="examples\tree\" />
     <Folder Include="ExtJs\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="examples\grid\get-images.php" />
-    <None Include="examples\grid\sampledata.json" />
-    <None Include="examples\tree\check-nodes.json" />
-    <None Include="examples\tree\get-nodes.php" />
-    <None Include="examples\tree\treegrid.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
