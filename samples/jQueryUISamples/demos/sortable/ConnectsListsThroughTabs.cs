@@ -23,13 +23,13 @@ namespace jQueryUISamples.demos.sortable
                         var item = new jQuery(e.currentTarget);
                         var list = new jQuery(item.find("a").attr("href"))
                         .find(".connectedSortable");
-
-                        // TODO: tab_items, not defined. tabs.tabs( .. delegete()?)
-                        //ui.draggable.hide("slow", () =>
-                        //    {
-                        //        tabs.tabs("select", tab_items.index(item));
-                        //        new jQuery(e.currentTarget).appendTo(list).show("slow");
-                        //    });
+                       
+                        // TODO: tab_items definition 
+                        ui.draggable.hide("slow", () =>
+                            {
+                                //tabs.tabs("select", tab_items.index(item));
+                                new jQuery(e.currentTarget).appendTo(list).show("slow");
+                            });
 
                     }
 

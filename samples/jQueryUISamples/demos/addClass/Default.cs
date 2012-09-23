@@ -16,7 +16,6 @@ namespace jQueryUISamples.demos.addClass
         {
             new jQuery("#button").click(x =>
             {
-                //TODO: $( "#effect" ).addClass( "newClass", 1000, callback );
                 new jQuery("#effect").addClass("newClass", 1000, callback);
                 JsContext.@return(false);
             });
@@ -26,19 +25,5 @@ namespace jQueryUISamples.demos.addClass
         {
             HtmlContext.window.setTimeout(() => new jQuery("#effect").removeClass("newClass"), 1500);
         }
-    }
-    //        $(function() {
-    //    $( "#button" ).click(function() {
-    //        $( "#effect" ).addClass( "newClass", 1000, callback );
-    //        return false;
-    //    });
-
-
-    //    function callback() {
-    //        setTimeout(function() {
-    //            $( "#effect" ).removeClass( "newClass" );
-    //        }, 1500 );
-    //    }
-    //});
-   
+    }  
 }

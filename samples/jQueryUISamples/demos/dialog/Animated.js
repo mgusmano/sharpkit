@@ -2,6 +2,7 @@
 $(OnReady);
 function OnReady()
 {
+     $.fx.speeds._default = 1000;;
     $("#dialog").dialog({autoOpen:false,show:"blind",hide:"explode"});
     $("#opener").click(function(e)
     {

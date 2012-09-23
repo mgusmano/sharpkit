@@ -14,15 +14,15 @@ namespace jQueryUISamples.demos.tabs
         static void OnReady()
         {
             //// TODO:
-            //new jQuery("#tabs").tabs(new TabsOptions
-            //{
-            //    ajaxOptions = new AjaxSettings
-            //    {
-            //        error = (xhr, status, index, anchor) =>
-            //            new jQuery(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible. " +
-            //            "If this wouldn't be a demo.")
-            //    }
-            //});
+            new jQuery("#tabs").tabs(new TabsOptions
+            {
+               // ajaxOptions = new AjaxSettings
+                //{
+                    //error = (xhr, status, index, anchor) =>
+                    //    new jQuery(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible. " +
+                    //    "If this wouldn't be a demo.")
+                //}
+            });
                
                 
 

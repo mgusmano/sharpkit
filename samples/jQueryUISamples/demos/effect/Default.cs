@@ -9,26 +9,42 @@ namespace jQueryUISamples.demos.effect
     {
         static Default()
         {
+            new jQuery(OnReady);
         }
 
         static void OnReady()
         {
-         
+            // set effect from select menu value
+            new jQuery("#button").click(e =>
+            {
+                runEffect();
+                JsContext.@return(false);
+            });
         }
-         
+
+        // run the currently selected effect
         static void runEffect()
         {
-            // run the currently selected effect
+            // get effect type from 
             var selectedEffect = new jQuery("#effectTypes").val().As<EffectType>();
-            var options = new AnimationPropertiesEx { };
+            var options = new JsObject { };
             if (selectedEffect.ExactEquals("scale"))
             {
-                     //options = {   };
-                //}
-                //TODO:  $( "#effect" ).effect( selectedEffect, options, 500, callback );
-
-                new jQuery("#effect").effect(selectedEffect, options, 500, callback);
+                //TODO
+                JsContext.JsCode("options = { percent: 0 };");
             }
+            else if (selectedEffect.ExactEquals("transfer"))
+            {
+                //TODO
+                JsContext.JsCode("options = { to: '#button', className: 'ui-effects-transfer' };");
+            }
+            else if (selectedEffect.ExactEquals("size"))
+            {
+                //TODO
+                JsContext.JsCode("options = { to: { width: 200, height: 60 } };");
+            }
+            // run the effect
+            new jQuery("#effect").effect(selectedEffect, options, 500, callback);
         }
 
         static void callback(Event ev, object ui)
@@ -37,45 +53,6 @@ namespace jQueryUISamples.demos.effect
                 {
                     new jQuery("#effect").removeAttr("style").hide().fadeIn();
                 }, 1000);
-            }
-            //        setTimeout(function() {
-            //            $( "#effect" ).removeAttr( "style" ).hide().fadeIn();
-            //        }, 1000 );
-            //    };
-        //}
-        //    $(function() {
-        //    // run the currently selected effect
-        //    function runEffect() {
-        //        // get effect type from 
-        //        var selectedEffect = $( "#effectTypes" ).val();
-
-        //        // most effect types need no options passed by default
-        //        var options = {};
-        //        // some effects have required parameters
-        //        if ( selectedEffect === "scale" ) {
-        //            options = { percent: 0 };
-        //        } else if ( selectedEffect === "transfer" ) {
-        //            options = { to: "#button", className: "ui-effects-transfer" };
-        //        } else if ( selectedEffect === "size" ) {
-        //            options = { to: { width: 200, height: 60 } };
-        //        }
-
-        //        // run the effect
-        //        $( "#effect" ).effect( selectedEffect, options, 500, callback );
-        //    };
-
-        //    // callback function to bring a hidden box back
-        //    function callback() {
-        //        setTimeout(function() {
-        //            $( "#effect" ).removeAttr( "style" ).hide().fadeIn();
-        //        }, 1000 );
-        //    };
-
-        //    // set effect from select menu value
-        //    $( "#button" ).click(function() {
-        //        runEffect();
-        //        return false;
-        //    });
-        //});
+        }
     }
 }

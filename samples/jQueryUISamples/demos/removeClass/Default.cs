@@ -9,37 +9,24 @@ namespace jQueryUISamples.demos.removeClass
     {
         static Default()
         {
+            new jQuery(OnReady);
         }
         static void OnReady()
         {
             new jQuery("#button").click(e =>
             {
-                //TODO
-                new jQuery("#effect").removeClass();//"newClass", 1000, callback);
+                new jQuery("#effect").removeClass("newClass", 1000, callback);
                 JsContext.@return(false);
             });
         }
-    //        $(function() {
-    //    $( "#button" ).click(function() {
-    //        $( "#effect" ).removeClass( "newClass", 1000, callback );
-    //        return false;
-    //    });
 
-    //    function callback() {
-    //        setTimeout(function() {
-    //            $( "#effect" ).addClass( "newClass" );
-    //        }, 1500 );
-    //    }
-    //});
-        static void  callback()
+        static void callback(Event e, object ui)
         {
             HtmlContext.window.setTimeout(() =>
             {
                 new jQuery("#effect").addClass("newClass");
 
             }, 1500);
-         
-            
         }
     }
 }

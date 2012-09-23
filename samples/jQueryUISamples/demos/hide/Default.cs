@@ -9,71 +9,46 @@ namespace jQueryUISamples.demos.hide
     {
         static Default()
         {
+            new jQuery(OnReady);
         }
         static void OnReady()
         {
-
+            // set effect from select menu value
+            new jQuery("#button").click(e =>
+            {
+                runEffect();
+                JsContext.@return(false);
+            });
         }
-        // TODO
+
         // run the currently selected effect
         static void runEffect()
         {
             // get effect type from 
-            var selectedEffect = new jQuery("#effectTypes").val();
+            var selectedEffect = new jQuery("#effectTypes").val().As<EffectType>();
             // most effect types need no options passed by default
-            //var options =  { };
+            var options = new JsObject { };
             if (selectedEffect.ExactEquals("scale"))
             {
-                //  options = {
+                //TODO
+                JsContext.JsCode("options = { percent: 0 };");
             }
-            else
+            else if (selectedEffect.ExactEquals("size"))
             {
-
+                //TODO
+                JsContext.JsCode("options = { to: { width: 200, height: 60 } };");
             }
-            //$( "#effect" ).hide( selectedEffect, options, 1000, callback );
-            //new jQuery( "#effect" ).hide(
 
+            // run the effect
+            new jQuery("#effect").hide(selectedEffect, options, 1000, callback);
         }
 
-        static void callback()
+        static void callback(Event e, object ui)
         {
+            HtmlContext.window.setTimeout(() =>
+            {
+                new jQuery("#effect").removeAttr("style").hide().fadeIn();
+            }, 1000);
         }
-        // most effect types need no options passed by default
-
-        //    $(function() {
-        //    // run the currently selected effect
-        //    function runEffect() {
-        //        // get effect type from 
-        //        var selectedEffect = $( "#effectTypes" ).val();
-
-        //        // most effect types need no options passed by default
-        //        var options = {};
-        //        // some effects have required parameters
-        //        if ( selectedEffect === "scale" ) {
-        //            options = { percent: 0 };
-        //        } else if ( selectedEffect === "size" ) {
-        //            options = { to: { width: 200, height: 60 } };
-        //        }
-
-        //        // run the effect
-        //        $( "#effect" ).hide( selectedEffect, options, 1000, callback );
-        //    };
-
-        //    // callback function to bring a hidden box back
-        //    function callback() {
-        //        setTimeout(function() {
-        //            $( "#effect" ).removeAttr( "style" ).hide().fadeIn();
-        //        }, 1000 );
-        //    };
-
-        //    // set effect from select menu value
-        //    $( "#button" ).click(function() {
-        //        runEffect();
-        //        return false;
-        //    });
-        //});
-
-
-
     }
 }

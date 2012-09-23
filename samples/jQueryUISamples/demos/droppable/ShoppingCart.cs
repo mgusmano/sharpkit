@@ -12,7 +12,6 @@ namespace jQueryUISamples.demos.droppable
             new jQuery(OnReady);
         }
 
-        // TODO: the example does not work correctly.
         static void OnReady()
         {
             new jQuery("#catalog").accordion();
@@ -28,8 +27,8 @@ namespace jQueryUISamples.demos.droppable
                 accept = ":not(.ui-sortable-helper)",
                 drop = (e, ui) =>
                     {
-                        new jQuery(ui).find(".placeholder").remove();
-                        new jQuery("<li></li>").text(ui.draggable.text()).appendTo(e.currentTarget);
+                        new jQuery(JsContext.@this).find(".placeholder").remove();
+                        new jQuery("<li></li>").text(ui.draggable.text()).appendTo(JsContext.@this);
                     }
             })
                     .sortable(new SortableOptions
@@ -38,33 +37,8 @@ namespace jQueryUISamples.demos.droppable
                         sort = (e, ui) =>
                             // gets added unintentionally by droppable interacting with sortable
                             // using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
-                    new jQuery(e.currentTarget).removeClass("ui-state-default")
-                    });   
-
-
-    //        $(function() {
-    //    $( "#catalog" ).accordion();
-    //    $( "#catalog li" ).draggable({
-    //        appendTo: "body",
-    //        helper: "clone"
-    //    });
-    //    $( "#cart ol" ).droppable({
-    //        activeClass: "ui-state-default",
-    //        hoverClass: "ui-state-hover",
-    //        accept: ":not(.ui-sortable-helper)",
-    //        drop: function( event, ui ) {
-    //            $( this ).find( ".placeholder" ).remove();
-    //            $( "<li></li>" ).text( ui.draggable.text() ).appendTo( this );
-    //        }
-    //    }).sortable({
-    //        items: "li:not(.placeholder)",
-    //        sort: function() {
-    //            // gets added unintentionally by droppable interacting with sortable
-    //            // using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
-    //            $( this ).removeClass( "ui-state-default" );
-    //        }
-    //    });
-    //});
+                    new jQuery(JsContext.@this).removeClass("ui-state-default")
+                    });
         }
     }
 }

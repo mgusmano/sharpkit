@@ -12,8 +12,6 @@ namespace jQueryUISamples.demos.draggable
             new jQuery(OnReady);
         }
 
-        //TODO: the draggable doesn't work..
-
         static void OnReady()
         {
 
@@ -40,7 +38,7 @@ namespace jQueryUISamples.demos.draggable
                     }
             });
         }
-        
+
         static void updateCounterStatus(jQuery event_counter, JsNumber new_count)
         {
             if (!event_counter.hasClass("ui-state-hover"))
@@ -48,8 +46,8 @@ namespace jQueryUISamples.demos.draggable
                 event_counter.addClass("ui-state-hover")
                     .siblings().removeClass("ui-state-hover");
             }
-            		// ...then update the numbersKD
-             new jQuery("span.count", event_counter).text(new_count.As<JsString>());
+            // ...then update the numbersKD
+            new jQuery("span.count", event_counter).text(new_count.As<JsString>());
 
         }
     }

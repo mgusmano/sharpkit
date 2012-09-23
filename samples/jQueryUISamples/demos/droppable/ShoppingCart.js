@@ -11,15 +11,15 @@ function OnReady()
         accept:":not(.ui-sortable-helper)",
         drop:function(e,ui)
         {
-            $(ui).find(".placeholder").remove();
-            $("<li></li>").text(ui.draggable.text()).appendTo(e.currentTarget);
+            $(this).find(".placeholder").remove();
+            $("<li></li>").text(ui.draggable.text()).appendTo(this);
         }
     }).sortable(
     {
         items:"li:not(.placeholder)",
         sort:function(e,ui)
         {
-            $(e.currentTarget).removeClass("ui-state-default");
+            $(this).removeClass("ui-state-default");
         }
     });
 };

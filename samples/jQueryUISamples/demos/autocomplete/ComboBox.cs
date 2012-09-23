@@ -14,7 +14,7 @@ namespace jQueryUISamples.demos.autocomplete
 
         static void OnReady() 
         {
-            
+          
     //    {(function( $ ) {
     //    $.widget( "ui.combobox", {
     //        _create: function() {

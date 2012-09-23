@@ -5,19 +5,19 @@ using SharpKit.Html4;
 namespace jQueryUISamples.demos.dialog
 {
     [JsType(JsMode.Global)]
-    public class Animate
+    public class Animated
     {
-        static Animate()
+        static Animated()
         {
             new jQuery(OnReady);
         }
 
         static void OnReady()
         {
-            //JsContext.JsCode("
+            
             // increase the default animation speed to exaggerate the effect
             // TODO: //$.fx.speeds._default = 1000;
-            //jQuery.fx.sp
+            JsContext.JsCode("$.fx.speeds._default = 1000;");
             new jQuery("#dialog").dialog(new DialogOptions
             {
                 autoOpen = false,

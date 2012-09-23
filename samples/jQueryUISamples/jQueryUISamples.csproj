@@ -108,8 +108,8 @@
     <Content Include="demos\button\datepicker\MultipleCalendars.js" />
     <Content Include="demos\button\datepicker\ShowWeek.htm" />
     <Content Include="demos\button\datepicker\ShowWeek.js" />
-    <Content Include="demos\dialog\Animate.htm" />
-    <Content Include="demos\dialog\Animate.js" />
+    <Content Include="demos\dialog\Animated.htm" />
+    <Content Include="demos\dialog\Animated.js" />
     <Content Include="demos\dialog\Modal.htm" />
     <Content Include="demos\dialog\Modal.js" />
     <Content Include="demos\dialog\ModalConfirmation.htm" />
@@ -147,6 +147,10 @@
     <Content Include="demos\droppable\Propagation.js" />
     <Content Include="demos\droppable\Revert.js" />
     <Content Include="demos\droppable\ShoppingCart.js" />
+    <Content Include="demos\effect\Default.htm" />
+    <Content Include="demos\effect\Default.js" />
+    <Content Include="demos\hide\Default.htm" />
+    <Content Include="demos\hide\Default.js" />
     <Content Include="demos\progressbar\Animated.htm" />
     <Content Include="demos\progressbar\Animated.js" />
     <Content Include="demos\progressbar\Default.htm" />
@@ -154,6 +158,8 @@
     <Content Include="demos\progressbar\images\pbar-ani.gif" />
     <Content Include="demos\progressbar\Resize.htm" />
     <Content Include="demos\progressbar\Resize.js" />
+    <Content Include="demos\removeClass\Default.htm" />
+    <Content Include="demos\removeClass\Default.js" />
     <Content Include="demos\resizable\Animate.htm" />
     <Content Include="demos\resizable\Animate.js" />
     <Content Include="demos\resizable\AspectRatio.htm" />
@@ -176,8 +182,12 @@
     <Content Include="demos\selectable\Serialize.js" />
     <Content Include="demos\slider\Default.htm" />
     <Content Include="demos\slider\Default.js" />
+    <Content Include="demos\slider\Hotelrooms.htm" />
+    <Content Include="demos\slider\Hotelrooms.js" />
     <Content Include="demos\slider\MultipleVertical.htm" />
     <Content Include="demos\slider\MultipleVertical.js" />
+    <Content Include="demos\slider\RangeVertical.htm" />
+    <Content Include="demos\slider\RangeVertical.js" />
     <Content Include="demos\sortable\Default.htm" />
     <Content Include="demos\sortable\Default.js" />
     <Content Include="demos\sortable\DelayStart.htm" />
@@ -198,6 +208,7 @@
     <Content Include="demos\tabs\Collapsible.htm" />
     <Content Include="demos\tabs\Collapsible.js" />
     <Content Include="demos\tabs\Cookie.htm" />
+    <Content Include="demos\tabs\Cookie.js" />
     <Content Include="demos\tabs\Mouseover.htm" />
     <Content Include="demos\tabs\Mouseover.js" />
     <Content Include="demos\tabs\Sortable.htm" />
@@ -427,7 +438,7 @@
     <Compile Include="demos\button\datepicker\Localization.cs" />
     <Compile Include="demos\button\datepicker\MinMax.cs" />
     <Compile Include="demos\button\datepicker\ShowWeek.cs" />
-    <Compile Include="demos\dialog\Animate.cs" />
+    <Compile Include="demos\dialog\Animated.cs" />
     <Compile Include="demos\dialog\Modal.cs" />
     <Compile Include="demos\dialog\ModelCnfirmation.cs" />
     <Compile Include="demos\draggable\Default.cs" />
@@ -460,7 +471,7 @@
     <Compile Include="demos\selectable\DisplayGrid.cs" />
     <Compile Include="demos\selectable\Serialize.cs" />
     <Compile Include="demos\slider\Default.cs" />
-    <Compile Include="demos\slider\Hotelrorms.cs" />
+    <Compile Include="demos\slider\Hotelrooms.cs" />
     <Compile Include="demos\slider\MultipleVertical.cs" />
     <Compile Include="demos\slider\RangeVertical.cs" />
     <Compile Include="demos\sortable\ConnectsListsThroughTabs.cs" />
