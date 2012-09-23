@@ -18,7 +18,8 @@ namespace KendoUISamples.examples.web.grid
         }
         static void OnReady()
         {
-            new jQuery("#grid").kendoGrid(new GridConfiguration { height = 250 });
+            // TODO: property height??
+            JsContext.JsCode(" new jQuery('#grid').kendoGrid{ height: 250 });");
         }
           //$(document).ready(function() {
           //          $("#grid").kendoGrid({
