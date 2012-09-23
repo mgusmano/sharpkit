@@ -1426,9 +1426,9 @@ namespace SharpKit.jQuery
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery hide(this jQuery query, HideOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery hide(this jQuery query, string effect, object options, object speed, jQueryUIEvent callback) { return default(jQuery); }
-        //[JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        //public static jQuery hide(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+        public static jQuery hide(this jQuery query, EffectType effect, object options, object speed, jQueryUIEvent callback) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery hide(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
     }
     #endregion
     #region HideOptions
