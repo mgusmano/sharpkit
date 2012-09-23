@@ -1653,7 +1653,7 @@ jQuery Selector;
 public RemoveClass(JsString selector, RemoveClassOptions options)
 {
 Selector = J(selector);
-Selector.removeclass(options);
+Selector.removeClass(options);
 }
 ///<summary>
 ///Creates a new instance of RemoveClass
@@ -1683,11 +1683,11 @@ set { Set("duration", value); }
 }
 object Get(JsString option)
 {
-return Selector.removeclass("option", option);
+return Selector.removeClass("option", option);
 }
 void Set(JsString option, object value)
 {
-Selector.removeclass("option", option, value);
+Selector.removeClass("option", option, value);
 }
 }
 #endregion
