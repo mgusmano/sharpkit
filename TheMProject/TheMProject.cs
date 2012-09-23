@@ -3053,7 +3053,7 @@ namespace TheMProject
         /// Default: YES
         /// The value of the view when it is set to on. Think of it as an boolean switch so the on value is set default to true
         /// </summary>
-        [JsProperty(Name="onValue")]
+        [JsProperty(Name = "onValue")]
         public JsString onValueString { get; set; }
 
         /// <summary>
@@ -3111,6 +3111,46 @@ namespace TheMProject
 
         //TODO: Events
 
+    }
+
+    /// <summary>
+    /// A view for showing a toolbar at the top or bottom of an application.
+    /// The toolbar view is a view to show a bar at the top or bottom of your application.
+    /// In its basic variant, it only shows a centered label, which can be used to e.g. display the current page's name.
+    /// But it also is possible to create more complex toolbars with buttons, button groups or images positioned at the left, center or right of the toolbar.
+    /// The toolbar view can contain up to three child views. Each child view must have a distinct, valid anchorLocation value.
+    /// The valid anchorLocations for children of a ToolbarView are M.LEFT, M.CENTER and M.RIGHT.
+    /// CSS Styles:
+    /// The styling of the toolbar is done by jQuery Mobile. Depending on the anchorLocation property, some of the following css classes are responsible for the layout:
+    /// ui-header / ui-footer: This defines some basic layout and positioning setup for the toolbar.
+    /// ui-bar-a: This class defines the color and visual style of the toolbar.
+    /// ui-header-fixed / ui-footer-fixed: This indicates that the toolbar is fixed.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "M.ToolbarView", Export = false)]
+    public class ToolbarView
+    {
+        /// <summary>
+        /// optional
+        /// Default: M.TOP
+        /// Defines the position of the TabBar. Possible values are:
+        /// M.BOTTOM => is a footer bar
+        /// M.TOP => is a header bar
+        /// </summary>
+        public JsString anchorLocation { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: YES
+        /// This property determines whether to fix the toolbar to the top / bottom of a page. By default this is set to YES.
+        /// </summary>
+        public bool isFixed { get; set; }
+
+        /// <summary>
+        /// optional
+        /// Default: NO
+        /// Determines whether to display an auto-generated back-button on the left side of the toolbar view or not.
+        /// </summary>
+        public bool showBackButton { get; set; }
     }
 
     public class Page
