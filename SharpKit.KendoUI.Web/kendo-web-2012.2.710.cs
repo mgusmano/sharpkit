@@ -3859,7 +3859,7 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsAction detailTemplate { get; set; }
 
-        public JsNumber height{get; set};
+        public JsNumber height { get; set; }
         /// <summary>
         /// Indicates whether editing is enabled/disabled.
         /// </summary>
