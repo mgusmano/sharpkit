@@ -3859,6 +3859,7 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsAction detailTemplate { get; set; }
 
+        public JsNumber height{get; set};
         /// <summary>
         /// Indicates whether editing is enabled/disabled.
         /// </summary>
@@ -4004,6 +4005,8 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         [JsProperty(Name = "pageable")]
         public object pageableObject { get; set; }
+
+
 
         /// <summary>
         /// (default: false) Indicates whether paging is enabled/disabled.
