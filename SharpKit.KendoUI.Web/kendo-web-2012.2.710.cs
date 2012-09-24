@@ -3898,6 +3898,11 @@ namespace SharpKit.KendoUI.Web
         public GridEditableConfiguration editable { get; set; }
 
         /// <summary>
+        /// Undocument type added by Lee
+        /// </summary>
+        public bool filterable { get; set; }
+
+        /// <summary>
         /// (default: false) Indicates whether grouping is enabled/disabled.
         /// </summary>
         ///<example>
@@ -4152,6 +4157,11 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         [JsProperty(Name = "sortable")]
         public bool sortableBoolean { get; set; }
+
+        /// <summary>
+        /// Can be boolean or configuration, please use the typed property instead
+        /// </summary>
+        public object sortable { get; set; }
 
        
         /// <summary>
