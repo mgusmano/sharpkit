@@ -4197,6 +4197,7 @@ namespace SharpKit.KendoUI.Web
     /// <param name="options">Additional options.</param>
     public delegate void GridColumnsEditorCallback(jQuery.jQuery container, GridColumnsEditorOptionsConfiguration options);
 
+    [JsType(JsMode.Json)]
     public class GridColumnConfiguration
     {
         /// <summary>
