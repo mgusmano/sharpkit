@@ -3783,6 +3783,8 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<EmptyEventData> saveChangesEvent { add { } remove { } }
         //TODO: event name is saveChanges
     }
+    
+    [JsType(JsMode.Json)]
     public class GridConfiguration
     {
 
@@ -3858,8 +3860,7 @@ namespace SharpKit.KendoUI.Web
         /// Template to be used for rendering the detail rows in the grid. See the Detail Template example.
         /// </summary>
         public JsAction detailTemplate { get; set; }
-
-      
+            
         /// <summary>
         /// Indicates whether editing is enabled/disabled.
         /// </summary>
@@ -3922,6 +3923,11 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public bool groupable { get; set; }
+
+        /// <summary>
+        /// Undocument property added by Lee
+        /// </summary>
+        public JsNumber height { get; set; }
 
         /// <summary>
         /// (default: false) Indicates whether keyboard navigation is enabled/disabled.
