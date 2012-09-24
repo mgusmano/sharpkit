@@ -2454,6 +2454,7 @@ namespace SharpKit.KendoUI
         public bool isNew() { return false; }
     }
 
+    [JsType(JsMode.Json)]
     public class FieldConfig
     {
         /// <summary>
