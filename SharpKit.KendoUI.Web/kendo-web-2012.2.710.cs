@@ -4147,6 +4147,11 @@ namespace SharpKit.KendoUI.Web
         public GridSortableConfiguration sortable { get; set; }
 
         /// <summary>
+        /// Undocument
+        /// </summary>
+        public bool sortable { get; set; }
+
+        /// <summary>
         /// This is a list of commands for which the corresponding buttons will be rendered. The supported built-in commands are: "create", "cancel", "save", "destroy".
         /// </summary>
         public GridSortableToolbarConfiguration toolbar { get; set; }
