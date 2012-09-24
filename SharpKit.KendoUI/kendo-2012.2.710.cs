@@ -1400,6 +1400,7 @@ namespace SharpKit.KendoUI
         public DataSource sender { get; set; }
     }
 
+    [JsType(JsMode.Json)]
     public class DataSourceConfiguration
     {
         /// <summary>
