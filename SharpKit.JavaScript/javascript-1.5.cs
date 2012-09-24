@@ -1001,7 +1001,7 @@ namespace SharpKit.JavaScript
     {
         public static JsNumber operator -(JsDate date1, JsDate date2) { return default(JsNumber); }
         public JsDate() { }
-        public JsDate(int value) { }
+        public JsDate(long value) { }
         public JsDate(JsString value) { }
         public JsDate(int year, int month, int date) { }
         public JsDate(int year, int month, int date, int hours) { }
@@ -1445,7 +1445,7 @@ namespace SharpKit.JavaScript
         ///<param name="dateVal">Either a JsString containing a date in a format such as "Jan 5, 1996 08:47:00" or a VT_DATE value retrieved from an ActiveX® object or other object.</param>
         ///<returns>An integer value representing the number of milliseconds between midnight, January 1, 1970 and the date supplied in dateVal.</returns>
         [JsMethod(NativeOverloads = true)]
-        public static JsNumber Parse(JsString dateVal) { return default(JsNumber); }
+        public static JsNumber parse(JsString dateVal) { return default(JsNumber); }
         ///<summary>
         ///Sets the numeric day-of-the-month value of the Date object using local time.
         ///</summary>

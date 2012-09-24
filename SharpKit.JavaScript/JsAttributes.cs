@@ -581,6 +581,11 @@ namespace SharpKit.JavaScript
         /// Sets a static property as a global property - omits the class name when declaring and invoking the property
         /// </summary>
         public bool Global { get { return _Global.GetValueOrDefault(); } set { _Global = value; } } public bool? _Global;
+
+        /// <summary>
+        /// When true, Object.defineProperty is used for properties. The browser needs to support native property.
+        /// </summary>
+        public bool NativeProperty { get { return _NativeProperty.GetValueOrDefault(); } set { _NativeProperty = value; } } public bool? _NativeProperty;
     }
     #endregion
 
