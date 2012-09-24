@@ -1962,7 +1962,7 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public Model model { get; set; }
+        public ModelObjectOptions model { get; set; }
 
         /// <summary>
         /// Executed before the server response is used. Appropriate for preprocessing or parsing of the server response.
