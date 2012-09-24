@@ -1687,6 +1687,7 @@ namespace SharpKit.KendoUI
 
     }
 
+    [JsType(JsMode.Json)]
     public class DataSourceSchemaConfiguration
     {
         /// <summary>
@@ -2495,6 +2496,7 @@ namespace SharpKit.KendoUI
         date,
     }
 
+    [JsType(JsMode.Json)]
     public class ModelObjectOptions
     {
         /// <summary>
