@@ -4144,7 +4144,14 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public GridSortableConfiguration sortable { get; set; }
+        [JsProperty(Name = "sortable")]
+        public GridSortableConfiguration sortableConfiguration { get; set; }
+
+        /// <summary>
+        /// Undocument property
+        /// </summary>
+        [JsProperty(Name = "sortable")]
+        public bool sortableBoolean { get; set; }
 
        
         /// <summary>
