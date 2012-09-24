@@ -2,5 +2,5 @@
 $(OnReady);
 function OnReady()
 {
-    $("#grid").kendoGrid({height:250});
+    $("#treeview").kendoTreeView();
 };

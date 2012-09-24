@@ -58,8 +58,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="examples\content\shared\js\console.js" />
+    <Content Include="examples\content\shared\js\examples.js" />
+    <Content Include="examples\content\shared\js\less.js" />
+    <Content Include="examples\content\shared\js\people.js" />
+    <Content Include="examples\content\shared\js\prettify.js" />
+    <Content Include="examples\web\grid\ColumnMenu.htm" />
+    <Content Include="examples\web\grid\ColumnMenu.js" />
     <Content Include="examples\web\grid\FromTable.htm" />
     <Content Include="examples\web\grid\FromTable.js" />
+    <Content Include="examples\web\grid\Index.htm" />
+    <Content Include="examples\web\grid\Index.js" />
+    <Content Include="examples\web\grid\LocalData.htm" />
+    <Content Include="examples\web\grid\LocalData.js" />
+    <Content Include="examples\web\timepicker\Index.htm" />
+    <Content Include="examples\web\timepicker\Index.js" />
     <Content Include="res\Default.js" />
     <Content Include="res\jquery-1.6.4.min.js" />
     <Content Include="res\KendoUISamples.js" />
@@ -73,8 +86,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="examples\content\shared\js\people.cs" />
     <Compile Include="examples\web\dragdrop\Container.cs" />
+    <Compile Include="examples\web\grid\ColumnMenu.cs" />
     <Compile Include="examples\web\grid\FromTable.cs" />
+    <Compile Include="examples\web\grid\Index.cs" />
+    <Compile Include="examples\web\grid\LocalData.cs" />
+    <Compile Include="examples\web\timepicker\Index.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

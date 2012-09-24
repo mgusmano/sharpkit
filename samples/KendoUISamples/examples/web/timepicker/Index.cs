@@ -1,19 +1,19 @@
 ﻿using SharpKit.JavaScript;
 using SharpKit.jQuery;
-using SharpKit.KendoUI.Web;
 
-namespace KendoUISamples.examples.web.grid
+namespace KendoUISamples.examples.web.timepicker
 {
     [JsType(JsMode.Global)]
-    public class FromTable
+    public class Index
     {
-        static FromTable()
+        static Index()
         {
             new jQuery(OnReady);
         }
+
         static void OnReady()
         {
-            new jQuery("#grid").kendoGrid(new GridConfiguration { height = 250 });
+            new jQuery("#treeview").kendoTreeView();
         }
     }
 }
