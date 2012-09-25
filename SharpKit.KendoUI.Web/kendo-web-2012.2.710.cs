@@ -4312,7 +4312,13 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// The width of the column.
         /// </summary>
-        public JsString width { get; set; }
+        [JsProperty(Name = "width")]
+        public JsString widthString { get; set; }
+        /// <summary>
+        /// Undocument property type. Add by Lee
+        /// </summary>
+        [JsProperty(Name = "width")]
+        public JsNumber widthNumber { get; set; }
 
     }
     public enum GridColumnsCommandOptions
