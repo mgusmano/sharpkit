@@ -77,7 +77,8 @@ namespace skt
 
         static void getSVNFile(string origFile, string destFile)
         {
-            if (File.Exists(destFile)) File.Delete(destFile);
+            if (File.Exists(destFile)) 
+                File.Delete(destFile);
 
             //svn cat -r BASE Dynamics\Dynamics.cs
             var psi = new ProcessStartInfo(SvnExe, "cat -r BASE \"" + origFile + "\"");
@@ -118,7 +119,8 @@ namespace skt
                 ErrorCount++;
 
                 var lineNumberStr = "";
-                if (itm.Status == CompareFileStatus.LineDiff) lineNumberStr = ":" + itm.Diff.LineNumber;
+                if (itm.Status == CompareFileStatus.LineDiff) 
+                    lineNumberStr = ":" + itm.Diff.LineNumber;
                 Console.Write(wellFileName + lineNumberStr + " ");
 
                 Console.Write("[");

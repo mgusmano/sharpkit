@@ -215,10 +215,17 @@ namespace CoreTests.Dynamics
 
         private void send()
         {
-            send(new { cmd = 5 });
+            send("");
+            send(new { a = "b" });
+            dynamic c = null;
+            send(c);
         }
 
         private void send(dynamic json)
+        {
+
+        }
+        private void send(string json)
         {
         }
 

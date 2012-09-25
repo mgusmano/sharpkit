@@ -13,5 +13,16 @@ namespace CoreTests.Constructors
         {
             var x = 7;
         }
+
+        public Constructors()
+        {
+            
+        }
+
+        void foo()
+        {
+            var ctor = JsContext.CtorOf<Constructors>();
+            var obj = JsContext.JsCode("new ctor()");
+        }
     }
 }
