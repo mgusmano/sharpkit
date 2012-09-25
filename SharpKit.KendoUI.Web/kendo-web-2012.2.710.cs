@@ -4047,6 +4047,12 @@ namespace SharpKit.KendoUI.Web
         public GridPageableConfiguration pageable { get; set; }
 
         /// <summary>
+        /// Undocument property. Added by Lee
+        /// (Default: false). Specifies whether given column is reorderable.
+        /// </summary>
+        public bool reorderable { get; set; }
+
+        /// <summary>
         /// Undocument property, add by Lee
         /// default: false
         /// Specifies whether given column is resizeable.
