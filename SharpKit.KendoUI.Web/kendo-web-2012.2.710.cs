@@ -4051,7 +4051,7 @@ namespace SharpKit.KendoUI.Web
         /// default: false
         /// Specifies whether given column is resizeable.
         /// </summary>
-        public bool resizeable { get; set; }
+        public bool resizable { get; set; }
 
         /// <summary>
         /// Template to be used for rendering the rows in the grid.
