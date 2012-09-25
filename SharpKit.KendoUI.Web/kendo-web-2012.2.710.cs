@@ -3898,7 +3898,7 @@ namespace SharpKit.KendoUI.Web
         public GridEditableConfiguration editable { get; set; }
 
         /// <summary>
-        /// Undocument type added by Lee
+        /// Undocument property added by Lee
         /// </summary>
         public bool filterable { get; set; }
 
@@ -4047,6 +4047,13 @@ namespace SharpKit.KendoUI.Web
         public GridPageableConfiguration pageable { get; set; }
 
         /// <summary>
+        /// Undocument property, add by Lee
+        /// default: false
+        /// Specifies whether given column is resizeable.
+        /// </summary>
+        public bool resizeable { get; set; }
+
+        /// <summary>
         /// Template to be used for rendering the rows in the grid.
         /// </summary>
         ///<example>
@@ -4154,6 +4161,8 @@ namespace SharpKit.KendoUI.Web
 
         /// <summary>
         /// Undocument property
+        /// Default: false
+        /// Specifies whether given column is sortable.
         /// </summary>
         [JsProperty(Name = "sortable")]
         public bool sortableBoolean { get; set; }
