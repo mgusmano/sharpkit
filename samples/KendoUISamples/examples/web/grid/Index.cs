@@ -29,19 +29,19 @@ namespace KendoUISamples.examples.web.grid
                 columns = new JsArray<GridColumnConfiguration> { new GridColumnConfiguration
                 {
                     field = "FirstName",
-                    width = "90",
+                    widthNumber = 90,
                     title = "FirstName"
                 }, new GridColumnConfiguration
                 {
                     field = "LastName",
-                    width = "90",
+                    widthNumber = 90,
                     title = "Last Name"
                 },
                 
-                new GridColumnConfiguration { width = "100", field = "City" },
+                new GridColumnConfiguration { widthNumber = 100, field = "City" },
                 new GridColumnConfiguration { field = "Title"},
                 new GridColumnConfiguration { field = "BirthDate", title = "Birth Date", template = "#= kendo.toString(BirthDate,'dd MMMM yyyy') #"},
-                new GridColumnConfiguration { width = "50", field = "Age"}
+                new GridColumnConfiguration { widthNumber = 50, field = "Age"}
                 }
             });
         }

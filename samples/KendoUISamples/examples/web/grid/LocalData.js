@@ -25,6 +25,6 @@ function OnReady()
         sortable:true,
         filterable:true,
         pageable:true,
-        columns: [{field:"FirstName",title:"First Name",width:"100"},{field:"LastName",title:"LastName",width:"100"},{field:"City",width:"100"},{field:"Title"},{field:"BirthDate",title:"Birth Date",template:"#= kendo.toString(BirthDate,\'MM/dd/yyyy\') #"},{field:" Age",width:"50"}]
+        columns: [{field:"FirstName",title:"First Name",width:100},{field:"LastName",title:"LastName",width:100},{field:"City",width:100},{field:"Title"},{field:"BirthDate",title:"Birth Date",template:"#= kendo.toString(BirthDate,\'MM/dd/yyyy\') #"},{field:" Age",width:50}]
     });
 };

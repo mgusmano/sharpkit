@@ -16,7 +16,7 @@ namespace KendoUISamples.examples.web.dragdrop
         static void OnReady()
         {
             //TODO
-            //new jQuery("#draggable-item").
+            new jQuery("#draggable-item").kendoDatePicker();
         }
     //     $("#draggable-item").kendoDraggable({
     //    container: $("#draggable-container"),

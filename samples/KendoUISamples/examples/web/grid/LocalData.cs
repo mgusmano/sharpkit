@@ -43,12 +43,12 @@ namespace KendoUISamples.examples.web.grid
                 filterable = true,
                 pageableBoolean = true,
                 columns = new JsArray<GridColumnConfiguration> {
-                   new GridColumnConfiguration { field = "FirstName", title = "First Name", width = "100"},
-                   new GridColumnConfiguration { field = "LastName", title = "LastName", width = "100"},
-                   new GridColumnConfiguration { field = "City", width = "100"},
+                   new GridColumnConfiguration { field = "FirstName", title = "First Name", widthNumber = 100},
+                   new GridColumnConfiguration { field = "LastName", title = "LastName", widthNumber = 100},
+                   new GridColumnConfiguration { field = "City", widthNumber = 100},
                    new GridColumnConfiguration { field = "Title"},
                    new GridColumnConfiguration { field = "BirthDate", title = "Birth Date", template = "#= kendo.toString(BirthDate,'MM/dd/yyyy') #"},
-                   new GridColumnConfiguration { field = " Age", width = "50" }
+                   new GridColumnConfiguration { field = " Age", widthNumber = 50 }
                }
             });
         }
