@@ -13,24 +13,29 @@ if (typeof($CreateException)=='undefined')
         return error;
     }
 }
-if(typeof(CoreTests) == "undefined")
-    var CoreTests={};
-if(typeof(CoreTests.Enums) == "undefined")
+if (typeof(CoreTests) == "undefined")
+    var CoreTests = {};
+if (typeof(CoreTests.Enums) == "undefined")
     CoreTests.Enums = {};
-CoreTests.Enums.Enums = function()
+CoreTests.Enums.Enums = function ()
 {
 };
-CoreTests.Enums.Enums.prototype.Reflect = function()
+CoreTests.Enums.Enums.prototype.Reflect = function ()
 {
-    var type= CoreTests.Enums.Enum1;
-    for(var name in type)
+    var type =  CoreTests.Enums.Enum1;
+    for (var name in type)
     {
-        var value=type[name];
+        var value = type[name];
         this.alert(name + "=" + value);
     }
 };
-CoreTests.Enums.Enums.prototype.alert = function(p)
+CoreTests.Enums.Enums.prototype.alert = function (p)
 {
-    throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+    throw $CreateException(new System.NotImplementedException.ctor(), new Error());
 };
-CoreTests.Enums.Enum1 = {a:1,b:2,c:3};
+CoreTests.Enums.Enum1 = {a: 1, b: 2, c: 3};
+if (typeof(System) == "undefined")
+    var System = {};
+if (typeof(System.ComponentModel) == "undefined")
+    System.ComponentModel = {};
+System.ComponentModel.RefreshProperties = {None: 0, All: 1, Repaint: 2};

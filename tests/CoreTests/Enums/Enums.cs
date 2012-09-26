@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
-
+[assembly: JsType(JsMode.Prototype, TargetType = typeof(System.ComponentModel.RefreshProperties), Filename="~/Enums/Enums.js")]
 namespace CoreTests.Enums
 {
     [JsType(JsMode.Prototype)]

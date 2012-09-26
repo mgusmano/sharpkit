@@ -41,20 +41,20 @@ if (typeof($CreateDelegate)=='undefined'){
         return delegate;
     }
 }
-if(typeof(CoreTests) == "undefined")
-    var CoreTests={};
-if(typeof(CoreTests.Events) == "undefined")
+if (typeof(CoreTests) == "undefined")
+    var CoreTests = {};
+if (typeof(CoreTests.Events) == "undefined")
     CoreTests.Events = {};
-CoreTests.Events.CustomEventsTest = function()
+CoreTests.Events.CustomEventsTest = function ()
 {
 };
-CoreTests.Events.CustomEventsTest.prototype.foo = function()
+CoreTests.Events.CustomEventsTest.prototype.foo = function ()
 {
-    var x=new CoreTests.Events.CustomEvents();
-    x.MyEvent.add($CreateDelegate(this,this.x_MyEvent));
-    x.MyEvent.remove($CreateDelegate(this,this.x_MyEvent));
+    var x = new CoreTests.Events.CustomEvents();
+    x.MyEvent.add($CreateDelegate(this, this.x_MyEvent));
+    x.MyEvent.remove($CreateDelegate(this, this.x_MyEvent));
 };
-CoreTests.Events.CustomEventsTest.prototype.x_MyEvent = function()
+CoreTests.Events.CustomEventsTest.prototype.x_MyEvent = function ()
 {
-    throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+    throw $CreateException(new System.NotImplementedException.ctor(), new Error());
 };

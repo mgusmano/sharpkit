@@ -41,41 +41,41 @@ if (typeof($CreateDelegate)=='undefined'){
         return delegate;
     }
 }
-if(typeof(CoreTests) == "undefined")
-    var CoreTests={};
-if(typeof(CoreTests.Dynamics) == "undefined")
+if (typeof(CoreTests) == "undefined")
+    var CoreTests = {};
+if (typeof(CoreTests.Dynamics) == "undefined")
     CoreTests.Dynamics = {};
-CoreTests.Dynamics.Dynamics = function()
+CoreTests.Dynamics.Dynamics = function ()
 {
     this.data = null;
     this.selectedIndex = 0;
     this.HOW_LONG = 0;
 };
-CoreTests.Dynamics.Dynamics.prototype.TestMethod = function()
+CoreTests.Dynamics.Dynamics.prototype.TestMethod = function ()
 {
     var d;
 };
-CoreTests.Dynamics.Dynamics.prototype.parse = function(dateNode)
+CoreTests.Dynamics.Dynamics.prototype.parse = function (dateNode)
 {
-    var dateString=dateNode["$t"];
+    var dateString = dateNode["$t"];
     dateNode("asdas");
-    var x=dateNode.ggg.aaa;
+    var x = dateNode.ggg.aaa;
     dateNode.aa.bb = "dd";
 };
-CoreTests.Dynamics.Dynamics.ContainsIgnoreCase = function(str,other)
+CoreTests.Dynamics.Dynamics.ContainsIgnoreCase = function (str, other)
 {
     return (str.ToLower().IndexOf(other.ToLower())) > -1;
 };
-CoreTests.Dynamics.Dynamics.prototype.selectByURL = function(url)
+CoreTests.Dynamics.Dynamics.prototype.selectByURL = function (url)
 {
-    var dataRef=this.data;
+    var dataRef = this.data;
     var item;
-    for(var i=0;i < dataRef.length;i++)
+    for (var i = 0; i < dataRef.length; i++)
     {
         item = dataRef[i];
-        if(item.url == url)
+        if (item.url == url)
         {
-            if(this.selectedIndex != i)
+            if (this.selectedIndex != i)
             {
                 this.selectedIndex = i;
             }
@@ -83,84 +83,84 @@ CoreTests.Dynamics.Dynamics.prototype.selectByURL = function(url)
         }
     }
 };
-CoreTests.Dynamics.Dynamics.prototype.foo = function()
+CoreTests.Dynamics.Dynamics.prototype.foo = function ()
 {
-    var arrivingViewProps=new Object();
+    var arrivingViewProps = new Object();
     arrivingViewProps.left = 0;
     arrivingViewProps.leaveTransforms = true;
-    this.animate(arrivingViewProps,this.HOW_LONG);
+    this.animate(arrivingViewProps, this.HOW_LONG);
 };
-CoreTests.Dynamics.Dynamics.prototype.animate = function(arrivingViewProps,HOW_LONG)
+CoreTests.Dynamics.Dynamics.prototype.animate = function (arrivingViewProps, HOW_LONG)
 {
-    throw $CreateException(new System.NotImplementedException.ctor(),new Error());
+    throw $CreateException(new System.NotImplementedException.ctor(), new Error());
 };
-CoreTests.Dynamics.Dynamics.prototype.foo2 = function()
+CoreTests.Dynamics.Dynamics.prototype.foo2 = function ()
 {
-    var arrivingView=null;
-    var arrivingViewProps=new Object();
+    var arrivingView = null;
+    var arrivingViewProps = new Object();
     arrivingViewProps.left = 0;
     arrivingViewProps.leaveTransforms = true;
-    var newLeftSide=7;
+    var newLeftSide = 7;
     arrivingView.show();
-    arrivingView.css("left",newLeftSide);
-    arrivingView.animate(arrivingViewProps,this.HOW_LONG);
+    arrivingView.css("left", newLeftSide);
+    arrivingView.animate(arrivingViewProps, this.HOW_LONG);
 };
-CoreTests.Dynamics.Dynamics.prototype.foo3 = function()
+CoreTests.Dynamics.Dynamics.prototype.foo3 = function ()
 {
-    var reminders=null;
-    var $it1=reminders.GetEnumerator();
-    while($it1.MoveNext())
+    var reminders = null;
+    var $it1 = reminders.GetEnumerator();
+    while ($it1.MoveNext())
     {
-        var item=$it1.get_Current();
+        var item = $it1.get_Current();
     }
 };
-CoreTests.Dynamics.Dynamics.prototype.foo4 = function()
+CoreTests.Dynamics.Dynamics.prototype.foo4 = function ()
 {
-    var parseResult=$CreateDelegate(this,this.foo5);
+    var parseResult = $CreateDelegate(this, this.foo5);
 };
-CoreTests.Dynamics.Dynamics.prototype.foo5 = function(obj)
+CoreTests.Dynamics.Dynamics.prototype.foo5 = function (obj)
 {
-    var reminders= [];
+    var reminders =  [];
     var reminder;
-    var now=new Date();
-    var startOfToday=new Date(now.getFullYear(),now.getMonth(),now.getDate(),0,0,0,0);
+    var now = new Date();
+    var startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
     var dueDate;
-    for(var $i3=0,$l3=reminders.length,item=reminders[$i3];$i3 < $l3;$i3++,item = reminders[$i3])
+    for (var $i3 = 0, $l3 = reminders.length, item = reminders[$i3]; $i3 < $l3; $i3++, item = reminders[$i3])
     {
         dueDate = new Date(item.DueDate["$t"]);
         reminder = new Object();
         reminder["Due"] = item.DueDate["$t"];
         reminder["Done"] = item.PrevDate["$t"];
         reminder["Subject"] = item.Description["$t"];
-        reminder["PastDue"] = dueDate.getTime() < startOfToday.getTime()?"red":"";
+        reminder["PastDue"] = dueDate.getTime() < startOfToday.getTime() ? "red" : "";
         this.data.push(reminder);
     }
 };
-if(typeof(JsTypes) == "undefined")
-    var JsTypes=[];
-var CoreTests$Dynamics$Bug1=
+if (typeof(JsTypes) == "undefined")
+    var JsTypes = [];
+var CoreTests$Dynamics$Bug1 =
 {
-    fullname:"CoreTests.Dynamics.Bug1",
-    baseTypeName:"System.Object",
-    assemblyName:"CoreTests",
-    Kind:"Class",
+    fullname: "CoreTests.Dynamics.Bug1",
+    baseTypeName: "System.Object",
+    assemblyName: "CoreTests",
+    Kind: "Class",
     definition:
     {
-        ctor:function()
+        ctor: function ()
         {
             System.Object.ctor.call(this);
         },
-        send:function()
+        send: function ()
         {
             this.send$$String("");
-            this.send$$Object({a:"b"});
-            var c=null;
+            this.send$$Object( {a: "b"});
+            var c = null;
             this.send$$Object(c);
         },
-        send$$Object:function(json)
+        send$$Object: function (json)
         {
         },
-        send$$String:function(json)
+        send$$String: function (json)
         {
         }
     }
