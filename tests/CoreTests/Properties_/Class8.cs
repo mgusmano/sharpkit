@@ -45,7 +45,7 @@ namespace SharpKitWebApp5
                 base.MyProperty = value;
             }
         }
-
+         
     }
 
     [JsType(JsMode.Prototype)]
