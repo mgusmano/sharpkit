@@ -9842,6 +9842,7 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsString template { get; set; }
     }
+    [JsType(JsMode.Json)]
     public class WindowConfiguration
     {
         /// <summary>
