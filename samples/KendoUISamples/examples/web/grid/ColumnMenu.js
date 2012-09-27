@@ -7,12 +7,12 @@ function OnReady()
     fields["ShipCountry"] = {type:"string"};
     fields["ShipName"] = {type:"string"};
     fields["ShipAddress"] = {type:"string"};
-     columns: ['OrderID','ShipCountry','ShipName',{field: 'ShipAddress',filterable: false}];
     $("#grid").kendoGrid(
     {
         dataSource:
         {
             type:"odata",
+            transport:{read:"http://demos.kendoui.com/service/Northwind.svc/Orders"},
             schema:
             {
                 model:{fields:fields}
@@ -25,6 +25,8 @@ function OnReady()
         height:250,
         sortable:true,
         filterable:true,
-        pageable:true
+        columnMenu:true,
+        pageable:true,
+        columns: [{field:"OrderID"},{field:"ShipCountry"},{field:"ShipName"},{field:"ShipAddress",filterable:false}]
     });
 };

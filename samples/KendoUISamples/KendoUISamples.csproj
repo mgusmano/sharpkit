@@ -486,11 +486,16 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="examples\content\shared\js\console.cs" />
     <Compile Include="examples\content\shared\js\people.cs" />
     <Compile Include="examples\web\dragdrop\Container.cs" />
     <Compile Include="examples\web\grid\ColumnMenu.cs" />
     <Compile Include="examples\web\grid\ColumnReordering.cs" />
     <Compile Include="examples\web\grid\ColumnResizing.cs" />
+    <Compile Include="examples\web\grid\CustomCommand.cs" />
+    <Compile Include="examples\web\grid\EditingCustom.cs" />
+    <Compile Include="examples\web\grid\EditingPopup.cs" />
+    <Compile Include="examples\web\grid\Events.cs" />
     <Compile Include="examples\web\grid\FromTable.cs" />
     <Compile Include="examples\web\grid\Index.cs" />
     <Compile Include="examples\web\grid\LocalData.cs" />

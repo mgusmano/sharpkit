@@ -12,6 +12,8 @@ namespace KendoUISamples.examples.web.grid
         {
             new jQuery(OnReady);
         }
+        
+        //TODO: the example doesn't work correctly.
         static void OnReady()
         {
             var fields = new JsObject<FieldConfig>();
@@ -19,13 +21,15 @@ namespace KendoUISamples.examples.web.grid
             fields["ShipCountry"] = new FieldConfig { type = "string" };
             fields["ShipName"] = new FieldConfig { type = "string" };
             fields["ShipAddress"] = new FieldConfig { type = "string" };
-            JsContext.JsCode("columns: ['OrderID','ShipCountry','ShipName',{field: 'ShipAddress',filterable: false}]");
+
             new jQuery("#grid").kendoGrid(new GridConfiguration
             {
                 dataSourceObject = new DataSourceConfiguration
                 {
                     type = "odata",
-                    //transport = new T
+                    transport = new DataSourceTransportConfiguration {
+                        readString = "http://demos.kendoui.com/service/Northwind.svc/Orders"
+                    },
                     schema = new DataSourceSchemaConfiguration
                     {
                         model = new ModelObjectOptions
@@ -41,37 +45,22 @@ namespace KendoUISamples.examples.web.grid
                 height = 250,
                 sortableBoolean = true,
                 filterable = true,
-                // TODO: colomnMenu = true,
+                columnMenu = true,
                 pageableBoolean = true,
-              
-               //columns = new JsArray<GridColumnConfiguration> { 
-                //       //TODO:"OrdeId", "shipContry", "shipName",
-                //        new GridColumnConfiguration {
-                //            field = "ShipAssress",
-                //            filterable = false
-                //    }
-                //}
+
+                columns = new JsArray<GridColumnConfiguration> 
+                { 
+                    new GridColumnConfiguration{ field = "OrderID" },
+                    new GridColumnConfiguration{ field = "ShipCountry" },
+                    new GridColumnConfiguration{ field = "ShipName" },
+                    new GridColumnConfiguration 
+                    {
+                        field = "ShipAddress",
+                        filterable = false
+                    }
+                }
 
             });
-            
-
-            //            height: 250,
-            //            sortable: true,
-            //            filterable: true,
-            //            columnMenu: true,
-            //            pageable: true,
-                        //columns: [
-                        //    "OrderID",
-                        //    "ShipCountry",
-                        //    "ShipName",
-                        //    {
-                        //        field: "ShipAddress",
-                        //        filterable: false
-                        //    }
-                        //]
-            //        });
-            //    });
-            //</script>
         }
     }
 }
