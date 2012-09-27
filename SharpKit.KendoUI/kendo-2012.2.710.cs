@@ -3329,6 +3329,9 @@ namespace SharpKit.KendoUI
         /// </summary>
         public bool validateOnBlur { get; set; }
 
+        /// <summary>
+        /// Undocument
+        /// </summary>
         public bool requierd  { get; set; }
     }
 
