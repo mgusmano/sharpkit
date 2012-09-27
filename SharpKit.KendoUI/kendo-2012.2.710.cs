@@ -1423,6 +1423,11 @@ namespace SharpKit.KendoUI
         public bool autoSync { get; set; }
 
         /// <summary>
+        /// (Default: false).
+        /// Enables (true) or disables (false) batch mode.
+        /// </summary>
+        public bool batch { get; set; }
+        /// <summary>
         /// Specifies the local JavaScript object to use for the data source.
         /// </summary>
         ///<example>
