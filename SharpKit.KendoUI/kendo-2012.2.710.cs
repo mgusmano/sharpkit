@@ -1417,6 +1417,10 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public object aggregate { get; set; }
+        /// <summary>
+        /// (Default: false). Enables (true) or disables (false) the automatic invocation of the sync() method for each change made.
+        /// </summary>
+        public bool autoSync { get; set; }
 
         /// <summary>
         /// Specifies the local JavaScript object to use for the data source.
