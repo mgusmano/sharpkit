@@ -2140,7 +2140,7 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public JsAction parameterMap { get; set; }
+        public JsFunc<DataSourceConfiguration, object, object> parameterMap { get; set; }
 
         /// <summary>
         /// Object|String|Function 
