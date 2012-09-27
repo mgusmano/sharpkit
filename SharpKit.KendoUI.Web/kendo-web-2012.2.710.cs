@@ -3904,6 +3904,12 @@ namespace SharpKit.KendoUI.Web
         public GridEditableConfiguration editable { get; set; }
 
         /// <summary>
+        /// Undocument property. Add by Lee.
+        /// </summary>
+        [JsProperty(Name = "editable")]
+        public bool editableBoolen { get; set; }
+
+        /// <summary>
         /// Undocument property added by Lee
         /// </summary>
         public bool filterable { get; set; }
