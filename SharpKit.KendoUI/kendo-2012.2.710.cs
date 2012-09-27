@@ -2059,6 +2059,7 @@ namespace SharpKit.KendoUI
         DELETE,
     }
 
+    [JsType(JsMode.Json)]
     public class DataSourceTransportConfiguration
     {
         /// <summary>
