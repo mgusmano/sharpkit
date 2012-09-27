@@ -5,7 +5,10 @@ using SharpKit.Html4;
 
 namespace SharpKit.KendoUI
 {
-    public class kendo
+    #region Kendo
+    
+    [JsType(JsMode.Prototype, Name = "kendo", Export = false)]
+    public class Kendo
     {
         /// <summary>
         /// Binds a HTML View to a View-Model. Model View ViewModel (MVVM) is a design pattern which helps developers separate the Model from the View.
@@ -550,6 +553,7 @@ namespace SharpKit.KendoUI
     /// <summary>
     /// A range of useful supported by the current browser capabilities and features.
     /// </summary>
+    [JsType(JsMode.Json)]
     public class Support
     {
         /// <summary>
@@ -611,6 +615,7 @@ namespace SharpKit.KendoUI
     /// <summary>
     /// Returns a number of browser specific transition properties
     /// </summary>
+    [JsType(JsMode.Json)]
     public class Transitions
     {
         /// <summary>
@@ -633,6 +638,7 @@ namespace SharpKit.KendoUI
     /// <summary>
     /// Returns a number of properties that identify the current mobile browser. Parses navigator.userAgent to do it. Undefined on desktop.
     /// </summary>
+    [JsType(JsMode.Json)]
     public class MobileOS
     {
         /// <summary>
@@ -680,6 +686,7 @@ namespace SharpKit.KendoUI
     /// <summary>
     /// Returns a number of browser specific transformation properties
     /// </summary>
+    [JsType(JsMode.Json)]
     public class Transforms
     {
         /// <summary>
@@ -693,238 +700,11 @@ namespace SharpKit.KendoUI
         public JsString prefix { get; set; }
     }
 
-    public class ObservableObject
-    {
-        public ObservableObject(object Configurations) { }
-        public ObservableObject() { }
+    #endregion
 
-        /// <summary>
-        /// The unique identifier of the ObservableObject.
-        /// </summary>
-        ///<example>
-        ///usage
-        ///<code>
-        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
-        ///console.log(observable.uid); // outputs "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" where "x" is a number or letter
-        ///</code>
-        ///</example>
-        public JsString uid { get; set; }
 
-        /// <summary>
-        /// Attaches an event handler for the specified event.
-        /// </summary>
-        /// <param name="eventName">The name of the event.</param>
-        /// <param name="handler">The function which will be invoked when the event is raised.</param>
-        ///<example>
-        ///usage
-        ///<code>
-        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
-        ///observable.bind("change", function(e) {
-        ///    console.log(e.field); // will output the changed field once the event is raised
-        ///});
-        ///observable.set("name", "Jane Doe"); // raises the "change" event and the handler outputs "name"
-        ///        ///</code>
-        ///</example>
-        public void bind(JsString eventName, JsAction handler) { }
 
-        /// <summary>
-        /// Gets the value of the specified field.
-        /// </summary>
-        /// <param name="name">The name of the field whose value is going to be returned.</param>
-        /// <returns></returns>
-        public object get(JsString name) { return null; }
-
-        /// <summary>
-        /// Returns the parent ObservableObject. If the current ObservableObject is not nested returns undefined;
-        /// </summary>
-        /// <returns></returns>
-        ///<example>
-        ///usage
-        ///<code>
-        ///var observable = new kendo.data.ObservableObject({ person: { name: "John Doe" } });
-        ///var person = observable.get("person");
-        ///console.log(observable.parent()); // outputs "undefined"
-        ///console.log(person.parent() === observable); // outputs "true"
-        ///</code>
-        ///</example>
-        public ObservableObject parent() { return null; }
-
-        /// <summary>
-        /// Sets the value of the specified field.
-        /// </summary>
-        /// <param name="name">The name of the field whose value is going to be returned.</param>
-        /// <param name="value">The new value of the field.</param>
-        ///<example>
-        ///usage
-        ///<code>
-        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
-        ///observable.set("name", "Jane Doe"); // set the value
-        ///console.log(observable.get("name")); //outputs the new value "Jane Doe"
-        ///</code>
-        ///</example>
-        public void set(JsString name, JsNumber value) { }
-        /// <summary>
-        /// Sets the value of the specified field.
-        /// </summary>
-        /// <param name="name">The name of the field whose value is going to be returned.</param>
-        /// <param name="value">The new value of the field.</param>
-        ///<example>
-        ///usage
-        ///<code>
-        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
-        ///observable.set("name", "Jane Doe"); // set the value
-        ///console.log(observable.get("name")); //outputs the new value "Jane Doe"
-        ///</code>
-        ///</example>
-        public void set(JsString name, JsString value) { }
-        /// <summary>
-        /// Sets the value of the specified field.
-        /// </summary>
-        /// <param name="name">The name of the field whose value is going to be returned.</param>
-        /// <param name="value">The new value of the field.</param>
-        ///<example>
-        ///usage
-        ///<code>
-        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
-        ///observable.set("name", "Jane Doe"); // set the value
-        ///console.log(observable.get("name")); //outputs the new value "Jane Doe"
-        ///</code>
-        ///</example>
-        public void set(JsString name, JsDate value) { }
-        /// <summary>
-        /// Sets the value of the specified field.
-        /// </summary>
-        /// <param name="name">The name of the field whose value is going to be returned.</param>
-        /// <param name="value">The new value of the field.</param>
-        ///<example>
-        ///usage
-        ///<code>
-        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
-        ///observable.set("name", "Jane Doe"); // set the value
-        ///console.log(observable.get("name")); //outputs the new value "Jane Doe"
-        ///</code>
-        ///</example>
-        public void set(JsString name, object value) { }
-
-        /// <summary>
-        /// Creates a plain JavaScript object which contains all fields of the ObservableObject.
-        /// </summary>
-        /// <returns>An Object which contains only the fields of the ObservableObject.</returns>
-        ///<example>
-        ///usage
-        ///<code>
-        ///var observable = new kendo.data.ObservableObject({ person: { name: "John Doe" } });
-        ///var json = observable.toJSON();
-        ///console.log(JSON.stringify(json)); // outputs {"person":{"name":"John Doe"}}
-        ///</code>
-        ///</example>
-        public object toJSON() { return null; }
-
-        /// <summary>
-        /// Raised when a field value is updated via the set method.
-        /// </summary>
-        public event JsAction<ObservableObjectChangeEventData> change { add { } remove { } }
-
-        /// <summary>
-        /// Raised when the get method is invoked. TODO: change name to "get"
-        /// </summary>
-        public event JsAction<ObservableObjectChangeEventData> getEvent { add { } remove { } }
-
-        /// <summary>
-        /// Raised when the set method is invoked.
-        /// The set event is raised before the field value is updated. Calling the get method from the event handler will return the old value.
-        /// Calling e.preventDefault will prevent the update of the field and the change event will not be raised.
-        /// TODO: change name to "set"
-        /// </summary>
-        public event JsAction<ObservableObjectSetEventData> setEvent { add { } remove { } }
-
-    }
-
-    public class ObservableObjectChangeEventData
-    {
-        /// <summary>
-        /// The name of the field which has changed.
-        /// </summary>
-        public JsString field  { get; set; }
-    }
-
-    public class ObservableObjectGetEventData
-    {
-        /// <summary>
-        /// The name of the field which is retrieved.
-        /// </summary>
-        public JsString field { get; set; }
-    }
-    public class ObservableObjectSetEventData
-    {
-        /// <summary>
-        /// The name of the field which is retrieved.
-        /// </summary>
-        public JsString field { get; set; }
-
-        /// <summary>
-        /// The new value. type can be Number|String|Data|Object
-        /// </summary>
-        public object value { get; set; }
-
-        /// <summary>
-        /// A function which may prevent the update of the value. Can be used to perform validation.
-        /// </summary>
-        public JsAction preventDefault { get; set; }
-    }
-
-    public class KendoObjectOptions
-    {
-        /// <summary>
-        /// The name of the parameter used by the generated function. Useful when useWithBlock is set to false.
-        /// </summary>
-        public JsString paramName { get; set; }
-        /// <summary>
-        /// Wraps the generated code in a with block.
-        /// This allows the usage of unqualified fields in the template. Disabling the with block will improve the performance of the template.
-        /// </summary>
-        public bool useWithBlock { get; set; }
-    }
-
-    public enum DeviceIdentificator
-    {
-        fire,
-        android,
-        iphone,
-        ipad,
-        meego,
-        webos,
-        blackberry,
-        playbook,
-        winphone,
-        windows,
-    }
-    public enum TabletIdentificator
-    {
-        fire,
-        ipad,
-        playbook,
-        //false,
-    }
-    public enum BrowserIdentificator
-    {
-        omini,
-        omobile,
-        firefox,
-        mobilesafari,
-        webkit,
-        ie,
-        @default,
-    }
-    public enum NameIdentificator
-    {
-        ios,
-        android,
-        blackberry,
-        windows,
-        webos,
-        meego,
-    }
+    #region DataSource
 
     public class DataSource
     {
@@ -1352,7 +1132,7 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public event JsAction<DataSourceChangeEventData> change { add { } remove { } }
+        public event JsAction change { add { } remove { } }
 
         /// <summary>
         /// Fires when an error occurs during data read or sync. The event arguments are the same as the ones of the error event of $.ajax().
@@ -1369,7 +1149,7 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public event JsAction<DataSourceErrorEventData> error { add { } remove { } }
+        public event JsAction error { add { } remove { } }
 
         /// <summary>
         /// Fires when data request is to be made.
@@ -1386,12 +1166,7 @@ namespace SharpKit.KendoUI
         ///</example>
         public event JsAction<DataSourceRequestStartEventData> requestStart { add { } remove { } }
     }
-    public class DataSourceChangeEventData
-    {
-    }
-    public class DataSourceErrorEventData
-    {
-    }
+
     public class DataSourceRequestStartEventData
     {
         /// <summary>
@@ -2307,7 +2082,10 @@ namespace SharpKit.KendoUI
     {
     }
 
+    #endregion
 
+    #region HierarchicalDataSource
+    
     /// <summary>
     /// See the DataSource methods for all inherited methods.
     /// The remove and getByUid methods are overridden and work with the hierarchical data (they will act on all child datasources that have been read).
@@ -2326,7 +2104,6 @@ namespace SharpKit.KendoUI
 
     }
 
-
     public class HierarchicalDataSourceChangeEventData
     {
         /// <summary>
@@ -2339,6 +2116,7 @@ namespace SharpKit.KendoUI
     {
         public new HierarchicalDataSourceSchemaConfiguration schema { get; set; }
     }
+
     public class HierarchicalDataSourceSchemaConfiguration : DataSourceSchemaConfiguration
     {
         public new HierarchicalDataSourceSchemaModelConfiguration model { get; set; }
@@ -2387,6 +2165,10 @@ namespace SharpKit.KendoUI
         public object children { get; set; }
     }
 
+    #endregion
+
+    #region Model
+    
     /// <summary>
     /// The Model inherits from the ObservableObject and extends it with the ability to define schema - fields and methods.
     /// The DataSource contains instances of the Model when the schema.model setting is specified.
@@ -2533,6 +2315,49 @@ namespace SharpKit.KendoUI
         public JsObject<FieldConfig> fields { get; set; }
     }
 
+    #endregion
+
+    #region Node
+    
+    /// <summary>
+    /// The Node is an extended type of Model that works with hierarchical data. The HierarchicalDataSource contains only instances of Node.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "kendo.data.Node")]
+    public class Node : Model
+    {
+        //TODO: Fields
+
+        /// <summary>
+        /// Appends a new item to the children datasource, and initializes the datasource, if necessary.
+        /// </summary>
+        /// <param name="model">The data for the new item</param>
+        public void append(object model) { }
+
+        /// <summary>
+        /// Gets the current nesting level of the Node within the HierarchicalDataSource.
+        /// </summary>
+        public void level() { }
+
+        /// <summary>
+        /// Loads the child nodes in the child datasource, supplying the id of the Node to the request.
+        /// </summary>
+        public void load() { }
+
+        /// <summary>
+        /// Gets or sets the loaded flag of the Node. Setting the loaded flag to false allows reloading of child items.
+        /// </summary>
+        public void loaded() { }
+
+        /// <summary>
+        /// Gets the parent node of the Node, if any.
+        /// </summary>
+        public void parentNode() { }
+    }
+
+    #endregion
+
+    #region ObservableArray
+    
     /// <summary>
     /// The ObservableArray wrap an existing Array object with change tracking capabilities. It is used by Kendo MVVM and the Kendo DataSource.
     /// </summary>
@@ -2843,6 +2668,245 @@ namespace SharpKit.KendoUI
         public JsString field { get; set; }
     }
 
+    #endregion
+
+    #region ObservableObject
+    public class ObservableObject
+    {
+        public ObservableObject(object Configurations) { }
+        public ObservableObject() { }
+
+        /// <summary>
+        /// The unique identifier of the ObservableObject.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+        ///console.log(observable.uid); // outputs "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" where "x" is a number or letter
+        ///</code>
+        ///</example>
+        public JsString uid { get; set; }
+
+        /// <summary>
+        /// Attaches an event handler for the specified event.
+        /// </summary>
+        /// <param name="eventName">The name of the event.</param>
+        /// <param name="handler">The function which will be invoked when the event is raised.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+        ///observable.bind("change", function(e) {
+        ///    console.log(e.field); // will output the changed field once the event is raised
+        ///});
+        ///observable.set("name", "Jane Doe"); // raises the "change" event and the handler outputs "name"
+        ///        ///</code>
+        ///</example>
+        public void bind(JsString eventName, JsAction handler) { }
+
+        /// <summary>
+        /// Gets the value of the specified field.
+        /// </summary>
+        /// <param name="name">The name of the field whose value is going to be returned.</param>
+        /// <returns></returns>
+        public object get(JsString name) { return null; }
+
+        /// <summary>
+        /// Returns the parent ObservableObject. If the current ObservableObject is not nested returns undefined;
+        /// </summary>
+        /// <returns></returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var observable = new kendo.data.ObservableObject({ person: { name: "John Doe" } });
+        ///var person = observable.get("person");
+        ///console.log(observable.parent()); // outputs "undefined"
+        ///console.log(person.parent() === observable); // outputs "true"
+        ///</code>
+        ///</example>
+        public ObservableObject parent() { return null; }
+
+        /// <summary>
+        /// Sets the value of the specified field.
+        /// </summary>
+        /// <param name="name">The name of the field whose value is going to be returned.</param>
+        /// <param name="value">The new value of the field.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+        ///observable.set("name", "Jane Doe"); // set the value
+        ///console.log(observable.get("name")); //outputs the new value "Jane Doe"
+        ///</code>
+        ///</example>
+        public void set(JsString name, JsNumber value) { }
+        /// <summary>
+        /// Sets the value of the specified field.
+        /// </summary>
+        /// <param name="name">The name of the field whose value is going to be returned.</param>
+        /// <param name="value">The new value of the field.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+        ///observable.set("name", "Jane Doe"); // set the value
+        ///console.log(observable.get("name")); //outputs the new value "Jane Doe"
+        ///</code>
+        ///</example>
+        public void set(JsString name, JsString value) { }
+        /// <summary>
+        /// Sets the value of the specified field.
+        /// </summary>
+        /// <param name="name">The name of the field whose value is going to be returned.</param>
+        /// <param name="value">The new value of the field.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+        ///observable.set("name", "Jane Doe"); // set the value
+        ///console.log(observable.get("name")); //outputs the new value "Jane Doe"
+        ///</code>
+        ///</example>
+        public void set(JsString name, JsDate value) { }
+        /// <summary>
+        /// Sets the value of the specified field.
+        /// </summary>
+        /// <param name="name">The name of the field whose value is going to be returned.</param>
+        /// <param name="value">The new value of the field.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+        ///observable.set("name", "Jane Doe"); // set the value
+        ///console.log(observable.get("name")); //outputs the new value "Jane Doe"
+        ///</code>
+        ///</example>
+        public void set(JsString name, object value) { }
+
+        /// <summary>
+        /// Creates a plain JavaScript object which contains all fields of the ObservableObject.
+        /// </summary>
+        /// <returns>An Object which contains only the fields of the ObservableObject.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var observable = new kendo.data.ObservableObject({ person: { name: "John Doe" } });
+        ///var json = observable.toJSON();
+        ///console.log(JSON.stringify(json)); // outputs {"person":{"name":"John Doe"}}
+        ///</code>
+        ///</example>
+        public object toJSON() { return null; }
+
+        /// <summary>
+        /// Raised when a field value is updated via the set method.
+        /// </summary>
+        public event JsAction<ObservableObjectChangeEventData> change { add { } remove { } }
+
+        /// <summary>
+        /// Raised when the get method is invoked. TODO: change name to "get"
+        /// </summary>
+        public event JsAction<ObservableObjectChangeEventData> getEvent { add { } remove { } }
+
+        /// <summary>
+        /// Raised when the set method is invoked.
+        /// The set event is raised before the field value is updated. Calling the get method from the event handler will return the old value.
+        /// Calling e.preventDefault will prevent the update of the field and the change event will not be raised.
+        /// TODO: change name to "set"
+        /// </summary>
+        public event JsAction<ObservableObjectSetEventData> setEvent { add { } remove { } }
+
+    }
+
+    public class ObservableObjectChangeEventData
+    {
+        /// <summary>
+        /// The name of the field which has changed.
+        /// </summary>
+        public JsString field { get; set; }
+    }
+
+    public class ObservableObjectGetEventData
+    {
+        /// <summary>
+        /// The name of the field which is retrieved.
+        /// </summary>
+        public JsString field { get; set; }
+    }
+    public class ObservableObjectSetEventData
+    {
+        /// <summary>
+        /// The name of the field which is retrieved.
+        /// </summary>
+        public JsString field { get; set; }
+
+        /// <summary>
+        /// The new value. type can be Number|String|Data|Object
+        /// </summary>
+        public object value { get; set; }
+
+        /// <summary>
+        /// A function which may prevent the update of the value. Can be used to perform validation.
+        /// </summary>
+        public JsAction preventDefault { get; set; }
+    }
+
+    public class KendoObjectOptions
+    {
+        /// <summary>
+        /// The name of the parameter used by the generated function. Useful when useWithBlock is set to false.
+        /// </summary>
+        public JsString paramName { get; set; }
+        /// <summary>
+        /// Wraps the generated code in a with block.
+        /// This allows the usage of unqualified fields in the template. Disabling the with block will improve the performance of the template.
+        /// </summary>
+        public bool useWithBlock { get; set; }
+    }
+
+    public enum DeviceIdentificator
+    {
+        fire,
+        android,
+        iphone,
+        ipad,
+        meego,
+        webos,
+        blackberry,
+        playbook,
+        winphone,
+        windows,
+    }
+    public enum TabletIdentificator
+    {
+        fire,
+        ipad,
+        playbook,
+        //false,
+    }
+    public enum BrowserIdentificator
+    {
+        omini,
+        omobile,
+        firefox,
+        mobilesafari,
+        webkit,
+        ie,
+        @default,
+    }
+    public enum NameIdentificator
+    {
+        ios,
+        android,
+        blackberry,
+        windows,
+        webos,
+        meego,
+    }
+    #endregion
+
+    #region Drag
+    
     public class Drag
     {
         public Drag(jQuery.jQuery el, DragConfiguration config)
@@ -2961,6 +3025,10 @@ namespace SharpKit.KendoUI
 
     }
 
+    #endregion
+
+    #region DragAxis
+    
     /// <summary>
     /// The DragAxis is used internally by the kendo.Drag component to store and calculate event data.
     /// The Drag component contains two DragAxis instances: x for the horizontal coordinates, and y for the vertical.
@@ -2994,6 +3062,161 @@ namespace SharpKit.KendoUI
         /// </summary>
         public JsNumber velocity { get; set; }
     }
+
+    #endregion
+
+    #region Draggable
+    
+    [JsType(JsMode.Prototype, Name = "kendo.ui.Draggable")]
+    public class Draggable
+    {
+        public Draggable() { }
+
+        public Draggable(DraggableConfiguration options) { }
+
+        /// <summary>
+        /// Fires while dragging.
+        /// </summary>
+        public JsAction drag { get; set; }
+
+        /// <summary>
+        /// Fires when item drag is canceled by pressing the Escape key.
+        /// </summary>
+        public JsAction dragcancel { get; set; }
+
+        /// <summary>
+        /// Fires when item drag ends.
+        /// </summary>
+        public JsAction dragend { get; set; }
+
+        /// <summary>
+        /// Fires when item drag starts.
+        /// </summary>
+        public JsAction dragstart { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class DraggableConfiguration
+    {
+
+        /// <summary>
+        /// Constrains the hint movement to either the horizontal (x) or vertical (y) axis. Can be set to either "x" or "y".
+        /// </summary>
+        public JsString axis { get; set; }
+
+        /// <summary>
+        /// If set, the hint movement is constrained to the container boundaries.
+        /// </summary>
+        public jQuery.jQuery container { get; set; }
+
+        /// <summary>
+        /// If set, specifies the offset of the hint relative to the mouse cursor/finger.
+        /// By default, the hint is initially positioned on top of the draggable source offset. The option accepts an object with two keys: top and left.
+        /// </summary>
+        public CursorOffsetOptions cursorOffset { get; set; }
+
+        /// <summary>
+        /// The required distance that the mouse should travel in order to initiate a drag.
+        /// </summary>
+        public JsNumber distance { get; set; }
+
+        /// <summary>
+        /// Selects child elements that are draggable if a widget is attached to a container.
+        /// </summary>
+        public JsString filter { get; set; }
+
+        /// <summary>
+        /// Used to group sets of draggable and drop targets. A draggable with the same group value as a drop target will be accepted by the drop target.
+        /// </summary>
+        public JsString group { get; set; }
+
+        /// <summary>
+        /// Provides a way for customization of the drag indicator. If a function is supplied, it receives one argument - the draggable element's jQuery object.
+        /// </summary>
+        public jQuery.jQuery hint { get; set; }
+        /// <summary>
+        /// Provides a way for customization of the drag indicator. If a function is supplied, it receives one argument - the draggable element's jQuery object.
+        /// </summary>
+        [JsProperty(Name="hint")]
+        public JsAction hintFunction { get; set; }
+
+
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class CursorOffsetOptions
+    {
+        public JsNumber left { get; set; }
+
+        public JsNumber top { get; set; }
+    }
+
+    #endregion
+
+    #region DropTarget
+    
+    [JsType(JsMode.Prototype, Name = "kendo.ui.DropTarget")]
+    public class DropTarget
+    {
+        public DropTarget() { }
+
+        public DropTarget(DropTargetConfiguration options) { }
+
+        /// <summary>
+        /// Fires when draggable moves over the drop target.
+        /// </summary>
+        public JsAction<DropTargetDragEventData> dragenter { get; set; }
+
+        /// <summary>
+        /// Fires when draggable moves out of the drop target.
+        /// </summary>
+        public JsAction<DropTargetDragEventData> dragleave { get; set; }
+
+        /// <summary>
+        /// Fires when draggable is dropped over the drop target.
+        /// </summary>
+        public JsAction<DropTargetDropEventData> drop { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class DropTargetConfiguration
+    {
+        /// <summary>
+        /// Used to group sets of draggable and drop targets. A draggable with the same group value as a drop target will be accepted by the drop target.
+        /// </summary>
+        public JsString group { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class DropTargetDragEventData
+    {
+        /// <summary>
+        /// Reference to the draggable that enters/leaves  the drop target.
+        /// </summary>
+        public jQuery.jQuery draggable { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class DropTargetDropEventData
+    {
+        /// <summary>
+        /// Reference to the draggable that is dropped over the drop target.
+        /// </summary>
+        public DropTargetDropDraggableOptions draggable { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class DropTargetDropDraggableOptions : jQuery.jQuery
+    {
+        /// <summary>
+        /// The element that the drag and drop operation started from.
+        /// </summary>
+        public jQuery.jQuery currentTarget { get; set; }
+    }
+
+    #endregion
 
     [JsType(JsMode.Prototype, Name="kendo.ui.Validator")]
     public class Validator
@@ -3052,6 +3275,7 @@ namespace SharpKit.KendoUI
         public bool validateInput(HtmlElement input) { return false; }
     }
 
+    [JsType(JsMode.Json)]
     public class ValidatorConfiguration
     {
         /// <summary>
@@ -3104,7 +3328,11 @@ namespace SharpKit.KendoUI
         /// Determines if validation will be triggered when element loses focus. Default value is true.
         /// </summary>
         public bool validateOnBlur { get; set; }
+
+        public bool requierd  { get; set; }
     }
 
     //HEY SISTER
+
+
 }
