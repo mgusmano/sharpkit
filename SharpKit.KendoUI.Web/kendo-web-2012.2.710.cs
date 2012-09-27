@@ -3982,6 +3982,13 @@ namespace SharpKit.KendoUI.Web
         public bool editableBoolean { get; set; }
 
         /// <summary>
+        /// Undocument property. Add by Lee.
+        /// </summary>
+        [JsProperty(Name = "editable")]
+        public JsString editableString { get; set; }
+
+
+        /// <summary>
         /// Undocument property added by Lee
         /// </summary>
         public bool filterable { get; set; }
