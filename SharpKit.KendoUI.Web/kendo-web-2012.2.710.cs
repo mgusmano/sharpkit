@@ -4223,9 +4223,13 @@ namespace SharpKit.KendoUI.Web
         public object scrollableObject { get; set; }
 
         /// <summary>
-        /// (default: undefined) Indicates whether selection is enabled/disabled. 
+        /// Indicates whether selection is enabled/disabled. 
+        /// "row": Single row selection.
+        /// "cell": Single cell selection.
+        /// "multiple, row": Multiple row selection.
+        /// "multiple, cell": Multiple cell selection.
         /// </summary>
-        public GridSelectableOptions selectable { get; set; }
+        public JsString selectable { get; set; }
 
         /// <summary>
         /// Defines whether grid columns are sortable.
