@@ -165,7 +165,39 @@ namespace SharpKit.jQuery
 
 namespace SharpKit.KendoUI.Web
 {
+    #region Ui
 
+    [JsType(JsMode.Prototype, Name = "kendo.ui", Export = false)]
+    public class Ui
+    {
+        /// <summary>
+        /// Helper method for writing new widgets.
+        /// Exposes a jQuery plug-in that will handle the widget creation and attach its client-side object in the appropriate data-* attribute.
+        /// </summary>
+        /// <param name="widget">The widget function.</param>
+        /// <param name="register">The object where the reference to the widget is recorded.</param>
+        /// <param name="prefix">The plugin function prefix, e.g. "Mobile" will register "kendoMobileFoo".</param>
+        public void plugin(Widget widget, object register, JsString prefix) { }
+
+        /// <summary>
+        /// Shows an overlay with a loading message, indicating that an action is in progress.
+        /// </summary>
+        /// <param name="container">The container that will hold the overlay</param>
+        /// <param name="toggle">Whether the overlay should be shown or hidden</param>
+        public void progress(jQuery.jQuery container, bool toggle) { }
+    }
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.Widget", Export = false)]
+    public class Widget
+    {
+        //TODO: undocumented class. used as a type
+    }
+
+    #endregion
+
+    #region AutoComplete
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.AutoComplete", Export = false)]
     public class AutoComplete
     {
         /// <summary>
@@ -353,6 +385,8 @@ namespace SharpKit.KendoUI.Web
         //TODO: event name is select
 
     }
+
+    [JsType(JsMode.Json)]
     public class AutoCompleteConfiguration
     {
         /// <summary>
@@ -569,24 +603,11 @@ namespace SharpKit.KendoUI.Web
 
     }
 
-    public class EmptyEventData
-    {
-    }
-    public class SelectEventData
-    {
-        /// <summary>
-        /// The selected item chosen by a user.
-        /// </summary>
-        public jQuery.jQuery item { get; set; }
-    }
-    public class OneItemEventData
-    {
-        /// <summary>
-        /// The selected  item
-        /// </summary>
-        public HtmlElement item { get; set; }
-    }
+    #endregion
 
+    #region Calendar
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.Calendar", Export = false)]
     public class Calendar
     {
         /// <summary>
@@ -851,6 +872,8 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<EmptyEventData> navigateEvent { add { } remove { } }
         //TODO: event name is navigate
     }
+
+    [JsType(JsMode.Json)]
     public class CalendarConfiguration
     {
 
@@ -980,6 +1003,7 @@ namespace SharpKit.KendoUI.Web
         public JsDate value { get; set; }
     }
 
+    [JsType(JsMode.Json)]
     public class MonthConfiguration
     {
         /// <summary>
@@ -993,6 +1017,11 @@ namespace SharpKit.KendoUI.Web
         public JsString empty { get; set; }
     }
 
+    #endregion
+
+    #region ComboBox
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.ComboBox", Export = false)]
     public class ComboBox
     {
         /// <summary>
@@ -1302,6 +1331,8 @@ namespace SharpKit.KendoUI.Web
         //TODO: event name is select
 
     }
+
+    [JsType(JsMode.Json)]
     public class ComboBoxConfiguration
     {
         /// <summary>
@@ -1599,6 +1630,7 @@ namespace SharpKit.KendoUI.Web
         public JsString value { get; set; }
     }
 
+    [JsType(JsMode.Json)]
     public class AnimationConfiguration
     {
         /// <summary>
@@ -1650,6 +1682,11 @@ namespace SharpKit.KendoUI.Web
 
     }
 
+    #endregion
+
+    #region DatePicker
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.DatePicker", Export = false)]
     public class DatePicker
     {
         /// <summary>
@@ -1879,6 +1916,8 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<ViewOptions> openEvent { add { } remove { } }
         //TODO: event name is open
     }
+
+    [JsType(JsMode.Json)]
     public class DatePickerConfiguration
     {
         /// <summary>
@@ -2027,6 +2066,8 @@ namespace SharpKit.KendoUI.Web
 
     }
 
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum StartDepthOptions
     {
         /// <summary>
@@ -2047,6 +2088,11 @@ namespace SharpKit.KendoUI.Web
         century,
     }
 
+    #endregion
+
+    #region DateTimePicker
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.DateTimePicker", Export = false)]
     public class DateTimePicker
     {
 
@@ -2320,6 +2366,8 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<ViewOptions> openEvent { add { } remove { } }
         //TODO: event name is open
     }
+
+    [JsType(JsMode.Json)]
     public class DateTimePickerConfiguration
     {
         /// <summary>
@@ -2505,16 +2553,26 @@ namespace SharpKit.KendoUI.Web
         public JsDate value { get; set; }
 
     }
+
+    [JsType(JsMode.Json)]
     public class OpenEventData
     {
         public ViewOptions view { get; set; }
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum ViewOptions
     {
         date,
         time,
     }
 
+    #endregion
+
+    #region DropDownList
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.DropDownList", Export = false)]
     public class DropDownList
     {
         /// <summary>
@@ -2812,6 +2870,8 @@ namespace SharpKit.KendoUI.Web
         //TODO: event name is select
 
     }
+
+    [JsType(JsMode.Json)]
     public class DropDownListConfiguration
     {
         /// <summary>
@@ -3067,6 +3127,11 @@ namespace SharpKit.KendoUI.Web
         public JsString value { get; set; }
     }
 
+    #endregion
+
+    #region Editor
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.Editor", Export = false)]
     public class Editor
     {
         /// <summary>
@@ -3182,6 +3247,8 @@ namespace SharpKit.KendoUI.Web
 
 
     }
+
+    [JsType(JsMode.Json)]
     public class EditorConfiguration
     {
         /// <summary>
@@ -3263,6 +3330,11 @@ namespace SharpKit.KendoUI.Web
         public JsArray tools { get; set; }
     }
 
+    #endregion
+
+    #region Grid
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.Grid", Export = false)]
     public class Grid
     {
         /// <summary>
@@ -3783,7 +3855,7 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<EmptyEventData> saveChangesEvent { add { } remove { } }
         //TODO: event name is saveChanges
     }
-    
+
     [JsType(JsMode.Json)]
     public class GridConfiguration
     {
@@ -3866,7 +3938,7 @@ namespace SharpKit.KendoUI.Web
         /// Template to be used for rendering the detail rows in the grid. See the Detail Template example.
         /// </summary>
         public JsAction detailTemplate { get; set; }
-            
+
         /// <summary>
         /// Indicates whether editing is enabled/disabled.
         /// </summary>
@@ -4190,7 +4262,7 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public object sortable { get; set; }
 
-       
+
         /// <summary>
         /// This is a list of commands for which the corresponding buttons will be rendered. The supported built-in commands are: "create", "cancel", "save", "destroy".
         /// </summary>
@@ -4206,6 +4278,9 @@ namespace SharpKit.KendoUI.Web
 
 
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum GridSelectableOptions
     {
         /// <summary>
@@ -4345,6 +4420,9 @@ namespace SharpKit.KendoUI.Web
         public object width { get; set; }
 
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum GridColumnsCommandOptions
     {
         create,
@@ -4353,6 +4431,8 @@ namespace SharpKit.KendoUI.Web
         destroy,
 
     }
+
+    [JsType(JsMode.Json)]
     public class GridColumnsEditorOptionsConfiguration
     {
         /// <summary>
@@ -4365,6 +4445,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public object model { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class GridEditableConfiguration
     {
         /// <summary>
@@ -4397,6 +4479,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public bool update { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class GridPageableConfiguration
     {
         /// <summary>
@@ -4450,6 +4534,8 @@ namespace SharpKit.KendoUI.Web
         public GridPageableMessagesConfiguration messages { get; set; }
 
     }
+
+    [JsType(JsMode.Json)]
     public class GridPageableMessagesConfiguration
     {
         /// <summary>
@@ -4502,6 +4588,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsString refresh { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class GridSortableConfiguration
     {
         /// <summary>
@@ -4512,6 +4600,9 @@ namespace SharpKit.KendoUI.Web
         public GridSortableModeOptions mode { get; set; }
 
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum GridSortableModeOptions
     {
         /// <summary>
@@ -4523,6 +4614,9 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         multiple,
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum GridSortableToolbarCommandsOptions
     {
         create,
@@ -4530,6 +4624,8 @@ namespace SharpKit.KendoUI.Web
         save,
         destroy,
     }
+
+    [JsType(JsMode.Json)]
     public class GridSortableToolbarConfiguration
     {
         /// <summary>
@@ -4548,6 +4644,8 @@ namespace SharpKit.KendoUI.Web
         public JsString text { get; set; }
 
     }
+
+    [JsType(JsMode.Json)]
     public class GridDetailCollapseEventData
     {
         /// <summary>
@@ -4560,6 +4658,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public object detailRow { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class GridDetailInitEventData
     {
         /// <summary>
@@ -4583,6 +4683,8 @@ namespace SharpKit.KendoUI.Web
         public object data { get; set; }
 
     }
+
+    [JsType(JsMode.Json)]
     public class GridEditEventData
     {
         /// <summary>
@@ -4595,6 +4697,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public object model { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class GridRemoveEventData
     {
         /// <summary>
@@ -4607,6 +4711,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public object model { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class GridSaveEventData
     {
         /// <summary>
@@ -4625,6 +4731,11 @@ namespace SharpKit.KendoUI.Web
         public object model { get; set; }
     }
 
+    #endregion
+
+    #region ListView
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.ListView", Export = false)]
     public class ListView
     {
 
@@ -4842,6 +4953,8 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<ListViewRemoveEventData> removeEvent { add { } remove { } }
         //TODO: event name is remove
     }
+
+    [JsType(JsMode.Json)]
     public class ListViewConfiguration
     {
 
@@ -4955,6 +5068,8 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public GridSelectableOptions selectable { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class ListViewEditEventData
     {
         /// <summary>
@@ -4967,6 +5082,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public object model { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class ListViewRemoveEventData
     {
         /// <summary>
@@ -4980,6 +5097,11 @@ namespace SharpKit.KendoUI.Web
         public object model { get; set; }
     }
 
+    #endregion
+
+    #region Menu
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.Menu", Export = false)]
     public class Menu
     {
         /// <summary>
@@ -5396,6 +5518,8 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<OneItemEventData> selectEvent { add { } remove { } }
         //TODO: event name is select
     }
+
+    [JsType(JsMode.Json)]
     public class MenuConfiguration
     {
         /// <summary>
@@ -5504,6 +5628,11 @@ namespace SharpKit.KendoUI.Web
 
     }
 
+    #endregion
+
+    #region NumericTextBox
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.NumericTextBox", Export = false)]
     public class NumericTextBox
     {
 
@@ -5734,6 +5863,8 @@ namespace SharpKit.KendoUI.Web
 
 
     }
+
+    [JsType(JsMode.Json)]
     public class NumericTextBoxConfiguration
     {
         /// <summary>
@@ -5913,6 +6044,11 @@ namespace SharpKit.KendoUI.Web
         public JsNumber value { get; set; }
     }
 
+    #endregion
+
+    #region Pager
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.Pager", Export = false)]
     public class Pager
     {
         /// <summary>
@@ -5975,6 +6111,8 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public event JsAction<EmptyEventData> change { add { } remove { } }
     }
+
+    [JsType(JsMode.Json)]
     public class PagerConfiguration
     {
         /// <summary>
@@ -6116,6 +6254,11 @@ namespace SharpKit.KendoUI.Web
         public GridPageableMessagesConfiguration messages { get; set; }
     }
 
+    #endregion
+
+    #region PanelBar
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.PanelBar", Export = false)]
     public class PanelBar
     {
         /// <summary>
@@ -6596,6 +6739,8 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<OneItemEventData> selectEvent { add { } remove { } }
         //TODO: event name is select
     }
+
+    [JsType(JsMode.Json)]
     public class PanelBarConfiguration
     {
         /// <summary>
@@ -6639,6 +6784,8 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public PanelBarExpandModeOptions expandMode { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class PanelBarAnimationConfiguration
     {
         /// <summary>
@@ -6689,6 +6836,8 @@ namespace SharpKit.KendoUI.Web
         public PanelBarAnimationOpenConfiguration open { get; set; }
 
     }
+
+    [JsType(JsMode.Json)]
     public class PanelBarAnimationCloseConfiguration
     {
         /// <summary>
@@ -6729,6 +6878,8 @@ namespace SharpKit.KendoUI.Web
         public JsString effects { get; set; }
 
     }
+
+    [JsType(JsMode.Json)]
     public class PanelBarAnimationOpenConfiguration
     {
         /// <summary>
@@ -6774,6 +6925,9 @@ namespace SharpKit.KendoUI.Web
         public bool show { get; set; }
 
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum PanelBarExpandModeOptions
     {
         /// <summary>
@@ -6785,6 +6939,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         multiple,
     }
+
+    [JsType(JsMode.Json)]
     public class PanelBarContentLoadEventData
     {
         /// <summary>
@@ -6797,6 +6953,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public HtmlElement contentElement { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class PanelBarErrorEventData
     {
         /// <summary>
@@ -6810,6 +6968,11 @@ namespace SharpKit.KendoUI.Web
         public JsString status { get; set; }
     }
 
+    #endregion
+
+    #region RangeSlider
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.RangeSlider", Export = false)]
     public class RangeSlider
     {
 
@@ -6884,6 +7047,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public event JsAction<RangeSliderEventData> slide { add { } remove { } }
     }
+
+    [JsType(JsMode.Json)]
     public class RangeSliderConfiguration
     {
         /// <summary>
@@ -6942,6 +7107,9 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public RangeSliderTooltipConfiguration tooltip { get; set; }
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum RangeSliderTickPlacementOptions
     {
         /// <summary>
@@ -6961,6 +7129,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         none,
     }
+
+    [JsType(JsMode.Json)]
     public class RangeSliderTooltipConfiguration
     {
         /// <summary>
@@ -6973,6 +7143,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsString format { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class RangeSliderEventData
     {
         /// <summary>
@@ -6981,6 +7153,11 @@ namespace SharpKit.KendoUI.Web
         public JsNumber value { get; set; }
     }
 
+    #endregion
+
+    #region Slider
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.Slider", Export = false)]
     public class Slider
     {
 
@@ -7064,6 +7241,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public event JsAction<RangeSliderEventData> slide { add { } remove { } }
     }
+
+    [JsType(JsMode.Json)]
     public class SliderConfiguration
     {
         /// <summary>
@@ -7132,6 +7311,9 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsNumber value { get; set; }
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum OrientationOptions
     {
         /// <summary>
@@ -7144,6 +7326,11 @@ namespace SharpKit.KendoUI.Web
         vertical,
     }
 
+    #endregion
+
+    #region Splitter
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.Splitter", Export = false)]
     public class Splitter
     {
         /// <summary>
@@ -7561,6 +7748,8 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public event JsAction<EmptyEventData> resize { add { } remove { } }
     }
+
+    [JsType(JsMode.Json)]
     public class SplitterConfiguration
     {
         /// <summary>
@@ -7585,6 +7774,8 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public JsArray<SplitterPaneConfiguration> panes { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class SplitterPaneConfiguration
     {
         /// <summary>
@@ -7629,12 +7820,19 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsString size { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class SplitterEventData
     {
 
         public HtmlElement pane { get; set; }
     }
 
+    #endregion
+
+    #region TabStrip
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.TabStrip", Export = false)]
     public class TabStrip
     {
         /// <summary>
@@ -7992,6 +8190,8 @@ namespace SharpKit.KendoUI.Web
         //TODO: event name is select
 
     }
+
+    [JsType(JsMode.Json)]
     public class TabStripConfiguration
     {
         /// <summary>
@@ -8112,6 +8312,8 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public JsString dataUrlField { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class TabStripSelectEventData
     {
         /// <summary>
@@ -8125,6 +8327,11 @@ namespace SharpKit.KendoUI.Web
         public HtmlElement contentElement { get; set; }
     }
 
+    #endregion
+
+    #region TimePicker
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.TimePicker", Export = false)]
     public class TimePicker
     {
         /// <summary>
@@ -8359,6 +8566,8 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<ViewOptions> openEvent { add { } remove { } }
         //TODO: event name is open
     }
+
+    [JsType(JsMode.Json)]
     public class TimePickerConfiguration
     {
         /// <summary>
@@ -8457,6 +8666,11 @@ namespace SharpKit.KendoUI.Web
         public JsDate value { get; set; }
     }
 
+    #endregion
+
+    #region TreeView
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.TreeView", Export = false)]
     public class TreeView
     {
         /// <summary>
@@ -8764,6 +8978,8 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<TreeViewEventData> selectEvent { add { } remove { } }
         //TODO: event name is select
     }
+
+    [JsType(JsMode.Json)]
     public class TreeViewConfiguration
     {
         /// <summary>
@@ -8877,6 +9093,8 @@ namespace SharpKit.KendoUI.Web
         [JsProperty(Name = "template")]
         public JsAction templateFunction { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class TreeViewAnimationConfiguration
     {
         /// <summary>
@@ -8891,6 +9109,8 @@ namespace SharpKit.KendoUI.Web
 
 
     }
+
+    [JsType(JsMode.Json)]
     public class TreeViewAnimationCollapseConfiguration
     {
         /// <summary>
@@ -8928,6 +9148,8 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public JsString effects { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class TreeViewAnimationExpandConfiguration
     {
         /// <summary>
@@ -8970,10 +9192,14 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public bool show { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class TreeViewEventData
     {
         public HtmlNode node { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class TreeViewDragEventData
     {
         /// <summary>
@@ -9006,6 +9232,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsAction setStatusClass { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class TreeViewDragendEventData
     {
         /// <summary>
@@ -9023,6 +9251,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsString dropPosition { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class TreeViewDragstartEventData
     {
         /// <summary>
@@ -9030,6 +9260,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public HtmlNode sourceNode { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class TreeViewDropEventData
     {
         /// <summary>
@@ -9063,6 +9295,11 @@ namespace SharpKit.KendoUI.Web
         public JsString dropPosition { get; set; }
     }
 
+    #endregion
+
+    #region Upload
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.Upload", Export = false)]
     public class Upload
     {
 
@@ -9327,6 +9564,8 @@ namespace SharpKit.KendoUI.Web
 
 
     }
+
+    [JsType(JsMode.Json)]
     public class UploadConfiguration
     {
         /// <summary>
@@ -9358,6 +9597,8 @@ namespace SharpKit.KendoUI.Web
 
 
     }
+
+    [JsType(JsMode.Json)]
     public class UploadAsyncConfiguration
     {
         /// <summary>
@@ -9397,6 +9638,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsString saveUrl { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class UploadLocalizationConfiguration
     {
         /// <summary>
@@ -9444,6 +9687,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsString uploadSelectedFiles { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class UploadCancelSelectEventData
     {
         /// <summary>
@@ -9464,6 +9709,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public UploadFileConfig files { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class UploadFileConfig
     {
         public JsString name { get; set; }
@@ -9478,6 +9725,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsNumber size { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class UploadErrorEventData
     {
         /// <summary>
@@ -9496,11 +9745,16 @@ namespace SharpKit.KendoUI.Web
         public object XMLHttpRequest { get; set; }
 
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum UploadOperationOptions
     {
         upload,
         remove,
     }
+
+    [JsType(JsMode.Json)]
     public class UploadProgressEventData
     {
         /// <summary>
@@ -9513,6 +9767,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsNumber percentComplete { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class UploadUploadRemoveEventData
     {
         /// <summary>
@@ -9525,6 +9781,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public object data { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class UploadSuccessEventData
     {
         /// <summary>
@@ -9551,6 +9809,11 @@ namespace SharpKit.KendoUI.Web
         public object XMLHttpRequest { get; set; }
     }
 
+    #endregion
+
+    #region Window
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.Window", Export = false)]
     public class Window
     {
         /// <summary>
@@ -9826,6 +10089,8 @@ namespace SharpKit.KendoUI.Web
 
         //TODO: all events have no eventData (?)
     }
+
+    [JsType(JsMode.Json)]
     public class WindowRefreshOptions
     {
         /// <summary>
@@ -9848,6 +10113,7 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public JsString template { get; set; }
     }
+
     [JsType(JsMode.Json)]
     public class WindowConfiguration
     {
@@ -9931,6 +10197,8 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public bool visible { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class WindowContentConfiguration
     {
         /// <summary>
@@ -9939,8 +10207,31 @@ namespace SharpKit.KendoUI.Web
         public JsString template { get; set; }
     }
 
+    #endregion
 
-    //TODO: must check all animation Configuration in all classes!!!
-    //TODO: KendoUI.Web.UI
+    #region Helpers
+
+    public class EmptyEventData
+    {
+    }
+
+    public class SelectEventData
+    {
+        /// <summary>
+        /// The selected item chosen by a user.
+        /// </summary>
+        public jQuery.jQuery item { get; set; }
+    }
+
+    public class OneItemEventData
+    {
+        /// <summary>
+        /// The selected  item
+        /// </summary>
+        public HtmlElement item { get; set; }
+    }
+
+    #endregion
+
 }
 
