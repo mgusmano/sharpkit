@@ -3833,6 +3833,12 @@ namespace SharpKit.KendoUI.Web
         public JsArray<GridColumnConfiguration> columns { get; set; }
 
         /// <summary>
+        /// Undocument property. Add by Lee
+        /// (Default: false). 
+        /// </summary>
+        public bool columnMenu { get; set; }
+
+        /// <summary>
         /// Instance of DataSource or Object with DataSource configuration.
         /// </summary>
         ///<example>
