@@ -3670,7 +3670,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Undocument
         /// </summary>
-        public bool requierd  { get; set; }
+        public bool required { get; set; }
     }
 
     #endregion
