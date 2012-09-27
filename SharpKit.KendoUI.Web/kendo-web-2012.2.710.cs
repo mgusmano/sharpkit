@@ -3523,6 +3523,21 @@ namespace SharpKit.KendoUI.Web
         public object dataItem(HtmlElement tr) { return null; }
 
         /// <summary>
+        /// Returns the data item to which a given table row (tr DOM element) is bound.
+        /// </summary>
+        /// <param name="tr  ">Target row.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the grid widget
+        /// var grid = $("#grid").data("kendoGrid");
+        /// // returns the data item for first row
+        /// grid.dataItem(grid.tbody.find(">tr:first"));
+        ///</code>
+        ///</example>
+        public object dataItem(jQuery.jQuery tr) { return null; }
+
+        /// <summary>
         /// Puts the specified table cell in edit mode. It requires a jQuery object representing the cell. The editCell method triggers edit event.
         /// </summary>
         /// <param name="cell">Cell to be edited.</param>
