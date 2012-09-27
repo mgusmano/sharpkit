@@ -5,8 +5,236 @@ using SharpKit.Html4;
 
 namespace SharpKit.KendoUI
 {
-    #region Kendo
+    #region FX
     
+    [JsType(JsMode.Json)]
+    public static class FX
+    {
+        /// <summary>
+        /// Applies the specified animation effect/s to all selected elements and triggers the callback on every element when it completes its animation.
+        /// Uses transitions and transformations where available and falls back to jQuery animate where not.
+        /// kendoAnimate can be used to run one of the provided animation effects or you can define one yourself, using the same format.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="effects">The effect/s that should be executed on the selected elements.
+        /// Can be one or several combined effects, specified as a string with format "effect:direction effect:direction".
+        /// Transformation effects that animate the same property can't be combined, like slide:left and slide:right for instance.</param>
+        /// <param name="duration">The effect duration (speed) in milliseconds.</param>
+        /// <param name="reverse">Whether the effect should play backwards, useful when doing the same animation but with the opposite direction,
+        /// like opening and closing.</param>
+        /// <param name="complete">Completion callback that should be called after animation completion.
+        /// It gets fired for every animated element and is passed the said element as its only argument.</param>
+        /// <param name="show">Whether the element should be shown before animating.</param>
+        /// <param name="hide">Whether the element should be hidden after the animation completes.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAnimate(this jQuery.jQuery jQuery, JsString effects, JsNumber duration, bool reverse, JsAction complete, bool show, bool hide) { return null; }
+        /// <summary>
+        /// Applies the specified animation effect/s to all selected elements and triggers the callback on every element when it completes its animation.
+        /// Uses transitions and transformations where available and falls back to jQuery animate where not.
+        /// kendoAnimate can be used to run one of the provided animation effects or you can define one yourself, using the same format.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="effects">The effect/s that should be executed on the selected elements.
+        /// Can be one or several combined effects, specified as a string with format "effect:direction effect:direction".
+        /// Transformation effects that animate the same property can't be combined, like slide:left and slide:right for instance.</param>
+        /// <param name="duration">The effect duration (speed) in milliseconds.</param>
+        /// <param name="reverse">Whether the effect should play backwards, useful when doing the same animation but with the opposite direction,
+        /// like opening and closing.</param>
+        /// <param name="complete">Completion callback that should be called after animation completion.
+        /// It gets fired for every animated element and is passed the said element as its only argument.</param>
+        /// <param name="show">Whether the element should be shown before animating.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAnimate(this jQuery.jQuery jQuery, JsString effects, JsNumber duration, bool reverse, JsAction complete, bool show) { return null; }
+        /// <summary>
+        /// Applies the specified animation effect/s to all selected elements and triggers the callback on every element when it completes its animation.
+        /// Uses transitions and transformations where available and falls back to jQuery animate where not.
+        /// kendoAnimate can be used to run one of the provided animation effects or you can define one yourself, using the same format.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="effects">The effect/s that should be executed on the selected elements.
+        /// Can be one or several combined effects, specified as a string with format "effect:direction effect:direction".
+        /// Transformation effects that animate the same property can't be combined, like slide:left and slide:right for instance.</param>
+        /// <param name="duration">The effect duration (speed) in milliseconds.</param>
+        /// <param name="reverse">Whether the effect should play backwards, useful when doing the same animation but with the opposite direction,
+        /// like opening and closing.</param>
+        /// <param name="complete">Completion callback that should be called after animation completion.
+        /// It gets fired for every animated element and is passed the said element as its only argument.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAnimate(this jQuery.jQuery jQuery, JsString effects, JsNumber duration, bool reverse, JsAction complete) { return null; }
+        /// <summary>
+        /// Applies the specified animation effect/s to all selected elements and triggers the callback on every element when it completes its animation.
+        /// Uses transitions and transformations where available and falls back to jQuery animate where not.
+        /// kendoAnimate can be used to run one of the provided animation effects or you can define one yourself, using the same format.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="effects">The effect/s that should be executed on the selected elements.
+        /// Can be one or several combined effects, specified as a string with format "effect:direction effect:direction".
+        /// Transformation effects that animate the same property can't be combined, like slide:left and slide:right for instance.</param>
+        /// <param name="duration">The effect duration (speed) in milliseconds.</param>
+        /// <param name="reverse">Whether the effect should play backwards, useful when doing the same animation but with the opposite direction,
+        /// like opening and closing.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAnimate(this jQuery.jQuery jQuery, JsString effects, JsNumber duration, bool reverse) { return null; }
+        /// <summary>
+        /// Applies the specified animation effect/s to all selected elements and triggers the callback on every element when it completes its animation.
+        /// Uses transitions and transformations where available and falls back to jQuery animate where not.
+        /// kendoAnimate can be used to run one of the provided animation effects or you can define one yourself, using the same format.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="effects">The effect/s that should be executed on the selected elements.
+        /// Can be one or several combined effects, specified as a string with format "effect:direction effect:direction".
+        /// Transformation effects that animate the same property can't be combined, like slide:left and slide:right for instance.</param>
+        /// <param name="duration">The effect duration (speed) in milliseconds.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAnimate(this jQuery.jQuery jQuery, JsString effects, JsNumber duration) { return null; }
+        /// <summary>
+        /// Applies the specified animation effect/s to all selected elements and triggers the callback on every element when it completes its animation.
+        /// Uses transitions and transformations where available and falls back to jQuery animate where not.
+        /// kendoAnimate can be used to run one of the provided animation effects or you can define one yourself, using the same format.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="effects">The effect/s that should be executed on the selected elements.
+        /// Can be one or several combined effects, specified as a string with format "effect:direction effect:direction".
+        /// Transformation effects that animate the same property can't be combined, like slide:left and slide:right for instance.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAnimate(this jQuery.jQuery jQuery, JsString effects) { return null; }
+        /// <summary>
+        /// Applies the specified animation effect/s to all selected elements and triggers the callback on every element when it completes its animation.
+        /// Uses transitions and transformations where available and falls back to jQuery animate where not.
+        /// kendoAnimate can be used to run one of the provided animation effects or you can define one yourself, using the same format.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="effects">The effect/s that should be executed on the selected elements.
+        /// Can be one or several combined effects, specified as a string with format "effect:direction effect:direction".
+        /// Transformation effects that animate the same property can't be combined, like slide:left and slide:right for instance.</param>
+        /// <param name="duration">The effect duration (speed) in milliseconds.</param>
+        /// <param name="reverse">Whether the effect should play backwards, useful when doing the same animation but with the opposite direction,
+        /// like opening and closing.</param>
+        /// <param name="complete">Completion callback that should be called after animation completion.
+        /// It gets fired for every animated element and is passed the said element as its only argument.</param>
+        /// <param name="show">Whether the element should be shown before animating.</param>
+        /// <param name="hide">Whether the element should be hidden after the animation completes.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAnimate(this jQuery.jQuery jQuery, object effects, JsNumber duration, bool reverse, JsAction complete, bool show, bool hide) { return null; }
+        /// <summary>
+        /// Applies the specified animation effect/s to all selected elements and triggers the callback on every element when it completes its animation.
+        /// Uses transitions and transformations where available and falls back to jQuery animate where not.
+        /// kendoAnimate can be used to run one of the provided animation effects or you can define one yourself, using the same format.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="effects">The effect/s that should be executed on the selected elements.
+        /// Can be one or several combined effects, specified as a string with format "effect:direction effect:direction".
+        /// Transformation effects that animate the same property can't be combined, like slide:left and slide:right for instance.</param>
+        /// <param name="duration">The effect duration (speed) in milliseconds.</param>
+        /// <param name="reverse">Whether the effect should play backwards, useful when doing the same animation but with the opposite direction,
+        /// like opening and closing.</param>
+        /// <param name="complete">Completion callback that should be called after animation completion.
+        /// It gets fired for every animated element and is passed the said element as its only argument.</param>
+        /// <param name="show">Whether the element should be shown before animating.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAnimate(this jQuery.jQuery jQuery, object effects, JsNumber duration, bool reverse, JsAction complete, bool show) { return null; }
+        /// <summary>
+        /// Applies the specified animation effect/s to all selected elements and triggers the callback on every element when it completes its animation.
+        /// Uses transitions and transformations where available and falls back to jQuery animate where not.
+        /// kendoAnimate can be used to run one of the provided animation effects or you can define one yourself, using the same format.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="effects">The effect/s that should be executed on the selected elements.
+        /// Can be one or several combined effects, specified as a string with format "effect:direction effect:direction".
+        /// Transformation effects that animate the same property can't be combined, like slide:left and slide:right for instance.</param>
+        /// <param name="duration">The effect duration (speed) in milliseconds.</param>
+        /// <param name="reverse">Whether the effect should play backwards, useful when doing the same animation but with the opposite direction,
+        /// like opening and closing.</param>
+        /// <param name="complete">Completion callback that should be called after animation completion.
+        /// It gets fired for every animated element and is passed the said element as its only argument.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAnimate(this jQuery.jQuery jQuery, object effects, JsNumber duration, bool reverse, JsAction complete) { return null; }
+        /// <summary>
+        /// Applies the specified animation effect/s to all selected elements and triggers the callback on every element when it completes its animation.
+        /// Uses transitions and transformations where available and falls back to jQuery animate where not.
+        /// kendoAnimate can be used to run one of the provided animation effects or you can define one yourself, using the same format.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="effects">The effect/s that should be executed on the selected elements.
+        /// Can be one or several combined effects, specified as a string with format "effect:direction effect:direction".
+        /// Transformation effects that animate the same property can't be combined, like slide:left and slide:right for instance.</param>
+        /// <param name="duration">The effect duration (speed) in milliseconds.</param>
+        /// <param name="reverse">Whether the effect should play backwards, useful when doing the same animation but with the opposite direction,
+        /// like opening and closing.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAnimate(this jQuery.jQuery jQuery, object effects, JsNumber duration, bool reverse) { return null; }
+        /// <summary>
+        /// Applies the specified animation effect/s to all selected elements and triggers the callback on every element when it completes its animation.
+        /// Uses transitions and transformations where available and falls back to jQuery animate where not.
+        /// kendoAnimate can be used to run one of the provided animation effects or you can define one yourself, using the same format.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="effects">The effect/s that should be executed on the selected elements.
+        /// Can be one or several combined effects, specified as a string with format "effect:direction effect:direction".
+        /// Transformation effects that animate the same property can't be combined, like slide:left and slide:right for instance.</param>
+        /// <param name="duration">The effect duration (speed) in milliseconds.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAnimate(this jQuery.jQuery jQuery, object effects, JsNumber duration) { return null; }
+        /// <summary>
+        /// Applies the specified animation effect/s to all selected elements and triggers the callback on every element when it completes its animation.
+        /// Uses transitions and transformations where available and falls back to jQuery animate where not.
+        /// kendoAnimate can be used to run one of the provided animation effects or you can define one yourself, using the same format.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="effects">The effect/s that should be executed on the selected elements.
+        /// Can be one or several combined effects, specified as a string with format "effect:direction effect:direction".
+        /// Transformation effects that animate the same property can't be combined, like slide:left and slide:right for instance.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAnimate(this jQuery.jQuery jQuery, object effects) { return null; }
+
+        /// <summary>
+        /// Stops the animation effect running on the specified elements and optionally jumps to the end and clears the animation effect queue.
+        /// In browsers that don't support transitions falls back to jQuery stop().
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="clearQueue">Whether to clear the animation effects queue and start anew.</param>
+        /// <param name="gotoEnd">Whether to jump to the animation end position when stopping or just leave the element at its current position.</param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoStop(this jQuery.jQuery jQuery, bool clearQueue, bool gotoEnd) { return null; }
+
+        /// <summary>
+        /// Adds a CSS class to the element, while doing a transition to the new state. If the browser doesn't support transitions, the method falls back to jQuery addClass();
+        /// Important: kendoAddClass doesn't add the animation to the animation effect queue and can't be stopped with kendoStop.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="classes"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoAddClass(this jQuery.jQuery jQuery, JsString classes, object options) { return null; }
+
+        /// <summary>
+        /// Removes a CSS class from the element, while doing a transition to the new state.
+        /// If the browser doesn't support transitions, the method falls back to jQuery removeClass();
+        /// Important: kendoRemoveClass doesn't add the animation to the animation effect queue and can't be stopped with kendoStop.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="classes"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoRemoveClass(this jQuery.jQuery jQuery, JsString classes, object options) { return null; }
+
+        /// <summary>
+        /// Toggle a CSS class on the element, based on a flag, while doing a transition to the new state.
+        /// If the browser doesn't support transitions, the method falls back to jQuery toggleClass();
+        /// Important: kendoToggleClass doesn't add the animation to the animation effect queue and can't be stopped with kendoStop.
+        /// </summary>
+        /// <param name="jQuery"></param>
+        /// <param name="classes"></param>
+        /// <param name="options"></param>
+        /// <param name="toggle"></param>
+        /// <returns></returns>
+        public static jQuery.jQuery kendoToggleClass(this jQuery.jQuery jQuery, JsString classes, object options, object toggle) { return null; }
+    }
+
+    #endregion
+
+    #region Kendo
+
     [JsType(JsMode.Prototype, Name = "kendo", Export = false)]
     public class Kendo
     {
@@ -702,10 +930,9 @@ namespace SharpKit.KendoUI
 
     #endregion
 
-
-
     #region DataSource
 
+    [JsType(JsMode.Prototype, Name = "kendo.data.DataSource", Export = false)]
     public class DataSource
     {
         public DataSource() { }
@@ -1167,6 +1394,7 @@ namespace SharpKit.KendoUI
         public event JsAction<DataSourceRequestStartEventData> requestStart { add { } remove { } }
     }
 
+    [JsType(JsMode.Json)]
     public class DataSourceRequestStartEventData
     {
         /// <summary>
@@ -1823,9 +2051,13 @@ namespace SharpKit.KendoUI
         }
     }
 
+    [JsType(JsMode.Json)]
     public class DataSourceResponse
     {
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum TransportType
     {
         POST,
@@ -1970,10 +2202,13 @@ namespace SharpKit.KendoUI
         public DataSourceTransportUpdateConfiguration update { get; set; }
 
     }
+
+    [JsType(JsMode.Json)]
     public class DataSourceTransportDestroyConfiguration : DataSourceTransportCreateConfiguration
     {
     }
 
+    [JsType(JsMode.Json)]
     public class DataSourceTransportCreateConfiguration
     {
         /// <summary>
@@ -2074,10 +2309,12 @@ namespace SharpKit.KendoUI
 
     }
 
+    [JsType(JsMode.Json)]
     public class DataSourceTransportReadConfiguration : DataSourceTransportCreateConfiguration
     {
     }
 
+    [JsType(JsMode.Json)]
     public class DataSourceTransportUpdateConfiguration : DataSourceTransportCreateConfiguration
     {
     }
@@ -2090,6 +2327,7 @@ namespace SharpKit.KendoUI
     /// See the DataSource methods for all inherited methods.
     /// The remove and getByUid methods are overridden and work with the hierarchical data (they will act on all child datasources that have been read).
     /// </summary>
+    [JsType(JsMode.Prototype, Name = "kendo.data.HierarchicalDataSource", Export = false)]
     public class HierarchicalDataSource : DataSource
     {
         public HierarchicalDataSource() { }
@@ -2104,6 +2342,7 @@ namespace SharpKit.KendoUI
 
     }
 
+    [JsType(JsMode.Json)]
     public class HierarchicalDataSourceChangeEventData
     {
         /// <summary>
@@ -2112,16 +2351,19 @@ namespace SharpKit.KendoUI
         public HtmlNode node { get; set; }
     }
 
+    [JsType(JsMode.Json)]
     public class HierarchicalDataSourceConfiguration : DataSourceConfiguration
     {
         public new HierarchicalDataSourceSchemaConfiguration schema { get; set; }
     }
 
+    [JsType(JsMode.Json)]
     public class HierarchicalDataSourceSchemaConfiguration : DataSourceSchemaConfiguration
     {
         public new HierarchicalDataSourceSchemaModelConfiguration model { get; set; }
     }
 
+    [JsType(JsMode.Json)]
     public class HierarchicalDataSourceSchemaModelConfiguration : Model
     {
         /// <summary>
@@ -2173,6 +2415,7 @@ namespace SharpKit.KendoUI
     /// The Model inherits from the ObservableObject and extends it with the ability to define schema - fields and methods.
     /// The DataSource contains instances of the Model when the schema.model setting is specified.
     /// </summary>
+    [JsType(JsMode.Prototype, Name = "kendo.data.Model", Export = false)]
     public class Model : ObservableObject
     {
         /// <summary>
@@ -2296,6 +2539,8 @@ namespace SharpKit.KendoUI
 
     }
 
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum DefaultValueType
     {
         @string,
@@ -2361,6 +2606,7 @@ namespace SharpKit.KendoUI
     /// <summary>
     /// The ObservableArray wrap an existing Array object with change tracking capabilities. It is used by Kendo MVVM and the Kendo DataSource.
     /// </summary>
+    [JsType(JsMode.Prototype, Name = "kendo.data.ObservableArray", Export = false)]
     public class ObservableArray<T>
     {
         /// <summary>
@@ -2644,6 +2890,7 @@ namespace SharpKit.KendoUI
 
     }
 
+    [JsType(JsMode.Json)]
     public class ObservableArrayChangeEventData<T>
     {
         /// <summary>
@@ -2671,6 +2918,8 @@ namespace SharpKit.KendoUI
     #endregion
 
     #region ObservableObject
+
+    [JsType(JsMode.Prototype, Name = "kendo.data.ObservableObject", Export = false)]
     public class ObservableObject
     {
         public ObservableObject(object Configurations) { }
@@ -2818,6 +3067,7 @@ namespace SharpKit.KendoUI
 
     }
 
+    [JsType(JsMode.Json)]
     public class ObservableObjectChangeEventData
     {
         /// <summary>
@@ -2826,6 +3076,7 @@ namespace SharpKit.KendoUI
         public JsString field { get; set; }
     }
 
+    [JsType(JsMode.Json)]
     public class ObservableObjectGetEventData
     {
         /// <summary>
@@ -2833,6 +3084,8 @@ namespace SharpKit.KendoUI
         /// </summary>
         public JsString field { get; set; }
     }
+
+    [JsType(JsMode.Json)]
     public class ObservableObjectSetEventData
     {
         /// <summary>
@@ -2851,6 +3104,7 @@ namespace SharpKit.KendoUI
         public JsAction preventDefault { get; set; }
     }
 
+    [JsType(JsMode.Json)]
     public class KendoObjectOptions
     {
         /// <summary>
@@ -2864,6 +3118,8 @@ namespace SharpKit.KendoUI
         public bool useWithBlock { get; set; }
     }
 
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum DeviceIdentificator
     {
         fire,
@@ -2877,6 +3133,9 @@ namespace SharpKit.KendoUI
         winphone,
         windows,
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum TabletIdentificator
     {
         fire,
@@ -2884,6 +3143,9 @@ namespace SharpKit.KendoUI
         playbook,
         //false,
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum BrowserIdentificator
     {
         omini,
@@ -2894,6 +3156,9 @@ namespace SharpKit.KendoUI
         ie,
         @default,
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
     public enum NameIdentificator
     {
         ios,
@@ -2903,10 +3168,12 @@ namespace SharpKit.KendoUI
         webos,
         meego,
     }
+
     #endregion
 
     #region Drag
-    
+
+    [JsType(JsMode.Prototype, Name = "kendo.Drag", Export = false)]
     public class Drag
     {
         public Drag(jQuery.jQuery el, DragConfiguration config)
@@ -2915,6 +3182,7 @@ namespace SharpKit.KendoUI
 
     }
 
+    [JsType(JsMode.Json)]
     public class DragEventData
     {
         /// <summary>
@@ -2959,11 +3227,13 @@ namespace SharpKit.KendoUI
         public HtmlElement target { get; set; }
     }
 
+    [JsType(JsMode.Json)]
     public class DragEndEventData
     {
 
     }
 
+    [JsType(JsMode.Json)]
     public class DragConfiguration
     {
         /// <summary>
@@ -3034,6 +3304,7 @@ namespace SharpKit.KendoUI
     /// The Drag component contains two DragAxis instances: x for the horizontal coordinates, and y for the vertical.
     /// The two DragAxis instances are available in each Drag event parameter.
     /// </summary>
+    [JsType(JsMode.Prototype, Name = "kendo.DragAxis", Export = false)]
     public class DragAxis
     {
         /// <summary>
@@ -3218,6 +3489,64 @@ namespace SharpKit.KendoUI
 
     #endregion
 
+    #region DropTargetArea
+    
+    [JsType(JsMode.Prototype, Name = "kendo.ui.DropTargetArea")]
+    public class DropTargetArea
+    {
+        public DropTargetArea() { }
+
+        public DropTargetArea(DropTargetAreaConfiguration options) { }
+
+        /// <summary>
+        /// Fires when draggable moves over one of the drop targets.
+        /// </summary>
+        public JsAction<DropTargetDragEventData> dragenter { get; set; }
+
+        /// <summary>
+        /// Fires when draggable moves out of one of the drop targets.
+        /// </summary>
+        public JsAction<DropTargetDragEventData> dragleave { get; set; }
+
+        /// <summary>
+        /// Fires when draggable is dropped over one of the drop targets.
+        /// </summary>
+        public JsAction<DropTargetAreaDropEventData> drop { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class DropTargetAreaConfiguration
+    {
+        /// <summary>
+        /// Used to group sets of draggable and drop targets. A draggable with the same group value as a drop target will be accepted by the drop target.
+        /// </summary>
+        public JsString group { get; set; }
+
+        /// <summary>
+        /// Selector to filter the drop targets in the area. Every matched element acts as a drop target and fires events on the DropTargetArea.
+        /// </summary>
+        public JsString filter { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public class DropTargetAreaDropEventData
+    {
+        /// <summary>
+        /// Reference to the draggable that is dropped over the drop target.
+        /// </summary>
+        public DropTargetDropDraggableOptions draggable { get; set; }
+
+        /// <summary>
+        /// The current drop target in the area that initiated the event.
+        /// </summary>
+        public jQuery.jQuery dropTarget  { get; set; }
+    }
+
+    #endregion
+
+    #region Validator
+    
     [JsType(JsMode.Prototype, Name="kendo.ui.Validator")]
     public class Validator
     {
@@ -3335,7 +3664,6 @@ namespace SharpKit.KendoUI
         public bool requierd  { get; set; }
     }
 
-    //HEY SISTER
-
+    #endregion
 
 }
