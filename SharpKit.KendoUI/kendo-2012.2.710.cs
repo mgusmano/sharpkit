@@ -2148,6 +2148,29 @@ namespace SharpKit.KendoUI
         ///</example>
         public DataSourceTransportReadConfiguration read { get; set; }
 
+        /// <summary>
+        /// Object|String|Function 
+        /// Options for remote read data operation, or the URL of the remote service.
+        /// Important: The value of transport.read is passed to jQuery.ajax.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var dataSource = new kendo.data.DataSource({
+        ///    transport: {
+        ///        read: {
+        ///            url: "/orders/read",
+        ///            data: {
+        ///                orderId: $("#input").val() // sends the value of the input as the orderId
+        ///            }
+        ///        }
+        ///    }
+        ///});
+        ///</code>
+        ///</example>
+        [JsProperty(Name = "read")]
+        public JsString readString { get; set; }
+
 
         /// <summary>
         /// Object|String|Function 
