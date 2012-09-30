@@ -3748,6 +3748,21 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public void select(HtmlElement items) { }
 
+        /// <summary>
+        /// Selects the specified Grid rows/cells. If called without arguments - returns the selected rows/cells.
+        /// </summary>
+        /// <param name="items ">Items to select.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the grid widget
+        /// var grid = $("#grid").data("kendoGrid");
+        /// // selects first grid item
+        /// grid.select(grid.tbody.find(">tr:first"));
+        ///</code>
+        ///</example>
+        public void select() { }
+
 
         /// <summary>
         /// Fires when the grid selection has changed.
