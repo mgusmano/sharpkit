@@ -3438,7 +3438,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Fires when item drag starts.
         /// </summary>
-        public JsAction dragstart { get; set; }
+        public JsFunc<Event> dragstart { get; set; }
 
 
 
