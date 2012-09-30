@@ -3420,6 +3420,8 @@ namespace SharpKit.KendoUI
         [JsProperty(Name="hint")]
         public JsFunc<jQuery.jQuery> hintFunction { get; set; }
 
+        public event JsAction<Draggable> dragstart { add { } remove { } }
+
 
 
     }
