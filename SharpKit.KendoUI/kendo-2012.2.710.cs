@@ -3419,6 +3419,25 @@ namespace SharpKit.KendoUI
         /// </summary>
         [JsProperty(Name="hint")]
         public JsFunc<jQuery.jQuery> hintFunction { get; set; }
+        /// <summary>
+        /// Fires while dragging.
+        /// </summary>
+        public JsAction<Event> drag { get; set; }
+
+        /// <summary>
+        /// Fires when item drag is canceled by pressing the Escape key.
+        /// </summary>
+        public JsAction<Event> dragcancel { get; set; }
+
+        /// <summary>
+        /// Fires when item drag ends.
+        /// </summary>
+        public JsAction<Event> dragend { get; set; }
+
+        /// <summary>
+        /// Fires when item drag starts.
+        /// </summary>
+        public JsAction<Event> dragstart { get; set; }
 
     }
 
@@ -3470,6 +3489,15 @@ namespace SharpKit.KendoUI
         /// Fires when draggable moves over the drop target.
         /// </summary>
         public JsAction<Event> dragenter { get; set; }
+        /// <summary>
+        /// Fires when draggable moves out of the drop target.
+        /// </summary>
+        public JsAction<Event> dragleave { get; set; }
+
+        /// <summary>
+        /// Fires when draggable is dropped over the drop target.
+        /// </summary>
+        public JsAction<Event> drop { get; set; }
     }
 
     [JsType(JsMode.Json)]
