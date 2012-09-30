@@ -42,14 +42,15 @@ namespace SharpKit.jQuery
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoDatePicker(this jQuery query, DatePickerConfiguration configuration) { return null; }
 
-        [JsMethod(ExtensionImplementedInInstance = true)]
-        public static jQuery kendoDatePicker(this jQuery query) { return null; }
-
-        //TODO: Add by Lee - Ask Danel
-        [JsMethod(ExtensionImplementedInInstance = true)]
-        public static jQuery kendoDraggable(this jQuery query, DraggableConfiguration configuration) { return null; }
+        //TODO: Ask Danel. Add by Lee
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoDraggable(this jQuery query) { return null; }
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoDraggabler(this jQuery query, DraggableConfiguration configuration) { return null; }
+
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoDateTimePicker(this jQuery query) { return null; }
 
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoDateTimePicker(this jQuery query, DateTimePickerConfiguration configuration) { return null; }
