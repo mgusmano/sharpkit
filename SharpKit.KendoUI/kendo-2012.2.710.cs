@@ -3418,7 +3418,7 @@ namespace SharpKit.KendoUI
         /// Provides a way for customization of the drag indicator. If a function is supplied, it receives one argument - the draggable element's jQuery object.
         /// </summary>
         [JsProperty(Name="hint")]
-        public JsAction hintFunction { get; set; }
+        public JsFunction hintFunction { get; set; }
 
 
 
