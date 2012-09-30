@@ -3469,7 +3469,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Fires when draggable moves over the drop target.
         /// </summary>
-        public JsAction dragenter { get; set; }
+        public JsAction<Event> dragenter { get; set; }
     }
 
     [JsType(JsMode.Json)]
