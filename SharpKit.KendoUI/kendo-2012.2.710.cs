@@ -3420,7 +3420,25 @@ namespace SharpKit.KendoUI
         [JsProperty(Name="hint")]
         public JsFunc<jQuery.jQuery> hintFunction { get; set; }
 
-        public event JsAction<Draggable> dragstart { add { } remove { } }
+        /// <summary>
+        /// Fires while dragging.
+        /// </summary>
+        public JsAction drag { get; set; }
+
+        /// <summary>
+        /// Fires when item drag is canceled by pressing the Escape key.
+        /// </summary>
+        public JsAction dragcancel { get; set; }
+
+        /// <summary>
+        /// Fires when item drag ends.
+        /// </summary>
+        public JsAction dragend { get; set; }
+
+        /// <summary>
+        /// Fires when item drag starts.
+        /// </summary>
+        public JsAction dragstart { get; set; }
 
 
 
