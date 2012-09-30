@@ -12,8 +12,7 @@ namespace KendoUISamples.examples.web.grid
         {
             new jQuery(OnReady);
         }
-        
-        //TODO: the example doesn't work correctly.
+
         static void OnReady()
         {
             var fields = new JsObject<FieldConfig>();
@@ -27,7 +26,8 @@ namespace KendoUISamples.examples.web.grid
                 dataSourceObject = new DataSourceConfiguration
                 {
                     type = "odata",
-                    transport = new DataSourceTransportConfiguration {
+                    transport = new DataSourceTransportConfiguration
+                    {
                         readString = "http://demos.kendoui.com/service/Northwind.svc/Orders"
                     },
                     schema = new DataSourceSchemaConfiguration

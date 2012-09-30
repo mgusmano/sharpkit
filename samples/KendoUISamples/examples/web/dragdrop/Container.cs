@@ -12,17 +12,16 @@ namespace KendoUISamples.examples.web.dragdrop
     {
         static Container()
         {
+            new jQuery(OnReady);
         }
         static void OnReady()
         {
-            //TODO
-            new jQuery("#draggable-item").kendoDatePicker();
+       
+            new jQuery("#draggable-item").kendoDraggable(new DraggableConfiguration
+            {
+                container = new jQuery("#draggable-container"),
+                hintFunction = () => new jQuery("#draggable-item").clone()    
+            });
         }
-    //     $("#draggable-item").kendoDraggable({
-    //    container: $("#draggable-container"),
-    //    hint: function() {
-    //        return $("#draggable-item").clone();
-    //    }
-    //});
     }
 }

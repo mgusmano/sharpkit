@@ -1,5 +1,4 @@
-﻿
-using SharpKit.JavaScript;
+﻿using SharpKit.JavaScript;
 using SharpKit.KendoUI;
 using SharpKit.KendoUI.Web;
 using SharpKit.jQuery;
@@ -36,7 +35,6 @@ namespace KendoUISamples.examples.web.grid
                         url = crudServiceBaseUrl + "/Products/Destroy",
                         dataType = "jsonp"
                     },
-                    //TODO: parameterMap = (options, operations)
                     parameterMap = (options, operations) =>
                          {
                              var models = options.As<JsObject>()["models"];

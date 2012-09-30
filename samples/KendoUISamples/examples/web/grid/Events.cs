@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using SharpKit.JavaScript;
+﻿using SharpKit.JavaScript;
 using SharpKit.jQuery;
 using SharpKit.KendoUI;
 using KendoUISamples.examples.content.shared.js;
 using SharpKit.KendoUI.Web;
-
 
 namespace KendoUISamples.examples.web.grid
 {
@@ -28,8 +23,8 @@ namespace KendoUISamples.examples.web.grid
                     data = People.createRandomData(50),
                     pageSize = 5
                 },
-                //TODO: change: onChange,
-                //TODO: dataBound: onDataBound,
+                change = OnChange,
+                dataBound = OnDataBound,
                 selectable = "multiple cell",
                 pageableBoolean = true,
                 sortable = true,
@@ -41,15 +36,16 @@ namespace KendoUISamples.examples.web.grid
                 }
             });
         }
-
-        static JsString OnChange(object arg)
+        //TODO: the example doesn't work correctly.
+        static void OnChange(object arg)
         {
-            //TODO: 
-         //   var selected = jQuery.map(JsContext.@this.As<Grid>().select(null), (index, item) => new jQuery(item).text());
-            JsContext.JsCode("var selected = $.map(this.select(), function(item) {return $(item).text();});");
+            var selected = jQuery.map(JsContext.@this.As<Grid>().select(), (index, item) => new jQuery(item).text());
+            //kendoConsole.log("Selected: " + selected.length + " item(s), [" + selected.join(", ") + "]");
             JsContext.JsCode("kendoConsole.log('Selected: ' + selected.length + ' item(s), [' + selected.join(', ') + ']');");
-            return null;
         }
+        //           kendoConsole.log("Selected: " + selected.length + " item(s), [" + selected.join(", ") + "]");
+
+
         static void OnDataBound(object arg)
         {
             kendoConsole.log("Grid data bound");

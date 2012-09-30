@@ -15,16 +15,54 @@ namespace KendoUISamples.examples.web.grid
 
         static void OnReady()
         {
-            var products = new JsArray<DataSourceConfiguration>();
+            var products = new JsArray<Product>
+            {
+                new Product {
+                    ProductID = 1,
+                    ProductName = "Chai",
+                    Category = "Beverages",
+                    UnitPrice = "18:00"
+                }, 
+                new Product {
+                    ProductID = 2,
+                    ProductName = "Chang",
+                    Category = "Beverages",
+                    UnitPrice = "19.00"
+                }, 
+                new Product {
+                    ProductID = 3,
+                    ProductName = "Aniseed Syrup",
+                    Category = "Condiments",
+                    UnitPrice = "10.00"
+                }, 
+                new Product{
+                    ProductID = 4,
+                    ProductName = "Chef Anton's Cajun Seasoning",
+                    Category = "Condiments",
+                    UnitPrice = "22.00"
+                },
+                new Product{
+                    ProductID = 5,
+                    ProductName = "Chef Anton's Gumbo Mix",
+                    Category = "Condiments",
+                    UnitPrice = "21.35"
+                }, 
+                new Product {
+                    ProductID = 6,
+                    ProductName = "Grandma's Boysenberry Spread",
+                    Category = "Condiments",
+                    UnitPrice = "25.00"            
+                }
+            };
+
 
             var fields = new JsObject<FieldConfig>();
             fields["ProductID"] = new FieldConfig { editable = false, nullable = true };
             fields["ProductName"] = new FieldConfig { validation = new ValidatorConfiguration { required = true } };
-            //TODO: Category: "Category",
             fields["Category"] = "Category".As<FieldConfig>();
             fields["UnitPrice"] = new FieldConfig { type = "number", validation = new ValidatorConfiguration { required = true } };//TODO: min =1} };
 
-            
+
             var dataSource = new DataSource(new DataSourceConfiguration
             {
                 pageSize = 30,
@@ -73,60 +111,15 @@ namespace KendoUISamples.examples.web.grid
             });
         }
 
-        //void foo()
-        //{
-        //    var rpoeducts = new JsArray<Proeuct>
-        //    {
-        //        new Proeuct{
-        //            ProductID = 1,
-        //            ProductName = "Chai",
-        //        }
-        //    };
-        //}
+        [JsType(JsMode.Json)]
+        class Product
+        {
+            public JsNumber ProductID { get; set; }
 
+            public JsString ProductName { get; set; }
+            public JsString Category { get; set; }
+            public JsString UnitPrice { get; set; }
+        }
     }
-
-
-    [JsType(JsMode.Json)]
-        class Proeuct
-    {
-        public JsNumber ProductID { get; set; }
-
-        public string ProductName { get; set; }
-    }
-
 }
 
-//var products = new JsObject<GridColumnConfiguration>();
-//products["productID"] = new GridColumnConfiguration {   
-//var products = [ {
-//        "ProductID": 1,
-//            "ProductName": "Chai",
-//            "Category": "Beverages",
-//            "UnitPrice": "18.00"
-//    }, {
-//        "ProductID": 2,
-//            "ProductName": "Chang",
-//            "Category": "Beverages",
-//            "UnitPrice": "19.00"
-//    }, {
-//        "ProductID": 3,
-//            "ProductName": "Aniseed Syrup",
-//            "Category": "Condiments",
-//            "UnitPrice": "10.00"
-//    }, {
-//        "ProductID": 4,
-//            "ProductName": "Chef Anton's Cajun Seasoning",
-//            "Category": "Condiments",
-//            "UnitPrice": "22.00"
-//    }, {
-//        "ProductID": 5,
-//            "ProductName": "Chef Anton's Gumbo Mix",
-//            "Category": "Condiments",
-//            "UnitPrice": "21.35"
-//    }, {
-//        "ProductID": 6,
-//            "ProductName": "Grandma's Boysenberry Spread",
-//            "Category": "Condiments",
-//            "UnitPrice": "25.00"
-//    }];
