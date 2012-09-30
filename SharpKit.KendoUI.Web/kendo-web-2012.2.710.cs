@@ -47,6 +47,10 @@ namespace SharpKit.jQuery
         public static jQuery kendoDraggable(this jQuery query) { return null; }
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoDraggable(this jQuery query, DraggableConfiguration configuration) { return null; }
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoDropTarget(this jQuery query) { return null; }
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoDropTarget(this jQuery query, DropTargetConfiguration configuration) { return null; }
 
 
         [JsMethod(ExtensionImplementedInInstance = true)]
