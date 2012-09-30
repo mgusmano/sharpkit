@@ -3979,6 +3979,51 @@ namespace SharpKit.KendoUI.Web
         /// Template to be used for rendering the detail rows in the grid. See the Detail Template example.
         /// </summary>
         public JsAction detailTemplate { get; set; }
+        /// <summary>
+        /// Fires when the grid selection has changed.
+        /// </summary>
+        /// <example
+        /// <code>
+        ///  $("#grid").kendoGrid({
+        /// change: function(e) {
+        ///     handle event
+        ///     }
+        /// });
+        /// </code>
+        /// To set after initialization
+        /// <code>
+        /// // get a reference to the grid
+        /// var grid = $("#grid").data("kendoGrid");
+        /// // bind to the change event
+        /// grid.bind("change", function(e) {
+        ///     handle event
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction<object> change { get; set; }
+
+        /// <summary>
+        /// Fires when the grid has received data from the data source.
+        /// </summary>
+        /// <example>
+        /// <code>
+        ///  $("#grid").kendoGrid({
+        ///     dataBound: function(e) {
+        ///     // handle event
+        ///     }
+        /// });
+        /// </code>
+        /// To set after initialization
+        /// <code>
+        /// // get a reference to the grid
+        /// var grid = $("#grid").data("kendoGrid");
+        /// // bind to the dataBound event
+        /// grid.bind("dataBound", function(e) {
+        ///     // handle event
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction<object> dataBound { get; set; }
 
         /// <summary>
         /// Indicates whether editing is enabled/disabled.
