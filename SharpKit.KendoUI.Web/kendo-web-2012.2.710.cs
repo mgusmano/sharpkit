@@ -3761,7 +3761,7 @@ namespace SharpKit.KendoUI.Web
         /// grid.select(grid.tbody.find(">tr:first"));
         ///</code>
         ///</example>
-        public void select() { }
+        public JsArray select() { return null; }
 
 
         /// <summary>
