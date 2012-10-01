@@ -1104,6 +1104,10 @@ var System$Char =
         IsUpper: function (c)
         {
             return c.toUpperCase() == c;
+        },
+        IsDigit$$Char: function (s)
+        {
+            return /[0-9]/.test(s);
         }
     },
     assemblyName: "SharpKit.JsClr",
