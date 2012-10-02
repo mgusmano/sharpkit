@@ -631,7 +631,8 @@ namespace SharpKit.KendoUI
         public JsNumber parseInt(JsString value) { return null; }
 
         /// <summary>
-        /// Renders the specified template using the provided data
+        /// Renders the specified 
+        /// using the provided data
         /// </summary>
         /// <param name="template">The Kendo template which should be rendered.</param>
         /// <param name="data">Array of JavaScript objects which contains the data that the template will render.</param>
@@ -660,7 +661,7 @@ namespace SharpKit.KendoUI
         ///var inlineData = { firstName: "John", lastName: "Doe" };
         ///$("#inline").html(inlineTemplate(inlineData));
         /// </code></example>
-        public JsFunc<JsString, JsString> template(JsString template, KendoObjectOptions options) { return null; }
+        public static JsFunc<JsString, JsString> template(JsString template, KendoObjectOptions options) { return null; }
         /// <summary>
         /// Compiles a template to a function that builds HTML. Useful when a template will be used several times.
         /// Templates offer way of creating HTML chunks. Options such as HTML encoding and compilation for optimal performance are available.
@@ -675,7 +676,7 @@ namespace SharpKit.KendoUI
         ///var inlineData = { firstName: "John", lastName: "Doe" };
         ///$("#inline").html(inlineTemplate(inlineData));
         /// </code></example>
-        public JsFunc<JsString, JsString> template(JsString template) { return null; }
+        public static JsFunc<JsString, JsString> template(JsString template) { return null; }
 
         /// <summary>
         /// Enables kinetic scrolling on touch devices
