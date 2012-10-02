@@ -2118,6 +2118,14 @@ namespace SharpKit.jQuery
         /// Set the value of each element in the set of matched elements.
         /// </summary>
         public jQuery val(JsAction<JsNumber, HtmlElement> function) { return null; }
+
+        //TODO: Ask Dan-el
+        /// <summary>
+        /// Undocument method. Add by Lee. 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public jQuery value(jQuery value) { return null; }
         /// <summary>
         /// Get the current computed width for the first element in the set of matched elements.
         /// </summary>
