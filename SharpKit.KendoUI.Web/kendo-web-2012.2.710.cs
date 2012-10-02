@@ -619,7 +619,7 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// Triggered when a Li element is selected.
         /// </summary>
-        public JsAction select { get; set; }
+        public JsAction<Event> select { get; set; }
         /// <summary>
         /// Fires when the drop-down list is closed
         /// </summary>
@@ -1960,6 +1960,19 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public AnimationConfiguration animation { get; set; }
+        /// <summary>
+        /// Fires when the selected date is changed.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#datePicker").kendoDatePicker({
+        ///     change: function(e) {
+        ///        // handle event
+        ///    }
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction change { get; set; }
 
         /// <summary>
         /// (default: en-US) Specifies the culture info used by the widget.
@@ -2941,6 +2954,20 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public JsString cascadeFrom { get; set; }
+
+        /// <summary>
+        /// Fires when the value has been changed.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#dropdownlist").kendoDropDownList({
+        ///    change: function(e) {
+        ///        // handle event
+        ///    }
+        ///});
+        /// </code>
+        /// </example>
+        public JsAction change { get; set; }
 
         /// <summary>
         /// Instance of DataSource or the data that the DropDownList will be bound to.
@@ -4436,7 +4463,11 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         [JsProperty(Name = "command")]
         public JsString commandString { get; set; }
-
+        /// <summary>
+        /// Definition of command column. The supported built-in commands are: "create", "cancel", "save", "destroy".
+        /// </summary>
+        [JsProperty(Name = "command")]
+        public JsArray<JsString> commandStringArray { get; set; }
         /// <summary>
         /// Provides a way to specify custom editor for this column.
         /// </summary>
@@ -5135,7 +5166,7 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public JsAction editTemplate { get; set; }
+        public JsFunc<JsString, JsString> editTemplate { get; set; }
 
         /// <summary>
         /// (default: false) Indicates whether keyboard navigation is enabled/disabled.
@@ -5181,6 +5212,32 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public GridSelectableOptions selectable { get; set; }
+        /// <summary>
+        /// Specifies ListView item template.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// <script type="text/x-kendo-tmpl" id="template">
+        /// <div>
+        /// <dl>
+        /// <dt>Name</dt> <dd>${Name}</dd>
+        /// <dt>Birth Date</dt> <dd>${BirdthDate}</dd>
+        /// </dl>
+        /// </div>
+        /// </script>
+        /// </code>
+        /// </example>
+        /// <example>
+        /// <code>
+        /// $("#listView").kendoListView({
+        ///     dataSource: {
+        ///         data: createRandomData(50)
+        ///     },
+        ///     template: kendo.template($("#template").html())
+        /// });
+        /// </code>
+        /// </example>
+        public JsFunc<JsString, JsString> template { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -8472,6 +8529,18 @@ namespace SharpKit.KendoUI.Web
         public void enable(bool enable) { }
 
         /// <summary>
+        /// Enables or disables a TimePicker.
+        /// </summary>
+        /// <param name="enable">Enables (true or undefined) or disables (false) a DateTimePicker.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("timepicker").data("kendoTimePicker").enable();
+        ///</code>
+        ///</example>
+        public void enable() { }
+
+        /// <summary>
         /// Sets the max value of the TimePicker.
         /// </summary>
         /// <param name="value">The max date to set.</param>
@@ -8703,6 +8772,27 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public AnimationConfiguration animation { get; set; }
+
+        /// <summary>
+        /// Triggered when the underlying value of a TimePicker is changed.
+        /// </summary>
+        /// <example>
+        /// Attach change event handler during initialization; detach via unbind()
+        /// <code>
+        /// // event change for expand
+        /// var onChange = function(e) {
+        ///     // ...
+        /// };
+        /// // attach change event handler during initialization
+        /// var timePicker = $("#timePicker").kendoTimePicker({
+        ///    change: onChange
+        ///});
+        /// // detach change event handler via unbind()
+        /// timePicker.data("kendoTimePicker").unbind("change", onChange);
+        /// </code>
+        /// </example>
+        public JsAction change { get; set; }
+
 
         /// <summary>
         /// (default: en-US) Specifies the culture info used by the widget.
