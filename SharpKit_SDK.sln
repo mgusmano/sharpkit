@@ -159,6 +159,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.Html.Idl", "SharpK
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.TheMProject", "TheMProject\SharpKit.TheMProject.csproj", "{28808C99-7747-485F-857C-65BFB456DA7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.EaselJS", "SharpKit.EaselJS\SharpKit.EaselJS.csproj", "{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -1395,6 +1397,26 @@ Global
 		{28808C99-7747-485F-857C-65BFB456DA7A}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{28808C99-7747-485F-857C-65BFB456DA7A}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
 		{28808C99-7747-485F-857C-65BFB456DA7A}.v4.0|x86.ActiveCfg = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.Release|x86.ActiveCfg = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.v3.5|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.v3.5|Mixed Platforms.Build.0 = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.v3.5|x86.ActiveCfg = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
+		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8}.v4.0|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
