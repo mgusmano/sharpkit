@@ -612,6 +612,8 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public JsString template { get; set; }
 
+        public JsAction change() { return null; }
+
     }
 
     #endregion
