@@ -2613,6 +2613,15 @@ namespace SharpKit.JavaScript
         {
             return false;
         }
+        /// <summary>
+        /// Tests for the existence of a property in an object.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        [JsMethod(OmitDotOperator = true, OmitParanthesis = true, Export = false, NativeOverloads = true, Name = "in", ExtensionImplementedInInstance = true)]
+        public static bool @in(this string propertyName, object obj) { return false; }
+
 
         /// <summary>
         /// A C# extension for '===' operator
