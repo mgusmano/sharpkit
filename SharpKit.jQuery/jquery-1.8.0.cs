@@ -410,6 +410,10 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Bind an event handler to the "click" JavaScript event, or trigger that event on an element.
         /// </summary>
+        public jQuery click(JsAction handler) { return null; }
+        /// <summary>
+        /// Bind an event handler to the "click" JavaScript event, or trigger that event on an element.
+        /// </summary>
         public jQuery click(JsAction<Event> handler) { return null; }
         /// <summary>
         /// Bind an event handler to the "click" JavaScript event, or trigger that event on an element.
@@ -1246,7 +1250,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.
         /// </summary>
-        public jQuery map(JsFunc<JsNumber, HtmlElement, object> callback) { return null; }
+        public jQuery map(JsFunc<HtmlElement, HtmlElement, object> callback) { return null; }
         /// <summary>
         /// Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -2362,7 +2366,22 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Translate all items in an array or array-like object to another array of items.
         /// </summary>
-        public static JsArray map(JsArray array, JsFunc<JsNumber, object, object> callback) { return null; }
+        public static JsArray map(JsArray array, JsFunc<object, JsNumber, object> callback) { return null; }
+        /// <summary>
+        /// Translate all items in an array or array-like object to another array of items.
+        /// </summary>
+        public static JsArray map(JsArray array, JsFunc<object, object> callback) { return null; }
+
+        /// <summary>
+        /// Translate all items in an array or array-like object to another array of items.
+        /// </summary>
+        public static JsArray<R> map<T, R>(JsArray<T> array, JsFunc<T, JsNumber, R> callback) { return null; }
+
+        /// <summary>
+        /// Translate all items in an array or array-like object to another array of items.
+        /// </summary>
+        public static JsArray<R> map<T, R>(JsArray<T> array, JsFunc<T, R> callback) { return null; }
+
         //TODO: not full. http://api.jquery.com/jQuery.map/
         /// <summary>
         /// Merge the contents of two arrays together into the first array.
