@@ -2125,7 +2125,7 @@ namespace SharpKit.jQuery
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public jQuery value(jQuery value) { return null; }
+        public jQuery value(object value) { return null; }
         /// <summary>
         /// Get the current computed width for the first element in the set of matched elements.
         /// </summary>
