@@ -9,6 +9,7 @@ namespace KendoUISamples.examples.web.grid
     {
         static EditingPopup()
         {
+            new jQuery(OnReady);
         }
         static void OnReady()
         {
@@ -70,13 +71,14 @@ namespace KendoUISamples.examples.web.grid
                     new GridColumnConfiguration{ field = "UnitPrice", title ="Unit Price", format = "{0 =c}", width = "150px" },
                     new GridColumnConfiguration{ field = "UnitsInStock", title ="Units In Stock", width = "150px" },
                     new GridColumnConfiguration{ field = "Discontinued", width = "100px" },
-                    //new GridColumnConfiguration{ command = new GridColumnsCommandOptions, title = "&nbsp;", width = "210px" }
+                    //TODO:  enum    { command: ["edit", "destroy"], title: "&nbsp;", width: "210px" }],
+                    new GridColumnConfiguration{ commandStringArray = new JsArray<JsString> {"create", "destroy"}, title = "&nbsp;", width = "210px" }
                 },
                 editableString = "popup",
             });
 
 
-            //    { command: ["edit", "destroy"], title: "&nbsp;", width: "210px" }],
+           
         }
     }
 }

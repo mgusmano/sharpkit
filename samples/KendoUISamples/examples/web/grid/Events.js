@@ -16,11 +16,11 @@ function OnReady()
 };
 function OnChange(arg)
 {
-    var selected=$.map(this.select(),function(index,item)
+    var selected=$.map(this.select(),function(item)
     {
         return $(item).text();
     });
-     kendoConsole.log('Selected: ' + selected.length + ' item(s), [' + selected.join(', ') + ']');;
+    kendoConsole.log("Selected: " + selected.length + " item(s), [" + selected.join(", ") + "]");
 };
 function OnDataBound(arg)
 {

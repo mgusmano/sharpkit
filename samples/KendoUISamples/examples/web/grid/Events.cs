@@ -36,16 +36,11 @@ namespace KendoUISamples.examples.web.grid
                 }
             });
         }
-        //TODO: the example doesn't work correctly.
         static void OnChange(object arg)
         {
-            var selected = jQuery.map(JsContext.@this.As<Grid>().select(), (index, item) => new jQuery(item).text());
-            //kendoConsole.log("Selected: " + selected.length + " item(s), [" + selected.join(", ") + "]");
-            JsContext.JsCode("kendoConsole.log('Selected: ' + selected.length + ' item(s), [' + selected.join(', ') + ']');");
+            var selected = jQuery.map(JsContext.@this.As<Grid>().select(), item => new jQuery(item).text());
+            kendoConsole.log("Selected: " + selected.length + " item(s), [" + selected.join(", ") + "]");
         }
-        //           kendoConsole.log("Selected: " + selected.length + " item(s), [" + selected.join(", ") + "]");
-
-
         static void OnDataBound(object arg)
         {
             kendoConsole.log("Grid data bound");

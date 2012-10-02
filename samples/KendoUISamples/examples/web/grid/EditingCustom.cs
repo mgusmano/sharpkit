@@ -115,7 +115,6 @@ namespace KendoUISamples.examples.web.grid
         class Product
         {
             public JsNumber ProductID { get; set; }
-
             public JsString ProductName { get; set; }
             public JsString Category { get; set; }
             public JsString UnitPrice { get; set; }

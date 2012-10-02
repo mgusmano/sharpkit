@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <link href="../../content/shared/styles/examples-offline.css" rel="stylesheet">
+    <link href="../../../styles/kendo.common.min.css" rel="stylesheet">
+    <link href="../../../styles/kendo.default.min.css" rel="stylesheet">
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/kendo.web.min.js"></script>
+    <script src="../../content/shared/js/console.js"></script>
+</head>
+<body>
+    <a class="offline-button" href="../index.html">Back</a>
+    <div id="example" class="k-content">
+        <div class="configuration k-widget k-header" style="width: 200px">
+            <span class="configHead">Events log</span>
+            <div class="console">
+            </div>
+        </div>
+        <div id="taxi">
+            <label for="products">
+                Select a state in USA:</label>
+            <input id="products" />
+        </div>
+        <script src="Events.js"></script>
+        <style scoped>
+            #taxi
+            {
+                width: 240px;
+                height: 160px;
+                padding: 80px 0 0 200px;
+                background: url('../../content/web/autocomplete/taxi.png') transparent no-repeat 0 0;
+                margin: 40px 0 30px 40px;
+            }
+            #taxi label
+            {
+                display: block;
+                color: #333;
+                padding-bottom: 5px;
+            }
+            .k-autocomplete
+            {
+                display: block;
+                clear: left;
+                width: 200px;
+                vertical-align: middle;
+            }
+            .configuration
+            {
+                height: 360px;
+                margin-bottom: -21px;
+            }
+            .configuration .console
+            {
+                background-color: transparent;
+                border: 0;
+                height: 320px;
+                overflow: auto;
+            }
+        </style>
+    </div>
+</body>
+</html>

@@ -53,7 +53,7 @@ namespace KendoUISamples.examples.web.dragdrop
         {
             kendoConsole.log("dragend");
             var draggable = new jQuery("#draggable");
-            //TODO: if (!draggable.data("kendoDraggable").dropped)
+          //  if (!draggable.data("kendoDraggable").As<Draggable>().dropped)
 
             //{
             //    new jQuery("#droptarget").text("Try again!");
