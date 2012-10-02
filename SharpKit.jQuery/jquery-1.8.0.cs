@@ -2119,7 +2119,7 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery val(JsAction<JsNumber, HtmlElement> function) { return null; }
 
-        //TODO: Ask Dan-el
+        
         /// <summary>
         /// Undocument method. Add by Lee. 
         /// </summary>
