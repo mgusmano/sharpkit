@@ -612,7 +612,22 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public JsString template { get; set; }
 
+        /// <summary>
+        /// Fires when the value has been changed.
+        /// </summary>
         public JsAction change { get; set; }
+        /// <summary>
+        /// Triggered when a Li element is selected.
+        /// </summary>
+        public JsAction select { get; set; }
+        /// <summary>
+        /// Fires when the drop-down list is closed
+        /// </summary>
+        public JsAction close { get; set; }
+        /// <summary>
+        /// Fires when the drop-down list is opened
+        /// </summary>
+        public JsAction open { get; set; }
 
     }
 
