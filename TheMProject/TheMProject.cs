@@ -3340,8 +3340,6 @@ namespace TheMProject
         /// </summary>
         public JsAction<MEventData> change { get; set; }
 
-        public JsAction<JsString,object> change { get; set; }
-
     }
 
     /// <summary>
