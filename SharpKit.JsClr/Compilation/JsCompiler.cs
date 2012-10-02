@@ -168,6 +168,7 @@ namespace SharpKit.JavaScript.Compilation
             throw new NotImplementedException();
         }
 
+#pragma warning disable 0169
         static Exception __LastException;
         [JsMethod(NativeOverloads = true, Code = @"__LastException = exception || __LastException;
 			var error = new Error(exception.ToString());
@@ -177,7 +178,7 @@ namespace SharpKit.JavaScript.Compilation
         {
 
         }
-
+#pragma warning restore 0169
         [JsMethod(NativeOverloads = true, Code = @"return function(){};")]
         static JsFunction CreateEmptyCtor()
         {

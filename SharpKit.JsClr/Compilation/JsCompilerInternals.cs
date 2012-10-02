@@ -27,7 +27,7 @@ namespace SharpKit.JavaScript.Compilation
         public JsType _type;
         public string _name;
         //TODO:?[Obsolete("?")]
-        public string name;
+        public string name=null;
     }
 
     internal class JsCompilerObject2 : JsObject

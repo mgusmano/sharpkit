@@ -66,7 +66,7 @@ namespace SharpKit.JavaScript.Private
         /// <exception cref="T:System.ArgumentOutOfRangeException">
         ///   <paramref name="arrayIndex" /> is less than 0.</exception>
         /// <exception cref="T:System.ArgumentException">
-        ///   <paramref name="array" /> is multidimensional.-or-The number of elements in the source <see cref="T:System.Collections.Generic.ICollection`1" /> is greater than the available space from <paramref name="arrayIndex" /> to the end of the destination <paramref name="array" />.-or-Type <paramref name="T" /> cannot be cast automatically to the type of the destination <paramref name="array" />.</exception>
+        ///   <paramref name="array" /> is multidimensional.-or-The number of elements in the source <see cref="T:System.Collections.Generic.ICollection`1" /> is greater than the available space from <paramref name="arrayIndex" /> to the end of the destination <paramref name="array" />.-or-Type <typeparamref name="T" /> cannot be cast automatically to the type of the destination <paramref name="array" />.</exception>
         void CopyTo(T[] array, int arrayIndex);
         /// <summary>Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1" />.</summary>
         /// <returns>true if <paramref name="item" /> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1" />; otherwise, false. This method also returns false if <paramref name="item" /> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1" />.</returns>
@@ -88,7 +88,7 @@ namespace SharpKit.JavaScript.Private
         /// <summary>Adds an element to the current set and returns a value to indicate if the element was successfully added. </summary>
         /// <returns>true if the element is added to the set; false if the element is already in the set.</returns>
         /// <param name="item">The element to add to the set.</param>
-        bool Add(T item);
+        new bool Add(T item);
         /// <summary>Modifies the current set so that it contains all elements that are present in both the current set and in the specified collection.</summary>
         /// <param name="other">The collection to compare to the current set.</param>
         /// <exception cref="T:System.ArgumentNullException">
@@ -155,8 +155,8 @@ namespace SharpKit.JavaScript.Private
     {
         /// <summary>Determines whether the specified objects are equal.</summary>
         /// <returns>true if the specified objects are equal; otherwise, false.</returns>
-        /// <param name="x">The first object of type <paramref name="T" /> to compare.</param>
-        /// <param name="y">The second object of type <paramref name="T" /> to compare.</param>
+        /// <param name="x">The first object of type <typeparamref name="T" /> to compare.</param>
+        /// <param name="y">The second object of type <typeparamref name="T" /> to compare.</param>
         bool Equals(T x, T y);
         /// <summary>Returns a hash code for the specified object.</summary>
         /// <returns>A hash code for the specified object.</returns>
