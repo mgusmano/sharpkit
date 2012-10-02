@@ -56,7 +56,7 @@ public partial class HtmlScriptElement : HtmlElement
 	public  JsString htmlFor {get; set; }
 	public  JsString @event {get; set; }
 	public  JsString charset {get; set; }
-	public  bool async {get; set; }
+	public  bool @async {get; set; }
 	public  bool defer {get; set; }
 	public  JsString src {get; set; }
 	public  JsString type {get; set; }

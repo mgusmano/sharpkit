@@ -12,7 +12,7 @@ public partial class LSParser
 	// LSParser
 	public DOMConfiguration domConfig {get; private set; }
 	public LSParserFilter filter {get; set; }
-	public bool async {get; private set; }
+	public bool @async {get; private set; }
 	public bool busy {get; private set; }
 	public Document parse(LSInput input) { return default(Document); }
 	public Document parseURI(string uri) { return default(Document); }

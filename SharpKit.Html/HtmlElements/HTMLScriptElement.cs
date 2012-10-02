@@ -11,7 +11,7 @@ public partial class HtmlScriptElement : HtmlElement
 
 	// HTMLScriptElement
 	public JsString src {get; set; }
-	public bool async {get; set; }
+	public bool @async {get; set; }
 	public bool defer {get; set; }
 	public JsString type {get; set; }
 	public JsString charset {get; set; }

@@ -18,9 +18,9 @@ public partial class XMLHttpRequest : XMLHttpRequestEventTarget
 	public static short DONE = 4;
 	public short readyState {get; private set; }
 	public void open(string method, string url) {}
-	public void open(string method, string url, bool async) {}
-	public void open(string method, string url, bool async, string user) {}
-	public void open(string method, string url, bool async, string user, string password) {}
+	public void open(string method, string url, bool @async) {}
+	public void open(string method, string url, bool @async, string user) {}
+	public void open(string method, string url, bool @async, string user, string password) {}
 	public void setRequestHeader(string header, string value) {}
 	public int timeout {get; set; }
 	public bool withCredentials {get; set; }

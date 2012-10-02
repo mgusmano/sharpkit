@@ -66,9 +66,9 @@ public partial class XMLHttpRequest
 	public  int readyState {get; set; }
 	public  bool withCredentials {get; set; }
 	public  void open(string method, string url) {}
-	public  void open(string method, string url, bool async) {}
-	public  void open(string method, string url, bool async, string user) {}
-	public  void open(string method, string url, bool async, string user, string password) {}
+	public  void open(string method, string url, bool @async) {}
+	public  void open(string method, string url, bool @async, string user) {}
+	public  void open(string method, string url, bool @async, string user, string password) {}
 	public  void setRequestHeader(string header, string value) {}
 	public  void send() {}
 	public  void send(ArrayBuffer data) {}

@@ -5324,7 +5324,7 @@ namespace SharpKit.Html4
         /// <param name="method"></param>
         /// <param name="address"></param>
         /// <param name="async"></param>
-        public void open(JsString method, JsString address, JsBoolean async) { }
+        public void open(JsString method, JsString address, JsBoolean @async) { }
         /// <summary>
         /// Sends an HTTP request to the server and receives a response.
         /// </summary>

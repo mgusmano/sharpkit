@@ -7691,7 +7691,7 @@ namespace Ext.data
         /// @param {Object} options The initial options
         /// </summary>
         public void upload(object form, JsString url, JsString @params, object options){}
-        public bool async{get;set;}
+        public bool @async{get;set;}
         /// <summary>
         /// @cfg {Object} extraParams
         /// Any parameters to be appended to the request.

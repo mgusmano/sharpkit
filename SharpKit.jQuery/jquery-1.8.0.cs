@@ -3029,7 +3029,7 @@ namespace SharpKit.jQuery
         /// Default: true
         /// By default, all requests are sent asynchronously (i.e. this is set to true by default). If you need synchronous requests, set this option to false. Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation. Note that synchronous requests may temporarily lock the browser, disabling any actions while the request is active.
         /// </summary>
-        public bool async { get; set; }
+        public bool @async { get; set; }
         /// <summary>
         /// Data to be sent to the server. It is converted to a query string, if not already a string. It's appended to the url for GET-requests. See processData option to prevent this automatic processing. object must be Key/Value pairs. If value is an Array, jQuery serializes multiple values with same key based on the value of the traditional setting (described below).
         /// </summary>

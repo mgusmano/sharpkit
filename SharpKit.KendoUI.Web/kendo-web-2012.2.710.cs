@@ -9775,7 +9775,7 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// Configures the ability to upload a file(s) in an asynchronous manner. Please refer to the async mode help topic for more details.
         /// </summary>
-        public UploadAsyncConfiguration async { get; set; }
+        public UploadAsyncConfiguration @async { get; set; }
 
         /// <summary>
         /// Sets the strings rendered by the Upload.
