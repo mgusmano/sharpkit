@@ -944,10 +944,10 @@ namespace SharpKit.jQuery
         ///  jQuery.removeData(p, "testing");
         ///  $p.append(jQuery.hasData(p)+" "); /* false */
         ///});
-        ///</script>
+        ///&lt;/script>
         ///
-        ///</body>
-        ///</html>
+        ///&lt;/body>
+        ///&lt;/html>
         ///Demo:
         ///Results: false true false
         /// </code>
@@ -1075,7 +1075,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Holds or releases the execution of jQuery's ready event.
         /// <list type="bullet">
-        /// The $.holdReady() method allows the caller to delay jQuery's ready event. This advanced feature would typically be used by dynamic script loaders that want to load additional JavaScript such as jQuery plugins before allowing the ready event to occur, even though the DOM may be ready. This method must be called early in the document, such as in the <head> immediately after the jQuery script tag. Calling this method after the ready event has already fired will have no effect.
+        /// The $.holdReady() method allows the caller to delay jQuery's ready event. This advanced feature would typically be used by dynamic script loaders that want to load additional JavaScript such as jQuery plugins before allowing the ready event to occur, even though the DOM may be ready. This method must be called early in the document, such as in the &lt;head&gt; immediately after the jQuery script tag. Calling this method after the ready event has already fired will have no effect.
         /// To delay the ready event, first call $.holdReady(true). When the ready event should be released to execute, call $.holdReady(false). Note that multiple holds can be put on the ready event, one for each $.holdReady(true) call. The ready event will not actually fire until all holds have been released with a corresponding $.holdReady(false) and the normal document ready conditions are met. (See ready for more information.)
         /// </list>
         /// <example>
