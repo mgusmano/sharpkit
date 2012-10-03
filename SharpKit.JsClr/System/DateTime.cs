@@ -239,6 +239,17 @@ this.date = System.DateTime.MinValue.date;
             return format;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (!(obj is JsImplDateTime)) return false;
+            return this.date.Equals(((JsImplDateTime)obj).date);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.date.GetHashCode();
+        }
+
         public static bool operator ==(JsImplDateTime t1, JsImplDateTime t2)
         {
             if (t1.As<object>() == t2.As<object>()) return true;
