@@ -490,13 +490,14 @@ namespace SharpKit.KendoUI
         /// <param name="enGB"></param>
         public JsString culture() { return null; }
 
-
+        //TODO: Ask Dan-elformat(JsString value, JsNumber number, ...)
         /// <summary>
         /// Replaces each format item in a specified string with the text equivalent of a corresponding object's value.
         /// </summary>
         /// <param name="value">The string that needs to be HTML encoded.</param>
+        /// <param name= "number"> </param>
         /// <returns></returns>
-        public JsString format(JsString value) { return null; }
+        public static JsAction format(JsString value, JsNumber number) { return null; }
 
         /// <summary>
         /// Parses as a formatted string as a Date.
@@ -644,7 +645,7 @@ namespace SharpKit.KendoUI
         ///$("ul").html(kendo.render(template, data)); // sets the html to <li>John Doe</li><li>Jane Doe</li>
         /// </code>
         /// </example>
-        public void render(JsAction template, JsArray data) { }
+        public static JsAction<JsNumber, HtmlElement> render(JsFunc<JsString, JsString> template, JsArray data) { return null; }
 
         /// <summary>
         /// Compiles a template to a function that builds HTML. Useful when a template will be used several times.
@@ -707,7 +708,7 @@ namespace SharpKit.KendoUI
         ///kendo.toString(new Date(2010, 10, 10, 22, 12), "hh:mm tt" ); // "10:12 PM"
         ///</code>
         ///</example>
-        public JsString toString(JsDate value, JsString format) { return null; }
+        public JsFunc<JsString> toString(JsDate value, JsString format) { return null; }
         /// <summary>
         /// Formats a Number or Date using the specified format and the current culture.
         /// </summary>
@@ -731,7 +732,7 @@ namespace SharpKit.KendoUI
         ///kendo.toString(new Date(2010, 10, 10, 22, 12), "hh:mm tt" ); // "10:12 PM"
         ///</code>
         ///</example>
-        public JsString toString(JsNumber value, JsString format) { return null; }
+        public static JsFunc<JsString> toString(JsNumber value, JsString format) { return null; }
 
         /// <summary>
         /// A range of useful supported by the current browser capabilities and features.
@@ -1220,7 +1221,7 @@ namespace SharpKit.KendoUI
         ///dataSource.query({ page: 1, pageSize: 20 });
         ///</code>
         ///</example>
-        public void query(KendoObjectOptions options) { }
+        public void query(object options) { }
 
         /// <summary>
         /// Read the data into the DataSource using the transport read definition
@@ -1428,6 +1429,8 @@ namespace SharpKit.KendoUI
         /// Enables (true) or disables (false) batch mode.
         /// </summary>
         public bool batch { get; set; }
+
+        public JsAction change { get; set; }
         /// <summary>
         /// Specifies the local JavaScript object to use for the data source.
         /// </summary>
@@ -3671,6 +3674,11 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public object messages { get; set; }
+
+        /// <summary>
+        /// Undocument property. Add by Lee
+        /// </summary>
+        public JsNumber min { get; set; }
 
         /// <summary>
         /// Set of custom validation rules. Those rules will extend the built-in ones.
