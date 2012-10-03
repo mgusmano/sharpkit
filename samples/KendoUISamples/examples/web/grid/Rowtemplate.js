@@ -11,6 +11,7 @@ function OnReady()
             filter: [{field:"Name",operator:"contains",value:"Star Wars"},{field:"BoxArt.SmallUrl",operator:"neq"}],
             transport:{read:"http://odata.netflix.com/Catalog/Titles"}
         },
+        rowTemplate:kendo.template($("#rowTemplate").html()),
         height:200
     });
 };

@@ -60,7 +60,7 @@ namespace KendoUISamples.examples.web.grid
             fields["ProductID"] = new FieldConfig { editable = false, nullable = true };
             fields["ProductName"] = new FieldConfig { validation = new ValidatorConfiguration { required = true } };
             fields["Category"] = "Category".As<FieldConfig>();
-            fields["UnitPrice"] = new FieldConfig { type = "number", validation = new ValidatorConfiguration { required = true } };//TODO: min =1} };
+            fields["UnitPrice"] = new FieldConfig { type = "number", validation = new ValidatorConfiguration { required = true, min = 1 } };
 
 
             var dataSource = new DataSource(new DataSourceConfiguration

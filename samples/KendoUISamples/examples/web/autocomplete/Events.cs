@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using SharpKit.JavaScript;
+﻿using SharpKit.JavaScript;
 using SharpKit.jQuery;
 using SharpKit.Html4;
 using KendoUISamples.examples.content.shared.js;
 using SharpKit.KendoUI.Web;
+using SharpKit.KendoUI;
 
 namespace KendoUISamples.examples.web.autocomplete
 {
@@ -19,43 +16,6 @@ namespace KendoUISamples.examples.web.autocomplete
         }
         static void OnReady()
         {
-            new jQuery(OnReady);
-        }
-
-        static void onOpen()
-        {
-
-            if ("kendoConsole".@in(HtmlContext.window))
-            {
-                kendoConsole.log("event :: open");
-            }
-        }
-        static void onClose()
-        {
-            if ("kendoConsole".@in(HtmlContext.window))
-            {
-                kendoConsole.log("event :: close");
-            }
-        }
-
-        static void onChange()
-        {
-            if ("kendoConsole".@in(HtmlContext.window))
-            {
-                kendoConsole.log("event :: change");
-            }
-        }
-        static void onSelect(Event e)
-        {
-            if ("kendoConsole".@in(HtmlContext.window))
-            {
-                //TODO:
-                //var dataItem = JsContext.@this.As<Grid>().dataItem(e.currentTarget.item.index());
-                JsContext.JsCode("var dataItem = this.dataItem(e.item.index());");
-                JsContext.JsCode(" kendoConsole.log('event :: select (' + dataItem + ')');");
-            }
-
-
             var data = new[] {
                             "Alabama",
                             "Alaska",
@@ -117,12 +77,45 @@ namespace KendoUISamples.examples.web.autocomplete
             new jQuery("#products").kendoAutoComplete(new AutoCompleteConfiguration
             {
                 dataSourceObject = data,
-                select = el => onSelect(el),
+                select = e => onSelect(e),
                 change = onChange,
                 close = onClose,
                 open = onOpen
             });
         }
 
+        static void onOpen()
+        {
+
+            if ("kendoConsole".@in(HtmlContext.window))
+            {
+                kendoConsole.log("event :: open");
+            }
+        }
+        static void onClose()
+        {
+            if ("kendoConsole".@in(HtmlContext.window))
+            {
+                kendoConsole.log("event :: close");
+            }
+        }
+
+        static void onChange()
+        {
+            if ("kendoConsole".@in(HtmlContext.window))
+            {
+                kendoConsole.log("event :: change");
+            }
+        }
+        static void onSelect(Event e)
+        {
+            if ("kendoConsole".@in(HtmlContext.window))
+            {
+                //TODO:
+                //var dataItem = JsContext.@this.As<Grid>().dataItem(e.currentTarget.item.index());
+                JsContext.JsCode("var dataItem = this.dataItem(e.item.index());");
+                JsContext.JsCode(" kendoConsole.log('event :: select (' + dataItem + ')');");
+            }
+        }
     }
 }

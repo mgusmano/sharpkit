@@ -12,6 +12,7 @@ namespace KendoUISamples.examples.web.grid
         {
             new jQuery(OnReady);
         }
+        //TODO: example doesn't work- compile error.
         static void OnReady()
         {
             new jQuery("#netflixTable").kendoGrid(new GridConfiguration
@@ -28,33 +29,9 @@ namespace KendoUISamples.examples.web.grid
                         readString = "http://odata.netflix.com/Catalog/Titles"
                     }
                 },
-                //TODO: rowTemplate: kendo.template($("#rowTemplate").html()),
-                // rowTemplate = 
+                rowTemplate = Kendo.template(new jQuery("#rowTemplate").html()),
                 height = 200
             });
- 
-              //$(document).ready(function() {
-              //      $("#netflixTable").kendoGrid({
-              //          dataSource: {
-              //              type: "odata",
-              //              serverFiltering: true,
-              //              filter: [{
-              //                  field: "Name",
-              //                  operator: "contains",
-              //                  value: "Star Wars"
-              //                  },{
-              //                  field: "BoxArt.SmallUrl",
-              //                  operator: "neq",
-              //                  value: null
-              //              }],
-              //              transport: {
-              //                  read: "http://odata.netflix.com/Catalog/Titles"
-              //              }
-              //          },
-              //          rowTemplate: kendo.template($("#rowTemplate").html()),
-              //          height: 200
-              //      });
-              //  });
         }
     }
 }
