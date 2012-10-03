@@ -1,7 +1,7 @@
 ﻿
 using SharpKit.JavaScript;
 
-namespace TheMProject
+namespace SharpKit.TheMProject
 {
     #region Components & Utilities
 

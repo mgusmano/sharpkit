@@ -2176,18 +2176,22 @@ namespace SharpKit.jQuery
         public jQuery wrapInner(JsAction wrappingFunction) { return null; }
         /// <summary>
         /// Perform an asynchronous HTTP (Ajax) request.
+        ///<seealso cref="T:SharpKit.jQuery.jqXHR"/>        
         /// </summary>
         public static jqXHR ajax(AjaxSettings settings) { return null; }
         /// <summary>
         /// Perform an asynchronous HTTP (Ajax) request.
+        ///<seealso cref="T:SharpKit.jQuery.jqXHR"/>        
         /// </summary>
         public static jqXHR ajax(JsString url, AjaxSettings settings) { return null; }
         /// <summary>
         /// Perform an asynchronous HTTP (Ajax) request.
+        ///<seealso cref="T:SharpKit.jQuery.jqXHR"/>        
         /// </summary>
         public static jqXHR ajax(JsString url) { return null; }
         /// <summary>
         /// Set default values for future Ajax requests.
+        ///<seealso cref="T:SharpKit.jQuery.jqXHR"/>        
         /// </summary>
         public static void ajaxSetup(AjaxSettings options) { }
         /// <summary>
@@ -2958,6 +2962,7 @@ namespace SharpKit.jQuery
     /// <summary>
     ///The jQuery XMLHttpRequest (jqXHR) object returned by $.ajax() as of jQuery 1.5 is a superset of the browser's native XMLHttpRequest object. For example, it contains responseText and responseXML properties, as well as a getResponseHeader() method. When the transport mechanism is something other than XMLHttpRequest (for example, a script tag for a JSONP request) the jqXHR object simulates native XHR functionality where possible.    
     ///The jqXHR objects returned by $.ajax() as of jQuery 1.5 implement the Promise interface, giving them all the properties, methods, and behavior of a Promise (see Deferred object for more information). For convenience and consistency with the callback names used by $.ajax(), jqXHR also provides .error(), .success(), and .complete() methods. These methods take a function argument that is called when the $.ajax() request terminates, and the function receives the same arguments as the correspondingly-named $.ajax() callback. This allows you to assign multiple callbacks on a single request, and even to assign callbacks after the request may have completed. (If the request is already complete, the callback is fired immediately.)
+    ///<seealso cref="M:SharpKit.jQuery.jQuery.ajax"/>
     /// </summary>
     [JsType(JsMode.Json)]
     public class jqXHR : Promise
