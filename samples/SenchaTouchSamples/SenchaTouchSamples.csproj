@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1F3675BD-92CF-408A-90B4-01BE7B088FA8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SenchaTouchSamples</RootNamespace>
+    <AssemblyName>SenchaTouchSamples</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SharpKit.SenchaTouch-2.0.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\v4.0\SharpKit.SenchaTouch-2.0.0.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="SharpKit.JavaScript" />
+    <Reference Include="SharpKit.Html4" />
+    <Reference Include="SharpKit.jQuery" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="examples\ajax\app.js" />
+    <Content Include="examples\ajax\resources\css\app.css" />
+    <Content Include="examples\ajax\resources\icons\icon%40144.png" />
+    <Content Include="examples\ajax\resources\icons\icon%402x.png" />
+    <Content Include="examples\ajax\resources\icons\icon%4072.png" />
+    <Content Include="examples\ajax\resources\icons\icon.png" />
+    <Content Include="examples\ajax\resources\loading\Default%402x.png" />
+    <Content Include="examples\ajax\resources\loading\Default-LandscapeLeft~ipad.png" />
+    <Content Include="examples\ajax\resources\loading\Default-LandscapeRight~ipad.png" />
+    <Content Include="examples\ajax\resources\loading\Default-Landscape~ipad.png" />
+    <Content Include="examples\ajax\resources\loading\Default-PortraitUpsideDown~ipad.png" />
+    <Content Include="examples\ajax\resources\loading\Default-Portrait~ipad.png" />
+    <Content Include="examples\ajax\resources\loading\Default.png" />
+    <Content Include="examples\ajax\resources\loading\Default~ipad.png" />
+    <Content Include="examples\ajax\resources\loading\Homescreen.jpg" />
+    <Content Include="examples\ajax\resources\loading\Homescreen~ipad.jpg" />
+    <Content Include="examples\ajax\resources\loading\iTunesArtwork.png" />
+    <Content Include="microloader\development.js" />
+    <Content Include="microloader\production.js" />
+    <Content Include="microloader\testing.js" />
+    <Content Include="res\Default.js" />
+    <Content Include="res\jquery-1.6.4.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="microloader\development.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DefaultClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="examples\ajax\.senchasdk" />
+    <None Include="examples\ajax\app.json" />
+    <None Include="examples\ajax\app\.gitkeep" />
+    <None Include="examples\ajax\packager.json" />
+    <None Include="examples\ajax\resources\images\.gitkeep" />
+    <None Include="examples\ajax\resources\sass\.sass-cache\7669e5408f821d0d9f8913ca74fcad2500c7f404\app.scssc" />
+    <None Include="examples\ajax\resources\sass\app.scss" />
+    <None Include="examples\ajax\resources\sass\config.rb" />
+    <None Include="examples\ajax\test.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="examples\ajax\app\controller\" />
+    <Folder Include="examples\ajax\app\model\" />
+    <Folder Include="examples\ajax\app\profile\" />
+    <Folder Include="examples\ajax\app\store\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(MSBuildBinPath)\SharpKit\5\SharpKit.Build.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>47883</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
