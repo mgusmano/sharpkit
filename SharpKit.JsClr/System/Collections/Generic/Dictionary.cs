@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using SharpKit.JavaScript;
 using SharpKit.JavaScript.Utils;
-
 
 namespace SharpKit.JavaScript.Private
 {
-
-
 	[JsType(Name = "System.Collections.Generic.Dictionary$2", Filename = "~/res/System.Collections.js")]
 	class JsImplDictionary<TKey, TValue> : IDictionary<TKey, TValue>
 	{
@@ -38,9 +32,14 @@ namespace SharpKit.JavaScript.Private
                 return Comparer.GetHashCode(key).As<string>();
 			return Js.GetHashKey(key);
 		}
-
 		public void Add(TKey key, TValue value)
 		{
+            // If TKey is default(ValueType), it's a valid key.
+            if (key == null)
+                throw new ArgumentNullException("key");
+            if(this.ContainsKey(key))
+                throw new ArgumentException("The specified key already exists.", "key", null);
+
 			var hashKey = GetHashKey(key);
 			this._table[hashKey] = value;
 			this._keys[hashKey] = key;
@@ -48,7 +47,12 @@ namespace SharpKit.JavaScript.Private
 		}
 		public bool Remove(TKey key)
 		{
-			var hashKey = GetHashKey(key);
+            // If TKey is default(ValueType), it's a valid key.
+            if (key == null)
+                throw new ArgumentNullException("key");
+            if (!this.ContainsKey(key))
+                throw new ArgumentException("The specified key does not exist.", "key", null);
+            var hashKey = GetHashKey(key);
             JsContext.delete(this._table[hashKey]);
             JsContext.delete(this._keys[hashKey]);
 			this._version++;
@@ -58,16 +62,19 @@ namespace SharpKit.JavaScript.Private
 		{
 			get
 			{
+                if(!this.ContainsKey(key))
+                    throw new KeyNotFoundException("The specified key does not exist.");
 				var hashKey = GetHashKey(key);
 				return this._table[hashKey].As<TValue>();
 			}
 			set
 			{
-				var hashKey = GetHashKey(key);
+                if (!this.ContainsKey(key))
+                    throw new KeyNotFoundException("The specified key does not exist.");
+                var hashKey = GetHashKey(key);
 				this._table[hashKey] = value;
 				this._keys[hashKey] = key;
 				this._version++;
-
 			}
 		}
 		public bool ContainsKey(TKey key)
