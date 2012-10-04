@@ -13,7 +13,7 @@ function OnReady()
     fields["UnitPrice"] = 
     {
         type:"number",
-        validation:{required:true}
+        validation:{required:true,min:1}
     };
     var dataSource=new kendo.data.DataSource(
     {
