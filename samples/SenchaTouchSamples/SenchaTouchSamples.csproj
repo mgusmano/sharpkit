@@ -73,6 +73,21 @@
     <Content Include="examples\ajax\resources\loading\Homescreen.jpg" />
     <Content Include="examples\ajax\resources\loading\Homescreen~ipad.jpg" />
     <Content Include="examples\ajax\resources\loading\iTunesArtwork.png" />
+    <Content Include="examples\getting_started\index.html" />
+    <Content Include="examples\getting_started\resources\css\app.css" />
+    <Content Include="examples\getting_started\resources\icons\icon%40144.png" />
+    <Content Include="examples\getting_started\resources\icons\icon%402x.png" />
+    <Content Include="examples\getting_started\resources\icons\icon%4072.png" />
+    <Content Include="examples\getting_started\resources\icons\icon.png" />
+    <Content Include="examples\getting_started\resources\loading\Default%402x.png" />
+    <Content Include="examples\getting_started\resources\loading\Default-LandscapeLeft~ipad.png" />
+    <Content Include="examples\getting_started\resources\loading\Default-LandscapeRight~ipad.png" />
+    <Content Include="examples\getting_started\resources\loading\Default-Landscape~ipad.png" />
+    <Content Include="examples\getting_started\resources\loading\Default-PortraitUpsideDown~ipad.png" />
+    <Content Include="examples\getting_started\resources\loading\Default-Portrait~ipad.png" />
+    <Content Include="examples\getting_started\resources\loading\Default.png" />
+    <Content Include="examples\getting_started\resources\loading\Default~ipad.png" />
+    <Content Include="examples\getting_started\resources\loading\iTunesArtwork.png" />
     <Content Include="microloader\development.js" />
     <Content Include="microloader\production.js" />
     <Content Include="microloader\testing.js" />
@@ -104,6 +119,16 @@
     <None Include="examples\ajax\resources\sass\app.scss" />
     <None Include="examples\ajax\resources\sass\config.rb" />
     <None Include="examples\ajax\test.json" />
+    <None Include="examples\getting_started\.senchasdk" />
+    <None Include="examples\getting_started\app.json" />
+    <None Include="examples\getting_started\app\.gitkeep" />
+    <None Include="examples\getting_started\blog.json" />
+    <None Include="examples\getting_started\contact.php" />
+    <None Include="examples\getting_started\packager.json" />
+    <None Include="examples\getting_started\resources\images\.gitkeep" />
+    <None Include="examples\getting_started\resources\sass\.sass-cache\244c0c6dfa406714e4566df33cbb1dd9f63422e5\app.scssc" />
+    <None Include="examples\getting_started\resources\sass\app.scss" />
+    <None Include="examples\getting_started\resources\sass\config.rb" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="examples\ajax\app\controller\" />
