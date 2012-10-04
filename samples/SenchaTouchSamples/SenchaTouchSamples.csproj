@@ -103,6 +103,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="examples\getting_started\App.cs" />
     <Compile Include="microloader\development.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
