@@ -2305,6 +2305,17 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void close(ViewOptions view) { }
+        /// <summary>
+        /// Closes the calendar or the time drop-down list.
+        /// </summary>
+        /// <param name="view">The view of the DateTimePicker, expressed as a string. Available views are "time" and "date".</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("dateTimePicker").data("kendoDateTimePicker").close("date");
+        ///</code>
+        ///</example>
+        public void close(JsString view) { }
 
         /// <summary>
         /// Enables or disables a DateTimePicker.
@@ -2322,6 +2333,23 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void enable(bool enable) { }
+
+        /// <summary>
+        /// Enables or disables a DateTimePicker.
+        /// </summary>
+        /// <param name="enable">Enables (true or undefined) or disables (false) a DateTimePicker.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the autocomplete widget
+        ///var autocomplete = $("autocomplete").data("kendoAutoComplete");
+        /// // disables the autocomplete
+        ///autocomplete.enable(false);
+        /// // enables the autocomplete
+        ///autocomplete.enable(true);
+        ///</code>
+        ///</example>
+        public void enable() { }
 
         /// <summary>
         /// Sets the max value of the DateTimePicker.
@@ -2451,6 +2479,17 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void open(ViewOptions view) { }
+        /// <summary>
+        /// Opens the calendar or the time drop-down list.
+        /// </summary>
+        /// <param name="view">The view of the DateTimePicker, expressed as a string. Available views are "time" and "date"</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///$("dateTimePicker").data("kendoDateTimePicker").open("date");
+        ///</code>
+        ///</example>
+        public void open(JsString view) { }
 
         /// <summary>
         /// Toggles the calendar or the time drop-down list.
@@ -2739,6 +2778,46 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public JsDate value { get; set; }
 
+        /// <summary>
+        /// Fires when the selected date is changed.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#dateTimePicker").kendoDateTimePicker({
+        ///     change: function(e) {
+        ///        // handle event
+        ///    }
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction change { get; set; }
+        /// <summary>
+        /// Fires when the selected date is opened.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#dateTimePicker").kendoDateTimePicker({
+        ///     open: function(e) {
+        ///        // handle event
+        ///    }
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction<Event> open { get; set; }
+        /// <summary>
+        /// Fires when the selected date is closed.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#dateTimePicker").kendoDateTimePicker({
+        ///     close: function(e) {
+        ///        // handle event
+        ///    }
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction<Event> close { get; set; }
+
     }
 
     [JsType(JsMode.Json)]
@@ -2806,6 +2885,20 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void enable(bool enable) { }
+        /// <summary>
+        /// Enables/disables the dropdownlist widget
+        /// </summary>
+        /// <param name="enable">The argument, which defines whether to enable/disable the autocomplete.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to instance of the Kendo UI ComboBox
+        ///var combobox = $("#comboBox").data("kendoComboBox");
+        /// // disables the combobox
+        ///combobox.enable(false);
+        ///</code>
+        ///</example>
+        public void enable() { }
 
         /// <summary>
         /// Opens the drop-down list.
@@ -2913,6 +3006,29 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public JsNumber select(JsString li, jQuery.jQuery item) { return null; }
+        //TODO: "item" was writen "e.item"\
+        /// <summary>
+        /// Selects drop-down list item and sets the value and the text of the dropdownlist.
+        /// </summary>
+        /// <param name="li">The LI element.</param>
+        /// <param name="item">The selected item chosen by a user.</param>
+        /// <returns>The index of the selected LI element.</returns>
+        /// <example>
+        ///usage
+        ///<code>
+        /// var combobox = $("#combobox").data("kendoComboBox");
+        /// // selects by jQuery object
+        /// combobox.select(combobox.ul.children().eq(0));
+        /// // selects by index
+        /// combobox.select(1);
+        /// // selects item if its text is equal to "test" using predicate function
+        /// combobox.select(function(dataItem) {
+        ///     return dataItem.text === "test";
+        /// });
+        ///</code>
+        ///</example>
+        public JsNumber select(JsNumber index) { return null; }
+
         //TODO: "item" was writen "e.item"
 
         /// <summary>
@@ -3326,6 +3442,46 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public JsString value { get; set; }
+        /// <summary>
+        /// Fires when the selected date is selected.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#datePicker").kendoDropDownList({
+        ///     select: function(e) {
+        ///        // handle event
+        ///    }
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction<Event> select { get; set; }
+        /// <summary>
+        /// Fires when the selected date is opened.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#datePicker").kendoDropDownList({
+        ///     open: function() {
+        ///        // handle event
+        ///    }
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction open { get; set; }
+        /// <summary>
+        /// Fires when the selected date is closed.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#datePicker").kendoDropDownList({
+        ///     close: function() {
+        ///        // handle event
+        ///    }
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction close { get; set; }
+
     }
 
     #endregion
