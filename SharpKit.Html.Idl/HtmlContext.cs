@@ -149,7 +149,18 @@ namespace SharpKit.Html
 		public static int setInterval(JsAction handler) { return 0; }
 		public static int setInterval(JsAction handler, object timeout, params object[] args) { return 0; }
 		public static void clearInterval(int handle) { }
-		// WindowDatabase
+        [System.Obsolete("requestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
+        public static void requestAnimationFrame(JsAction handler) { }
+        [System.Obsolete("webkitRequestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
+        public static void webkitRequestAnimationFrame(JsAction handler) { }
+        [System.Obsolete("mozRequestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
+        public static void mozRequestAnimationFrame(JsAction handler) { }
+        [System.Obsolete("oRequestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
+        public static void oRequestAnimationFrame(JsAction handler) { }
+        [System.Obsolete("msRequestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
+        public static void msRequestAnimationFrame(JsAction handler) { }
+
+        // WindowDatabase
 		public static Database openDatabase(string name, JsString version, JsString displayName, int estimatedSize) { return null; }
 		public static Database openDatabase(string name, JsString version, JsString displayName, int estimatedSize, DatabaseCallback creationCallback) { return null; }
 		// WindowSessionStorage
