@@ -373,9 +373,9 @@ namespace WebIDLParser
 
         private void readParameters(TMember mem)
         {
-            getNextToken();
             while (true)
             {
+                getNextToken();
                 readParameter((TMethod)mem);
                 if (currentToken.token == ECodeToken.brBraceEnd)
                 {
