@@ -23,18 +23,34 @@
 *******************************************************************************************************/
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.Xml.Linq;
+using System.Text;
 
 namespace WebIDLParser
 {
-
     public class TFileType
     {
+        // Tags in this hash table will have their names translated.
+        private readonly Dictionary<string, string> tagNameOverrides = 
+            new Dictionary<string, string>
+                {
+                    { "image",              "img" },
+                    { "anchor",             "a" },
+                    { "tablecaption",       "caption" },
+                    { "tablecell",          "td" },
+                    { "tablecol",           "col" },
+                    { "tablerow",           "tr" },
+                    // TODO: It can be thead or tfoot, too!
+                    { "tablesection",       "tbody" },
+                    { "dlist",              "dl" },
+                    { "olist",              "ol" },
+                    { "ulist",              "ul" },
+                    { "directory",          "d" },
+                    { "paragraph",          "p" },
+                    // TODO: Could be del or ins, but not mod. mod is an interface.
+                    { "mod",                "tbody" },
+                };
+
         public string name = "";
         public string aliasName = "";
         public TMemberList members = new TMemberList();
@@ -58,13 +74,14 @@ namespace WebIDLParser
                 if (t.name == name)
                 {
                     t.name = newName;
-                    if (t.genericType != null && t.genericType.name == name) t.genericType.name = newName;
+                    if (t.genericType != null && t.genericType.name == name) 
+                        t.genericType.name = newName;
                 }
             }
             this.name = newName;
         }
 
-        public void write(System.Text.StringBuilder sb)
+        public void write(StringBuilder sb)
         {
             string strAlias = "";
             if (aliasName != "")
@@ -75,7 +92,7 @@ namespace WebIDLParser
             if (isDelegate())
             {
                 var del = members[0] as TMethod;
-                sb.Append("public delegate " + del.resultType.ToString() + " " + Generator.getName(name));
+                sb.Append("public delegate " + del.resultType + " " + Generator.getName(name));
                 del.parameters.write(sb);
                 sb.Append(";" + Environment.NewLine);
                 return;
@@ -87,7 +104,7 @@ namespace WebIDLParser
 
             if (aliasName != "" && aliasName != name) jsAttributes.Add("Name", "\"" + aliasName + "\"");
 
-            sb.Append("[JsType(JsMode.Prototype, " + jsAttributes.ToString() + ")]" + Environment.NewLine);
+            sb.Append("[JsType(JsMode.Prototype, " + jsAttributes + ")]" + Environment.NewLine);
             string typeType = "class";
             if (isInterface) typeType = "interface";
             sb.Append("public partial " + typeType + " " + name);
@@ -132,7 +149,7 @@ namespace WebIDLParser
             return false;
         }
 
-        public void writeInterfaceTypes(System.Text.StringBuilder sb)
+        public void writeInterfaceTypes(StringBuilder sb)
         {
             for (var i = 0; i < baseType.Count; i++)
             {
@@ -154,7 +171,7 @@ namespace WebIDLParser
 
         public void write(string File)
         {
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            StringBuilder sb = new StringBuilder();
             write(sb);
             LarneFunctions.StringSaveToFile(File, sb.ToString());
         }
@@ -251,17 +268,9 @@ namespace WebIDLParser
 
         private string getCreateElementMethodTagName(string tagName, string typeName)
         {
-            switch (tagName)
-            {
-                case "image": return "img";
-                case "anchor": return "a";
-                case "tablecaption": return "caption";
-                case "tablecell": return "td";
-                case "tablecol": return "col";
-                case "tablerow": return "tr";
-                case "tablesection": return "tbody"; //Notice: It can be thead or tfoot, too!
-                default: return tagName;
-            }
+            if (tagNameOverrides.ContainsKey(tagName))
+                return tagNameOverrides[tagName];
+            return tagName;
         }
 
         public void checkGenerateEnumerator()
@@ -389,7 +398,7 @@ namespace WebIDLParser
     //{
     //  public string text;
 
-    //  public override void write(System.Text.StringBuilder sb) {
+    //  public override void write(StringBuilder sb) {
     //    sb.Append(Environment.NewLine + "\t" + text + Environment.NewLine);
     //  }
 
@@ -397,7 +406,6 @@ namespace WebIDLParser
 
     public abstract class TMember
     {
-
         public TMember(TFileType parentType)
         {
             this.parentType = parentType;
@@ -412,33 +420,29 @@ namespace WebIDLParser
         public string aliasName = "";
         public TType resultType;
 
-        public abstract void write(System.Text.StringBuilder sb, bool impl = false);
-
+        public abstract void write(StringBuilder sb, bool impl = false);
     }
 
     public class TFragmentMember : TMember
     {
-
         public TFragmentMember(TFileType parentType) : base(parentType) { }
 
         public string text = "";
 
-        public override void write(System.Text.StringBuilder sb, bool impl = false)
+        public override void write(StringBuilder sb, bool impl = false)
         {
             sb.Append(text);
         }
-
     }
 
     public class TMethod : TMember
     {
-
         public TMethod(TFileType parentType) : base(parentType) { }
 
         public TParameterList parameters = new TParameterList();
         public TMethod baseMethod;
 
-        public override void write(System.Text.StringBuilder sb, bool impl = false)
+        public override void write(StringBuilder sb, bool impl = false)
         {
             var modifier = "public ";
             if (isPrivate) modifier = "private ";
@@ -454,7 +458,7 @@ namespace WebIDLParser
             if (aliasName != "") jsAttributes.Add("Name", "\"" + aliasName + "\"");
             if (jsAttributes.Count > 0)
             {
-                sb.Append("\t[JsMethod(" + jsAttributes.ToString() + ")]" + Environment.NewLine);
+                sb.Append("\t[JsMethod(" + jsAttributes + ")]" + Environment.NewLine);
             }
             sb.Append("\t" + modifier + " " + rType + " " + sName);
             parameters.write(sb);
@@ -470,7 +474,7 @@ namespace WebIDLParser
                     for (var i = 0; i < baseMethod.parameters.Count; i++)
                     {
                         if (i != 0) sb.Append(", ");
-                        sb.Append("default(" + baseMethod.parameters[i].type.ToString() + ")");
+                        sb.Append("default(" + baseMethod.parameters[i].type + ")");
                     }
                     sb.Append(")");
                 }
@@ -479,7 +483,7 @@ namespace WebIDLParser
                 {
                     if (resultType.name != "void")
                     {
-                        sb.Append(" return default(" + resultType.ToString() + "); ");
+                        sb.Append(" return default(" + resultType + "); ");
                     }
                 }
                 sb.Append("}" + Environment.NewLine);
@@ -504,7 +508,7 @@ namespace WebIDLParser
 
         public TParameterList Parameters = new TParameterList();
 
-        public override void write(System.Text.StringBuilder sb, bool impl = false)
+        public override void write(StringBuilder sb, bool impl = false)
         {
             if (name == parentType.name)
             {
@@ -517,7 +521,7 @@ namespace WebIDLParser
             }
             var modifier = "public ";
             if (parentType.isInterface && !impl) modifier = "";
-            sb.Append("\t" + modifier + " " + resultType.ToString() + " " + Generator.getName(name));
+            sb.Append("\t" + modifier + " " + resultType + " " + Generator.getName(name));
             if (name == "this")
             {
                 Parameters.write(sb, true);
@@ -527,7 +531,7 @@ namespace WebIDLParser
             {
                 if (name == "this")
                 {
-                    sb.Append("get { return default(" + resultType.ToString() + "); } ");
+                    sb.Append("get { return default(" + resultType + "); } ");
                 }
                 else
                 {
@@ -558,7 +562,6 @@ namespace WebIDLParser
             }
             sb.Append("}" + Environment.NewLine);
         }
-
     }
 
     public class TField : TMember
@@ -566,11 +569,11 @@ namespace WebIDLParser
         public TField(TFileType parentType) : base(parentType) { }
         public string value;
 
-        public override void write(System.Text.StringBuilder sb, bool impl = false)
+        public override void write(StringBuilder sb, bool impl = false)
         {
             var modifier = "public ";
             if (parentType.isInterface && !impl) modifier = "";
-            sb.Append("\t" + modifier + " static " + resultType.ToString() + " " + name);
+            sb.Append("\t" + modifier + " static " + resultType + " " + name);
             if (value != null)
             {
                 sb.Append(" = " + value);
@@ -595,18 +598,17 @@ namespace WebIDLParser
             return false;
         }
 
-        public void write(System.Text.StringBuilder sb)
+        public void write(StringBuilder sb)
         {
             if (this.paramArray)
             {
                 sb.Append("params ");
             }
-            sb.Append(type.ToString() + " " + Generator.getName(name));
+            sb.Append(type + " " + Generator.getName(name));
             //if (isOptional()) {
             //  sb.Append(" = default(" + type.ToString() + ")");
             //}
         }
-
     }
 
     public class TParameterList : List<TParameter>
@@ -622,7 +624,7 @@ namespace WebIDLParser
             return true;
         }
 
-        public void write(System.Text.StringBuilder sb, bool indexer = false)
+        public void write(StringBuilder sb, bool indexer = false)
         {
             if (indexer)
             {
@@ -655,12 +657,10 @@ namespace WebIDLParser
                 sb.Append(")");
             }
         }
-
     }
 
     public class TMemberList : List<TMember>
     {
-
         public void addWithCheck(TMember mem)
         {
             if (mem is TMethod)
@@ -689,7 +689,6 @@ namespace WebIDLParser
             }
             return null;
         }
-
     }
 
     public class TFileTypeList : List<TFileType>
@@ -698,7 +697,6 @@ namespace WebIDLParser
 
     public class TType
     {
-
         public TType()
         {
             Generator.allTypes.Add(this);
@@ -734,7 +732,7 @@ namespace WebIDLParser
             if (name == "sequence") return genericType.ToString();
             string str = name;
             if (isResult) str = getResultTypeName();
-            if (genericType != null) str += "<" + genericType.ToString() + ">";
+            if (genericType != null) str += "<" + genericType + ">";
             if (isArray) str += "[]";
             //if (isNullable && !isArray) str += "?";
             return str;
@@ -752,9 +750,6 @@ namespace WebIDLParser
                     return name;
             }
         }
-
-
-
     }
 
     public class TTypeList : List<TType> { }
@@ -771,7 +766,7 @@ namespace WebIDLParser
             this.file = file;
         }
 
-        public void write(System.Text.StringBuilder sb)
+        public void write(StringBuilder sb)
         {
             sb.Append("namespace " + name + Environment.NewLine);
             sb.Append("{" + Environment.NewLine + Environment.NewLine);
@@ -801,7 +796,7 @@ namespace WebIDLParser
             this.file = file;
         }
 
-        public void write(System.Text.StringBuilder sb)
+        public void write(StringBuilder sb)
         {
             var path = file.inFile.Replace(Program.idlInDirectory, "").Replace("\\", "/");
             sb.Append(@"
@@ -849,7 +844,6 @@ namespace WebIDLParser
                 ns.write(sb);
             }
         }
-
     }
 
     public class TAttribute { }
@@ -898,7 +892,7 @@ namespace WebIDLParser
 
         public override string ToString()
         {
-            var sb = new System.Text.StringBuilder();
+            var sb = new StringBuilder();
             for (var i = 0; i < Count; i++)
             {
                 if (i != 0) sb.Append(", ");
