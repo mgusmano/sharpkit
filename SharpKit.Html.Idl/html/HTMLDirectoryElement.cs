@@ -1,7 +1,7 @@
 
 /*******************************************************************************************************
 
-  This file was auto generated with the tool "WebIDLParser" at Thu, 20 Sep 2012 15:27:32 GMT
+  This file was auto generated with the tool "WebIDLParser" at Thu, 04 Oct 2012 15:49:40 GMT
 
   Content was generated from IDL file:
   http://trac.webkit.org/browser/trunk/Source/WebCore/html/HTMLDirectoryElement.idl
@@ -43,14 +43,14 @@ namespace SharpKit.Html
 using SharpKit.JavaScript;
 using SharpKit.Html.storage;
 using SharpKit.Html.threads;
+using SharpKit.Html.svg;
 using SharpKit.Html.audio;
 using SharpKit.Html.webaudio;
-using SharpKit.Html.svg;
 
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "HTMLDirectoryElement")]
 public partial class HtmlDirectoryElement : HtmlElement
 {
-	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('directory')")]
+	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('d')")]
 	public   HtmlDirectoryElement() {}
 	public  bool compact {get; set; }
 }
