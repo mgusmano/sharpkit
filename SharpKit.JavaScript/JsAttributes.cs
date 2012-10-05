@@ -198,14 +198,15 @@ namespace SharpKit.JavaScript
         /// </summary>
         public bool NativeCasts { get { return _NativeCasts.GetValueOrDefault(); } set { _NativeCasts = value; } } public bool? _NativeCasts;
 
+        ///<summary>
         /// When true, Object.defineProperty is used for properties. The browser needs to support native property.
         /// </summary>
-        public bool NativeProperty { get { return _NativeProperty.GetValueOrDefault(); } set { _NativeProperty = value; } } public bool? _NativeProperty;
+        public bool NativeProperties { get { return _NativeProperties.GetValueOrDefault(); } set { _NativeProperties = value; } } public bool? _NativeProperties;
 
         /// <summary>
         /// The NativePropertyEnumerable property attribute defines whether the property shows up in a for...in loop and Object.keys() or not.
         /// </summary>
-        public bool NativePropertyEnumerable { get { return _NativePropertyEnumerable.GetValueOrDefault(); } set { _NativePropertyEnumerable = value; } } public bool? _NativePropertyEnumerable;
+        public bool NativePropertiesEnumerable { get { return _NativePropertiesEnumerable.GetValueOrDefault(); } set { _NativePropertiesEnumerable = value; } } public bool? _NativePropertiesEnumerable;
 
         /// <summary>
         /// Treats the class as a native "Error" object and prevents smart exception throwing
