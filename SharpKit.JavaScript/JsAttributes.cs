@@ -198,6 +198,15 @@ namespace SharpKit.JavaScript
         /// </summary>
         public bool NativeCasts { get { return _NativeCasts.GetValueOrDefault(); } set { _NativeCasts = value; } } public bool? _NativeCasts;
 
+        /// When true, Object.defineProperty is used for properties. The browser needs to support native property.
+        /// </summary>
+        public bool NativeProperty { get { return _NativeProperty.GetValueOrDefault(); } set { _NativeProperty = value; } } public bool? _NativeProperty;
+
+        /// <summary>
+        /// The NativePropertyEnumerable property attribute defines whether the property shows up in a for...in loop and Object.keys() or not.
+        /// </summary>
+        public bool NativePropertyEnumerable { get { return _NativePropertyEnumerable.GetValueOrDefault(); } set { _NativePropertyEnumerable = value; } } public bool? _NativePropertyEnumerable;
+
         /// <summary>
         /// Treats the class as a native "Error" object and prevents smart exception throwing
         /// </summary>
@@ -582,10 +591,14 @@ namespace SharpKit.JavaScript
         /// </summary>
         public bool Global { get { return _Global.GetValueOrDefault(); } set { _Global = value; } } public bool? _Global;
 
-        /// <summary>
         /// When true, Object.defineProperty is used for properties. The browser needs to support native property.
         /// </summary>
         public bool NativeProperty { get { return _NativeProperty.GetValueOrDefault(); } set { _NativeProperty = value; } } public bool? _NativeProperty;
+
+        /// <summary>
+        /// The NativePropertyEnumerable property attribute defines whether the property shows up in a for...in loop and Object.keys() or not.
+        /// </summary>
+        public bool NativePropertyEnumerable { get { return _NativePropertyEnumerable.GetValueOrDefault(); } set { _NativePropertyEnumerable = value; } } public bool? _NativePropertyEnumerable;
     }
     #endregion
 
