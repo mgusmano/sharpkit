@@ -423,6 +423,16 @@ var System$DateTime =
             format = format.Replace$$String$$String("ss", this.get_Second().ToString$$String("00"));
             format = format.Replace$$String$$String("s", this.get_Second().toString());
             return format;
+        },
+        Equals$$Object: function (obj)
+        {
+            if (!(Is(obj, System.DateTime.ctor)))
+                return false;
+            return this.date.Equals((Cast(obj, System.DateTime.ctor)).date);
+        },
+        GetHashCode: function ()
+        {
+            return this.date.GetHashCode();
         }
     }
 };
@@ -1501,6 +1511,335 @@ var System$TimeSpan =
     }
 };
 JsTypes.push(System$TimeSpan);
+var System$Tuple$1 =
+{
+    fullname: "System.Tuple$1",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T1, item1)
+        {
+            this.T1 = T1;
+            this._item1 = null;
+            System.Object.ctor.call(this);
+            this._item1 = item1;
+        },
+        Item1$$: "`0",
+        get_Item1: function ()
+        {
+            return this._item1;
+        }
+    }
+};
+JsTypes.push(System$Tuple$1);
+var System$Tuple$2 =
+{
+    fullname: "System.Tuple$2",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T1, T2, item1, item2)
+        {
+            this.T1 = T1;
+            this.T2 = T2;
+            this._item1 = null;
+            this._item2 = null;
+            System.Object.ctor.call(this);
+            this._item1 = item1;
+            this._item2 = item2;
+        },
+        Item1$$: "`0",
+        get_Item1: function ()
+        {
+            return this._item1;
+        },
+        Item2$$: "`1",
+        get_Item2: function ()
+        {
+            return this._item2;
+        }
+    }
+};
+JsTypes.push(System$Tuple$2);
+var System$Tuple$3 =
+{
+    fullname: "System.Tuple$3",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T1, T2, T3, item1, item2, item3)
+        {
+            this.T1 = T1;
+            this.T2 = T2;
+            this.T3 = T3;
+            this._item1 = null;
+            this._item2 = null;
+            this._item3 = null;
+            System.Object.ctor.call(this);
+            this._item1 = item1;
+            this._item2 = item2;
+            this._item3 = item3;
+        },
+        Item1$$: "`0",
+        get_Item1: function ()
+        {
+            return this._item1;
+        },
+        Item2$$: "`1",
+        get_Item2: function ()
+        {
+            return this._item2;
+        },
+        Item3$$: "`2",
+        get_Item3: function ()
+        {
+            return this._item3;
+        }
+    }
+};
+JsTypes.push(System$Tuple$3);
+var System$Tuple$4 =
+{
+    fullname: "System.Tuple$4",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T1, T2, T3, T4, item1, item2, item3, item4)
+        {
+            this.T1 = T1;
+            this.T2 = T2;
+            this.T3 = T3;
+            this.T4 = T4;
+            this._item1 = null;
+            this._item2 = null;
+            this._item3 = null;
+            this._item4 = null;
+            System.Object.ctor.call(this);
+            this._item1 = item1;
+            this._item2 = item2;
+            this._item3 = item3;
+            this._item4 = item4;
+        },
+        Item1$$: "`0",
+        get_Item1: function ()
+        {
+            return this._item1;
+        },
+        Item2$$: "`1",
+        get_Item2: function ()
+        {
+            return this._item2;
+        },
+        Item3$$: "`2",
+        get_Item3: function ()
+        {
+            return this._item3;
+        },
+        Item4$$: "`3",
+        get_Item4: function ()
+        {
+            return this._item4;
+        }
+    }
+};
+JsTypes.push(System$Tuple$4);
+var System$Tuple$5 =
+{
+    fullname: "System.Tuple$5",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T1, T2, T3, T4, T5, item1, item2, item3, item4, item5)
+        {
+            this.T1 = T1;
+            this.T2 = T2;
+            this.T3 = T3;
+            this.T4 = T4;
+            this.T5 = T5;
+            this._item1 = null;
+            this._item2 = null;
+            this._item3 = null;
+            this._item4 = null;
+            this._item5 = null;
+            System.Object.ctor.call(this);
+            this._item1 = item1;
+            this._item2 = item2;
+            this._item3 = item3;
+            this._item4 = item4;
+            this._item5 = item5;
+        },
+        Item1$$: "`0",
+        get_Item1: function ()
+        {
+            return this._item1;
+        },
+        Item2$$: "`1",
+        get_Item2: function ()
+        {
+            return this._item2;
+        },
+        Item3$$: "`2",
+        get_Item3: function ()
+        {
+            return this._item3;
+        },
+        Item4$$: "`3",
+        get_Item4: function ()
+        {
+            return this._item4;
+        },
+        Item5$$: "`4",
+        get_Item5: function ()
+        {
+            return this._item5;
+        }
+    }
+};
+JsTypes.push(System$Tuple$5);
+var System$Tuple$6 =
+{
+    fullname: "System.Tuple$6",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T1, T2, T3, T4, T5, T6, item1, item2, item3, item4, item5, item6)
+        {
+            this.T1 = T1;
+            this.T2 = T2;
+            this.T3 = T3;
+            this.T4 = T4;
+            this.T5 = T5;
+            this.T6 = T6;
+            this._item1 = null;
+            this._item2 = null;
+            this._item3 = null;
+            this._item4 = null;
+            this._item5 = null;
+            this._item6 = null;
+            System.Object.ctor.call(this);
+            this._item1 = item1;
+            this._item2 = item2;
+            this._item3 = item3;
+            this._item4 = item4;
+            this._item5 = item5;
+            this._item6 = item6;
+        },
+        Item1$$: "`0",
+        get_Item1: function ()
+        {
+            return this._item1;
+        },
+        Item2$$: "`1",
+        get_Item2: function ()
+        {
+            return this._item2;
+        },
+        Item3$$: "`2",
+        get_Item3: function ()
+        {
+            return this._item3;
+        },
+        Item4$$: "`3",
+        get_Item4: function ()
+        {
+            return this._item4;
+        },
+        Item5$$: "`4",
+        get_Item5: function ()
+        {
+            return this._item5;
+        },
+        Item6$$: "`5",
+        get_Item6: function ()
+        {
+            return this._item6;
+        }
+    }
+};
+JsTypes.push(System$Tuple$6);
+var System$Tuple$7 =
+{
+    fullname: "System.Tuple$7",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T1, T2, T3, T4, T5, T6, T7, item1, item2, item3, item4, item5, item6, item7)
+        {
+            this.T1 = T1;
+            this.T2 = T2;
+            this.T3 = T3;
+            this.T4 = T4;
+            this.T5 = T5;
+            this.T6 = T6;
+            this.T7 = T7;
+            this._item1 = null;
+            this._item2 = null;
+            this._item3 = null;
+            this._item4 = null;
+            this._item5 = null;
+            this._item6 = null;
+            this._item7 = null;
+            System.Object.ctor.call(this);
+            this._item1 = item1;
+            this._item2 = item2;
+            this._item3 = item3;
+            this._item4 = item4;
+            this._item5 = item5;
+            this._item6 = item6;
+            this._item7 = item7;
+        },
+        Item1$$: "`0",
+        get_Item1: function ()
+        {
+            return this._item1;
+        },
+        Item2$$: "`1",
+        get_Item2: function ()
+        {
+            return this._item2;
+        },
+        Item3$$: "`2",
+        get_Item3: function ()
+        {
+            return this._item3;
+        },
+        Item4$$: "`3",
+        get_Item4: function ()
+        {
+            return this._item4;
+        },
+        Item5$$: "`4",
+        get_Item5: function ()
+        {
+            return this._item5;
+        },
+        Item6$$: "`5",
+        get_Item6: function ()
+        {
+            return this._item6;
+        },
+        Item7$$: "`6",
+        get_Item7: function ()
+        {
+            return this._item7;
+        }
+    }
+};
+JsTypes.push(System$Tuple$7);
 var System$Uri =
 {
     fullname: "System.Uri",
