@@ -47,5 +47,5 @@ using SharpKit.Html.audio;
 using SharpKit.Html.webaudio;
 using SharpKit.Html.svg;
 
-public delegate bool PositionCallback(Geoposition position);
+public delegate void PositionCallback(Geoposition position);
 }

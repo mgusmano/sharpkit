@@ -47,5 +47,5 @@ using SharpKit.Html.audio;
 using SharpKit.Html.webaudio;
 using SharpKit.Html.svg;
 
-public delegate bool PositionErrorCallback(PositionError error);
+public delegate void PositionErrorCallback(PositionError error);
 }
