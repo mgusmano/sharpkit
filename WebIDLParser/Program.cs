@@ -86,9 +86,9 @@ namespace WebIDLParser
             Transformations.generateElementConstructorCorrectTagName("HtmlParagraphElement", "p");
             Transformations.generateElementConstructorCorrectTagName("HtmlModElement", "tbody"); // TODO: Could be del or ins, but not mod. mod is an interface.
 
-            //The Webkit IDL files have sometimes for another return type for internal use. Here they can be corrected.
-            //Transformations.changeDelegateResultType("PositionCallback", "void");
-            //Transformations.changeDelegateResultType("PositionErrorCallback", "void");
+            //The Webkit IDL files have sometimes another return type for internal use. Here they can be corrected.
+            Transformations.changeDelegateResultType("PositionCallback", "void");
+            Transformations.changeDelegateResultType("PositionErrorCallback", "void");
         }
 
     }
