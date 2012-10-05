@@ -1,7 +1,7 @@
 
 /*******************************************************************************************************
 
-  This file was auto generated with the tool "WebIDLParser" at Thu, 20 Sep 2012 15:27:32 GMT
+  This file was auto generated with the tool "WebIDLParser"
 
   Content was generated from IDL file:
   http://trac.webkit.org/browser/trunk/Source/WebCore/html/HTMLScriptElement.idl
@@ -56,7 +56,7 @@ public partial class HtmlScriptElement : HtmlElement
 	public  JsString htmlFor {get; set; }
 	public  JsString @event {get; set; }
 	public  JsString charset {get; set; }
-	public  bool @async {get; set; }
+	public  bool async {get; set; }
 	public  bool defer {get; set; }
 	public  JsString src {get; set; }
 	public  JsString type {get; set; }

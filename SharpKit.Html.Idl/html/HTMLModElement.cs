@@ -1,7 +1,7 @@
 
 /*******************************************************************************************************
 
-  This file was auto generated with the tool "WebIDLParser" at Thu, 20 Sep 2012 15:27:32 GMT
+  This file was auto generated with the tool "WebIDLParser"
 
   Content was generated from IDL file:
   http://trac.webkit.org/browser/trunk/Source/WebCore/html/HTMLModElement.idl
@@ -50,7 +50,7 @@ using SharpKit.Html.svg;
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "HTMLModElement")]
 public partial class HtmlModElement : HtmlElement
 {
-	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('mod')")]
+	[JsMethod(OmitParanthesis = true, OmitNewOperator = true, Name = "document.createElement('tbody')")]
 	public   HtmlModElement() {}
 	public  JsString cite {get; set; }
 	public  JsString dateTime {get; set; }
