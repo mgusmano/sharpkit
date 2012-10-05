@@ -345,14 +345,26 @@ namespace SharpKit.JavaScript.Private
 		{
 			throw new NotImplementedException();
 		}
+
+        /// <summary>
+        /// Calculates the integral part of a specified double-precision floating-point number. 
+        /// </summary>
+        /// <param name="d">The value to truncate.</param>
+        /// <returns>The result.</returns>
 		public static decimal Truncate(decimal d)
 		{
-			throw new NotImplementedException();
+		    return d.As<JsNumber>().toFixed().As<decimal>();
 		}
+
+        /// <summary>
+        /// Calculates the integral part of a specified double-precision floating-point number. 
+        /// </summary>
+        /// <param name="d">The value to truncate.</param>
+        /// <returns>The result.</returns>
 		public static double Truncate(double d)
 		{
-			throw new NotImplementedException();
-		}
+            return d.As<JsNumber>().toFixed().As<double>();
+        }
 
 
 
