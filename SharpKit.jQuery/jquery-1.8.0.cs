@@ -2250,6 +2250,27 @@ namespace SharpKit.jQuery
         public static JsObject extend(bool deep, JsObject target, JsObject object1, JsObject objectN) { return null; }
 
         /// <summary>
+        /// Merge the contents of two or more objects together into the first object.
+        /// </summary>
+        public static object extend(object target) { return null; }
+        /// <summary>
+        /// Merge the contents of two or more objects together into the first object.
+        /// </summary>
+        public static object extend(object target, object object1) { return null; }
+        /// <summary>
+        /// Merge the contents of two or more objects together into the first object.
+        /// </summary>
+        public static object extend(object target, object object1, object objectN) { return null; }
+        /// <summary>
+        /// Merge the contents of two or more objects together into the first object.
+        /// </summary>
+        public static object extend(bool deep, object target, object object1) { return null; }
+        /// <summary>
+        /// Merge the contents of two or more objects together into the first object.
+        /// </summary>
+        public static object extend(bool deep, object target, object object1, object objectN) { return null; }
+
+        /// <summary>
         /// Load data from the server using a HTTP GET request.
         /// </summary>
         public static jqXHR get(JsString url) { return null; }
