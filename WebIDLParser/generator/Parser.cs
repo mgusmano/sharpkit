@@ -77,15 +77,15 @@ namespace WebIDLParser
                     var module = readDottedString();
                     ns.name = "SharpKit.Html";
 
-                    var seperateModules = new HashSet<string>(new string[]{
-						"svg",
-						"storage",
-						"threads",
-						"audio",
-						"webaudio",
-					});
+                    //var seperateModules = new HashSet<string>(new string[]{
+                    //    "svg",
+                    //    "storage",
+                    //    "threads",
+                    //    "audio",
+                    //    "webaudio",
+                    //});
 
-                    if (seperateModules.Contains(module))
+                    if (TransformationConfig.createSubNamespaceForModule.Contains(module))
                     {
                         ns.name += "." + module;
                         if (!Generator.namespaceNames.Contains(ns.name)) Generator.namespaceNames.Add(ns.name);

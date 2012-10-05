@@ -45,7 +45,50 @@ namespace WebIDLParser
 
         public static void Main(string[] args)
         {
+            setTransformations();
             Generator.start();
+        }
+
+        private static void setTransformations()
+        {
+            //In c#-bindinds, types beginning with "HTML" will be renamed to "Html".
+            //THe output generetes still the "HTML" version, for example
+            //c#: el is HtmlImageElement
+            //js: el instanceof HTMLImageElement
+            Transformations.renameCsTypePrefix("HTML", "Html");
+            Transformations.renameCsTypePrefix("SVG", "Svg");
+            Transformations.renameCsTypePrefix("CSS", "Css");
+
+            //By default, all types will be generated in the global namespace SharpKit.Html
+            //Here can be specified, that some (IDL-)modules will moved into an seperate subname space
+            //The module name is defined in the IDL files.
+            Transformations.createSubNamespaceForModule("svg");
+            Transformations.createSubNamespaceForModule("storage");
+            Transformations.createSubNamespaceForModule("threads");
+            Transformations.createSubNamespaceForModule("audio");
+            Transformations.createSubNamespaceForModule("webaudio");
+
+            Transformations.generateElementConstructorForType("Html", "Element"); //This will extract "hr" from HtmlHrElement and generates document.createElement('hr')
+            Transformations.generateElementConstructorForType("Svg", "Element");
+
+            //Extracting the tagName will sometimes not get the correct tagname. Here they can specified more detailed.
+            Transformations.generateElementConstructorCorrectTagName("HtmlImageElement", "img");
+            Transformations.generateElementConstructorCorrectTagName("HtmlAnchorElement", "a");
+            Transformations.generateElementConstructorCorrectTagName("HtmlTableCaptionElement", "caption");
+            Transformations.generateElementConstructorCorrectTagName("HtmlTableCellElement", "td");
+            Transformations.generateElementConstructorCorrectTagName("HtmlTableColElement", "col");
+            Transformations.generateElementConstructorCorrectTagName("HtmlTableRowElement", "tr");
+            Transformations.generateElementConstructorCorrectTagName("HtmlTableSectionElement", "tbody"); //TODO: It can be thead or tfoot, too!
+            Transformations.generateElementConstructorCorrectTagName("HtmlDListElement", "dl");
+            Transformations.generateElementConstructorCorrectTagName("HtmlOListElement", "ol");
+            Transformations.generateElementConstructorCorrectTagName("HtmlUListElement", "ul");
+            Transformations.generateElementConstructorCorrectTagName("HtmlDictionaryElement", "d");
+            Transformations.generateElementConstructorCorrectTagName("HtmlParagraphElement", "p");
+            Transformations.generateElementConstructorCorrectTagName("HtmlModElement", "tbody"); // TODO: Could be del or ins, but not mod. mod is an interface.
+
+            //The Webkit IDL files have sometimes for another return type for internal use. Here they can be corrected.
+            //Transformations.changeDelegateResultType("PositionCallback", "void");
+            //Transformations.changeDelegateResultType("PositionErrorCallback", "void");
         }
 
     }

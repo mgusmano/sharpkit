@@ -30,26 +30,26 @@ namespace WebIDLParser
 {
     public class TFileType
     {
-        // Tags in this hash table will have their names translated.
-        private readonly Dictionary<string, string> tagNameOverrides = 
-            new Dictionary<string, string>
-                {
-                    { "image",              "img" },
-                    { "anchor",             "a" },
-                    { "tablecaption",       "caption" },
-                    { "tablecell",          "td" },
-                    { "tablecol",           "col" },
-                    { "tablerow",           "tr" },
-                    // TODO: It can be thead or tfoot, too!
-                    { "tablesection",       "tbody" },
-                    { "dlist",              "dl" },
-                    { "olist",              "ol" },
-                    { "ulist",              "ul" },
-                    { "directory",          "d" },
-                    { "paragraph",          "p" },
-                    // TODO: Could be del or ins, but not mod. mod is an interface.
-                    { "mod",                "tbody" },
-                };
+        //// Tags in this hash table will have their names translated.
+        //private readonly Dictionary<string, string> tagNameOverrides = 
+        //    new Dictionary<string, string>
+        //        {
+        //            { "image",              "img" },
+        //            { "anchor",             "a" },
+        //            { "tablecaption",       "caption" },
+        //            { "tablecell",          "td" },
+        //            { "tablecol",           "col" },
+        //            { "tablerow",           "tr" },
+        //            // TODO: It can be thead or tfoot, too!
+        //            { "tablesection",       "tbody" },
+        //            { "dlist",              "dl" },
+        //            { "olist",              "ol" },
+        //            { "ulist",              "ul" },
+        //            { "directory",          "d" },
+        //            { "paragraph",          "p" },
+        //            // TODO: Could be del or ins, but not mod. mod is an interface.
+        //            { "mod",                "tbody" },
+        //        };
 
         public string name = "";
         public string aliasName = "";
@@ -74,7 +74,7 @@ namespace WebIDLParser
                 if (t.name == name)
                 {
                     t.name = newName;
-                    if (t.genericType != null && t.genericType.name == name) 
+                    if (t.genericType != null && t.genericType.name == name)
                         t.genericType.name = newName;
                 }
             }
@@ -92,7 +92,13 @@ namespace WebIDLParser
             if (isDelegate())
             {
                 var del = members[0] as TMethod;
-                sb.Append("public delegate " + del.resultType + " " + Generator.getName(name));
+                var resultTypeName = del.resultType.ToString();
+                var delegateName = Generator.getName(name);
+                if (TransformationConfig.changeDelegateResultType.ContainsKey(delegateName))
+                {
+                    resultTypeName = TransformationConfig.changeDelegateResultType[delegateName];
+                }
+                sb.Append("public delegate " + resultTypeName + " " + delegateName);
                 del.parameters.write(sb);
                 sb.Append(";" + Environment.NewLine);
                 return;
@@ -238,10 +244,15 @@ namespace WebIDLParser
             }
             if (memList.Count == 0)
             {
-                if (name.StartsWith("Html") && name.EndsWith("Element"))
-                    tryCreateElementMethod(memList, name.Substring(0, name.Length - ("Element".Length)).Substring("Html".Length).ToLower(), name);
-                if (name.StartsWith("Svg") && name.EndsWith("Element"))
-                    tryCreateElementMethod(memList, name.Substring(0, name.Length - ("Element".Length)).Substring("Svg".Length).ToLower(), name);
+                //if (name.StartsWith("Html") && name.EndsWith("Element"))
+                //    tryCreateElementMethod(memList, name.Substring(0, name.Length - ("Element".Length)).Substring("Html".Length).ToLower(), name);
+                //if (name.StartsWith("Svg") && name.EndsWith("Element"))
+                //    tryCreateElementMethod(memList, name.Substring(0, name.Length - ("Element".Length)).Substring("Svg".Length).ToLower(), name);
+                foreach (var entry in TransformationConfig.generateElementConstructor)
+                {
+                    if (name.StartsWith(entry.Item1) && name.EndsWith(entry.Item2))
+                        tryCreateElementMethod(memList, name.Substring(0, name.Length - (entry.Item2.Length)).Substring(entry.Item1.Length).ToLower(), name);
+                }
             }
             if (memList.Count != 0)
             {
@@ -268,9 +279,22 @@ namespace WebIDLParser
 
         private string getCreateElementMethodTagName(string tagName, string typeName)
         {
-            if (tagNameOverrides.ContainsKey(tagName))
-                return tagNameOverrides[tagName];
-            return tagName;
+            //switch (tagName)
+            //{
+            //    case "image": return "img";
+            //    case "anchor": return "a";
+            //    case "tablecaption": return "caption";
+            //    case "tablecell": return "td";
+            //    case "tablecol": return "col";
+            //    case "tablerow": return "tr";
+            //    case "tablesection": return "tbody"; //Notice: It can be thead or tfoot, too!
+            //    default: return tagName;
+            //}
+
+            if (TransformationConfig.generateElementConstructorCorrectName.ContainsKey(typeName))
+                return TransformationConfig.generateElementConstructorCorrectName[typeName];
+            else
+                return tagName;
         }
 
         public void checkGenerateEnumerator()
@@ -802,7 +826,7 @@ namespace WebIDLParser
             sb.Append(@"
 /*******************************************************************************************************
 
-  This file was auto generated with the tool 'WebIDLParser' at {DATE}
+  This file was auto generated with the tool 'WebIDLParser'
 
   Content was generated from IDL file:
   http://trac.webkit.org/browser/trunk/Source/WebCore/{FILE}

@@ -49,6 +49,7 @@
     <Compile Include="generator\Generator.cs" />
     <Compile Include="generator\larne.cs" />
     <Compile Include="generator\Parser.cs" />
+    <Compile Include="generator\Transformation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="generator\Tokenizer.cs" />

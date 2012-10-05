@@ -75,22 +75,31 @@ namespace WebIDLParser
                             t.aliasName = "Event";
                         }
 
-                        if (t.name.StartsWith("HTML"))
-                        {
-                            t.aliasName = t.name;
-                            t.rename(t.name.Replace("HTML", "Html"));
-                        }
+                        //if (t.name.StartsWith("HTML"))
+                        //{
+                        //    t.aliasName = t.name;
+                        //    t.rename(t.name.Replace("HTML", "Html"));
+                        //}
 
-                        if (t.name.StartsWith("SVG"))
-                        {
-                            t.aliasName = t.name;
-                            t.rename(t.name.Replace("SVG", "Svg"));
-                        }
+                        //if (t.name.StartsWith("SVG"))
+                        //{
+                        //    t.aliasName = t.name;
+                        //    t.rename(t.name.Replace("SVG", "Svg"));
+                        //}
 
-                        if (t.name.StartsWith("CSS"))
+                        //if (t.name.StartsWith("CSS"))
+                        //{
+                        //    t.aliasName = t.name;
+                        //    t.rename(t.name.Replace("CSS", "Css"));
+                        //}
+
+                        foreach (var entry in TransformationConfig.renameTypePrefix)
                         {
-                            t.aliasName = t.name;
-                            t.rename(t.name.Replace("CSS", "Css"));
+                            if (t.name.StartsWith(entry.Key))
+                            {
+                                t.aliasName = t.name;
+                                t.rename(t.name.Replace(entry.Key, entry.Value));
+                            }
                         }
 
                         foreach (var mem in t.members)
