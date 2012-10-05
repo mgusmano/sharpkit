@@ -1,7 +1,7 @@
 
 /*******************************************************************************************************
 
-  This file was auto generated with the tool "WebIDLParser" at Thu, 20 Sep 2012 15:27:33 GMT
+  This file was auto generated with the tool "WebIDLParser"
 
   Content was generated from IDL file:
   http://trac.webkit.org/browser/trunk/Source/WebCore/Modules/filesystem/DOMFileSystem.idl

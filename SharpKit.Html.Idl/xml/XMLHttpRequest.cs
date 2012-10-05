@@ -1,7 +1,7 @@
 
 /*******************************************************************************************************
 
-  This file was auto generated with the tool "WebIDLParser" at Thu, 20 Sep 2012 15:27:34 GMT
+  This file was auto generated with the tool "WebIDLParser"
 
   Content was generated from IDL file:
   http://trac.webkit.org/browser/trunk/Source/WebCore/xml/XMLHttpRequest.idl
@@ -66,9 +66,9 @@ public partial class XMLHttpRequest
 	public  int readyState {get; set; }
 	public  bool withCredentials {get; set; }
 	public  void open(string method, string url) {}
-	public  void open(string method, string url, bool @async) {}
-	public  void open(string method, string url, bool @async, string user) {}
-	public  void open(string method, string url, bool @async, string user, string password) {}
+	public  void open(string method, string url, bool async) {}
+	public  void open(string method, string url, bool async, string user) {}
+	public  void open(string method, string url, bool async, string user, string password) {}
 	public  void setRequestHeader(string header, string value) {}
 	public  void send() {}
 	public  void send(ArrayBuffer data) {}
