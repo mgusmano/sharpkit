@@ -104,16 +104,18 @@ namespace WebIDLParser
                 return;
             }
 
+            var isSupplemental = this.isSupplemental();
+
             jsAttributes.Add("Export", "false");
             jsAttributes.Add("PropertiesAsFields", "true");
             jsAttributes.Add("NativeCasts", "true");
 
             if (aliasName != "" && aliasName != name) jsAttributes.Add("Name", "\"" + aliasName + "\"");
 
-            sb.Append("[JsType(JsMode.Prototype, " + jsAttributes + ")]" + Environment.NewLine);
+            if(!isSupplemental) sb.Append("[JsType(JsMode.Prototype, " + jsAttributes.ToString() + ")]" + Environment.NewLine);
             string typeType = "class";
             if (isInterface) typeType = "interface";
-            sb.Append("public partial " + typeType + " " + name);
+            sb.Append("public partial " + typeType + " " + (isSupplemental ? getSupplementalName() : name));
             if (baseType.Count != 0)
             {
                 sb.Append(" : ");
@@ -133,6 +135,17 @@ namespace WebIDLParser
                 writeInterfaceTypes(sb);
 
             sb.Append("}" + Environment.NewLine + Environment.NewLine);
+        }
+
+        public bool isSupplemental()
+        {
+            return getSupplementalName() != "";
+        }
+
+        public string getSupplementalName() {
+            foreach (var attr in attributes)
+                if (attr is TNameAttribute && (attr as TNameAttribute).name == "Supplemental") return (attr as TNameAttribute).value;
+            return "";
         }
 
         public bool isDelegate()
