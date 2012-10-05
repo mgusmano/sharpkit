@@ -47,8 +47,7 @@ using SharpKit.Html.audio;
 using SharpKit.Html.webaudio;
 using SharpKit.Html.svg;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true)]
-public partial class DOMWindowWebAudio
+public partial class DOMWindow
 {
 	public  AudioProcessingEvent AudioProcessingEvent {get; set; }
 	public  OfflineAudioCompletionEvent OfflineAudioCompletionEvent {get; set; }

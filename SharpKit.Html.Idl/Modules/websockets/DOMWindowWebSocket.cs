@@ -47,8 +47,7 @@ using SharpKit.Html.audio;
 using SharpKit.Html.webaudio;
 using SharpKit.Html.svg;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true)]
-public partial class DOMWindowWebSocket
+public partial class DOMWindow
 {
 	public  CloseEvent CloseEvent {get; set; }
 	public  WebSocket WebSocket {get; set; }

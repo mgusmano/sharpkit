@@ -47,8 +47,7 @@ using SharpKit.Html.audio;
 using SharpKit.Html.webaudio;
 using SharpKit.Html.svg;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "HTMLInputElementFileSystem")]
-public partial class HtmlInputElementFileSystem
+public partial class HTMLInputElement
 {
 }
 

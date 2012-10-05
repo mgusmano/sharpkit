@@ -47,8 +47,7 @@ using SharpKit.Html.audio;
 using SharpKit.Html.webaudio;
 using SharpKit.Html.svg;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true)]
-public partial class NavigatorRegisterProtocolHandler
+public partial class Navigator
 {
 	public  void registerProtocolHandler(string scheme, string url, string title) {}
 	public  JsString isProtocolHandlerRegistered(string scheme, string url) { return default(JsString); }

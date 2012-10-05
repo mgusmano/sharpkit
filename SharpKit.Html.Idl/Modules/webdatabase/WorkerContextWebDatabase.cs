@@ -47,8 +47,7 @@ using SharpKit.Html.audio;
 using SharpKit.Html.webaudio;
 using SharpKit.Html.svg;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true)]
-public partial class WorkerContextWebDatabase
+public partial class WorkerContext
 {
 	public  Database openDatabase(string name, string version, string displayName, int estimatedSize) { return default(Database); }
 	public  Database openDatabase(string name, string version, string displayName, int estimatedSize, DatabaseCallback creationCallback) { return default(Database); }
