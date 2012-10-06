@@ -112,7 +112,7 @@ namespace WebIDLParser
 
             if (aliasName != "" && aliasName != name) jsAttributes.Add("Name", "\"" + aliasName + "\"");
 
-            if(!isSupplemental) sb.Append("[JsType(JsMode.Prototype, " + jsAttributes.ToString() + ")]" + Environment.NewLine);
+            if (!isSupplemental) sb.Append("[JsType(JsMode.Prototype, " + jsAttributes.ToString() + ")]" + Environment.NewLine);
             string typeType = "class";
             if (isInterface) typeType = "interface";
             sb.Append("public partial " + typeType + " " + (isSupplemental ? getSupplementalName() : name));
@@ -142,7 +142,8 @@ namespace WebIDLParser
             return getSupplementalName() != "";
         }
 
-        public string getSupplementalName() {
+        public string getSupplementalName()
+        {
             foreach (var attr in attributes)
                 if (attr is TNameAttribute && (attr as TNameAttribute).name == "Supplemental") return (attr as TNameAttribute).value;
             return "";
@@ -456,6 +457,7 @@ namespace WebIDLParser
         public string name = "";
         public string aliasName = "";
         public TType resultType;
+        public TAttributeList attributes = new TAttributeList();
 
         public abstract void write(StringBuilder sb, bool impl = false);
     }
@@ -534,6 +536,18 @@ namespace WebIDLParser
                 return name == "ctor";
             }
         }
+
+        public bool appendParamArray
+        {
+            get
+            {
+                foreach (var attr in attributes)
+                    if (attr is TNameAttribute && (attr as TNameAttribute).name == "CallWith" && (attr as TNameAttribute).value == "ScriptArguments")
+                        return true;
+                return false;
+            }
+        }
+
     }
 
     public class TProperty : TMember

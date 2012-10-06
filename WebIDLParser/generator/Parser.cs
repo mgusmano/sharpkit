@@ -275,12 +275,13 @@ namespace WebIDLParser
             TType type = null;
             string name = "";
             TMember mem = null;
+            var attrList = new TAttributeList();
             while (true)
             {
                 switch (currentToken.token)
                 {
                     case ECodeToken.brSmallBraceBegin:
-                        readAttributes();
+                        attrList = readAttributes();
                         break;
                     case ECodeToken.kwStatic:
                         vStatic = true;
@@ -311,7 +312,8 @@ namespace WebIDLParser
                             mem = new TMethod(currentInterfaceType);
                             mem.name = name;
                             mem.resultType = type;
-                            readParameters(mem);
+                            mem.attributes = attrList;
+                            readParameters((TMethod)mem);
                             checkGotoEndOfStatement();
                         }
                         else
@@ -321,6 +323,7 @@ namespace WebIDLParser
                                 mem = new TProperty(currentInterfaceType);
                                 mem.name = name;
                                 mem.resultType = type;
+                                mem.attributes = attrList;
                                 checkGotoEndOfStatement();
                                 return mem;
                             }
@@ -329,6 +332,7 @@ namespace WebIDLParser
                                 mem = new TField(currentInterfaceType);
                                 mem.name = name;
                                 mem.resultType = type;
+                                mem.attributes = attrList;
                                 if (currentToken.token == ECodeToken.blEquals)
                                 {
                                     getNextToken();
@@ -371,17 +375,22 @@ namespace WebIDLParser
             while (currentToken.token != ECodeToken.syEndOfCommand) getNextToken();
         }
 
-        private void readParameters(TMember mem)
+        private void readParameters(TMethod mem)
         {
             while (true)
             {
                 getNextToken();
-                readParameter((TMethod)mem);
+                readParameter(mem);
                 if (currentToken.token == ECodeToken.brBraceEnd)
                 {
                     getNextToken();
                     break;
                 }
+            }
+
+            if (mem.appendParamArray)
+            {
+                mem.parameters.Add(new TParameter() { name = "scriptArgs", type = new TType() { name = "object", isArray = true }, paramArray = true });
             }
         }
 
