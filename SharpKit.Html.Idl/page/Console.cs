@@ -50,22 +50,22 @@ using SharpKit.Html.svg;
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true)]
 public partial class Console
 {
-	public  void debug() {}
-	public  void error() {}
-	public  void info() {}
-	public  void log() {}
-	public  void warn() {}
-	public  void dir() {}
-	public  void dirxml() {}
-	public  void trace() {}
-	public  void assert(bool condition) {}
-	public  void count() {}
-	public  void markTimeline() {}
+	public  void debug(params object[] scriptArgs) {}
+	public  void error(params object[] scriptArgs) {}
+	public  void info(params object[] scriptArgs) {}
+	public  void log(params object[] scriptArgs) {}
+	public  void warn(params object[] scriptArgs) {}
+	public  void dir(params object[] scriptArgs) {}
+	public  void dirxml(params object[] scriptArgs) {}
+	public  void trace(params object[] scriptArgs) {}
+	public  void assert(bool condition, params object[] scriptArgs) {}
+	public  void count(params object[] scriptArgs) {}
+	public  void markTimeline(params object[] scriptArgs) {}
 	public  void time(string title) {}
-	public  void timeEnd(string title) {}
-	public  void timeStamp() {}
-	public  void group() {}
-	public  void groupCollapsed() {}
+	public  void timeEnd(string title, params object[] scriptArgs) {}
+	public  void timeStamp(params object[] scriptArgs) {}
+	public  void group(params object[] scriptArgs) {}
+	public  void groupCollapsed(params object[] scriptArgs) {}
 	public  void groupEnd() {}
 	public  MemoryInfo memory {get; set; }
 }
