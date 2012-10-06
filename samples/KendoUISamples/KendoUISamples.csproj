@@ -124,7 +124,6 @@
     <Content Include="examples\web\datepicker\Api.js" />
     <Content Include="examples\web\datepicker\Events.htm" />
     <Content Include="examples\web\datepicker\Events.js" />
-    <Content Include="examples\web\datepicker\Rangeselection.htm" />
     <Content Include="examples\web\datepicker\Rangeselection.js" />
     <Content Include="examples\web\datepicker\Template.htm" />
     <Content Include="examples\web\datepicker\Template.js" />
