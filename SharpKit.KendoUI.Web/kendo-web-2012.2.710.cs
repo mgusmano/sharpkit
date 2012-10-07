@@ -3601,6 +3601,38 @@ namespace SharpKit.KendoUI.Web
         public void selectRange(HtmlTextRange range) { }
 
         public event JsAction<EmptyEventData> select { add { } remove { } }
+        /// <summary>
+        /// Gets or sets the Editor value.
+        /// </summary>
+        /// <param name="value">
+        /// The value to set.
+        /// String The value of the Editor as HTML string.
+        /// </param>
+        /// <returns> String The value of the Editor as HTML string.</returns>
+        /// <example>
+        /// <code>
+        /// var editor = $("#editor").data("kendoEditor");
+        /// // set value
+        /// editor.value("<p>new content</p>");
+        /// // get value
+        /// var htmlValue = editor.value();
+        /// </code>
+        /// </example>
+        public JsString value(JsString value) { return null; }
+        /// <summary>
+        /// Gets or sets the Editor value.
+        /// </summary>
+        /// <returns> String The value of the Editor as HTML string.</returns>
+        /// <example>
+        /// <code>
+        /// var editor = $("#editor").data("kendoEditor");
+        /// // set value
+        /// editor.value("<p>new content</p>");
+        /// // get value
+        /// var htmlValue = editor.value();
+        /// </code>
+        /// </example>
+        public JsString value() { return null; }
 
 
     }
