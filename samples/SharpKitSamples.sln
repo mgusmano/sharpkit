@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KendoUISamples", "KendoUISa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenchaTouchSamples", "SenchaTouchSamples\SenchaTouchSamples.csproj", "{1F3675BD-92CF-408A-90B4-01BE7B088FA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Html5Samples", "Html5Samples\Html5Samples.csproj", "{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -193,6 +195,14 @@ Global
 		{1F3675BD-92CF-408A-90B4-01BE7B088FA8}.v3.5|Any CPU.Build.0 = Release|Any CPU
 		{1F3675BD-92CF-408A-90B4-01BE7B088FA8}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
 		{1F3675BD-92CF-408A-90B4-01BE7B088FA8}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}.v4.0|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
