@@ -88,6 +88,7 @@
     <Content Include="examples\getting_started\resources\loading\Default.png" />
     <Content Include="examples\getting_started\resources\loading\Default~ipad.png" />
     <Content Include="examples\getting_started\resources\loading\iTunesArtwork.png" />
+    <Content Include="guide\carousel\Ex1.js" />
     <Content Include="microloader\development.js" />
     <Content Include="microloader\production.js" />
     <Content Include="microloader\testing.js" />
@@ -104,6 +105,7 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="examples\getting_started\App.cs" />
+    <Compile Include="guide\carousel\Ex1.cs" />
     <Compile Include="microloader\development.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
