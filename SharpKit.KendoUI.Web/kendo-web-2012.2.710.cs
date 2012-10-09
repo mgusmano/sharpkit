@@ -6231,6 +6231,20 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public void enable(bool enable) { }
+        /// <summary>
+        /// Enable/Disable the numerictextbox widget.
+        /// </summary>
+        /// <param name="enable">The argument, which defines whether to enable/disable the autocomplete.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to instance of the Kendo UI ComboBox
+        ///var combobox = $("#comboBox").data("kendoComboBox");
+        /// // disables the combobox
+        ///combobox.enable(false);
+        ///</code>
+        ///</example>
+        public void enable() { }
 
         /// <summary>
         /// Sets the max value of the NumericTextBox.
@@ -6623,6 +6637,51 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public JsNumber value { get; set; }
+
+        /// <summary>
+        /// Fires when the value has been changed.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#comboBox").kendoNumericTextBox({
+        ///    change: function(e) {
+        ///        // handle event
+        ///    }
+        /// });
+        /// </code>
+        /// To set after initialization
+        /// <code>
+        /// // get a reference to instance of the Kendo UI ComboBox
+        /// var numeric = $("#numeric").data("kendoNumericTextBox");
+        /// // bind to the change event
+        /// numeric.bind("change", function(e) {
+        ///    // handle event
+        ///});
+        /// </code>
+        /// </example>
+        public JsAction change { get; set; }
+        /// <summary>
+        /// Fires when the value is changed from the spin buttons.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#numeric").kendoNumericTextBox({
+        /// spin: function(e) {
+        ///     // handle event
+        ///     }
+        /// });
+        /// </code>
+        /// To set after initialization
+        /// <code>
+        /// // get a reference to the numeric textbox widget
+        /// var numeric = $("#numeric").data("kendoNumericTextBox");
+        /// // bind to the spin event
+        /// numeric.bind("spin", function(e) {
+        ///     // handle event
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction spin { get; set; }
     }
 
     #endregion
@@ -6935,6 +6994,26 @@ namespace SharpKit.KendoUI.Web
         /// <param name="item">The collapsing item of the PanelBar.</param>
         /// <returns>Returns the PanelBar object to support chaining.</returns>
         public PanelBar collapse(JsString element, bool useAnimation, HtmlElement item) { return null; }
+
+        /// <summary>
+        /// Collapses the specified item(s) of a PanelBar. Temporarily enables (true) or disables (false) any visual animation(s) when collapsing items.
+        /// </summary>
+        /// <param name="element">The PanelBar item(s) to be collapsed, expressed as a string containing a selector expression or represented by a jQuery selector.</param>
+        /// <returns>Returns the PanelBar object to support chaining.</returns>
+        public PanelBar collapse(jQuery.jQuery element) { return null; }
+        /// <summary>
+        /// Undocument method. Add by Lee.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns>d</returns>
+        public PanelBar data(JsString str) { return null; }
+        /// <summary>
+        /// Undocunment method. Add by Lee
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public PanelBar replaceWith(jQuery.jQuery element) { return null; }
+
 
         /// <summary>
         ///Enables (true) or disables (false) the specified item(s) of the PanelBar.
@@ -7319,6 +7398,8 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public event JsAction<OneItemEventData> selectEvent { add { } remove { } }
         //TODO: event name is select
+
+
     }
 
     [JsType(JsMode.Json)]
@@ -7363,7 +7444,35 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public PanelBarExpandModeOptions expandMode { get; set; }
+        public JsString expandMode { get; set; }
+        /// <summary>
+        /// Undocument property. Add by Lee. 
+        /// </summary>
+        public JsArray<JsString> contentUrls { get; set; }
+        /// <summary>
+        /// Triggered when an item of a PanelBar is selected.
+        /// </summary>
+        public JsAction<PanelBarContentLoadEventData> select { get; set; }
+        /// <summary>
+        /// Triggered when an item of a PanelBar is expanded.
+        /// </summary>
+        public JsAction<PanelBarContentLoadEventData> expand { get; set; }
+        /// <summary>
+        /// Triggered when an item of a PanelBar is collapsed.
+        /// </summary>
+        public JsAction<PanelBarContentLoadEventData> collapse { get; set; }
+        /// <summary>
+        /// Triggered when an item of a PanelBar is activated.
+        /// </summary>
+        public JsAction<PanelBarContentLoadEventData> activate { get; set; }
+        /// <summary>
+        /// Fires when content is fetched from an AJAX request.
+        /// </summary>
+        public JsAction<PanelBarContentLoadEventData> contentLoad { get; set; }
+        /// <summary>
+        /// ires when AJAX request results in an error.
+        /// </summary>
+        public JsAction<PanelBarErrorEventData> error { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -7416,6 +7525,15 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public PanelBarAnimationOpenConfiguration open { get; set; }
 
+        public PanelBarAnimationExpandConfiguration expand { get; set; }
+
+
+
+    }
+    [JsType(JsMode.Json)]
+    public class PanelBarAnimationExpandConfiguration
+    {
+        public JsAction effects { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -7547,6 +7665,8 @@ namespace SharpKit.KendoUI.Web
         /// The returned status.
         /// </summary>
         public JsString status { get; set; }
+
+
     }
 
     #endregion
@@ -7687,6 +7807,8 @@ namespace SharpKit.KendoUI.Web
         /// Configuration of the RangeSlider tooltip.
         /// </summary>
         public RangeSliderTooltipConfiguration tooltip { get; set; }
+        public JsAction<RangeSliderEventData> change { get; set; }
+        public JsAction<RangeSliderEventData> slide { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -7891,6 +8013,14 @@ namespace SharpKit.KendoUI.Web
         /// The underlying value of the Slider.
         /// </summary>
         public JsNumber value { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public JsAction<SliderConfiguration> change { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public JsAction<SliderConfiguration> slide { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -8328,6 +8458,11 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public event JsAction<EmptyEventData> resize { add { } remove { } }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public JsObject element { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -8354,6 +8489,23 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public JsArray<SplitterPaneConfiguration> panes { get; set; }
+        /// <summary>
+        /// Triggered when a pane of a Splitter is expanded.
+        /// </summary>
+        public JsAction<SplitterEventData> expand { get; set; }
+        /// <summary>
+        /// Triggered when a pane of a Splitter is collapsed.
+        /// </summary>
+        public JsAction<SplitterEventData> collapse { get; set; }
+        /// <summary>
+        /// Triggered when the content for a pane has finished loading.
+        /// </summary>
+        public JsAction<SplitterEventData> contentLoad { get; set; }
+        /// <summary>
+        /// Triggered when a pane is resized.
+        /// </summary>
+        public JsAction<SplitterEventData> resize { get; set; }
+
     }
 
     [JsType(JsMode.Json)]
@@ -8373,6 +8525,12 @@ namespace SharpKit.KendoUI.Web
         /// (default: true) Specifies the URL from which to load the content of a pane.
         /// </summary>
         public bool contentUrl { get; set; }
+
+        /// <summary>
+        /// (default: true) Specifies the URL from which to load the content of a pane.
+        /// </summary>
+        [JsProperty(Name = "contentUrl")]
+        public JsString contentUrlString { get; set; }
 
         /// <summary>
         /// Specifies the maximum size of a pane defined as pixels
@@ -8693,6 +8851,18 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public TabStrip select(JsNumber element) { return null; }
+        /// <summary>
+        /// Selects the specified tab(s) within a TabStrip. If called without arguments, it returns the currently selected tab.
+        /// </summary>
+        /// <param name="element">or index The target tab(s), specified as a selector or index in the tab group.</param>
+        /// <returns>Returns the TabStrip object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///tabStrip.select("#tab1");
+        ///</code>
+        ///</example>
+        public TabStrip select() { return null; }
 
 
         /// <summary>
@@ -8803,6 +8973,10 @@ namespace SharpKit.KendoUI.Web
         /// (default: false) Specifies whether the TabStrip should be able to collapse completely when clicking an expanded tab.
         /// </summary>
         public bool collapsible { get; set; }
+        /// <summary>
+        /// Undocument property. Add by Lee.
+        /// </summary>
+        public JsArray<JsString> contentUrls { get; set; }
 
         /// <summary>
         /// (default: "") Sets the field of the data item that provides the text content of the tab content element.
@@ -8892,6 +9066,23 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public JsString dataUrlField { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public JsAction<TabStripSelectEventData> select { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public JsAction<TabStripSelectEventData> activate { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public JsAction<TabStripSelectEventData> contentLoad { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public JsAction<TabStripErroEventData> error { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -8907,6 +9098,20 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public HtmlElement contentElement { get; set; }
     }
+        [JsType(JsMode.Json)]
+        public class TabStripErroEventData
+        {
+            /// <summary>
+            /// The jqXHR object used to load the content
+            /// </summary>
+            public jqXHR xhr { get; set; }
+
+            /// <summary>
+            /// The returned status.
+            /// </summary>
+            public JsString status { get; set; }
+        }
+    
 
     #endregion
 
