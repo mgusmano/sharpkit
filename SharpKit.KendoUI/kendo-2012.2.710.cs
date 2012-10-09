@@ -498,6 +498,7 @@ namespace SharpKit.KendoUI
         /// <param name= "number"> </param>
         /// <returns></returns>
         public static JsAction format(JsString value, JsNumber number) { return null; }
+   
 
         /// <summary>
         /// Parses as a formatted string as a Date.
