@@ -5371,6 +5371,20 @@ namespace SharpKit.KendoUI.Web
         public void select(JsArray items) { }
         //TODO: "If called without arguments - returns the selected items." (?)
 
+        /// <summary>
+        /// Selects the specified ListView item. If called without arguments - returns the selected items.
+        /// </summary>
+        /// <param name="items">Items to select.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the list view widget
+        /// var listView = $("#listView").data("kendoListView");
+        /// // selects first list view item
+        /// listView.select(listView.element.children().first());
+        ///</code>
+        ///</example>
+        public JsArray select() { return null; }
 
         /// <summary>
         /// Fires when the list view selection has changed.
@@ -5530,22 +5544,35 @@ namespace SharpKit.KendoUI.Web
         public bool navigatable { get; set; }
 
         /// <summary>
-        /// (default: undefined) Indicates whether selection is enabled/disabled. 
+        /// (default: false) Indicates whether selection is enabled/disabled.  Possible values:
+        /// true
+        /// Single item selection.
+        /// "single"
+        /// Single item selection.
+        /// "multiple"
+        /// Multiple item selection.
         /// </summary>
-        ///<example>
-        ///usage
-        ///<code>
-        ///&lt;script type="text/x-kendo-tmpl" id="template">
-        ///     &lt;div>
-        ///       &lt;dl>
-        ///         &lt;dt>Name</dt> <dd>${Name}</dd>
-        ///         &lt;dt>Birth Date</dt> <dd>${BirdthDate}</dd>
-        ///       &lt;/dl>
-        ///     &lt;/div>
-        /// &lt;/script>
-        ///</code>
-        ///</example>
-        public GridSelectableOptions selectable { get; set; }
+        [JsProperty(Name = "selectable")]
+        public bool selectableBool { get; set; }
+
+        /// <summary>
+        /// (default: false) Indicates whether selection is enabled/disabled.  Possible values:
+        /// true
+        ///     Single item selection.
+        /// "single"
+        ///     Single item selection.
+        /// "multiple"
+        ///     Multiple item selection.
+        /// </summary>
+        [JsProperty(Name = "selectable")]
+        public JsString selectableString { get; set; }
+
+        /// <summary>
+        /// (default: false) Indicates whether selection is enabled/disabled.
+        /// Please use the right type: bool or string.  
+        /// </summary>
+        public object selectable { get; set; }
+
         /// <summary>
         /// Specifies ListView item template.
         /// </summary>
@@ -5572,6 +5599,39 @@ namespace SharpKit.KendoUI.Web
         /// </code>
         /// </example>
         public JsFunc<JsString, JsString> template { get; set; }
+        /// <summary>
+        /// Fires when the list view selection has changed.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#listView").kendoListView({
+        ///     change: function(e) {
+        ///         // handle event
+        ///     }
+        ///  });    
+        /// </code>
+        /// To set after initialization
+        /// <code>
+        ///  // get a reference to the list view
+        ///  var listView = $("#listView").data("kendoListView");
+        ///  // bind to the change event
+        ///  listView.bind("change", function(e) {
+        ///      // handle event
+        ///  }
+        /// </code>
+        /// </example>
+        public JsAction change { get; set; }
+        /// <summary>
+        /// Fires when the list view has received data from the data source. and is about to render it.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// function onDataBound(e) {
+        ///     // handle event
+        /// }
+        /// </code>
+        /// </example>
+        public JsAction dataBound { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -5708,6 +5768,22 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public Menu close(JsString element, HtmlElement item) { return null; }
+        /// <summary>
+        /// Closes a sub-menu of a specified item(s) in a Menu.
+        /// </summary>
+        /// <param name="element">Target item selector.</param>
+        /// <param name="item">The closed item</param>
+        /// <returns>Returns the Menu object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // get a reference to the menu widget
+        /// var menu = $("#menu").data("kendoMenu");
+        /// // close the sub menu of "Item1"
+        /// menu.close("#Item1");
+        ///</code>
+        ///</example>
+        public Menu close(jQuery.jQuery item) { return null; }
 
         /// <summary>
         /// Enables or disables an item of a Menu. This can optionally be accomplished on initialization by setting the disabled="disabled" on the desired menu item html element.
