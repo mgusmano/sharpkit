@@ -526,6 +526,33 @@
     <Content Include="examples\web\menu\Direction.htm" />
     <Content Include="examples\web\menu\Direction.js" />
     <Content Include="examples\web\menu\Images.htm" />
+    <Content Include="examples\web\menu\Images.js" />
+    <Content Include="examples\web\mvvm\Index.js" />
+    <Content Include="examples\web\numerictextbox\Api.htm" />
+    <Content Include="examples\web\numerictextbox\Api.js" />
+    <Content Include="examples\web\numerictextbox\Events.htm" />
+    <Content Include="examples\web\numerictextbox\Events.js" />
+    <Content Include="examples\web\numerictextbox\Index.htm" />
+    <Content Include="examples\web\numerictextbox\Index.js" />
+    <Content Include="examples\web\panelbar\Ajax.htm" />
+    <Content Include="examples\web\panelbar\Ajax.js" />
+    <Content Include="examples\web\panelbar\Animation.htm" />
+    <Content Include="examples\web\panelbar\Events.htm" />
+    <Content Include="examples\web\panelbar\Events.js" />
+    <Content Include="examples\web\slider\Events.htm" />
+    <Content Include="examples\web\slider\Events.js" />
+    <Content Include="examples\web\slider\Index.htm" />
+    <Content Include="examples\web\slider\Index.js" />
+    <Content Include="examples\web\splitter\Ajax.htm" />
+    <Content Include="examples\web\splitter\Ajax.js" />
+    <Content Include="examples\web\splitter\Events.htm" />
+    <Content Include="examples\web\splitter\Events.js" />
+    <Content Include="examples\web\tabstrip\Ajax.htm" />
+    <Content Include="examples\web\tabstrip\Ajax.js" />
+    <Content Include="examples\web\tabstrip\Animation.htm" />
+    <Content Include="examples\web\tabstrip\Animation.js" />
+    <Content Include="examples\web\tabstrip\Events.htm" />
+    <Content Include="examples\web\tabstrip\Events.js" />
     <Content Include="examples\web\timepicker\Api.htm" />
     <Content Include="examples\web\timepicker\Api.js" />
     <Content Include="examples\web\timepicker\Index.htm" />
@@ -1023,6 +1050,21 @@
     <Compile Include="examples\web\menu\Animation.cs" />
     <Compile Include="examples\web\menu\Direction.cs" />
     <Compile Include="examples\web\menu\Images.cs" />
+    <Compile Include="examples\web\mvvm\Index.cs" />
+    <Compile Include="examples\web\numerictextbox\Api.cs" />
+    <Compile Include="examples\web\numerictextbox\Events.cs" />
+    <Compile Include="examples\web\numerictextbox\Index.cs" />
+    <Compile Include="examples\web\panelbar\Ajax.cs" />
+    <Compile Include="examples\web\panelbar\Animation.cs" />
+    <Compile Include="examples\web\panelbar\Events.cs" />
+    <Compile Include="examples\web\slider\Events.cs" />
+    <Compile Include="examples\web\slider\Index.cs" />
+    <Compile Include="examples\web\splitter\Ajax.cs" />
+    <Compile Include="examples\web\splitter\Events.cs" />
+    <Compile Include="examples\web\tabstrip\Ajax.cs" />
+    <Compile Include="examples\web\tabstrip\Animation.cs" />
+    <Compile Include="examples\web\tabstrip\Events.cs" />
+    <Compile Include="examples\web\templates\Index.cs" />
     <Compile Include="examples\web\timepicker\Api.cs" />
     <Compile Include="examples\web\timepicker\Index.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1038,7 +1080,9 @@
     <None Include="examples\content\web\datasource\internet-users.json" />
     <None Include="examples\content\web\datasource\top250movies.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="examples\web\styling\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <Import Project="$(MSBuildBinPath)\SharpKit\5\SharpKit.Build.targets" />

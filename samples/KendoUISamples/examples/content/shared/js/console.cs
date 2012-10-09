@@ -11,5 +11,6 @@ namespace KendoUISamples.examples.content.shared.js
     {
         public static void log(JsString msg, bool isError){}
         public static void log(JsString msg) { }
+        public static void error(JsString str) { }
     }
 }
