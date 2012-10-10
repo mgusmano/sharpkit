@@ -167,6 +167,12 @@ namespace SharpKit.jQuery
 
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoWindow(this jQuery query) { return null; }
+       
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoValidator(this jQuery query) { return null; }
+
+        [JsMethod(ExtensionImplementedInInstance = true)]
+        public static jQuery kendoValidator(this jQuery query, ValidatorConfiguration configuration) { return null; }
 
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoWindow(this jQuery query, WindowConfiguration configuration) { return null; }
@@ -9806,6 +9812,10 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public TreeViewAnimationConfiguration animation { get; set; }
 
+        public JsString checkboxTemplate { get; set; }
+        [JsProperty(Name = "checkboxTemplate")]
+        public JsFunc<JsString, JsString> checkboxTemplateFunc { get; set; }
+
         /// <summary>
         /// (default: null) Sets the field of the data item that provides the image URL of the treeview nodes.
         /// </summary>
@@ -9910,7 +9920,14 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         [JsProperty(Name = "template")]
-        public JsAction templateFunction { get; set; }
+        public JsFunc<JsString, JsString> templateFunction { get; set; }
+        public JsAction<TreeViewEventData> collapse { get; set; }
+        public JsAction<TreeViewEventData> select { get; set; }
+        public JsAction<TreeViewEventData> expand { get; set; }
+        public JsAction<TreeViewDragstartEventData> dragstart { get; set; }
+        public JsAction<TreeViewDragEventData> drag { get; set; }
+        public JsAction<TreeViewDropEventData> drop { get; set; }
+        public JsAction<TreeViewDragendEventData> dragend { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -9925,7 +9942,6 @@ namespace SharpKit.KendoUI.Web
         /// The animation that will be used when expanding items.
         /// </summary>
         public TreeViewAnimationExpandConfiguration expand { get; set; }
-
 
     }
 
@@ -10907,6 +10923,8 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<EmptyEventData> resize { add { } remove { } }
 
         //TODO: all events have no eventData (?)
+        
+
     }
 
     [JsType(JsMode.Json)]
@@ -10950,7 +10968,7 @@ namespace SharpKit.KendoUI.Web
         /// (default: document.body) The element that the Window will be appended to.
         /// </summary>
         public object appendTo { get; set; }
-
+       
         /// <summary>
         /// Specifies a URL or request options that the window should load its content from. For remote URLs, a container iframe element is automatically created.
         /// </summary>
@@ -10970,6 +10988,11 @@ namespace SharpKit.KendoUI.Web
         /// (default: true) Enables (true) or disables (false) the ability for users to move/drag a Window.
         /// </summary>
         public bool draggable { get; set; }
+       
+        /// <summary>
+        /// Undocument Property. Add by Lee.
+        /// </summary>
+        public JsString height { get; set; }
 
         /// <summary>
         /// Explicitly states whether content iframe should be created.
@@ -11015,6 +11038,43 @@ namespace SharpKit.KendoUI.Web
         /// (default: true) Specifies whether the window will be initially visible.
         /// </summary>
         public bool visible { get; set; }
+        /// <summary>
+        /// Undocument property. Add by Lee.
+        /// </summary>
+        public JsString width { get; set; }
+       
+        ///  /// <summary>
+        /// Triggered when a Window is closed (by a user or through the close() method).
+        /// </summary>
+        public JsAction close { get; set; }
+        /// <summary>
+        /// Triggered when a Window is opened (i.e. the open() method is called).
+        /// </summary>
+        public JsAction<Event> open { get; set; }
+        /// <summary>
+        /// riggered when a Window has finished its opening animation.
+        /// </summary>
+        public JsAction<Event> activate { get; set; }
+        /// <summary>
+        /// Triggered when a Window has finished its closing animation.
+        /// </summary>
+        public JsAction<Event> deactivate { get; set; }
+        /// <summary>
+        /// Triggered when the content of a Window has finished loading via AJAX, when the window iframe has finished loading, or when the refresh button has been clicked on a window with static content.
+        /// </summary>
+        public JsAction<Event> refresh { get; set; }
+        /// <summary>
+        /// Triggered when a Window has been resized by a user.
+        /// </summary>
+        public JsAction<Event> resize { get; set; }
+        /// <summary>
+        /// Triggered when a Window has been moved by a user.
+        /// </summary>
+        public JsAction<Event> dragend { get; set; }
+        /// <summary>
+        /// Triggered when the user starts to move the window.
+        /// </summary>
+        public JsAction<Event> dragstart { get; set; }
     }
 
     [JsType(JsMode.Json)]
