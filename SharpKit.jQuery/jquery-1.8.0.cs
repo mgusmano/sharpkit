@@ -388,6 +388,10 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery change(object eventData, JsAction<Event> handler) { return null; }
         /// <summary>
+        /// Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
+        /// </summary>
+        public jQuery change(JsAction handler) { return null; }
+        /// <summary>
         /// Get the children of each element in the set of matched elements, optionally filtered by a selector.
         /// </summary>
         public jQuery children() { return null; }
@@ -2693,6 +2697,14 @@ namespace SharpKit.jQuery
         /// <param name="handler">A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.</param>
         /// <returns></returns>
         public jQuery on(JsString events, JsAction<Event> handler) { return null; }
+        /// <summary>
+        /// Attach an event handler function for one or more events to the selected elements.
+        /// </summary>
+        /// <param name="events1"></param>
+        /// <param name="events2"></param>
+        /// <param name="handler"></param>
+        /// <returns></returns>
+        public jQuery on(JsString events1, JsString events2, JsAction handler) { return null; }
         /// <summary>
         /// Attach an event handler function for one or more events to the selected elements.
         /// </summary>
