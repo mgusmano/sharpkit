@@ -515,6 +515,7 @@
     <Content Include="examples\web\grid\LocalData.js" />
     <Content Include="examples\web\grid\RowTemplate.htm" />
     <Content Include="examples\web\grid\Rowtemplate.js" />
+    <Content Include="examples\web\index.html" />
     <Content Include="examples\web\listview\Editing.htm" />
     <Content Include="examples\web\listview\Editing.js" />
     <Content Include="examples\web\listview\RemoteData.htm" />
@@ -557,6 +558,26 @@
     <Content Include="examples\web\timepicker\Api.js" />
     <Content Include="examples\web\timepicker\Index.htm" />
     <Content Include="examples\web\timepicker\Index.js" />
+    <Content Include="examples\web\treeview\DragDrop.htm" />
+    <Content Include="examples\web\treeview\DragDrop.js" />
+    <Content Include="examples\web\treeview\Events.htm" />
+    <Content Include="examples\web\treeview\Events.js" />
+    <Content Include="examples\web\treeview\LocalData.htm" />
+    <Content Include="examples\web\treeview\LocalData.js" />
+    <Content Include="examples\web\treeview\OdataBinding.htm" />
+    <Content Include="examples\web\treeview\OdataBinding.js" />
+    <Content Include="examples\web\treeview\RemoteData.htm" />
+    <Content Include="examples\web\treeview\RemoteData.js" />
+    <Content Include="examples\web\treeview\Templates.htm" />
+    <Content Include="examples\web\treeview\Templates.js" />
+    <Content Include="examples\web\validator\Index.htm" />
+    <Content Include="examples\web\validator\Index.js" />
+    <Content Include="examples\web\window\Actions.htm" />
+    <Content Include="examples\web\window\Actions.js" />
+    <Content Include="examples\web\window\Ajax.htm" />
+    <Content Include="examples\web\window\Ajax.js" />
+    <Content Include="examples\web\window\Events.htm" />
+    <Content Include="examples\web\window\Events.js" />
     <Content Include="js\cultures\kendo.culture.af-ZA.min.js" />
     <Content Include="js\cultures\kendo.culture.af.min.js" />
     <Content Include="js\cultures\kendo.culture.am-ET.min.js" />
@@ -1067,6 +1088,16 @@
     <Compile Include="examples\web\templates\Index.cs" />
     <Compile Include="examples\web\timepicker\Api.cs" />
     <Compile Include="examples\web\timepicker\Index.cs" />
+    <Compile Include="examples\web\treeview\DragDrop.cs" />
+    <Compile Include="examples\web\treeview\Events.cs" />
+    <Compile Include="examples\web\treeview\LocalData.cs" />
+    <Compile Include="examples\web\treeview\OdataBinding.cs" />
+    <Compile Include="examples\web\treeview\RemoteData.cs" />
+    <Compile Include="examples\web\treeview\Templates.cs" />
+    <Compile Include="examples\web\validator\Index.cs" />
+    <Compile Include="examples\web\window\Actions.cs" />
+    <Compile Include="examples\web\window\Ajax.cs" />
+    <Compile Include="examples\web\window\Events.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
