@@ -6,7 +6,7 @@ using SharpKit.Html4;
 namespace SharpKit.KendoUI
 {
     #region FX
-    
+
     [JsType(JsMode.Json)]
     public static class FX
     {
@@ -498,7 +498,7 @@ namespace SharpKit.KendoUI
         /// <param name= "number"> </param>
         /// <returns></returns>
         public static JsAction format(JsString value, JsNumber number) { return null; }
-   
+
 
         /// <summary>
         /// Parses as a formatted string as a Date.
@@ -1740,7 +1740,7 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public object aggregates { get; set; }
-        [JsProperty(Name="aggregates")]
+        [JsProperty(Name = "aggregates")]
         public JsString aggregatesString { get; set; }
         [JsProperty(Name = "aggregates")]
         public JsAction aggregatesFunction { get; set; }
@@ -1770,7 +1770,7 @@ namespace SharpKit.KendoUI
         ///}
         ///</code>
         ///</example>
-        [JsProperty(Name="data")]
+        [JsProperty(Name = "data")]
         public JsFunc<DataSourceResponse, JsArray> dataFunction { get; set; }
         /// <summary>
         /// Specifies the field from the response which contains the data items.
@@ -2320,6 +2320,24 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public JsString url { get; set; }
+        /// <summary>
+        /// The remote url to call when creating a new record.
+        /// </summary>
+        /// <example>
+        /// Specify Read URL As Function
+        /// <code>
+        /// transport: {
+        ///     read: {
+        ///         url: function(params) {
+        ///             //build url
+        ///             return "url";
+        ///         }
+        ///     }
+        /// }
+        /// </code>
+        /// </example>
+        [JsProperty(Name = "url")]
+        public JsAction<Event> urlFunc { get; set; }
 
     }
 
@@ -2336,7 +2354,7 @@ namespace SharpKit.KendoUI
     #endregion
 
     #region HierarchicalDataSource
-    
+
     /// <summary>
     /// See the DataSource methods for all inherited methods.
     /// The remove and getByUid methods are overridden and work with the hierarchical data (they will act on all child datasources that have been read).
@@ -2383,8 +2401,27 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Specifies whether the model might have children and might be loaded.
         /// Applicable when the rendering of a widget needs to have different states for items that have no children (e.g. the toggle button of the TreeView).
+        /// pleasa use the right type: function or boolean or string
         /// </summary>
         public object hasChildren { get; set; }
+        /// <summary>
+        /// Specifies whether the model might have children and might be loaded.
+        /// Applicable when the rendering of a widget needs to have different states for items that have no children (e.g. the toggle button of the TreeView).
+        /// </summary>
+        [JsProperty(Name = "hasChildren")]
+        public JsString hasChildrenString { get; set; }
+        /// <summary>
+        /// Specifies whether the model might have children and might be loaded.
+        /// Applicable when the rendering of a widget needs to have different states for items that have no children (e.g. the toggle button of the TreeView).
+        /// </summary>
+        [JsProperty(Name = "hasChildren")]
+        public JsFunc<bool> hasChildrenFunc { get; set; }
+        /// <summary>
+        ///  /// Specifies whether the model might have children and might be loaded.
+        /// Applicable when the rendering of a widget needs to have different states for items that have no children (e.g. the toggle button of the TreeView).
+        /// </summary>
+        [JsProperty(Name = "hasChildren")]
+        public bool hasChildrenBoolean { get; set; }
 
         /// <summary>
         /// DataSource object or configuration for fetching child nodes. Through examples of that can be found in the Getting started section above.
@@ -2419,12 +2456,18 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public object children { get; set; }
+
+        /// <summary>
+        /// Undocument property. Add by Lee.
+        /// TODO: ask Dan-el about this.
+        /// </summary>
+        public JsString id { get; set; }
     }
 
     #endregion
 
     #region Model
-    
+
     /// <summary>
     /// The Model inherits from the ObservableObject and extends it with the ability to define schema - fields and methods.
     /// The DataSource contains instances of the Model when the schema.model setting is specified.
@@ -2577,7 +2620,7 @@ namespace SharpKit.KendoUI
     #endregion
 
     #region Node
-    
+
     /// <summary>
     /// The Node is an extended type of Model that works with hierarchical data. The HierarchicalDataSource contains only instances of Node.
     /// </summary>
@@ -2616,7 +2659,7 @@ namespace SharpKit.KendoUI
     #endregion
 
     #region ObservableArray
-    
+
     /// <summary>
     /// The ObservableArray wrap an existing Array object with change tracking capabilities. It is used by Kendo MVVM and the Kendo DataSource.
     /// </summary>
@@ -2921,7 +2964,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// The items which were changed.
         /// </summary>
-        public JsArray<T> items  { get; set; }
+        public JsArray<T> items { get; set; }
 
         /// <summary>
         /// The name of the field of an item that changed. Available only when e.action is "itemchange".
@@ -3253,7 +3296,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// If set to true, the mousedown and selectstart events will not be prevented.
         /// </summary>
-        public bool allowSelection  { get; set; }
+        public bool allowSelection { get; set; }
 
         /// <summary>
         /// If passed, the filter limits the child elements that will trigger the event sequence.
@@ -3284,27 +3327,27 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Fires when the drag is canceled. This when the cancel method is called.
         /// </summary>
-        public JsAction<DragEventData> cancel {get;set;}
+        public JsAction<DragEventData> cancel { get; set; }
 
         /// <summary>
         /// Fires when the drag ends.
         /// </summary>
-        public JsAction<DragEventData> end {get;set;}
+        public JsAction<DragEventData> end { get; set; }
 
         /// <summary>
         /// Fires while dragging.
         /// </summary>
-        public JsAction<DragEventData> move {get;set;}
+        public JsAction<DragEventData> move { get; set; }
 
         /// <summary>
         /// Fires when the user starts dragging the element.
         /// </summary>
-        public JsAction<DragEventData> start {get;set;}
+        public JsAction<DragEventData> start { get; set; }
 
         /// <summary>
         /// Fires when the user presses and releases the element without any movement or with a movement below the threshold specified.
         /// </summary>
-        public JsAction<DragEventData> tap {get;set;}
+        public JsAction<DragEventData> tap { get; set; }
 
 
     }
@@ -3312,7 +3355,7 @@ namespace SharpKit.KendoUI
     #endregion
 
     #region DragAxis
-    
+
     /// <summary>
     /// The DragAxis is used internally by the kendo.Drag component to store and calculate event data.
     /// The Drag component contains two DragAxis instances: x for the horizontal coordinates, and y for the vertical.
@@ -3351,7 +3394,7 @@ namespace SharpKit.KendoUI
     #endregion
 
     #region Draggable
-    
+
     [JsType(JsMode.Prototype, Name = "kendo.ui.Draggable")]
     public class Draggable
     {
@@ -3422,7 +3465,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Provides a way for customization of the drag indicator. If a function is supplied, it receives one argument - the draggable element's jQuery object.
         /// </summary>
-        [JsProperty(Name="hint")]
+        [JsProperty(Name = "hint")]
         public JsFunc<jQuery.jQuery> hintFunction { get; set; }
         /// <summary>
         /// Fires while dragging.
@@ -3457,7 +3500,7 @@ namespace SharpKit.KendoUI
     #endregion
 
     #region DropTarget
-    
+
     [JsType(JsMode.Prototype, Name = "kendo.ui.DropTarget")]
     public class DropTarget
     {
@@ -3535,7 +3578,7 @@ namespace SharpKit.KendoUI
     #endregion
 
     #region DropTargetArea
-    
+
     [JsType(JsMode.Prototype, Name = "kendo.ui.DropTargetArea")]
     public class DropTargetArea
     {
@@ -3585,14 +3628,14 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// The current drop target in the area that initiated the event.
         /// </summary>
-        public jQuery.jQuery dropTarget  { get; set; }
+        public jQuery.jQuery dropTarget { get; set; }
     }
 
     #endregion
 
     #region Validator
-    
-    [JsType(JsMode.Prototype, Name="kendo.ui.Validator")]
+
+    [JsType(JsMode.Prototype, Name = "kendo.ui.Validator")]
     public class Validator
     {
         public Validator() { }
@@ -3717,4 +3760,3 @@ namespace SharpKit.KendoUI
     #endregion
 
 }
- 
