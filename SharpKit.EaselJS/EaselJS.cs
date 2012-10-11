@@ -2055,9 +2055,173 @@ namespace SharpKit.EaselJS
         public JsString toString() { return null; }
     }
 
+    /// <summary>
+    /// Represents an affine transformation matrix, and provides tools for constructing and concatenating matrixes.
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "Matrix2D", Export = false)]
     public class Matrix2D
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a">Specifies the a property for the new matrix.</param>
+        /// <param name="b">Specifies the b property for the new matrix.</param>
+        /// <param name="c">Specifies the c property for the new matrix.</param>
+        /// <param name="d">Specifies the d property for the new matrix.</param>
+        /// <param name="tx">Specifies the tx property for the new matrix.</param>
+        /// <param name="ty">Specifies the ty property for the new matrix.</param>
+        public Matrix2D(JsNumber a, JsNumber b, JsNumber c, JsNumber d, JsNumber tx, JsNumber ty) { }
+
+        /// <summary>
+        /// Position (0, 0) in a 3x3 affine transformation matrix.
+        /// </summary>
+        public JsNumber a { get; set; }
+
+        /// <summary>
+        /// Property representing the alpha that will be applied to a display object.
+        /// This is not part of matrix operations, but is used for operations like getConcatenatedMatrix to provide concatenated alpha values.
+        /// </summary>
+        public JsNumber alpha { get; set; }
+
+        /// <summary>
+        /// Position (2, 0) in a 3x3 affine transformation matrix.
+        /// </summary>
+        public JsNumber atx { get; set; }
+
+        /// <summary>
+        /// Position (0, 1) in a 3x3 affine transformation matrix.
+        /// </summary>
+        public JsNumber b { get; set; }
+
+        /// <summary>
+        /// Position (1, 0) in a 3x3 affine transformation matrix.
+        /// </summary>
+        public JsNumber c { get; set; }
+
+        /// <summary>
+        /// Property representing the compositeOperation that will be applied to a display object.
+        /// This is not part of matrix operations, but is used for operations like getConcatenatedMatrix to provide concatenated compositeOperation values.
+        /// You can find a list of valid composite operations at: https://developer.mozilla.org/en/Canvas_tutorial/Compositing
+        /// </summary>
+        public JsString compositeOperation { get; set; }
+
+        /// <summary>
+        /// Position (1, 1) in a 3x3 affine transformation matrix.
+        /// </summary>
+        public JsNumber d { get; set; }
+
+        /// <summary>
+        /// Multiplier for converting degrees to radians. Used internally by Matrix2D. Read-only.
+        /// </summary>
+        public static JsNumber DEG_TO_RAD { get; private set; }
+
+        /// <summary>
+        /// An identity matrix, representing a null transformation. Read-only.
+        /// </summary>
+        public static Matrix2D identity { get; private set; }
+
+        /// <summary>
+        /// Property representing the shadow that will be applied to a display object.
+        /// This is not part of matrix operations, but is used for operations like getConcatenatedMatrix to provide concatenated shadow values.
+        /// </summary>
+        public Shadow shadow { get; set; }
+
+        /// <summary>
+        /// Position (2, 1) in a 3x3 affine transformation matrix.
+        /// </summary>
+        public JsNumber ty { get; set; }
+
+        /// <summary>
+        /// Appends the specified matrix properties with this matrix. All parameters are required.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="d"></param>
+        /// <param name="tx"></param>
+        /// <param name="ty"></param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D append(JsNumber a, JsNumber b, JsNumber c, JsNumber d, JsNumber tx, JsNumber ty) { return null; }
+
+        /// <summary>
+        /// Appends the specified matrix with this matrix.
+        /// </summary>
+        /// <param name="matrix"></param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D appendMatrix(Matrix2D matrix) { return null; }
+
+        /// <summary>
+        /// Reinitializes all matrix properties to those specified.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="d"></param>
+        /// <param name="tx"></param>
+        /// <param name="ty"></param>
+        /// <param name="alpha">desired alpha value</param>
+        /// <param name="shadow">desired shadow value</param>
+        /// <param name="compositeOperation">desired composite operation value</param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D appendProperties (JsNumber a, JsNumber b, JsNumber c, JsNumber d, JsNumber tx, JsNumber ty,JsNumber alpha ,Shadow shadow ,JsString compositeOperation ) { return null; }
+
+        /// <summary>
+        /// Generates matrix properties from the specified display object transform properties, and appends them with this matrix. For example,
+        /// you can use this to generate a matrix from a display object: var mtx = new Matrix2D(); mtx.appendTransform(o.x, o.y, o.scaleX, o.scaleY, o.rotation);
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="scaleX"></param>
+        /// <param name="scaleY"></param>
+        /// <param name="rotation"></param>
+        /// <param name="skewX"></param>
+        /// <param name="skewY"></param>
+        /// <param name="regX">Optional</param>
+        /// <param name="regY">Optional</param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D appendTransform(JsNumber x, JsNumber y, JsNumber scaleX, JsNumber scaleY, JsNumber rotation, JsNumber skewX, JsNumber skewY, JsNumber regX, JsNumber regY) { return null; }
+        /// <summary>
+        /// Generates matrix properties from the specified display object transform properties, and appends them with this matrix. For example,
+        /// you can use this to generate a matrix from a display object: var mtx = new Matrix2D(); mtx.appendTransform(o.x, o.y, o.scaleX, o.scaleY, o.rotation);
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="scaleX"></param>
+        /// <param name="scaleY"></param>
+        /// <param name="rotation"></param>
+        /// <param name="skewX"></param>
+        /// <param name="skewY"></param>
+        /// <param name="regX">Optional</param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D appendTransform(JsNumber x, JsNumber y, JsNumber scaleX, JsNumber scaleY, JsNumber rotation, JsNumber skewX, JsNumber skewY, JsNumber regX) { return null; }
+        /// <summary>
+        /// Generates matrix properties from the specified display object transform properties, and appends them with this matrix. For example,
+        /// you can use this to generate a matrix from a display object: var mtx = new Matrix2D(); mtx.appendTransform(o.x, o.y, o.scaleX, o.scaleY, o.rotation);
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="scaleX"></param>
+        /// <param name="scaleY"></param>
+        /// <param name="rotation"></param>
+        /// <param name="skewX"></param>
+        /// <param name="skewY"></param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D appendTransform(JsNumber x, JsNumber y, JsNumber scaleX, JsNumber scaleY, JsNumber rotation, JsNumber skewX, JsNumber skewY) { return null; }
+
+        /// <summary>
+        /// Returns a clone of the Matrix2D instance.
+        /// </summary>
+        /// <returns>a clone of the Matrix2D instance.</returns>
+        public Matrix2D clone() { return null; }
+
+        /// <summary>
+        /// Decomposes the matrix into transform properties (x, y, scaleX, scaleY, and rotation).
+        /// Note that this these values may not match the transform properties you used to generate the matrix, though they will produce the same visual results.
+        /// </summary>
+        /// <param name="target">The object to apply the transform properties to. If null, then a new object will be returned.</param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D decompose (object target ) { return null; }
+
 
     }
 
