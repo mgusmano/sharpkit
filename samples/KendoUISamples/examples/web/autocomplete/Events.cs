@@ -112,6 +112,7 @@ namespace KendoUISamples.examples.web.autocomplete
             if ("kendoConsole".@in(HtmlContext.window))
             {
                 //TODO:
+
                 //var dataItem = JsContext.@this.As<Grid>().dataItem(e.currentTarget.item.index());
                 JsContext.JsCode("var dataItem = this.dataItem(e.item.index());");
                 JsContext.JsCode(" kendoConsole.log('event :: select (' + dataItem + ')');");

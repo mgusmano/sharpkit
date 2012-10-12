@@ -12,16 +12,26 @@ namespace KendoUISamples.examples.web.menu
         {
             new jQuery(OnReady);
         }
+        static JsString getEffects()
+        {
+            var expand = new jQuery("#expand")[0].As<HtmlInputRadio>().@checked;
+            var slide = new jQuery("#slide")[0].As<HtmlInputRadio>().@checked;
+            var opacity = new jQuery("#opacity")[0].As<HtmlInputRadio>().@checked;
+            var s = "";
+            if (expand)
+                s += "expand:vertical ";
+            if (slide)
+                s += "slideIn:down ";
+            if (opacity)
+                s += "fadeIn";
+            if (s == "")
+                return false.As<JsString>();
+            return s;
 
+        }
         static void OnReady()
         {
-            JsFunc<JsString> getEffects = () =>
-        {
-            return ((checked(new jQuery("#expand")[0].As<bool>()) ? "expand:vertical " : "") +
-                    (checked(new jQuery("#slide")[0].As<bool>()) ? "slideIn:down " : "") +
-                    (checked(new jQuery("#opacity")[0].As<bool>()) ? "fadeIn" : "")); //TODO: || false;
-        };
-
+    
             JsAction initMenu = () =>
             {
                 new jQuery("#menu").kendoMenu(new MenuConfiguration
@@ -29,7 +39,7 @@ namespace KendoUISamples.examples.web.menu
                     animation = new AnimationConfiguration { open = new PanelBarAnimationCloseConfiguration { effects = getEffects() } },
 
                     //TODO: hoverDelay = new jQuery("#delay")[0].value
-                    hoverDelay = new jQuery("#delay")[0].As<JsNumber>().valueOf()
+                    hoverDelay = new jQuery("#delay")[0].As<HtmlInputText>().value.As<JsNumber>(),
                 })
                 .css(new Map
                 {

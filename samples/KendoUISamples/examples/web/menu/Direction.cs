@@ -13,14 +13,18 @@ namespace KendoUISamples.examples.web.menu
             new jQuery(OnReady);
         }
 
+        static JsString getDirection()
+        {
+            var @checked = new jQuery("input:[type=radio]:checked")[0].id;
+            var regex = new JsRegExp("custom|customValue");
+            if (regex.test(@checked))
+                return new jQuery("#customValue").val().As<JsString>();
+            else
+                return @checked;
+        }
+
         static void OnReady()
         {
-            JsFunc<JsString> getDirection = () =>
-            {
-                var @checked = new jQuery("input:[type=radio]:checked")[0].id;
-                //TODO: return /custom|customValue/.test(@checked) ? new jQuery("#customValue").val() : @checked;
-                return null;
-            };
 
             JsAction initMenu = () =>
             {

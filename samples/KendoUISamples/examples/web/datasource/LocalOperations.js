@@ -17,7 +17,7 @@ function OnReady()
     $("#apply").click(function()
     {
         var page=System.Int32.Parse$$String($("#page").val());
-        if(page == System.Double.NaN || page < 1 || page > dataSource.totalPages())
+        if(isNaN(page) || page < 1 || page > dataSource.totalPages())
         {
             window.alert(kendo.format("Page must be a number between 1 and {0}",dataSource.totalPages()));
             return;

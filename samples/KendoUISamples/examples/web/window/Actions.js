@@ -2,16 +2,16 @@
 $(OnReady);
 function OnReady()
 {
-    var window=$("#window");
+    var win=$("#window");
     var undo=$("#undo");
     undo.bind("click",function(e)
     {
-        window.data("kendoWindow").open();
+        win.data("kendoWindow").open();
         undo.hide();
     });
-    if(window.data("kendoWindow") == null)
+    if(win.data("kendoWindow") == null)
     {
-        window.kendoWindow(
+        win.kendoWindow(
         {
             width:"500px",
             actions: ["Custom","Minimize","Maximize","Close"],
@@ -22,5 +22,9 @@ function OnReady()
             }
         });
     }
-     window.data('kendoWindow').wrapper.find('.k-i-custom').click(function(e){alert('Custom action button clicked');e.preventDefault();});;
+    win.data("kendoWindow").wrapper.find(".k-i-custom").click(function(e)
+    {
+        alert("Custom action button clicked");
+        e.preventDefault();
+    });
 };

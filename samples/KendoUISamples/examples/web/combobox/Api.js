@@ -16,6 +16,7 @@ function OnReady()
     };
     var setIndex=function(e)
     {
+        var x=kendo.keys.ENTER;
          if (e.type != 'keypress' || kendo.keys.ENTER == e.keyCode) { var index = parseInt($('#index').val());combobox.select(index);};
     };
     var setSearch=function(e)
@@ -56,4 +57,5 @@ function OnReady()
 function filterTypeOnChanged()
 {
      combobox.options.filter = $('#filter').val();;
+    combobox["options"].filter = $("#filter").val();
 };

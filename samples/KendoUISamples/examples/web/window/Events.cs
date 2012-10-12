@@ -8,13 +8,8 @@ namespace KendoUISamples.examples.web.window
     public class Events
     {
         //TODO: example doesnt work- compile error. (global variables)
-        public static jQuery window = new jQuery("#window");
-        public static jQuery undo = new jQuery("#undo")
-                    .bind("click", e =>
-                    {
-                        window.data("kendoWindow").As<Window>().open();
-
-                    });
+        public static jQuery win;
+        public static jQuery undo;
         static Events()
         {
 
@@ -23,10 +18,17 @@ namespace KendoUISamples.examples.web.window
 
         static void OnReady()
         {
+            win = new jQuery("#window");
+            undo = new jQuery("#undo")
+                    .bind("click", e =>
+                    {
+                        win.data("kendoWindow").As<Window>().open();
+
+                    });
             undo.hide();
-            if (window.data("kendoWindow") == null)
+            if (win.data("kendoWindow") == null)
             {
-                window.kendoWindow(new WindowConfiguration
+                win.kendoWindow(new WindowConfiguration
                 {
                     width = "630px",
                     height = "315px",

@@ -38,7 +38,7 @@ namespace KendoUISamples.examples.web.datasource
                 {
                     var page = int.Parse(new jQuery("#page").val().As<JsString>());// ,10)
                     // validate the page - it must be a number within the allowed range
-                    if (page == System.Double.NaN || page < 1 || page > dataSource.totalPages())
+                    if (JsContext.isNaN(page) || page < 1 || page > dataSource.totalPages())
                     {
                         HtmlContext.window.alert(Kendo.format("Page must be a number between 1 and {0}", dataSource.totalPages()));
                         return;

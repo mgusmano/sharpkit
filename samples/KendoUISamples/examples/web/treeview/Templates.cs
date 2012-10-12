@@ -59,9 +59,9 @@ namespace KendoUISamples.examples.web.treeview
         static void showSerializedData()
         {
             var serializedData = new jQuery("#treeview input").serialize()
-                    .replace("/%5B/g", "[")
-                    .replace("/%5D/g", "]")
-                    .replace("/&/g", "&amp;");
+                    .replace(new JsRegExp("%5B", "g"), "[")
+                    .replace(new JsRegExp("%5D", "g"), "]")
+                    .replace(new JsRegExp("&", "g"), "&amp;");
 
             new jQuery("#checked-nodes").html(serializedData);
         }

@@ -15,18 +15,18 @@ namespace KendoUISamples.examples.web.window
 
         static void OnReady()
         {
-            var window = new jQuery("#window");
+            var win = new jQuery("#window");
             var undo = new jQuery("#undo");
 
             undo.bind("click", e =>
             {
-                window.data("kendoWindow").As<Window>().open();
+                win.data("kendoWindow").As<Window>().open();
                 undo.hide();
             });
 
-            if (window.data("kendoWindow") == null)
+            if (win.data("kendoWindow") == null)
             {
-                window.kendoWindow(new WindowConfiguration
+                win.kendoWindow(new WindowConfiguration
                 {
                     width = "500px",
                     actions = new JsArray { "Custom", "Minimize", "Maximize", "Close" },
@@ -36,7 +36,12 @@ namespace KendoUISamples.examples.web.window
                 });
             }
             //TODO: wrapper.find? 
-            JsContext.JsCode("window.data('kendoWindow').wrapper.find('.k-i-custom').click(function(e){alert('Custom action button clicked');e.preventDefault();});");
+            win.data("kendoWindow").As<Window>().wrapper.find(".k-i-custom").click(e=>
+            {
+                HtmlContext.alert("Custom action button clicked");
+                e.preventDefault();
+            });
+
         }
     }
 }

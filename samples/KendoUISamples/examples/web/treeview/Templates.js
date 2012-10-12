@@ -12,6 +12,6 @@ function OnReady()
 };
 function showSerializedData()
 {
-    var serializedData=$("#treeview input").serialize().replace("/%5B/g","[").replace("/%5D/g","]").replace("/&/g","&amp;");
+    var serializedData=$("#treeview input").serialize().replace(new RegExp("%5B","g"),"[").replace(new RegExp("%5D","g"),"]").replace(new RegExp("&","g"),"&amp;");
     $("#checked-nodes").html(serializedData);
 };

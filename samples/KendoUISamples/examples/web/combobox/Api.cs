@@ -54,8 +54,10 @@ namespace KendoUISamples.examples.web.combobox
                     combobox.select(index);
                 }
             };
+
             JsAction<Event> setIndex = e =>
             {
+                var x = Kendo.keys.ENTER;
                 JsContext.JsCode("if (e.type != 'keypress' || kendo.keys.ENTER == e.keyCode) { var index = parseInt($('#index').val());combobox.select(index);}");
             };
 
@@ -80,7 +82,7 @@ namespace KendoUISamples.examples.web.combobox
         static void filterTypeOnChanged()
         {
             JsContext.JsCode("combobox.options.filter = $('#filter').val();");
-            //TODO: combobox.options.filter = new jQuery("#filter").val();
+            combobox.As<JsObject>()["options"].As<ComboBoxConfiguration>().filter = new jQuery("#filter").val().As<JsString>();
         }
     }
 }
