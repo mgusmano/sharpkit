@@ -9,6 +9,9 @@ namespace jQueryUISamples.demos.autocomplete
     {
         static CustomData()
         {
+            dynamic x = null;
+
+            var xx = x.item.label.shooki.booki;
         }
 
       
@@ -43,7 +46,9 @@ namespace jQueryUISamples.demos.autocomplete
                 source = projects,
                 focus = (e, ui) =>
                     {
+                        var ui2 = ui.As<UIWithItem>();
                         //TODO: $( "#project" ).val( ui.item.label );
+                        new jQuery("#project").val(ui2.item.label);
                         JsContext.JsCode(" new jQuery( '#project' ).val(ui.item.label)");
                         JsContext.@return(false);
                     },
@@ -57,7 +62,7 @@ namespace jQueryUISamples.demos.autocomplete
 
                     },
 
-            }); // TODO:   .data( "autocomplete" )._renderItem ...
+            });// TODO:   .data( "autocomplete" )._renderItem ...
 
 
             //    $( "#project" ).autocomplete({
@@ -84,5 +89,17 @@ namespace jQueryUISamples.demos.autocomplete
             //    };
             //});
         }
+    }
+
+    [JsType(JsMode.Json)]
+    class UIWithItem
+    {
+        public UIItem item { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    class UIItem
+    {
+        public JsString label { get; set; }
     }
 }

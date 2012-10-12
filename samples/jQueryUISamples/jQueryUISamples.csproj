@@ -188,6 +188,8 @@
     <Content Include="demos\slider\MultipleVertical.js" />
     <Content Include="demos\slider\RangeVertical.htm" />
     <Content Include="demos\slider\RangeVertical.js" />
+    <Content Include="demos\sortable\ConnectsListsThroughTabs.htm" />
+    <Content Include="demos\sortable\ConnectsListsThroughTabs.js" />
     <Content Include="demos\sortable\Default.htm" />
     <Content Include="demos\sortable\Default.js" />
     <Content Include="demos\sortable\DelayStart.htm" />

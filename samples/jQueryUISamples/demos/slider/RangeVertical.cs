@@ -19,8 +19,7 @@ namespace jQueryUISamples.demos.slider
                 orientation = "vertical",
                 range = true,
                 values = new[] { 17, 67 },
-                // TODO: ui.values[0], ui.values[1]
-                slide = (e, ui) => new jQuery("#amount").val("$" + ui.value + " - $" + ui.value),
+                slide = (e, ui) => new jQuery("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]),
             });
             
             new jQuery("#amount").val("$" + new jQuery("#slider-range").slider("values", 0) + " - $" + new jQuery("#slider-range").slider("values", 1));

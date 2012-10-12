@@ -13,8 +13,7 @@ namespace jQueryUISamples.demos.tabs
         }
         static void OnReady()
         {
-            // TODO : CookieOption
-            JsContext.JsCode(" $('#tabs').tabs({ cookie: {expires: 1}});");
+            new jQuery("#tabs").tabs(new TabsOptions { cookie = new { expires = 1 } });
         }
     }
 }

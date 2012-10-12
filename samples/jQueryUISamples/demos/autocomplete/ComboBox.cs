@@ -4,12 +4,13 @@ using SharpKit.Html4;
 
 namespace jQueryUISamples.demos.autocomplete
 {
-    [JsType(JsMode.Global)]
+    [JsType(JsMode.Prototype)]
     public class ComboBox
     {
         //TODO: jQuery.widget
         static ComboBox()
         {
+            //$.widget("ui.combobox", new jQueryUISamples.demos.autocomplete());
         }
 
         static void OnReady() 

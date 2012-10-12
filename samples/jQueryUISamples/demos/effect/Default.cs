@@ -30,6 +30,7 @@ namespace jQueryUISamples.demos.effect
             var options = new JsObject { };
             if (selectedEffect.ExactEquals("scale"))
             {
+               
                 //TODO
                 JsContext.JsCode("options = { percent: 0 };");
             }

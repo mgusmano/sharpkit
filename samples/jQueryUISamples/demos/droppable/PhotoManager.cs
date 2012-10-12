@@ -7,6 +7,7 @@ namespace jQueryUISamples.demos.droppable
     [JsType(JsMode.Global)]
     public class PhotoManager
     {
+        //TODO
         static PhotoManager()
         {
         }
@@ -22,9 +23,7 @@ namespace jQueryUISamples.demos.droppable
             {
                 cancel = "a.ui-icon", // clicking an icon won't initiate dragging
                 revert = "invalid", // when not dropped, the item will revert back to its initial position
-
-                //TODO: containment: $("#demo-frame").length ? "#demo-frame" : "document"
-                containment = new jQuery("#demo-frame").length > 0 ? "#demo-frame" : "document", // stick to demo-frame if present
+                containment = new jQuery("#demo-frame").length.As<bool>() ? "#demo-frame" : "document", // stick to demo-frame if present
                 helper = "clone",
                 cursor = "move"
             });
@@ -34,6 +33,7 @@ namespace jQueryUISamples.demos.droppable
                 accept = "#gallery > li",
                 activeClass = "ui-state-highlight"
             });
+            
 
             //  drop = (e, ui) => { 
 
