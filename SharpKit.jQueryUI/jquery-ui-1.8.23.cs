@@ -1907,6 +1907,8 @@ namespace SharpKit.jQuery
         /// </summary>
         public JsNumber value { get; set; }
 
+        public JsArray values { get; set; }
+
 
     }
     #endregion
