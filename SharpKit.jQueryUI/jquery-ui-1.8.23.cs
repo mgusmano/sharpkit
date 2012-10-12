@@ -1906,6 +1906,8 @@ namespace SharpKit.jQuery
         /// ui.value: Integer - the current handle's value
         /// </summary>
         public JsNumber value { get; set; }
+
+
     }
     #endregion
     #region SliderOptions
