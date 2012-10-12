@@ -10652,6 +10652,10 @@ namespace SharpKit.KendoUI.Web
     public class Window
     {
         /// <summary>
+        /// Undocumented
+        /// </summary>
+        public jQuery.jQuery wrapper { get; set; }
+        /// <summary>
         /// Centers a Window within the viewport.
         /// </summary>
         /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
