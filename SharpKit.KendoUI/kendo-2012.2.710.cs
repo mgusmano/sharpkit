@@ -777,8 +777,20 @@ namespace SharpKit.KendoUI
         /// </example>
         public void unbind(HtmlElement element) { }
 
+        /// <summary>
+        /// Undocumented
+        /// </summary>
+        public static KendoKeys keys { get; set; }
 
+    }
 
+    /// <summary>
+    /// Undocumneted - Kendo.keys
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class KendoKeys
+    {
+        public JsNumber ENTER { get; set; }
     }
 
     /// <summary>
