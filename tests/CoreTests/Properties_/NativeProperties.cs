@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
 
+
 namespace CoreTests.Properties_
 {
-    [JsType(JsMode.Prototype, NativeProperty = true)]
+    [JsType(JsMode.Prototype, NativeProperties = true, AutomaticPropertiesAsFields = false)]
     class NativeProperties
     {
-        [JsProperty(NativeProperty=true)]
         public string Name { get; set; }
     }
 }
