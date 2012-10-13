@@ -35,11 +35,11 @@ var CoreTests$GenericsInheritance$Class2 =
         {
             CoreTests.GenericsInheritance.Class1$1.ctor.call(this, System.String.ctor);
         },
-        Hello$$List$1: function (prm)
+        Hello$$List$1$String: function (prm)
         {
             CoreTests.GenericsInheritance.Class1$1.commonPrototype.Hello$$List$1.call(this, prm);
         },
-        Hello$$List$1$$List$1: function (prm, prm2)
+        Hello$$List$1$String$$List$1$String: function (prm, prm2)
         {
             CoreTests.GenericsInheritance.Class1$1.commonPrototype.Hello$$List$1$$List$1.call(this, prm, prm2);
         }

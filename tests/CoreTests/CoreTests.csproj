@@ -35,6 +35,7 @@
     <Compile Include="AnonymousObjects\AnonymousObjects.cs" />
     <Compile Include="CustomAttributes\Class1.cs" />
     <Compile Include="Arrays\Class2.cs" />
+    <Compile Include="Delegates\NamedParameters.cs" />
     <Compile Include="GenericsInheritance\Class1.cs" />
     <Compile Include="Interfaces\Class3.cs" />
     <Compile Include="OutRefParameters\Class4.cs" />
