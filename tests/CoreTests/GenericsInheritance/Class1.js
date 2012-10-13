@@ -14,6 +14,12 @@ var CoreTests$GenericsInheritance$Class1$1 =
             this.T = T;
             System.Object.ctor.call(this);
         },
+        Hello2$$T: function (prm)
+        {
+        },
+        Hello2$$T$$T: function (prm, prm2)
+        {
+        },
         Hello$$List$1: function (prm)
         {
         },
@@ -34,6 +40,14 @@ var CoreTests$GenericsInheritance$Class2 =
         ctor: function ()
         {
             CoreTests.GenericsInheritance.Class1$1.ctor.call(this, System.String.ctor);
+        },
+        Hello2$$String: function (prm)
+        {
+            CoreTests.GenericsInheritance.Class1$1.commonPrototype.Hello2$$T.call(this, prm);
+        },
+        Hello2$$String$$String: function (prm, prm2)
+        {
+            CoreTests.GenericsInheritance.Class1$1.commonPrototype.Hello2$$T$$T.call(this, prm, prm2);
         },
         Hello$$List$1: function (prm)
         {
