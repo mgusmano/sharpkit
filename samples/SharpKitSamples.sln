@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenchaTouchSamples", "Sench
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Html5Samples", "Html5Samples\Html5Samples.csproj", "{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKitRaytracer", "SharpKitRaytracer\SharpKitRaytracer.csproj", "{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -203,6 +205,14 @@ Global
 		{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}.v3.5|Any CPU.Build.0 = Release|Any CPU
 		{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
 		{C35503C2-0FC9-49DD-85EC-3C1C05E99DBC}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}.v4.0|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
