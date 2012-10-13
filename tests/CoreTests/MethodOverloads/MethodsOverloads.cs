@@ -21,7 +21,10 @@ namespace CoreTests.Methods
             Act(TestString);
             Act(TestInt);
 
+            //DoCreate<object>(Create<object>);
+
         }
+
 
         void Test()
         {
