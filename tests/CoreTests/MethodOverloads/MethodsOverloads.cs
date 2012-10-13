@@ -13,49 +13,49 @@ namespace CoreTests.Methods
 
         public void Main()
         {
+            JsAct(Test);
+            JsAct(TestString);
+            JsAct(TestInt);
 
-            Func1((JsAction)null);
-            Func1((JsAction<string>)null);
+            Act(Test);
+            Act(TestString);
+            Act(TestInt);
 
-            Func2((JsAction<string>)null);
-            Func2((JsAction<int>)null);
-
-            Func3((Action)null);
-            Func3((Action<string>)null);
-
-            Func4((Action<string>)null);
-            Func4((Action<int>)null);
         }
 
-        public void Func1(JsAction callback)
+        void Test()
+        {
+        }
+        void TestString(string s)
+        {
+        }
+        void TestInt(int x)
         {
         }
 
-        public void Func1(JsAction<string> callback)
+        public void JsAct(JsAction callback)
         {
         }
 
-        public void Func2(JsAction<string> callback)
+        public void JsAct(JsAction<string> callback)
         {
         }
 
-        public void Func2(JsAction<int> callback)
+        public void JsAct(JsAction<int> callback)
         {
         }
 
-        public void Func3(Action callback)
+
+        public void Act(Action callback)
         {
         }
 
-        public void Func3(Action<string> callback)
+        public void Act(Action<string> callback)
         {
         }
 
-        public void Func4(Action<string> callback)
-        {
-        }
 
-        public void Func4(Action<int> callback)
+        public void Act(Action<int> callback)
         {
         }
 
