@@ -7,7 +7,7 @@ using SharpKit.JavaScript;
 
 namespace CoreTests.Properties_
 {
-    [JsType(JsMode.Prototype, NativeProperties = true, AutomaticPropertiesAsFields = false)]
+    //[JsType(JsMode.Prototype, NativeProperties = true, AutomaticPropertiesAsFields = false)]
     class NativeProperties
     {
         public string Name { get; set; }

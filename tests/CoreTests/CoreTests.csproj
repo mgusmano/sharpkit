@@ -67,6 +67,7 @@
     <Content Include="Constants\Constants.js" />
     <Content Include="Constructors\Constructors.js" />
     <Content Include="CustomAttributes\Class1.js" />
+    <Content Include="Delegates\NamedParameters.js" />
     <Content Include="Dynamics\Dynamics.js" />
     <Content Include="Enums\Enums.js" />
     <Content Include="Events\CustomEvents.js" />
