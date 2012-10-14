@@ -14,11 +14,14 @@ function runEffect()
     var options=new Object();
     if(selectedEffect === "scale")
     {
-         options = { percent: 0 };;
+        options = {percent:0};
     }
     else if(selectedEffect === "size")
     {
-         options = { to: { width: 200, height: 60 } };;
+        options = 
+        {
+            to:{width:200,height:60}
+        };
     }
     $("#effect").hide(selectedEffect,options,1000,callback);
 };

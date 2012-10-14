@@ -30,15 +30,12 @@ namespace jQueryUISamples.demos.hide
             var options = new JsObject { };
             if (selectedEffect.ExactEquals("scale"))
             {
-                //TODO
-                JsContext.JsCode("options = { percent: 0 };");
+                options = new { percent = 0 }.As<JsObject>();
             }
             else if (selectedEffect.ExactEquals("size"))
             {
-                //TODO
-                JsContext.JsCode("options = { to: { width: 200, height: 60 } };");
+                options = new { to = new { width = 200, height = 60 } }.As<JsObject>();
             }
-
             // run the effect
             new jQuery("#effect").hide(selectedEffect, options, 1000, callback);
         }

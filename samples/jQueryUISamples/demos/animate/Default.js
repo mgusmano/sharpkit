@@ -2,6 +2,9 @@
 $(OnReady);
 function OnReady()
 {
+    System.String.Format$$String$$Object$Array("asdsa",["a","b","c","d","e"]);
+    var x=["a","b","c","d","e"];
+    System.String.Format$$String$$Object$Array("asdsa",x);
     $("#button").toggle(function(e)
     {
         $("#effect").animate({backgroundColor:"#aa0000",color:"#fff",width:"500"},1000);

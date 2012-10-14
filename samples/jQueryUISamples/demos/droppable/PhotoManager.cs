@@ -7,16 +7,21 @@ namespace jQueryUISamples.demos.droppable
     [JsType(JsMode.Global)]
     public class PhotoManager
     {
-        //TODO
+        static jQuery trash;
+        static JsString recycle_icon;
+        static jQuery gallery;
+        static JsString trash_icon;
+
         static PhotoManager()
         {
+            new jQuery(OnReady);
         }
 
         static void OnReady()
         {
             // there's the gallery and the trash
-            var gallery = new jQuery("#gallery");
-            var trash = new jQuery("#trash");
+            gallery = new jQuery("#gallery");
+            trash = new jQuery("#trash");
 
             // let the gallery items be draggable
             new jQuery("li", gallery).draggable(new DraggableOptions
@@ -31,128 +36,96 @@ namespace jQueryUISamples.demos.droppable
             trash.droppable(new DroppableOptions
             {
                 accept = "#gallery > li",
-                activeClass = "ui-state-highlight"
+                activeClass = "ui-state-highlight",
+                drop = (e, ui) => deleteImage(ui.draggable)
             });
-            
+            // let the gallery be droppable as well, accepting items from the trash
+            gallery.droppable(new DroppableOptions
+            {
+                accept = "#trash li",
+                activeClass = "custom-state-active",
+                drop = (@event, ui) => recycleImage(ui.draggable)
+            });
+            // resolve the icons behavior with event delegation
+            new jQuery("ul.gallery > li").click(e =>
+            {
+                var item = new jQuery(JsContext.@this);
+                var target = new jQuery(e.target);
 
-            //  drop = (e, ui) => { 
+                if (target.@is("a.ui-icon-trash"))
+                {
+                    deleteImage(item);
+                }
+                else if (target.@is("a.ui-icon-zoomin"))
+                {
+                    viewLargerImage(target);
+                }
+                else if (target.@is("a.ui-icon-refresh"))
+                {
+                    recycleImage(item);
+                }
 
-            //    // let the trash be droppable, accepting the gallery items
-            //    $trash.droppable({
-            //        accept: "#gallery > li",
-            //        activeClass: "ui-state-highlight",
-            //        drop: function (event, ui) {
-            //            deleteImage(ui.draggable);
-            //        }
-            //    });
-
-            //    // let the gallery be droppable as well, accepting items from the trash
-            //    $gallery.droppable({
-            //        accept: "#trash li",
-            //        activeClass: "custom-state-active",
-            //        drop: function (event, ui) {
-            //            recycleImage(ui.draggable);
-            //        }
-            //    });
-
-            //    // image deletion function
-            //    var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle image</a>";
-            //    function deleteImage($item) {
-            //        $item.fadeOut(function () {
-            //            var $list = $("ul", $trash).length ?
-            //            $("ul", $trash) :
-            //            $("<ul class='gallery ui-helper-reset'/>").appendTo($trash);
-
-            //            $item.find("a.ui-icon-trash").remove();
-            //            $item.append(recycle_icon).appendTo($list).fadeIn(function () {
-            //                $item
-            //                .animate({ width: "48px" })
-            //                .find("img")
-            //                    .animate({ height: "36px" });
-            //            });
-            //        });
-            //    }
-
-            //    // image recycle function
-            //    var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Delete this image' class='ui-icon ui-icon-trash'>Delete image</a>";
-            //    function recycleImage($item) {
-            //        $item.fadeOut(function () {
-            //            $item
-            //            .find("a.ui-icon-refresh")
-            //                .remove()
-            //            .end()
-            //            .css("width", "96px")
-            //            .append(trash_icon)
-            //            .find("img")
-            //                .css("height", "72px")
-            //            .end()
-            //            .appendTo($gallery)
-            //            .fadeIn();
-            //        });
-            //    }
-
-            //    // image preview function, demonstrating the ui.dialog used as a modal window
-            //    function viewLargerImage($link) {
-            //        var src = $link.attr("href"),
-            //        title = $link.siblings("img").attr("alt"),
-            //        $modal = $("img[src$='" + src + "']");
-
-            //        if ($modal.length) {
-            //            $modal.dialog("open");
-            //        } else {
-            //            var img = $("<img alt='" + title + "' width='384' height='288' style='display: none; padding: 8px;' />")
-            //            .attr("src", src).appendTo("body");
-            //            setTimeout(function () {
-            //                img.dialog({
-            //                    title: title,
-            //                    width: 400,
-            //                    modal: true
-            //                });
-            //            }, 1);
-            //        }
-            //    }
-
-            //    // resolve the icons behavior with event delegation
-            //    $("ul.gallery > li").click(function (event) {
-            //        var $item = $(this),
-            //        $target = $(event.target);
-
-            //        if ($target.is("a.ui-icon-trash")) {
-            //            deleteImage($item);
-            //        } else if ($target.is("a.ui-icon-zoomin")) {
-            //            viewLargerImage($target);
-            //        } else if ($target.is("a.ui-icon-refresh")) {
-            //            recycleImage($item);
-            //        }
-
-            //        return false;
-            //    });
-            //});
-            
+                JsContext.@return(false);
+            });
         }
-        //static void deleteImage(jQuery item, jQuery trash)
-        //{
-        //    item.fadeOut(e => { 
-        //        var list = new jQuery("ul", trash).length > 0? new jQuery("ul", trash)
-        //        }
-        //};
-        
-        //    function deleteImage($item) {
-        //        $item.fadeOut(function () {
-        //            var $list = $("ul", $trash).length ?
-        //            $("ul", $trash) :
-        //            $("<ul class='gallery ui-helper-reset'/>").appendTo($trash);
 
-        //            $item.find("a.ui-icon-trash").remove();
-        //            $item.append(recycle_icon).appendTo($list).fadeIn(function () {
-        //                $item
-        //                .animate({ width: "48px" })
-        //                .find("img")
-        //                    .animate({ height: "36px" });
-        //            });
-        //        });
-        //    }
-        
+        // image deletion function
+        static void deleteImage(jQuery item)
+        {
+            recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle image</a>";
+            item.fadeOut(() =>
+                {
+                    var list = new jQuery("ul", trash).length.As<bool>() ?
+                        new jQuery("ul", trash) : new jQuery("<ul class='gallery ui-helper-reset'/>").appendTo(trash);
+                    item.find("a.ui-icon-trash").remove();
+                    item.append(recycle_icon).appendTo(list).fadeIn(() =>
+                        {
+                            item.animate(new Map { width = "48px" }).find("img").animate(new Map { height = "36px" });
+                        });
+                });
+        }
+        // image preview function, demonstrating the ui.dialog used as a modal window
+        static void viewLargerImage(jQuery link)
+        {
+            var src = link.attr("href");
+            var title = link.siblings("img").attr("alt");
+            var modal = new jQuery("img[src$='" + src + "']");
 
+            if (modal.length.As<bool>())
+                modal.dialog("open");
+            else
+            {
+                var img = new jQuery("<img alt='" + title + "' width='384' height='288' style='display: none; padding: 8px;' />")
+                .attr("src", src).appendTo("body");
+                HtmlContext.window.setTimeout(() =>
+                {
+                    img.dialog(new DialogOptions
+                    {
+                        title = title,
+                        width = 400,
+                        modal = true
+                    });
+                }, 1);
+            }
+        }
+        // image recycle function
+        static void recycleImage(jQuery item)
+        {
+            trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Delete this image' class='ui-icon ui-icon-trash'>Delete image</a>";
+            item.fadeOut(() =>
+            {
+                item
+                .find("a.ui-icon-refresh")
+                    .remove()
+                .end()
+                .css("width", "96px")
+                .append(trash_icon)
+                .find("img")
+                    .css("height", "72px")
+                .end()
+                .appendTo(gallery)
+                .fadeIn();
+            });
+        }
     }
 }

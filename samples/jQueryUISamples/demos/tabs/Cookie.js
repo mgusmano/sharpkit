@@ -2,5 +2,8 @@
 $(OnReady);
 function OnReady()
 {
-      $('#tabs').tabs({ cookie: {expires: 1}});;
+    $("#tabs").tabs(
+    {
+        cookie:{expires:1}
+    });
 };

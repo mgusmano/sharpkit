@@ -9,12 +9,9 @@ namespace jQueryUISamples.demos.autocomplete
     {
         static CustomData()
         {
-            dynamic x = null;
-
-            var xx = x.item.label.shooki.booki;
+            new jQuery(OnReady);
         }
 
-      
         static void OnReady()
         {
             var projects = new JsArray<AutocompleteItem>
@@ -47,47 +44,24 @@ namespace jQueryUISamples.demos.autocomplete
                 focus = (e, ui) =>
                     {
                         var ui2 = ui.As<UIWithItem>();
-                        //TODO: $( "#project" ).val( ui.item.label );
                         new jQuery("#project").val(ui2.item.label);
                         JsContext.JsCode(" new jQuery( '#project' ).val(ui.item.label)");
                         JsContext.@return(false);
                     },
                 select = (e, ui) =>
                     {
-                        JsContext.JsCode("new jQuery( '#project' ).val( ui.item.label );)");
-                        JsContext.JsCode("new jQuery( '#project-id' ).val( ui.item.value );");
-                        JsContext.JsCode("new jQuery('#project-description').html(ui.item.desc);");
-                        JsContext.JsCode("('#project-icon').attr('src', 'images/' + ui.item.icon);");
+                        new jQuery("#project").val(ui.As<UIWithItem>().item.label);
+                        new jQuery("#project-id").val(ui.As<UIWithItem>().item.value);
+                        new jQuery("#project-description").html(ui.As<UIWithItem>().item.As<AutocompleteItem>().desc);
+                        new jQuery("#project-icon").attr("src", "images/" + ui.As<UIWithItem>().item.As<AutocompleteItem>().icon);
                         JsContext.@return(false);
+                    }
+            }).data("autocomplete").As<UIWithItem>()._renderItem = (ul, item) =>
 
-                    },
-
-            });// TODO:   .data( "autocomplete" )._renderItem ...
-
-
-            //    $( "#project" ).autocomplete({
-            //        minLength: 0,
-            //        source: projects,
-            //        focus: function( event, ui ) {
-            //            $( "#project" ).val( ui.item.label );
-            //            return false;
-            //        },
-            //        select: function( event, ui ) {
-            //            $( "#project" ).val( ui.item.label );
-            //            $( "#project-id" ).val( ui.item.value );
-            //            $( "#project-description" ).html( ui.item.desc );
-            //            $( "#project-icon" ).attr( "src", "images/" + ui.item.icon );
-
-            //            return false;
-            //        }
-            //    })
-            //    .data( "autocomplete" )._renderItem = function( ul, item ) {
-            //        return $( "<li></li>" )
-            //            .data( "item.autocomplete", item )
-            //            .append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
-            //            .appendTo( ul );
-            //    };
-            //});
+                    new jQuery("<li></li>")
+                        .data("item.autocomplete", item)
+                        .append("<a>" + item.label + "<br>" + item.desc + "</a>")
+                        .appendTo(ul);
         }
     }
 
@@ -95,11 +69,16 @@ namespace jQueryUISamples.demos.autocomplete
     class UIWithItem
     {
         public UIItem item { get; set; }
+        public JsFunc<jQuery, AutocompleteItem, jQuery> _renderItem { get; set; }
     }
 
     [JsType(JsMode.Json)]
     class UIItem
     {
         public JsString label { get; set; }
+        public JsString value { get; set; }
+
     }
+
+
 }

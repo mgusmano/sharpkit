@@ -15,7 +15,7 @@ namespace jQueryUISamples.demos.datepicker
         static void OnReady()
         {
             
-            //TODO:   DatePicker.setDefaults(DatePicker.regional[""]);
+            //DatePicker.setDefaults(DatePicker.regional[""]);
             
             //TODO: $("#datepicker").datepicker($.datepicker.regional["fr"]);
             new jQuery("#datepicker").datepicker();

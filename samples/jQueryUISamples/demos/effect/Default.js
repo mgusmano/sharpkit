@@ -14,15 +14,18 @@ function runEffect()
     var options=new Object();
     if(selectedEffect === "scale")
     {
-         options = { percent: 0 };;
+        options = {percent:0};
     }
     else if(selectedEffect === "transfer")
     {
-         options = { to: '#button', className: 'ui-effects-transfer' };;
+        options = {to:"#button",className:"ui-effects-transfer"};
     }
     else if(selectedEffect === "size")
     {
-         options = { to: { width: 200, height: 60 } };;
+        options = 
+        {
+            to:{width:200,height:60}
+        };
     }
     $("#effect").effect(selectedEffect,options,500,callback);
 };

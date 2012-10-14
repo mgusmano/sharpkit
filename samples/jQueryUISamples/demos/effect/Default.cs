@@ -30,19 +30,15 @@ namespace jQueryUISamples.demos.effect
             var options = new JsObject { };
             if (selectedEffect.ExactEquals("scale"))
             {
-               
-                //TODO
-                JsContext.JsCode("options = { percent: 0 };");
+                options = new { percent = 0 }.As<JsObject>();
             }
             else if (selectedEffect.ExactEquals("transfer"))
             {
-                //TODO
-                JsContext.JsCode("options = { to: '#button', className: 'ui-effects-transfer' };");
+                options = new { to = "#button", className = "ui-effects-transfer" }.As<JsObject>();
             }
             else if (selectedEffect.ExactEquals("size"))
             {
-                //TODO
-                JsContext.JsCode("options = { to: { width: 200, height: 60 } };");
+                options = new { to = new Size { width = 200, height = 60 } }.As<JsObject>();
             }
             // run the effect
             new jQuery("#effect").effect(selectedEffect, options, 500, callback);

@@ -70,6 +70,8 @@
     <Content Include="demos\addClass\Default.htm" />
     <Content Include="demos\animate\Default.htm" />
     <Content Include="demos\animate\Default.js" />
+    <Content Include="demos\autocomplete\CustomData.htm" />
+    <Content Include="demos\autocomplete\CustomData.js" />
     <Content Include="demos\autocomplete\images\jqueryui_32x32.png" />
     <Content Include="demos\autocomplete\images\jquery_32x32.png" />
     <Content Include="demos\autocomplete\images\sizzlejs_32x32.png" />
