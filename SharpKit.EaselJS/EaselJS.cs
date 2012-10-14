@@ -1511,6 +1511,7 @@ namespace SharpKit.EaselJS
         /// <returns>a string representation of the instance.</returns>
         public JsString toString() { return null; }
     }
+    //TODO: "Base class that all filters should inherit from." (?)
 
     /// <summary>
     /// The Graphics class exposes an easy to use API for generating vector drawing instructions and drawing them to a specified context.
@@ -2163,7 +2164,7 @@ namespace SharpKit.EaselJS
         /// <param name="shadow">desired shadow value</param>
         /// <param name="compositeOperation">desired composite operation value</param>
         /// <returns>This matrix. Useful for chaining method calls.</returns>
-        public Matrix2D appendProperties (JsNumber a, JsNumber b, JsNumber c, JsNumber d, JsNumber tx, JsNumber ty,JsNumber alpha ,Shadow shadow ,JsString compositeOperation ) { return null; }
+        public Matrix2D appendProperties(JsNumber a, JsNumber b, JsNumber c, JsNumber d, JsNumber tx, JsNumber ty, JsNumber alpha, Shadow shadow, JsString compositeOperation) { return null; }
 
         /// <summary>
         /// Generates matrix properties from the specified display object transform properties, and appends them with this matrix. For example,
@@ -2220,26 +2221,1006 @@ namespace SharpKit.EaselJS
         /// </summary>
         /// <param name="target">The object to apply the transform properties to. If null, then a new object will be returned.</param>
         /// <returns>This matrix. Useful for chaining method calls.</returns>
-        public Matrix2D decompose (object target ) { return null; }
+        public Matrix2D decompose(object target) { return null; }
 
+        /// <summary>
+        /// Inverts the matrix, causing it to perform the opposite transformation.
+        /// </summary>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D invert() { return null; }
+
+        /// <summary>
+        /// Returns true if the matrix is an identity matrix.
+        /// </summary>
+        public void isIdentity() { }
+
+        /// <summary>
+        /// Concatenates the specified matrix properties with this matrix. All parameters are required.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="d"></param>
+        /// <param name="tx"></param>
+        /// <param name="ty"></param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D prepend(JsNumber a, JsNumber b, JsNumber c, JsNumber d, JsNumber tx, JsNumber ty) { return null; }
+
+        /// <summary>
+        /// Prepends the specified matrix with this matrix.
+        /// </summary>
+        /// <param name="matrix"></param>
+        public void prependMatrix(Matrix2D matrix) { }
+
+        /// <summary>
+        /// Prepends the specified visual properties to the current matrix.
+        /// </summary>
+        /// <param name="alpha">desired alpha value</param>
+        /// <param name="shadow">desired shadow value</param>
+        /// <param name="compositeOperation">desired composite operation value</param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D prependProperties(JsNumber alpha, Shadow shadow, JsString compositeOperation) { return null; }
+
+        /// <summary>
+        /// Generates matrix properties from the specified display object transform properties, and prepends them with this matrix.
+        /// For example, you can use this to generate a matrix from a display object: var mtx = new Matrix2D(); mtx.prependTransform(o.x, o.y, o.scaleX, o.scaleY, o.rotation);
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="scaleX"></param>
+        /// <param name="scaleY"></param>
+        /// <param name="rotation"></param>
+        /// <param name="skewX"></param>
+        /// <param name="skewY"></param>
+        /// <param name="regX">Optional</param>
+        /// <param name="regY">Optional</param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D prependTransform(JsNumber x, JsNumber y, JsNumber scaleX, JsNumber scaleY, JsNumber rotation, JsNumber skewX, JsNumber skewY, JsNumber regX, JsNumber regY) { return null; }
+        /// <summary>
+        /// Generates matrix properties from the specified display object transform properties, and prepends them with this matrix.
+        /// For example, you can use this to generate a matrix from a display object: var mtx = new Matrix2D(); mtx.prependTransform(o.x, o.y, o.scaleX, o.scaleY, o.rotation);
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="scaleX"></param>
+        /// <param name="scaleY"></param>
+        /// <param name="rotation"></param>
+        /// <param name="skewX"></param>
+        /// <param name="skewY"></param>
+        /// <param name="regX">Optional</param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D prependTransform(JsNumber x, JsNumber y, JsNumber scaleX, JsNumber scaleY, JsNumber rotation, JsNumber skewX, JsNumber skewY, JsNumber regX) { return null; }
+        /// <summary>
+        /// Generates matrix properties from the specified display object transform properties, and prepends them with this matrix.
+        /// For example, you can use this to generate a matrix from a display object: var mtx = new Matrix2D(); mtx.prependTransform(o.x, o.y, o.scaleX, o.scaleY, o.rotation);
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="scaleX"></param>
+        /// <param name="scaleY"></param>
+        /// <param name="rotation"></param>
+        /// <param name="skewX"></param>
+        /// <param name="skewY"></param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D prependTransform(JsNumber x, JsNumber y, JsNumber scaleX, JsNumber scaleY, JsNumber rotation, JsNumber skewX, JsNumber skewY) { return null; }
+
+        /// <summary>
+        /// Applies a rotation transformation to the matrix.
+        /// </summary>
+        /// <param name="angle">The angle in degrees.</param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D rotate(JsNumber angle) { return null; }
+
+        /// <summary>
+        /// Applies a scale transformation to the matrix.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D scale(JsNumber x, JsNumber y) { return null; }
+
+        /// <summary>
+        /// Applies a skew transformation to the matrix.
+        /// </summary>
+        /// <param name="skewX">The amount to skew horizontally in degrees.</param>
+        /// <param name="skewY">The amount to skew vertically in degrees.</param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D skew(JsNumber skewX, JsNumber skewY) { return null; }
+
+        /// <summary>
+        /// Returns a string representation of this object.
+        /// </summary>
+        /// <returns>a string representation of the instance.</returns>
+        public JsString toString() { return null; }
+
+        /// <summary>
+        /// Translates the matrix on the x and y axes.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns>This matrix. Useful for chaining method calls.</returns>
+        public Matrix2D translate(JsNumber x, JsNumber y) { return null; }
 
     }
 
-    [JsType(JsMode.Prototype, Name = "Shape", Export = false)]
-    public class Shape
+    /// <summary>
+    /// This is passed as the parameter to onPress, onMouseMove, onMouseUp, onMouseDown, onMouseOver, onMouseOut and onClick handlers on DisplayObject instances.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "MouseEvent", Export = false)]
+    public class MouseEvent
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type">The event type.</param>
+        /// <param name="stageX">The normalized x position relative to the stage.</param>
+        /// <param name="stageY">The normalized y position relative to the stage.</param>
+        /// <param name="target">The display object this event relates to.</param>
+        /// <param name="nativeEvent">The native DOM event related to this mouse event.</param>
+        /// <param name="pointerID">The unique id for the pointer.</param>
+        /// <param name="primary">Indicates whether this is the primary pointer in a multitouch environment.</param>
+        /// <param name="rawX">The raw x position relative to the stage.</param>
+        /// <param name="rawY">The raw y position relative to the stage.</param>
+        public MouseEvent(JsString type, JsNumber stageX, JsNumber stageY, DisplayObject target, MouseEvent nativeEvent, JsNumber pointerID, bool primary, JsNumber rawX, JsNumber rawY) { }
+
+        /// <summary>
+        /// The native MouseEvent generated by the browser. The properties and API for this event may differ between browsers.
+        /// This property will be null if the EaselJS property was not directly generated from a native MouseEvent.
+        /// Default Value: null
+        /// </summary>
+        public MouseEvent nativeEvent { get; set; }
+
+        /// <summary>
+        /// The unique id for the pointer (touch point or cursor). This will be either -1 for the mouse, or the system supplied id value.
+        /// </summary>
+        public JsNumber pointerID { get; set; }
+
+        /// <summary>
+        /// Indicates whether this is the primary pointer in a multitouch environment.
+        /// This will always be true for the mouse. For touch pointers, the first pointer in the current stack will be considered the primary pointer.
+        /// </summary>
+        public bool primaryPointer { get; set; }
+
+        /// <summary>
+        /// The raw x position relative to the stage.
+        /// Normally this will be the same as the stageX value, unless stage.mouseMoveOutside is true and the pointer is outside of the stage bounds.
+        /// </summary>
+        public JsNumber rawX { get; set; }
+
+        /// <summary>
+        /// The raw y position relative to the stage.
+        /// Normally this will be the same as the stageY value, unless stage.mouseMoveOutside is true and the pointer is outside of the stage bounds.
+        /// </summary>
+        public JsNumber rawY { get; set; }
+
+        /// <summary>
+        /// The normalized x position on the stage. This will always be within the range 0 to stage width.
+        /// </summary>
+        public JsNumber stageX { get; set; }
+
+        /// <summary>
+        /// The normalized y position on the stage. This will always be within the range 0 to stage height.
+        /// </summary>
+        public JsNumber stageY { get; set; }
+
+        /// <summary>
+        /// The display object this event relates to.
+        /// Default Value: null
+        /// </summary>
+        public DisplayObject target { get; set; }
+
+        /// <summary>
+        /// The type of mouse event. This will be the same as the handler it maps to (onPress, onMouseDown, onMouseUp, onMouseMove, or onClick).
+        /// </summary>
+        public JsString type { get; set; }
+
+        /// <summary>
+        /// Returns a clone of the MouseEvent instance.
+        /// </summary>
+        /// <returns>a clone of the MouseEvent instance.</returns>
+        public MouseEvent clone() { return null; }
+
+        /// <summary>
+        /// Returns a string representation of this object.
+        /// </summary>
+        /// <returns>a string representation of the instance.</returns>
+        public JsString toString() { return null; }
+
+        /// <summary>
+        /// For events of type "onPress" only you can assign a handler to the onMouseMove property.
+        /// This handler will be called every time the mouse is moved until the mouse is released. This is useful for operations such as drag and drop.
+        /// </summary>
+        public JsAction<MouseEvent> onMouseMove { get; set; }
+
+        /// <summary>
+        /// For events of type "onPress" only you can assign a handler to the onMouseUp property.
+        /// This handler will be called every time the mouse is moved until the mouse is released. This is useful for operations such as drag and drop.
+        /// </summary>
+        public JsAction<MouseEvent> onMouseUp { get; set; }
+    }
+
+    /// <summary>
+    /// extends Container
+    /// The MovieClip class associates a TweenJS Timeline with an EaselJS Container.
+    /// It allows you to create objects which encapsulate timeline animations, state changes, and synched actions.
+    /// Due to the complexities inherent in correctly setting up a MovieClip, it is largely intended for tool output and is not included in the main EaselJS library. 
+    /// Currently MovieClip only works properly if it is tick based (as opposed to time based) though some concessions have been made to support time based timelines in the future.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "MovieClip", Export = false)]
+    public class MovieClip : Container
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mode">Initial value for the mode property. One of MovieClip.INDEPENDENT, MovieClip.SINGLE_FRAME, or MovieClip.SYNCHED.</param>
+        /// <param name="startPosition">Initial value for the startPosition property.</param>
+        /// <param name="loop">Initial value for the loop property.</param>
+        /// <param name="labels">A hash of labels to pass to the timeline instance associated with this MovieClip.</param>
+        public MovieClip(JsString mode, JsNumber startPosition, bool loop, object labels) { }
+
+        /// <summary>
+        /// If true, actions in this MovieClip's tweens will be run when the playhead advances.
+        /// </summary>
+        public bool actionsEnabled { get; set; }
+
+        /// <summary>
+        /// Read-only. The MovieClip will advance independently of its parent, even if its parent is paused. This is the default mode.
+        /// Default Value: "independent"
+        /// </summary>
+        public static JsString INDEPENDENT { get; private set; }
+
+        /// <summary>
+        /// Indicates whether this MovieClip should loop when it reaches the end of its timeline.
+        /// Default Value: true
+        /// </summary>
+        public bool loop { get; set; }
+
+        /// <summary>
+        /// Controls how this MovieClip advances its time. Must be one of 0 (INDEPENDENT), 1 (SINGLE_FRAME), or 2 (SYNCHED). See each constant for a description of the behaviour.
+        /// Default Value: null
+        /// </summary>
+        public JsString mode { get; set; }
+
+        /// <summary>
+        /// If true, the MovieClip's position will not advance when ticked.
+        /// </summary>
+        public bool paused { get; set; }
+
+        /// <summary>
+        /// Read-only. The MovieClip will only display a single frame (as determined by the startPosition property).
+        /// Default Value: "single"
+        /// </summary>
+        public static JsString SINGLE_FRAME { get; private set; }
+
+        /// <summary>
+        /// Specifies what the first frame to play in this movieclip, or the only frame to display if mode is SINGLE_FRAME.
+        /// Default Value: 0
+        /// </summary>
+        public JsNumber startPosition { get; set; }
+
+        /// <summary>
+        /// Read-only. The MovieClip will be advanced only when it's parent advances and will be synched to the position of the parent MovieClip.
+        /// Default Value: "synched"
+        /// </summary>
+        public static JsString SYNCHED { get; private set; }
+
+        /// <summary>
+        /// The TweenJS Timeline that is associated with this MovieClip. This is created automatically when the MovieClip instance is initialized.
+        /// </summary>
+        public Timeline timeline { get; set; }
+
+        /// <summary>
+        /// MovieClip instances cannot be cloned.
+        /// </summary>
+        public void clone() { }
+
+        /// <summary>
+        /// Draws the display object into the specified context ignoring it's visible, alpha, shadow, and transform.
+        /// Returns true if the draw was handled (useful for overriding functionality).
+        /// NOTE: This method is mainly for internal use, though it may be useful for advanced uses.
+        /// </summary>
+        /// <param name="ctx">The canvas 2D context object to draw into.</param>
+        /// <param name="ignoreCache">Indicates whether the draw operation should ignore any current cache.
+        /// For example, used for drawing the cache (to prevent it from simply drawing an existing cache back into itself).</param>
+        /// <returns></returns>
+        public bool draw(CanvasRenderingContext2D ctx, bool ignoreCache) { return false; }
+
+        /// <summary>
+        /// Advances this movie clip to the specified position or label and sets paused to false.
+        /// </summary>
+        /// <param name="positionOrLabel"></param>
+        public void gotoAndPlay(object positionOrLabel) { }
+
+        /// <summary>
+        /// Advances this movie clip to the specified position or label and sets paused to true.
+        /// </summary>
+        /// <param name="positionOrLabel"></param>
+        public void gotoAndStop(object positionOrLabel) { }
+
+        /// <summary>
+        /// Returns true or false indicating whether the display object would be visible if drawn to a canvas.
+        /// This does not account for whether it would be visible within the boundaries of the stage.
+        /// NOTE: This method is mainly for internal use, though it may be useful for advanced uses.
+        /// </summary>
+        /// <returns>Boolean indicating whether the display object would be visible if drawn to a canvas</returns>
+        public bool isVisible() { return false; }
+
+        /// <summary>
+        /// Sets paused to false.
+        /// </summary>
+        public void play() { }
+
+        /// <summary>
+        /// Sets paused to true.
+        /// </summary>
+        public void stop() { }
+
+        /// <summary>
+        /// Returns a string representation of this object.
+        /// </summary>
+        /// <returns>a string representation of the instance.</returns>
+        public JsString toString() { return null; }
+    }
+
+    /// <summary>
+    /// Represents a point on a 2 dimensional x / y coordinate system.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Point", Export = false)]
+    public class Point
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x">X position. Default is 0.</param>
+        /// <param name="y">Y position. Default is 0.</param>
+        public Point(JsNumber x, JsNumber y) { }
+
+        /// <summary>
+        /// X position.
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// Y position.
+        /// </summary>
+        public JsNumber y { get; set; }
+
+        /// <summary>
+        /// Returns a clone of the Point instance.
+        /// </summary>
+        /// <returns>a clone of the Point instance.</returns>
+        public Point clone() { return null; }
+
+        /// <summary>
+        /// Returns a string representation of this object.
+        /// </summary>
+        /// <returns>a string representation of the instance.</returns>
+        public JsString toString() { return null; }
+    }
+
+    /// <summary>
+    /// Represents a rectangle as defined by the points (x, y) and (x+width, y+height).
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Rectangle", Export = false)]
+    public class Rectangle
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x">X position. Default is 0.</param>
+        /// <param name="y">Y position. Default is 0.</param>
+        /// <param name="width">Width. Default is 0.</param>
+        /// <param name="height">Height. Default is 0.</param>
+        public Rectangle(JsNumber x, JsNumber y, JsNumber width, JsNumber height) { }
+
+        /// <summary>
+        /// Height.
+        /// </summary>
+        public JsNumber height { get; set; }
+
+        /// <summary>
+        /// Width.
+        /// </summary>
+        public JsNumber width { get; set; }
+
+        /// <summary>
+        /// X position.
+        /// </summary>
+        public JsNumber x { get; set; }
+
+        /// <summary>
+        /// Y position.
+        /// </summary>
+        public JsNumber y { get; set; }
+
+        /// <summary>
+        /// Returns a clone of the Rectangle instance.
+        /// </summary>
+        /// <returns>a clone of the Rectangle instance.</returns>
+        public Rectangle clone() { return null; }
+
+        /// <summary>
+        /// Returns a string representation of this object.
+        /// </summary>
+        /// <returns>a string representation of the instance.</returns>
+        public JsString toString() { return null; }
+
 
     }
 
+    /// <summary>
+    /// Encapsulates the properties required to define a shadow to apply to a DisplayObject via it's .shadow property.
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "Shadow", Export = false)]
     public class Shadow
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="color">The color of the shadow.</param>
+        /// <param name="offsetX">The x offset of the shadow.</param>
+        /// <param name="offsetY">The y offset of the shadow.</param>
+        /// <param name="blur">The size of the blurring effect.</param>
+        public Shadow(JsString color, JsNumber offsetX, JsNumber offsetY, JsNumber blur) { }
 
+        /// <summary>
+        /// The blur of the shadow. property blur
+        /// Default Value: 0
+        /// </summary>
+        public JsNumber blur { get; set; }
+
+        /// <summary>
+        /// The color of the shadow. property color
+        /// Default Value: null
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// An identity shadow object (all properties are set to 0). Read-only.
+        /// </summary>
+        public static Shadow identity { get; private set; }
+
+        /// <summary>
+        /// The x offset of the shadow. property offsetX
+        /// Default Value: 0
+        /// </summary>
+        public JsNumber offsetX { get; set; }
+
+        /// <summary>
+        /// The y offset of the shadow. property offsetY
+        /// Default Value: 0
+        /// </summary>
+        public JsNumber Name { get; set; }
+
+        /// <summary>
+        /// Returns a clone of this Shadow instance.
+        /// </summary>
+        /// <returns>a clone of the Shadow instance.</returns>
+        public Shadow clone() { return null; }
+
+        /// <summary>
+        /// Returns a string representation of this object.
+        /// </summary>
+        /// <returns>a string representation of the instance.</returns>
+        public JsString toString() { return null; }
     }
 
+    /// <summary>
+    /// A Shape allows you to display vector art in the display list.
+    /// It composites a Graphics instance which exposes all of the vector drawing methods.
+    /// The Graphics instance can be shared between multiple Shape instances to display the same vector graphics with different positions or transforms.
+    /// If the vector art will not change between draws, you may want to use the cache() method to reduce the rendering cost.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Shape", Export = false)]
+    public class Shape : DisplayObject
+    {
+        /// <summary>
+        /// The graphics instance to display.
+        /// </summary>
+        public Graphics graphics { get; set; }
+
+        /// <summary>
+        /// Returns a clone of this Shape. Some properties that are specific to this instance's current context are reverted to their defaults (for example .parent).
+        /// </summary>
+        /// <param name="recursive">If true, this Shape's Graphics instance will also be cloned. If false, the Graphics instance will be shared with the new Shape.</param>
+        /// <returns></returns>
+        public Shape clone(bool recursive) { return null; }
+
+        /// <summary>
+        /// Draws the Shape into the specified context ignoring it's visible, alpha, shadow, and transform.
+        /// Returns true if the draw was handled (useful for overriding functionality). NOTE: This method is mainly for internal use, though it may be useful for advanced uses.
+        /// </summary>
+        /// <param name="ctx">The canvas 2D context object to draw into.</param>
+        /// <param name="ignoreCache">Indicates whether the draw operation should ignore any current cache.
+        /// For example, used for drawing the cache (to prevent it from simply drawing an existing cache back into itself).</param>
+        /// <returns></returns>
+        public bool draw(CanvasRenderingContext2D ctx, bool ignoreCache) { return false; }
+
+        /// <summary>
+        /// Returns true or false indicating whether the Shape would be visible if drawn to a canvas.
+        /// This does not account for whether it would be visible within the boundaries of the stage.
+        /// NOTE: This method is mainly for internal use, though it may be useful for advanced uses.
+        /// </summary>
+        /// <returns>Boolean indicating whether the Shape would be visible if drawn to a canvas</returns>
+        public bool isVisible() { return false; }
+
+        /// <summary>
+        /// Returns a string representation of this object.
+        /// </summary>
+        /// <returns>a string representation of the instance.</returns>
+        public JsString toString() { return null; }
+    }
+
+    /// <summary>
+    /// Encapsulates the properties and methods associated with a sprite sheet.
+    /// A sprite sheet is a series of images (usually animation frames) combined into a larger image (or images).
+    /// For example, an animation consisting of 8 100x100 images could be combined into a 400x200 sprite sheet (4 frames across by 2 high).
+    /// The data passed to the SpriteSheet constructor defines three critical pieces of information:
+    /// The image or images to use.
+    /// The positions of individual image frames. This data can be represented in one of two ways:
+    /// As a regular grid of sequential, equal-sized frames, or as individually defined, variable sized frames arranged in an irregular (non-sequential) fashion.
+    /// Likewise, animations can be represented in two ways: As a series of sequential frames, defined by a start and end frame [0,3], or as a list of frames [0,1,2,3].
+    /// The easiest way to understand the data format is to see an example:
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// data = {
+    ///  
+    /// // DEFINING IMAGES:
+    /// 	// list of images or image URIs to use. SpriteSheet can handle preloading.
+    /// 	// the order dictates their index value for frame definition.
+    /// 	images: [image1, "path/to/image2.png"],
+    ///  
+    /// // DEFINING FRAMES:
+    ///  
+    /// 	// the simple way to define frames, only requires frame size because frames are consecutive:
+    /// 	// define frame width/height, and optionally the frame count and registration point x/y.
+    /// 	// if count is omitted, it will be calculated automatically based on image dimensions.
+    /// 	frames: {width:64, height:64, count:20, regX: 32, regY:64},
+    ///  
+    /// 	// OR, the complex way that defines individual rects for frames.
+    /// 	// The 5th value is the image index per the list defined in "images" (defaults to 0).
+    /// 	frames: [
+    /// 		// x, y, width, height, imageIndex, regX, regY
+    /// 		[0,0,64,64,0,32,64],
+    /// 		[64,0,96,64,0]
+    /// 	],
+    ///  
+    /// // DEFINING ANIMATIONS:
+    ///  
+    /// 	// simple animation definitions. Define a consecutive range of frames.
+    /// 	// also optionally define a "next" animation name for sequencing.
+    /// 	// setting next to false makes it pause when it reaches the end.
+    /// 	animations: {
+    /// 		// start, end, next, frequency
+    /// 		run: [0,8],
+    /// 		jump: [9,12,"run",2],
+    /// 		stand: [13]
+    /// 	}
+    ///  
+    /// 	// the complex approach which specifies every frame in the animation by index.
+    /// 	animations: {
+    /// 		run: {
+    /// 			frames: [1,2,3,3,2,1]
+    /// 		},
+    /// 		jump: {
+    /// 			frames: [1,4,5,6,1],
+    /// 			next: "run",
+    /// 			frequency: 2
+    /// 		},
+    /// 		stand: { frames: [7] }
+    /// 	}
+    ///  
+    /// 	// the above two approaches can be combined, you can also use a single frame definition:
+    /// 	animations: {
+    /// 		run: [0,8,true,2],
+    /// 		jump: {
+    /// 			frames: [8,9,10,9,8],
+    /// 			next: "run",
+    /// 			frequency: 2
+    /// 		},
+    /// 		stand:7
+    /// 	}
+    /// }
+    /// </code>
+    /// </example>
     [JsType(JsMode.Prototype, Name = "SpriteSheet", Export = false)]
     public class SpriteSheet
     {
+        public SpriteSheet(object data) { }
+
+        /// <summary>
+        /// Read-only property indicating whether all images are finished loading.
+        /// </summary>
+        public bool complete { get; private set; }
+
+        /// <summary>
+        /// Returns a clone of the SpriteSheet instance.
+        /// </summary>
+        /// <returns>a clone of the SpriteSheet instance.</returns>
+        public SpriteSheet clone() { return null; }
+
+        /// <summary>
+        /// Returns an object defining the specified animation.
+        /// The returned object has a frames property containing an array of the frame id's in the animation,
+        /// a frequency property indicating the advance frequency for this animation, a name property, and a next property, which specifies the default next animation.
+        /// If the animation loops, the name and next property will be the same.
+        /// </summary>
+        /// <param name="name">The name of the animation to get.</param>
+        /// <returns>a generic object with frames, frequency, name, and next properties.</returns>
+        public AnimationConfig getAnimation(object name) { return null; }
+
+        /// <summary>
+        /// Returns an array of all available animation names as strings.
+        /// </summary>
+        /// <returns>an array of animation names available on this sprite sheet.</returns>
+        public JsArray<JsString> getAnimations() { return null; }
+
+        /// <summary>
+        /// Returns an object specifying the image and source rect of the specified frame.
+        /// The returned object has an image property holding a reference to the image object in which the frame is found,
+        /// and a rect property containing a Rectangle instance which defines the boundaries for the frame within that image.
+        /// </summary>
+        /// <param name="frameIndex">The index of the frame.</param>
+        /// <returns>a generic object with image and rect properties. Returns null if the frame does not exist, or the image is not fully loaded.</returns>
+        public FrameConfig getFrame(JsNumber frameIndex) { return null; }
+
+        /// <summary>
+        /// Returns the total number of frames in the specified animation, or in the whole sprite sheet if the animation param is omitted.
+        /// </summary>
+        /// <param name="animation">The name of the animation to get a frame count for.</param>
+        /// <returns>The number of frames in the animation, or in the entire sprite sheet if the animation param is omitted.</returns>
+        public JsNumber getNumFrames(JsString animation) { return null; }
+
+        /// <summary>
+        /// Returns a string representation of this object.
+        /// </summary>
+        /// <returns>a string representation of the instance.</returns>
+        public JsString toString() { return null; }
+
+        /// <summary>
+        /// The onComplete callback is called when all images are loaded.
+        /// Note that this only fires if the images were not fully loaded when the sprite sheet was initialized.
+        /// You should check the complete property to prior to adding an onComplete handler. Ex.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// var sheet = new SpriteSheet(data);
+        /// if (!sheet.complete) {
+        ///   // not preloaded, listen for onComplete:
+        ///   sheet.onComplete = handler;
+        /// }
+        /// </code>
+        /// </example>
+        public JsAction onComplete { get; set; }
+
+
+    }
+
+    /// <summary>
+    /// an object defining the specified animation.
+    /// The returned object has a frames property containing an array of the frame id's in the animation,
+    /// a frequency property indicating the advance frequency for this animation, a name property, and a next property, which specifies the default next animation.
+    /// If the animation loops, the name and next property will be the same.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class AnimationConfig
+    {
+        /// <summary>
+        /// containing an array of the frame id's in the animation
+        /// </summary>
+        public JsArray<JsString> frames { get; set; }
+
+        /// <summary>
+        /// indicating the advance frequency for this animation
+        /// </summary>
+        public JsNumber frequency { get; set; }
+
+        /// <summary>
+        /// a name property
+        /// </summary>
+        public object name { get; set; }
+
+        /// <summary>
+        /// specifies the default next animation
+        /// </summary>
+        public object next { get; set; }
+
+        /// <summary>
+        /// a name property
+        /// </summary>
+        [JsProperty(Name = "name")]
+        public JsString nameString { get; set; }
+
+        /// <summary>
+        /// specifies the default next animation
+        /// </summary>
+        [JsProperty(Name = "next")]
+        public JsString nextString { get; set; }
+    }
+
+    /// <summary>
+    /// an object specifying the image and source rect of the specified frame.
+    /// The returned object has an image property holding a reference to the image object in which the frame is found,
+    /// and a rect property containing a Rectangle instance which defines the boundaries for the frame within that image.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public class FrameConfig
+    {
+        /// <summary>
+        /// holding a reference to the image object in which the frame is found,
+        /// </summary>
+        public object image { get; set; }
+        //TODO: type?
+
+        /// <summary>
+        /// containing a Rectangle instance which defines the boundaries for the frame within that image.
+        /// </summary>
+        public Rectangle rect { get; set; }
+    }
+
+    /// <summary>
+    /// The SpriteSheetBuilder allows you to generate sprite sheets at run time from any display object.
+    /// This can allow you to maintain your assets as vector graphics (for low file size), and render them at run time as sprite sheets for better performance. 
+    /// Sprite sheets can be built either synchronously, or asynchronously, so that large sprite sheets can be generated without locking the UI. 
+    /// Note that the "images" used in the generated sprite sheet are actually canvas elements,
+    /// and that they will be sized to the nearest power of 2 up to the value of maxWidth or maxHeight.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "SpriteSheetBuilder", Export = false)]
+    public class SpriteSheetBuilder
+    {
+        public SpriteSheetBuilder() { }
+
+        /// <summary>
+        /// The scale to apply when drawing all frames to the sprite sheet.
+        /// This is multiplied against any scale specified in the addFrame call.
+        /// This can be used, for example, to generate a sprite sheet at run time that is tailored to the a specific device resolution (ex. tablet vs mobile).
+        /// Default Value: 1
+        /// </summary>
+        public JsNumber defaultScale { get; set; }
+
+        /// <summary>
+        /// The maximum height for the images (not individual frames) in the generated sprite sheet.
+        /// It is recommended to use a power of 2 for this value (ex. 1024, 2048, 4096).
+        /// If the frames cannot all fit within the max dimensions, then additional images will be created as needed.
+        /// Default Value: 2048
+        /// </summary>
+        public JsNumber maxHeight { get; set; }
+
+        /// <summary>
+        /// The maximum width for the images (not individual frames) in the generated sprite sheet.
+        /// It is recommended to use a power of 2 for this value (ex. 1024, 2048, 4096).
+        /// If the frames cannot all fit within the max dimensions, then additional images will be created as needed.
+        /// Default Value: 2048
+        /// </summary>
+        public JsNumber maxWidth { get; set; }
+
+        /// <summary>
+        /// The padding to use between frames. This is helpful to preserve antialiasing on drawn vector content.
+        /// Default Value: 1
+        /// </summary>
+        public JsNumber padding { get; set; }
+
+        /// <summary>
+        /// The sprite sheet that was generated. This will be null before a build is completed successfully.
+        /// </summary>
+        public SpriteSheet spriteSheet { get; set; }
+
+        /// <summary>
+        /// Adds a frame to the sprite sheet. Note that the frame will not be drawn until you call build.
+        /// The optional setup params allow you to have a function run immediately before the draw occurs.
+        /// For example, this allows you to add a single source multiple times, but manipulate it or it's children to change it to generate different frames. 
+        /// Note that the source's transformations (x,y,scale,rotate,alpha) will be ignored, except for regX/Y.
+        /// To apply transforms to a source object and have them captured in the sprite sheet, simply place it into a Container and pass in the Container as the source.
+        /// </summary>
+        /// <param name="source">The source display object to draw as the frame.</param>
+        /// <param name="sourceRect">Optional. A rectangle defining the portion of the source to draw to the frame. If not specified, it will look for a getBounds method,
+        /// bounds property, or nominalBounds property on the source to use. If one is not found, the frame will be skipped.</param>
+        /// <param name="scale">Optional. The scale to draw this frame at. Default is 1.</param>
+        /// <param name="setupFunction">Optional. A function to call immediately before drawing this frame.</param>
+        /// <param name="setupParams">Optional. Parameters to pass to the setup function.</param>
+        /// <param name="setupScope">Optional. The scope to call the setupFunction in.</param>
+        /// <returns>The index of the frame that was just added, or null if a sourceRect could not be determined.</returns>
+        public JsNumber addFrame(DisplayObject source, Rectangle sourceRect, JsNumber scale, JsAction setupFunction, JsArray setupParams, object setupScope) { return null; }
+        /// <summary>
+        /// Adds a frame to the sprite sheet. Note that the frame will not be drawn until you call build.
+        /// The optional setup params allow you to have a function run immediately before the draw occurs.
+        /// For example, this allows you to add a single source multiple times, but manipulate it or it's children to change it to generate different frames. 
+        /// Note that the source's transformations (x,y,scale,rotate,alpha) will be ignored, except for regX/Y.
+        /// To apply transforms to a source object and have them captured in the sprite sheet, simply place it into a Container and pass in the Container as the source.
+        /// </summary>
+        /// <param name="source">The source display object to draw as the frame.</param>
+        /// <param name="sourceRect">Optional. A rectangle defining the portion of the source to draw to the frame. If not specified, it will look for a getBounds method,
+        /// bounds property, or nominalBounds property on the source to use. If one is not found, the frame will be skipped.</param>
+        /// <param name="scale">Optional. The scale to draw this frame at. Default is 1.</param>
+        /// <param name="setupFunction">Optional. A function to call immediately before drawing this frame.</param>
+        /// <param name="setupParams">Optional. Parameters to pass to the setup function.</param>
+        /// <returns>The index of the frame that was just added, or null if a sourceRect could not be determined.</returns>
+        public JsNumber addFrame(DisplayObject source, Rectangle sourceRect, JsNumber scale, JsAction setupFunction, JsArray setupParams) { return null; }
+        /// <summary>
+        /// Adds a frame to the sprite sheet. Note that the frame will not be drawn until you call build.
+        /// The optional setup params allow you to have a function run immediately before the draw occurs.
+        /// For example, this allows you to add a single source multiple times, but manipulate it or it's children to change it to generate different frames. 
+        /// Note that the source's transformations (x,y,scale,rotate,alpha) will be ignored, except for regX/Y.
+        /// To apply transforms to a source object and have them captured in the sprite sheet, simply place it into a Container and pass in the Container as the source.
+        /// </summary>
+        /// <param name="source">The source display object to draw as the frame.</param>
+        /// <param name="sourceRect">Optional. A rectangle defining the portion of the source to draw to the frame. If not specified, it will look for a getBounds method,
+        /// bounds property, or nominalBounds property on the source to use. If one is not found, the frame will be skipped.</param>
+        /// <param name="scale">Optional. The scale to draw this frame at. Default is 1.</param>
+        /// <param name="setupFunction">Optional. A function to call immediately before drawing this frame.</param>
+        /// <returns>The index of the frame that was just added, or null if a sourceRect could not be determined.</returns>
+        public JsNumber addFrame(DisplayObject source, Rectangle sourceRect, JsNumber scale, JsAction setupFunction) { return null; }
+        /// <summary>
+        /// Adds a frame to the sprite sheet. Note that the frame will not be drawn until you call build.
+        /// The optional setup params allow you to have a function run immediately before the draw occurs.
+        /// For example, this allows you to add a single source multiple times, but manipulate it or it's children to change it to generate different frames. 
+        /// Note that the source's transformations (x,y,scale,rotate,alpha) will be ignored, except for regX/Y.
+        /// To apply transforms to a source object and have them captured in the sprite sheet, simply place it into a Container and pass in the Container as the source.
+        /// </summary>
+        /// <param name="source">The source display object to draw as the frame.</param>
+        /// <param name="sourceRect">Optional. A rectangle defining the portion of the source to draw to the frame. If not specified, it will look for a getBounds method,
+        /// bounds property, or nominalBounds property on the source to use. If one is not found, the frame will be skipped.</param>
+        /// <param name="scale">Optional. The scale to draw this frame at. Default is 1.</param>
+        /// <returns>The index of the frame that was just added, or null if a sourceRect could not be determined.</returns>
+        public JsNumber addFrame(DisplayObject source, Rectangle sourceRect, JsNumber scale) { return null; }
+        /// <summary>
+        /// Adds a frame to the sprite sheet. Note that the frame will not be drawn until you call build.
+        /// The optional setup params allow you to have a function run immediately before the draw occurs.
+        /// For example, this allows you to add a single source multiple times, but manipulate it or it's children to change it to generate different frames. 
+        /// Note that the source's transformations (x,y,scale,rotate,alpha) will be ignored, except for regX/Y.
+        /// To apply transforms to a source object and have them captured in the sprite sheet, simply place it into a Container and pass in the Container as the source.
+        /// </summary>
+        /// <param name="source">The source display object to draw as the frame.</param>
+        /// <param name="sourceRect">Optional. A rectangle defining the portion of the source to draw to the frame. If not specified, it will look for a getBounds method,
+        /// bounds property, or nominalBounds property on the source to use. If one is not found, the frame will be skipped.</param>
+        /// <returns>The index of the frame that was just added, or null if a sourceRect could not be determined.</returns>
+        public JsNumber addFrame(DisplayObject source, Rectangle sourceRect) { return null; }
+        /// <summary>
+        /// Adds a frame to the sprite sheet. Note that the frame will not be drawn until you call build.
+        /// The optional setup params allow you to have a function run immediately before the draw occurs.
+        /// For example, this allows you to add a single source multiple times, but manipulate it or it's children to change it to generate different frames. 
+        /// Note that the source's transformations (x,y,scale,rotate,alpha) will be ignored, except for regX/Y.
+        /// To apply transforms to a source object and have them captured in the sprite sheet, simply place it into a Container and pass in the Container as the source.
+        /// </summary>
+        /// <param name="source">The source display object to draw as the frame.</param>
+        /// <returns>The index of the frame that was just added, or null if a sourceRect could not be determined.</returns>
+        public JsNumber addFrame(DisplayObject source) { return null; }
+
+        /// <summary>
+        /// This will take a MovieClip, and add its frames and labels to this builder.
+        /// Labels will be added as an animation running from the label index to the next label.
+        /// For example, if there is a label named "foo" at frame 0 and a label named "bar" at frame 10, in a MovieClip with 15 frames,
+        /// it will add an animation named "foo" that runs from frame index 0 to 9, and an animation named "bar" that runs from frame index 10 to 14. 
+        /// Note that this will iterate through the full MovieClip with actionsEnabled set to false, ending on the last frame.
+        /// </summary>
+        /// <param name="source">The source MovieClip to add to the sprite sheet.</param>
+        /// <param name="sourceRect">Optional. A rectangle defining the portion of the source to draw to the frame.
+        /// If not specified, it will look for a getBounds method, frameBounds array, bounds property, or nominalBounds property on the source to use.
+        /// If one is not found, the MovieClip will be skipped.</param>
+        /// <param name="scale">Optional. The scale to draw the movie clip at. Default is 1.</param>
+        public void addMovieClip (MovieClip source ,Rectangle sourceRect ,JsNumber scale ) {}
+        /// <summary>
+        /// This will take a MovieClip, and add its frames and labels to this builder.
+        /// Labels will be added as an animation running from the label index to the next label.
+        /// For example, if there is a label named "foo" at frame 0 and a label named "bar" at frame 10, in a MovieClip with 15 frames,
+        /// it will add an animation named "foo" that runs from frame index 0 to 9, and an animation named "bar" that runs from frame index 10 to 14. 
+        /// Note that this will iterate through the full MovieClip with actionsEnabled set to false, ending on the last frame.
+        /// </summary>
+        /// <param name="source">The source MovieClip to add to the sprite sheet.</param>
+        /// <param name="sourceRect">Optional. A rectangle defining the portion of the source to draw to the frame.
+        /// If not specified, it will look for a getBounds method, frameBounds array, bounds property, or nominalBounds property on the source to use.
+        /// If one is not found, the MovieClip will be skipped.</param>
+        public void addMovieClip(MovieClip source, Rectangle sourceRect) { }
+        /// <summary>
+        /// This will take a MovieClip, and add its frames and labels to this builder.
+        /// Labels will be added as an animation running from the label index to the next label.
+        /// For example, if there is a label named "foo" at frame 0 and a label named "bar" at frame 10, in a MovieClip with 15 frames,
+        /// it will add an animation named "foo" that runs from frame index 0 to 9, and an animation named "bar" that runs from frame index 10 to 14. 
+        /// Note that this will iterate through the full MovieClip with actionsEnabled set to false, ending on the last frame.
+        /// </summary>
+        /// <param name="source">The source MovieClip to add to the sprite sheet.</param>
+        public void addMovieClip(MovieClip source) { }
+
+        /// <summary>
+        /// Builds a SpriteSheet instance based on the current frames.
+        /// </summary>
+        public void build() { }
+
+        /// <summary>
+        /// Asynchronously builds a SpriteSheet instance based on the current frames.
+        /// It will run 20 times per second, using an amount of time defined by timeSlice. When it is complete it will call the specified callback.
+        /// </summary>
+        /// <param name="callback">Optional. The function to call when the build operation completes.
+        /// It will be called with a single parameter providing a reference back to the builder.</param>
+        /// <param name="timeSlice">Optional. A number from 0.01 to 1 that indicates what percentage of time the builder can use.
+        /// This can be thought of as the number of seconds per second the builder will use.
+        /// For example, with a timeSlice value of 0.3, the builder will run 20 times per second, using approximately 15ms per build (30% of available time, or 0.3s per second).
+        /// Defaults to 0.3.</param>
+        public void buildAsync (JsAction callback ,JsNumber timeSlice ) {}
+        /// <summary>
+        /// Asynchronously builds a SpriteSheet instance based on the current frames.
+        /// It will run 20 times per second, using an amount of time defined by timeSlice. When it is complete it will call the specified callback.
+        /// </summary>
+        /// <param name="callback">Optional. The function to call when the build operation completes.
+        /// It will be called with a single parameter providing a reference back to the builder.</param>
+        public void buildAsync(JsAction callback) { }        
+        /// <summary>
+        /// Asynchronously builds a SpriteSheet instance based on the current frames.
+        /// It will run 20 times per second, using an amount of time defined by timeSlice. When it is complete it will call the specified callback.
+        /// </summary>
+        public void buildAsync() { }
+
+        /// <summary>
+        /// SpriteSheetBuilder instances cannot be cloned.
+        /// </summary>
+        public void clone() { }
+
+        /// <summary>
+        /// Stops the current asynchronous build.
+        /// </summary>
+        public void stopAsync() { }
+
+        /// <summary>
+        /// Returns a string representation of this object.
+        /// </summary>
+        /// <returns>a string representation of the instance.</returns>
+        public JsString toString() { return null; }
+
+    }
+
+    /// <summary>
+    /// The SpriteSheetUtils class is a collection of static methods for working with sprite sheets.
+    /// A sprite sheet is a series of images (usually animation frames) combined into a single image on a regular grid.
+    /// For example, an animation consisting of 8 100x100 images could be combined into a 400x200 sprite sheet (4 frames across by 2 high).
+    /// The SpriteSheetUtils class uses a static interface and should not be instantiated.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "SpriteSheetUtils", Export = false)]
+    public static class SpriteSheetUtils
+    {
+        /// <summary>
+        /// Returns a single frame of the specified sprite sheet as a new PNG image.
+        /// </summary>
+        /// <param name="spriteSheet">The SpriteSheet instance to extract a frame from.</param>
+        /// <param name="frame">The frame number or animation name to extract. If an animation name is specified, only the first frame of the animation will be extracted.</param>
+        /// <returns>a single frame of the specified sprite sheet as a new PNG image.</returns>
+        public static HtmlImageElement extractFrame(HtmlImageElement spriteSheet, JsNumber frame) { return null; }
+
+        /// <summary>
+        /// This is an experimental method, and is likely to be buggy. Please report issues.
+        /// Extends the existing sprite sheet by flipping the original frames either horizontally, vertically, or both, and adding appropriate animation & frame data.
+        /// </summary>
+        /// <param name="spriteSheet">The sprite sheet to use as the source.</param>
+        /// <param name="flipData">A generic object that specifies which frames will be flipped,
+        /// what to name the flipped result, and how to flip the frames (horizontally, vertically, or both).
+        /// Each property name indicates the name of a new sequence to create,
+        /// and should reference an array where the first index is the name of the original sequence to flip,
+        /// the second index indicates whether to flip it horizontally, the third index indicates whether to flip it vertically,
+        /// and the fourth indicates what the "next" value for the resulting frame data should be.
+        /// For example, the following would create a new sequence named "walk_left" consisting of the frames from the original "walk_right" sequence flipped horizontally: {walk_left: ["walk_right", true, false]}</param>
+        public static void flip(HtmlImageElement spriteSheet, object flipData) { }
+
+        /// <summary>
+        /// Merges the rgb channels of one image with the alpha channel of another.
+        /// This can be used to combine a compressed JPEG image containing color data with a PNG32 monochromatic image containing alpha data.
+        /// With certain types of images (those with detail that lend itself to JPEG compression) this can provide significant file size savings versus a single RGBA PNG32.
+        /// This method is very fast (generally on the order of 1-2 ms to run).
+        /// </summary>
+        /// <param name="rbgImage">The image (or canvas) containing the RGB channels to use.</param>
+        /// <param name="alphaImage">The image (or canvas) containing the alpha channel to use.</param>
+        /// <param name="canvas">Optional. If specified, this canvas will be used and returned. If not, a new canvas will be created.</param>
+        /// <returns>A canvas with the combined image data. This can be used as a source for Bitmap or SpriteSheet.</returns>
+        public static HtmlCanvasElement mergeAlpha(HtmlImageElement rbgImage, HtmlImageElement alphaImage, HtmlCanvasElement canvas) { return null; }
+        /// <summary>
+        /// Merges the rgb channels of one image with the alpha channel of another.
+        /// This can be used to combine a compressed JPEG image containing color data with a PNG32 monochromatic image containing alpha data.
+        /// With certain types of images (those with detail that lend itself to JPEG compression) this can provide significant file size savings versus a single RGBA PNG32.
+        /// This method is very fast (generally on the order of 1-2 ms to run).
+        /// </summary>
+        /// <param name="rbgImage">The image (or canvas) containing the RGB channels to use.</param>
+        /// <param name="alphaImage">The image (or canvas) containing the alpha channel to use.</param>
+        /// <returns>A canvas with the combined image data. This can be used as a source for Bitmap or SpriteSheet.</returns>
+        public static HtmlCanvasElement mergeAlpha(HtmlImageElement rbgImage, HtmlImageElement alphaImage) { return null; }
 
     }
 
@@ -2249,24 +3230,13 @@ namespace SharpKit.EaselJS
 
     }
 
-    [JsType(JsMode.Prototype, Name = "Rectangle", Export = false)]
-    public class Rectangle
+    [JsType(JsMode.Prototype, Name = "Timeline", Export = false)]
+    public class Timeline
     {
-
-    }
-
-    [JsType(JsMode.Prototype, Name = "Point", Export = false)]
-    public class Point
-    {
-
+        //TODO: used as a type, but there is no such class...
     }
 
 
 
-    [JsType(JsMode.Prototype, Name = "MouseEvent", Export = false)]
-    public class MouseEvent
-    {
-
-    }
 
 }
