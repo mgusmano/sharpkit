@@ -6142,6 +6142,10 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public bool closeOnClick { get; set; }
+        /// <summary>
+        /// Undocument property. Add by Lee.
+        /// </summary>
+        public JsArray dataSource { get; set; }
 
         /// <summary>
         /// (default: "default") Specifies Menu opening direction. Can be "top", "bottom", "left", "right".
@@ -7539,7 +7543,7 @@ namespace SharpKit.KendoUI.Web
     [JsType(JsMode.Json)]
     public class PanelBarAnimationExpandConfiguration
     {
-        public JsAction effects { get; set; }
+        public JsString effects { get; set; }
     }
 
     [JsType(JsMode.Json)]
