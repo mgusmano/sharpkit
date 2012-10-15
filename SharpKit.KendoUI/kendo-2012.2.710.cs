@@ -497,7 +497,7 @@ namespace SharpKit.KendoUI
         /// <param name="value">The string that needs to be HTML encoded.</param>
         /// <param name= "number"> </param>
         /// <returns></returns>
-        public static JsAction format(JsString value, JsNumber number) { return null; }
+        public static JsString format(JsString value, JsNumber number) { return null; }
 
 
         /// <summary>
@@ -679,7 +679,8 @@ namespace SharpKit.KendoUI
         ///$("#inline").html(inlineTemplate(inlineData));
         /// </code></example>
         public static JsFunc<JsString, JsString> template(JsString template) { return null; }
-
+       
+       
         /// <summary>
         /// Enables kinetic scrolling on touch devices
         /// </summary>
@@ -2349,7 +2350,7 @@ namespace SharpKit.KendoUI
         /// </code>
         /// </example>
         [JsProperty(Name = "url")]
-        public JsAction<Event> urlFunc { get; set; }
+        public JsFunc<object,JsString> urlFunc { get; set; }
 
     }
 
