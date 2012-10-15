@@ -3099,7 +3099,7 @@ namespace SharpKit.EaselJS
         /// If not specified, it will look for a getBounds method, frameBounds array, bounds property, or nominalBounds property on the source to use.
         /// If one is not found, the MovieClip will be skipped.</param>
         /// <param name="scale">Optional. The scale to draw the movie clip at. Default is 1.</param>
-        public void addMovieClip (MovieClip source ,Rectangle sourceRect ,JsNumber scale ) {}
+        public void addMovieClip(MovieClip source, Rectangle sourceRect, JsNumber scale) { }
         /// <summary>
         /// This will take a MovieClip, and add its frames and labels to this builder.
         /// Labels will be added as an animation running from the label index to the next label.
@@ -3137,14 +3137,14 @@ namespace SharpKit.EaselJS
         /// This can be thought of as the number of seconds per second the builder will use.
         /// For example, with a timeSlice value of 0.3, the builder will run 20 times per second, using approximately 15ms per build (30% of available time, or 0.3s per second).
         /// Defaults to 0.3.</param>
-        public void buildAsync (JsAction callback ,JsNumber timeSlice ) {}
+        public void buildAsync(JsAction callback, JsNumber timeSlice) { }
         /// <summary>
         /// Asynchronously builds a SpriteSheet instance based on the current frames.
         /// It will run 20 times per second, using an amount of time defined by timeSlice. When it is complete it will call the specified callback.
         /// </summary>
         /// <param name="callback">Optional. The function to call when the build operation completes.
         /// It will be called with a single parameter providing a reference back to the builder.</param>
-        public void buildAsync(JsAction callback) { }        
+        public void buildAsync(JsAction callback) { }
         /// <summary>
         /// Asynchronously builds a SpriteSheet instance based on the current frames.
         /// It will run 20 times per second, using an amount of time defined by timeSlice. When it is complete it will call the specified callback.
@@ -3224,10 +3224,454 @@ namespace SharpKit.EaselJS
 
     }
 
+    /// <summary>
+    ///  extends Container
+    ///  A stage is the root level Container for a display list. Each time its tick method is called, it will render its display list to its target canvas.
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "Stage", Export = false)]
-    public class Stage
+    public class Stage : Container
     {
+        public Stage(HtmlCanvasElement canvas) { }
 
+        /// <summary>
+        /// Indicates whether the stage should automatically clear the canvas before each render.
+        /// You can set this to false to manually control clearing (for generative art, or when pointing multiple stages at the same canvas for example).
+        /// Default Value: true
+        /// </summary>
+        public bool autoClear { get; set; }
+
+        /// <summary>
+        /// The canvas the stage will render to. Multiple stages can share a single canvas,
+        /// but you must disable autoClear for all but the first stage that will be ticked (or they will clear each other's render).
+        /// </summary>
+        public HtmlCanvasElement canvas { get; set; }
+
+        /// <summary>
+        /// Indicates whether the mouse is currently within the bounds of the canvas.
+        /// Default Value: false
+        /// </summary>
+        public bool mouseInBounds { get; set; }
+
+        /// <summary>
+        /// READ-ONLY. The current mouse X position on the canvas.
+        /// If the mouse leaves the canvas, this will indicate the most recent position over the canvas, and mouseInBounds will be set to false.
+        /// </summary>
+        public JsNumber mouseX { get; private set; }
+
+        /// <summary>
+        /// READ-ONLY. The current mouse Y position on the canvas.
+        /// If the mouse leaves the canvas, this will indicate the most recent position over the canvas, and mouseInBounds will be set to false.
+        /// </summary>
+        public JsNumber mouseY { get; private set; }
+
+        /// <summary>
+        /// Indicates whether this stage should use the snapToPixel property of display objects when rendering them. See DisplayObject.snapToPixel for more information.
+        /// Default Value: false
+        /// </summary>
+        public bool snapToPixelEnabled { get; set; }
+
+        /// <summary>
+        /// If false, tick callbacks will be called on all display objects on the stage prior to rendering to the canvas.
+        /// Default Value: false
+        /// </summary>
+        public bool tickOnUpdate { get; set; }
+
+        /// <summary>
+        /// Clears the target canvas. Useful if autoClear is set to false.
+        /// </summary>
+        public void clear() { }
+
+        /// <summary>
+        /// Returns a clone of this Stage.
+        /// </summary>
+        /// <returns></returns>
+        public Stage clone() { return null; }
+
+        /// <summary>
+        /// Enables or disables (by passing a frequency of 0) mouse over handlers (onMouseOver and onMouseOut) for this stage's display list.
+        /// These events can be expensive to generate, so they are disabled by default,
+        /// and the frequency of the events can be controlled independently of mouse move events via the optional frequency parameter.
+        /// </summary>
+        /// <param name="frequency">Optional param specifying the maximum number of times per second to broadcast mouse over/out events.
+        /// Set to 0 to disable mouse over events completely.
+        /// Maximum is 50. A lower frequency is less responsive, but uses less CPU. Default is 20.</param>
+        public void enableMouseOver(JsNumber frequency) { }
+        /// <summary>
+        /// Enables or disables (by passing a frequency of 0) mouse over handlers (onMouseOver and onMouseOut) for this stage's display list.
+        /// These events can be expensive to generate, so they are disabled by default,
+        /// and the frequency of the events can be controlled independently of mouse move events via the optional frequency parameter.
+        /// </summary>
+        public void enableMouseOver() { }
+
+        /// <summary>
+        /// Returns a data url that contains a Base64 encoded image of the contents of the stage.
+        /// The returned data url can be specified as the src value of an image element.
+        /// </summary>
+        /// <param name="backgroundColor">The background color to be used for the generated image.
+        /// The value can be any value HTML color value, including HEX colors, rgb and rgba. The default value is a transparent background.</param>
+        /// <param name="mimeType">The MIME type of the image format to be create. The default is "image/png".
+        /// If an unknown MIME type is passed in, or if the browser does not support the specified MIME type, the default value will be used.</param>
+        /// <returns></returns>
+        public JsString toDataURL(JsString backgroundColor, JsString mimeType) { return null; }
+
+        /// <summary>
+        /// Returns a string representation of this object.
+        /// </summary>
+        /// <returns>a string representation of the instance.</returns>
+        public JsString toString() { return null; }
+
+        /// <summary>
+        /// Each time the update method is called, the stage will tick any descendants exposing a tick method
+        /// (ex. BitmapAnimation) and render its entire display list to the canvas.
+        /// Any parameters passed to update will be passed on to any onTick handlers.
+        /// </summary>
+        public void update() { }
+
+        /// <summary>
+        /// The onMouseDown callback is called when the user presses the mouse button over the canvas.
+        /// The handler is passed a single param containing the corresponding MouseEvent instance.
+        /// </summary>
+        public JsAction<MouseEvent> onMouseDown { get; set; }
+
+        /// <summary>
+        /// The onMouseMove callback is called when the user moves the mouse over the canvas.
+        /// The handler is passed a single param containing the corresponding MouseEvent instance.
+        /// </summary>
+        public JsAction<MouseEvent> onMouseMove { get; set; }
+
+        /// <summary>
+        /// The onMouseUp callback is called when the user releases the mouse button anywhere that the page can detect it.
+        /// The handler is passed a single param containing the corresponding MouseEvent instance.
+        /// </summary>
+        public JsAction<MouseEvent> onMouseUp { get; set; }
+
+        //TODO: tick Broadcast to children when the stage is updated. tick Broadcast to children when the stage is updated. ( ) (?)
+
+    }
+
+    /// <summary>
+    /// extends DisplayObject
+    /// Allows you to display one or more lines of dynamic text (not user editable) in the display list.
+    /// Line wrapping support (using the lineWidth is very basic, wrapping on spaces and tabs only.
+    /// Note that as an alternative to Text, you can position HTML text above or below the canvas relative to items in the display list using the localToGlobal() method.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Text", Export = false)]
+    public class Text : DisplayObject
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="text">Optional. The text to display.</param>
+        /// <param name="font">Optional. The font style to use. Any valid value for the CSS font attribute is acceptable (ex. "bold 36px Arial").</param>
+        /// <param name="color">Optional. The color to draw the text in. Any valid value for the CSS color attribute is acceptable (ex. "#F00").</param>
+        public Text(JsString text, JsString font, JsString color) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="text">Optional. The text to display.</param>
+        /// <param name="font">Optional. The font style to use. Any valid value for the CSS font attribute is acceptable (ex. "bold 36px Arial").</param>
+        public Text(JsString text, JsString font) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="text">Optional. The text to display.</param>
+        public Text(JsString text) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        public Text() { }
+
+        /// <summary>
+        /// The color to draw the text in. Any valid value for the CSS color attribute is acceptable (ex. "#F00"). Default is "#000".
+        /// </summary>
+        public JsString color { get; set; }
+
+        /// <summary>
+        /// The font style to use. Any valid value for the CSS font attribute is acceptable (ex. "bold 36px Arial").
+        /// </summary>
+        public JsString font { get; set; }
+
+        /// <summary>
+        /// Indicates the line height (vertical distance between baselines) for multi-line text. If null or 0, the value of getMeasuredLineHeight is used.
+        /// </summary>
+        public JsNumber lineHeight { get; set; }
+
+        /// <summary>
+        /// Indicates the maximum width for a line of text before it is wrapped to multiple lines. If null, the text will not be wrapped.
+        /// </summary>
+        public JsNumber lineWidth { get; set; }
+
+        /// <summary>
+        /// The maximum width to draw the text.
+        /// If maxWidth is specified (not null), the text will be condensed or shrunk to make it fit in this width. For detailed information view the whatwg spec.
+        /// </summary>
+        public JsNumber maxWidth { get; set; }
+
+        /// <summary>
+        /// If true, the text will be drawn as a stroke (outline). If false, the text will be drawn as a fill.
+        /// </summary>
+        public bool outline { get; set; }
+
+        /// <summary>
+        /// The text to display.
+        /// </summary>
+        public JsString text { get; set; }
+
+        /// <summary>
+        /// The horizontal text alignment. Any of "start", "end", "left", "right", and "center". For detailed information view the whatwg spec. Default is "left".
+        /// </summary>
+        public HorizontalTextAlign textAlign { get; set; }
+
+        /// <summary>
+        /// The vertical alignment point on the font.
+        /// Any of "top", "hanging", "middle", "alphabetic", "ideographic", or "bottom". For detailed information view the whatwg spec. Default is "top".
+        /// </summary>
+        public TextBaseline textBaseline { get; set; }
+
+        /// <summary>
+        /// Returns a clone of the Point instance.
+        /// </summary>
+        /// <returns>a clone of the Point instance.</returns>
+        public Point clone() { return null; }
+
+        /// <summary>
+        /// Draws the Text into the specified context ignoring it's visible, alpha, shadow, and transform.
+        /// Returns true if the draw was handled (useful for overriding functionality).
+        /// NOTE: This method is mainly for internal use, though it may be useful for advanced uses.
+        /// </summary>
+        /// <param name="ctx">The canvas 2D context object to draw into.</param>
+        /// <param name="ignoreCache">Indicates whether the draw operation should ignore any current cache.
+        /// For example, used for drawing the cache (to prevent it from simply drawing an existing cache back into itself).</param>
+        public void draw(CanvasRenderingContext2D ctx, bool ignoreCache) { }
+
+        /// <summary>
+        /// Returns the approximate height of multiline text by multiplying the number of lines against either the lineHeight (if specified) or getMeasuredLineHeight().
+        /// Note that this operation requires the text flowing logic to run, which has an associated CPU cost.
+        /// </summary>
+        /// <returns>The approximate height of the drawn multiline text.</returns>
+        public JsNumber getMeasuredHeight() { return null; }
+
+        /// <summary>
+        /// Returns an approximate line height of the text, ignoring the lineHeight property.
+        /// This is based on the measured width of a "M" character multiplied by 1.2, which approximates em for most fonts.
+        /// </summary>
+        /// <returns>an approximate line height of the text, ignoring the lineHeight property.
+        /// This is based on the measured width of a "M" character multiplied by 1.2, which approximates em for most fonts.</returns>
+        public JsNumber getMeasuredLineHeight() { return null; }
+
+        /// <summary>
+        /// Returns the measured, untransformed width of the text without wrapping.
+        /// </summary>
+        /// <returns>The measured, untransformed width of the text.</returns>
+        public JsNumber getMeasuredWidth() { return null; }
+
+        /// <summary>
+        /// Returns true or false indicating whether the display object would be visible if drawn to a canvas.
+        /// This does not account for whether it would be visible within the boundaries of the stage.
+        /// NOTE: This method is mainly for internal use, though it may be useful for advanced uses.
+        /// </summary>
+        /// <returns>Boolean indicating whether the display object would be visible if drawn to a canvas</returns>
+        public bool isVisible() { return false; }
+
+        /// <summary>
+        /// Returns a string representation of this object.
+        /// </summary>
+        /// <returns>a string representation of the instance.</returns>
+        public JsString toString() { return null; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum HorizontalTextAlign
+    {
+        start,
+        end,
+        left,
+        right,
+        center,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum TextBaseline
+    {
+        top,
+        hanging,
+        middle,
+        alphabetic,
+        ideographic,
+        bottom,
+    }
+
+    /// <summary>
+    /// The Ticker class uses a static interface (ex. Ticker.getPaused()) and should not be instantiated.
+    /// Provides a centralized tick or heartbeat broadcast at a set interval. Listeners can subscribe to the tick event to be notified when a set time interval has elapsed.
+    /// Note that the interval that the tick event is called is a target interval, and may be broadcast at a slower interval during times of high CPU load.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Ticker", Export = false)]
+    public static class Ticker
+    {
+        /// <summary>
+        /// Indicates whether Ticker should use requestAnimationFrame if it is supported in the browser.
+        /// If false, Ticker will use setTimeout. If you use RAF, it is recommended that you set the framerate to a divisor of 60 (ex. 15, 20, 30, 60).
+        /// </summary>
+        public static bool useRAF { get; set; }
+
+        /// <summary>
+        /// Adds a listener for the tick event. The listener must be either an object exposing a .tick() method, or a function.
+        /// The listener will be called once each tick / interval.
+        /// The interval is specified via the .setInterval(ms) method.
+        /// The tick method or function is passed two parameters: the elapsed time between the previous tick and the current one,
+        /// and a boolean indicating whether Ticker is paused.
+        /// </summary>
+        /// <param name="o">The object or function to add as a listener.</param>
+        /// <param name="pauseable">If false, the listener will continue to have tick called even when Ticker is paused via Ticker.pause(). Default is true.</param>
+        public static void addListener(object o, bool pauseable) { }
+        /// <summary>
+        /// Adds a listener for the tick event. The listener must be either an object exposing a .tick() method, or a function.
+        /// The listener will be called once each tick / interval.
+        /// The interval is specified via the .setInterval(ms) method.
+        /// The tick method or function is passed two parameters: the elapsed time between the previous tick and the current one,
+        /// and a boolean indicating whether Ticker is paused.
+        /// </summary>
+        /// <param name="o">The object or function to add as a listener.</param>
+        /// <param name="pauseable">If false, the listener will continue to have tick called even when Ticker is paused via Ticker.pause(). Default is true.</param>
+        public static void addListener(JsAction o, bool pauseable) { }
+
+        /// <summary>
+        /// Returns the target frame rate in frames per second (FPS).
+        /// For example, with an interval of 40, getFPS() will return 25 (1000ms per second divided by 40 ms per tick = 25fps).
+        /// </summary>
+        /// <returns>The current target number of frames / ticks broadcast per second</returns>
+        public static JsNumber getFPS() { return null; }
+
+        /// <summary>
+        /// Returns the current target time between ticks, as set with setInterval.
+        /// </summary>
+        /// <returns>The current target interval in milliseconds between tick events.</returns>
+        public static JsNumber getInterval() { return null; }
+
+        /// <summary>
+        /// Returns the actual frames / ticks per second.
+        /// </summary>
+        /// <param name="ticks">Optional. The number of previous ticks over which to measure the actual frames / ticks per second. Defaults to the number of ticks per second.</param>
+        /// <returns>The actual frames / ticks per second. Depending on performance, this may differ from the target frames per second.</returns>
+        public static JsNumber getMeasuredFPS(JsNumber ticks) { return null; }
+        /// <summary>
+        /// Returns the actual frames / ticks per second.
+        /// </summary>
+        /// <returns>The actual frames / ticks per second. Depending on performance, this may differ from the target frames per second.</returns>
+        public static JsNumber getMeasuredFPS() { return null; }
+
+        /// <summary>
+        /// Returns a boolean indicating whether Ticker is currently paused, as set with setPaused.
+        /// </summary>
+        /// <returns>Whether the Ticker is currently paused.</returns>
+        public static bool getPaused() { return false; }
+
+        /// <summary>
+        /// Returns the number of ticks that have been broadcast by Ticker.
+        /// </summary>
+        /// <param name="pauseable">Indicates whether to include ticks that would have been broadcast while Ticker was paused.
+        /// If false only tick events broadcast while Ticker is not paused will be returned.
+        /// If true, tick events that would have been broadcast while Ticker was paused will be included in the return value. The default value is false.</param>
+        /// <returns>of ticks that have been broadcast.</returns>
+        public static JsNumber getTicks(bool pauseable) { return null; }
+
+        /// <summary>
+        /// Returns the number of milliseconds that have elapsed since the first tick event listener was added to Ticker.
+        /// For example, you could use this in a time synchronized animation to determine the exact amount of time that has elapsed.
+        /// </summary>
+        /// <param name="pauseable"> Indicates whether to include time elapsed while Ticker was paused. If false only time elapsed while Ticker is not paused will be returned.
+        /// If true, the value returned will be total time elapsed since the first tick event listener was added.</param>
+        /// <returns>Number of milliseconds that have elapsed since Ticker was begun.</returns>
+        public static JsNumber getTime(bool pauseable) { return null; }
+
+        /// <summary>
+        /// Initializes or resets the timer, clearing all associated listeners and fps measuring data, starting the tick.
+        /// This is called automatically when the first listener is added.
+        /// </summary>
+        public static void init() { }
+
+        /// <summary>
+        /// Removes all listeners.
+        /// </summary>
+        public static void removeAllListeners() { }
+
+        /// <summary>
+        /// Removes the specified listener.
+        /// </summary>
+        /// <param name="o">The object or function to remove from listening from the tick event.</param>
+        public static void removeListener(object o) { }
+        /// <summary>
+        /// Removes the specified listener.
+        /// </summary>
+        /// <param name="o">The object or function to remove from listening from the tick event.</param>
+        public static void removeListener(JsAction o) { }
+
+        /// <summary>
+        /// Sets the target frame rate in frames per second (FPS).
+        /// For example, with an interval of 40, getFPS() will return 25 (1000ms per second divided by 40 ms per tick = 25fps).
+        /// </summary>
+        /// <param name="value">Target number of ticks broadcast per second.</param>
+        public static void setFPS(JsNumber value) { }
+
+        /// <summary>
+        /// Sets the target time (in milliseconds) between ticks. Default is 50 (20 FPS).]
+        /// Note actual time between ticks may be more than requested depending on CPU load.
+        /// </summary>
+        /// <param name="interval">Time in milliseconds between ticks. Default value is 50.</param>
+        public static void setInterval(JsNumber interval) { }
+
+        /// <summary>
+        /// While Ticker is paused, pausable listeners are not ticked. See addListener for more information.
+        /// </summary>
+        /// <param name="value">Indicates whether to pause (true) or unpause (false) Ticker.</param>
+        public static void setPaused(bool value) { }
+
+        /// <summary>
+        /// Event broadcast once each tick / interval. The interval is specified via the .setInterval(ms) or setFPS methods.
+        /// </summary>
+        public static JsAction<JsNumber> tick { get; set; }
+    }
+
+    /// <summary>
+    /// Global utility for working with multi-touch enabled devices in EaselJS. Currently supports W3C Touch API (iOS & modern Android browser) and IE10.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Touch", Export = false)]
+    public static class Touch
+    {
+        /// <summary>
+        /// Removes all listeners that were set up when calling Touch.enable on a stage.
+        /// </summary>
+        /// <param name="stage">The stage to disable touch on.</param>
+        public static void disable (Stage stage ) {}
+
+        /// <summary>
+        /// Enables touch interaction for the specified EaselJS stage. Currently supports iOS (and compatible browsers, such as modern Android browsers), and IE10.
+        /// Supports both single touch and multi-touch modes.
+        /// Extends the EaselJS MouseEvent model, but without support for double click or over/out events. See MouseEvent.pointerID for more information.
+        /// </summary>
+        /// <param name="stage">The stage to enable touch on.</param>
+        /// <param name="singleTouch">If true, only a single touch will be active at a time. Default is false.</param>
+        /// <param name="allowDefault">If true, then default gesture actions (ex. scrolling, zooming)
+        /// will be allowed when the user is interacting with the target canvas. Default is false.</param>
+        /// <returns>Returns true if touch was successfully enabled on the target stage.</returns>
+        public static bool enable(Stage stage, bool singleTouch, bool allowDefault) { return false; }
+    }
+
+    /// <summary>
+    /// Global utility for generating sequential unique ID numbers. The UID class uses a static interface (ex. UID.get()) and should not be instantiated.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "UID", Export = false)]
+    public static class UID
+    {
+        /// <summary>
+        /// Returns the next unique id.
+        /// </summary>
+        /// <returns>The next unique id</returns>
+        public static JsNumber get() { return null; }
     }
 
     [JsType(JsMode.Prototype, Name = "Timeline", Export = false)]
