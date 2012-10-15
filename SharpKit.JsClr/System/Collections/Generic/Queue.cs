@@ -14,6 +14,18 @@ namespace SharpKit.JavaScript.Private
 		{
 			this._list = new JsExtendedArray();
 		}
+        public JsImplQueue(int capacity)
+        {
+            this._list = new JsExtendedArray(capacity);
+        }
+        public JsImplQueue(IEnumerable<T> collection)
+        {
+            var enumerator = collection.GetEnumerator();
+            this._list = new JsExtendedArray();
+            int i = 0;
+            while (enumerator.MoveNext())
+                this._list[i++] = enumerator.Current;
+        }
 		public void Clear()
 		{
 			this._list.Clear();

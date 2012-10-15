@@ -27,6 +27,20 @@ namespace SharpKit.JavaScript.Private
 		{
 			this._list = new JsExtendedArray();
 		}
+        
+        public JsImplStack(int capacity)
+        {
+            this._list = new JsExtendedArray(capacity);
+        }
+
+        public JsImplStack(IEnumerable<T> collection)
+        {
+            var enumerator = collection.GetEnumerator();
+            this._list = new JsExtendedArray();
+            int i = 0;
+            while (enumerator.MoveNext())
+                this._list[i++] = enumerator.Current;
+        }
         #endregion
 
         #region Properties
