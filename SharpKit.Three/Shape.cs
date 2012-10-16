@@ -1,7 +1,6 @@
 ﻿using SharpKit.JavaScript;
-using THREE;
 
-namespace SharpKit.Three
+namespace THREE
 {
     [JsType(JsMode.Prototype, Export = false)]
     public class Shape : Path

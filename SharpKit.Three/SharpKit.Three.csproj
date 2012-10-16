@@ -32,6 +32,7 @@
     <Compile Include="Curve.cs" />
     <Compile Include="Face3.cs" />
     <Compile Include="Face4.cs" />
+    <Compile Include="GeometryUtils.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="UV.cs" />
     <Compile Include="Vector2.cs" />

@@ -1,6 +1,5 @@
 ﻿using System;
 using SharpKit.JavaScript;
-using SharpKit.Three;
 
 namespace THREE
 {
