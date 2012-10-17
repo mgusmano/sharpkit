@@ -259,7 +259,7 @@ namespace SharpKit.jQuery
         /// Defines the data to use, must be specified. See Overview section for more details, and look at the various demos.
         /// Default:none, must be specified
         /// </summary>
-        [JsProperty(Name="source")]
+        [JsProperty(Name = "source")]
         public JsArray<AutocompleteItem> sourceItems { get; set; }
 
 
@@ -2271,8 +2271,8 @@ namespace SharpKit.jQuery
         public static jQuery switchClass(this jQuery query, string methodName, JsNumber duration) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery switchClass(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
-        
-          }
+
+    }
     #endregion
     #region SwitchClassOptions
     ///<summary>
@@ -4244,6 +4244,258 @@ namespace SharpKit.jQuery
 
     }
 
+    #region Menu
+
+    [JsType(JsMode.Prototype, Name = "Menu", Export = false)]
+    public partial class Menu
+    {
+        /// <summary>
+        /// Removes focus from a menu, resets any active element styles and triggers the menu's blur event.
+        /// </summary>
+        /// <param name="event">What triggered the menu to blur.</param>
+        public void blur(Event @event) { }
+        /// <summary>
+        /// Removes focus from a menu, resets any active element styles and triggers the menu's blur event.
+        /// </summary>
+        public void blur() { }
+
+        /// <summary>
+        /// Closes the currently active sub-menu.
+        /// </summary>
+        /// <param name="event">What triggered the menu to collapse.</param>
+        public void collapse(Event @event) { }
+        /// <summary>
+        /// Closes the currently active sub-menu.
+        /// </summary>
+        public void collapse() { }
+
+        /// <summary>
+        /// Closes all open sub-menus.
+        /// </summary>
+        /// <param name="event">What triggered the menu to collapse.</param>
+        /// <param name="all">Indicates whether all sub-menus should be closed or only sub-menus below and including the menu that is or contains the target of the triggering event.</param>
+        public void collapseAll(Event @event, bool all) { }
+        /// <summary>
+        /// Closes all open sub-menus.
+        /// </summary>
+        /// <param name="event">What triggered the menu to collapse.</param>
+        public void collapseAll(Event @event) { }
+        /// <summary>
+        /// Closes all open sub-menus.
+        /// </summary>
+        public void collapseAll() { }
+
+        /// <summary>
+        /// Removes the menu functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        public void destroy() { }
+
+        /// <summary>
+        /// Disables the menu.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enables the menu.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// Opens the sub-menu below the currently active item, if one exists.
+        /// </summary>
+        /// <param name="event">What triggered the menu to expand.</param>
+        public void expand(Event @event) { }
+        /// <summary>
+        /// Opens the sub-menu below the currently active item, if one exists.
+        /// </summary>
+        public void expand() { }
+
+        /// <summary>
+        /// Activates a particular menu item, begins opening any sub-menu if present and triggers the menu's focus event.
+        /// </summary>
+        /// <param name="event">What triggered the menu item to gain focus.</param>
+        /// <param name="item">The menu item to focus/activate.</param>
+        public void focus(Event @event, jQuery item) { }
+        /// <summary>
+        /// Activates a particular menu item, begins opening any sub-menu if present and triggers the menu's focus event.
+        /// </summary>
+        /// <param name="event">What triggered the menu item to gain focus.</param>
+        public void focus(Event @event) { }
+        /// <summary>
+        /// Activates a particular menu item, begins opening any sub-menu if present and triggers the menu's focus event.
+        /// </summary>
+        public void focus() { }
+
+        /// <summary>
+        /// Returns a boolean value stating whether or not the currently active item is the first item in the menu.
+        /// </summary>
+        /// <returns></returns>
+        public bool isFirstItem() { return false; }
+
+        /// <summary>
+        /// Returns a boolean value stating whether or not the currently active item is the last item in the menu.
+        /// </summary>
+        /// <returns></returns>
+        public bool isLastItem() { return false; }
+
+        /// <summary>
+        /// Moves active state to next menu item.
+        /// </summary>
+        /// <param name="event">What triggered the focus to move.</param>
+        public void next(Event @event) { }
+
+        /// <summary>
+        /// Moves active state to first menu item below the bottom of a scrollable menu or the last item if not scrollable.
+        /// </summary>
+        /// <param name="event">What triggered the focus to move.</param>
+        public void nextPage(Event @event) { }
+
+        /// <summary>
+        /// Gets the value currently associated with the specified optionName.
+        /// </summary>
+        /// <param name="optionName">The name of the option to get.</param>
+        /// <returns></returns>
+        public object option(JsString optionName) { return null; }
+        /// <summary>
+        /// Gets an object containing key/value pairs representing the current menu options hash.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+        /// <summary>
+        /// Sets the value of the menu option associated with the specified optionName.
+        /// </summary>
+        /// <param name="optionName">The name of the option to set.</param>
+        /// <param name="value">A value to set for the option.</param>
+        public void option(JsString optionName, object value) { }
+        /// <summary>
+        /// Sets one or more options for the menu.
+        /// </summary>
+        /// <param name="options">A map of option-value pairs to set.</param>
+        public void option(MenuOptions options) { }
+
+        /// <summary>
+        /// Moves active state to previous menu item.
+        /// </summary>
+        /// <param name="event">What triggered the focus to move.</param>
+        public void previous(Event @event) { }
+
+        /// <summary>
+        /// Moves active state to first menu item above the top of a scrollable menu or the first item if not scrollable.
+        /// </summary>
+        /// <param name="event">What triggered the focus to move.</param>
+        public void previousPage(Event @event) { }
+
+        /// <summary>
+        /// Initializes sub-menus and menu items that have not already been initialized.
+        /// New menu items, including sub-menus can be added to the menu or all of the contents of the menu can be replaced and then initialized with the refresh() method.
+        /// </summary>
+        public void refresh() { }
+
+        /// <summary>
+        /// Selects the currently active menu item, collapses all sub-menus and triggers the menu's select event.
+        /// </summary>
+        /// <param name="event">What triggered the selection.</param>
+        public void select(Event @event) { }
+
+        /// <summary>
+        /// Returns a jQuery object containing the menu.
+        /// </summary>
+        /// <returns></returns>
+        public jQuery widget() { return null; }
+
+        /// <summary>
+        /// Triggered when the menu loses focus.
+        /// </summary>
+        [JsProperty(Name = "blur")]
+        public JsAction<Event, MenuUI> blurEvent { get; set; }
+
+        /// <summary>
+        /// Triggered when the menu is created.
+        /// </summary>
+        public JsAction<Event, MenuUI> create { get; set; }
+
+        /// <summary>
+        /// Triggered when a menu gains focus or when any menu item is activated.
+        /// </summary>
+        [JsProperty(Name = "focus")]
+        public JsAction<Event, MenuUI> focusEvent { get; set; }
+
+        /// <summary>
+        /// Triggered when a menu item is selected.
+        /// </summary>
+        [JsProperty(Name = "select")]
+        public JsAction<Event, MenuUI> selectEvent { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public partial class MenuOptions
+    {
+        /// <summary>
+        /// Disables the menu if set to true.
+        /// </summary>
+        public bool disabled { get; set; }
+
+        /// <summary>
+        /// Default: { submenu: "ui-icon-carat-1-e" }
+        /// Icons to use for submenus, matching an icon defined by the jQuery UI CSS Framework.
+        /// </summary>
+        public object icons { get; set; }
+
+        /// <summary>
+        /// Default: "ul"
+        /// Selector for the elements that serve as the menu container, including sub-menus.
+        /// </summary>
+        public JsString menus { get; set; }
+
+        /// <summary>
+        /// Default: { my: "top left", at: "top right" }
+        /// Identifies the position of submenus in relation to the associated parent menu item.
+        /// The of option defaults to the parent menu item, but you can specify another element to position against.
+        /// You can refer to the jQuery UI Position utility for more details about the various options.
+        /// </summary>
+        public object position { get; set; }
+
+        /// <summary>
+        /// Default: "menu"
+        /// Customize the ARIA roles used for the menu and menu items. The default uses "menuitem" for items.
+        /// Setting the role option to "listbox" will use "option" for items.
+        /// If set to null, no roles will be set, which is useful if the menu is being controlled by another element that is maintaining focus.
+        /// </summary>
+        public JsString role { get; set; }
+
+        /// <summary>
+        /// Triggered when the menu loses focus.
+        /// </summary>
+        public JsAction<Event, MenuUI> blur { get; set; }
+
+        /// <summary>
+        /// Triggered when the menu is created.
+        /// </summary>
+        public JsAction<Event, MenuUI> create { get; set; }
+
+        /// <summary>
+        /// Triggered when a menu gains focus or when any menu item is activated.
+        /// </summary>
+        public JsAction<Event, MenuUI> focus { get; set; }
+
+        /// <summary>
+        /// Triggered when a menu item is selected.
+        /// </summary>
+        public JsAction<Event, MenuUI> select { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public partial class MenuUI
+    {
+        /// <summary>
+        /// The currently active menu item.
+        /// </summary>
+        public jQuery item { get; set; }
+    }
+
+    #endregion
 
 
 }
