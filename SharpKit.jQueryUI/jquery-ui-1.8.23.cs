@@ -2700,12 +2700,6 @@ namespace SharpKit.jQuery
         //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public bool deselectable { get; set; }
         ///<summary>
-        ///The type of event to be used for selecting a tab.
-        ///Default: 'click'
-        ///</summary>
-        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
-        public string @event { get; set; }
-        ///<summary>
         ///Enable animations for hiding and showing tab panels. The duration option can be a string representing one of the three predefined speeds ("slow", "normal", "fast") or the duration in milliseconds to run an animation (default is "normal").
         ///Default: null
         ///Types: Options, Array&lt;Options&gt;
@@ -2788,7 +2782,7 @@ namespace SharpKit.jQuery
         ///This event is triggered when a tab is shown.
         ///</summary>
         //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
-        public jQueryUIEvent<UITabs> show { get; set; }
+        public jQueryUIEvent<UITabs> showEvent { get; set; }
         ///<summary>
         ///This event is triggered when a tab is added.
         ///</summary>
