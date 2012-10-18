@@ -350,6 +350,10 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Attach a handler to an event for the elements.
         /// </summary>
+        public jQuery bind(JsString eventType, JsAction handler) { return null; }
+        /// <summary>
+        /// Attach a handler to an event for the elements.
+        /// </summary>
         public jQuery bind(JsString eventType, JsAction<Event> handler) { return null; }
         /// <summary>
         /// Attach a handler to an event for the elements.
@@ -699,6 +703,10 @@ namespace SharpKit.jQuery
         /// Hide the matched elements by fading them to transparent.
         /// </summary>
         public jQuery fadeOut(JsAction callback) { return null; }
+        /// <summary>
+        /// Hide the matched elements by fading them to transparent.
+        /// </summary>
+        public jQuery fadeOut(JsFunc<jQuery> callback) { return null; }
         /// <summary>
         /// Hide the matched elements by fading them to transparent.
         /// </summary>
