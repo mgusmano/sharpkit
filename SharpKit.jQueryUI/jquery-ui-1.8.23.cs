@@ -76,11 +76,7 @@ namespace SharpKit.jQuery
     [JsType(JsMode.Json)]
     public partial class AccordionOptions
     {
-        /// <summary>
-        /// Disables (true) or enables (false) the droppable. Can be set when initialising (first creating) the droppable.
-        /// Default:false
-        /// </summary>
-        public bool disabled { get; set; }
+
         ///<summary>
         ///Selector for the active element. Set to false to display none at start. Needs collapsible: true.
         ///Default: first child
@@ -94,36 +90,34 @@ namespace SharpKit.jQuery
         ///</summary>
         public object animated { get; set; }
         ///<summary>
-        ///If set, the highest content part is used as height reference for all other parts. Provides more consistent animations.
-        ///Default: true
-        ///</summary>
-        public bool autoHeight { get; set; }
-        ///<summary>
-        ///If set, clears height and overflow styles after finishing animations. This enables accordions to work with dynamic content. Won't work together with autoHeight.
-        ///Default: false
-        ///</summary>
-        public bool clearStyle { get; set; }
-        ///<summary>
         ///Whether all the sections can be closed at once. Allows collapsing the active section by the triggering event (click is the default).
         ///Default: false
         ///</summary>
         public bool collapsible { get; set; }
+        /// <summary>
+        /// Disables (true) or enables (false) the droppable. Can be set when initialising (first creating) the droppable.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
         ///<summary>
         ///The event on which to trigger the accordion.
         ///Default: 'click'
         ///</summary>
         public string @event { get; set; }
         ///<summary>
-        ///If set, the accordion completely fills the height of the parent element. Overrides autoheight.
-        ///Default: false
-        ///</summary>
-        public bool fillSpace { get; set; }
-        ///<summary>
         ///Selector for the header element.
         ///Default: '> li > :first-child,> :not(li):even'
         ///Types: Selector, jQuery
         ///</summary>
         public object header { get; set; }
+        /// <summary>
+        /// Default: "auto"
+        /// Controls the height of the accordion and each panel. Possible values:
+        /// "auto": All panels will be set to the height of the tallest panel.
+        /// "fill": Expand to the available height based on the accordion's parent height.
+        /// "content": Each panel will be only as tall as its content.
+        /// </summary>
+        public HeightStyleType heightStyle { get; set; }
         ///<summary>
         ///Icons to use for headers. Icons may be specified for 'header' and 'headerSelected', and we recommend using the icons native to the jQuery UI CSS Framework manipulated by jQuery UI ThemeRoller
         ///Default: { 'header': 'ui-icon-triangle-1-e', 'headerSelected': 'ui-icon-triangle-1-s' }
@@ -133,7 +127,40 @@ namespace SharpKit.jQuery
         ///If set, looks for the anchor that matches location.href and activates it. Great for href-based state-saving. Use navigationFilter to implement your own matcher.
         ///Default: false
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public bool navigation { get; set; }
+        ///<summary>
+        ///If set, the highest content part is used as height reference for all other parts. Provides more consistent animations.
+        ///Default: true
+        ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
+        public bool autoHeight { get; set; }
+        ///<summary>
+        ///If set, clears height and overflow styles after finishing animations. This enables accordions to work with dynamic content. Won't work together with autoHeight.
+        ///Default: false
+        ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
+        public bool clearStyle { get; set; }
+        ///<summary>
+        ///If set, the accordion completely fills the height of the parent element. Overrides autoheight.
+        ///Default: false
+        ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
+        public bool fillSpace { get; set; }
+
+        ///<summary>
+        ///Triggered after a panel has been activated (after animation completes).
+        ///If the accordion was previously collapsed, ui.oldHeader and ui.oldPanel will be empty jQuery objects.
+        ///If the accordion is collapsing, ui.newHeader and ui.newPanel will be empty jQuery objects.
+        ///</summary>
+        public jQueryUIEvent<UIAccordion> activate { get; set; }
+
+        ///<summary>
+        ///Triggered directly after a panel is activated. Can be canceled to prevent the panel from activating.
+        ///If the accordion is currently collapsed, ui.oldHeader and ui.oldPanel will be empty jQuery objects.
+        ///If the accordion is collapsing, ui.newHeader and ui.newPanel will be empty jQuery objects.
+        ///</summary>
+        public jQueryUIEvent<UIAccordion> beforeActivate { get; set; }
 
         ///<summary>
         ///This event is triggered when accordion is created.
@@ -150,6 +177,7 @@ namespace SharpKit.jQuery
         ///   ui.oldContent // jQuery object, previous content
         /// });
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public jQueryUIEvent<UIAccordion> change { get; set; }
 
         ///<summary>
@@ -161,8 +189,28 @@ namespace SharpKit.jQuery
         ///   ui.oldContent // jQuery object, previous content
         /// });
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public jQueryUIEvent<UIAccordion> changestart { get; set; }
     }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    public enum HeightStyleType
+    {
+        /// <summary>
+        /// All panels will be set to the height of the tallest panel.
+        /// </summary>
+        auto,
+        /// <summary>
+        /// Expand to the available height based on the accordion's parent height.
+        /// </summary>
+        fill,
+        /// <summary>
+        /// Each panel will be only as tall as its content.
+        /// </summary>
+        content,
+    }
+
 
     [JsType(JsMode.Json)]
     public class IconOptions
@@ -2446,125 +2494,321 @@ namespace SharpKit.jQuery
     public partial class TabsOptions
     {
         /// <summary>
-        /// Disables (true) or enables (false) the button. Can be set when initialising (first creating) the button.
-        /// Default:false
+        /// Default: 0
+        /// Which panel is currently open.
+        /// Multiple types supported:
+        /// Boolean: Setting active to false will collapse all panels. This requires the collapsible option to be true.
+        /// Integer: The zero-based index of the panel that is active (open). A negative value selects panels going backward from the last panel.
         /// </summary>
-        public bool disabled { get; set; }
-        ///<summary>
-        ///Additional Ajax options to consider when loading tab content (see $.ajax).
-        ///Default: null
-        ///</summary>
-        public JsObject ajaxOptions { get; set; }
-        ///<summary>
-        ///Whether or not to cache remote tabs content, e.g. load only once or with every click. Cached content is being lazy loaded, e.g once and only once for the first click. Note that to prevent the actual Ajax requests from being cached by the browser you need to provide an extra cache: false flag to ajaxOptions.
-        ///Default: false
-        ///</summary>
-        public bool cache { get; set; }
+        public bool active { get; set; }
+        /// <summary>
+        /// Default: 0
+        /// Which panel is currently open.
+        /// Multiple types supported:
+        /// Boolean: Setting active to false will collapse all panels. This requires the collapsible option to be true.
+        /// Integer: The zero-based index of the panel that is active (open). A negative value selects panels going backward from the last panel.
+        /// </summary>
+        [JsProperty(Name = "active")]
+        public JsNumber activeNumber { get; set; }
         ///<summary>
         ///Set to true to allow an already selected tab to become unselected again upon reselection.
         ///Default: false
         ///</summary>
         public bool collapsible { get; set; }
-        ///<summary>
-        ///Store the latest selected tab in a cookie. The cookie is then used to determine the initially selected tab if the selected option is not defined. Requires cookie plugin. The object needs to have key/value pairs of the form the cookie plugin expects as options. Available options (example): { expires: 7, path: '/', domain: 'jquery.com', secure: true }. Since jQuery UI 1.7 it is also possible to define the cookie name being used via name property.
-        ///Default: null
-        ///</summary>
-        public object cookie { get; set; }
-        ///<summary>
-        ///deprecated in jQuery UI 1.7, use collapsible.
-        ///Default: false
-        ///</summary>
-        public bool deselectable { get; set; }
-
+        /// <summary>
+        /// Disables (true) or enables (false) the button. Can be set when initialising (first creating) the button.
+        /// Default:false
+        /// </summary>
+        public bool disabled { get; set; }
         ///<summary>
         ///An array containing the position of the tabs (zero-based index) that should be disabled on initialization.
         ///Default: []
         ///</summary>
         [JsProperty(Name = "disabled")]
         public JsArray<int> disabledIntArray { get; set; }
-
         ///<summary>
         ///The type of event to be used for selecting a tab.
         ///Default: 'click'
         ///</summary>
+        public string @event { get; set; }
+        /// <summary>
+        /// Default: "auto"
+        /// Controls the height of the tabs widget and each panel. Possible values:
+        /// "auto": All panels will be set to the height of the tallest panel.
+        /// "fill": Expand to the available height based on the tabs' parent height.
+        /// "content": Each panel will be only as tall as its content.
+        /// </summary>
+        public HeightStyleType heightStyle { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the hiding of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be hidden immediately.
+        /// When set to true, the tooltip will fade out with the default duration and the default easing.
+        /// Number: The tooltip will fade out with the specified duration and the default easing.
+        /// String: The tooltip will be hidden using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideUp", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeOut" will be used.
+        /// </summary>
+        public bool hide { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the hiding of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be hidden immediately.
+        /// When set to true, the tooltip will fade out with the default duration and the default easing.
+        /// Number: The tooltip will fade out with the specified duration and the default easing.
+        /// String: The tooltip will be hidden using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideUp", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeOut" will be used.
+        /// </summary>
+        [JsProperty(Name = "hide")]
+        public JsNumber hideNumber { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the hiding of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be hidden immediately.
+        /// When set to true, the tooltip will fade out with the default duration and the default easing.
+        /// Number: The tooltip will fade out with the specified duration and the default easing.
+        /// String: The tooltip will be hidden using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideUp", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeOut" will be used.
+        /// </summary>
+        [JsProperty(Name = "hide")]
+        public JsString hideString { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the hiding of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be hidden immediately.
+        /// When set to true, the tooltip will fade out with the default duration and the default easing.
+        /// Number: The tooltip will fade out with the specified duration and the default easing.
+        /// String: The tooltip will be hidden using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideUp", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeOut" will be used.
+        /// </summary>
+        [JsProperty(Name = "hide")]
+        public object hideObject { get; set; }
+
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the showing of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be shown immediately.
+        /// When set to true, the tooltip will fade in with the default duration and the default easing.
+        /// Number: The tooltip will fade in with the specified duration and the default easing.
+        /// String: The tooltip will be shown using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideDown", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeIn" will be used.
+        /// </summary>
+        public bool show { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the showing of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be shown immediately.
+        /// When set to true, the tooltip will fade in with the default duration and the default easing.
+        /// Number: The tooltip will fade in with the specified duration and the default easing.
+        /// String: The tooltip will be shown using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideDown", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeIn" will be used.
+        /// </summary>
+        [JsProperty(Name = "show")]
+        public JsNumber showNumber { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the showing of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be shown immediately.
+        /// When set to true, the tooltip will fade in with the default duration and the default easing.
+        /// Number: The tooltip will fade in with the specified duration and the default easing.
+        /// String: The tooltip will be shown using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideDown", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeIn" will be used.
+        /// </summary>
+        [JsProperty(Name = "show")]
+        public JsString showString { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the showing of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be shown immediately.
+        /// When set to true, the tooltip will fade in with the default duration and the default easing.
+        /// Number: The tooltip will fade in with the specified duration and the default easing.
+        /// String: The tooltip will be shown using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideDown", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeIn" will be used.
+        /// </summary>
+        [JsProperty(Name = "show")]
+        public object showObject { get; set; }
+
+        ///<summary>
+        ///Additional Ajax options to consider when loading tab content (see $.ajax).
+        ///Default: null
+        ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
+        public JsObject ajaxOptions { get; set; }
+        ///<summary>
+        ///Whether or not to cache remote tabs content, e.g. load only once or with every click. Cached content is being lazy loaded, e.g once and only once for the first click. Note that to prevent the actual Ajax requests from being cached by the browser you need to provide an extra cache: false flag to ajaxOptions.
+        ///Default: false
+        ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
+        public bool cache { get; set; }
+        ///<summary>
+        ///Store the latest selected tab in a cookie. The cookie is then used to determine the initially selected tab if the selected option is not defined. Requires cookie plugin. The object needs to have key/value pairs of the form the cookie plugin expects as options. Available options (example): { expires: 7, path: '/', domain: 'jquery.com', secure: true }. Since jQuery UI 1.7 it is also possible to define the cookie name being used via name property.
+        ///Default: null
+        ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
+        public object cookie { get; set; }
+        ///<summary>
+        ///deprecated in jQuery UI 1.7, use collapsible.
+        ///Default: false
+        ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
+        public bool deselectable { get; set; }
+        ///<summary>
+        ///The type of event to be used for selecting a tab.
+        ///Default: 'click'
+        ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public string @event { get; set; }
         ///<summary>
         ///Enable animations for hiding and showing tab panels. The duration option can be a string representing one of the three predefined speeds ("slow", "normal", "fast") or the duration in milliseconds to run an animation (default is "normal").
         ///Default: null
         ///Types: Options, Array&lt;Options&gt;
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public object fx { get; set; }
         ///<summary>
         ///If the remote tab, its anchor element that is, has no title attribute to generate an id from, an id/fragment identifier is created from this prefix and a unique id returned by $.data(el), for example "ui-tabs-54".
         ///Default: 'ui-tabs-'
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public string idPrefix { get; set; }
         ///<summary>
         ///HTML template from which a new tab panel is created in case of adding a tab with the add method or when creating a panel for a remote tab on the fly.
         ///Default: '<div></div>'
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public string panelTemplate { get; set; }
         ///<summary>
         ///Zero-based index of the tab to be selected on initialization. To set all tabs to unselected pass -1 as value.
         ///Default: 0
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public int selected { get; set; }
         ///<summary>
         ///The HTML content of this string is shown in a tab title while remote content is loading. Pass in empty string to deactivate that behavior.
         ///Default: '<em>Loading&#8230;</em>'
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public string spinner { get; set; }
         ///<summary>
         ///HTML template from which a new tab is created and added. The placeholders #{href} and #{label} are replaced with the url and tab label that are passed as arguments to the add method.
         ///Default: '<li><a href="#{href}"><span>#{label}</span></a></li>'
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public string tabTemplate { get; set; }
+
+        ///<summary>
+        ///Triggered after a tab has been activated (after animation completes).
+        ///If the tabs were previously collapsed, ui.oldTab and ui.oldPanel will be empty jQuery objects.
+        ///If the tabs are collapsing, ui.newTab and ui.newPanel will be empty jQuery objects.
+        ///</summary>
+        public jQueryUIEvent<UITabs> activate { get; set; }
+
+        ///<summary>
+        ///Triggered directly after a tab is activated. Can be canceled to prevent the tab from activating.
+        ///If the tabs are currently collapsed, ui.oldTab and ui.oldPanel will be empty jQuery objects.
+        ///If the tabs are collapsing, ui.newTab and ui.newPanel will be empty jQuery objects.
+        ///</summary>
+        public jQueryUIEvent<UITabs> beforeActivate { get; set; }
+
+        /// <summary>
+        /// Triggered when a remote tab is about to be loaded, after the beforeActivate event.
+        /// Can be canceled to prevent the tab panel from loading content; though the panel will still be activated.
+        /// This event is triggered just before the Ajax request is made, so modifications can be made to ui.jqXHR and ui.ajaxSettings.
+        /// </summary>
+        public jQueryUIEvent<UITabs> beforeLoad { get; set; }
 
         ///<summary>
         ///This event is triggered when tabs is created.
         ///</summary>
         public jQueryUIEvent<UITabs> create { get; set; }
 
+        /// <summary>
+        /// Triggered after a remote tab has been loaded.
+        /// </summary>
+        public jQueryUIEvent<UITabs> load { get; set; }
+
         ///<summary>
         ///This event is triggered when clicking a tab.
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public jQueryUIEvent<UITabs> selectEvent { get; set; }
-        //TODO: event name without the"event"
-
         ///<summary>
         ///This event is triggered after the content of a remote tab has been loaded.
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public jQueryUIEvent<UITabs> loadEvent { get; set; }
-        //TODO: event name without the"event"
-
         ///<summary>
         ///This event is triggered when a tab is shown.
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public jQueryUIEvent<UITabs> show { get; set; }
-
         ///<summary>
         ///This event is triggered when a tab is added.
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public jQueryUIEvent<UITabs> addEvent { get; set; }
-        //TODO: event name without the"event"
-
         ///<summary>
         ///This event is triggered when a tab is removed.
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public jQueryUIEvent<UITabs> removeEvent { get; set; }
-        //TODO: event name without the"event"
-
         ///<summary>
         ///This event is triggered when a tab is enabled.
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public jQueryUIEvent<UITabs> enableEvent { get; set; }
-        //TODO: event name without the"event"
-
         ///<summary>
         ///This event is triggered when a tab is disabled.
         ///</summary>
+        //[Obsoloete("Removed from documentation at jQuery UI v1.9.0")]
         public jQueryUIEvent<UITabs> disableEvent { get; set; }
-        //TODO: event name without the"event"
     }
     #endregion
     #region Toggle
@@ -4246,6 +4490,9 @@ namespace SharpKit.jQuery
 
     #region Menu
 
+    /// <summary>
+    /// Themeable menu with mouse and keyboard interactions for navigation.
+    /// </summary>
     [JsType(JsMode.Prototype, Name = "Menu", Export = false)]
     public partial class Menu
     {
@@ -4497,5 +4744,605 @@ namespace SharpKit.jQuery
 
     #endregion
 
+    #region Spinner
+
+    /// <summary>
+    /// Enhance a text input for entering numeric values, with up/down buttons and arrow key handling.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Spinner", Export = false)]
+    public partial class Spinner
+    {
+        /// <summary>
+        /// Removes the spinner functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        public void destroy() { }
+
+        /// <summary>
+        /// Disables the spinner.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enables the spinner.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// Gets the value currently associated with the specified optionName.
+        /// </summary>
+        /// <param name="optionName">The name of the option to get.</param>
+        /// <returns></returns>
+        public object option(JsString optionName) { return null; }
+        /// <summary>
+        /// Gets an object containing key/value pairs representing the current spinner options hash.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+        /// <summary>
+        /// Sets the value of the spinner option associated with the specified optionName.
+        /// </summary>
+        /// <param name="optionName">The name of the option to set.</param>
+        /// <param name="value">A value to set for the option.</param>
+        public void option(JsString optionName, object value) { }
+        /// <summary>
+        /// Sets one or more options for the spinner.
+        /// </summary>
+        /// <param name="options">A map of option-value pairs to set.</param>
+        public void option(SpinnerOptions options) { }
+
+        /// <summary>
+        /// Decrements the value by the specified number of pages, as defined by the page option. Without the parameter, a single page is decremented.
+        /// </summary>
+        /// <param name="pages">Number of pages to decrement, defaults to 1.</param>
+        public void pageDown(JsNumber pages) { }
+
+        /// <summary>
+        /// Increments the value by the specified number of pages, as defined by the page option. Without the parameter, a single page is incremented.
+        /// </summary>
+        /// <param name="pages">Number of pages to increment, defaults to 1.</param>
+        public void pageUp(JsNumber pages) { }
+
+        /// <summary>
+        /// Decrements the value by the specified number of steps. Without the parameter, a single step is decremented.
+        /// If the resulting value is above the max, below the min, or reuslts in a step mismatch, the value will be adjusted to the closest valid value.
+        /// </summary>
+        /// <param name="steps">Number of steps to decrement, defaults to 1.</param>
+        public void stepDown(JsNumber steps) { }
+
+        /// <summary>
+        /// Increments the value by the specified number of steps. Without the parameter, a single step is incremented.
+        /// If the resulting value is above the max, below the min, or reuslts in a step mismatch, the value will be adjusted to the closest valid value.
+        /// </summary>
+        /// <param name="steps">Number of steps to decrement, defaults to 1.</param>
+        public void stepUp(JsNumber steps) { }
+
+        /// <summary>
+        /// Gets the current value as a number. The value is parsed based on the numberFormat and culture options.
+        /// </summary>
+        /// <returns></returns>
+        public JsNumber value() { return null; }
+        /// <summary>
+        /// Gets the current value as a number. The value is parsed based on the numberFormat and culture options.
+        /// </summary>
+        /// <param name="value">Type: Number or String
+        /// The value to set. If passed as a string, the value is parsed based on the numberFormat and culture options.</param>
+        /// <returns></returns>
+        public JsNumber value(JsNumber value) { return null; }
+        /// <summary>
+        /// Gets the current value as a number. The value is parsed based on the numberFormat and culture options.
+        /// </summary>
+        /// <param name="value">Type: Number or String
+        /// The value to set. If passed as a string, the value is parsed based on the numberFormat and culture options.</param>
+        /// <returns></returns>
+        public JsNumber value(JsString value) { return null; }
+
+        /// <summary>
+        /// Returns a jQuery object containing the generated wrapper.
+        /// </summary>
+        /// <returns></returns>
+        public jQuery widget() { return null; }
+
+        /// <summary>
+        /// Triggered when the value of the spinner has changed and the input is no longer focused.
+        /// </summary>
+        public JsAction<Event, SpinnerUI> change { get; set; }
+
+        /// <summary>
+        /// Triggered when the spinner is created.
+        /// </summary>
+        public JsAction<Event, SpinnerUI> create { get; set; }
+
+        /// <summary>
+        /// Triggered during increment/decrement (to determine direction of spin compare current value with ui.value).
+        /// Can be canceled, preventing the value from being updated.
+        /// </summary>
+        public JsAction<Event, SpinnerUI> spin { get; set; }
+
+        /// <summary>
+        /// Triggered before a spin. Can be canceled, preventing the spin from occurring.
+        /// </summary>
+        public JsAction<Event, SpinnerUI> start { get; set; }
+
+        /// <summary>
+        /// Triggered after a spin.
+        /// </summary>
+        public JsAction<Event, SpinnerUI> stop { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public partial class SpinnerOptions
+    {
+        /// <summary>
+        /// Default: null
+        /// Sets the culture to use for parsing and formatting the value.
+        /// If null, the currently set culture in Globalize is used, see Globalize docs for available cultures.
+        /// Only relevant if the numberFormat option is set. Requires Globalize to be included.
+        /// </summary>
+        public JsString culture { get; set; }
+
+        /// <summary>
+        /// Default: false
+        /// Disables the spinner if set to true.
+        /// </summary>
+        public bool disabled { get; set; }
+
+        /// <summary>
+        /// Icons to use for buttons, matching an icon defined by the jQuery UI CSS Framework.
+        /// </summary>
+        public SpinnerIconsOptions icons { get; set; }
+
+        /// <summary>
+        /// Default: true
+        /// Controls the number of steps taken when holding down a spin button.
+        /// Multiple types supported:
+        /// Boolean: When set to true, the stepping delta will increase when spun incessantly. When set to false, all steps are equal (as defined by the step option).
+        /// Function: Receives one parameter: the number of spins that have occurred. Must return the number of steps that should occur for the current spin.
+        /// </summary>
+        public bool incremental { get; set; }
+        /// <summary>
+        /// Default: true
+        /// Controls the number of steps taken when holding down a spin button.
+        /// Multiple types supported:
+        /// Boolean: When set to true, the stepping delta will increase when spun incessantly. When set to false, all steps are equal (as defined by the step option).
+        /// Function: Receives one parameter: the number of spins that have occurred. Must return the number of steps that should occur for the current spin.
+        /// </summary>
+        [JsProperty(Name = "incremental")]
+        public JsFunc<JsNumber, JsNumber> incrementalFunction { get; set; }
+
+        /// <summary>
+        /// Default: null
+        /// The maximum allowed value. The element's max attribute is used if it exists and the option is not explicitly set. If null, there is no maximum enforced.
+        /// Multiple types supported:
+        /// Number: The maximum value.
+        /// String: If Globalize is included, the max option can be passed as a string which will be parsed based on the numberFormat and culture options;
+        /// otherwise it will fall back to the native parseFloat() method.
+        /// </summary>
+        public JsNumber max { get; set; }
+        /// <summary>
+        /// Default: null
+        /// The maximum allowed value. The element's max attribute is used if it exists and the option is not explicitly set. If null, there is no maximum enforced.
+        /// Multiple types supported:
+        /// Number: The maximum value.
+        /// String: If Globalize is included, the max option can be passed as a string which will be parsed based on the numberFormat and culture options;
+        /// otherwise it will fall back to the native parseFloat() method.
+        /// </summary>
+        [JsProperty(Name = "max")]
+        public JsString maxString { get; set; }
+
+        /// <summary>
+        /// Default: null
+        /// The minimum allowed value. The element's min attribute is used if it exists and the option is not explicitly set. If null, there is no minimum enforced.
+        /// Multiple types supported:
+        /// Number: The minimum value.
+        /// String: If Globalize is included, the min option can be passed as a string which will be parsed based on the numberFormat and culture options;
+        /// otherwise it will fall back to the native parseFloat() method.
+        /// </summary>
+        public JsNumber min { get; set; }
+        /// <summary>
+        /// Default: null
+        /// The minimum allowed value. The element's min attribute is used if it exists and the option is not explicitly set. If null, there is no minimum enforced.
+        /// Multiple types supported:
+        /// Number: The minimum value.
+        /// String: If Globalize is included, the min option can be passed as a string which will be parsed based on the numberFormat and culture options;
+        /// otherwise it will fall back to the native parseFloat() method.
+        /// </summary>
+        [JsProperty(Name = "min")]
+        public JsString minString { get; set; }
+
+        /// <summary>
+        /// Default: null
+        /// Format of numbers passed to Globalize, if available. Most common are "n" for a decimal number and "C" for a currency value. Also see the culture option.
+        /// </summary>
+        public JsString numberFormat { get; set; }
+
+        /// <summary>
+        /// Default: null
+        /// The number of steps to take when paging via the pageUp/pageDown methods.
+        /// </summary>
+        public JsNumber page { get; set; }
+
+        /// <summary>
+        /// Default: null
+        /// The size of the step to take when spinning via buttons or via the stepUp()/stepDown() methods.
+        /// The element's step attribute is used if it exists and the option is not explicitly set.
+        /// Multiple types supported:
+        /// Number: The size of the step.
+        /// String: If Globalize is included, the step option can be passed as a string which will be parsed based on the numberFormat and culture options,
+        /// otherwise it will fall back to the native parseFloat.
+        /// </summary>
+        public JsNumber step { get; set; }
+        /// <summary>
+        /// Default: null
+        /// The size of the step to take when spinning via buttons or via the stepUp()/stepDown() methods.
+        /// The element's step attribute is used if it exists and the option is not explicitly set.
+        /// Multiple types supported:
+        /// Number: The size of the step.
+        /// String: If Globalize is included, the step option can be passed as a string which will be parsed based on the numberFormat and culture options,
+        /// otherwise it will fall back to the native parseFloat.
+        /// </summary>
+        [JsProperty(Name = "step")]
+        public JsString stepString { get; set; }
+
+        /// <summary>
+        /// Triggered when the value of the spinner has changed and the input is no longer focused.
+        /// </summary>
+        public JsAction<Event, SpinnerUI> change { get; set; }
+
+        /// <summary>
+        /// Triggered when the spinner is created.
+        /// </summary>
+        public JsAction<Event, SpinnerUI> create { get; set; }
+
+        /// <summary>
+        /// Triggered during increment/decrement (to determine direction of spin compare current value with ui.value).
+        /// Can be canceled, preventing the value from being updated.
+        /// </summary>
+        public JsAction<Event, SpinnerUI> spin { get; set; }
+
+        /// <summary>
+        /// Triggered before a spin. Can be canceled, preventing the spin from occurring.
+        /// </summary>
+        public JsAction<Event, SpinnerUI> start { get; set; }
+
+        /// <summary>
+        /// Triggered after a spin.
+        /// </summary>
+        public JsAction<Event, SpinnerUI> stop { get; set; }
+    }
+
+    /// <summary>
+    /// Icons to use for buttons, matching an icon defined by the jQuery UI CSS Framework.
+    /// </summary>
+    [JsType(JsMode.Json)]
+    public partial class SpinnerIconsOptions
+    {
+        /// <summary>
+        /// (string, default: "ui-icon-triangle-1-n")
+        /// </summary>
+        public JsString up { get; set; }
+
+        /// <summary>
+        /// (string, default: "ui-icon-triangle-1-s")
+        /// </summary>
+        public JsString down { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public partial class SpinnerUI
+    {
+        /// <summary>
+        /// The new value to be set, unless the event is cancelled.
+        /// </summary>
+        public JsNumber value { get; set; }
+    }
+
+    #endregion
+
+    #region Tooltip
+
+    /// <summary>
+    /// Customizable, themeable tooltips, replacing native tooltips.
+    /// </summary>
+    [JsType(JsMode.Prototype, Name = "Tooltip", Export = false)]
+    public partial class Tooltip
+    {
+        /// <summary>
+        /// Closes a tooltip. If the widget's element is the target, the event argument is optional.
+        /// Otherwise you have to pass an event object with the currentTarget property pointing at the target.
+        /// </summary>
+        /// <param name="event">What triggered the tooltip to close.</param>
+        public void close(Event @event) { }
+
+        /// <summary>
+        /// Removes the tooltip functionality completely. This will return the element back to its pre-init state.
+        /// </summary>
+        public void destroy() { }
+
+        /// <summary>
+        /// Disables the tooltip.
+        /// </summary>
+        public void disable() { }
+
+        /// <summary>
+        /// Enables the tooltip.
+        /// </summary>
+        public void enable() { }
+
+        /// <summary>
+        /// Programmatically open a tooltip. If the widget's element is the target, the event argument is optional.
+        /// Otherwise you have to pass an event object with the currentTarget property pointing at the target.
+        /// </summary>
+        /// <param name="event">What triggered the tooltip to open.</param>
+        public void open(Event @event) { }
+
+        /// <summary>
+        /// Gets the value currently associated with the specified optionName.
+        /// </summary>
+        /// <param name="optionName">The name of the option to get.</param>
+        /// <returns></returns>
+        public object option(JsString optionName) { return null; }
+        /// <summary>
+        /// Gets an object containing key/value pairs representing the current tooltip options hash.
+        /// </summary>
+        /// <returns></returns>
+        public object option() { return null; }
+        /// <summary>
+        /// Sets the value of the spinner option associated with the specified optionName.
+        /// </summary>
+        /// <param name="optionName">The name of the option to set.</param>
+        /// <param name="value">A value to set for the option.</param>
+        public void option(JsString optionName, object value) { }
+        /// <summary>
+        /// Sets one or more options for the tooltip.
+        /// </summary>
+        /// <param name="options">A map of option-value pairs to set.</param>
+        public void option(TooltipOptions options) { }
+
+        /// <summary>
+        /// Returns a jQuery object containing the original element.
+        /// </summary>
+        /// <returns></returns>
+        public jQuery widget() { return null; }
+
+        /// <summary>
+        /// Triggered when a tooltip is closed, triggered on focusout or mouseleave.
+        /// </summary>
+        [JsProperty(Name = "close")]
+        public JsAction<Event, TooltipUI> closeEvent { get; set; }
+
+        /// <summary>
+        /// Triggered when the tooltip is created.
+        /// </summary>
+        public JsAction<Event, TooltipUI> create { get; set; }
+
+        /// <summary>
+        /// Triggered when a tooltip is shown, triggered on focusin or mouseover.
+        /// </summary>
+        [JsProperty(Name = "open")]
+        public JsAction<Event, TooltipUI> openEvent { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public partial class TooltipOptions
+    {
+        /// <summary>
+        /// Default: function returning the title attribute
+        /// The content of the tooltip.
+        /// When changing this option, you likely need to also change the items option.
+        /// Multiple types supported:
+        /// Function: A callback which can either return the content directly, or call the first argument, passing in the content, e.g., for Ajax content.
+        /// String: A string of HTML to use for the tooltip content.
+        /// </summary>
+        public JsString content { get; set; }
+        /// <summary>
+        /// Default: function returning the title attribute
+        /// The content of the tooltip.
+        /// When changing this option, you likely need to also change the items option.
+        /// Multiple types supported:
+        /// Function: A callback which can either return the content directly, or call the first argument, passing in the content, e.g., for Ajax content.
+        /// String: A string of HTML to use for the tooltip content.
+        /// </summary>
+        [JsProperty(Name = "content")]
+        public JsAction contentFunction { get; set; }
+        //TODO: type?
+
+        /// <summary>
+        /// Default: false
+        /// Disables the tooltip if set to true.
+        /// </summary>
+        public bool disabled { get; set; }
+
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the hiding of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be hidden immediately.
+        /// When set to true, the tooltip will fade out with the default duration and the default easing.
+        /// Number: The tooltip will fade out with the specified duration and the default easing.
+        /// String: The tooltip will be hidden using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideUp", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeOut" will be used.
+        /// </summary>
+        public bool hide { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the hiding of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be hidden immediately.
+        /// When set to true, the tooltip will fade out with the default duration and the default easing.
+        /// Number: The tooltip will fade out with the specified duration and the default easing.
+        /// String: The tooltip will be hidden using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideUp", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeOut" will be used.
+        /// </summary>
+        [JsProperty(Name = "hide")]
+        public JsNumber hideNumber { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the hiding of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be hidden immediately.
+        /// When set to true, the tooltip will fade out with the default duration and the default easing.
+        /// Number: The tooltip will fade out with the specified duration and the default easing.
+        /// String: The tooltip will be hidden using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideUp", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeOut" will be used.
+        /// </summary>
+        [JsProperty(Name = "hide")]
+        public JsString hideString { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the hiding of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be hidden immediately.
+        /// When set to true, the tooltip will fade out with the default duration and the default easing.
+        /// Number: The tooltip will fade out with the specified duration and the default easing.
+        /// String: The tooltip will be hidden using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideUp", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeOut" will be used.
+        /// </summary>
+        [JsProperty(Name = "hide")]
+        public object hideObject { get; set; }
+
+        /// <summary>
+        /// Default: [title]
+        /// A selector indicating which items should show tooltips.
+        /// Customize if you're using something other then the title attribute for the tooltip content, or if you need a different selector for event delegation.
+        /// When changing this option, you likely need to also change the content option.
+        /// </summary>
+        public JsString items { get; set; }
+
+        /// <summary>
+        /// Default: { my: "left+15 center", at: "right center", collision: "flipfit" }
+        /// Configuration for the Position utility. The of property defaults to the target element, but can also be overriden.
+        /// </summary>
+        public object position { get; set; }
+
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the showing of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be shown immediately.
+        /// When set to true, the tooltip will fade in with the default duration and the default easing.
+        /// Number: The tooltip will fade in with the specified duration and the default easing.
+        /// String: The tooltip will be shown using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideDown", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeIn" will be used.
+        /// </summary>
+        public bool show { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the showing of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be shown immediately.
+        /// When set to true, the tooltip will fade in with the default duration and the default easing.
+        /// Number: The tooltip will fade in with the specified duration and the default easing.
+        /// String: The tooltip will be shown using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideDown", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeIn" will be used.
+        /// </summary>
+        [JsProperty(Name = "show")]
+        public JsNumber showNumber { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the showing of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be shown immediately.
+        /// When set to true, the tooltip will fade in with the default duration and the default easing.
+        /// Number: The tooltip will fade in with the specified duration and the default easing.
+        /// String: The tooltip will be shown using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideDown", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeIn" will be used.
+        /// </summary>
+        [JsProperty(Name = "show")]
+        public JsString showString { get; set; }
+        /// <summary>
+        /// Default: null
+        /// If and how to animate the showing of the tooltip.
+        /// Multiple types supported:
+        /// Boolean: When set to false, no animation will be used and the tooltip will be shown immediately.
+        /// When set to true, the tooltip will fade in with the default duration and the default easing.
+        /// Number: The tooltip will fade in with the specified duration and the default easing.
+        /// String: The tooltip will be shown using the specified effect.
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideDown", or the name of a jQuery UI effect, such as "fold".
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// Object: If the value is an object, then effect, duration, and easing properties may be provided.
+        /// If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect.
+        /// When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect.
+        /// If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeIn" will be used.
+        /// </summary>
+        [JsProperty(Name = "show")]
+        public object showObject { get; set; }
+
+        /// <summary>
+        /// Default: null
+        /// A class to add to the widget, can be used to display various tooltip types, like warnings or errors.
+        /// This may get replaced by the classes option.
+        /// </summary>
+        public JsString tooltipClass { get; set; }
+
+        /// <summary>
+        /// Default: false
+        /// Whether the tooltip should track (follow) the mouse.
+        /// </summary>
+        public bool track { get; set; }
+
+        /// <summary>
+        /// Triggered when a tooltip is closed, triggered on focusout or mouseleave.
+        /// </summary>
+        public JsAction<Event, TooltipUI> close { get; set; }
+
+        /// <summary>
+        /// Triggered when the tooltip is created.
+        /// </summary>
+        public JsAction<Event, TooltipUI> create { get; set; }
+
+        /// <summary>
+        /// Triggered when a tooltip is shown, triggered on focusin or mouseover.
+        /// </summary>
+        public JsAction<Event, TooltipUI> open { get; set; }
+
+    }
+
+    [JsType(JsMode.Json)]
+    public partial class TooltipUI
+    {
+        /// <summary>
+        /// The generated tooltip element.
+        /// </summary>
+        public jQuery tooltip { get; set; }
+    }
+
+    #endregion
 
 }
