@@ -35,13 +35,11 @@ namespace KendoUISamples.examples.web.window
 
                 });
             }
-            //TODO: wrapper.find? 
-            win.data("kendoWindow").As<Window>().wrapper.find(".k-i-custom").click(e=>
+            win.data("kendoWindow").As<Window>().wrapper.find(".k-i-custom").click(e =>
             {
                 HtmlContext.alert("Custom action button clicked");
                 e.preventDefault();
             });
-
         }
     }
 }

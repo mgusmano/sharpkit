@@ -26,26 +26,27 @@ namespace KendoUISamples.examples.web.menu
                 s += "fadeIn";
             if (s == "")
                 return false.As<JsString>();
+
             return s;
 
         }
+        static void initMenu()
+        {
+            new jQuery("#menu").kendoMenu(new MenuConfiguration
+            {
+                animation = new AnimationConfiguration { open = new PanelBarAnimationCloseConfiguration { effects = getEffects() } },
+                hoverDelay = new jQuery("#delay")[0].As<HtmlInputText>().value.As<JsNumber>(),
+            })
+            .css(new Map
+            {
+                marginRight = "220px"
+            });
+        }
+
         static void OnReady()
         {
-    
-            JsAction initMenu = () =>
-            {
-                new jQuery("#menu").kendoMenu(new MenuConfiguration
-                {
-                    animation = new AnimationConfiguration { open = new PanelBarAnimationCloseConfiguration { effects = getEffects() } },
 
-                    //TODO: hoverDelay = new jQuery("#delay")[0].value
-                    hoverDelay = new jQuery("#delay")[0].As<HtmlInputText>().value.As<JsNumber>(),
-                })
-                .css(new Map
-                {
-                    marginRight = "220px"
-                });
-            };
+           
             var original = new jQuery("#menu").clone(true);
             original.find(".k-state-active").removeClass("k-state-active");
 
@@ -62,7 +63,6 @@ namespace KendoUISamples.examples.web.menu
                 });
 
             initMenu();
-
         }
     }
 }

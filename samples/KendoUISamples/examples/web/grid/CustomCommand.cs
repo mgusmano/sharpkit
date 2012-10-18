@@ -9,6 +9,9 @@ namespace KendoUISamples.examples.web.grid
     [JsType(JsMode.Global)]
     public class CustomCommand
     {
+        //TODO: ask Danel about template.
+        static JsFunc<JsString, JsString> detailsTemplate;
+        static Window wnd;
         static CustomCommand()
         {
             new jQuery(OnReady);
@@ -16,9 +19,6 @@ namespace KendoUISamples.examples.web.grid
         
         static void OnReady()
         {
-        
-            //TODO: global variable
-            JsContext.JsCode("var detailsTemplate");
             var grid = new jQuery("#grid").kendoGrid(new GridConfiguration
             {
                 dataSourceObject = new DataSourceConfiguration
@@ -32,26 +32,27 @@ namespace KendoUISamples.examples.web.grid
                     new GridColumnConfiguration { field = "FirstName", title = "First Name" },
                     new GridColumnConfiguration { field = "LastName", title = "Last Name" },
                     new GridColumnConfiguration { field = "Title" },
-                    new GridColumnConfiguration { command = new {text="Details", click= new JsAction<Event, Window>(showDetails)}.As<GridColumnsCommandOptions>(), title = " ", widthString = "110px"}
+                    new GridColumnConfiguration { command = new {text="Details", click= new JsAction<Event>(showDetails)}.As<GridColumnsCommandOptions>(), title = " ", widthString = "110px"}
                 }
 
             }).data("kendoGrid");
 
-            var wnd = new jQuery("#details").kendoWindow(new WindowConfiguration
+            wnd = new jQuery("#details").kendoWindow(new WindowConfiguration
             {
                 title = "Customer Details",
                 modal = true,
                 visible = false,
                 resizable = false,
-                maxWidth = 300
-            }).data("kendoWindow");
-            JsContext.JsCode(" detailsTemplate = kendo.template($('#template').html());");
-            var detailsTemplate = Kendo.template(new jQuery("#template").html());
+                width = "300"
+            }).data("kendoWindow").As<Window>();
+           detailsTemplate = Kendo.template(new jQuery("#template").html());
+           
         }
-        static void showDetails(Event e, Window wnd)
+        static void showDetails(Event e)
         {
             e.preventDefault();
             var dataItem = JsContext.@this.As<Grid>().dataItem(new jQuery(e.currentTarget).closest("tr"));
+           // wnd.content(detailsTemplate(dataItem.As<JsString));
             wnd.center().open();
         }
     }

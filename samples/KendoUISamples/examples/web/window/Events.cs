@@ -7,12 +7,10 @@ namespace KendoUISamples.examples.web.window
     [JsType(JsMode.Global)]
     public class Events
     {
-        //TODO: example doesnt work- compile error. (global variables)
         public static jQuery win;
         public static jQuery undo;
         static Events()
         {
-
             new jQuery(OnReady);
         }
 
@@ -23,9 +21,9 @@ namespace KendoUISamples.examples.web.window
                     .bind("click", e =>
                     {
                         win.data("kendoWindow").As<Window>().open();
-
+                        undo.hide();
                     });
-            undo.hide();
+
             if (win.data("kendoWindow") == null)
             {
                 win.kendoWindow(new WindowConfiguration
@@ -86,7 +84,5 @@ namespace KendoUISamples.examples.web.window
         {
             kendoConsole.log("event :: dragend");
         }
-
-
     }
 }

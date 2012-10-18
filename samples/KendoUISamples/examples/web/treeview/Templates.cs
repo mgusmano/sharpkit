@@ -55,7 +55,6 @@ namespace KendoUISamples.examples.web.treeview
             });
             new jQuery("#treeview [type=checkbox]").change(showSerializedData);
         }
-        //TODO: ask about JsRegExp: example doesnt work correctly.
         static void showSerializedData()
         {
             var serializedData = new jQuery("#treeview input").serialize()

@@ -81,34 +81,8 @@
                 </ul>
                 <div class="bottom"></div>
             </div>
-            <script>
-                $(document).ready(function () {
-                    var original = $("#panelbar").clone(true);
-                    original.find(".k-state-active").removeClass("k-state-active");
-
-                    $(".configuration input").change(function () {
-                        var panelBar = $("#panelbar"),
-                            clone = original.clone(true);
-
-                        panelBar.data("kendoPanelBar").collapse($("#panelbar .k-link"));
-
-                        panelBar.replaceWith(clone);
-
-                        initPanelBar();
-                    });
-
-                    var initPanelBar = function () {
-                        $("#panelbar").kendoPanelBar({ animation: { expand: { effects: getEffects()}} });
-                    };
-
-                    var getEffects = function () {
-                        return (($("#expand")[0].checked ? "expand:vertical " : "") +
-                                ($("#opacity")[0].checked ? "fadeIn" : "")) || false;
-                    };
-
-                    initPanelBar();
-                });
-            </script>
+            
+            <script src="Animation.js"></script>
 
             <style scoped>
                 .history {

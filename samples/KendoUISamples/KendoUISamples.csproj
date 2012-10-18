@@ -449,6 +449,8 @@
     <Content Include="examples\content\web\window\egg-chair.png" />
     <Content Include="examples\content\web\window\kubus-armchair.png" />
     <Content Include="examples\index.html" />
+    <Content Include="examples\web\autocomplete\Api.htm" />
+    <Content Include="examples\web\autocomplete\Api.js" />
     <Content Include="examples\web\autocomplete\Events.htm" />
     <Content Include="examples\web\autocomplete\Events.js" />
     <Content Include="examples\web\autocomplete\Index.htm" />
@@ -459,6 +461,8 @@
     <Content Include="examples\web\autocomplete\Template.js" />
     <Content Include="examples\web\calendar\Api.htm" />
     <Content Include="examples\web\calendar\Api.js" />
+    <Content Include="examples\web\calendar\Events.htm" />
+    <Content Include="examples\web\calendar\Events.js" />
     <Content Include="examples\web\calendar\Template.htm" />
     <Content Include="examples\web\calendar\Template.js" />
     <Content Include="examples\web\combobox\Api.htm" />
@@ -538,6 +542,7 @@
     <Content Include="examples\web\panelbar\Ajax.htm" />
     <Content Include="examples\web\panelbar\Ajax.js" />
     <Content Include="examples\web\panelbar\Animation.htm" />
+    <Content Include="examples\web\panelbar\Animation.js" />
     <Content Include="examples\web\panelbar\Events.htm" />
     <Content Include="examples\web\panelbar\Events.js" />
     <Content Include="examples\web\slider\Events.htm" />
@@ -554,6 +559,8 @@
     <Content Include="examples\web\tabstrip\Animation.js" />
     <Content Include="examples\web\tabstrip\Events.htm" />
     <Content Include="examples\web\tabstrip\Events.js" />
+    <Content Include="examples\web\templates\Index.htm" />
+    <Content Include="examples\web\templates\Index.js" />
     <Content Include="examples\web\timepicker\Api.htm" />
     <Content Include="examples\web\timepicker\Api.js" />
     <Content Include="examples\web\timepicker\Index.htm" />
@@ -576,6 +583,8 @@
     <Content Include="examples\web\window\Actions.js" />
     <Content Include="examples\web\window\Ajax.htm" />
     <Content Include="examples\web\window\Ajax.js" />
+    <Content Include="examples\web\window\Api.htm" />
+    <Content Include="examples\web\window\Api.js" />
     <Content Include="examples\web\window\Events.htm" />
     <Content Include="examples\web\window\Events.js" />
     <Content Include="js\cultures\kendo.culture.af-ZA.min.js" />
@@ -1031,11 +1040,13 @@
     </Compile>
     <Compile Include="examples\content\shared\js\console.cs" />
     <Compile Include="examples\content\shared\js\people.cs" />
+    <Compile Include="examples\web\autocomplete\Api.cs" />
     <Compile Include="examples\web\autocomplete\Events.cs" />
     <Compile Include="examples\web\autocomplete\Index.cs" />
     <Compile Include="examples\web\autocomplete\Remotedatasource.cs" />
     <Compile Include="examples\web\autocomplete\Template.cs" />
     <Compile Include="examples\web\calendar\Api.cs" />
+    <Compile Include="examples\web\calendar\Events.cs" />
     <Compile Include="examples\web\calendar\Template.cs" />
     <Compile Include="examples\web\combobox\Api.cs" />
     <Compile Include="examples\web\combobox\Events.cs" />
@@ -1097,6 +1108,7 @@
     <Compile Include="examples\web\validator\Index.cs" />
     <Compile Include="examples\web\window\Actions.cs" />
     <Compile Include="examples\web\window\Ajax.cs" />
+    <Compile Include="examples\web\window\Api.cs" />
     <Compile Include="examples\web\window\Events.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

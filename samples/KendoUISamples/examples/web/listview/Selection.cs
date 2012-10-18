@@ -29,8 +29,6 @@ namespace KendoUISamples.examples.web.listview
 
         static void OnReady()
         {
-               
-
             new jQuery("#pager").kendoPager(new PagerConfiguration {
                 dataSource = dataSource
             });
@@ -52,7 +50,7 @@ namespace KendoUISamples.examples.web.listview
 
         static void onChange() {
             JsArray data = dataSource.view(),
-                selected = jQuery.map(JsContext.@this.As<SharpKit.KendoUI.Web.ListView>().select(), item => data[new jQuery(item).index()]);//TODO: .ProductName
+                selected = jQuery.map(JsContext.@this.As<SharpKit.KendoUI.Web.ListView>().select(), item => data[new jQuery(item).index()].As<JsObject>()["ProductName"]);
                 kendoConsole.log("Selected = " + selected.length + " item(s), [" + selected.join(", ") + "]");
             }
     }

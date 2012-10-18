@@ -15,7 +15,6 @@ namespace KendoUISamples.examples.web.datasource
             new jQuery(OnReady);
         }
 
-        //TODO: Compile error: Uncaught ReferenceError: System is not defined 
         static void OnReady()
         {
             // create a template using the above definition
@@ -36,7 +35,7 @@ namespace KendoUISamples.examples.web.datasource
             dataSource.read();
             new jQuery("#apply").click(() =>
                 {
-                    var page = int.Parse(new jQuery("#page").val().As<JsString>());// ,10)
+                    var page = JsContext.parseInt(new jQuery("#page").val().As<JsString>());// ,10)
                     // validate the page - it must be a number within the allowed range
                     if (JsContext.isNaN(page) || page < 1 || page > dataSource.totalPages())
                     {
@@ -53,9 +52,9 @@ namespace KendoUISamples.examples.web.datasource
 
                     });
                 });
-                   //initialize dropdownlist components
-                   new jQuery("#order").kendoDropDownList();
-                   new jQuery("#dir").kendoDropDownList();
+            //initialize dropdownlist components
+            new jQuery("#order").kendoDropDownList();
+            new jQuery("#dir").kendoDropDownList();
         }
     }
 }

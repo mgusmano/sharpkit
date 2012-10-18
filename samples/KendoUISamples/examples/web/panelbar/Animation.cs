@@ -10,41 +10,53 @@ namespace KendoUISamples.examples.web.panelbar
     {
         static Animation()
         {
+            new jQuery(OnReady);
         }
 
         static void OnReady()
         {
-            
-             JsAction initPanelBar = () =>
-                 {
-                     //TODO: getEffects()
-                        //new jQuery("#panelbar").kendoPanelBar(new PanelBarConfiguration { animation = new PanelBarAnimationConfiguration 
-                        //{  expand = new PanelBarAnimationExpandConfiguration
-                        //{ effects = getEffects()
-                        //}
-                        //} });
-                    };
-                                var original = new jQuery("#panelbar").clone(true);
-                    original.find(".k-state-active").removeClass("k-state-active");
+            var original = new jQuery("#panelbar").clone(true);
+            original.find(".k-state-active").removeClass("k-state-active");
 
-                    new jQuery(".configuration input").change( e =>
-                        {
-                        //PanelBar panelBar = new jQuery("#panelbar").As<PanelBar>();
-                            PanelBar panelBar = new jQuery("#panelbar").As<PanelBar>();
-                            jQuery clone = original.clone(true);
-                        
-
-                        panelBar.data("kendoPanelBar").collapse(new jQuery("#panelbar .k-link"));
-
-                        panelBar.replaceWith(clone);
-
-                        initPanelBar();
-                    });
-                   //TODO:      
-                   JsContext.JsCode("var getEffects = function () { return ((new jQuery('#expand')[0].checked ? 'expand:vertical ' : '') + (new jQuery('#opacity')[0].checked ? 'fadeIn' : '')) || false;};");
-
+            new jQuery(".configuration input").change(e =>
+                {
+                    var panelBar = new jQuery("#panelbar").As<PanelBar>();
+                    jQuery clone = original.clone(true);
+                    panelBar.data("kendoPanelBar").collapse(new jQuery("#panelbar .k-link"));
+                    panelBar.replaceWith(clone);
                     initPanelBar();
+                });
+            initPanelBar();
 
         }
+        static JsString getEffects()
+        {
+            var expand = new jQuery("#expand")[0].As<HtmlInputRadio>().@checked;
+            var opacity = new jQuery("#opacity")[0].As<HtmlInputCheckBox>().@checked;
+            var s = "";
+            if (expand)
+                s += "expand:vertical ";
+            if (opacity)
+                s += "fadeIn";
+            if (s == "")
+                return false.As<JsString>();
+            return s;
+        }
+
+        static void initPanelBar()
+        {
+            new jQuery("#panelbar").kendoPanelBar(new PanelBarConfiguration
+            {
+                animation = new PanelBarAnimationConfiguration
+                    {
+                        expand = new PanelBarAnimationExpandConfiguration
+                            {
+                                effects = getEffects()
+                            }
+                    }
+            });
+
+        }
+
     }
 }

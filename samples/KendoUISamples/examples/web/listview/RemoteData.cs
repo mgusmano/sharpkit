@@ -25,7 +25,6 @@ namespace KendoUISamples.examples.web.listview
                         contentType = "application/json; charset=utf-8",
                         type = TransportType.GET,
                         dataType = "jsonp",
-                        //TODO: q??
                         data = new
                         {
                             q = "#kendoui"

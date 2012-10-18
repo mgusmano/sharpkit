@@ -17,10 +17,9 @@ namespace KendoUISamples.examples.web.grid
             var fields = new JsObject<FieldConfig>();
             fields["ProductID"] = new FieldConfig { editable = false, nullable = true };
             fields["ProductName"] = new FieldConfig { validation = new ValidatorConfiguration { required = true } };
-            fields["UnitPrice"] = new FieldConfig { type = "number", validation = new ValidatorConfiguration { required = true, } }; //TODO: min: 1
+            fields["UnitPrice"] = new FieldConfig { type = "number", validation = new ValidatorConfiguration { required = true, min = 1} }; 
             fields["Discontinued"] = new FieldConfig { type = "boolean" };
-            fields["UnitsInStock"] = new FieldConfig { type = "number", validation = new ValidatorConfiguration { required = true } };//TODO: min: 0,
-
+            fields["UnitsInStock"] = new FieldConfig { type = "number", validation = new ValidatorConfiguration { required = true, min = 1} };
 
             var dataSource = new DataSource(new DataSourceConfiguration
             {
@@ -76,9 +75,6 @@ namespace KendoUISamples.examples.web.grid
                 },
                 editableString = "popup",
             });
-
-
-           
         }
     }
 }

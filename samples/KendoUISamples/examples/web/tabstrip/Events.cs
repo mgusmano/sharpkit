@@ -11,18 +11,6 @@ namespace KendoUISamples.examples.web.tabstrip
         {
             new jQuery(OnReady);
         }
-        //TODO: the example doesn't work correctly.
-        static void OnReady()
-        {
-            new jQuery("#tabstrip").kendoTabStrip(new TabStripConfiguration
-            {
-                select = onSelect,
-                activate = onActivate,
-                contentLoad = onContentLoad,
-                error = onError,
-                contentUrls = new JsArray<JsString> { "", "", "", "", "", "../../content/web/tabstrip/ajax/ajaxContent1.html", "error.html" }
-            });
-        }
         static void onSelect(TabStripSelectEventData e)
         {
             kendoConsole.log("Selected: " + new jQuery(e.item).find("> .k-link").text());
@@ -42,5 +30,18 @@ namespace KendoUISamples.examples.web.tabstrip
         {
             kendoConsole.error("Loading failed with " + e.xhr.statusText + " " + e.xhr.status);
         }
+        //TODO: the example doesn't work correctly.
+        static void OnReady()
+        {
+            new jQuery("#tabstrip").kendoTabStrip(new TabStripConfiguration
+            {
+                select = onSelect,
+                activate = onActivate,
+                contentLoad = onContentLoad,
+                error = onError,
+                contentUrls = new JsArray<JsString> { "", "", "", "", "", "../../content/web/tabstrip/ajax/ajaxContent1.html", "error.html" }
+            });
+        }
+       
     }
 }

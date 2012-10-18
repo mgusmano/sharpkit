@@ -13,11 +13,14 @@ namespace KendoUISamples.examples.web.combobox
     [JsType(JsMode.Global)]
     public class Api
     {
+        //TODO: sample doesn't work correctly.
         static Api()
         {
             new jQuery(OnReady);
         }
-        static ComboBox combobox = new jQuery("#products").data("kendoComboBox").As<ComboBox>();
+
+       
+        static ComboBox combobox; 
         static void OnReady()
         {
             var data = new JsArray<ComboBoxConfiguration> {
@@ -41,30 +44,14 @@ namespace KendoUISamples.examples.web.combobox
             })
             .closest(".k-widget")
             .attr("id", "products_wrapper");
+            
             new jQuery("#filter").kendoDropDownList(new DropDownListConfiguration
             {
                 change = filterTypeOnChanged
 
             });
-            JsAction<Event> setValue = e =>
-            {
-                if (e.ExactNotEquals("keypress"))
-                { //TODO: || "kendo.keys.ENTER == e.keyCode")) {
-                    var index = int.Parse(new jQuery("#index").val().As<JsString>());
-                    combobox.select(index);
-                }
-            };
-
-            JsAction<Event> setIndex = e =>
-            {
-                var x = Kendo.keys.ENTER;
-                JsContext.JsCode("if (e.type != 'keypress' || kendo.keys.ENTER == e.keyCode) { var index = parseInt($('#index').val());combobox.select(index);}");
-            };
-
-            JsAction<Event> setSearch = e =>
-                {
-                    JsContext.JsCode("if (e.type != 'keypress' || kendo.keys.ENTER == e.keyCode) combobox.search($('#word').val());");
-                };
+            combobox = new jQuery("#products").data("kendoComboBox").As<ComboBox>();
+          
             new jQuery("#enable").click(() => combobox.enable());
             new jQuery("#disable").click(() => combobox.enable(false));
             new jQuery("#open").click(() => combobox.open());
@@ -78,10 +65,35 @@ namespace KendoUISamples.examples.web.combobox
             new jQuery("#find").click(setSearch);
             new jQuery("#word").keypress(setSearch);
         }
+        static void setValue(Event e)
+        {
+            if (e.ExactNotEquals("keypress") || Kendo.keys.ENTER == e.keyCode)
+            {
+                var index = JsContext.parseInt(new jQuery("#index").val().As<JsString>());
+                combobox.select(index);
+            }
+        }
+
+        static void setIndex(Event e)
+        {
+
+            if (e.type != "keypress" || Kendo.keys.ENTER == e.keyCode)
+            {
+                var index = JsContext.parseInt(new jQuery("#index").val().As<JsString>());
+                combobox.select(index);
+            }
+        }
+
+        static void setSearch(Event e)
+        {
+            if (e.type != "keypress" || Kendo.keys.ENTER == e.keyCode)
+                combobox.search(new jQuery("#word").val().As<JsString>());
+        }
+    
        
         static void filterTypeOnChanged()
         {
-            JsContext.JsCode("combobox.options.filter = $('#filter').val();");
+          
             combobox.As<JsObject>()["options"].As<ComboBoxConfiguration>().filter = new jQuery("#filter").val().As<JsString>();
         }
     }

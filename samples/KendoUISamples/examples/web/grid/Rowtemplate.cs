@@ -12,7 +12,7 @@ namespace KendoUISamples.examples.web.grid
         {
             new jQuery(OnReady);
         }
-        //TODO: example doesn't work- compile error.
+
         static void OnReady()
         {
             new jQuery("#netflixTable").kendoGrid(new GridConfiguration
@@ -23,7 +23,7 @@ namespace KendoUISamples.examples.web.grid
                     serverFiltering = true,
                     filter = new JsArray { 
                         new {field = "Name", @operator = "contains", value = "Star Wars" },
-                        new {field = "BoxArt.SmallUrl", @operator = "neq"} },
+                        new {field = "BoxArt.SmallUrl", @operator = "neq", value = ""} },
                     transport = new DataSourceTransportConfiguration
                     {
                         readString = "http://odata.netflix.com/Catalog/Titles"

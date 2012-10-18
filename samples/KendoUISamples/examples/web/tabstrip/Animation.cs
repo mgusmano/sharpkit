@@ -1,7 +1,8 @@
-﻿
-using SharpKit.JavaScript;
+﻿using SharpKit.JavaScript;
 using SharpKit.jQuery;
 using SharpKit.KendoUI.Web;
+using SharpKit.Html4;
+
 namespace KendoUISamples.examples.web.tabstrip
 {
     [JsType(JsMode.Global)]
@@ -16,20 +17,6 @@ namespace KendoUISamples.examples.web.tabstrip
         {
             var original = new jQuery("#tabstrip").clone(true);
             original.find(".k-state-active").removeClass("k-state-active");
-            JsFunc<JsString> getEffects = null;
-            //TODO:         
-            JsContext.JsCode("var getEffects = function () {return (($('#expand')[0].checked ? 'expand:vertical ' : '') + ($('#opacity')[0].checked ? 'fadeIn' : '')) || false;};");
-
-            JsAction initTabStrip = () => new jQuery("#tabstrip").kendoTabStrip(new TabStripConfiguration
-            {
-                animation = new PanelBarAnimationConfiguration
-                {
-                    open = new PanelBarAnimationOpenConfiguration { effects = getEffects() }
-                }
-            })
-                    .css(new Map { marginRight = "220px" });
-
-
             new jQuery(".configuration input").change(e =>
                 {
                     jQuery tabStrip = new jQuery("#tabstrip"),
@@ -48,7 +35,33 @@ namespace KendoUISamples.examples.web.tabstrip
                 });
 
             initTabStrip();
+        }
 
+        static JsString getEffects()
+        {
+            var expand = new jQuery("#expand")[0].As<HtmlInputRadio>().@checked;
+            var opacity = new jQuery("#opacity")[0].As<HtmlInputRadio>().@checked;
+            var s = "";
+            if (expand)
+                s += "expand:vertical ";
+            if (opacity)
+                s += "fadeIn";
+            if (s == "")
+                return false.As<JsString>();
+            return s;
+
+        }
+        static void initTabStrip()
+        {
+            new jQuery("#tabstrip").kendoTabStrip(new TabStripConfiguration
+            {
+
+                animation = new PanelBarAnimationConfiguration
+                {
+                    open = new PanelBarAnimationOpenConfiguration { effects = getEffects() }
+                }
+            })
+                   .css(new Map { marginRight = "220px" });
         }
     }
 }

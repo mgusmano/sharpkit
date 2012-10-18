@@ -113,7 +113,7 @@ namespace KendoUISamples.examples.web.autocomplete
             {
                 //TODO:
 
-                //var dataItem = JsContext.@this.As<Grid>().dataItem(e.currentTarget.item.index());
+               // dataItem = JsContext.@this.As<Grid>().dataItem(e.currentTarget.As<AutoComplete>().item.index());
                 JsContext.JsCode("var dataItem = this.dataItem(e.item.index());");
                 JsContext.JsCode(" kendoConsole.log('event :: select (' + dataItem + ')');");
             }

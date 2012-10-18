@@ -16,7 +16,7 @@ namespace KendoUISamples.examples.web.dropdownlist
 
         static void OnReady()
         {
-              var data = new JsArray<DropDownListConfiguration> { 
+            var data = new JsArray<DropDownListConfiguration> { 
                         new DropDownListConfiguration {text = "The Shawshank Redemption", value ="1"},
                         new DropDownListConfiguration {text = "The Godfather", value ="2"},
                         new DropDownListConfiguration {text = "The Godfather = Part II", value ="3"},
@@ -29,57 +29,45 @@ namespace KendoUISamples.examples.web.dropdownlist
                         new DropDownListConfiguration {text = "The Dark Knight", value ="10"}
               };
 
-                    new jQuery("#products").kendoDropDownList(new DropDownListConfiguration {
-                                      dataTextField = "text",
-                                      dataValueField = "value",
-                                      dataSourceObject = data
-                                  })
-                                  .closest(".k-widget")
-                                  .attr("id", "products_wrapper");
+            new jQuery("#products").kendoDropDownList(new DropDownListConfiguration
+            {
+                dataTextField = "text",
+                dataValueField = "value",
+                dataSourceObject = data
+            })
+                          .closest(".k-widget")
+                          .attr("id", "products_wrapper");
 
-                    var dropdownlist = new jQuery("#products").data("kendoDropDownList").As<DropDownList>();
-                        JsAction<Event> setValue = e => {
-                            if (e.type != "keypress")  //TODO || Kendo.keys.ENTER == e.keyCode)
-                                dropdownlist.value(new jQuery("#value").val().As<JsString>());
-                        },
-                        setIndex = e => {
-                            if (e.type != "keypress") { //|| kendo.keys.ENTER == e.keyCode) {
-                                var index = int.Parse(new jQuery("#index").val().As<JsString>());
-                                dropdownlist.select(index);
-                            }
-                        },
-                        setSearch = e => {
-                            if (e.type != "keypress") //|| kendo.keys.ENTER == e.keyCode)
-                                dropdownlist.search(new jQuery("#word").val().As<JsString>());
-                        };
+            var dropdownlist = new jQuery("#products").data("kendoDropDownList").As<DropDownList>();
+            JsAction<Event> setValue = e =>
+            {
+                if (e.type != "keypress" || Kendo.keys.ENTER == e.keyCode)
+                    dropdownlist.value(new jQuery("#value").val().As<JsString>());
+            },
+            setIndex = e =>
+            {
+                if (e.type != "keypress" || Kendo.keys.ENTER == e.keyCode)
+                {
+                    var index = int.Parse(new jQuery("#index").val().As<JsString>());
+                    dropdownlist.select(index);
+                }
+            },
+            setSearch = e =>
+            {
+                if (e.type != "keypress" || Kendo.keys.ENTER == e.keyCode)
+                    dropdownlist.search(new jQuery("#word").val().As<JsString>());
+            };
 
             new jQuery("#enable").click(() => dropdownlist.enable());
-            new jQuery("#disable").click(() =>
-                dropdownlist.enable(false));
-
-
-            new jQuery("#open").click(() =>
-                dropdownlist.open());
-
-
-            new jQuery("#close").click(() =>
-                dropdownlist.close());
-
-
-            new jQuery("#getValue").click(() =>
-                HtmlContext.window.alert(dropdownlist.value()));
-
-
-            new jQuery("#getText").click(() =>
-               HtmlContext.window.alert(dropdownlist.text()));
-
-
+            new jQuery("#disable").click(() =>dropdownlist.enable(false));
+            new jQuery("#open").click(() => dropdownlist.open());
+            new jQuery("#close").click(() => dropdownlist.close());
+            new jQuery("#getValue").click(() => HtmlContext.window.alert(dropdownlist.value()));
+            new jQuery("#getText").click(() => HtmlContext.window.alert(dropdownlist.text()));
             new jQuery("#setValue").click(setValue);
             new jQuery("#value").keypress(setValue);
-
             new jQuery("#select").click(setIndex);
             new jQuery("#index").keypress(setIndex);
-
             new jQuery("#find").click(setSearch);
             new jQuery("#word").keypress(setSearch);
         }

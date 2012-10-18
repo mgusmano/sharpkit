@@ -12,8 +12,6 @@ namespace KendoUISamples.examples.web.treeview
         {
             new jQuery(OnReady);
         }
-
-        //TODO: the example doesn't work.
         static void OnReady()
         {
             // TreeView bound to Categories > Products > OrderDetails
