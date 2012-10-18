@@ -14,9 +14,6 @@ namespace jQueryUISamples.demos.animate
 
         static void OnReady()
         {
-            System.String.Format("asdsa", "a", "b", "c", "d", "e");
-            var x = new[] { "a", "b", "c", "d", "e" };
-            System.String.Format("asdsa", x);
             new jQuery("#button").toggle(
                 e =>
                         new jQuery("#effect").animate(new AnimationPropertiesEx
