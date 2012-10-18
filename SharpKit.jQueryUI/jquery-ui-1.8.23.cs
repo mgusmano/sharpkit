@@ -1137,8 +1137,8 @@ namespace SharpKit.jQuery
         ///Default: false
         ///</summary>
         public int zIndex { get; set; }
-
-
+        [JsProperty(Name = "drag")]
+        public JsAction dragAction { get; set; }
         ///<summary>
         ///This event is triggered when draggable is created.
         ///</summary>
@@ -1507,6 +1507,57 @@ namespace SharpKit.jQuery
         ///Default: null
         ///</summary>
         public jQueryUIEvent callback { get; set; }
+    }
+    #endregion
+    #region Menu
+    /// <summary>
+    /// 
+    /// </summary>
+    public static partial class MenuExtension
+    {
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery menu(this jQuery query) { return default(jQuery); }
+
+    }
+    #endregion
+    #region MenuOptions
+    [JsType(JsMode.Json)]
+    public partial class MenuOptions
+    {
+        /// <summary>
+        /// (Default: false).
+        /// Disables the menu if set to true.
+        /// </summary>
+        public bool disabled { get; set; }
+        /// <summary>
+        /// (Default: { submenu: "ui-icon-carat-1-e" })
+        /// Icons to use for submenus, matching an icon defined by the jQuery UI CSS Framework.
+        /// <remarks>
+        /// submenu (string, default: "ui-icon-carat-1-e")
+        /// </remarks>
+        /// </summary>
+        public object icons { get; set; }
+        /// <summary>
+        /// (Default: "ul")
+        /// Selector for the elements that serve as the menu container, including sub-menus.
+        /// </summary>
+        public JsString menues { get; set; }
+        /// <summary>
+        /// (Default: { my: "top left", at: "top right" })
+        /// Identifies the position of submenus in relation to the associated parent menu item. 
+        /// The of option defaults to the parent menu item, but you can specify another element to position against.
+        /// You can refer to the jQuery UI Position utility for more details about the various options
+        /// </summary>
+        public object position { get; set; }
+        /// <summary>
+        /// (Default: "menu").
+        /// Customize the ARIA roles used for the menu and menu items. 
+        /// The default uses "menuitem" for items. Setting the role option to 
+        /// "listbox" will use "option" for items. 
+        /// If set to null, no roles will be set, 
+        /// which is useful if the menu is being controlled by another element that is maintaining focus.
+        /// </summary>
+        public JsString role { get; set; }
     }
     #endregion
     #region Progressbar
@@ -2945,6 +2996,22 @@ namespace SharpKit.jQuery
         /// When specified the actual property setting is delegated to this callback. Receives a single parameter which is a hash of top and left values for the position that should be set.
         /// </summary>
         public JsAction<object> @using { get; set; }
+        /// <summary>
+        /// (Default: window)
+        /// Element to position within, affecting collision detection. 
+        /// If you provide a selector or jQuery object, 
+        /// the first matching element will be used.
+        /// </summary>
+        public jQuery within { get; set; }
+        /// <summary>
+        /// (Default: window)
+        /// Element to position within, affecting collision detection. 
+        /// If you provide a selector or jQuery object, 
+        /// the first matching element will be used.
+        /// </summary>
+        [JsProperty(Name = "within")]
+        public HtmlElement withinElememt { get; set; }
+        //TODO: within Selector type
     }
     #endregion
     [JsDelegate(NativeDelegates = true)]
@@ -4076,6 +4143,7 @@ namespace SharpKit.jQuery
         //TODO: event name without the"event"
     }
 
+
     /// <summary>
     /// The progress bar is designed to simply display the current % complete for a process. The bar is coded to be flexibly sized through CSS and will scale to fit inside it's parent container by default.
     /// 
@@ -4669,64 +4737,7 @@ namespace SharpKit.jQuery
 
     }
 
-    [JsType(JsMode.Json)]
-    public partial class MenuOptions
-    {
-        /// <summary>
-        /// Disables the menu if set to true.
-        /// </summary>
-        public bool disabled { get; set; }
-
-        /// <summary>
-        /// Default: { submenu: "ui-icon-carat-1-e" }
-        /// Icons to use for submenus, matching an icon defined by the jQuery UI CSS Framework.
-        /// </summary>
-        public object icons { get; set; }
-
-        /// <summary>
-        /// Default: "ul"
-        /// Selector for the elements that serve as the menu container, including sub-menus.
-        /// </summary>
-        public JsString menus { get; set; }
-
-        /// <summary>
-        /// Default: { my: "top left", at: "top right" }
-        /// Identifies the position of submenus in relation to the associated parent menu item.
-        /// The of option defaults to the parent menu item, but you can specify another element to position against.
-        /// You can refer to the jQuery UI Position utility for more details about the various options.
-        /// </summary>
-        public object position { get; set; }
-
-        /// <summary>
-        /// Default: "menu"
-        /// Customize the ARIA roles used for the menu and menu items. The default uses "menuitem" for items.
-        /// Setting the role option to "listbox" will use "option" for items.
-        /// If set to null, no roles will be set, which is useful if the menu is being controlled by another element that is maintaining focus.
-        /// </summary>
-        public JsString role { get; set; }
-
-        /// <summary>
-        /// Triggered when the menu loses focus.
-        /// </summary>
-        public JsAction<Event, MenuUI> blur { get; set; }
-
-        /// <summary>
-        /// Triggered when the menu is created.
-        /// </summary>
-        public JsAction<Event, MenuUI> create { get; set; }
-
-        /// <summary>
-        /// Triggered when a menu gains focus or when any menu item is activated.
-        /// </summary>
-        public JsAction<Event, MenuUI> focus { get; set; }
-
-        /// <summary>
-        /// Triggered when a menu item is selected.
-        /// </summary>
-        public JsAction<Event, MenuUI> select { get; set; }
-
-    }
-
+  
     [JsType(JsMode.Json)]
     public partial class MenuUI
     {
