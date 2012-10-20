@@ -128,10 +128,12 @@ namespace SharpKit.JavaScript.Private
 		}
 
 		#region IDictionary<TKey,TValue> Members
-        [JsMethod(Export=false)]
 		public bool TryGetValue(TKey key, out TValue value)
 		{
-			throw new NotImplementedException();
+            var hashKey = GetHashKey(key);
+            var v = this._table[hashKey];
+            value = v.As<TValue>();
+            return JsContext.@typeof(v) != "undefined";
 		}
 
 

@@ -233,6 +233,8 @@ namespace SharpKit.JavaScript.Compilation
                     return true;
                 if (type.fullname == "System.Double")
                     return true;
+                if (type.fullname == "System.Single")
+                    return true;
             }
             var t = objType.baseType;
             while (t != null)
