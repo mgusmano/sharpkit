@@ -28,6 +28,7 @@
     <DocumentationFile>..\..\bin\v4.0\SharpKit.ExtJs.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Missing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ext.AbstractComponent.cs" />
     <Compile Include="Ext.AbstractManager.cs" />
