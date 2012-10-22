@@ -3646,7 +3646,7 @@ namespace SharpKit.EaselJS
         /// Removes all listeners that were set up when calling Touch.enable on a stage.
         /// </summary>
         /// <param name="stage">The stage to disable touch on.</param>
-        public static void disable (Stage stage ) {}
+        public static void disable(Stage stage) { }
 
         /// <summary>
         /// Enables touch interaction for the specified EaselJS stage. Currently supports iOS (and compatible browsers, such as modern Android browsers), and IE10.
