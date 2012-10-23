@@ -534,6 +534,19 @@ namespace SharpKit.NodeJS1
         /// <param name="offset"></param>
         /// <param name="noAssert">Optional, Default: false</param>
         /// <returns></returns>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(4);
+        /// buf[0] = 0x3;
+        /// buf[1] = 0x4;
+        /// buf[2] = 0x23;
+        /// buf[3] = 0x42;
+        /// console.log(buf.readUInt32BE(0));
+        /// console.log(buf.readUInt32LE(0));
+        /// // 0x03042342
+        /// // 0x42230403
+        /// </code>
+        /// </example>
         public JsNumber readUInt32BE(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// Reads an unsigned 32 bit integer from the buffer at the specified offset with specified endian format.
@@ -541,7 +554,618 @@ namespace SharpKit.NodeJS1
         /// </summary>
         /// <param name="offset"></param>
         /// <returns></returns>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(4);
+        /// buf[0] = 0x3;
+        /// buf[1] = 0x4;
+        /// buf[2] = 0x23;
+        /// buf[3] = 0x42;
+        /// console.log(buf.readUInt32BE(0));
+        /// console.log(buf.readUInt32LE(0));
+        /// // 0x03042342
+        /// // 0x42230403
+        /// </code>
+        /// </example>
         public JsNumber readUInt32BE(JsNumber offset) { return null; }
+
+        /// <summary>
+        /// Reads a signed 8 bit integer from the buffer at the specified offset.
+        /// Set noAssert to true to skip validation of offset. This means that offset may be beyond the end of the buffer. Defaults to false.
+        /// Works as buffer.readUInt8, except buffer contents are treated as two's complement signed values.
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <param name="noAssert"> Optional, Default: false</param>
+        /// <returns></returns>
+        public JsNumber readInt8(JsNumber offset, bool noAssert) { return null; }
+        /// <summary>
+        /// Reads a signed 8 bit integer from the buffer at the specified offset.
+        /// Set noAssert to true to skip validation of offset. This means that offset may be beyond the end of the buffer. Defaults to false.
+        /// Works as buffer.readUInt8, except buffer contents are treated as two's complement signed values.
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        public JsNumber readInt8(JsNumber offset) { return null; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <param name="noAssert"> Optional, Default: false</param>
+        /// <returns></returns>
+        public JsNumber readInt16LE(JsNumber offset, bool noAssert) { return null; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        public JsNumber readInt16LE(JsNumber offset) { return null; }
+
+        /// <summary>
+        /// Reads a signed 16 bit integer from the buffer at the specified offset with specified endian format.
+        /// Set noAssert to true to skip validation of offset. This means that offset may be beyond the end of the buffer. Defaults to false.
+        /// Works as buffer.readUInt16*, except buffer contents are treated as two's complement signed values.
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <param name="noAssert"> Optional, Default: false</param>
+        /// <returns></returns>
+        public JsNumber readInt16BE(JsNumber offset, bool noAssert) { return null; }
+        /// <summary>
+        /// Reads a signed 16 bit integer from the buffer at the specified offset with specified endian format.
+        /// Set noAssert to true to skip validation of offset. This means that offset may be beyond the end of the buffer. Defaults to false.
+        /// Works as buffer.readUInt16*, except buffer contents are treated as two's complement signed values.
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        public JsNumber readInt16BE(JsNumber offset) { return null; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <param name="noAssert"> Optional, Default: false</param>
+        /// <returns></returns>
+        public JsNumber readInt32LE(JsNumber offset, bool noAssert) { return null; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        public JsNumber readInt32LE(JsNumber offset) { return null; }
+
+        /// <summary>
+        /// Reads a signed 32 bit integer from the buffer at the specified offset with specified endian format.
+        /// Set noAssert to true to skip validation of offset. This means that offset may be beyond the end of the buffer. Defaults to false.
+        /// Works as buffer.readUInt32*, except buffer contents are treated as two's complement signed values.
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <param name="noAssert"> Optional, Default: false</param>
+        /// <returns></returns>
+        public JsNumber readInt32BE(JsNumber offset, bool noAssert) { return null; }
+        /// <summary>
+        /// Reads a signed 32 bit integer from the buffer at the specified offset with specified endian format.
+        /// Set noAssert to true to skip validation of offset. This means that offset may be beyond the end of the buffer. Defaults to false.
+        /// Works as buffer.readUInt32*, except buffer contents are treated as two's complement signed values.
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        public JsNumber readInt32BE(JsNumber offset) { return null; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <param name="noAssert"> Optional, Default: false</param>
+        /// <returns></returns>
+        public JsNumber readFloatLE(JsNumber offset, bool noAssert) { return null; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        public JsNumber readFloatLE(JsNumber offset) { return null; }
+
+        /// <summary>
+        /// Reads a 32 bit float from the buffer at the specified offset with specified endian format.
+        /// Set noAssert to true to skip validation of offset. This means that offset may be beyond the end of the buffer. Defaults to false.
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <param name="noAssert"> Optional, Default: false</param>
+        /// <returns></returns>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(4);
+        /// buf[0] = 0x00;
+        /// buf[1] = 0x00;
+        /// buf[2] = 0x80;
+        /// buf[3] = 0x3f;
+        /// console.log(buf.readFloatLE(0));
+        /// // 0x01
+        /// </code>
+        /// </example>
+        public JsNumber readFloatBE(JsNumber offset, bool noAssert) { return null; }
+        /// <summary>
+        /// Reads a 32 bit float from the buffer at the specified offset with specified endian format.
+        /// Set noAssert to true to skip validation of offset. This means that offset may be beyond the end of the buffer. Defaults to false.
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(4);
+        /// buf[0] = 0x00;
+        /// buf[1] = 0x00;
+        /// buf[2] = 0x80;
+        /// buf[3] = 0x3f;
+        /// console.log(buf.readFloatLE(0));
+        /// // 0x01
+        /// </code>
+        /// </example>
+        public JsNumber readFloatBE(JsNumber offset) { return null; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <param name="noAssert"> Optional, Default: false</param>
+        /// <returns></returns>
+        public JsNumber readDoubleLE(JsNumber offset, bool noAssert) { return null; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        public JsNumber readDoubleLE(JsNumber offset) { return null; }
+
+        /// <summary>
+        /// Reads a 64 bit double from the buffer at the specified offset with specified endian format.
+        /// Set noAssert to true to skip validation of offset. This means that offset may be beyond the end of the buffer. Defaults to false.
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <param name="noAssert"> Optional, Default: false</param>
+        /// <returns></returns>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(8);
+        /// buf[0] = 0x55;
+        /// buf[1] = 0x55;
+        /// buf[2] = 0x55;
+        /// buf[3] = 0x55;
+        /// buf[4] = 0x55;
+        /// buf[5] = 0x55;
+        /// buf[6] = 0xd5;
+        /// buf[7] = 0x3f;
+        /// console.log(buf.readDoubleLE(0));
+        /// // 0.3333333333333333
+        /// </code>
+        /// </example>
+        public JsNumber readDoubleBE(JsNumber offset, bool noAssert) { return null; }
+        /// <summary>
+        /// Reads a 64 bit double from the buffer at the specified offset with specified endian format.
+        /// Set noAssert to true to skip validation of offset. This means that offset may be beyond the end of the buffer. Defaults to false.
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(8);
+        /// buf[0] = 0x55;
+        /// buf[1] = 0x55;
+        /// buf[2] = 0x55;
+        /// buf[3] = 0x55;
+        /// buf[4] = 0x55;
+        /// buf[5] = 0x55;
+        /// buf[6] = 0xd5;
+        /// buf[7] = 0x3f;
+        /// console.log(buf.readDoubleLE(0));
+        /// // 0.3333333333333333
+        /// </code>
+        /// </example>
+        public JsNumber readDoubleBE(JsNumber offset) { return null; }
+
+        /// <summary>
+        /// Writes value to the buffer at the specified offset. Note, value must be a valid unsigned 8 bit integer.
+        /// Set noAssert to true to skip validation of value and offset.
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(4);
+        /// buf.writeUInt8(0x3, 0);
+        /// buf.writeUInt8(0x4, 1);
+        /// buf.writeUInt8(0x23, 2);
+        /// buf.writeUInt8(0x42, 3);
+        /// console.log(buf);
+        /// // <Buffer 03 04 23 42>
+        /// </code>
+        /// </example>
+        public void writeUInt8(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// Writes value to the buffer at the specified offset. Note, value must be a valid unsigned 8 bit integer.
+        /// Set noAssert to true to skip validation of value and offset.
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(4);
+        /// buf.writeUInt8(0x3, 0);
+        /// buf.writeUInt8(0x4, 1);
+        /// buf.writeUInt8(0x23, 2);
+        /// buf.writeUInt8(0x42, 3);
+        /// console.log(buf);
+        /// // <Buffer 03 04 23 42>
+        /// </code>
+        /// </example>
+        public void writeUInt8(JsNumber value, JsNumber offset) { }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        public void writeUInt16LE(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        public void writeUInt16LE(JsNumber value, JsNumber offset) { }
+
+        /// <summary>
+        /// Writes value to the buffer at the specified offset with specified endian format.
+        /// Note, value must be a valid unsigned 16 bit integer.Set noAssert to true to skip validation of value and offset. 
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(4);
+        /// buf.writeUInt16BE(0xdead, 0);
+        /// buf.writeUInt16BE(0xbeef, 2);
+        /// console.log(buf);
+        /// buf.writeUInt16LE(0xdead, 0);
+        /// buf.writeUInt16LE(0xbeef, 2);
+        /// console.log(buf);
+        /// // <Buffer de ad be ef>
+        /// // <Buffer ad de ef be>
+        /// </code>
+        /// </example>
+        public void writeUInt16BE(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// Writes value to the buffer at the specified offset with specified endian format.
+        /// Note, value must be a valid unsigned 16 bit integer.Set noAssert to true to skip validation of value and offset. 
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(4);
+        /// buf.writeUInt16BE(0xdead, 0);
+        /// buf.writeUInt16BE(0xbeef, 2);
+        /// console.log(buf);
+        /// buf.writeUInt16LE(0xdead, 0);
+        /// buf.writeUInt16LE(0xbeef, 2);
+        /// console.log(buf);
+        /// // <Buffer de ad be ef>
+        /// // <Buffer ad de ef be>
+        /// </code>
+        /// </example>
+        public void writeUInt16BE(JsNumber value, JsNumber offset) { }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        public void writeUInt32LE(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        public void writeUInt32LE(JsNumber value, JsNumber offset) { }
+
+        /// <summary>
+        /// Writes value to the buffer at the specified offset with specified endian format.
+        /// Note, value must be a valid unsigned 32 bit integer.Set noAssert to true to skip validation of value and offset.
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(4);
+        /// buf.writeUInt32BE(0xfeedface, 0);
+        /// console.log(buf);
+        /// buf.writeUInt32LE(0xfeedface, 0);
+        /// console.log(buf);
+        /// // <Buffer fe ed fa ce>
+        /// // <Buffer ce fa ed fe>
+        /// </code>
+        /// </example>
+        public void writeUInt32BE(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// Writes value to the buffer at the specified offset with specified endian format.
+        /// Note, value must be a valid unsigned 32 bit integer.Set noAssert to true to skip validation of value and offset.
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(4);
+        /// buf.writeUInt32BE(0xfeedface, 0);
+        /// console.log(buf);
+        /// buf.writeUInt32LE(0xfeedface, 0);
+        /// console.log(buf);
+        /// // <Buffer fe ed fa ce>
+        /// // <Buffer ce fa ed fe>
+        /// </code>
+        /// </example>
+        public void writeUInt32BE(JsNumber value, JsNumber offset) { }
+
+        /// <summary>
+        /// Writes value to the buffer at the specified offset. Note, value must be a valid signed 8 bit integer. Set noAssert to true to skip validation of value and offset.
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// Works as buffer.writeUInt8, except value is written out as a two's complement signed integer into buffer.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        public void writeInt8(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// Writes value to the buffer at the specified offset. Note, value must be a valid signed 8 bit integer. Set noAssert to true to skip validation of value and offset.
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// Works as buffer.writeUInt8, except value is written out as a two's complement signed integer into buffer.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        public void writeInt8(JsNumber value, JsNumber offset) { }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        public void writeInt16LE(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        public void writeInt16LE(JsNumber value, JsNumber offset) { }
+
+
+        /// <summary>
+        /// Writes value to the buffer at the specified offset. Note, value must be a valid signed 16 bit integer. Set noAssert to true to skip validation of value and offset.
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// Works as buffer.writeUInt16*, except value is written out as a two's complement signed integer into buffer.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        public void writeInt16BE(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// Writes value to the buffer at the specified offset. Note, value must be a valid signed 16 bit integer. Set noAssert to true to skip validation of value and offset.
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// Works as buffer.writeUInt16*, except value is written out as a two's complement signed integer into buffer.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        public void writeInt16BE(JsNumber value, JsNumber offset) { }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        public void writeInt32LE(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        public void writeInt32LE(JsNumber value, JsNumber offset) { }
+
+        /// <summary>
+        /// Writes value to the buffer at the specified offset with specified endian format.
+        /// Note, value must be a valid signed 32 bit integer.Set noAssert to true to skip validation of value and offset. 
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// Works as buffer.writeUInt32*, except value is written out as a two's complement signed integer into buffer.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        public void writeInt32BE(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// Writes value to the buffer at the specified offset with specified endian format.
+        /// Note, value must be a valid signed 32 bit integer.Set noAssert to true to skip validation of value and offset. 
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// Works as buffer.writeUInt32*, except value is written out as a two's complement signed integer into buffer.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        public void writeInt32BE(JsNumber value, JsNumber offset) { }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        public void writeFloatLE(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        public void writeFloatLE(JsNumber value, JsNumber offset) { }
+
+        /// <summary>
+        /// Writes value to the buffer at the specified offset with specified endian format.
+        /// Note, value must be a valid 32 bit float.Set noAssert to true to skip validation of value and offset.
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(4);
+        /// buf.writeFloatBE(0xcafebabe, 0);
+        /// console.log(buf);
+        /// buf.writeFloatLE(0xcafebabe, 0);
+        /// console.log(buf);
+        /// // <Buffer 4f 4a fe bb>
+        /// // <Buffer bb fe 4a 4f>
+        /// </code>
+        /// </example>
+        public void writeFloatBE(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// Writes value to the buffer at the specified offset with specified endian format.
+        /// Note, value must be a valid 32 bit float.Set noAssert to true to skip validation of value and offset.
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(4);
+        /// buf.writeFloatBE(0xcafebabe, 0);
+        /// console.log(buf);
+        /// buf.writeFloatLE(0xcafebabe, 0);
+        /// console.log(buf);
+        /// // <Buffer 4f 4a fe bb>
+        /// // <Buffer bb fe 4a 4f>
+        /// </code>
+        /// </example>
+        public void writeFloatBE(JsNumber value, JsNumber offset) { }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        public void writeDoubleLE(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        public void writeDoubleLE(JsNumber value, JsNumber offset) { }
+
+        /// <summary>
+        /// Writes value to the buffer at the specified offset with specified endian format.
+        /// Note, value must be a valid 64 bit double.Set noAssert to true to skip validation of value and offset.
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <param name="noAssert">Optional, Default: false</param>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(8);
+        /// buf.writeDoubleBE(0xdeadbeefcafebabe, 0);
+        /// console.log(buf);
+        /// buf.writeDoubleLE(0xdeadbeefcafebabe, 0);
+        /// console.log(buf);
+        /// // <Buffer 43 eb d5 b7 dd f9 5f d7>
+        /// // <Buffer d7 5f f9 dd b7 d5 eb 43>
+        /// </code>
+        /// </example>
+        public void writeDoubleBE(JsNumber value, JsNumber offset, bool noAssert) { }
+        /// <summary>
+        /// Writes value to the buffer at the specified offset with specified endian format.
+        /// Note, value must be a valid 64 bit double.Set noAssert to true to skip validation of value and offset.
+        /// This means that value may be too large for the specific function and offset may be beyond the end of the buffer leading to the values being silently dropped.
+        /// This should not be used unless you are certain of correctness. Defaults to false.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset"></param>
+        /// <example>
+        /// <code>
+        /// var buf = new Buffer(8);
+        /// buf.writeDoubleBE(0xdeadbeefcafebabe, 0);
+        /// console.log(buf);
+        /// buf.writeDoubleLE(0xdeadbeefcafebabe, 0);
+        /// console.log(buf);
+        /// // <Buffer 43 eb d5 b7 dd f9 5f d7>
+        /// // <Buffer d7 5f f9 dd b7 d5 eb 43>
+        /// </code>
+        /// </example>
+        public void writeDoubleBE(JsNumber value, JsNumber offset) { }
+
+        // TODO: is "value" really an "object?" 
+        /// <summary>
+        /// Fills the buffer with the specified value. If the offset (defaults to 0) and end (defaults to buffer.length) are not given it will fill the entire buffer.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset">Optional</param>
+        /// <param name="end">Optional</param>
+        /// <example>
+        /// <code>
+        /// var b = new Buffer(50);
+        /// b.fill("h");
+        /// </code>
+        /// </example>
+        public void fill(object value, JsNumber offset, JsNumber end) { }
+        /// <summary>
+        /// Fills the buffer with the specified value. If the offset (defaults to 0) and end (defaults to buffer.length) are not given it will fill the entire buffer.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="offset">Optional</param>
+        /// <example>
+        /// <code>
+        /// var b = new Buffer(50);
+        /// b.fill("h");
+        /// </code>
+        /// </example>
+        public void fill(object value, JsNumber offset) { }
+        /// <summary>
+        /// Fills the buffer with the specified value. If the offset (defaults to 0) and end (defaults to buffer.length) are not given it will fill the entire buffer.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <example>
+        /// <code>
+        /// var b = new Buffer(50);
+        /// b.fill("h");
+        /// </code>
+        /// </example>
+        public void fill(object value) { }
+
+
+        // TODO: buffer.INSPECT_MAX_BYTES and Class: SlowBuffer ??
+
+
 
 
 
