@@ -181,6 +181,20 @@ namespace SharpKit.JavaScript
         [JsMethod(NativeOverloads = true)]
         public JsArray slice(JsNumber start) { return default(JsArray); }
         ///<summary>
+        /// Tests whether some element in the array passes the test implemented by the provided function.
+        /// Supported in Chrome, Firefox, IE 9, Opera and Safari
+        /// Documentation from MDN.
+        ///</summary>
+        [JsMethod(NativeOverloads = true)]
+        public JsBoolean some(JsFunc<JsObject, JsNumber, JsArray, JsBoolean> callback) { return default(JsBoolean); }
+        ///<summary>
+        /// Executes a provided function once per array element.
+        /// Supported in Chrome, Firefox, IE 9, Opera and Safari
+        /// Documentation from MDN.
+        ///</summary>
+        [JsMethod(NativeOverloads = true)]
+        public void forEach(JsAction<JsObject, JsNumber, JsArray> callback) { }
+        ///<summary>
         ///Returns an Array object with the elements reversed.
         ///</summary>
         ///<returns></returns>
@@ -319,6 +333,20 @@ namespace SharpKit.JavaScript
         ///<returns></returns>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
         public JsArray<T> slice(JsNumber start) { return default(JsArray<T>); }
+        ///<summary>
+        /// Tests whether some element in the array passes the test implemented by the provided function.
+        /// Supported in Chrome, Firefox, IE 9, Opera and Safari
+        /// Documentation from MDN.
+        ///</summary>
+        [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
+        public JsBoolean some(JsFunc<JsObject, JsNumber, JsArray<T>, JsBoolean> callback) { return default(JsBoolean); }
+        ///<summary>
+        /// Executes a provided function once per array element.
+        /// Supported in Chrome, Firefox, IE 9, Opera and Safari
+        /// Documentation from MDN.
+        ///</summary>
+        [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
+        public void forEach(JsAction<JsObject, JsNumber, JsArray<T>> callback) { }
         ///<summary>
         ///Returns an Array object with the elements reversed.
         ///</summary>
