@@ -6248,6 +6248,28 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public JsString popupCollision { get; set; }
+		
+		/// <summary>
+        /// Fires when a menu item gets selected.
+        /// </summary>
+        ///<example>
+        ///usage
+        ///<code>
+        /// // event handler for select
+        /// var onSelect = function(e) {
+        ///     // access the selected item via e.item (jQuery object)
+        /// };
+        /// 
+        /// // attach select event handler during initialization
+        /// var combobox = $("#combobox").kendoComboBox({
+        ///     select: onSelect
+        /// });
+        /// 
+        /// // detach select event handler via unbind()
+        /// combobox.data("kendoComboBox").unbind("select", onSelect);
+        ///</code>
+        ///</example>
+        public JsAction<OneItemEventData> select { get; set;  }
 
     }
 
@@ -6706,7 +6728,8 @@ namespace SharpKit.KendoUI.Web
         ///});
         /// </code>
         /// </example>
-        public JsAction change { get; set; }
+        public JsAction<ChangeEventData> change { get; set; }
+		
         /// <summary>
         /// Fires when the value is changed from the spin buttons.
         /// </summary>
@@ -6729,6 +6752,18 @@ namespace SharpKit.KendoUI.Web
         /// </code>
         /// </example>
         public JsAction spin { get; set; }
+		
+		/// <summary>
+        /// Specifies whether the up/down spin buttons should be rendered.  Default is true.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#numeric").kendoNumericTextBox({
+        /// spinners: false
+        /// });
+        /// </code>
+        /// </example>
+        public JsBoolean spinners { get; set; }
     }
 
     #endregion
@@ -11160,10 +11195,11 @@ namespace SharpKit.KendoUI.Web
 
     #region Helpers
 
-    public class EmptyEventData
+	public class EmptyEventData
     {
     }
 
+    [JsType(PropertiesAsFields = true)]
     public class SelectEventData
     {
         /// <summary>
@@ -11172,12 +11208,25 @@ namespace SharpKit.KendoUI.Web
         public jQuery.jQuery item { get; set; }
     }
 
+    [JsType(PropertiesAsFields=true)]
     public class OneItemEventData
     {
         /// <summary>
         /// The selected  item
         /// </summary>
         public HtmlElement item { get; set; }
+    }
+
+    [JsType(PropertiesAsFields = true)]
+    public class ChangeEventData
+    {
+        public ChangeEventSender sender { get; set; }
+    }
+
+    [JsType(PropertiesAsFields = true)]
+    public class ChangeEventSender
+    {
+        public jQuery.jQuery element { get; set; }
     }
 
     #endregion
