@@ -2253,6 +2253,13 @@ namespace SharpKit.JavaScript
         public JsString replace(string searchText, JsFunc<JsString, JsNumber, JsString, JsString> replaceFunction) { return default(string); }
 
         /// <summary>
+        /// The trim method returns the string stripped of whitespace from both ends. trim does not affect the value of the string itself.
+        /// Supported in Firefox, Chrome, IE 9, Opera 10.5 and Safari 5
+        /// (Description from MDN)
+        /// </summary>
+        public JsString trim() { return default(JsString); }
+
+        /// <summary>
         ///Replace function with 1 param
         /// </summary>
         public JsString replace(string searchText, JsFunc<JsString, JsNumber, JsString, JsString, JsString> replaceFunction) { return default(string); }
