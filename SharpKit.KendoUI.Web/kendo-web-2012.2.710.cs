@@ -167,7 +167,7 @@ namespace SharpKit.jQuery
 
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoWindow(this jQuery query) { return null; }
-       
+
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoValidator(this jQuery query) { return null; }
 
@@ -331,6 +331,12 @@ namespace SharpKit.KendoUI.Web
         /// <param name="value">The value to set.</param>
         /// <returns>The value of the autocomplete.</returns>
         public JsString value(JsString value) { return null; }
+        /// <summary>
+        /// Gets/Sets the value of the autocomplete.
+        /// </summary>
+        /// <param name="value">The value to set.</param>
+        /// <returns>The value of the autocomplete.</returns>
+        public JsObject value() { return null; }
 
         /// <summary>
         /// Fires when the value has been changed.
@@ -1035,6 +1041,32 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public JsDate value { get; set; }
+        /// <summary>
+        /// Fires when the selected date is changed.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#calendar").kendoCalendar({
+        ///     change: function(e) {
+        ///         // handle event
+        ///     });
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction change { get; set; }
+        /// <summary>
+        /// Fires when navigate.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// $("#calendar").kendoCalendar({
+        ///     navigate: function(e) {
+        ///         // handle event
+        ///     });
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction navigate { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -9113,20 +9145,20 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         public HtmlElement contentElement { get; set; }
     }
-        [JsType(JsMode.Json)]
-        public class TabStripErroEventData
-        {
-            /// <summary>
-            /// The jqXHR object used to load the content
-            /// </summary>
-            public jqXHR xhr { get; set; }
+    [JsType(JsMode.Json)]
+    public class TabStripErroEventData
+    {
+        /// <summary>
+        /// The jqXHR object used to load the content
+        /// </summary>
+        public jqXHR xhr { get; set; }
 
-            /// <summary>
-            /// The returned status.
-            /// </summary>
-            public JsString status { get; set; }
-        }
-    
+        /// <summary>
+        /// The returned status.
+        /// </summary>
+        public JsString status { get; set; }
+    }
+
 
     #endregion
 
@@ -10798,6 +10830,31 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
+        public Window refresh() { return null; }
+        /// <summary>
+        /// Refreshes the content of a Window from a remote URL.
+        /// </summary>
+        /// <param name="options">Options for requesting data from the server. If omitted, the window uses the content property that was supplied when the window was created.
+        /// Any options specified here are passed to jQuery.ajax().</param>
+        /// <returns>Returns the (Kendo UI) Window object to support chaining.</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var windowObject = $("#window").data("kendoWindow");
+        /// windowObject.refresh("/feedbackForm");
+        /// 
+        /// windowObject.refresh({
+        ///     url: "/feedbackForm",
+        ///     data: { userId: 42 }
+        /// });
+        /// 
+        /// windowObject.refresh({
+        ///     url: "/userInfo",
+        ///     data: { userId: 42 },
+        ///     template: "Hello, #= firstName # #= lastName #"
+        /// });
+        ///</code>
+        ///</example>
         public Window refresh(object options) { return null; }
         /// <summary>
         /// Refreshes the content of a Window from a remote URL.
@@ -10936,7 +10993,7 @@ namespace SharpKit.KendoUI.Web
         public event JsAction<EmptyEventData> resize { add { } remove { } }
 
         //TODO: all events have no eventData (?)
-        
+
 
     }
 
@@ -10981,7 +11038,7 @@ namespace SharpKit.KendoUI.Web
         /// (default: document.body) The element that the Window will be appended to.
         /// </summary>
         public object appendTo { get; set; }
-       
+
         /// <summary>
         /// Specifies a URL or request options that the window should load its content from. For remote URLs, a container iframe element is automatically created.
         /// </summary>
@@ -11001,7 +11058,7 @@ namespace SharpKit.KendoUI.Web
         /// (default: true) Enables (true) or disables (false) the ability for users to move/drag a Window.
         /// </summary>
         public bool draggable { get; set; }
-       
+
         /// <summary>
         /// Undocument Property. Add by Lee.
         /// </summary>
@@ -11055,7 +11112,7 @@ namespace SharpKit.KendoUI.Web
         /// Undocument property. Add by Lee.
         /// </summary>
         public JsString width { get; set; }
-       
+
         ///  /// <summary>
         /// Triggered when a Window is closed (by a user or through the close() method).
         /// </summary>
