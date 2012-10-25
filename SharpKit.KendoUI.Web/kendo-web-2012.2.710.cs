@@ -4311,6 +4311,77 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public event JsAction<EmptyEventData> saveChangesEvent { add { } remove { } }
         //TODO: event name is saveChanges
+
+        /// <summary>
+        /// Fires when the user resizes a column.
+        /// <code>
+        /// // get a reference to the grid
+        /// var grid = $("#grid").data("kendoGrid");
+        /// bind to the columnResize event
+        /// grid.bind("columnResize", function(e) {
+        ///    // handle event
+        /// });
+        /// </code>
+        /// </summary>
+        public event JsAction<ColumnResizeEventData> columnResize
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"columnResize\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"columnResize\"")]
+            remove { }
+        }
+
+        /// <summary>
+        /// Fires when the user selects a column to show.
+        /// Undocumented event.
+        /// </summary>
+        public event JsAction<EmptyEventData> columnShow
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"columnShow\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"columnShow\"")]
+            remove { }
+        }
+
+        /// <summary>
+        /// Fires when the user selects a column to hide.
+        /// Undocumented event.
+        /// </summary>
+        public event JsAction<EmptyEventData> columnHide
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"columnHide\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"columnHide\"")]
+            remove { }
+        }
+
+        /// <summary>
+        /// Fires when the user reorders the columns of the grid.
+        /// Undocumented event.
+        /// </summary>
+        public event JsAction<ColumnReorderEventData> columnReorder
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"columnReorder\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"columnReorder\"")]
+            remove { }
+        }
+    }
+
+    [JsType(PropertiesAsFields = true)]
+    public class ColumnResizeEventData
+    {
+        public JsObject column { get; set; }
+        public JsNumber newWidth { get; set; }
+        public JsNumber oldWidth { get; set; }
+    }
+
+    [JsType(PropertiesAsFields = true)]
+    public class ColumnReorderEventData
+    {
+        public JsObject column { get; set; }
+        public JsNumber newIndex { get; set; }
+        public JsNumber oldIndex { get; set; }
     }
 
     [JsType(JsMode.Json)]
