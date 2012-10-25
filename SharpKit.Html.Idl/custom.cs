@@ -175,4 +175,21 @@ namespace SharpKit.Html
 		public JsString zIndex { get; set; }
 	}
 
+    [JsType(JsMode.Prototype, Name = "JSON", Export = false)]
+    public class JSON
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="replacer">If replacer is a function, JSON.stringify calls the function, passing in the key and value of each member. The return value is serialized instead of the original value. If the function returns undefined, the member will be excluded from the serialization. The key for the root object is an empty string: "".
+        /// If replacer is an array, only members with key values in the array will be serialized. The order of serialization is the same as the order of the keys in the array. The replacer array is ignored when the value argument is also an array.</param>
+        /// <returns></returns>
+        public static string stringify(object obj, JsFunc<object, object, object> replacer) { return null; }
+
+        public static string stringify(object obj) { return null; }
+
+        public static object parse(JsString json) { return null; }
+
+    }
 }
