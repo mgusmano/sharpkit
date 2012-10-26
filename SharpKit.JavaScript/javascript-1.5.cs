@@ -15,7 +15,7 @@ using System.ComponentModel;
 [assembly: JsType(TargetType = typeof(Delegate), NativeOperatorOverloads = true)]
 [assembly: JsType(TargetType = typeof(MulticastDelegate), NativeOperatorOverloads = true)]
 
-[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "Format", NativeParams=false)]
+[assembly: JsMethod(TargetType = typeof(string), TargetMethod = "Format", NativeParams = false)]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToUpper", Name = "toUpperCase")]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToLower", Name = "toLowerCase")]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "IndexOf", Name = "indexOf", NativeOverloads = true)]
@@ -84,7 +84,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///The Array object provides support for creation of arrays of any data type.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator = true, NativeCasts=true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator = true, NativeCasts = true)]
     public partial class JsArray : IJsArrayEnumerable<object>
     {
         [JsMethod(JsonInitializers = true, OmitNewOperator = true, OmitParanthesis = true, Name = "", SharpKitVersion = "5+")]
@@ -240,6 +240,42 @@ namespace SharpKit.JavaScript
         [JsMethod(Name = "push")]
         public void Add(object item) { }
 
+        public JsArray valueOf() { return null; }
+        /// <summary>
+        ///The lastIndexOf() method searches the array for the specified item, and returns it's position.
+        ///The search will start at the specified position, or at the end if no start position is specified, and end the search at the beginning of the array.
+        ///Returns -1 if the item is not found.
+        /// <param name="item"></param>
+        /// <param name="start"></param>
+        /// <returns> -1 if the item is not found.</returns>
+        public JsNumber lastIndexOf(object item, JsNumber start) { return null; }
+        /// <summary>
+        ///The lastIndexOf() method searches the array for the specified item, and returns it's position.
+        ///The search will start at the specified position, or at the end if no start position is specified, and end the search at the beginning of the array.
+        ///Returns -1 if the item is not found.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns> -1 if the item is not found.</returns>
+        public JsNumber lastIndexOf(object item) { return null; }
+
+        /// <summary>
+        /// The indexOf() method searches the array for the specified item, and returns it's position.
+        /// The search will start at the specified position, or at the beginning if no start position is specified, and end the search at the end of the array.
+        /// If the item is present more than once, the indexOf method returns the position of the first occurence.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="start"></param>
+        /// <returns> -1 if the item is not found.</returns>
+        public JsNumber indexOf(object item, JsNumber start) { return null; }
+        /// <summary>
+        /// The indexOf() method searches the array for the specified item, and returns it's position.
+        /// The search will start at the specified position, or at the beginning if no start position is specified, and end the search at the end of the array.
+        /// If the item is present more than once, the indexOf method returns the position of the first occurence.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns> -1 if the item is not found.</returns>
+        public JsNumber indexOf(object item) { return null; }
+
     }
     #endregion
     #region JsArray<T>
@@ -247,7 +283,7 @@ namespace SharpKit.JavaScript
     ///The Array object provides support for creation of arrays of any data type.
     ///</summary>
     ///<typeparam name="T"></typeparam>
-    [JsType(JsMode.Prototype, Name = "Array", NativeEnumerator = false, Export = false, IgnoreGenericTypeArguments = true, NativeArrayEnumerator = true, NativeCasts=true)]
+    [JsType(JsMode.Prototype, Name = "Array", NativeEnumerator = false, Export = false, IgnoreGenericTypeArguments = true, NativeArrayEnumerator = true, NativeCasts = true)]
     public partial class JsArray<T> : IJsArrayEnumerable<T>
     {
         public static implicit operator JsArray(JsArray<T> x) { return null; }
@@ -400,6 +436,43 @@ namespace SharpKit.JavaScript
 
         [JsMethod(Name = "push")]
         public void Add(T item) { }
+
+        public JsArray valueOf() { return null; }
+        /// <summary>
+        ///The lastIndexOf() method searches the array for the specified item, and returns it's position.
+        ///The search will start at the specified position, or at the end if no start position is specified, and end the search at the beginning of the array.
+        ///Returns -1 if the item is not found.
+        /// <param name="item"></param>
+        /// <param name="start"></param>
+        /// <returns> -1 if the item is not found.</returns>
+        public JsNumber lastIndexOf(T item, JsNumber start) { return null; }
+        /// <summary>
+        ///The lastIndexOf() method searches the array for the specified item, and returns it's position.
+        ///The search will start at the specified position, or at the end if no start position is specified, and end the search at the beginning of the array.
+        ///Returns -1 if the item is not found.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns> -1 if the item is not found.</returns>
+        public JsNumber lastIndexOf(T item) { return null; }
+
+        /// <summary>
+        /// The indexOf() method searches the array for the specified item, and returns it's position.
+        /// The search will start at the specified position, or at the beginning if no start position is specified, and end the search at the end of the array.
+        /// If the item is present more than once, the indexOf method returns the position of the first occurence.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="start"></param>
+        /// <returns> -1 if the item is not found.</returns>
+        public JsNumber indexOf(T item, JsNumber start) { return null; }
+        /// <summary>
+        /// The indexOf() method searches the array for the specified item, and returns it's position.
+        /// The search will start at the specified position, or at the beginning if no start position is specified, and end the search at the end of the array.
+        /// If the item is present more than once, the indexOf method returns the position of the first occurence.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns> -1 if the item is not found.</returns>
+        public JsNumber indexOf(T item) { return null; }
+
 
     }
     #endregion
@@ -1814,7 +1887,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///An object representation of the number data type and placeholder for numeric constants.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "Number", NativeCasts=true, NativeOperatorOverloads=true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Number", NativeCasts = true, NativeOperatorOverloads = true)]
     public partial class JsNumber : JsObjectBase, IConvertible, IComparable, IComparable<JsNumber>, IEquatable<JsNumber>, IFormattable
     {
         double _Value;
@@ -2128,7 +2201,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///Allows manipulation and formatting of text strings and determination and location of substrings within strings.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "String", NativeEnumerator = false, NativeArrayEnumerator = true, NativeCasts = true, NativeOperatorOverloads=true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "String", NativeEnumerator = false, NativeArrayEnumerator = true, NativeCasts = true, NativeOperatorOverloads = true)]
     public partial class JsString : JsObjectBase
     {
         public JsString() { }
@@ -2438,7 +2511,7 @@ namespace SharpKit.JavaScript
     /// <summary>
     /// A special class, when used as a method parameter, can be assigned as string, and generates the native js code inside the string
     /// </summary>
-    [JsType(JsMode.Prototype, Export = false, NativeOperatorOverloads=true)]
+    [JsType(JsMode.Prototype, Export = false, NativeOperatorOverloads = true)]
     public partial class JsCode
     {
         protected JsCode() { }
