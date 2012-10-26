@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -61,6 +61,14 @@
     <ProjectReference Include="..\SharpKit.jQuery\SharpKit.jQuery.csproj">
       <Project>{872605DE-E8EC-4D3D-8CEE-A62449A8DAEB}</Project>
       <Name>SharpKit.jQuery</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpKit.Html\SharpKit.Html.csproj">
+      <Project>{F1B6A826-60C3-4038-AABF-BD7C8380CC2F}</Project>
+      <Name>SharpKit.Html</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpKit.Html\SharpKit.Html.csproj">
+      <Project>{F1B6A826-60C3-4038-AABF-BD7C8380CC2F}</Project>
+      <Name>SharpKit.Html</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
