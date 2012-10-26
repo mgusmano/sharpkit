@@ -29,7 +29,7 @@ namespace WebIDLParser
     {
 
         //Path to the existing project SharpKit.Html project
-        public static string csOutDirectory = @"D:\dotnet\sharpkit\sdk\sharpkit\SharpKit.Html.Idl\";
+        public static string csOutDirectory = @"D:\dotnet\sharpkit\sdk\sharpkit\SharpKit.Html\";
 
         //Path to the WebKit(--> WebCore) sources. ( http://trac.webkit.org/browser/trunk/Source/WebCore/ )
         public static string idlInDirectory = @"D:\dotnet\webkit\Source\WebCore\";
