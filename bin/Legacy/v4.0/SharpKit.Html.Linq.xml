@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.Html.Linq</name>
+    </assembly>
+    <members>
+        <member name="T:SharpKit.Html.Extensions">
+            <summary>
+            Provides Linq-like extensions for HtmlElement without requiring Clr mode
+            This library requires a script include SharpKit.Html.Linq.js
+            </summary>
+        </member>
+        <member name="M:SharpKit.Html.Extensions.Descendents(SharpKit.Html.HtmlElement)">
+            <summary>
+            Returns a collection of the descendant elements for this element
+            </summary>
+            <param name="el"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Html.Extensions.Children(SharpKit.Html.HtmlElement)">
+            <summary>
+            Returns a collection of the child elements for this element
+            </summary>
+            <param name="el"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

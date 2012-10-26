@@ -1,0 +1,942 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.LinqJs</name>
+    </assembly>
+    <members>
+        <member name="M:SharpKit.LinqJs.Enumerable.Choice``1(SharpKit.JavaScript.JsArray{``0})">
+            <summary>Random choice from arguments.
+            Ex: Choice(1,2,3) - 1,3,2,3,3,2,1...</summary>
+            <param type="T" name="Params_Contents" parameterArray="true">Array or Params Contents</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Cycle``1(SharpKit.JavaScript.JsArray{``0})">
+            <summary>Cycle Repeat from arguments.
+            Ex: Cycle(1,2,3) - 1,2,3,1,2,3,1,2,3...</summary>
+            <param type="T" name="Params_Contents" parameterArray="true">Array or Params Contents</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Empty``1">
+            <summary>Returns an empty Enumerable.</summary>
+            <returns type="Enumerable"></returns>         
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.From``1(SharpKit.JavaScript.JsArray{``0})">
+            <summary>
+            Make Enumerable from obj.
+            1. null = Enumerable.Empty().
+            2. Enumerable = Enumerable.
+            3. Number/Boolean = Enumerable.Repeat(obj, 1).
+            4. String = to CharArray.(Ex:"abc" => "a","b","c").
+            5. Object/Function = to KeyValuePair(except function) Ex:"{a:0}" => (.Key=a, .Value=0).
+            6. Array or ArrayLikeObject(has length) = to Enumerable.
+            7. JScript's IEnumerable = to Enumerable(using Enumerator).
+            </summary>
+            <param name="list">list</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Return``1(``0)">
+            <summary>Make one sequence. This equals Repeat(element, 1)</summary>
+            <param name="element">element</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Matches``1(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsRegExp,SharpKit.JavaScript.JsString)">
+            <summary>Global regex match and send regexp object.
+            Ex: Matches((.)z,"0z1z2z") - $[1] => 0,1,2</summary>
+            <param type="String" name="input">input string</param>
+            <param type="RegExp/String" name="pattern">RegExp or Pattern string</param>
+            <param type="Optional:String" name="flags" optional="true">If pattern is String then can use regexp flags "i" or "m" or "im"</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Matches``1(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsRegExp)">
+            <summary>Global regex match and send regexp object.
+            Ex: Matches((.)z,"0z1z2z") - $[1] => 0,1,2</summary>
+            <param type="String" name="input">input string</param>
+            <param type="RegExp/String" name="pattern">RegExp or Pattern string</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Matches``1(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>Global regex match and send regexp object.
+            Ex: Matches((.)z,"0z1z2z") - $[1] => 0,1,2</summary>
+            <param type="String" name="input">input string</param>
+            <param type="RegExp/String" name="pattern">RegExp or Pattern string</param>
+            <param type="Optional:String" name="flags" optional="true">If pattern is String then can use regexp flags "i" or "m" or "im"</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Matches``1(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>Global regex match and send regexp object.
+            Ex: Matches((.)z,"0z1z2z") - $[1] => 0,1,2</summary>
+            <param type="String" name="input">input string</param>
+            <param type="RegExp/String" name="pattern">RegExp or Pattern string</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Range``1(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>Generates a sequence of integral numbers within a specified range.
+            Ex: Range(1,5) - 1,2,3,4,5</summary>
+            <param type="Number" integer="true" name="start">The value of the first integer in the sequence.</param>
+            <param type="Number" integer="true" name="count">The number of sequential integers to generate.</param>
+            <param type="Optional:Number" integer="true" name="step" optional="true">Step of generate number.(Ex:Range(0,3,5) - 0,5,10)</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Range``1(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>Generates a sequence of integral numbers within a specified range.
+            Ex: Range(1,5) - 1,2,3,4,5</summary>
+            <param type="Number" integer="true" name="start">The value of the first integer in the sequence.</param>
+            <param type="Number" integer="true" name="count">The number of sequential integers to generate.</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.RangeDown``1(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>Generates a sequence of integral numbers within a specified range.
+            Ex: RangeDown(5,5) - 5,4,3,2,1</summary>
+            <param type="Number" integer="true" name="start">The value of the first integer in the sequence.</param>
+            <param type="Number" integer="true" name="count">The number of sequential integers to generate.</param>
+            <param type="Optional:Number" integer="true" name="step" optional="true">Step of generate number.(Ex:RangeDown(0,3,5) - 0,-5,-10)</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.RangeDown``1(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>Generates a sequence of integral numbers within a specified range.
+            Ex: RangeDown(5,5) - 5,4,3,2,1</summary>
+            <param type="Number" integer="true" name="start">The value of the first integer in the sequence.</param>
+            <param type="Number" integer="true" name="count">The number of sequential integers to generate.</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.RangeTo``1(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>Generates a sequence of integral numbers.
+            Ex: RangeTo(10,12) - 10,11,12 RangeTo(0,-2) - 0, -1, -2</summary>
+            <param type="Number" integer="true" name="start">start integer</param>
+            <param type="Number" integer="true" name="to">to integer</param>
+            <param type="Optional:Number" integer="true" name="step" optional="true">Step of generate number.(Ex:RangeTo(0,7,3) - 0,3,6)</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.RangeTo``1(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>Generates a sequence of integral numbers.
+            Ex: RangeTo(10,12) - 10,11,12 RangeTo(0,-2) - 0, -1, -2</summary>
+            <param type="Number" integer="true" name="start">start integer</param>
+            <param type="Number" integer="true" name="to">to integer</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Repeat``1(``0,SharpKit.JavaScript.JsNumber)">
+            <summary>Generates a sequence that contains one repeated value.
+            If omit count then generate to infinity.
+            Ex: Repeat("foo",3) - "foo","foo","foo"</summary>
+            <param type="TResult" name="obj">The value to be repeated.</param>
+            <param type="Optional:Number" integer="true" name="count" optional="true">The number of times to repeat the value in the generated sequence.</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Repeat``1(``0)">
+            <summary>Generates a sequence that contains one repeated value.
+            If omit count then generate to infinity.
+            Ex: Repeat("foo",3) - "foo","foo","foo"</summary>
+            <param type="TResult" name="obj">The value to be repeated.</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.RepeatWithFinalize``1(SharpKit.JavaScript.JsFunc{``0},SharpKit.JavaScript.JsAction{``0})">
+            <summary>Lazy Generates one value by initializer's result and do finalize when enumerate end</summary>
+            <param type="Func&lt;T>" name="initializer">value factory.</param>
+            <param type="Action&lt;T>" name="finalizer">execute when finalize.</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Generate``1(SharpKit.JavaScript.JsFunc{``0},SharpKit.JavaScript.JsNumber)">
+            <summary>Generates a sequence that execute func value.
+            If omit count then generate to infinity.
+            Ex: Generate("Math.random()", 5) - 0.131341,0.95425252,...</summary>
+            <param type="Func&lt;T>" name="func">The value of execute func to be repeated.</param>
+            <param type="Optional:Number" integer="true" name="count" optional="true">The number of times to repeat the value in the generated sequence.</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Generate``1(SharpKit.JavaScript.JsFunc{``0})">
+            <summary>Generates a sequence that execute func value.
+            If omit count then generate to infinity.
+            Ex: Generate("Math.random()", 5) - 0.131341,0.95425252,...</summary>
+            <param type="Func&lt;T>" name="func">The value of execute func to be repeated.</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.ToInfinity``1(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>Generates a sequence of integral numbers to infinity.
+            Ex: ToInfinity() - 0,1,2,3...</summary>
+            <param type="Optional:Number" integer="true" name="start" optional="true">start integer</param>
+            <param type="Optional:Number" integer="true" name="step" optional="true">Step of generate number.(Ex:ToInfinity(10,3) - 10,13,16,19,...)</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.ToInfinity``1(SharpKit.JavaScript.JsNumber)">
+            <summary>Generates a sequence of integral numbers to infinity.
+            Ex: ToInfinity() - 0,1,2,3...</summary>
+            <param type="Optional:Number" integer="true" name="start" optional="true">start integer</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.ToInfinity``1">
+            <summary>Generates a sequence of integral numbers to infinity.
+            Ex: ToInfinity() - 0,1,2,3...</summary>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.ToNegativeInfinity``1(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>Generates a sequence of integral numbers to negative infinity.
+            Ex: ToNegativeInfinity() - 0,-1,-2,-3...</summary>
+            <param type="Optional:Number" integer="true" name="start" optional="true">start integer</param>
+            <param type="Optional:Number" integer="true" name="step" optional="true">Step of generate number.(Ex:ToNegativeInfinity(10,3) - 10,7,4,1,...)</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.ToNegativeInfinity``1(SharpKit.JavaScript.JsNumber)">
+            <summary>Generates a sequence of integral numbers to negative infinity.
+            Ex: ToNegativeInfinity() - 0,-1,-2,-3...</summary>
+            <param type="Optional:Number" integer="true" name="start" optional="true">start integer</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.ToNegativeInfinity``1">
+            <summary>Generates a sequence of integral numbers to negative infinity.
+            Ex: ToNegativeInfinity() - 0,-1,-2,-3...</summary>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable.Unfold``1(``0,SharpKit.JavaScript.JsFunc{``0,``0})">
+            <summary>Applies function and generates a infinity sequence.
+            Ex: Unfold(3,"$+10") - 3,13,23,...</summary>
+            <param type="T" name="seed">The initial accumulator value.</param>
+            <param type="Func&lt;T,T>" name="func">An accumulator function to be invoked on each element.</param>
+            <returns type="Enumerable"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.CascadeBreadthFirst(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsArray{`0}},SharpKit.JavaScript.JsFunc{`0})">
+            <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use breadth first search.</summary>
+            <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
+            <param name="resultSelector" type="Optional:Func&lt;T>_or_Func&lt;T,int>" optional="true">Optional:the second parameter of the function represents the nestlevel of the source sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.CascadeBreadthFirst(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsArray{`0}},SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsNumber})">
+            <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use breadth first search.</summary>
+            <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
+            <param name="resultSelector" type="Optional:Func&lt;T>_or_Func&lt;T,int>" optional="true">Optional:the second parameter of the function represents the nestlevel of the source sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.CascadeBreadthFirst(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsArray{`0}})">
+            <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use breadth first search.</summary>
+            <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.CascadeDepthFirst(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsArray{`0}},SharpKit.JavaScript.JsFunc{`0})">
+            <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use depth first search.</summary>
+            <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
+            <param name="resultSelector" type="Optional:Func&lt;T>_or_Func&lt;T,int>" optional="true">Optional:the second parameter of the function represents the nestlevel of the source sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.CascadeDepthFirst(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsArray{`0}},SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsNumber})">
+            <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use depth first search.</summary>
+            <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
+            <param name="resultSelector" type="Optional:Func&lt;T>_or_Func&lt;T,int>" optional="true">Optional:the second parameter of the function represents the nestlevel of the source sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.CascadeDepthFirst(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsArray{`0}})">
+            <summary>Projects each element of sequence and flattens the resulting sequences into one sequence use depth first search.</summary>
+            <param name="func" type="Func&lt;T,T[]>">Select child sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Flatten">
+            <summary>Flatten sequences into one sequence.</summary>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Pairwise``1(SharpKit.JavaScript.JsFunc{`0,`0,``0})">
+            <summary>Projects current and next element of a sequence into a new form.</summary>
+            <param type="Func&lt;TSource,TSource,TResult>" name="selector">A transform function to apply to current and next element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Scan``2(SharpKit.JavaScript.JsFunc{`0,`0,`0},SharpKit.JavaScript.JsFunc{``0,`0,``0},System.Func{``0,``1})">
+            <summary>Applies an accumulator function over a sequence.</summary>
+            <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
+            <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
+            <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Scan(SharpKit.JavaScript.JsFunc{`0,`0,`0})">
+            <summary>Applies an accumulator function over a sequence.</summary>
+            <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Scan``2(``0,SharpKit.JavaScript.JsFunc{``0,`0,``0},System.Func{``0,``1})">
+            <summary>Applies an accumulator function over a sequence.</summary>
+            <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
+            <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
+            <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Scan``1(``0)">
+            <summary>Applies an accumulator function over a sequence.</summary>
+            <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Select(SharpKit.JavaScript.JsFunc{`0,`0})">
+            <summary>Projects each element of a sequence into a new form.</summary>
+            <param name="selector" type="Func&lt;T,T>_or_Func&lt;T,int,T>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Select(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsNumber,`0})">
+            <summary>Projects each element of a sequence into a new form.</summary>
+            <param name="selector" type="Func&lt;T,T>_or_Func&lt;T,int,T>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.SelectMany``2(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsArray{``0}},SharpKit.JavaScript.JsFunc{`0,``0,``1})">
+            <summary>Projects each element of a sequence and flattens the resulting sequences into one sequence.</summary>
+            <param name="collectionSelector" type="Func&lt;T,TCollection[]>_or_Func&lt;T,int,TCollection[]>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
+            <param name="resultSelector" type="Optional:Func&lt;T,TCollection,TResult>" optional="true">Optional:A transform function to apply to each element of the intermediate sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.SelectMany``1(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsArray{``0}})">
+            <summary>Projects each element of a sequence and flattens the resulting sequences into one sequence.</summary>
+            <param name="collectionSelector" type="Func&lt;T,TCollection[]>_or_Func&lt;T,int,TCollection[]>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.SelectMany``2(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsNumber,``0},SharpKit.JavaScript.JsFunc{`0,``0,``1})">
+            <summary>Projects each element of a sequence and flattens the resulting sequences into one sequence.</summary>
+            <param name="collectionSelector" type="Func&lt;T,TCollection[]>_or_Func&lt;T,int,TCollection[]>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
+            <param name="resultSelector" type="Optional:Func&lt;T,TCollection,TResult>" optional="true">Optional:A transform function to apply to each element of the intermediate sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.SelectMany``1(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsNumber,``0})">
+            <summary>Projects each element of a sequence and flattens the resulting sequences into one sequence.</summary>
+            <param name="collectionSelector" type="Func&lt;T,TCollection[]>_or_Func&lt;T,int,TCollection[]>">A transform function to apply to each source element; Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Where(SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>Filters a sequence of values based on a predicate.</summary>
+            <param name="predicate" type="Func&lt;T,bool>_or_Func&lt;T,int,bool>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Where(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsNumber,System.Boolean})">
+            <summary>Filters a sequence of values based on a predicate.</summary>
+            <param name="predicate" type="Func&lt;T,bool>_or_Func&lt;T,int,bool>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.OfType(`0)">
+            <summary>Filters the elements based on a specified type.</summary>
+            <param name="type" type="T">The type to filter the elements of the sequence on.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Zip``3(SharpKit.JavaScript.JsArray{`0},SharpKit.JavaScript.JsFunc{``0,``1,``2})">
+            <summary>Merges two sequences by using the specified predicate function.</summary>
+            <param name="second" type="T[]">The second sequence to merge.</param>
+            <param name="selector" type="Func&lt;TFirst,TSecond,TResult>_or_Func&lt;TFirst,TSecond,int,TResult>">A function that specifies how to merge the elements from the two sequences. Optional:the third parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Zip``3(SharpKit.JavaScript.JsArray{`0},SharpKit.JavaScript.JsFunc{``0,``1,SharpKit.JavaScript.JsNumber,``2})">
+            <summary>Merges two sequences by using the specified predicate function.</summary>
+            <param name="second" type="T[]">The second sequence to merge.</param>
+            <param name="selector" type="Func&lt;TFirst,TSecond,TResult>_or_Func&lt;TFirst,TSecond,int,TResult>">A function that specifies how to merge the elements from the two sequences. Optional:the third parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Join``5(SharpKit.JavaScript.JsArray{`0},SharpKit.JavaScript.JsFunc{``0,``3},SharpKit.JavaScript.JsFunc{``1,``3},SharpKit.JavaScript.JsFunc{``0,``1,``2},SharpKit.JavaScript.JsFunc{``3,``4})">
+            <summary>Correlates the elements of two sequences based on matching keys.</summary>
+            <param name="inner" type="T[]">The sequence to join to the first sequence.</param>
+            <param name="outerKeySelector" type="Func&lt;TOuter,TKey>">A function to extract the join key from each element of the first sequence.</param>
+            <param name="innerKeySelector" type="Func&lt;TInner,TKey>">A function to extract the join key from each element of the second sequence.</param>
+            <param name="resultSelector" type="Func&lt;TOuter,TInner,TResult>">A function to create a result element from two matching elements.</param>
+            <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Join``4(SharpKit.JavaScript.JsArray{`0},SharpKit.JavaScript.JsFunc{``0,``3},SharpKit.JavaScript.JsFunc{``1,``3},SharpKit.JavaScript.JsFunc{``0,``1,``2})">
+            <summary>Correlates the elements of two sequences based on matching keys.</summary>
+            <param name="inner" type="T[]">The sequence to join to the first sequence.</param>
+            <param name="outerKeySelector" type="Func&lt;TOuter,TKey>">A function to extract the join key from each element of the first sequence.</param>
+            <param name="innerKeySelector" type="Func&lt;TInner,TKey>">A function to extract the join key from each element of the second sequence.</param>
+            <param name="resultSelector" type="Func&lt;TOuter,TInner,TResult>">A function to create a result element from two matching elements.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.GroupJoin``5(SharpKit.JavaScript.JsArray{`0},SharpKit.JavaScript.JsFunc{``0},SharpKit.JavaScript.JsFunc{``1},SharpKit.JavaScript.JsFunc{``0,SharpKit.LinqJs.Enumerable{`0},``1,``2},SharpKit.JavaScript.JsFunc{``3,``4})">
+            <summary>Correlates the elements of two sequences based on equality of keys and groups the results.</summary>
+            <param name="inner" type="T[]">The sequence to join to the first sequence.</param>
+            <param name="outerKeySelector" type="Func&lt;TOuter>">A function to extract the join key from each element of the first sequence.</param>
+            <param name="innerKeySelector" type="Func&lt;TInner>">A function to extract the join key from each element of the second sequence.</param>
+            <param name="resultSelector" type="Func&lt;TOuter,Enumerable&lt;T>&lt;TInner>,TResult">A function to create a result element from an element from the first sequence and a collection of matching elements from the second sequence.</param>
+            <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.GroupJoin``3(SharpKit.JavaScript.JsArray{`0},SharpKit.JavaScript.JsFunc{``0},SharpKit.JavaScript.JsFunc{``1},SharpKit.JavaScript.JsFunc{``0,SharpKit.LinqJs.Enumerable{`0},``1,``2})">
+            <summary>Correlates the elements of two sequences based on equality of keys and groups the results.</summary>
+            <param name="inner" type="T[]">The sequence to join to the first sequence.</param>
+            <param name="outerKeySelector" type="Func&lt;TOuter>">A function to extract the join key from each element of the first sequence.</param>
+            <param name="innerKeySelector" type="Func&lt;TInner>">A function to extract the join key from each element of the second sequence.</param>
+            <param name="resultSelector" type="Func&lt;TOuter,Enumerable&lt;T>&lt;TInner>,TResult">A function to create a result element from an element from the first sequence and a collection of matching elements from the second sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.All(SharpKit.JavaScript.JsFunc{System.Object,System.Boolean})">
+            <summary>Determines whether all elements of a sequence satisfy a condition.</summary>
+            <param type="Func&lt;T,bool>" name="predicate">A function to test each element for a condition.</param>
+            <returns type="Boolean"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Any(SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>Determines whether a sequence contains any elements or any element of a sequence satisfies a condition.</summary>
+            <param name="predicate" type="Optional:Func&lt;T,bool>" optional="true">A function to test each element for a condition.</param>
+            <returns type="Boolean"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Any">
+            <summary>Determines whether a sequence contains any elements or any element of a sequence satisfies a condition.</summary>
+            <returns type="Boolean"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Concat(SharpKit.JavaScript.JsArray{`0})">
+            <summary>Concatenates two sequences.</summary>
+            <param name="second" type="T[]">The sequence to concatenate to the first sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Insert(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsArray{`0})">
+            <summary>Merge two sequences.</summary>
+            <param name="index" type="Number" integer="true">The index of insert start position.</param>
+            <param name="second" type="T[]">The sequence to concatenate to the first sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Alternate(`0)">
+            <summary>Insert value to between sequence.</summary>
+            <param name="value" type="T">The value of insert.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Contains``1(`0,SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Determines whether a sequence contains a specified element.</summary>
+            <param name="value" type="T">The value to locate in the sequence.</param>
+            <param name="compareSelector" type="Optional:Func&lt;T,TKey>" optional="true">An equality comparer to compare values.</param>
+            <returns type="Boolean"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Contains``1(`0)">
+            <summary>Determines whether a sequence contains a specified element.</summary>
+            <param name="value" type="T">The value to locate in the sequence.</param>
+            <returns type="Boolean"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.DefaultIfEmpty(`0)">
+            <summary>Returns the elements of the specified sequence or the specified value in a singleton collection if the sequence is empty.</summary>
+            <param name="defaultValue" type="T">The value to return if the sequence is empty.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Distinct``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Returns distinct elements from a sequence.</summary>
+            <param name="compareSelector" type="Optional:Func&lt;T,TKey>" optional="true">An equality comparer to compare values.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Distinct">
+            <summary>Returns distinct elements from a sequence.</summary>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Except``1(SharpKit.JavaScript.JsArray{`0},SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Produces the set difference of two sequences.</summary>
+            <param name="second" type="T[]">An T[] whose Elements that also occur in the first sequence will cause those elements to be removed from the returned sequence.</param>
+            <param name="compareSelector" type="Optional:Func&lt;T,TKey>" optional="true">An equality comparer to compare values.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Except(SharpKit.JavaScript.JsArray{`0})">
+            <summary>Produces the set difference of two sequences.</summary>
+            <param name="second" type="T[]">An T[] whose Elements that also occur in the first sequence will cause those elements to be removed from the returned sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Intersect``1(SharpKit.JavaScript.JsArray{`0},SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Produces the set difference of two sequences.</summary>
+            <param name="second" type="T[]">An T[] whose distinct elements that also appear in the first sequence will be returned.</param>
+            <param name="compareSelector" type="Optional:Func&lt;T,TKey>" optional="true">An equality comparer to compare values.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Intersect(SharpKit.JavaScript.JsArray{`0})">
+            <summary>Produces the set difference of two sequences.</summary>
+            <param name="second" type="T[]">An T[] whose distinct elements that also appear in the first sequence will be returned.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.SequenceEqual``1(SharpKit.JavaScript.JsArray{`0},SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Determines whether two sequences are equal by comparing the elements.</summary>
+            <param name="second" type="T[]">An T[] to compare to the first sequence.</param>
+            <param name="compareSelector" type="Optional:Func&lt;T,TKey>" optional="true">An equality comparer to compare values.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.SequenceEqual(SharpKit.JavaScript.JsArray{`0})">
+            <summary>Determines whether two sequences are equal by comparing the elements.</summary>
+            <param name="second" type="T[]">An T[] to compare to the first sequence.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Union``1(SharpKit.JavaScript.JsArray{`0},SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Produces the union of two sequences.</summary>
+            <param name="second" type="T[]">An T[] whose distinct elements form the second set for the union.</param>
+            <param name="compareSelector" type="Optional:Func&lt;T,TKey>" optional="true">An equality comparer to compare values.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Union``1(SharpKit.JavaScript.JsArray{`0})">
+            <summary>Produces the union of two sequences.</summary>
+            <param name="second" type="T[]">An T[] whose distinct elements form the second set for the union.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.OrderBy``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Sorts the elements of a sequence in ascending order according to a key.</summary>
+            <param name="keySelector" type="Optional:Func&lt;T,TKey>">A function to extract a key from an element.</param>
+            return new OrderedEnumerable();
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.OrderBy">
+            <summary>Sorts the elements of a sequence in ascending order according to a key.</summary>
+            return new OrderedEnumerable();
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.OrderByDescending``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+             <summary>Sorts the elements of a sequence in descending order according to a key.</summary>
+             <param name="keySelector" type="Optional:Func&lt;T,TKey>">A function to extract a key from an element.</param>
+            return new OrderedEnumerable();
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.OrderByDescending``1">
+             <summary>Sorts the elements of a sequence in descending order according to a key.</summary>
+            return new OrderedEnumerable();
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Reverse">
+            <summary>Inverts the order of the elements in a sequence.</summary>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Shuffle">
+            <summary>Shuffle sequence.</summary>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.GroupBy``4(SharpKit.JavaScript.JsFunc{`0,``0},SharpKit.JavaScript.JsFunc{`0,``1},SharpKit.JavaScript.JsFunc{``0,SharpKit.LinqJs.Enumerable{`0},``1,``2},SharpKit.JavaScript.JsFunc{``0,``3})">
+            <summary>Groups the elements of a sequence according to a specified key selector function.</summary>
+            <param name="keySelector" type="Func&lt;T,TKey>">A function to extract the key for each element.</param>
+            <param name="elementSelector" type="Optional:Func&lt;T,TElement>">A function to map each source element to an element in an Grouping&lt;TKey, TElement>.</param>
+            <param name="resultSelector" type="Optional:Func&lt;TKey,Enumerable&lt;T>&lt;TElement>,TResult>">A function to create a result value from each group.</param>
+            <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.GroupBy``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Groups the elements of a sequence according to a specified key selector function.</summary>
+            <param name="keySelector" type="Func&lt;T,TKey>">A function to extract the key for each element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.PartitionBy``4(SharpKit.JavaScript.JsFunc{`0,``0},SharpKit.JavaScript.JsFunc{`0,``1},SharpKit.JavaScript.JsFunc{``0,SharpKit.LinqJs.Enumerable{`0},``1,``2},SharpKit.JavaScript.JsFunc{``0,``3})">
+            <summary>Create Group by continuation key.</summary>
+            <param name="keySelector" type="Func&lt;T,TKey>">A function to extract the key for each element.</param>
+            <param name="elementSelector" type="Optional:Func&lt;T,TElement>">A function to map each source element to an element in an Grouping&lt;TKey, TElement>.</param>
+            <param name="resultSelector" type="Optional:Func&lt;TKey,Enumerable&lt;T>&lt;TElement>,TResult>">A function to create a result value from each group.</param>
+            <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.PartitionBy``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Create Group by continuation key.</summary>
+            <param name="keySelector" type="Func&lt;T,TKey>">A function to extract the key for each element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.BufferWithCount(SharpKit.JavaScript.JsNumber)">
+            <summary>Divide by count</summary>
+            <param name="count" type="Number" integer="true">integer</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Aggregate``2(SharpKit.JavaScript.JsFunc{`0,`0,`0},SharpKit.JavaScript.JsFunc{``0,`0,``0},SharpKit.JavaScript.JsFunc{``0,``1})">
+            <summary>Applies an accumulator function over a sequence.</summary>
+            <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
+            <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
+            <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
+            <returns type="TResult"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Aggregate(SharpKit.JavaScript.JsFunc{`0,`0,`0})">
+            <summary>Applies an accumulator function over a sequence.</summary>
+            <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
+            <returns type="TResult"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Average(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsNumber})">
+            <summary>Computes the average of a sequence.</summary>
+            <param name="selector" type="Optional:Func&lt;T,Number>" optional="true">A transform function to apply to each element.</param>
+            <returns type="Number"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Average">
+            <summary>Computes the average of a sequence.</summary>
+            <returns type="Number"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Count(SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>Returns the number of elements in a sequence.</summary>
+            <param name="predicate" type="Optional:Func&lt;T,Boolean>" optional="true">A function to test each element for a condition.</param>
+            <returns type="Number"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Count">
+            <summary>Returns the number of elements in a sequence.</summary>
+            <returns type="Number"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Max``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Returns the maximum value in a sequence</summary>
+            <param name="selector" type="Optional:Func&lt;T,TKey>" optional="true">A transform function to apply to each element.</param>
+            <returns type="Number"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Max">
+            <summary>Returns the maximum value in a sequence</summary>
+            <returns type="Number"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Min``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Returns the minimum value in a sequence</summary>
+            <param name="selector" type="Optional:Func&lt;T,TKey>" optional="true">A transform function to apply to each element.</param>
+            <returns type="Number"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Min">
+            <summary>Returns the minimum value in a sequence</summary>
+            <returns type="Number"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.MaxBy``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Returns the maximum value in a sequence by keySelector</summary>
+            <param name="keySelector" type="Func&lt;T,TKey>">A compare selector of element.</param>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.MaxBy">
+            <summary>Returns the maximum value in a sequence by keySelector</summary>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.MinBy``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Returns the minimum value in a sequence by keySelector</summary>
+            <param name="keySelector" type="Func&lt;T,TKey>">A compare selector of element.</param>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.MinBy">
+            <summary>Returns the minimum value in a sequence by keySelector</summary>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Sum``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Computes the sum of a sequence of values.</summary>
+            <param name="selector" type="Optional:Func&lt;T,TKey>" optional="true">A transform function to apply to each element.</param>
+            <returns type="Number"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Sum">
+            <summary>Computes the sum of a sequence of values.</summary>
+            <returns type="Number"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ElementAt(SharpKit.JavaScript.JsNumber)">
+            <summary>Returns the element at a specified index in a sequence.</summary>
+            <param name="index" type="Number" integer="true">The zero-based index of the element to retrieve.</param>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ElementAtOrDefault(SharpKit.JavaScript.JsNumber,`0)">
+            <summary>Returns the element at a specified index in a sequence or a default value if the index is out of range.</summary>
+            <param name="index" type="Number" integer="true">The zero-based index of the element to retrieve.</param>
+            <param name="defaultValue" type="T">The value if the index is outside the bounds then send.</param>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.First(SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>Returns the first element of a sequence.</summary>
+            <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.First">
+            <summary>Returns the first element of a sequence.</summary>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.FirstOrDefault(`0,SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>Returns the first element of a sequence, or a default value.</summary>
+            <param name="defaultValue" type="T">The value if not found then send.</param>
+            <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>        
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.FirstOrDefault(`0)">
+            <summary>Returns the first element of a sequence, or a default value.</summary>
+            <param name="defaultValue" type="T">The value if not found then send.</param>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Last(SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>Returns the last element of a sequence.</summary>
+            <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Last">
+            <summary>Returns the last element of a sequence.</summary>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.LastOrDefault(`0,SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>Returns the last element of a sequence, or a default value.</summary>
+            <param name="defaultValue" type="T">The value if not found then send.</param>
+            <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>        
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.LastOrDefault(`0)">
+            <summary>Returns the last element of a sequence, or a default value.</summary>
+            <param name="defaultValue" type="T">The value if not found then send.</param>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Single(SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.</summary>
+            <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Single">
+            <summary>Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.</summary>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.SingleOrDefault(`0,SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>Returns a single, specific element of a sequence of values, or a default value if no such element is found.</summary>
+            <param name="defaultValue" type="T">The value if not found then send.</param>
+            <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>        
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.SingleOrDefault(`0)">
+            <summary>Returns a single, specific element of a sequence of values, or a default value if no such element is found.</summary>
+            <param name="defaultValue" type="T">The value if not found then send.</param>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Skip(SharpKit.JavaScript.JsNumber)">
+            <summary>Bypasses a specified number of elements in a sequence and then returns the remaining elements.</summary>
+            <param name="count" type="Number" integer="true">The number of elements to skip before returning the remaining elements.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.SkipWhile(SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements.</summary>
+            <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.SkipWhile(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsNumber,System.Boolean})">
+            <summary>Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements.</summary>
+            <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Take(SharpKit.JavaScript.JsNumber)">
+            <summary>Returns a specified number of contiguous elements from the start of a sequence.</summary>
+            <param name="count" type="Number" integer="true">The number of elements to return.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.TakeWhile(SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>Returns elements from a sequence as long as a specified condition is true, and then skips the remaining elements.</summary>
+            <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.TakeWhile(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsNumber,System.Boolean})">
+            <summary>Returns elements from a sequence as long as a specified condition is true, and then skips the remaining elements.</summary>
+            <param name="predicate" type="Func&lt;T,Boolean>_or_Func&lt;T,int,Boolean>">A function to test each source element for a condition; Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.TakeExceptLast(SharpKit.JavaScript.JsNumber)">
+            <summary>Take a sequence except last count.</summary>
+            <param name="count" type="Optional:Number" integer="true">The number of skip count.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.TakeExceptLast">
+            <summary>Take a sequence except last count.</summary>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.TakeFromLast(SharpKit.JavaScript.JsNumber)">
+            <summary>Take a sequence from last count.</summary>
+            <param name="count" type="Number" integer="true">The number of take count.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.IndexOf(`0)">
+            <summary>Returns the zero-based index of the flrst occurrence of a value.</summary>
+            <param name="item" type="T">The zero-based starting index of the search.</param>
+            <returns type="Number" integer="true"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.LastIndexOf(`0)">
+            <summary>Returns the zero-based index of the last occurrence of a value.</summary>
+            <param name="item" type="T">The zero-based starting index of the search.</param>
+            <returns type="Number" integer="true"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ToArray">
+            <summary>Creates an array from this sequence.</summary>
+            <returns type="Array"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ToLookup``3(SharpKit.JavaScript.JsFunc{`0,``0},SharpKit.JavaScript.JsFunc{`0,``1},SharpKit.JavaScript.JsFunc{`0,``0,``2})">
+             <summary>Creates a Lookup from this sequence.</summary>
+             <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
+             <param name="elementSelector" type="Optional:Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
+             <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
+            return new Lookup();
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ToLookup``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+             <summary>Creates a Lookup from this sequence.</summary>
+             <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
+            return new Lookup();
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ToObject``1(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsString},SharpKit.JavaScript.JsFunc{`0,``0})">
+            <summary>Creates a Object from this sequence.</summary>
+            <param name="keySelector" type="Func&lt;T,String>">A function to extract a key from each element.</param>
+            <param name="elementSelector" type="Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
+            <returns type="Object"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ToDictionary``3(SharpKit.JavaScript.JsFunc{`0,``0},SharpKit.JavaScript.JsFunc{`0,``1},SharpKit.JavaScript.JsFunc{`0,``0,``2})">
+             <summary>Creates a Dictionary from this sequence.</summary>
+             <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
+             <param name="elementSelector" type="Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
+             <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
+            return new Dictionary();
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ToDictionary``2(SharpKit.JavaScript.JsFunc{`0,``0},SharpKit.JavaScript.JsFunc{`0,``1})">
+             <summary>Creates a Dictionary from this sequence.</summary>
+             <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
+             <param name="elementSelector" type="Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
+            return new Dictionary();
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ToJSON``3(SharpKit.JavaScript.JsFunc{``0,``1,``2},SharpKit.JavaScript.JsNumber)">
+            <summary>Creates a JSON String from sequence, performed only native JSON support browser or included json2.js.</summary>
+            <param name="replacer" type="Optional:Func">a replacer.</param>
+            <param name="space" type="Optional:Number">indent spaces.</param>
+            <returns type="String"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ToJSON``3(SharpKit.JavaScript.JsFunc{``0,``1,``2})">
+            <summary>Creates a JSON String from sequence, performed only native JSON support browser or included json2.js.</summary>
+            <param name="replacer" type="Optional:Func">a replacer.</param>
+            <returns type="String"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ToJSON">
+            <summary>Creates a JSON String from sequence, performed only native JSON support browser or included json2.js.</summary>
+            <returns type="String"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ToString(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsString})">
+            <summary>Creates Joined string from this sequence.</summary>
+            <param name="separator" type="Optional:String">A String.</param>
+            <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
+            <returns type="String"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ToString(SharpKit.JavaScript.JsString)">
+            <summary>Creates Joined string from this sequence.</summary>
+            <param name="separator" type="Optional:String">A String.</param>
+            <returns type="String"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ToString">
+            <summary>Creates Joined string from this sequence.</summary>
+            <returns type="String"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Do(SharpKit.JavaScript.JsAction{`0})">
+            <summary>Performs the specified action on each element of the sequence.</summary>
+            <param name="action" type="Action&lt;T>_or_Action&lt;T,int>">Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Do(SharpKit.JavaScript.JsAction{`0,SharpKit.JavaScript.JsNumber})">
+            <summary>Performs the specified action on each element of the sequence.</summary>
+            <param name="action" type="Action&lt;T>_or_Action&lt;T,int>">Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ForEach(SharpKit.JavaScript.JsAction{`0})">
+            <summary>Performs the specified action on each element of the sequence.</summary>
+            <param name="action" type="Action&lt;T>_or_Action&lt;T,int>">[return true;]continue iteration.[return false;]break iteration. Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="void"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.ForEach(SharpKit.JavaScript.JsAction{`0,SharpKit.JavaScript.JsNumber})">
+            <summary>Performs the specified action on each element of the sequence.</summary>
+            <param name="action" type="Action&lt;T>_or_Action&lt;T,int>">[return true;]continue iteration.[return false;]break iteration. Optional:the second parameter of the function represents the index of the source element.</param>
+            <returns type="void"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Write(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsString})">
+            <summary>Do document.write.</summary>
+            <param name="separator" type="Optional:String">A String.</param>
+            <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
+            <returns type="void"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Write(SharpKit.JavaScript.JsString)">
+            <summary>Do document.write.</summary>
+            <param name="separator" type="Optional:String">A String.</param>
+            <returns type="void"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Write">
+            <summary>Do document.write.</summary>
+            <returns type="void"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.WriteLine(SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsString})">
+            <summary>Do document.write + &lt;br />.</summary>
+            <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
+            <returns type="void"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.WriteLine">
+            <summary>Do document.write + &lt;br />.</summary>
+            <returns type="void"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Force">
+            <summary>Execute enumerate.</summary>
+            <returns type="void"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Let``1(SharpKit.JavaScript.JsFunc{SharpKit.LinqJs.Enumerable{`0},`0,SharpKit.LinqJs.Enumerable{`0},``0})">
+            <summary>Bind the source to the parameter so that it can be used multiple times.</summary>
+            <param name="func" type="Func&lt;Enumerable&lt;T>&lt;T>,Enumerable&lt;T>&lt;TR>>">apply function.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Share">
+            <summary>Shares cursor of all enumerators to the sequence.</summary>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.MemoizeAll">
+            <summary>Creates an enumerable that enumerates the original enumerable only once and caches its results.</summary>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Catch(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsError})">
+            <summary>catch error and do handler.</summary>
+            <param name="handler" type="Action&lt;Error>">execute if error occured.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Finally(SharpKit.JavaScript.JsAction)">
+            <summary>do action if enumerate end or disposed or error occured.</summary>
+            <param name="finallyAction" type="Action">finally execute.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Trace(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsFunc{`0,SharpKit.JavaScript.JsString})">
+            <summary>Trace object use console.log.</summary>
+            <param name="message" type="Optional:String">Default is 'Trace:'.</param>
+            <param name="selector" type="Optional:Func&lt;T,String>">A transform function to apply to each source element.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Trace(SharpKit.JavaScript.JsString)">
+            <summary>Trace object use console.log.</summary>
+            <param name="message" type="Optional:String">Default is 'Trace:'.</param>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.Trace">
+            <summary>Trace object use console.log.</summary>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Enumerable`1.GetEnumerator">
+             <summary>Returns an enumerator that iterates through the collection.</summary>
+            return new IEnumerator();
+        </member>
+        <member name="M:SharpKit.LinqJs.IEnumerator`1.Current">
+            <summary>Gets the element in the collection at the current position of the enumerator.</summary>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.IEnumerator`1.MoveNext">
+            <summary>Advances the enumerator to the next element of the collection.</summary>
+            <returns type="Boolean"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.IEnumerator`1.Dispose">
+            <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+            <returns type="Void"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Dictionary`2.Add(`0,`1)">
+            <summary>add new pair. if duplicate key then overwrite new value.</summary>
+            <returns type="Void"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Dictionary`2.Get(`0)">
+            <summary>get value. if not find key then return undefined.</summary>
+            <returns type="T"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Dictionary`2.Set(`0,`1)">
+            <summary>set value. if complete set value then return true, not find key then return false.</summary>
+            <returns type="Boolean"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Dictionary`2.Contains(`0)">
+            <summary>check contains key.</summary>
+            <returns type="Boolean"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Dictionary`2.Clear">
+            <summary>clear dictionary.</summary>
+            <returns type="Void"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Dictionary`2.Remove(`0)">
+            <summary>remove key and value.</summary>
+            <returns type="Void"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Dictionary`2.Count">
+            <summary>contains value's count.</summary>
+            <returns type="Number"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Dictionary`2.ToEnumerable">
+            <summary>Convert to Enumerable&lt;T&gt;&lt;{Key:, Value:}&gt;.</summary>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Lookup`2.Count">
+            <summary>contains value's count.</summary>
+            <returns type="Number"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Lookup`2.Get(`0)">
+            <summary>get grouped enumerable.</summary>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Lookup`2.Contains(`0)">
+            <summary>check contains key.</summary>
+            <returns type="Boolean"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Lookup`2.ToEnumerable">
+            <summary>Convert to Enumerable&lt;T>&lt;Grouping&gt;.</summary>
+            <returns type="Enumerable&lt;T&gt;"></returns>
+        </member>
+        <member name="M:SharpKit.LinqJs.Grouping`2.Key">
+            <summary>get grouping key.</summary>
+            <returns type="T"></returns>  
+        </member>
+        <member name="M:SharpKit.LinqJs.OrderedEnumerable`1.ThenBy``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+             <summary>Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.</summary>
+             <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
+            return Enumerable&lt;T>.Empty().OrderBy();
+        </member>
+        <member name="M:SharpKit.LinqJs.OrderedEnumerable`1.ThenByDescending``1(SharpKit.JavaScript.JsFunc{`0,``0})">
+             <summary>Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.</summary>
+             <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
+            return Enumerable&lt;T>.Empty().OrderBy();
+        </member>
+    </members>
+</doc>

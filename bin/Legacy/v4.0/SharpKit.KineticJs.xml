@@ -1,0 +1,1529 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.KineticJs</name>
+    </assembly>
+    <members>
+        <member name="M:SharpKit.KineticJs.Node.#ctor(SharpKit.KineticJs.NodeConfig)">
+            <summary>
+            Node constructor.  Nodes are entities that can be transformed, layered,and have events bound to them. They are the building blocks of a KineticJSapplication
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.#ctor">
+            <summary>
+            Node constructor.  Nodes are entities that can be transformed, layered,and have events bound to them. They are the building blocks of a KineticJSapplication
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.clone(System.Object)">
+            <summary>
+            clone node
+            </summary>
+            <param name="config">used to override cloned attrs</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getAbsoluteAlpha">
+            <summary>
+            get absolute alpha
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getAbsolutePosition">
+            <summary>
+            get absolute position relative to stage
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getAbsoluteTransform">
+            <summary>
+            get transform of the node while taking intoaccount the transforms of its parents
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getAbsoluteZIndex">
+            <summary>
+            get absolute z-index by taking into accountall parent and sibling indices
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getAlpha">
+            <summary>
+            get alpha. Alpha values range from 0 to 1.A node with an alpha of 0 is fully transparent, and a nodewith an alpha of 1 is fully opaque
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getAttrs">
+            <summary>
+            get attrs
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getDetectionType">
+            <summary>
+            get detection type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getDragBounds">
+            <summary>
+            get drag bounds
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getDragConstraint">
+            <summary>
+            get drag constraint
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getDraggable">
+            <summary>
+            get draggable
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getId">
+            <summary>
+            get id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getLayer">
+            <summary>
+            get layer that contains the node
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getLevel">
+            <summary>
+            get node level in node tree
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getListening">
+            <summary>
+            determine if listening to events or not
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getName">
+            <summary>
+            get name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getOffset">
+            <summary>
+            get offset
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getParent">
+            <summary>
+            get parent container
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getPosition">
+            <summary>
+            get node position relative to container
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getRotation">
+            <summary>
+            get rotation in radians
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getRotationDeg">
+            <summary>
+            get rotation in degrees
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getScale">
+            <summary>
+            get scale
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getStage">
+            <summary>
+            get stage that contains the node
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getTransform">
+            <summary>
+            get transform of the node while not takinginto account the transforms of its parents
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getX">
+            <summary>
+            get node x position
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getY">
+            <summary>
+            get node y position
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.getZIndex">
+            <summary>
+            get zIndex
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.hide">
+            <summary>
+            hide node
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.isDragging">
+            <summary>
+            determine if node is currently in drag and drop mode
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.isVisible">
+            <summary>
+            determine if shape is visible or not.
+            Shape is visible onlyif it's visible and all of its ancestors are visible. If one ancestoris invisible, this means that the shape is also invisible
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.move">
+            <summary>
+            move node by an amount
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.moveDown">
+            <summary>
+            move node down
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.moveTo(SharpKit.KineticJs.Container)">
+            <summary>
+            move node to another container
+            </summary>
+            <param name="newContainer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.moveToBottom">
+            <summary>
+            move node to bottom
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.moveToTop">
+            <summary>
+            move node to top
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.moveUp">
+            <summary>
+            move node up
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.off(SharpKit.JavaScript.JsString)">
+            <summary>
+            remove event bindings from the node. Pass in a string ofevent types delimmited by a space to remove multiple eventbindings at once such as 'mousedown mouseup mousemove'.include a namespace to remove an event binding by namesuch as 'click.foobar'.
+            </summary>
+            <param name="typesStr"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.on(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsFunction)">
+            <summary>
+            bind events to the node. KineticJS supports mouseover, mousemove,mouseout, mousedown, mouseup, click, dblclick, touchstart, touchmove,touchend, tap, dbltap, dragstart, dragmove, and dragend. Pass in a stringof event types delimmited by a space to bind multiple events at oncesuch as 'mousedown mouseup mousemove'.
+            include a namespace to bind anevent by name such as 'click.foobar'.
+            </summary>
+            <param name="typesStr"></param>
+            <param name="handler"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.rotate(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            rotate node by an amount in radians
+            </summary>
+            <param name="theta"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.rotateDeg(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            rotate node by an amount in degrees
+            </summary>
+            <param name="theta"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setAbsolutePosition(SharpKit.KineticJs.XYProperty)">
+            <summary>
+            set absolute position relative to stage
+            </summary>
+            <param name="pos">object containing an x and y property</param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setAlpha(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set alpha
+            </summary>
+            <param name="alpha">Alpha values range from 0 to 1. A node with an alpha of 0 is fully transparent, and a nodewith an alpha of 1 is fully opaque</param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setAttrs(System.Object)">
+            <summary>
+            set attrs
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setDefaultAttrs(System.Object)">
+            <summary>
+            set default attrs
+            </summary>
+            <param name="confic"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setDetectionType(SharpKit.KineticJs.DetectionType)">
+            <summary>
+            set detection type
+            </summary>
+            <param name="type">can be "path" or "pixel"</param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setDragBounds(SharpKit.KineticJs.Bounds)">
+            <summary>
+            set drag bounds
+            </summary>
+            <param name="bounds"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setDragConstraint(SharpKit.JavaScript.JsString)">
+            <summary>
+            set drag constraint
+            </summary>
+            <param name="constraint"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setDraggable(SharpKit.JavaScript.JsString)">
+            <summary>
+            set draggable
+            </summary>
+            <param name="constraint"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setListening(System.Boolean)">
+            <summary>
+            listen or don't listen to events
+            </summary>
+            <param name="listening"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setOffset(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set offset
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setPosition(SharpKit.KineticJs.point)">
+            <summary>
+            set node position
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setRotation(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set node rotation in radians
+            </summary>
+            <param name="theta"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setRotationDeg(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set node rotation in degrees
+            </summary>
+            <param name="theta"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setScale(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set node scale.
+            </summary>
+            <param name="scale"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setX(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set node x position
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setY(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set node y position
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.setZIndex(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set zIndex
+            </summary>
+            <param name="zIndex"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.show">
+            <summary>
+            show node
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.simulate(SharpKit.JavaScript.JsString)">
+            <summary>
+            simulate event
+            </summary>
+            <param name="eventType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Node.transitionTo(SharpKit.KineticJs.NodeConfig)">
+            <summary>
+            transition node to another state.
+            Any property that can accept a real number can be transitioned, including x, y, rotation, alpha, strokeWidth, radius, scale.x, scale.y, offset.x, offset.y, etc.
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SharpKit.KineticJs.Bounds.left">
+            <summary>
+            Optional left bounds position
+            </summary>
+        </member>
+        <member name="P:SharpKit.KineticJs.Bounds.top">
+            <summary>
+            Optional top bounds position
+            </summary>
+        </member>
+        <member name="P:SharpKit.KineticJs.Bounds.right">
+            <summary>
+            Optional right  bounds position
+            </summary>
+        </member>
+        <member name="P:SharpKit.KineticJs.Bounds.bottom">
+            <summary>
+            Optional bottom  bounds position
+            </summary>
+        </member>
+        <member name="P:SharpKit.KineticJs.NodeConfig.duration">
+            <summary>
+            Optional. duration that the transition runs in seconds
+            </summary>
+        </member>
+        <member name="P:SharpKit.KineticJs.NodeConfig.easing">
+            <summary>
+            Optional. easing function. can be linear, ease-in, ease-out, ease-in-out, back-ease-in, back-ease-out, back-ease-in-out,
+            elastic-ease-in, elastic-ease-out, elastic-ease-in-out, bounce-ease-out, bounce-ease-in, bounce-ease-in-out, strong-ease-in, strong-ease-out, or strong-ease-in-out linear is the default
+            </summary>
+        </member>
+        <member name="P:SharpKit.KineticJs.NodeConfig.callback">
+            <summary>
+            Optional. callback function to be executed when transition completes
+            </summary>
+        </member>
+        <member name="T:SharpKit.KineticJs.ConfigCB">
+            <summary>
+            callback function to be executed when transition completes
+            </summary>
+            <param name="callback"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Container.#ctor(System.Object)">
+            <summary>
+            Container constructor.  Containers are used to contain nodes or other containers
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Container.#ctor">
+            <summary>
+            Container constructor.  Containers are used to contain nodes or other containers
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Container.add(SharpKit.KineticJs.Node)">
+            <summary>
+            add node to container
+            </summary>
+            <param name="child"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Container.get(SharpKit.JavaScript.JsString)">
+            <summary>
+            return an array of nodes that match the selector. Use '#' for id selectionsand '.' for name selectionsex:var node = stage.get('#foo'); // selects node with id foovar nodes = layer.get('.bar'); // selects nodes with name bar inside layer
+            </summary>
+            <param name="selector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Container.getChildren">
+            <summary>
+            get children
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Container.getIntersections(System.Object)">
+            <summary>
+            get shapes that intersect a point
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Container.isAncestorOf(SharpKit.KineticJs.Node)">
+            <summary>
+            determine if node is an ancestorof descendant
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Container.remove(SharpKit.KineticJs.Node)">
+            <summary>
+            remove child from container
+            </summary>
+            <param name="child"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Container.removeChildren">
+            <summary>
+            remove all childrenremove all children
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.#ctor(SharpKit.KineticJs.ShapeConfig)">
+            <summary>
+            Shape constructor. Shapes are used to objectify drawing bits of a KineticJSapplication
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.#ctor">
+            <summary>
+            Shape constructor. Shapes are used to objectify drawing bits of a KineticJSapplication
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.applyLineJoin">
+            <summary>
+            helper method to set the line join of a shapebased on the lineJoin property
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.drawImage">
+            <summary>
+            helper method to draw an image and applya shadow if neede
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.fill">
+            <summary>
+            helper method to fill the shape with a color, linear gradient,radial gradient, or pattern, and also apply shadows if needed
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.fillText(SharpKit.JavaScript.JsString)">
+            <summary>
+            helper method to fill text and appy shadows if needed
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.getCanvas">
+            <summary>
+            get shape temp layer canvas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.getContext">
+            <summary>
+            get layer context where the shape is being drawn. Whenthe shape is being rendered, .getContext() returns the context of theuser created layer that contains the shape.
+            When the event detectionengine is determining whether or not an event has occured on that shape,.getContext() returns the context of the invisible path layer.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.getDrawFunc">
+            <summary>
+            get draw function
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.getFill">
+            <summary>
+            get fill
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.getLineJoin">
+            <summary>
+            get line join
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.getShadow">
+            <summary>
+            get shadow object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.getStrokeColor">
+            <summary>
+            get stroke color
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.getStrokeWidth">
+            <summary>
+            get stroke width
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.setDrawFunc(SharpKit.JavaScript.JsFunction)">
+            <summary>
+            set draw function
+            </summary>
+            <param name="drawFunc">drawing function</param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.setFill(System.Object)">
+            <summary>
+            set fill which can be a color, linear gradient object, radial gradient object, or pattern object
+            </summary>
+            <param name="fill"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.setFill(SharpKit.JavaScript.JsString)">
+            <summary>
+            set fill which can be a color, linear gradient object, radial gradient object, or pattern object
+            </summary>
+            <param name="fill"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.setLineJoin(SharpKit.KineticJs.LineJoinOptions)">
+            <summary>
+            set line join
+            </summary>
+            <param name="lineJoin">Can be miter, round, or bevel. The default is miter</param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.setShadow(System.Object)">
+            <summary>
+            set shadow object
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.setStroke(SharpKit.JavaScript.JsString)">
+            <summary>
+            set stroke color
+            </summary>
+            <param name="stroke"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.setStrokeWidth(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set stroke width
+            </summary>
+            <param name="strokeWidth"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.stroke">
+            <summary>
+            helper method to stroke the shape and applyshadows if needed
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Shape.strokeText(SharpKit.JavaScript.JsString)">
+            <summary>
+            helper method to stroke text and apply shadowsif needed
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="T:SharpKit.KineticJs.ShapeConfig">
+            <summary>
+            Shape constructor. Shapes are used to objectify drawing bits of a KineticJSapplication
+            </summary>
+        </member>
+        <member name="P:SharpKit.KineticJs.ShapeConfig.fill">
+            <summary>
+            Optional. can be a string color, a linear gradient object, a radial gradient object, or a pattern object.
+            </summary>
+        </member>
+        <member name="P:SharpKit.KineticJs.ShapeConfig.stroke">
+            <summary>
+            Optional.stroke color
+            </summary>
+        </member>
+        <member name="P:SharpKit.KineticJs.ShapeConfig.strokeWidth">
+            <summary>
+            Optional.stroke width
+            </summary>
+        </member>
+        <member name="P:SharpKit.KineticJs.ShapeConfig.lineJoin">
+            <summary>
+            Optional.line join can be "miter", "round", or "bevel". The default is "miter"
+            </summary>
+        </member>
+        <member name="P:SharpKit.KineticJs.ShapeConfig.shadow">
+            <summary>
+            Optional.shadow object
+            </summary>
+        </member>
+        <member name="P:SharpKit.KineticJs.ShapeConfig.detectionType">
+            <summary>
+            Optional. shape detection type. Can be "path" or "pixel". The default is "path" because it performs better
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Ellipse.#ctor(System.Object)">
+            <summary>
+            Ellipse constructor
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Ellipse.#ctor">
+            <summary>
+            Ellipse constructor
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Ellipse.getRadius">
+            <summary>
+            get radius
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Ellipse.setRadius(SharpKit.KineticJs.XYProperty)">
+            <summary>
+            radius can be a number, in which the ellipse becomes a circle, it can be an object with an x and y component, or it can be an array in which the first element is the x component and the second element is the y component.
+            The x component defines the horizontal radius and the y component defines the vertical radius
+            </summary>
+            <param name="radius"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Ellipse.setRadius(SharpKit.JavaScript.JsArray)">
+            <summary>
+            radius can be a number, in which the ellipse becomes a circle, it can be an object with an x and y component, or it can be an array in which the first element is the x component and the second element is the y component.
+            The x component defines the horizontal radius and the y component defines the vertical radius
+            </summary>
+            <param name="radius"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Ellipse.setRadius(System.Object)">
+            <summary>
+            radius can be a number, in which the ellipse becomes a circle, it can be an object with an x and y component, or it can be an array in which the first element is the x component and the second element is the y component.
+            The x component defines the horizontal radius and the y component defines the vertical radius
+            </summary>
+            <param name="radius"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Group.#ctor(System.Object)">
+            <summary>
+            Group constructor. Groups are used to contain shapes or other groups.
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Group.#ctor">
+            <summary>
+            Group constructor. Groups are used to contain shapes or other groups.
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Image.#ctor(System.Object)">
+            <summary>
+            Image constructor
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Image.#ctor">
+            <summary>
+            Image constructor
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Image.getCrop">
+            <summary>
+            get crop
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Image.getHeight">
+            <summary>
+            get height
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Image.getImage">
+            <summary>
+            get image
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Image.getSize">
+            <summary>
+            return image size
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Image.getWidth">
+            <summary>
+            get width
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Image.setCrop(System.Object)">
+            <summary>
+            set crop
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Image.setHeight(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set height
+            </summary>
+            <param name="height"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Image.setImage(System.Object)">
+            <summary>
+            set image
+            </summary>
+            <param name="image"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Image.setSize(SharpKit.KineticJs.Size)">
+            <summary>
+            set width and height
+            </summary>
+            <param name="size"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Image.setWidth(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set width
+            </summary>
+            <param name="width"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Layer.#ctor(System.Object)">
+            <summary>
+            Layer constructor. Layers are tied to their own canvas element and are usedto contain groups or shapes
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Layer.#ctor">
+            <summary>
+            Layer constructor. Layers are tied to their own canvas element and are usedto contain groups or shapes
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Layer.afterDraw">
+            <summary>
+            set after draw function handler
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Layer.beforeDraw">
+            <summary>
+            set before draw function handler
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Layer.clear">
+            <summary>
+            clears the canvas context tied to the layer. Clearing a layer does not remove its children.
+            The nodes within the layer will be redrawn whenever the .draw() method is used again.
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Layer.draw">
+            <summary>
+            draw children nodes. this includes any groups or shapes
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Layer.getCanvas">
+            <summary>
+            get layer canvas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Layer.getClearBeforeDraw">
+            <summary>
+            get flag which determines if the layer is cleared or not before drawing
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Layer.getContext">
+            <summary>
+            get layer context
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Layer.getThrottle">
+            <summary>
+            get throttle
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Layer.setClearBeforeDraw(System.Boolean)">
+            <summary>
+            set flag which determines if the layer is cleared or not before drawing
+            </summary>
+            <param name="clearBeforeDraw"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Layer.setThrottle(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set throttle
+            </summary>
+            <param name="throttle"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Line.#ctor(System.Object)">
+            <summary>
+            Line constructor.  Lines are defined by an array of points
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Line.#ctor">
+            <summary>
+            Line constructor.  Lines are defined by an array of points
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Line.getDashArray">
+            <summary>
+            get dash array
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Line.getLineCap">
+            <summary>
+            get line cap
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Line.getPoints">
+            <summary>
+            get points array
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Line.setDashArray(SharpKit.JavaScript.JsArray{SharpKit.JavaScript.JsNumber})">
+            <summary>
+            set dash array.
+            </summary>
+            <param name="dashArray"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Line.setLineCap(SharpKit.KineticJs.LineCap)">
+            <summary>
+            set line cap. Can be butt, round, or square
+            </summary>
+            <param name="lineCap"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Line.setPoints(SharpKit.JavaScript.JsArray{SharpKit.KineticJs.point})">
+            <summary>
+            set points array
+            </summary>
+            <param name="can">be an array of point objects or an array of Numbers. e.g. [{x:1,y:2},{x:3,y:4}] or [1,2,3,4]</param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Line.setPoints(SharpKit.JavaScript.JsArray{SharpKit.JavaScript.JsNumber})">
+            <summary>
+            set points array
+            </summary>
+            <param name="can">be an array of point objects or an array of Numbers. e.g. [{x:1,y:2},{x:3,y:4}] or [1,2,3,4]</param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Path.#ctor(System.Object)">
+            <summary>
+            Path constructor. 
+            Author: Jason Follas.
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Path.#ctor">
+            <summary>
+            Path constructor. 
+            Author: Jason Follas.
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Path.getData">
+            <summary>
+            get SVG path data string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Path.setData(SharpKit.JavaScript.JsString)">
+            <summary>
+            set SVG path data string. This method also automatically parses the data string into a data array.
+            Currently supported SVG data: M, m, L, l, H, h, V, v, Q, q, T, t, C, c, S, s, A, a, Z, z
+            </summary>
+            <param name="SVG">path command string</param>
+        </member>
+        <member name="T:SharpKit.KineticJs.Polygon">
+            <summary>
+            Polygon constructor.  Polygons are defined by an array of points
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Polygon.#ctor(System.Object)">
+            <summary>
+            Polygon constructor.  Polygons are defined by an array of points
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Polygon.#ctor">
+            <summary>
+            Polygon constructor.  Polygons are defined by an array of points
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Polygon.getPoints">
+            <summary>
+            get points array
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Polygon.setPoints(SharpKit.JavaScript.JsArray{SharpKit.KineticJs.point})">
+            <summary>
+            set points array
+            </summary>
+            <param name="can">be an array of point objects or an array of Numbers. e.g. [{x:1,y:2},{x:3,y:4}] or [1,2,3,4]</param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Rect.#ctor(System.Object)">
+            <summary>
+            Rect constructor
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Rect.#ctor">
+            <summary>
+            Rect constructor
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Rect.getCornerRadius">
+            <summary>
+            get corner radius
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Rect.getHeight">
+            <summary>
+            get height
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Rect.getSize">
+            <summary>
+            return image size
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Rect.getWidth">
+            <summary>
+            get width
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Rect.setCornerRadius(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set corner radius
+            </summary>
+            <param name="radius"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Rect.setHeight(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set height
+            </summary>
+            <param name="height"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Rect.setSize(SharpKit.KineticJs.Size)">
+            <summary>
+            set width and height
+            </summary>
+            <param name="size"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Rect.setWidth(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set width
+            </summary>
+            <param name="width"></param>
+        </member>
+        <member name="T:SharpKit.KineticJs.RegularPolygon">
+            <summary>
+            RegularPolygon constructor.  Examples include triangles, squares, pentagons, hexagons, etc.
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.RegularPolygon.#ctor(System.Object)">
+            <summary>
+            RegularPolygon constructor.  Examples include triangles, squares, pentagons, hexagons, etc.
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.RegularPolygon.#ctor">
+            <summary>
+            RegularPolygon constructor.  Examples include triangles, squares, pentagons, hexagons, etc.
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.RegularPolygon.getRadius">
+            <summary>
+            get radius
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.RegularPolygon.getSides">
+            <summary>
+            get sides
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.RegularPolygon.setRadius(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set radius
+            </summary>
+            <param name="radius"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.RegularPolygon.setSides(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set number of sides
+            </summary>
+            <param name="sides"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Sprite.#ctor(System.Object)">
+            <summary>
+            Sprite constructor
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Sprite.#ctor">
+            <summary>
+            Sprite constructor
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Sprite.afterFrame(SharpKit.JavaScript.JsArray,SharpKit.JavaScript.JsFunction)">
+            <summary>
+            set after frame event handler
+            </summary>
+            <param name="index">frame index</param>
+            <param name="func">function to be executed after frame has been drawn</param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Sprite.getAnimation">
+            <summary>
+            get animation key
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Sprite.getAnimations">
+            <summary>
+            get animations object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Sprite.getIndex">
+            <summary>
+            get animation frame index
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Sprite.setAnimation(SharpKit.JavaScript.JsString)">
+            <summary>
+            set animation key
+            </summary>
+            <param name="anim">animation key</param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Sprite.setAnimations(System.Object)">
+            <summary>
+            set animations obect
+            </summary>
+            <param name="animations"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Sprite.setIndex(SharpKit.JavaScript.JsArray)">
+            <summary>
+            set animation frame index
+            </summary>
+            <param name="index">frame index</param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Sprite.start">
+            <summary>
+            start sprite animation
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Sprite.stop">
+            <summary>
+            stop  sprite animation
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.#ctor(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Stage constructor. A stage is used to contain multiple layers and handleanimations
+            </summary>
+            <param name="cont">Container id or DOM element</param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.#ctor(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Stage constructor. A stage is used to contain multiple layers and handleanimations
+            </summary>
+            <param name="cont">Container id or DOM element</param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.#ctor">
+            <summary>
+            Stage constructor. A stage is used to contain multiple layers and handleanimations
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.clear">
+            <summary>
+            clear all layers
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.draw">
+            <summary>
+            clear all layers
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.getContainer">
+            <summary>
+            get container DOM element
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.getDOM">
+            <summary>
+            get stage DOM node, which is a div elementwith the class name "kineticjs-content"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.getHeight">
+            <summary>
+            get height
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.getMousePosition(SharpKit.Html4.HtmlDomEventArgs)">
+            <summary>
+            get mouse position for desktop apps
+            </summary>
+            <param name="evt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.getSize">
+            <summary>
+            return stage size
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.getStage">
+            <summary>
+            get stage
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.getThrottle">
+            <summary>
+            get throttle
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.getTouchPosition(SharpKit.Html4.HtmlDomEventArgs)">
+            <summary>
+            get touch position for mobile apps
+            </summary>
+            <param name="evt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.getUserPosition(SharpKit.Html4.HtmlDomEventArgs)">
+            <summary>
+            get user position (mouse position or touch position)
+            </summary>
+            <param name="evt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.getWidth">
+            <summary>
+            get width
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.load(SharpKit.JavaScript.JsString)">
+            <summary>
+            load stage with JSON string. De-serializtion does not generate custom shape drawing functions, images, or event handlers (this would make the	serialized object huge).
+            If your app uses custom shapes, images, and event handlers (it probably does),
+            then you need to select the appropriate shapes after loading the stage and set these properties via on(), setDrawFunc(), and setImage()
+            </summary>
+            <param name="JSON"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.onFrame(SharpKit.JavaScript.JsFunction)">
+            <summary>
+            sets onFrameFunc for animation
+            </summary>
+            <param name="func"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.reset">
+            <summary>
+            reset stage to default state
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.setHeight(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set height
+            </summary>
+            <param name="height"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.setSize(SharpKit.KineticJs.Size)">
+            <summary>
+            set stage size
+            </summary>
+            <param name="size"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.setThrottle(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set throttle. Increasing the throttle will increase the number of mousemove and touchmove event detections,
+            and decreasing the throttle will decrease the number of mousemove and touchmove events which improves performance
+            </summary>
+            <param name="throttle"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.setWidth(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set width
+            </summary>
+            <param name="width"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.start">
+            <summary>
+            start animation
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.stop">
+            <summary>
+            stop  animation
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.toDataURL(SharpKit.KineticJs.ToDataURLCB,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Creates a composite data URL and passes it to a callback.
+            If MIME type is notspecified, then "image/png" will result. For "image/jpeg", specify a qualitylevel as quality (range 0.0 - 1.0)
+            </summary>
+            <param name="callback"></param>
+            <param name="mimeType"></param>
+            <param name="quality"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.toDataURL(SharpKit.KineticJs.ToDataURLCB)">
+            <summary>
+            Creates a composite data URL and passes it to a callback.
+            If MIME type is notspecified, then "image/png" will result. For "image/jpeg", specify a qualitylevel as quality (range 0.0 - 1.0)
+            </summary>
+            <param name="callback"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Stage.toJSON">
+            <summary>
+            serialize stage and children as a JSON object
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Star.#ctor(System.Object)">
+            <summary>
+            Star constructor
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Star.#ctor">
+            <summary>
+            Star constructor
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Star.getInnerRadius">
+            <summary>
+            get inner radius
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Star.getNumPoints">
+            <summary>
+            get number of points
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Star.getOuterRadius">
+            <summary>
+            get outer radius
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Star.setInnerRadius(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set inner radius
+            </summary>
+            <param name="radius"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Star.setNumPoints(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set number of points
+            </summary>
+            <param name="points"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Star.setOuterRadius(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set outer radius
+            </summary>
+            <param name="radius"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Transition.#ctor(SharpKit.KineticJs.Node,System.Object)">
+            <summary>
+            Transition constructor. The transitionTo() Node method returns a reference to the transition object which you can use to stop, resume, or restart the transition
+            </summary>
+            <param name="node"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Transition.#ctor">
+            <summary>
+            Transition constructor. The transitionTo() Node method returns a reference to the transition object which you can use to stop, resume, or restart the transition
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Transition.resume">
+            <summary>
+            resume transition
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Transition.start">
+            <summary>
+            start transition
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Transition.stop">
+            <summary>
+            stop transition
+            </summary>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getAlign">
+            <summary>
+            get horizontal align
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getBoxHeight">
+            <summary>
+            get box height
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getBoxWidth">
+            <summary>
+            get box width
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getFontFamily">
+            <summary>
+            get font family
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getFontSize">
+            <summary>
+            get font size
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getFontStyle">
+            <summary>
+            get font style
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getHeight">
+            <summary>
+            get height of text box
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getLineHeight">
+            <summary>
+            get line height
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getPadding">
+            <summary>
+            get padding
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getShadow">
+            <summary>
+            get shadow of text or textbox
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getText">
+            <summary>
+            get text
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getTextFill">
+            <summary>
+            get text fill color
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getTextHeight">
+            <summary>
+            get text height in pixels
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getTextStroke">
+            <summary>
+            get text stroke color
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getTextStrokeWidth">
+            <summary>
+            get text stroke width
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getTextWidth">
+            <summary>
+            get text width in pixels
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.getWidth">
+            <summary>
+            get width of text box
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setAlign(SharpKit.KineticJs.AlignOptions)">
+            <summary>
+            align can be 'left', 'center', or 'right'
+            </summary>
+            <param name="align"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setFontFamily(SharpKit.JavaScript.JsString)">
+            <summary>
+            set font family
+            </summary>
+            <param name="fontFamily"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setFontSize(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set font size
+            </summary>
+            <param name="fontFamily"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setFontStroke(SharpKit.JavaScript.JsString)">
+            <summary>
+            set text stroke color
+            </summary>
+            <param name="fontFamily"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setFontStyle(SharpKit.KineticJs.FontStyle)">
+            <summary>
+            set font style. Can be "normal", "italic", or "bold". "normal" is the default.
+            </summary>
+            <param name="fontFamily"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setHeight(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set height of text box
+            </summary>
+            <param name="fontFamily"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setLineHeight(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set line height
+            </summary>
+            <param name="fontFamily"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setPadding(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set padding
+            </summary>
+            <param name="fontFamily"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setShadow(System.Object)">
+            <summary>
+            set shadow of text or textbox
+            </summary>
+            <param name="fontFamily"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setText(SharpKit.JavaScript.JsString)">
+            <summary>
+            set text
+            </summary>
+            <param name="fontFamily"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setTextFill(SharpKit.JavaScript.JsString)">
+            <summary>
+            set text fill color
+            </summary>
+            <param name="fontFamily"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setTextStrokeWidth(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set text stroke width
+            </summary>
+            <param name="fontFamily"></param>
+        </member>
+        <member name="M:SharpKit.KineticJs.Text.setWidth(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            set width of text box
+            </summary>
+            <param name="fontFamily"></param>
+        </member>
+    </members>
+</doc>

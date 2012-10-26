@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.Web</name>
+    </assembly>
+    <members>
+        <member name="T:SharpKit.Web.Server.Handlers.SourceMapsHandler">
+            <summary>
+            Handler that helps supporting the JsExport.GenerateSourceMaps feature
+            Specifies to generate chrome source maps, which enables debugging of JavaScript in C#.
+            To enable this feature you must add a handler in your web.config file:
+            <code>
+            &lt;add name="SourceMapsHandler" type="SharpKit.Web.Server.Handlers.SourceMapsHandler, SharpKit.Web" verb="*" path="SourceMaps.ashx" /&gt;
+            </code>
+            And enable source maps in chrome: show development bar, click options wheel, check enable source maps.
+            </summary>
+        </member>
+    </members>
+</doc>

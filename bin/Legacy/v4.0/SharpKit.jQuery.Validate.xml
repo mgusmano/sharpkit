@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.jQuery.Validate</name>
+    </assembly>
+    <members>
+        <member name="M:SharpKit.jQuery.jQuery.validate(SharpKit.jQuery.ValidationOptions)">
+            <summary>
+            Validates the selected form.
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.validate">
+            <summary>
+            Validates the selected form.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.valid">
+            <summary>
+            Checks whether the selected form is valid or whether all selected elements are valid.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.rules">
+            <summary>
+            Return the validations rules for the first selected element.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.rules(SharpKit.JavaScript.JsString,System.Object)">
+            <summary>
+            Adds the specified rules and returns all rules for the first matched element. Requires that the parent form is validated, that is, $("form").validate() is called first.
+            or
+            Removes the specified rules and returns all rules for the first matched element.
+            </summary>
+            <param name="addOrRemove"></param>
+            <param name="rules"></param>
+        </member>
+        <member name="M:SharpKit.jQuery.Validator.addMethod(SharpKit.JavaScript.JsString,System.Object,SharpKit.JavaScript.JsString)">
+            <summary>
+            Add a custom validation method. It must consist of a name (must be a legal javascript identifier), a javascript based function and a default string message.
+            </summary>
+            <param name="name"></param>
+            <param name="method"></param>
+            <param name="message"></param>
+        </member>
+    </members>
+</doc>

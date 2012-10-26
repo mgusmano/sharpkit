@@ -1,0 +1,451 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.KnockoutJs-1.2.1</name>
+    </assembly>
+    <members>
+        <member name="T:SharpKit.KnockoutJs.BindingHandler">
+            <summary>
+            Represents a custom binding handler in Knockout.
+            </summary>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.BindingHandler.init(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsFunc{System.Object},SharpKit.JavaScript.JsFunc{SharpKit.JavaScript.JsObject},System.Object)">
+            <summary>
+            Performs one time initialization for a binding.
+            </summary>
+            <param name="element">The element involved in this binding.</param>
+            <param name="valueAccessor">A function which returns the model property that is involved in this binding.</param>
+            <param name="allBindingsAccessor">A function which returns all the model properties bound to this element.</param>
+            <param name="viewModel">The view model instance involved in this binding.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.BindingHandler.update(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsFunc{System.Object},SharpKit.JavaScript.JsFunc{SharpKit.JavaScript.JsObject},System.Object)">
+            <summary>
+            Invoked whenever an observable associated with this binding changes.
+            </summary>
+            <param name="element">The element involved in this binding.</param>
+            <param name="valueAccessor">A function which returns the model property that is involved in this binding.</param>
+            <param name="allBindingsAccessor">A function which returns all the model properties bound to this element.</param>
+            <param name="viewModel">The view model instance involved in this binding.</param>
+        </member>
+        <member name="T:SharpKit.KnockoutJs.DependentObservable`1">
+            <summary>
+            Represents an object containing a value dependent on other observable values.
+            </summary>
+            <typeparam name="T">The type of the contained value.</typeparam>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.DependentObservable`1.subscribe(SharpKit.JavaScript.JsAction{`0})">
+            <summary>
+            Subscribes to change notifications raised when the value changes.
+            </summary>
+            <param name="changeCallback">The callback to invoke.</param>
+            <returns>A subscription cookie that can be disposed to unsubscribe.</returns>
+        </member>
+        <member name="P:SharpKit.KnockoutJs.DependentObservable`1.Value">
+            <summary>
+            Gets the current computed value.
+            </summary>
+        </member>
+        <member name="T:SharpKit.KnockoutJs.DependentObservableOptions`1">
+            <summary>
+            Provides advanced options for defining a dependent observable.
+            </summary>
+            <typeparam name="T">The type of the observable value.</typeparam>
+        </member>
+        <member name="P:SharpKit.KnockoutJs.DependentObservableOptions`1.deferEvaluation">
+            <summary>
+            Gets or sets whether the evaluation should be deferred, i.e. not
+            performed when the observable is first created.
+            </summary>
+        </member>
+        <member name="P:SharpKit.KnockoutJs.DependentObservableOptions`1.read">
+            <summary>
+            Gets or sets the function to compute the value.
+            </summary>
+        </member>
+        <member name="P:SharpKit.KnockoutJs.DependentObservableOptions`1.owner">
+            <summary>
+            Gets the model instance which acts as 'this' in the get value function.
+            </summary>
+        </member>
+        <member name="T:SharpKit.KnockoutJs.Knockout">
+            <summary>
+            Provides Knockout functionality.
+            </summary>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.toJSON(System.Object)">
+            <summary>
+            Converts a model into the equivalent JSON representation.
+            </summary>
+            <param name="model">The model object to convert.</param>
+            <returns>The JSON JsString representing the model data.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.toJS(System.Object)">
+            <summary>
+            Converts a model into the equivalent vanilla script object.
+            </summary>
+            <param name="model">The model object to convert.</param>
+            <returns>The vanilla script object representing the model data.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.applyBindings(System.Object)">
+            <summary>
+            Sets up bindings using the specified model.
+            </summary>
+            <param name="model">The model.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.applyBindings(System.Object,SharpKit.Html4.HtmlElement)">
+            <summary>
+            Sets up bindings within the specified root element using the specified the model.
+            </summary>
+            <param name="model">The model.</param>
+            <param name="rootElement">The element to bind to.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.applyBindingsToNode(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsObject,System.Object)">
+            <summary>
+            Set up bindings on a single node without binding any of its descendents.
+            </summary>
+            <param name="node">The node to bind to.</param>
+            <param name="bindings">An optional dictionary of bindings, pass null to let Knockout gather them from the element.</param>
+            <param name="viewModel">The view model instance.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.applyBindingsToNode(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsObject,System.Object,SharpKit.JavaScript.JsString)">
+            <summary>
+            Set up bindings on a single node without binding any of its descendents.
+            </summary>
+            <param name="node">The node to bind to.</param>
+            <param name="bindings">An optional dictionary of bindings, pass null to let Knockout gather them from the element.</param>
+            <param name="viewModel">The view model instance.</param>
+            <param name="bindingAttributeName">The name of the attribute which has the binding definitions.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.dependentObservable``1(SharpKit.JavaScript.JsFunc{``0})">
+            <summary>
+            Creates an observable with a value computed from one or more other values.
+            </summary>
+            <typeparam name="T">The type of the observable value.</typeparam>
+            <param name="func">A function to compute the value.</param>
+            <returns>A new dependent observable instance.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.dependentObservable``1(SharpKit.KnockoutJs.DependentObservableOptions{``0})">
+            <summary>
+            Creates an observable with a value computed from one or more other values.
+            </summary>
+            <typeparam name="T">The type of the observable value.</typeparam>
+            <param name="options">Options for the dependent observable.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.isObservable(System.Object)">
+            <summary>
+            Returns true if the value is an observable, false otherwise.
+            </summary>
+            <param name="value">The value to check.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.observable``1">
+            <summary>
+            Creates an observable value.
+            </summary>
+            <typeparam name="T">The type of the observable.</typeparam>
+            <returns>A new observable value instance.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.observable``1(``0)">
+            <summary>
+            Creates an observable with an initial value.
+            </summary>
+            <typeparam name="T">The type of the observable.</typeparam>
+            <param name="initialValue">The initial value.</param>
+            <returns>A new observable value instance.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.observableArray``1">
+            <summary>
+            Creates an empty observable array.
+            </summary>
+            <returns>A new observable array.</returns>
+            <typeparam name="T">The type of items in the array.</typeparam>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Knockout.observableArray``1(SharpKit.JavaScript.JsArray{``0})">
+            <summary>
+            Creates an observable array with some initial items.
+            </summary>
+            <param name="initialItems">A sequence of initial items.</param>
+            <returns>A new observable array.</returns>
+            <typeparam name="T">The type of items in the array.</typeparam>
+        </member>
+        <member name="P:SharpKit.KnockoutJs.Knockout.bindingHandlers">
+            <summary>
+            Provides access to the currently registered binding handlers.
+            </summary>
+        </member>
+        <member name="P:SharpKit.KnockoutJs.Knockout.mapping">
+            <summary>
+            Gets the mapping plugin which allows converting models to plain
+            objects and JSON and vice-versa.
+            </summary>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.KnockoutUtils.unwrapObservable``1(System.Object)">
+            <summary>
+            If the provided value is an observable, return its value, otherwise just pass it through.
+            </summary>
+            <param name="value">The value to unwrap.</param>
+        </member>
+        <member name="T:SharpKit.KnockoutJs.KnockoutMapping">
+            <summary>
+            Provides functionality for mapping between knockout models and JSON or
+            vanilla script objects.
+            </summary>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.KnockoutMapping.fromJSON``1(SharpKit.JavaScript.JsString)">
+            <summary>
+            Creates a model instance from the specified JSON JsString.
+            </summary>
+            <typeparam name="TModel">The type of the model.</typeparam>
+            <param name="jsonData">The JSON data.</param>
+            <returns>A new instance of the model.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.KnockoutMapping.fromJSON``1(SharpKit.JavaScript.JsString,System.Object)">
+            <summary>
+            Creates a model instance from the specified JSON JsString and a
+            custom mapping.
+            </summary>
+            <typeparam name="TModel">The type of the model.</typeparam>
+            <param name="jsonData">The JSON data.</param>
+            <param name="mapping">The mapping rules to apply.</param>
+            <returns>A new instance of the model.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.KnockoutMapping.fromJS``1(System.Object)">
+            <summary>
+            Creates a model instance from the specified script object.
+            </summary>
+            <typeparam name="TModel">The type of the model.</typeparam>
+            <param name="data">The vanilla script object.</param>
+            <returns>A new instance of the model.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.KnockoutMapping.fromJS``1(System.Object,System.Object)">
+            <summary>
+            Creates a model instance from the specified script object and a
+            custom mapping.
+            </summary>
+            <typeparam name="TModel">The type of the model.</typeparam>
+            <param name="data">The vanilla script object.</param>
+            <param name="mapping">The mapping rules to apply.</param>
+            <returns>A new instance of the model.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.KnockoutMapping.updateFromJSON``1(``0,SharpKit.JavaScript.JsString)">
+            <summary>
+            Updates the specified model with the specified JSON JsString.
+            </summary>
+            <typeparam name="TModel">The tyoe of the model.</typeparam>
+            <param name="model">The model to update.</param>
+            <param name="jsonData">The JSON JsString representing the new values.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.KnockoutMapping.updateFromJS``1(``0,System.Object)">
+            <summary>
+            Updates the specified model with the specified script object.
+            </summary>
+            <typeparam name="TModel">The tyoe of the model.</typeparam>
+            <param name="model">The model to update.</param>
+            <param name="data">The script object representing the new values.</param>
+        </member>
+        <member name="T:SharpKit.KnockoutJs.Observable`1">
+            <summary>
+            Represents an object containing an observable value.
+            </summary>
+            <typeparam name="T">The type of the contained value.</typeparam>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.Observable`1.subscribe(SharpKit.JavaScript.JsAction{`0})">
+            <summary>
+            Subscribes to change notifications raised when the value changes.
+            </summary>
+            <param name="changeCallback">The callback to invoke.</param>
+            <returns>A subscription cookie that can be disposed to unsubscribe.</returns>
+        </member>
+        <member name="P:SharpKit.KnockoutJs.Observable`1.Value">
+            <summary>
+            Gets or sets the current value within the observable object.
+            </summary>
+        </member>
+        <member name="T:SharpKit.KnockoutJs.ObservableArray`1">
+            <summary>
+            Represents an array of items that can be observed for changes to the set of
+            contained items.
+            </summary>
+            <typeparam name="T">The type of the contained values.</typeparam>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.destroy(`0)">
+            <summary>
+            Marks all values that match the given parameter as deleted.
+            </summary>
+            <param name="value">The value to mark as deleted.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.destroy(SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>
+            Marks all values that satisfy the predicate as deleted.
+            </summary>
+            <param name="predicate">The predicate.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.destroyAll(`0[])">
+            <summary>
+            Marks all values that satisfy the given parameters as deleted.
+            </summary>
+            <param name="values">An array of items to destroy.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.indexOf(`0)">
+            <summary>
+            Returns the index of the first array item that equals the value.
+            </summary>
+            <param name="value">The value to check.</param>
+            <returns>The index of the matching item; -1 if there is no match.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.pop">
+            <summary>
+            Removes the last value from the array and returns it.
+            </summary>
+            <returns>The last value.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.push(`0)">
+            <summary>
+            Adds the value and notifies observers.
+            </summary>
+            <param name="value">The value to add.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.remove(`0)">
+            <summary>
+            Removes all values that match the given parameter and returns them.
+            </summary>
+            <param name="value">The value to remove.</param>
+            <returns>The removed values.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.remove(SharpKit.JavaScript.JsFunc{`0,System.Boolean})">
+            <summary>
+            Removes all values that satisfy the predicate and returns them.
+            </summary>
+            <param name="predicate">The removal predicate.</param>
+            <returns>The removed values.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.removeAll(`0[])">
+            <summary>
+            Removes all values that satisfy the given parameters and returns them.
+            </summary>
+            <param name="values">An array of items to remove.</param>
+            <returns>The removed values.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.reverse">
+            <summary>
+            Reverses the order of the array.
+            </summary>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.shift">
+            <summary>
+            Removes the first value from the array and returns it
+            </summary>
+            <returns>The removed value.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.slice(System.Int32)">
+            <summary>
+            Returns elements from start index to the end of the array.
+            </summary>
+            <param name="start">Starting point of the sequence, if negative then it starts from the end.</param>
+            <returns>The matched items.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.slice(System.Int32,System.Int32)">
+            <summary>
+            Returns elements from start index to end index.
+            </summary>
+            <param name="start">Starting point of the sequence, if negative then it starts from the end.</param>
+            <param name="end">End point of the sequence.</param>
+            <returns>The matched items.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.sort">
+            <summary>
+            Performs a default alphanumeric sort on the elements of the array.
+            </summary>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.subscribe(SharpKit.JavaScript.JsAction{`0})">
+            <summary>
+            Subscribes to change notifications raised when the value changes.
+            </summary>
+            <param name="changeCallback">The callback to invoke.</param>
+            <returns>A subscription cookie that can be disposed to unsubscribe.</returns>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.sort(SharpKit.JavaScript.JsFunc{`0,`0,System.Int32})">
+            <summary>
+            Performs a sort using the comparator function.
+            </summary>
+            <param name="comparator">The comparing function.</param>
+        </member>
+        <member name="M:SharpKit.KnockoutJs.ObservableArray`1.unshift(`0)">
+            <summary>
+            Inserts the value at the beginning of the array.
+            </summary>
+            <param name="value">The value to insert.</param>
+        </member>
+        <member name="P:SharpKit.KnockoutJs.ObservableArray`1.Value">
+            <summary>
+            Gets the underlying items within the observable array.
+            </summary>
+        </member>
+        <member name="T:AssemblyDoc">
+            <summary>
+            SharpKit interface for KnockoutJs library.
+            Knockout is a JavaScript library that helps you to create rich, responsive display and editor user interfaces with a clean underlying data model. Any time you have sections of UI that update dynamically (e.g., changing depending on the user’s actions or when an external data source changes), KO can help you implement it more simply and maintainably.
+            </summary>
+            <example>
+            Hello world
+            <code>
+            [JsType(JsMode.Global)]
+            class MyPage : Knockout
+            {
+                static MyPage()
+                {
+                    // Here's my data model
+                    var viewModel = new MyViewModel
+                    {
+                        firstName = observable("Planet"),
+                        lastName = observable("Earth")
+                    };
+                    // Knockout tracks dependencies automatically. It knows that fullName depends on firstName and lastName, because these get called when evaluating fullName.
+                    viewModel.fullName = dependentObservable(() => viewModel.firstName.Value + " " + viewModel.lastName.Value);
+            
+                    applyBindings(viewModel); // This makes Knockout get to work
+                }
+            }
+            [JsType(JsMode.Json)]
+            class MyViewModel
+            {
+                public Observable&lt;string&gt; firstName { get; set; }
+                public Observable&lt;string&gt; lastName { get; set; }
+                public DependentObservable&lt;string&gt; fullName { get; set; }
+            }
+            </code></example>
+        </member>
+        <member name="T:SharpKit.KnockoutJs.NamespaceDoc">
+            <summary>
+            Knockout is a JavaScript library that helps you to create rich, responsive display and editor user interfaces with a clean underlying data model. Any time you have sections of UI that update dynamically (e.g., changing depending on the user’s actions or when an external data source changes), KO can help you implement it more simply and maintainably.
+            </summary>
+            <example>
+            Hello world
+            <code>
+            [JsType(JsMode.Global)]
+            class MyPage : Knockout
+            {
+                static MyPage()
+                {
+                    // Here's my data model
+                    var viewModel = new MyViewModel
+                    {
+                        firstName = observable("Planet"),
+                        lastName = observable("Earth")
+                    };
+                    // Knockout tracks dependencies automatically. It knows that fullName depends on firstName and lastName, because these get called when evaluating fullName.
+                    viewModel.fullName = dependentObservable(() => viewModel.firstName.Value + " " + viewModel.lastName.Value);
+            
+                    applyBindings(viewModel); // This makes Knockout get to work
+                }
+            }
+            [JsType(JsMode.Json)]
+            class MyViewModel
+            {
+                public Observable&lt;string&gt; firstName { get; set; }
+                public Observable&lt;string&gt; lastName { get; set; }
+                public DependentObservable&lt;string&gt; fullName { get; set; }
+            }
+            </code></example>
+        </member>
+    </members>
+</doc>

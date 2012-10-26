@@ -1,0 +1,2638 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.jQuery-1.4.4</name>
+    </assembly>
+    <members>
+        <member name="M:SharpKit.jQuery.jQuery.add``1">
+            <summary>
+            Add elements to the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.add(SharpKit.JavaScript.JsString)">
+            <summary>
+            Add elements to the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.add(SharpKit.JavaScript.JsArray{SharpKit.Html4.HtmlElement})">
+            <summary>
+            Add elements to the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.add(SharpKit.Html4.HtmlElement[])">
+            <summary>
+            Add elements to the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.add(System.String)">
+            <summary>
+            Add elements to the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.add(SharpKit.JavaScript.JsString,SharpKit.Html4.HtmlElement)">
+            <summary>
+            Add elements to the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.addClass(SharpKit.JavaScript.JsString)">
+            <summary>
+            Adds the specified class(es) to each of the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.addClass(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Adds the specified class(es) to each of the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.after(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Insert content, specified by the parameter, after each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.after(SharpKit.JavaScript.JsString)">
+            <summary>
+            Insert content, specified by the parameter, after each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.after(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Insert content, specified by the parameter, after each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.after(SharpKit.jQuery.jQuery)">
+            <summary>
+            Insert content, specified by the parameter, after each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.ajaxComplete(SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Register a handler to be called when Ajax requests complete. This is an Ajax Event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.ajaxError(SharpKit.JavaScript.JsAction{SharpKit.jQuery.Event,SharpKit.Html4.XMLHttpRequest,System.Object,SharpKit.JavaScript.JsError})">
+            <summary>
+            Register a handler to be called when Ajax requests complete with an error. This is an Ajax Event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.ajaxSend(SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Attach a function to be executed before an Ajax request is sent. This is an Ajax Event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.ajaxStart(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Register a handler to be called when the first Ajax request begins. This is an Ajax Event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.ajaxStop(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Register a handler to be called when all Ajax requests have completed. This is an Ajax Event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.ajaxSuccess(SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Attach a function to be executed whenever an Ajax request completes successfully. This is an Ajax Event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.andSelf">
+            <summary>
+            Add the previous set of elements on the stack to the current set.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.animate(SharpKit.jQuery.Map)">
+            <summary>
+            Perform a custom animation of a set of CSS properties.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.animate(SharpKit.jQuery.Map,SharpKit.jQuery.Map)">
+            <summary>
+            Perform a custom animation of a set of CSS properties.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.animate(SharpKit.jQuery.Map,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Perform a custom animation of a set of CSS properties.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.animate(SharpKit.jQuery.Map,SharpKit.JavaScript.JsString)">
+            <summary>
+            Perform a custom animation of a set of CSS properties.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.animate(SharpKit.jQuery.Map,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Perform a custom animation of a set of CSS properties.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.animate(SharpKit.jQuery.Map,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Perform a custom animation of a set of CSS properties.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.animate(SharpKit.jQuery.Map,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Perform a custom animation of a set of CSS properties.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.animate(SharpKit.jQuery.Map,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Perform a custom animation of a set of CSS properties.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.animate(SharpKit.jQuery.Map,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Perform a custom animation of a set of CSS properties.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.animate(SharpKit.jQuery.Map,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Perform a custom animation of a set of CSS properties.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.animate(SharpKit.jQuery.Map,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Perform a custom animation of a set of CSS properties.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.append(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Insert content, specified by the parameter, to the end of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.append(SharpKit.JavaScript.JsString)">
+            <summary>
+            Insert content, specified by the parameter, to the end of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.append(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Insert content, specified by the parameter, to the end of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.append(SharpKit.jQuery.jQuery)">
+            <summary>
+            Insert content, specified by the parameter, to the end of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.appendTo(SharpKit.JavaScript.JsString)">
+            <summary>
+            Insert every element in the set of matched elements to the end of the target.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.appendTo(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Insert every element in the set of matched elements to the end of the target.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.appendTo(SharpKit.jQuery.jQuery)">
+            <summary>
+            Insert every element in the set of matched elements to the end of the target.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.attr(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get the value of an attribute for the first element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.attr(SharpKit.jQuery.Map)">
+            <summary>
+            Set one or more attributes for the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.attr(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Set one or more attributes for the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.attr(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Set one or more attributes for the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.attr(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Set one or more attributes for the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.attr(SharpKit.JavaScript.JsString,System.Boolean)">
+            <summary>
+            Set one or more attributes for the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.before(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Insert content, specified by the parameter, before each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.before(SharpKit.JavaScript.JsString)">
+            <summary>
+            Insert content, specified by the parameter, before each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.before(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Insert content, specified by the parameter, before each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.before(SharpKit.jQuery.jQuery)">
+            <summary>
+            Insert content, specified by the parameter, before each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.bind(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Attach a handler to an event for the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.bind(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Attach a handler to an event for the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.bind(SharpKit.JavaScript.JsString,System.Boolean)">
+            <summary>
+            Attach a handler to an event for the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.bind(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Attach a handler to an event for the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.bind(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsObject,System.Boolean)">
+            <summary>
+            Attach a handler to an event for the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.blur">
+            <summary>
+            Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.blur(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.blur(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.change">
+            <summary>
+            Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.change(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.change(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.children">
+            <summary>
+            Get the children of each element in the set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.children(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get the children of each element in the set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.clearQueue">
+            <summary>
+            Remove from the queue all items that have not yet been run.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.clearQueue(SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove from the queue all items that have not yet been run.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.click">
+            <summary>
+            Bind an event handler to the "click" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.click(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "click" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.click(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "click" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.clone">
+            <summary>
+            Create a deep copy of the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.clone(System.Boolean)">
+            <summary>
+            Create a deep copy of the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.closest(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get the first ancestor element that matches the selector, beginning at the current element and progressing up through the DOM tree.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.closest(SharpKit.JavaScript.JsArray)">
+            <summary>
+            Gets an array of all the elements and selectors matched against the current element up through the DOM tree.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.closest(SharpKit.JavaScript.JsString,SharpKit.Html4.HtmlElement)">
+            <summary>
+            Get the first ancestor element that matches the selector, beginning at the current element and progressing up through the DOM tree.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.closest(SharpKit.JavaScript.JsArray,SharpKit.Html4.HtmlElement)">
+            <summary>
+            Gets an array of all the elements and selectors matched against the current element up through the DOM tree.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.contents">
+            <summary>
+            Get the children of each element in the set of matched elements, including text and comment nodes.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.css(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get the value of a style property for the first element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.css(SharpKit.jQuery.Map)">
+            <summary>
+            Set one or more CSS properties for the  set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.css(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Set one or more CSS properties for the  set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.css(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Set one or more CSS properties for the  set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.css(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Set one or more CSS properties for the  set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.data">
+            <summary>
+            Returns value at named data store for the first element in the jQuery collection, as set by data(name, value).
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.data(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Store arbitrary data associated with the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.data(SharpKit.JavaScript.JsString)">
+            <summary>
+            Returns value at named data store for the first element in the jQuery collection, as set by data(name, value).
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.data(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsObject)">
+            <summary>
+            Store arbitrary data associated with the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.dblclick">
+            <summary>
+            Bind an event handler to the "dblclick" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.dblclick(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "dblclick" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.dblclick(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "dblclick" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.delay(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Set a timer to delay execution of subsequent items in the queue.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.delay(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Set a timer to delay execution of subsequent items in the queue.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.delegate(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.delegate(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.dequeue">
+            <summary>
+            Execute the next function on the queue for the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.dequeue(SharpKit.JavaScript.JsString)">
+            <summary>
+            Execute the next function on the queue for the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.detach">
+            <summary>
+            Remove the set of matched elements from the DOM.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.detach(SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove the set of matched elements from the DOM.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.die">
+            <summary>
+            Remove all event handlers previously attached using .live() from the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.die(SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove an event handler previously attached using .live() from the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.die(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove an event handler previously attached using .live() from the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.each(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Iterate over a jQuery object, executing a function for each matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.empty">
+            <summary>
+            Remove all child nodes of the set of matched elements from the DOM.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.end">
+            <summary>
+            End the most recent filtering operation in the current chain and return the set of matched elements to its previous state.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.eq(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Reduce the set of matched elements to the one at the specified index.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.error(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "error" JavaScript event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.error(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "error" JavaScript event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeIn">
+            <summary>
+            Display the matched elements by fading them to opaque.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeIn(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements by fading them to opaque.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeIn(SharpKit.JavaScript.JsString)">
+            <summary>
+            Display the matched elements by fading them to opaque.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeIn(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Display the matched elements by fading them to opaque.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeIn(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Display the matched elements by fading them to opaque.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeIn(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements by fading them to opaque.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeIn(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements by fading them to opaque.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeIn(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Display the matched elements by fading them to opaque.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeIn(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements by fading them to opaque.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeIn(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements by fading them to opaque.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeOut">
+            <summary>
+            Hide the matched elements by fading them to transparent.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeOut(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements by fading them to transparent.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeOut(SharpKit.JavaScript.JsString)">
+            <summary>
+            Hide the matched elements by fading them to transparent.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeOut(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Hide the matched elements by fading them to transparent.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeOut(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Hide the matched elements by fading them to transparent.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeOut(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements by fading them to transparent.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeOut(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements by fading them to transparent.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeOut(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Hide the matched elements by fading them to transparent.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeOut(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements by fading them to transparent.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeOut(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements by fading them to transparent.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeTo(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Adjust the opacity of the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeTo(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Adjust the opacity of the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeTo(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adjust the opacity of the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeTo(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Adjust the opacity of the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeTo(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Adjust the opacity of the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeTo(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adjust the opacity of the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeTo(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Adjust the opacity of the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeTo(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adjust the opacity of the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeTo(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adjust the opacity of the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeTo(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Adjust the opacity of the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeTo(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adjust the opacity of the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeTo(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adjust the opacity of the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeToggle">
+            <summary>
+            Display or hide the matched elements by animating their opacity.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeToggle(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements by animating their opacity.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeToggle(SharpKit.JavaScript.JsString)">
+            <summary>
+            Display or hide the matched elements by animating their opacity.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeToggle(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Display or hide the matched elements by animating their opacity.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeToggle(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Display or hide the matched elements by animating their opacity.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeToggle(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements by animating their opacity.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeToggle(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements by animating their opacity.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeToggle(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Display or hide the matched elements by animating their opacity.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeToggle(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements by animating their opacity.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.fadeToggle(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements by animating their opacity.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.filter(SharpKit.JavaScript.JsString)">
+            <summary>
+            Reduce the set of matched elements to those that match the selector or pass the function's test.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.filter(SharpKit.JavaScript.JsFunc{System.Int32,System.Boolean})">
+            <summary>
+            Reduce the set of matched elements to those that match the selector or pass the function's test.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.filter(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Reduce the set of matched elements to those that match the selector or pass the function's test.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.filter(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Reduce the set of matched elements to those that match the selector or pass the function's test.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.find(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get the descendants of each element in the current set of matched elements, filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.first">
+            <summary>
+            Reduce the set of matched elements to the first in the set.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.focus">
+            <summary>
+            Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.focus(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.focus(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.focusin(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "focusin" JavaScript event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.focusin(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "focusin" JavaScript event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.focusout(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "focusout" JavaScript event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.focusout(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "focusout" JavaScript event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get">
+            <summary>
+            Retrieve the DOM elements matched by the jQuery object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Retrieve the DOM elements matched by the jQuery object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.has(SharpKit.JavaScript.JsString)">
+            <summary>
+            Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.has(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hasClass(SharpKit.JavaScript.JsString)">
+            <summary>
+            Determine whether any of the matched elements are assigned the given class.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.height">
+            <summary>
+            Get the current computed height for the first element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.height(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Set the CSS height of every matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.height(SharpKit.JavaScript.JsString)">
+            <summary>
+            Set the CSS height of every matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.height(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Set the CSS height of every matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hide">
+            <summary>
+            Hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hide(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hide(SharpKit.JavaScript.JsString)">
+            <summary>
+            Hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hide(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hide(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hide(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hide(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hide(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hide(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hide(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hover(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind a single handler to the matched elements, to be executed when the mouse pointer enters or leaves the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.hover(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs},SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind two handlers to the matched elements, to be executed when the mouse pointer enters and leaves the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.html">
+            <summary>
+            Get the HTML contents of the first element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.html(SharpKit.JavaScript.JsString)">
+            <summary>
+            Set the HTML contents of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.html(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Set the HTML contents of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.index">
+            <summary>
+            Search for a given element from among the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.index(SharpKit.JavaScript.JsString)">
+            <summary>
+            Search for a given element from among the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.index(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Search for a given element from among the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.index(SharpKit.jQuery.jQuery)">
+            <summary>
+            Search for a given element from among the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.innerHeight">
+            <summary>
+            Get the current computed height for the first element in the set of matched elements, including padding but not border.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.innerWidth">
+            <summary>
+            Get the current computed width for the first element in the set of matched elements, including padding but not border.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.insertAfter(SharpKit.JavaScript.JsString)">
+            <summary>
+            Insert every element in the set of matched elements after the target.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.insertAfter(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Insert every element in the set of matched elements after the target.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.insertAfter(SharpKit.jQuery.jQuery)">
+            <summary>
+            Insert every element in the set of matched elements after the target.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.insertBefore(SharpKit.JavaScript.JsString)">
+            <summary>
+            Insert every element in the set of matched elements before the target.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.insertBefore(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Insert every element in the set of matched elements before the target.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.insertBefore(SharpKit.jQuery.jQuery)">
+            <summary>
+            Insert every element in the set of matched elements before the target.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.is(SharpKit.JavaScript.JsString)">
+            <summary>
+            Check the current matched set of elements against a selector and return true if at least one of these elements matches the selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.keydown">
+            <summary>
+            Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.keydown(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.keydown(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.keypress">
+            <summary>
+            Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.keypress(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.keypress(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.keyup">
+            <summary>
+            Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.keyup(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.keyup(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.last">
+            <summary>
+            Reduce the set of matched elements to the final one in the set.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.live(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Attach a handler to the event for all elements which match the current selector, now and in the future.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.live(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Attach a handler to the event for all elements which match the current selector, now and in the future.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.load(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "load" JavaScript event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.load(SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server and place the returned HTML into the matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.load(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "load" JavaScript event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.load(SharpKit.JavaScript.JsString,System.Object)">
+            <summary>
+            Load data from the server and place the returned HTML into the matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.load(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Load data from the server and place the returned HTML into the matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.load(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server and place the returned HTML into the matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.load(SharpKit.JavaScript.JsString,System.Object,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Load data from the server and place the returned HTML into the matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.load(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Load data from the server and place the returned HTML into the matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.map(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mousedown">
+            <summary>
+            Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mousedown(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mousedown(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseenter">
+            <summary>
+            Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseenter(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseenter(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseleave">
+            <summary>
+            Bind an event handler to be fired when the mouse leaves an element, or trigger that handler on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseleave(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to be fired when the mouse leaves an element, or trigger that handler on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseleave(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to be fired when the mouse leaves an element, or trigger that handler on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mousemove">
+            <summary>
+            Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mousemove(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mousemove(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseout">
+            <summary>
+            Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseout(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseout(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseover">
+            <summary>
+            Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseover(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseover(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseup">
+            <summary>
+            Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseup(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.mouseup(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.next">
+            <summary>
+            Get the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling only if it matches that selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.next(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling only if it matches that selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.nextAll">
+            <summary>
+            Get all following siblings of each element in the set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.nextAll(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get all following siblings of each element in the set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.nextUntil">
+            <summary>
+            Get all following siblings of each element up to but not including the element matched by the selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.nextUntil(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get all following siblings of each element up to but not including the element matched by the selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.not(SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove elements from the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.not(SharpKit.JavaScript.JsArray{SharpKit.Html4.HtmlElement})">
+            <summary>
+            Remove elements from the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.not(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Remove elements from the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.offset">
+            <summary>
+            Get the current coordinates of the first element in the set of matched elements, relative to the document.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.offset(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Set the current coordinates of every element in the set of matched elements, relative to the document.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.offset(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Set the current coordinates of every element in the set of matched elements, relative to the document.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.offsetParent">
+            <summary>
+            Get the closest ancestor element that is positioned.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.one(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Attach a handler to an event for the elements. The handler is executed at most once per element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.one(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Attach a handler to an event for the elements. The handler is executed at most once per element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.outerHeight">
+            <summary>
+            Get the current computed height for the first element in the set of matched elements, including padding, border, and optionally margin.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.outerHeight(System.Boolean)">
+            <summary>
+            Get the current computed height for the first element in the set of matched elements, including padding, border, and optionally margin.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.outerWidth">
+            <summary>
+            Get the current computed width for the first element in the set of matched elements, including padding and border.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.outerWidth(System.Boolean)">
+            <summary>
+            Get the current computed width for the first element in the set of matched elements, including padding and border.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.parent">
+            <summary>
+            Get the parent of each element in the current set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.parent(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get the parent of each element in the current set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.parents">
+            <summary>
+            Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.parents(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.parentsUntil">
+            <summary>
+            Get the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.parentsUntil(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.position">
+            <summary>
+            Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prepend(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prepend(SharpKit.JavaScript.JsString)">
+            <summary>
+            Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prepend(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prepend(SharpKit.jQuery.jQuery)">
+            <summary>
+            Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prependTo(SharpKit.JavaScript.JsString)">
+            <summary>
+            Insert every element in the set of matched elements to the beginning of the target.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prependTo(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Insert every element in the set of matched elements to the beginning of the target.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prependTo(SharpKit.jQuery.jQuery)">
+            <summary>
+            Insert every element in the set of matched elements to the beginning of the target.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prev">
+            <summary>
+            Get the immediately preceding sibling of each element in the set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prev(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get the immediately preceding sibling of each element in the set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prevAll">
+            <summary>
+            Get all preceding siblings of each element in the set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prevAll(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get all preceding siblings of each element in the set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prevUntil">
+            <summary>
+            Get all preceding siblings of each element up to but not including the element matched by the selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.prevUntil(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get all preceding siblings of each element up to but not including the element matched by the selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.pushStack(SharpKit.JavaScript.JsArray)">
+            <summary>
+            Add a collection of DOM elements onto the jQuery stack.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.pushStack(SharpKit.JavaScript.JsArray,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsArray)">
+            <summary>
+            Add a collection of DOM elements onto the jQuery stack.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.queue">
+            <summary>
+            Show the queue of functions to be executed on the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.queue(SharpKit.JavaScript.JsString)">
+            <summary>
+            Show the queue of functions to be executed on the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.queue(SharpKit.JavaScript.JsArray)">
+            <summary>
+            Manipulate the queue of functions to be executed on the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.queue(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Manipulate the queue of functions to be executed on the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.queue(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsArray)">
+            <summary>
+            Manipulate the queue of functions to be executed on the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.queue(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Manipulate the queue of functions to be executed on the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.ready(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Specify a function to execute when the DOM is fully loaded.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.remove">
+            <summary>
+            Remove the set of matched elements from the DOM.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.remove(SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove the set of matched elements from the DOM.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.removeAttr(SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove an attribute from each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.removeClass">
+            <summary>
+            Remove a single class, multiple classes, or all classes from each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.removeClass(SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove a single class, multiple classes, or all classes from each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.removeClass(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Remove a single class, multiple classes, or all classes from each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.removeData">
+            <summary>
+            Remove a previously-stored piece of data.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.removeData(SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove a previously-stored piece of data.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.replaceAll(SharpKit.JavaScript.JsString)">
+            <summary>
+            Replace each target element with the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.replaceWith(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Replace each element in the set of matched elements with the provided new content.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.replaceWith(SharpKit.JavaScript.JsString)">
+            <summary>
+            Replace each element in the set of matched elements with the provided new content.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.replaceWith(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Replace each element in the set of matched elements with the provided new content.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.replaceWith(SharpKit.jQuery.jQuery)">
+            <summary>
+            Replace each element in the set of matched elements with the provided new content.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.resize">
+            <summary>
+            Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.resize(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.resize(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.scroll">
+            <summary>
+            Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.scroll(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.scroll(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.scrollLeft">
+            <summary>
+            Get the current horizontal position of the scroll bar for the first element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.scrollLeft(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Set the current horizontal position of the scroll bar for each of the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.scrollTop">
+            <summary>
+            Get the current vertical position of the scroll bar for the first element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.scrollTop(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Set the current vertical position of the scroll bar for each of the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.select">
+            <summary>
+            Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.select(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.select(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.serialize">
+            <summary>
+            Encode a set of form elements as a string for submission.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.serializeArray">
+            <summary>
+            Encode a set of form elements as an array of names and values.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.show">
+            <summary>
+            Display the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.show(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.show(SharpKit.JavaScript.JsString)">
+            <summary>
+            Display the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.show(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Display the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.show(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Display the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.show(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.show(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.show(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Display the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.show(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.show(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.siblings">
+            <summary>
+            Get the siblings of each element in the set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.siblings(SharpKit.JavaScript.JsString)">
+            <summary>
+            Get the siblings of each element in the set of matched elements, optionally filtered by a selector.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.size">
+            <summary>
+            Return the number of DOM elements matched by the jQuery object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slice(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Reduce the set of matched elements to a subset specified by a range of indices.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slice(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Reduce the set of matched elements to a subset specified by a range of indices.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideDown">
+            <summary>
+            Display the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideDown(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideDown(SharpKit.JavaScript.JsString)">
+            <summary>
+            Display the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideDown(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Display the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideDown(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Display the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideDown(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideDown(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideDown(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Display the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideDown(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideDown(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideToggle">
+            <summary>
+            Display or hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideToggle(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideToggle(SharpKit.JavaScript.JsString)">
+            <summary>
+            Display or hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideToggle(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Display or hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideToggle(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Display or hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideToggle(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideToggle(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideToggle(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Display or hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideToggle(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideToggle(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideUp">
+            <summary>
+            Hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideUp(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideUp(SharpKit.JavaScript.JsString)">
+            <summary>
+            Hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideUp(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideUp(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideUp(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideUp(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideUp(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideUp(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.slideUp(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Hide the matched elements with a sliding motion.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.stop">
+            <summary>
+            Stop the currently-running animation on the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.stop(System.Boolean)">
+            <summary>
+            Stop the currently-running animation on the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.stop(System.Boolean,System.Boolean)">
+            <summary>
+            Stop the currently-running animation on the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.submit">
+            <summary>
+            Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.submit(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.submit(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.text">
+            <summary>
+            Get the combined text contents of each element in the set of matched elements, including their descendants.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.text(SharpKit.JavaScript.JsString)">
+            <summary>
+            Set the content of each element in the set of matched elements to the specified text.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.text(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Set the content of each element in the set of matched elements to the specified text.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toArray">
+            <summary>
+            Retrieve all the DOM elements contained in the jQuery set, as an array.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle">
+            <summary>
+            Display or hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle(System.Boolean)">
+            <summary>
+            Display or hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle(SharpKit.JavaScript.JsString)">
+            <summary>
+            Display or hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Display or hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs},SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind two or more handlers to the matched elements, to be executed on alternate clicks.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Display or hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString)">
+            <summary>
+            Display or hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs},SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs},SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind two or more handlers to the matched elements, to be executed on alternate clicks.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggle(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Display or hide the matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggleClass(SharpKit.JavaScript.JsString)">
+            <summary>
+            Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggleClass(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggleClass(SharpKit.JavaScript.JsString,System.Boolean)">
+            <summary>
+            Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.toggleClass(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement},System.Boolean)">
+            <summary>
+            Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.trigger(SharpKit.jQuery.Event)">
+            <summary>
+            Execute all handlers and behaviors attached to the matched elements for the given event type.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.trigger(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsArray)">
+            <summary>
+            Execute all handlers and behaviors attached to the matched elements for the given event type.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.triggerHandler(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsArray)">
+            <summary>
+            Execute all handlers attached to an element for an event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.unbind">
+            <summary>
+            Remove a previously-attached event handler from the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.unbind(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Remove a previously-attached event handler from the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.unbind(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Remove a previously-attached event handler from the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.unbind(SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove a previously-attached event handler from the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.unbind(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Remove a previously-attached event handler from the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.unbind(SharpKit.JavaScript.JsString,System.Boolean)">
+            <summary>
+            Remove a previously-attached event handler from the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.undelegate">
+            <summary>
+            Remove a handler from the event for all elements which match the current selector, now or in the future, based upon a specific set of root elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.undelegate(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove a handler from the event for all elements which match the current selector, now or in the future, based upon a specific set of root elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.undelegate(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Remove a handler from the event for all elements which match the current selector, now or in the future, based upon a specific set of root elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.unload(SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "unload" JavaScript event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.unload(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsAction{SharpKit.Html4.HtmlDomEventArgs})">
+            <summary>
+            Bind an event handler to the "unload" JavaScript event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.unwrap">
+            <summary>
+            Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.val">
+            <summary>
+            Get the current value of the first element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.val(SharpKit.JavaScript.JsString)">
+            <summary>
+            Set the value of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.val(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Set the value of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.width">
+            <summary>
+            Get the current computed width for the first element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.width(SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Set the CSS width of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.width(SharpKit.JavaScript.JsString)">
+            <summary>
+            Set the CSS width of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.width(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Set the CSS width of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.wrap(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Wrap an HTML structure around each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.wrap(SharpKit.JavaScript.JsString)">
+            <summary>
+            Wrap an HTML structure around each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.wrap(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Wrap an HTML structure around each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.wrap(SharpKit.jQuery.jQuery)">
+            <summary>
+            Wrap an HTML structure around each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.wrapAll(SharpKit.JavaScript.JsString)">
+            <summary>
+            Wrap an HTML structure around all elements in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.wrapAll(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Wrap an HTML structure around all elements in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.wrapAll(SharpKit.jQuery.jQuery)">
+            <summary>
+            Wrap an HTML structure around all elements in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.wrapInner(SharpKit.JavaScript.JsString)">
+            <summary>
+            Wrap an HTML structure around the content of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.wrapInner(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Wrap an HTML structure around the content of each element in the set of matched elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.ajax(SharpKit.jQuery.AjaxSettings)">
+            <summary>
+            Perform an asynchronous HTTP (Ajax) request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.ajaxSetup(SharpKit.jQuery.AjaxSettings)">
+            <summary>
+            Set default values for future Ajax requests.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.contains(SharpKit.Html4.HtmlElement,SharpKit.Html4.HtmlElement)">
+            <summary>
+            Check to see if a DOM node is within another DOM node.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.data(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Returns value at named data store for the element, as set by jQuery.data(element, name, value), or the full data store for the element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.data(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsString)">
+            <summary>
+            Returns value at named data store for the element, as set by jQuery.data(element, name, value), or the full data store for the element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.data(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsObject)">
+            <summary>
+            Store arbitrary data associated with the specified element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.dequeue(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Execute the next function on the queue for the matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.dequeue(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsString)">
+            <summary>
+            Execute the next function on the queue for the matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.each(System.Object,SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,System.Object})">
+            <summary>
+            A generic iterator function, which can be used to seamlessly iterate over both objects and arrays. Arrays and array-like objects with a length property (such as a function's arguments object) are iterated by numeric index, from 0 to length-1. Other objects are iterated via their named properties.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.error(SharpKit.JavaScript.JsString)">
+            <summary>
+            Takes a string and throws an exception containing it.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.extend(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Merge the contents of two or more objects together into the first object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.extend(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsObject)">
+            <summary>
+            Merge the contents of two or more objects together into the first object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.extend(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsObject)">
+            <summary>
+            Merge the contents of two or more objects together into the first object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.extend(System.Boolean,SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsObject)">
+            <summary>
+            Merge the contents of two or more objects together into the first object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.extend(System.Boolean,SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsObject)">
+            <summary>
+            Merge the contents of two or more objects together into the first object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get(SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP GET request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get(SharpKit.JavaScript.JsString,System.Object)">
+            <summary>
+            Load data from the server using a HTTP GET request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Load data from the server using a HTTP GET request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP GET request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get(SharpKit.JavaScript.JsString,System.Object,SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP GET request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get(SharpKit.JavaScript.JsString,System.Object,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Load data from the server using a HTTP GET request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest},SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP GET request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP GET request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Load data from the server using a HTTP GET request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get(SharpKit.JavaScript.JsString,System.Object,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest},SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP GET request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.get(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest},SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP GET request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.getJSON(SharpKit.JavaScript.JsString)">
+            <summary>
+            Load JSON-encoded data from the server using a GET HTTP request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.getJSON(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Load JSON-encoded data from the server using a GET HTTP request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.getJSON(SharpKit.JavaScript.JsString,System.Object)">
+            <summary>
+            Load JSON-encoded data from the server using a GET HTTP request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.getJSON(SharpKit.JavaScript.JsString,System.Object,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Load JSON-encoded data from the server using a GET HTTP request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.getScript(SharpKit.JavaScript.JsString)">
+            <summary>
+            Load a JavaScript file from the server using a GET HTTP request, then execute it.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.getScript(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Load a JavaScript file from the server using a GET HTTP request, then execute it.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.globalEval(SharpKit.JavaScript.JsString)">
+            <summary>
+            Execute some JavaScript code globally.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.grep(SharpKit.JavaScript.JsArray,SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Finds the elements of an array which satisfy a filter function. The original array is not affected.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.grep(SharpKit.JavaScript.JsArray,SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement},System.Boolean)">
+            <summary>
+            Finds the elements of an array which satisfy a filter function. The original array is not affected.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.inArray(System.Object,SharpKit.JavaScript.JsArray)">
+            <summary>
+            Search for a specified value within an array and return its index (or -1 if not found).
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.isArray(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Determine whether the argument is an array.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.isEmptyObject(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Check to see if an object is empty (contains no properties).
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.isFunction(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Determine if the argument passed is a Javascript function object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.isPlainObject(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Check to see if an object is a plain object (created using "{}" or "new Object").
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.isWindow(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Determine whether the argument is a window.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.isXMLDoc(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Check to see if a DOM node is within an XML document (or is an XML document).
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.makeArray(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Convert an array-like object into a true JavaScript array.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.map(SharpKit.JavaScript.JsArray,SharpKit.JavaScript.JsAction{SharpKit.JavaScript.JsNumber,SharpKit.Html4.HtmlElement})">
+            <summary>
+            Translate all items in an array or array-like object to another array of items.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.merge(SharpKit.JavaScript.JsArray,SharpKit.JavaScript.JsArray)">
+            <summary>
+            Merge the contents of two arrays together into the first array.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.noConflict">
+            <summary>
+            Relinquish jQuery's control of the $ variable.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.noConflict(System.Boolean)">
+            <summary>
+            Relinquish jQuery's control of the $ variable.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.noop">
+            <summary>
+            An empty function.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.param(SharpKit.JavaScript.JsArray)">
+            <summary>
+            Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.param(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.param(SharpKit.JavaScript.JsArray,System.Boolean)">
+            <summary>
+            Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.param(SharpKit.JavaScript.JsObject,System.Boolean)">
+            <summary>
+            Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.parseJSON(SharpKit.JavaScript.JsString)">
+            <summary>
+            Takes a well-formed JSON string and returns the resulting JavaScript object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.post(SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP POST request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.post(SharpKit.JavaScript.JsString,System.Object)">
+            <summary>
+            Load data from the server using a HTTP POST request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.post(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Load data from the server using a HTTP POST request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.post(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP POST request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.post(SharpKit.JavaScript.JsString,System.Object,SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP POST request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.post(SharpKit.JavaScript.JsString,System.Object,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Load data from the server using a HTTP POST request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.post(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest},SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP POST request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.post(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP POST request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.post(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest})">
+            <summary>
+            Load data from the server using a HTTP POST request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.post(SharpKit.JavaScript.JsString,System.Object,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest},SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP POST request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.post(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{System.Object,System.String,SharpKit.Html4.XMLHttpRequest},SharpKit.JavaScript.JsString)">
+            <summary>
+            Load data from the server using a HTTP POST request.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.proxy(SharpKit.JavaScript.JsAction,SharpKit.JavaScript.JsObject)">
+            <summary>
+            Takes a function and returns a new one that will always have a particular context.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.proxy(SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsString)">
+            <summary>
+            Takes a function and returns a new one that will always have a particular context.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.queue(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Show the queue of functions to be executed on the matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.queue(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsString)">
+            <summary>
+            Show the queue of functions to be executed on the matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.queue(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsArray)">
+            <summary>
+            Manipulate the queue of functions to be executed on the matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.queue(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Manipulate the queue of functions to be executed on the matched element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.removeData(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Remove a previously-stored piece of data.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.removeData(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove a previously-stored piece of data.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.trim(SharpKit.JavaScript.JsString)">
+            <summary>
+            Remove the whitespace from the beginning and end of a string.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.type(SharpKit.JavaScript.JsObject)">
+            <summary>
+            Determine the internal JavaScript [[Class]] of an object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQuery.unique(SharpKit.JavaScript.JsArray)">
+            <summary>
+            Sorts an array of DOM elements, in place, with the duplicates removed. Note that this only works on arrays of DOM elements, not strings or numbers.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.jQuery.browser">
+            <summary>
+            We recommend against using this property, 
+            please try to use feature detection instead (see jQuery.support). 
+            Contains flags for the useragent, read from navigator.userAgent. 
+            While jQuery.browser will not be removed from future versions of jQuery, 
+            every effort to use jQuery.support and proper feature detection should be made.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.jQuery.length">
+            <summary>
+            The number of elements in the jQuery object.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.jQuery.selector">
+            <summary>
+            A selector representing selector originally passed to jQuery().
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.jQuery.context">
+            <summary>
+            The DOM node context originally passed to jQuery(); if none was passed then context will likely be the document.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.jQuery.boxModel">
+            <summary>
+            Deprecated in jQuery 1.3 (see jQuery.support)
+            . States if the current page, in the user's browser, is being rendered using the W3C CSS Box Model.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.jQuery.support">
+            <summary>
+            A collection of properties that represent the presence of different browser features or bugs.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQueryContext.J(System.Object)">
+            <summary>
+            Accepts a string containing a CSS selector which is then used to match a set of elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQueryContext.J(SharpKit.Html4.HtmlElement)">
+            <summary>
+            Accepts a string containing a CSS selector which is then used to match a set of elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQueryContext.J(SharpKit.JavaScript.JsArray)">
+            <summary>
+            Accepts a string containing a CSS selector which is then used to match a set of elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQueryContext.J(SharpKit.jQuery.jQuery)">
+            <summary>
+            Accepts a string containing a CSS selector which is then used to match a set of elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQueryContext.J">
+            <summary>
+            Accepts a string containing a CSS selector which is then used to match a set of elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQueryContext.J(SharpKit.JavaScript.JsString,SharpKit.Html4.HtmlDocument)">
+            <summary>
+            Creates DOM elements on the fly from the provided string of raw HTML.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQueryContext.J(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsObject)">
+            <summary>
+            Creates DOM elements on the fly from the provided string of raw HTML.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQueryContext.J(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Binds a function to be executed when the DOM has finished loading.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQueryContext.J(SharpKit.JavaScript.JsString,SharpKit.Html4.HtmlElement)">
+            <summary>
+            Accepts a string containing a CSS selector which is then used to match a set of elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQueryContext.J(SharpKit.JavaScript.JsString,SharpKit.jQuery.jQuery)">
+            <summary>
+            Accepts a string containing a CSS selector which is then used to match a set of elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.jQueryContext.J(SharpKit.JavaScript.JsString)">
+            <summary>
+            Accepts a string containing a CSS selector which is then used to match a set of elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.Event.isImmediatePropagationStopped">
+            <summary>
+            Returns whether event.stopImmediatePropagation() was ever called on this event object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.Event.stopImmediatePropagation">
+            <summary>
+            Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.Event.isPropagationStopped">
+            <summary>
+            Returns whether event.stopPropagation() was ever called on this event object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.Event.stopPropagation">
+            <summary>
+            Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.Event.isDefaultPrevented">
+            <summary>
+            Returns whether event.preventDefault() was ever called on this event object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.Event.preventDefault">
+            <summary>
+            If this method is called, the default action of the event will not be triggered.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.Event.namespace">
+            <summary>
+            The namespace specified when the event was triggered.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.Event.timeStamp">
+            <summary>
+            The difference in milliseconds between the time an event is triggered and January 1, 1970.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.Event.result">
+            <summary>
+            The last value returned by an event handler that was triggered by this event, unless the value was undefined.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.Event.which">
+            <summary>
+            For key or button events, this attribute indicates the specific button or key that was pressed.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.Event.pageY">
+            <summary>
+            The mouse position relative to the top edge of the document.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.Event.pageX">
+            <summary>
+            The mouse position relative to the left edge of the document.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.Event.currentTarget">
+            <summary>
+            The current DOM element within the event bubbling phase.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.Event.relatedTarget">
+            <summary>
+            The other DOM element involved in the event, if any.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.Event.data">
+            <summary>
+            The optional data passed to jQuery.fn.bind when the current executing handler was bound.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.Event.target">
+            <summary>
+            The DOM element that initiated the event.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.Event.type">
+            <summary>
+            Describes the nature of the event.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.fx.interval">
+            <summary>
+            The rate (in milliseconds) at which animations fire.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.fx.off">
+            <summary>
+            Globally disable all animations.
+            </summary>
+        </member>
+    </members>
+</doc>

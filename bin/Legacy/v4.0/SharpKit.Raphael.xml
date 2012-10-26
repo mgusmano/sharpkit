@@ -1,0 +1,2083 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.Raphael</name>
+    </assembly>
+    <members>
+        <member name="T:AssemblyDoc">
+            <summary>
+            Raphaël is a small JavaScript library that should simplify your work with vector graphics on the web. If you want to create your own specific chart or image crop and rotate widget, for example, you can achieve it simply and easily with this library.
+            Raphaël uses the SVG W3C Recommendation and VML as a base for creating graphics. This means every graphical object you create is also a DOM object, so you can attach JavaScript event handlers or modify them later. Raphaël’s goal is to provide an adapter that will make drawing vector art compatible cross-browser and easy.
+            Raphaël currently supports Firefox 3.0+, Safari 3.0+, Chrome 5.0+, Opera 9.5+ and Internet Explorer 6.0+.
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.Animation.delay(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Creates a copy of existing animation object with given delay.
+            </summary>
+            <param name="delay">number of ms to pass between animation start and actual animation</param>
+            <returns>new altered Animation object</returns>
+            <example>
+            <code>
+            var anim = Raphael.animation({cx: 10, cy: 20}, 2e3);
+            circle1.animate(anim); // run the given animation immediately
+            circle2.animate(anim.delay(500)); // run the given animation after 500 ms
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Animation.repeat(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Creates a copy of existing animation object with given repetition.
+            </summary>
+            <param name="repeat">number iterations of animation. For infinite animation pass Infinity</param>
+            <returns>new altered Animation object</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.animate(System.Object,SharpKit.JavaScript.JsNumber,System.String,SharpKit.JavaScript.JsAction)">
+            <summary>
+            
+            </summary>
+            <param name="params">final attributes for the element, see also Element.attr</param>
+            <param name="ms">number of milliseconds for animation to run</param>
+            <param name="easing"></param>
+            <param name="callback"></param>
+            <returns>original element</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.animate(System.Object,SharpKit.JavaScript.JsNumber,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="params">final attributes for the element, see also Element.attr</param>
+            <param name="ms">number of milliseconds for animation to run</param>
+            <param name="easing"></param>
+            <param name="animation"></param>
+            <returns>original element</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.animateWith(System.Object,System.Object,System.Object,SharpKit.JavaScript.JsNumber,System.String,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Acts similar to Element.animate, but ensure that given animation runs in sync with another given element.
+            </summary>
+            <param name="element">element to sync with</param>
+            <param name="anim">animation to sync with</param>
+            <param name="params">final attributes for the element, see also Element.attr</param>
+            <param name="ms">number of milliseconds for animation to run</param>
+            <param name="easing">easing type. Accept on of Raphael.easing_formulas or CSS format: cubic‐bezier(XX, XX, XX, XX)</param>
+            <param name="callback">callback function. Will be called at the end of animation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.animateWith(System.Object,System.Object,System.Object)">
+            <summary>
+            Acts similar to Element.animate, but ensure that given animation runs in sync with another given element.
+            </summary>
+            <param name="element">element to sync with</param>
+            <param name="anim">animation to sync with</param>
+            <param name="animation">animation object, see Raphael.animation</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.attr(System.String,System.String)">
+            <summary>
+            Sets the attributes of the element
+            </summary>
+            <param name="attrName">attribute’s name</param>
+            <param name="value">value</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.attr(System.Object)">
+            <summary>
+            Sets the attributes of the element
+            </summary>
+            <param name="params">object of name/value pairs</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.attr(SharpKit.Raphael.ElementAttributes)">
+            <summary>
+            Sets the attributes of the element
+            </summary>
+            <param name="params">object of name/value pairs</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.attr(System.String)">
+            <summary>
+            Sets the attributes of the element
+            </summary>
+            <param name="attrName">attribute’s name</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.attr(SharpKit.JavaScript.JsArray)">
+            <summary>
+            Sets the attributes of the element
+            </summary>
+            <param name="attrNames">in this case method returns array of current values for given attribute names</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.click(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adds event handler for click for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.data(System.String,System.Object)">
+            <summary>
+            Adds or retrieves given value asociated with given key. See also Element.removeData
+            </summary>
+            <param name="key">any, key to store data</param>
+            <param name="value">value to store</param>
+            <returns></returns>
+            <example>
+            <code>
+            for (var i = 0, i &lt; 5, i++) {
+            paper.circle(10 + 15 * i, 10, 10)
+            .attr({fill: "#000"})
+            .data("i", i)
+            .click(function () {
+            alert(this.data("i"));
+            });
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.dblclick(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adds event handler for double click for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.drag(SharpKit.JavaScript.JsAction,SharpKit.JavaScript.JsAction,SharpKit.JavaScript.JsAction,System.Object,System.Object,System.Object)">
+            <summary>
+            Adds event handlers for drag of the element.
+            </summary>
+            <param name="onmove">handler for moving</param>
+            <param name="onstart">handler for drag start</param>
+            <param name="onend">handler for drag end</param>
+            <param name="mcontext">context for moving handler</param>
+            <param name="scontext">context for drag start handler</param>
+            <param name="econtext">context for drag end handler</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.getBBox(System.Object)">
+            <summary>
+            Return bounding box for a given element
+            </summary>
+            <param name="isWithoutTransform">flag, true if you want to have bounding box before transformations. Default is false.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.getPointAtLength(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Return coordinates of the point located at the given length on the given path. Only works for element of “path” type.
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.getSubpath(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Return subpath of a given element from given length to given length. Only works for element of “path” type.
+            </summary>
+            <param name="from">position of the start of the segment</param>
+            <param name="to">position of the end of the segment</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.getTotalLength">
+            <summary>
+            Returns length of the path in pixels. Only works for element of “path” type.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.glow(System.Object)">
+            <summary>
+            Return set of elements that create glow-like effect around given element. See Paper.set. Note: Glow is not connected to the element. If you change element attributes it won’t adjust itself.
+            </summary>
+            <param name="glow">parameters object with all properties optional:</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.hide">
+            <summary>
+            Makes element invisible. See Element.show.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.hover(SharpKit.JavaScript.JsAction,SharpKit.JavaScript.JsAction,System.Object,System.Object)">
+            <summary>
+            Adds event handlers for hover for the element.
+            </summary>
+            <param name="f_in">handler for hover in</param>
+            <param name="f_out">handler for hover out</param>
+            <param name="icontext">context for hover in handler</param>
+            <param name="ocontext">context for hover out handler</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.insertAfter">
+            <summary>
+            Inserts current object after the given one.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.insertBefore">
+            <summary>
+            Inserts current object before the given one.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.isPointInside(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Determine if given point is inside this element’s shape
+            </summary>
+            <param name="x">x coordinate of the point</param>
+            <param name="y">y coordinate of the point</param>
+            <returns>true if point inside the shape</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.mousedown(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adds event handler for mousedown for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.mousemove(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adds event handler for mousemove for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.mouseout(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adds event handler for mouseout for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.mouseover(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adds event handler for mouseover for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.mouseup(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adds event handler for mouseup for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.OnDragOver(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Shortcut for assigning event handler for drag.over.[id] event, where id is id of the element (see Element.id).
+            </summary>
+            <param name="F">handler for event, first argument would be the element you are dragging over</param>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.pause(System.Object)">
+            <summary>
+            Stops animation of the element with ability to resume it later on.
+            </summary>
+            <param name="anim">animation object</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.removeData(System.String)">
+            <summary>
+            Resumes animation if it was paused with Element.pause method.
+            </summary>
+            <param name="key">animation object</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.rotate(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Adds rotation by given angle around given point to the list of transformations of the element.
+            </summary>
+            <param name="deg">angle in degrees</param>
+            <param name="cx">x coordinate of the centre of rotation</param>
+            <param name="cy">y coordinate of the centre of rotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.scale(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Adds scale by given amount relative to given point to the list of transformations of the element.
+            </summary>
+            <param name="sx">horisontal scale amount</param>
+            <param name="sy">vertical scale amount</param>
+            <param name="cx">x coordinate of the centre of scale</param>
+            <param name="cy">y coordinate of the centre of scale</param>
+            <returns>Element</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.setTime(System.Object,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Sets the status of animation of the element in milliseconds. Similar to Element.status method.
+            </summary>
+            <param name="anim">animation object</param>
+            <param name="value">number of milliseconds from the beginning of the animation</param>
+            <returns>number of milliseconds from the beginning of the animation</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.show">
+            <summary>
+            Makes element visible. See Element.hide.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.status">
+            <summary>
+            Gets or sets the status of animation of the element.
+            </summary>
+            <returns>status if anim is not specified. Array of objects in format:</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.status(SharpKit.Raphael.Animation)">
+            <summary>
+            Gets or sets the status of animation of the element.
+            </summary>
+            <param name="anim">animation object</param>
+            <returns>status if anim is not specified. Array of objects in format:</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.status(SharpKit.Raphael.Animation,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Gets or sets the status of animation of the element.
+            </summary>
+            <param name="anim">animation object</param>
+            <param name="value">0 – 1. If specified, method works like a setter and sets the status of a given animation to the value. This will cause animation to jump to the given position.</param>
+            <returns>status</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.stop(System.Object)">
+            <summary>
+            Stops animation of the element.
+            </summary>
+            <param name="anim">animation object</param>
+            <returns>original element</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.toBack">
+            <summary>
+            Moves the element so it is the furthest from the viewer’s eyes, behind other elements.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.toFront">
+            <summary>
+            Moves the element so it is the closest to the viewer’s eyes, on top of other elements.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.touchcancel(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adds event handler for touchcancel for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.touchend(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adds event handler for touchend for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.touchmove(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adds event handler for touchmove for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.touchstart(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Adds event handler for touchstart for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.transform(SharpKit.JavaScript.JsString)">
+            <summary>
+            Adds transformation to the element which is separate to other attributes, i.e.
+            translation doesn’t change x or y of the rectange. The format of transformation string is similar to the path string syntax:
+            "t100,100r30,100,100s2,2,100,100r45s1.5"
+            Each letter is a command. There are four commands: t is for translate, r is for rotate, s is for scale and m is for matrix.
+            There are also alternative “absolute” translation, rotation and scale: T, R and S.
+            They will not take previous transformation into account. For example, ...T100,0 will always move element 100 px horisontally,
+            while ...t100,0 could move it vertically if there is r90 before. Just compare results of r90t100,0 and r90T100,0.
+            So, the example line above could be read like “translate by 100, 100; rotate 30° around 100, 100;
+            scale twice around 100, 100; rotate 45° around centre; scale 1.5 times relative to centre”.
+            As you can see rotate and scale commands have origin coordinates as optional parameters, the default is the centre point of the element.
+            Matrix accepts six parameters.
+            </summary>
+            <param name="tstr"></param>
+            <returns></returns>
+            <example>
+            usage
+            <code>
+            var el = paper.rect(10, 20, 300, 200);
+            // translate 100, 100, rotate 45°, translate -100, 0
+            el.transform("t100,100r45t-100,0");
+            // if you want you can append or prepend transformations
+            el.transform("...t50,50");
+            el.transform("s2...");
+            // or even wrap
+            el.transform("t50,50...t-50-50");
+            // to reset transformation call method with empty string
+            el.transform("");
+            // to get current value call it without parameters
+            console.log(el.transform());
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.translate(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Adds translation by given amount to the list of transformations of the element.
+            </summary>
+            <param name="dx">horisontal shift</param>
+            <param name="dy">vertical shift</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.unclick(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Removes event handler for click for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.undblclick(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Removes event handler for double click for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.unhover(SharpKit.JavaScript.JsAction,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Removes event handlers for hover for the element.
+            </summary>
+            <param name="f_in">handler for hover in</param>
+            <param name="f_out">handler for hover out</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.undrag">
+            <summary>
+            Removes all drag event handlers from given element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.unmousedown(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Removes event handler for mousedown for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.unmousemove(SharpKit.JavaScript.JsAction)">
+             <summary>
+            Removes event handler for mousemove for the element.
+             </summary>
+             <param name="handler">handler for the event</param>
+             <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.unmouseout(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Removes event handler for mouseout for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.unmouseover(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Removes event handler for unmouseover for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.unmouseup(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Removes event handler for unmouseup for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.untouchcancel(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Removes event handler for untouchcancel for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.untouchend(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Removes event handler for untouchend for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.untouchmove(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Removes event handler for untouchmove for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Element.untouchstart(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Removes event handler for untouchstart for the element.
+            </summary>
+            <param name="handler">handler for the event</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:SharpKit.Raphael.Element.id" -->
+        <member name="P:SharpKit.Raphael.Element.matrix">
+            <summary>
+            Keeps Matrix object, which represents element transformatio
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Element.paper">
+             <summary>
+             Internal reference to “paper” where object drawn. Mainly for use in plugins and element extensions.
+             </summary> 
+            <example>
+            usage
+            <code>
+            Raphael.el.cross = function () {
+            this.attr({fill: "red"});
+            this.paper.path("M10,10L50,50M50,10L10,50")
+             .attr({stroke: "red"});
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.Raphael.Element.next">
+            <summary>
+            Reference to the next element in the hierarchy.
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Element.node">
+            <summary>
+            Gives you a reference to the DOM object, so you can assign event handlers or just mess around. Note: Don’t mess with it.
+            </summary>
+            <example>
+            usage
+            <code>
+            // draw a circle at coordinate 10,10 with radius of 10
+            var c = paper.circle(10, 10, 10);
+            c.node.onclick = function () {
+            c.attr("fill", "red");};
+            </code>
+            </example>
+        </member>
+        <member name="P:SharpKit.Raphael.Element.prev">
+            <summary>
+            Reference to the previous element in the hierarchy.
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Element.rapheal">
+            <summary>
+            Internal reference to Raphael object. In case it is not available.
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.arrow_end">
+            <summary>
+            arrowhead on the end of the path. The format for string is &lt;type&gt;[-&lt;width>[-&lt;length&gt;]]. Possible types: classic, block, open, oval, diamond, none, width: wide, narrow, midium, length: long, short, midium.
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.clip_rect">
+            <summary>
+            comma or space separated values: x, y, width and height
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.cursor">
+            <summary>
+            CSS type of the cursor
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.cx">
+            <summary>
+            the x-axis coordinate of the center of the circle, or ellipse
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.cy">
+            <summary>
+            the y-axis coordinate of the center of the circle, or ellipse
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.fill">
+            <summary>
+            colour, gradient or image
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.font_size">
+            <summary>
+            font size in pixels
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.href">
+            <summary>
+            URL, if specified element behaves as hyperlink
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.path">
+            <summary>
+            SVG path string format
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.r">
+            <summary>
+            radius of the circle, ellipse or rounded corner on the rect
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.rx">
+            <summary>
+            horisontal radius of the ellipse
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.ry">
+            <summary>
+            vertical radius of the ellipse
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.src">
+            <summary>
+            image URL, only works for Element.image element
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.stroke">
+            <summary>
+            stroke colour
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.stroke_dasharray">
+            <summary>
+            [“”, “-”, “.”, “-.”, “-..”, “. ”, “- ”, “--”, “- .”, “--.”, “--..”]
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.stroke_linecap">
+            <summary>
+            [“butt”, “square”, “round”]
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.stroke_linejoin">
+            <summary>
+            [“bevel”, “round”, “miter”]
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.stroke_width">
+            <summary>
+            stroke width in pixels, default is '1'
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.target">
+            <summary>
+            used with href
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.text">
+            <summary>
+            contents of the text element. Use \n for multiline text
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.text_anchor">
+            <summary>
+            [“start”, “middle”, “end”], default is “middle”
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.title">
+            <summary>
+            will create tooltip with a given text
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ElementAttributes.transform">
+            <summary>
+            see Element.transform
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.DragStartEventArgs.x">
+            <summary>
+            x position of the mouse
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.DragStartEventArgs.event">
+            <summary>
+            DOM event object
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.DragMoveEventArgs.dx">
+            <summary>
+            shift by x from the start point
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.DragMoveEventArgs.dy">
+            <summary>
+            shift by y from the start point
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.DragMoveEventArgs.x">
+            <summary>
+            x position of the mouse
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.DragMoveEventArgs.y">
+            <summary>
+            y position of the mouse
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.DragMoveEventArgs.event">
+            <summary>
+            DOM event object
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.DragEndEventArgs.event">
+            <summary>
+            DOM event object
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetBBoxOptions.x">
+            <summary>
+            top left corner x
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetBBoxOptions.y">
+            <summary>
+            top left corner y
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetBBoxOptions.width">
+            <summary>
+            width
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetBBoxOptions.height">
+            <summary>
+            height
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetPointAtLengthOptions.x">
+            <summary>
+            x coordinate
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetPointAtLengthOptions.y">
+            <summary>
+            y coordinate
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetPointAtLengthOptions.alpha">
+            <summary>
+            angle of derivative
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GlowOptions.width">
+            <summary>
+            size of the glow, default is 10
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GlowOptions.fill">
+            <summary>
+            will it be filled, default is false
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GlowOptions.opacity">
+            <summary>
+            opacity, default is 0.5
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GlowOptions.offsetx">
+            <summary>
+            horizontal offset, default is 0
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GlowOptions.offsety">
+            <summary>
+            vertical offset, default is 0
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GlowOptions.color">
+            <summary>
+            glow colour, default is black
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.Matrix.#ctor(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Utility method Returns matrix based on given parameters.
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+            <param name="d"></param>
+            <param name="e"></param>
+            <param name="f"></param>
+            <returns>Matrix</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Matrix.add(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,System.Object)">
+            <summary>
+            Adds given matrix to existing one.
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+            <param name="d"></param>
+            <param name="e"></param>
+            <param name="f"></param>
+            <param name="matrix"></param>
+        </member>
+        <member name="M:SharpKit.Raphael.Matrix.clone">
+            <summary>
+            Returns copy of the matrix
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Matrix.invert">
+            <summary>
+            Returns inverted version of the matrix
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Matrix.rotate(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Rotates the matrix
+            </summary>
+            <param name="a"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:SharpKit.Raphael.Matrix.scale(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Scales the matrix
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="cx"></param>
+            <param name="cy"></param>
+        </member>
+        <member name="M:SharpKit.Raphael.Matrix.toTransformString">
+            <summary>
+            Return transform string that represents given matrix
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Matrix.translate(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            translate the matrix
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:SharpKit.Raphael.Matrix.x(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Return x coordinate for given point after transformation described by the matrix. See also Matrix.y
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns>x</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Matrix.y(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Return x coordinate for given point after transformation described by the matrix. See also Matrix.y
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns>y</returns>
+        </member>
+        <member name="P:SharpKit.Raphael.SplitOptions.dx">
+            <summary>
+            translation by x
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.SplitOptions.dy">
+            <summary>
+            translation by y
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.SplitOptions.scalex">
+            <summary>
+            scale by x
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.SplitOptions.scaley">
+            <summary>
+            scale by y
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.SplitOptions.shear">
+            <summary>
+            shear
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.SplitOptions.rotate">
+            <summary>
+            rotation in deg
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.SplitOptions.isSimple">
+            <summary>
+            could it be represented via simple transformations
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.add(System.Array)">
+            <summary>
+            Imports elements in JSON array in format {type: type, [attributes]}
+            </summary>
+            <param name="json"></param>
+            <returns>resulting set of imported elements</returns>
+            <example>
+            usage
+            <code>
+            paper.add([
+            {
+            type: "circle",
+            cx: 10,
+            cy: 10,
+            r: 5
+            },
+            {
+            type: "rect",
+            x: 10,
+            y: 10,
+            width: 10,
+            height: 10,
+            fill: "#fc0"
+            }
+            ]);
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.bottom">
+            <summary>
+            Points to the bottom element on the paper
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.circle(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Draws a circle.
+            </summary>
+            <param name="x">x coordinate of the centre</param>
+            <param name="y">y coordinate of the centre</param>
+            <param name="r">radius</param>
+            <returns>Raphaël element object with type “circle”</returns>
+            <example>
+            usage
+            <code>
+            var c = paper.circle(50, 50, 40);
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.clear">
+            <summary>
+            Clears the paper, i.e. removes all the elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.ellipse(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Draws an ellipse.
+            </summary>
+            <param name="x">x coordinate of the centre</param>
+            <param name="y">y coordinate of the centre</param>
+            <param name="rx">horizontal radius</param>
+            <param name="ry">vertical radius</param>
+            <returns>Raphaël element object with type “ellipse”</returns>
+            <example>
+            usage
+            <code>
+            var c = paper.ellipse(50, 50, 40, 20);
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.forEach(SharpKit.JavaScript.JsAction,System.Object)">
+            <summary>
+            Executes given function for each element on the paper
+            If callback function returns false it will stop loop running.
+            </summary>
+            <param name="callback">function to run</param>
+            <param name="thisArg">context object for the callback</param>
+            <returns>Paper object</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.getById(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Returns you element by its internal ID.
+            </summary>
+            <param name="id">id</param>
+            <returns>Raphaël element object</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.getElementByPoint(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Returns you topmost element under given point.
+            </summary>
+            <param name="x">x coordinate from the top left corner of the window</param>
+            <param name="y">y coordinate from the top left corner of the window</param>
+            <returns>Raphaël element object</returns>
+            <example>
+            usage
+            <code>
+            paper.getElementByPoint(mouseX, mouseY).attr({stroke: "#f00"});
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.getFont(System.String,System.String,System.String,System.String)">
+            <summary>
+            Finds font object in the registered fonts by given parameters. You could specify only one word from the font name, like “Myriad” for “Myriad Pro”.
+            </summary>
+            <param name="family">font family name or any word from it</param>
+            <param name="weight">font weight</param>
+            <param name="style">font style</param>
+            <param name="stretch">font stretch</param>
+            <returns>the font object</returns>
+            <example>
+            usage
+            <code>
+            paper.print(100, 100, "Test string", paper.getFont("Times", 800), 30);
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.image(System.String,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Embeds an image into the surface.
+            </summary>
+            <param name="src">URI of the source image</param>
+            <param name="x">x coordinate position</param>
+            <param name="y">y coordinate position</param>
+            <param name="width">width of the image</param>
+            <param name="height">height of the image</param>
+            <returns>Raphaël element object with type “image”</returns>
+            <example>
+            usage
+            <code>
+            var c = paper.image("apple.png", 10, 10, 80, 80);
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.path(System.String)">
+            <summary>
+            Creates a path element by given path data string.
+            </summary>
+            <param name="pathString">path string in SVG format.</param>
+            <example>
+            usage
+            <code>
+            "M10,20L30,40"
+            </code>
+            </example>
+            
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.print(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,System.String,System.Object,SharpKit.JavaScript.JsNumber,System.String,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Creates set of shapes to represent given font at given position with given size. Result of the method is set object (see Paper.set) which contains each letter as separate path object.
+            </summary>
+            <param name="x">x position of the text</param>
+            <param name="y">y position of the text</param>
+            <param name="text">text to print</param>
+            <param name="font">font object, see Paper.getFont</param>
+            <param name="size">size of the font, default is 16</param>
+            <param name="origin">could be "baseline" or "middle", default is "middle"</param>
+            <param name="letter_spacing">number in range -1..1, default is 0</param>
+            <returns>resulting set of letters</returns>
+            <example>
+            usage
+            <code>
+            var txt = r.print(10, 50, "print", r.getFont("Museo"), 30).attr({fill: "#fff"});
+            // following line will paint first letter in red
+            txt[0].attr({fill: "#f00"});
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.rect(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Draws a rectangle.
+            </summary>
+            <param name="x">x coordinate of the top left corner</param>
+            <param name="y">y coordinate of the top left corner</param>
+            <param name="width">width</param>
+            <param name="height">height</param>
+            <param name="r">radius for rounded corners, default is 0</param>
+            <returns>Raphaël element object with type “rect”</returns>
+            <example>
+            usage
+            <code>
+            // regular rectangle
+            var c = paper.rect(10, 10, 50, 50);
+            // rectangle with rounded corners
+            var c = paper.rect(40, 40, 50, 50, 10);
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.rect(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Draws a rectangle.
+            </summary>
+            <param name="x">x coordinate of the top left corner</param>
+            <param name="y">y coordinate of the top left corner</param>
+            <param name="width">width</param>
+            <param name="height">height</param>
+            <returns>Raphaël element object with type “rect”</returns>
+            <example>
+            usage
+            <code>
+            // regular rectangle
+            var c = paper.rect(10, 10, 50, 50);
+            // rectangle with rounded corners
+            var c = paper.rect(40, 40, 50, 50, 10);
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.remove">
+            <summary>
+            Removes the paper from the DOM.
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.renderfix">
+            <summary>
+            Fixes the issue of Firefox and IE9 regarding subpixel rendering. If paper is dependant on other elements after reflow it could shift half pixel which cause for lines to lost their crispness. This method fixes the issue.
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.safari">
+            <summary>
+            There is an inconvenient rendering bug in Safari (WebKit): sometimes the rendering should be forced. This method should help with dealing with this bug.
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.set">
+            <summary>
+            Creates array-like object to keep and operate several elements at once. Warning: it doesn’t create any elements for itself in the page, it just groups existing elements. Sets act as pseudo elements — all methods available to an element can be used on a set.
+            </summary>
+            <returns>array-like object that represents set of elements</returns>
+            <example>
+            usage
+            <code>
+            var st = paper.set();
+            st.push(
+            paper.circle(10, 10, 5),
+            paper.circle(30, 10, 5)
+            );
+            st.attr({fill: "red"}); // changes the fill of both circles
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.setFinish">
+            <summary>
+            See Paper.setStart. This method finishes catching and returns resulting set.
+            </summary>
+            <returns>set</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.setSize(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            If you need to change dimensions of the canvas call this method
+            </summary>
+            <param name="width">new width of the canvas</param>
+            <param name="height">new height of the canvas</param>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.setStart">
+            <summary>
+            Creates Paper.set. All elements that will be created after calling this method and before calling Paper.setFinish will be added to the set.
+            </summary>
+            <example>
+            usage
+            <code>
+            paper.setStart();
+            paper.circle(10, 10, 5),
+            paper.circle(30, 10, 5)
+            var st = paper.setFinish();
+            st.attr({fill: "red"}); // changes the fill of both circles
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.setViewBox(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,System.Boolean)">
+            <summary>
+            Sets the view box of the paper. Practically it gives you ability to zoom and pan whole paper surface by specifying new boundaries.
+            </summary>
+            <param name="x">new x position, default is 0</param>
+            <param name="y">new y position, default is 0</param>
+            <param name="w">new width of the canvas</param>
+            <param name="h">new height of the canvas</param>
+            <param name="fit">true if you want graphics to fit into new boundary box</param>
+        </member>
+        <member name="M:SharpKit.Raphael.Paper.text(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,System.String)">
+            <summary>
+            Draws a text string. If you need line breaks, put “\n” in the string.
+            </summary>
+            <param name="x">x coordinate position</param>
+            <param name="y">y coordinate position</param>
+            <param name="text">The text string to draw</param>
+            <returns>Raphaël element object with type “text”</returns>
+            <example>
+            usage
+            <code>
+            var t = paper.text(50, 50, "Raphaël\nkicks\nbutt!");
+            </code>
+            </example>
+        </member>
+        <member name="P:SharpKit.Raphael.Paper.ca">
+            <summary>
+            Shortcut for Paper.customAttributes
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Paper.customAttributes">
+             <summary>
+             If you have a set of attributes that you would like to represent as a function of some number you can do it easily with custom attributes
+             </summary>
+             <example>
+             usage
+             <code>
+             paper.customAttributes.hue = function (num) {
+             num = num % 1;
+             return {fill: "hsb(" + num + ", 0.75, 1)"};
+             };
+             // Custom attribute “hue” will change fill
+             // to be given hue with fixed saturation and brightness.
+             // Now you can use it like this:
+            var c = paper.circle(10, 10, 10).attr({hue: .45});
+             // or even like this:
+            c.animate({hue: 1}, 1e3);
+             // You could also create custom attribute
+             // with multiple parameters:
+            paper.customAttributes.hsb = function (h, s, b) {
+            return {fill: "hsb(" + [h, s, b].join(",") + ")"};
+            };
+            c.attr({hsb: "0.5 .8 1"});
+            c.animate({hsb: [1, 0, 0.5]}, 1e3);
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.Raphael.Paper.rapheal">
+            <summary>
+            Points to the Raphael object/function
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Paper.top">
+            <summary>
+            Points to the topmost element on the paper
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.Create(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Creates a canvas object on which to draw. You must do this first, as all future calls to drawing methods from this instance will be bound to this canvas.
+            </summary>
+            <param name="container"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="callback">callback function which is going to be executed in the context of newly created paper</param>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.Create(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Creates a canvas object on which to draw. You must do this first, as all future calls to drawing methods from this instance will be bound to this canvas.
+            </summary>
+            <param name="container"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="callback">callback function which is going to be executed in the context of newly created paper</param>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.Create(SharpKit.Html4.HtmlElement,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Creates a canvas object on which to draw. You must do this first, as all future calls to drawing methods from this instance will be bound to this canvas.
+            </summary>
+            <param name="container"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.Create(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Creates a canvas object on which to draw. You must do this first, as all future calls to drawing methods from this instance will be bound to this canvas.
+            </summary>
+            <param name="container"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.Create(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Creates a canvas object on which to draw. You must do this first, as all future calls to drawing methods from this instance will be bound to this canvas.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="callback">callback function which is going to be executed in the context of newly created paper</param>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.Create(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Creates a canvas object on which to draw. You must do this first, as all future calls to drawing methods from this instance will be bound to this canvas.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.Create(SharpKit.JavaScript.JsArray,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Creates a canvas object on which to draw. You must do this first, as all future calls to drawing methods from this instance will be bound to this canvas.
+            </summary>
+            <param name="all">(first 3 or 4 elements in the array are equal to [containerID, width, height] or [x, y, width, height]. The rest are element descriptions in format {type: type, [attributes]}). See Paper.add.</param>
+            <param name="callback">callback function which is going to be executed in the context of newly created paper</param>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.Create(SharpKit.JavaScript.JsAction)">
+            <summary>
+            Creates a canvas object on which to draw. You must do this first, as all future calls to drawing methods from this instance will be bound to this canvas.
+            </summary>
+            <param name="onReadyCallback">function that is going to be called on DOM ready event. You can also subscribe to this event via Eve’s “DOMLoad” event. In this case method returns undefined.</param>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.angle(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Returns angle between two or three points
+            </summary>
+            <param name="x1">x coord of first point</param>
+            <param name="y1">y coord of first point</param>
+            <param name="x2">x coord of second point</param>
+            <param name="y2">y coord of second point</param>
+            <param name="x3">x coord of third point</param>
+            <param name="y3">y coord of third point</param>
+            <returns>angle in degrees.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.animation(System.Object,SharpKit.JavaScript.JsNumber,System.String,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Creates an animation object that can be passed to the Element.animate or Element.animateWith methods. See also Animation.delay and Animation.repeat methods.
+            </summary>
+            <param name="params">final attributes for the element, see also Element.attr</param>
+            <param name="ms">number of milliseconds for animation to run</param>
+            <param name="easing">easing type. Accept one of Raphael.easing_formulas or CSS format: cubic‐bezier(XX, XX, XX, XX)</param>
+            <param name="callback">callback function. Will be called at the end of animation.</param>
+            <returns>Animation</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.color(System.String)">
+            <summary>
+            Parses the color string and returns object with all values for the given color.
+            </summary>
+            <param name="clr">color string in one of the supported formats (see Raphael.getRGB)</param>
+            <returns>Combined RGB &amp; HSB object in format:</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.createUUID">
+            <summary>
+            Returns RFC4122, version 4 ID
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.deg(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Transform angle to degrees
+            </summary>
+            <param name="deg">angle in radians</param>
+            <returns>angle in radians</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.findDotsAtSegment(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Utility method Find dot coordinates on the given cubic bezier curve at the given t.
+            </summary>
+            <param name="p1x">x of the first point of the curve</param>
+            <param name="p1y">y of the first point of the curve</param>
+            <param name="c1x">x of the first anchor of the curve</param>
+            <param name="c1y">y of the first anchor of the curve</param>
+            <param name="c2x">x of the second anchor of the curve</param>
+            <param name="c2y">y of the second anchor of the curve</param>
+            <param name="p2x">x of the second point of the curve</param>
+            <param name="p2y">y of the second point of the curve</param>
+            <param name="t">position on the curve (0..1)</param>
+            <returns>point information in format:</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.fullfill(System.String,System.Object)">
+            <summary>
+            A little bit more advanced format function than Raphael.format. Replaces construction of type “{[name]}” to the corresponding argument.
+            </summary>
+            <param name="token">string to format</param>
+            <param name="json">object which properties will be used as a replacement</param>
+            <returns>formated string</returns>
+            <example>
+            usage
+            <code>
+            // this will draw a rectangular shape equivalent to "M10,20h40v50h-40z"
+            paper.path(Raphael.format("M{x},{y}h{dim.width}v{dim.height}h{dim['negative width']}z", {
+            x: 10,
+            y: 20,
+            dim: {
+            width: 40,
+            height: 50,
+            "negative width": -40
+            }
+            }));
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.getColor(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            On each call returns next colour in the spectrum. To reset it back to red call Raphael.getColor.reset
+            </summary>
+            <param name="value">brightness, default is 0.75</param>
+            <returns>hex representation of the colour.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.getColor_reset">
+            <summary>
+            Resets spectrum position for Raphael.getColor back to red
+            </summary>
+            [JsProperty(Name = "'getColor.reset'")]
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.getPointAtLength(System.String,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Return coordinates of the point located at the given length on the given path.
+            </summary>
+            <param name="path">SVG path string</param>
+            <param name="length"></param>
+            <returns>representation of the point:</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.getRGB(SharpKit.JavaScript.JsString)">
+            <summary>
+            Parses colour string as RGB object
+            </summary>
+            <param name="colour">colour string in one of formats:
+            Colour name (“red”, “green”, “cornflowerblue”, etc)
+            #••• — shortened HTML colour: (“#000”, “#fc0”, etc)
+            #•••••• — full length HTML colour: (“#000000”, “#bd2300”)
+            rgb(•••, •••, •••) — red, green and blue channels’ values: (“rgb(200, 100, 0)”)
+            rgb(•••%, •••%, •••%) — same as above, but in %: (“rgb(100%, 175%, 0%)”)
+            hsb(•••, •••, •••) — hue, saturation and brightness values: (“hsb(0.5, 0.25, 1)”)
+            hsb(•••%, •••%, •••%) — same as above, but in %
+            hsl(•••, •••, •••) — same as hsb
+            hsl(•••%, •••%, •••%) — same as hsb</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.getSubpath(System.String,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Return subpath of a given path from given length to given length.
+            </summary>
+            <param name="path">SVG path string</param>
+            <param name="from">position of the start of the segment</param>
+            <param name="to">position of the end of the segment</param>
+            <returns>pathstring for the segment</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.getTotalLength(System.String)">
+            <summary>
+            Returns length of the given path in pixels.
+            </summary>
+            <param name="path">SVG path string.</param>
+            <returns>length.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.hsb(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Converts HSB values to hex representation of the colour.
+            </summary>
+            <param name="h">hue</param>
+            <param name="s">saturation</param>
+            <param name="b">value or brightness</param>
+            <returns>hex representation of the colour.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.hsb2rgb(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Converts HSB values to RGB object.
+            </summary>
+            <param name="h">hue</param>
+            <param name="s">saturation</param>
+            <param name="v">value or brightness</param>
+            <returns>RGB object in format:</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.hsl(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Converts HSL values to hex representation of the colour.
+            </summary>
+            <param name="h">hue</param>
+            <param name="s">saturation</param>
+            <param name="l">luminosity</param>
+            <returns>hex representation of the colour.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.hsl2rgb(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Converts HSL values to RGB object.
+            </summary>
+            <param name="h">hue</param>
+            <param name="s">saturation</param>
+            <param name="l">luminosity</param>
+            <returns>RGB object in format:</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.matrix(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Utility method Returns matrix based on given parameters.
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+            <param name="d"></param>
+            <param name="e"></param>
+            <param name="f"></param>
+            <returns>Matrix</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.ninja">
+            <summary>
+            If you want to leave no trace of Raphaël (Well, Raphaël creates only one global variable Raphael, but anyway.) You can use ninja method. Beware, that in this case plugins could stop working, because they are depending on global variable existance.
+            </summary>
+            <returns>Raphael object</returns>
+            <example>
+            usage
+            <code>
+            (function (local_raphael) {
+            var paper = local_raphael(10, 10, 320, 200);
+            …
+            })(Raphael.ninja());
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.parsePathString(SharpKit.JavaScript.JsString)">
+            <summary>
+            Utility method Parses given path string into an array of arrays of path segments.
+            </summary>
+            <param name="pathString">path string or array of segments (in the last case it will be returned straight away)</param>
+            <returns>array of segments.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.parsePathString(SharpKit.JavaScript.JsArray)">
+            <summary>
+            Utility method Parses given path string into an array of arrays of path segments.
+            </summary>
+            <param name="pathString">path string or array of segments (in the last case it will be returned straight away)</param>
+            <returns>array of segments.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.parseTransformString(SharpKit.JavaScript.JsString)">
+            <summary>
+            Utility method Parses given path string into an array of transformations.
+            </summary>
+            <param name="TString">Utility method Parses given path string into an array of transformations.</param>
+            <returns>Utility method Parses given path string into an array of transformations.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.parseTransformString(SharpKit.JavaScript.JsArray)">
+            <summary>
+            Utility method Parses given path string into an array of transformations.
+            </summary>
+            <param name="TString">Utility method Parses given path string into an array of transformations.</param>
+            <returns>Utility method Parses given path string into an array of transformations.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.path2curve(SharpKit.JavaScript.JsString)">
+            <summary>
+            Utility method Converts path to a new path where all segments are cubic bezier curves.
+            </summary>
+            <param name="pathString">path string or array of segments</param>
+            <returns>array of segments.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.path2curve(SharpKit.JavaScript.JsArray)">
+            <summary>
+            Utility method Converts path to a new path where all segments are cubic bezier curves.
+            </summary>
+            <param name="pathString">path string or array of segments</param>
+            <returns>array of segments.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.pathBBox(SharpKit.JavaScript.JsString)">
+            <summary>
+            Utility method Return bounding box of a given path
+            </summary>
+            <param name="path">path string </param>
+            <returns>bounding box</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.pathIntersection(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Utility method Finds intersections of two paths
+            </summary>
+            <param name="path1">path string</param>
+            <param name="path2">path string</param>
+            <returns>dots of intersection</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.pathToRelative(SharpKit.JavaScript.JsString)">
+            <summary>
+            Utility method Converts path to relative form
+            </summary>
+            <param name="pathString">path string or array of segmentS</param>
+            <returns>array of segments.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.pathToRelative(SharpKit.JavaScript.JsArray)">
+            <summary>
+            Utility method Converts path to relative form
+            </summary>
+            <param name="pathString">path string or array of segmentS</param>
+            <returns>array of segments.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.rad(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Transform angle to radians
+            </summary>
+            <param name="deg">angle in degrees</param>
+            <returns>angle in radians.</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.registerFont(System.Object)">
+            <summary>
+            Adds given font to the registered set of fonts for Raphaël.
+            Should be used as an internal call from within Cufón’s font file.
+            Returns original parameter, so it could be used with chaining.
+            </summary>
+            <param name="font">the font to register</param>
+            <returns>the font you passed in</returns>
+            <example>
+            usage
+            <code>
+            Cufon.registerFont(Raphael.registerFont({…}));
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.rgb(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Converts RGB values to hex representation of the colour.
+            </summary>
+            <param name="r">red</param>
+            <param name="g">green</param>
+            <param name="b">blue</param>
+            <returns>hex representation of the colour</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.rgb2hsb(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+             <summary>
+            Converts RGB values to HSB object.
+             </summary>
+             <param name="r">red</param>
+             <param name="g">green</param>
+             <param name="b">blue</param>
+             <returns>HSB object in format:</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.rgb2hsl(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+             <summary>
+            Converts RGB values to HSL object.
+             </summary>
+             <param name="r">red</param>
+             <param name="g">green</param>
+             <param name="b">blue</param>
+             <returns>HSL object in format:</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SharpKit.Raphael.Raphael.setWindow(SharpKit.Html4.HtmlWindow)" -->
+        <member name="M:SharpKit.Raphael.Raphael.snapTo(SharpKit.JavaScript.JsArray,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Snaps given value to given grid.
+            </summary>
+            <param name="values">given array of values or step of the grid</param>
+            <param name="value">value to adjust</param>
+            <param name="tolerance">tolerance for snapping. Default is 10.</param>
+            <returns>adjusted value</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.snapTo(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Snaps given value to given grid.
+            </summary>
+            <param name="values">given array of values or step of the grid</param>
+            <param name="value">value to adjust</param>
+            <param name="tolerance">tolerance for snapping. Default is 10.</param>
+            <returns>adjusted value</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.toMatrix(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Utility method Returns matrix of transformations applied to a given path
+            </summary>
+            <param name="path">path string</param>
+            <param name="transform">transformation string</param>
+            <returns>Matrix</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.toMatrix(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsArray)">
+            <summary>
+            Utility method Returns matrix of transformations applied to a given path
+            </summary>
+            <param name="path">path string</param>
+            <param name="transform">transformation string</param>
+            <returns>Matrix</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.transformPath(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Utility method Returns path transformed by a given transformation
+            </summary>
+            <param name="path">path string</param>
+            <param name="transform">transformation string</param>
+            <returns>path</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Raphael.transformPath(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsArray)">
+            <summary>
+            Utility method Returns path transformed by a given transformation
+            </summary>
+            <param name="path">path string</param>
+            <param name="transform">transformation string</param>
+            <returns>path</returns>
+        </member>
+        <member name="P:SharpKit.Raphael.Raphael.el">
+            <summary>
+            You can add your own method to elements. This is usefull when you want to hack default functionality or want to wrap some common transformation or attributes in one method. In difference to canvas methods, you can redefine element method at any time. Expending element methods wouldn’t affect set.
+            </summary>
+            <example>
+            usage
+            <code>
+            Raphael.el.red = function () {
+            this.attr({fill: "#f00"});
+            };
+            // then use it
+            paper.circle(100, 100, 20).red();
+            </code>
+            </example>
+        </member>
+        <member name="P:SharpKit.Raphael.Raphael.fn">
+            <summary>
+            You can add your own method to the canvas. For example if you want to draw a pie chart, you can create your own pie chart function and ship it as a Raphaël plugin. To do this you need to extend the Raphael.fn object. You should modify the fn object before a Raphaël instance is created, otherwise it will take no effect. Please note that the ability for namespaced plugins was removed in Raphael 2.0. It is up to the plugin to ensure any namespacing ensures proper context.
+            </summary>
+            <example>
+            usage
+            <code>
+            Raphael.fn.arrow = function (x1, y1, x2, y2, size) {
+            return this.path( ... );
+            };
+            // or create namespace
+            Raphael.fn.mystuff = {
+            arrow: function () {…},
+            star: function () {…},
+            // etc…
+            };
+            var paper = Raphael(10, 10, 630, 480);
+            // then use it
+            paper.arrow(10, 10, 30, 30, 5).attr({fill: "#f00"});
+            paper.mystuff.arrow();
+            paper.mystuff.star();
+            </code>
+            </example>
+        </member>
+        <member name="P:SharpKit.Raphael.Raphael.st">
+             <summary>
+             You can add your own method to elements and sets. It is wise to add a set method for each element method you added,
+             so you will be able to call the same method on sets too. See also Raphael.el.
+             </summary>
+             <example>
+             usage
+             <code>
+             Raphael.el.red = function () {
+             this.attr({fill: "#f00"});
+             };
+             Raphael.st.red = function () {
+             this.forEach(function (el) {
+             el.red();
+             });
+             };
+             then use it
+            paper.set(paper.circle(100, 100, 20), paper.circle(110, 100, 20)).red();
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.Raphael.Raphael.svg">
+            <summary>
+            true if browser supports SVG.
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Raphael.type">
+            <summary>
+            Can be “SVG”, “VML” or empty, depending on browser support.
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Raphael.vml">
+            <summary>
+            Can be “SVG”, “VML” or empty, depending on browser support.
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.Set.clear">
+            <summary>
+            Removeds all elements from the set
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SharpKit.Raphael.Set.exclude(System.Object)" -->
+        <member name="M:SharpKit.Raphael.Set.forEach(SharpKit.JavaScript.JsFunction,System.Object)">
+            <summary>
+            Executes given function for each element in the set.
+            If function returns false it will stop loop running.
+            </summary>
+            <param name="callback">function to run</param>
+            <param name="thisArg">context object for the callback</param>
+            <returns>Set object</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Set.pop">
+            <summary>
+            Removes last element and returns it.
+            </summary>
+            <returns>element</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Set.push">
+            <summary>
+            Adds each argument to the current set.
+            </summary>
+            <returns>original element</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.Set.splice(SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsNumber,System.Object)">
+            <summary>
+            Removes given element from the set
+            </summary>
+            <param name="index">position of the deletion</param>
+            <param name="count">number of element to remove</param>
+            <param name="insertion">elements to insert</param>
+            <returns>set elements that were deleted</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.eve.fire(SharpKit.JavaScript.JsString,System.Object,System.Object)">
+            <summary>
+            Fires event with given name, given scope and other parameters.
+            </summary>
+            <param name="name">name of the event, dot (.) or slash (/) separated</param>
+            <param name="scope">context for the event handlers</param>
+            <param name="varargs">the rest of arguments will be sent to event handlers</param>
+            <returns>array of returned values from the listeners</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.eve.listeners(SharpKit.JavaScript.JsString)">
+            <summary>
+            Internal method which gives you array of all event handlers that will be triggered by the given name.
+            </summary>
+            <param name="name">name of the event, dot (.) or slash (/) separated</param>
+            <returns>array of event handlers</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.eve.nt(SharpKit.JavaScript.JsString)">
+            <summary>
+            Could be used inside event handler to figure out actual name of the eve
+            </summary>
+            <param name="subname">subname of the event</param>
+            <returns>true, if current event’s name contains subname</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.eve.off(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsFunction)">
+            <summary>
+            Removes given function from the list of event listeners assigned to given name.
+            </summary>
+            <param name="name">name of the event, dot (.) or slash (/) separated, with optional wildcard</param>
+            <param name="f">event handler function</param>
+        </member>
+        <member name="M:SharpKit.Raphael.eve.on(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsFunction)">
+            <summary>
+            Binds given event handler with a given name. You can use wildcards “*” for the names:
+            eve.on("*.under.*", f);
+            eve("mouse.under.floor"); // triggers f
+            Use eve to trigger the listener.
+            </summary>
+            <param name="name">name of the event, dot (.) or slash (/) separated, with optional wildcards</param>
+            <param name="f">event handler function</param>
+            <returns>returned function accepts a single numeric parameter that represents z-index of the handler.
+            It is an optional feature and only used when you need to ensure that some subset of handlers will be invoked in a given order,
+            despite of the order of assignmen</returns>
+            <example>
+            usage
+            <code>
+            eve.on("mouse", eat)(2);
+            eve.on("mouse", scream);
+            eve.on("mouse", catch)(1);
+            This will ensure that catch function will be called before eat. If you want to put your handler before non-indexed handlers, specify a negative value.
+            Note: I assume most of the time you don’t need to worry about z-index, but it’s nice to have this feature “just in case”.
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.Raphael.eve.once(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsFunction)">
+            <summary>
+            Binds given event handler with a given name to only run once then unbind itself.
+            eve.once("login", f);
+            eve("login"); // triggers f
+            eve("login"); // no listeners
+            Use eve to trigger the listener.
+            </summary>
+            <param name="name">name of the event, dot (.) or slash (/) separated, with optional wildcards</param>
+            <param name="f">event handler function</param>
+            <returns>same return function as eve.on</returns>
+        </member>
+        <member name="M:SharpKit.Raphael.eve.stop">
+            <summary>
+            Is used inside an event handler to stop the event, preventing any subsequent listeners from firing.
+            </summary>
+        </member>
+        <member name="M:SharpKit.Raphael.eve.unbind">
+            <summary>
+            See eve.off
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.eve.version">
+            <summary>
+            Current version of the library.
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ColorOptions.r">
+            <summary>
+            red
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ColorOptions.g">
+            <summary>
+            green
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ColorOptions.b">
+            <summary>
+            blue
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ColorOptions.hex">
+            <summary>
+            color in HTML/CSS format: #••••••,
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ColorOptions.error">
+            <summary>
+            true if string can’t be parsed,
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ColorOptions.h">
+            <summary>
+            hue
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ColorOptions.s">
+            <summary>
+            saturation
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ColorOptions.v">
+            <summary>
+            value (brightness),
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.ColorOptions.l">
+            <summary>
+            lightness
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Hsb2RgbOptions.r">
+            <summary>
+            red
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Hsb2RgbOptions.g">
+            <summary>
+            green
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Hsb2RgbOptions.b">
+            <summary>
+            blue
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Hsb2RgbOptions.hex">
+            <summary>
+            color in HTML/CSS format: #••••••
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Hsl2RgbOptions.r">
+            <summary>
+            red
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Hsl2RgbOptions.g">
+            <summary>
+            green
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Hsl2RgbOptions.b">
+            <summary>
+            blue
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Hsl2RgbOptions.hex">
+            <summary>
+            color in HTML/CSS format: #••••••
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.BoundingBox.x">
+            <summary>
+            x coordinate of the left top point of the box
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.BoundingBox.y">
+            <summary>
+            y coordinate of the left top point of the box
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.BoundingBox.x2">
+            <summary>
+            x coordinate of the right bottom point of the box
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.BoundingBox.y2">
+            <summary>
+            x coordinate of the right bottom point of the box
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.BoundingBox.width">
+            <summary>
+            width of the box
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.BoundingBox.height">
+            <summary>
+            height of the box
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.PathIntersection.x">
+            <summary>
+            x coordinate of the left top point
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.PathIntersection.y">
+            <summary>
+            y coordinate of the left top point
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.PathIntersection.t1">
+            <summary>
+            t value for segment of path1
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.PathIntersection.t2">
+            <summary>
+            t value for segment of path2
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.PathIntersection.segment1">
+            <summary>
+            order number for segment of path1
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.PathIntersection.segment2">
+            <summary>
+            order number for segment of path2
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.PathIntersection.bez1">
+            <summary>
+            eight coordinates representing beziér curve for the segment of path1
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.PathIntersection.bez2">
+            <summary>
+            eight coordinates representing beziér curve for the segment of path2
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Rgb2Hsb.h">
+            <summary>
+            hue
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Rgb2Hsb.s">
+            <summary>
+            saturation
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Rgb2Hsb.b">
+            <summary>
+            brightness
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Rgb2Hsl.h">
+            <summary>
+            hue
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Rgb2Hsl.s">
+            <summary>
+            saturation
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.Rgb2Hsl.b">
+            <summary>
+            brightness
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetPointAtLength.x">
+            <summary>
+            x coordinate
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetPointAtLength.y">
+            <summary>
+            y coordinate
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetPointAtLength.alpha">
+            <summary>
+            angle of derivative
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetRGB.r">
+            <summary>
+            red
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetRGB.g">
+            <summary>
+            green
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetRGB.b">
+            <summary>
+            blue
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetRGB.hex">
+            <summary>
+            color in HTML/CSS format: #••••••,
+            </summary>
+        </member>
+        <member name="P:SharpKit.Raphael.GetRGB.error">
+            <summary>
+            true if string can’t be parsed
+            </summary>
+        </member>
+    </members>
+</doc>

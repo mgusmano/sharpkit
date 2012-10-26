@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.jsUndoable</name>
+    </assembly>
+    <members>
+        <member name="M:SharpKit.jQuery.UndoManager.#ctor(SharpKit.jQuery.JsUndoableSettings)">
+            <summary>
+            Init the undo mananger with the specific settings
+            </summary>
+            <param name="settings">The object with the new settings</param>
+        </member>
+        <member name="M:SharpKit.jQuery.UndoManager.changeSettings(SharpKit.jQuery.JsUndoableSettings)">
+            <summary>
+            Update the settings for this manager
+            </summary>
+            <param name="settings">The object with the new settings</param>
+        </member>
+        <member name="M:SharpKit.jQuery.UndoManager.undoable``1(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction,SharpKit.JavaScript.JsArray{``0},SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsBoolean)">
+            <summary>
+            Report the function used to undo the current action
+            </summary>
+            <typeparam name="T">The type of the parameter</typeparam>
+            <param name="name">The name of the action</param>
+            <param name="func">The undo function</param>
+            <param name="parameters">Array of parameters to the function</param>
+            <param name="context">Context to the run the undo function</param>
+            <param name="id">The id of action</param>
+            <param name="add_to_queue_overwrite"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.jQuery.UndoManager.undoable``2(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsFunc{``1},SharpKit.JavaScript.JsArray{``0},SharpKit.JavaScript.JsObject,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsBoolean)">
+            <summary>
+            Report the function used to undo the current action
+            </summary>
+            <typeparam name="T">The type of the parameter</typeparam>
+            <typeparam name="R">The type of the return value</typeparam>
+            <param name="name">The name of the action</param>
+            <param name="func">The undo function</param>
+            <param name="parameters">Array of parameters to the function</param>
+            <param name="context">Context to the run the undo function</param>
+            <param name="id">The id of action</param>
+            <param name="add_to_queue_overwrite"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.jQuery.UndoManager.undo">
+            <summary>
+            Undo the last action
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.jQuery.UndoManager.redo">
+            <summary>
+            Redo the last action undone
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.jQuery.UndoManager.clearRedoQueue">
+            <summary>
+            Clear the redo queue
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.jQuery.UndoManager.startGroup(SharpKit.JavaScript.JsString)">
+            <summary>
+            Start a new group
+            </summary>
+            <param name="name">The group name</param>
+            <returns>The group ID</returns>
+        </member>
+        <member name="M:SharpKit.jQuery.UndoManager.endGroup">
+            <summary>
+            End the last opened group
+            </summary>
+        </member>
+        <member name="M:SharpKit.jQuery.UndoManager.exitGroup(SharpKit.JavaScript.JsBoolean)">
+            <summary>
+            Exit the currently open queue;
+            </summary>
+            <param name="rollback">Should the current undos be ran (rollback changes)? (Default true)</param>
+        </member>
+        <member name="M:SharpKit.jQuery.UndoManager.resumeGroup(SharpKit.JavaScript.JsString)">
+            <summary>
+            Resume a previously ended group as long as it is still in the undo/redo queue
+            </summary>
+            <param name="groupId">The group ID</param>
+            <returns></returns>
+        </member>
+        <member name="P:SharpKit.jQuery.JsUndoableSettings.max_undo">
+            <summary>
+            The number of the Undo actions in the Queue.
+            </summary>
+        </member>
+    </members>
+</doc>
