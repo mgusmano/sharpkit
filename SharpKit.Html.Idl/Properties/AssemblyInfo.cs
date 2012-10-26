@@ -34,7 +34,7 @@ using SharpKit.JavaScript;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("4.29.2000")]
+[assembly: AssemblyFileVersion("4.30.2000")]
 
 [assembly: JsNamespace(Namespace = "SharpKit.Html", JsNamespace = "")]
 [assembly: JsType(JsMode.Prototype, Name = "", Export = false, PropertiesAsFields = true, OmitCasts = true)]

@@ -1,6 +1,6 @@
-﻿    using SharpKit.JavaScript;
-    using SharpKit.jQuery;
-    using SharpKit.Html4;
+﻿using SharpKit.JavaScript;
+using SharpKit.jQuery;
+using SharpKit.Html4;
 
 namespace jQueryUISamples.demos.datepicker
 {
