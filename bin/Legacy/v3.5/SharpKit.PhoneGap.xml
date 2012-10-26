@@ -1,0 +1,3491 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.PhoneGap</name>
+    </assembly>
+    <members>
+        <member name="T:SharpKit.PhoneGap.Accelerometer">
+            <summary>
+            Captures device motion in the x, y, and z direction.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Accelerometer.getCurrentAcceleration(SharpKit.JavaScript.JsAction{SharpKit.PhoneGap.Acceleration},SharpKit.JavaScript.JsAction)">
+            <summary>
+            Get the current acceleration along the x, y, and z axis.
+            </summary>
+            <param name="onSuccess"></param>
+            <param name="onError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Accelerometer.watchAcceleration(SharpKit.PhoneGap.AccelerometerSuccess,SharpKit.PhoneGap.AccelerometerError,SharpKit.PhoneGap.AccelerometerOptions)">
+            <summary>
+            At a regular interval, get the acceleration along the x, y, and z axis.
+            </summary>
+            <param name="accelerometerSuccess">onSuccess callback function that provides the Acceleration information.</param>
+            <param name="accelerometerError">onError callback function for acceleration functions.</param>
+            <param name="accelerometerOptions">An optional parameter to customize the retrieval of the accelerometer.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Accelerometer.watchAcceleration(SharpKit.PhoneGap.AccelerometerSuccess,SharpKit.PhoneGap.AccelerometerError)">
+            <summary>
+            At a regular interval, get the acceleration along the x, y, and z axis.
+            </summary>
+            <param name="accelerometerSuccess">onSuccess callback function that provides the Acceleration information.</param>
+            <param name="accelerometerError">onError callback function for acceleration functions.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Accelerometer.clearWatch(System.Object)">
+            <summary>
+            Stop watching the Acceleration referenced by the watch ID parameter.
+            </summary>
+            <param name="watchID"> The ID returned by accelerometer.watchAcceleration.</param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.AccelerometerOptions">
+            <summary>
+            An optional parameter to customize the retrieval of the accelerometer.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.AccelerometerSuccess">
+            <summary>
+            onSuccess callback function that provides the Acceleration information.
+            </summary>
+            <param name="acceleration">The acceleration at a single moment in time</param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.AccelerometerError">
+            <summary>
+            onError callback function for acceleration functions.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Acceleration">
+            <summary>
+            Contains Accelerometer data captured at a specific point in time.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Acceleration.x">
+            <summary>
+            Amount of acceleration on the x-axis. (in m/s^2) (Number) 
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Camera">
+            <summary>
+            The camera object provides access to the device's default camera application.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Camera.getPicture(SharpKit.PhoneGap.CameraSuccess,SharpKit.JavaScript.JsAction,SharpKit.PhoneGap.CameraOptions)">
+            <summary>
+            Takes a photo using the camera or retrieves a photo from the device's album.
+            The image is returned as a base64 encoded String or as the URI of an image file.
+            </summary>
+            <param name="cameraSuccess">onSuccess callback function that provides the image data.</param>
+            <param name="cameraError">onError callback function that provides an error message.</param>
+            <param name="cameraOptions">Optional parameters to customize the camera settings.</param>
+            <returns></returns>
+            <example>
+            usage
+            <code>
+            navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+                destinationType: Camera.DestinationType.DATA_URL
+            }); 
+            function onSuccess(imageData) {
+                var image = document.getElementById('myImage');
+                image.src = "data:image/jpeg;base64," + imageData;
+            }
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Camera.getPicture(SharpKit.JavaScript.JsAction,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Takes a photo using the camera or retrieves a photo from the device's album.
+            The image is returned as a base64 encoded String or as the URI of an image file.
+            </summary>
+            <param name="cameraSuccess">onSuccess callback function that provides the image data.</param>
+            <param name="cameraError">onError callback function that provides an error message.</param>
+            <returns></returns>
+            <example>
+            usage
+            <code>
+            navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+            destinationType: Camera.DestinationType.DATA_URL
+            }); 
+            function onSuccess(imageData) {
+            var image = document.getElementById('myImage');
+            image.src = "data:image/jpeg;base64," + imageData;
+            }
+            function onFail(message) {
+            alert('Failed because: ' + message);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Camera.cleanup(SharpKit.JavaScript.JsAction,SharpKit.JavaScript.JsAction)">
+            <summary>
+            Cleans up the image files that were taken by the camera, that were stored in a temporary storage location
+            </summary>
+            <param name="cameraSuccess">onSuccess callback function that provides the image data.</param>
+            <param name="cameraError">onError callback function that provides an error message.</param>
+            <example>
+            usage
+            <code>
+            navigator.camera.cleanup(onSuccess, onFail); 
+            function onSuccess() {
+            console.log("Camera cleanup success.")
+            }
+            function onFail(message) {
+            alert('Failed because: ' + message);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CameraOptions">
+            <summary>
+            Optional parameters to customize the camera settings.
+            </summary>
+            <example>
+            usage
+            <code>
+            { quality : 75, 
+            destinationType : Camera.DestinationType.DATA_URL, 
+            sourceType : Camera.PictureSourceType.CAMERA, 
+            allowEdit : true,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 100,
+            targetHeight: 100,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false };
+            </code>
+            </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraOptions.quality">
+            <summary>
+            Quality of saved image. Range is [0, 100]
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraOptions.destinationType">
+            <summary>
+             Choose the format of the return value. Defined in navigator.camera.DestinationType
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraOptions.sourceType">
+            <summary>
+            Set the source of the picture. Defined in nagivator.camera.PictureSourceType (Number)
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraOptions.allowEdit">
+            <summary>
+            Allow simple editing of image before selection
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraOptions.encodingType">
+            <summary>
+            Choose the encoding of the returned image file. Defined in navigator.camera.EncodingType
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraOptions.targetWidth">
+            <summary>
+            Width in pixels to scale image. Must be used with targetHeight. Aspect ratio is maintained.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraOptions.targetHeight">
+            <summary>
+            Height in pixels to scale image. Must be used with targetWidth. Aspect ratio is maintained.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraOptions.mediaType">
+            <summary>
+            Set the type of media to select from. Only works when PictureSourceType is PHOTOLIBRARY or SAVEDPHOTOALBUM. Defined in nagivator.camera.MediaType
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraOptions.correctOrientation">
+            <summary>
+            Rotate the image to correct for the orientation of the device during capture
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraOptions.saveToPhotoAlbum">
+            <summary>
+            Save the image to the photo album on the device after capture
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraOptions.popoverOptions">
+            <summary>
+            iOS only options to specify popover location in iPad. Defined in CameraPopoverOptions
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CameraDestinationType">
+            <summary>
+            Choose the format of the return value. Defined in navigator.camera.DestinationType (Number)
+            </summary>
+        </member>
+        <member name="F:SharpKit.PhoneGap.CameraDestinationType.DATA_URL">
+            <summary>
+             Return image as base64 encoded string
+            </summary>
+        </member>
+        <member name="F:SharpKit.PhoneGap.CameraDestinationType.FILE_URI">
+            <summary>
+            Return image file URI
+            </summary>
+        </member>
+        <member name="F:SharpKit.PhoneGap.CameraEncodingType.JPEG">
+            <summary>
+            Return JPEG encoded image
+            </summary>
+        </member>
+        <member name="F:SharpKit.PhoneGap.CameraEncodingType.PNG">
+            <summary>
+            Return PNG encoded image
+            </summary>
+        </member>
+        <member name="F:SharpKit.PhoneGap.CameraMediaType.PICTURE">
+            <summary>
+            allow selection of still pictures only. DEFAULT. Will return format specified via DestinationType
+            </summary>
+        </member>
+        <member name="F:SharpKit.PhoneGap.CameraMediaType.VIDEO">
+            <summary>
+            allow selection of video only, WILL ALWAYS RETURN FILE_URI
+            </summary>
+        </member>
+        <member name="F:SharpKit.PhoneGap.CameraMediaType.ALLMEDIA">
+            <summary>
+            allow selection from all media types
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CameraPopoverOptions">
+            <summary>
+            Parameters only used by iOS to specify the anchor element location and arrow direction
+            of popover used on iPad when selecting images from the library or album.
+            </summary>
+            <example>
+            usage
+            <code>
+            { x : 0, 
+            y :  32,
+            width : 320,
+            height : 480,
+            arrowDir : Camera.PopoverArrowDirection.ARROW_ANY
+            };
+            </code>
+            </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraPopoverOptions.x">
+            <summary>
+             x pixel coordinate of element on the screen to anchor popover onto.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraPopoverOptions.y">
+            <summary>
+            y pixel coordinate of element on the screen to anchor popover onto.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraPopoverOptions.width">
+            <summary>
+            width, in pixels, of the element on the screen to anchor popover onto
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraPopoverOptions.height">
+            <summary>
+             height, in pixels, of the element on the screen to anchor popover onto
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CameraPopoverOptions.arrowDir">
+            <summary>
+            Direction the arrow on the popover should point. Defined in Camera.PopoverArrowDirection
+            </summary>
+        </member>
+        <member name="F:SharpKit.PhoneGap.CameraPopoverArrowDirection.ARROW_UP">
+            <summary>
+            matches iOS UIPopoverArrowDirection constants
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Capture">
+            <summary>
+            Provides access to the audio, image, and video capture capabilities of the device.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Capture.captureAudio(SharpKit.PhoneGap.CaptureCB,SharpKit.PhoneGap.CaptureErrorCB,SharpKit.PhoneGap.CaptureAudioOptions)">
+            <summary>
+            Start the audio recorder application and return information about captured audio clip file(s).
+            </summary>
+            <param name="captureSuccess">This method starts an asynchronous operation to capture audio recordings using the device's default audio recording application.
+            The operation allows the device user to capture multiple recordings in a single session.</param>
+            <param name="captureError">The capture operation ends when either the user exits the audio recording application,
+            or the maximum number of recordings, specified by the limit parameter in CaptureAudioOptions, has been reached.
+            If no value is provided for the limit parameter, a default value of one (1) is used, and the capture operation will terminate after the user records a single audio clip.</param>
+            <param name="options">When the capture operation is finished, it will invoke the CaptureCB callback with an array of MediaFile objects describing each captured audio clip file.
+            If the operation is terminated by the user before an audio clip is captured,
+            the CaptureErrorCB callback will be invoked with a CaptureError object with the CaptureError.CAPTURE_NO_MEDIA_FILES error code.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Capture.captureAudio(SharpKit.PhoneGap.CaptureCB,SharpKit.PhoneGap.CaptureErrorCB)">
+            <summary>
+            Start the audio recorder application and return information about captured audio clip file(s).
+            </summary>
+            <param name="captureSuccess">This method starts an asynchronous operation to capture audio recordings using the device's default audio recording application.
+            The operation allows the device user to capture multiple recordings in a single session.</param>
+            <param name="captureError">The capture operation ends when either the user exits the audio recording application,
+            or the maximum number of recordings, specified by the limit parameter in CaptureAudioOptions, has been reached.
+            If no value is provided for the limit parameter, a default value of one (1) is used, and the capture operation will terminate after the user records a single audio clip.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Capture.captureImage(SharpKit.PhoneGap.CaptureCB,SharpKit.PhoneGap.CaptureErrorCB,SharpKit.PhoneGap.CaptureImageOptions)">
+            <summary>
+            Start the camera application and return information about captured image file(s).
+            </summary>
+            <param name="captureSuccess"></param>
+            <param name="captureError"></param>
+            <param name="options"></param>
+            <returns></returns>
+            <example>
+            usage
+            <code>
+            // capture callback
+            var captureSuccess = function(mediaFiles) {
+            var i, path, len;
+            for (i = 0, len = mediaFiles.length; i &lt; len; i += 1) {
+            path = mediaFiles[i].fullPath;
+            // do something interesting with the file
+            }
+            };
+            // capture error callback
+            var captureError = function(error) {
+            navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+            };
+            // start image capture
+            navigator.device.capture.captureImage(captureSuccess, captureError, {limit:2});
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Capture.captureImage(SharpKit.PhoneGap.CaptureCB,SharpKit.PhoneGap.CaptureErrorCB)">
+            <summary>
+            Start the camera application and return information about captured image file(s).
+            </summary>
+            <param name="captureSuccess"></param>
+            <param name="captureError"></param>
+            <returns></returns>
+            <example>
+            usage
+            <code>
+            // capture callback
+            var captureSuccess = function(mediaFiles) {
+            var i, path, len;
+            for (i = 0, len = mediaFiles.length; i &lt; len; i += 1) {
+            path = mediaFiles[i].fullPath;
+            // do something interesting with the file
+            }
+            };
+            // capture error callback
+            var captureError = function(error) {
+            navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+            };
+            // start image capture
+            navigator.device.capture.captureImage(captureSuccess, captureError, {limit:2});
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Capture.captureVideo(SharpKit.PhoneGap.CaptureCB,SharpKit.PhoneGap.CaptureErrorCB,SharpKit.PhoneGap.CaptureVideoOptions)">
+            <summary>
+            Start the video recorder application and return information about captured video clip file(s).
+            </summary>
+            <param name="captureSuccess"></param>
+            <param name="captureError"></param>
+            <param name="options"></param>
+            <returns></returns>
+            <example>
+            usage
+            <code>
+            // capture callback
+            var captureSuccess = function(mediaFiles) {
+            var i, path, len;
+            for (i = 0, len = mediaFiles.length; i &lt; len; i += 1) {
+            path = mediaFiles[i].fullPath;
+            // do something interesting with the file
+            }
+            };
+            // capture error callback
+            var captureError = function(error) {
+            navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+            };
+            // start video capture
+            navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:2});
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Capture.captureVideo(SharpKit.PhoneGap.CaptureCB,SharpKit.PhoneGap.CaptureErrorCB)">
+            <summary>
+            Start the video recorder application and return information about captured video clip file(s).
+            </summary>
+            <param name="captureSuccess"></param>
+            <param name="captureError"></param>
+            <returns></returns>
+            <example>
+            usage
+            <code>
+            // capture callback
+            var captureSuccess = function(mediaFiles) {
+            var i, path, len;
+            for (i = 0, len = mediaFiles.length; i &lt; len; i += 1) {
+            path = mediaFiles[i].fullPath;
+            // do something interesting with the file
+            }
+            };
+            // capture error callback
+            var captureError = function(error) {
+            navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+            };
+            // start video capture
+            navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:2});
+            </code>
+            </example>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CaptureAudioOptions">
+            <summary>
+            Encapsulates audio capture configuration options
+            </summary>
+            <example>
+            usage
+            <code>
+            // limit capture operation to 3 media files, no longer than 10 seconds each
+            var options = { limit: 3, duration: 10 };
+            navigator.device.capture.captureAudio(captureSuccess, captureError, options);
+            </code>
+            </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureAudioOptions.limit">
+            <summary>
+             The maximum number of audio clips the device user can record in a single capture operation.
+             The value must be greater than or equal to 1 (defaults to 1).
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureAudioOptions.duration">
+            <summary>
+            The maximum duration of an audio sound clip, in seconds.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureAudioOptions.mode">
+            <summary>
+            The selected audio mode. The value must match one of the elements in capture.supportedAudioModes.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CaptureImageOptions">
+            <summary>
+            Encapsulates image capture configuration options.
+            </summary>
+            <example>
+            usage
+            <code>
+            // limit capture operation to 3 images
+            var options = { limit: 3 };
+            navigator.device.capture.captureImage(captureSuccess, captureError, options);
+            </code></example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureImageOptions.limit">
+            <summary>
+             The maximum number of images the device user can capture in a single capture operation.
+             The value must be greater than or equal to 1 (defaults to 1).
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureImageOptions.mode">
+            <summary>
+             The selected image mode. The value must match one of the elements in capture.supportedImageModes.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CaptureVideoOptions">
+            <summary>
+            Encapsulates video capture configuration options.
+            </summary>
+            <example>
+            usage
+            <code>
+            // limit capture operation to 3 video clips
+            var options = { limit: 3 };
+            navigator.device.capture.captureVideo(captureSuccess, captureError, options);
+            </code></example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureVideoOptions.limit">
+            <summary>
+             The maximum number of video clips the device user can capture in a single capture operation.
+             The value must be greater than or equal to 1 (defaults to 1).
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureVideoOptions.duration">
+            <summary>
+             The maximum duration of a video clip, in seconds.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureVideoOptions.mode">
+            <summary>
+            The selected video capture mode. The value must match one of the elements in capture.supportedVideoModes.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureError.code">
+            <summary>
+             One of the pre-defined error codes listed below
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureError.CAPTURE_INTERNAL_ERR">
+            <summary>
+            Camera or microphone failed to capture image or sound.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureError.CAPTURE_APPLICATION_BUSY">
+            <summary>
+            Camera application or audio capture application is currently serving other capture request.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureError.CAPTURE_INVALID_ARGUMENT">
+            <summary>
+            Invalid use of the API (e.g. limit parameter has value less than one).
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureError.CAPTURE_NO_MEDIA_FILES">
+            <summary>
+            User exited camera application or audio capture application before capturing anything.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CaptureError.CAPTURE_NOT_SUPPORTED">
+            <summary>
+            he requested capture operation is not supported.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CaptureCB">
+            <summary>
+            Invoked upon a successful media capture operation.
+            </summary>
+            <param name="mediaFiles"></param>
+            <example>
+            <code>
+            // capture callback
+            function captureSuccess(mediaFiles) {
+            var i, path, len;
+            for (i = 0, len = mediaFiles.length; i &lt; len; i += 1){
+            path = mediaFiles[i].fullPath;
+            do something interesting with the file
+            }
+            };
+            </code></example>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CaptureErrorCB">
+            <summary>
+            Invoked if an error occurs during a media capture operation.
+            </summary>
+            <param name="error"></param>
+            <example>
+            <code>
+            // capture error callback
+            var captureError = function(error) {
+            navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+            };
+            </code>
+            </example>
+        </member>
+        <member name="T:SharpKit.PhoneGap.ConfigurationData">
+            <summary>
+            Encapsulates a set of media capture parameters that a device supports.
+            </summary>
+            <example>
+            usage
+            <code>
+            // retrieve supported image modes
+            var imageModes = navigator.device.capture.supportedImageModes;
+            // Select mode that has the highest horizontal resolution
+            var width = 0;
+            var selectedmode;
+            for each (var mode in imageModes) {
+            if (mode.width > width) {
+            width = mode.width;
+            selectedmode = mode;
+            }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ConfigurationData.type">
+            <summary>
+            The ASCII-encoded string in lower case representing the media type.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ConfigurationData.height">
+            <summary>
+            The height of the image or video in pixels. In the case of a sound clip, this attribute has value 0.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ConfigurationData.width">
+            <summary>
+             The width of the image or video in pixels. In the case of a sound clip, this attribute has value 0.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.MediaFile">
+            <summary>
+            Encapsulates properties of a media capture file
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.MediaFile.getFormatData(SharpKit.PhoneGap.MediaFileDataSuccessCB,SharpKit.PhoneGap.MediaFileDataErrorCB)">
+            <summary>
+            Retrieves the format information of the media file.
+            </summary>
+            <param name="successCallback"></param>
+            <param name="errorCallback"></param>
+        </member>
+        <member name="M:SharpKit.PhoneGap.MediaFile.getFormatData(SharpKit.PhoneGap.MediaFileDataSuccessCB)">
+            <summary>
+            Retrieves the format information of the media file.
+            </summary>
+            <param name="successCallback"></param>
+        </member>
+        <member name="P:SharpKit.PhoneGap.MediaFile.name">
+            <summary>
+            The name of the file, without path information
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.MediaFile.fullPath">
+            <summary>
+            The full path of the file, including the name.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.MediaFile.type">
+            <summary>
+            The mime type
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.MediaFile.lastModifiedDate">
+            <summary>
+            The date and time that the file was last modified
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.MediaFile.size">
+            <summary>
+             The size of the file, in bytes.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.MediaFileData">
+            <summary>
+            Encapsulates format information about a media file.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.MediaFileData.codecs">
+            <summary>
+            The actual format of the audio and video content
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.MediaFileData.bitrate">
+            <summary>
+             The average bitrate of the content. In case of an image, this attribute has value 0. (Number)
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.MediaFileData.height">
+            <summary>
+             The height of the image or video in pixels. In the case of a sound clip, this attribute has value 0.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.MediaFileData.width">
+            <summary>
+              The width of the image or video in pixels. In the case of a sound clip, this attribute has value 0.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.MediaFileData.duration">
+            <summary>
+             The length of the video or sound clip in seconds. In the case of an image, this attribute has value 0
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Compass">
+            <summary>
+            Obtains the direction that the device is pointing.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Compass.getCurrentHeading(SharpKit.PhoneGap.compassSuccess,SharpKit.PhoneGap.CompassError,SharpKit.PhoneGap.CompassOptions)">
+            <summary>
+            The compass is a sensor that detects the direction or heading that the device is pointed. It measures the heading in degrees from 0 to 359.99.
+            The compass heading information is returned via a CompassHeading object using the compassSuccess callback function.
+            </summary>
+            <param name="compassSuccess">onSuccess callback function that provides the compass heading information via a compassHeading object.</param>
+            <param name="compassError">onError callback function for compass functions.</param>
+            <param name="compassOptions">An optional parameter to customize the retrieval of the compass.</param>
+            <example>
+            uage
+            <code>
+            function onSuccess(heading) {
+            //    alert('Heading: ' + heading.magneticHeading);
+            //};
+            //function onError(error) {
+            //    alert('CompassError: ' + error.code);
+            //};
+            //navigator.compass.getCurrentHeading(onSuccess, onError);
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Compass.watchHeading(SharpKit.PhoneGap.compassSuccess,SharpKit.PhoneGap.CompassError,SharpKit.PhoneGap.CompassOptions)">
+             <summary>
+             At a regular interval, get the compass heading in degrees.
+             </summary>
+             <param name="compassSuccess">onSuccess callback function that provides the compass heading information via a compassHeading object.</param>
+             <param name="compassError">onError callback function for compass functions.</param>
+             <param name="compassOptions">An optional parameter to customize the retrieval of the compass.</param>
+             <example>
+             uage
+             <code>
+             function onSuccess(heading) {
+                var element = document.getElementById('heading');
+                element.innerHTML = 'Heading: ' + heading.magneticHeading;
+            };
+            function onError(compassError) {
+                    alert('Compass error: ' + compassError.code);
+            };
+            var options = { frequency: 3000 };  // Update every 3 seconds
+            var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Compass.clearWatch(SharpKit.JavaScript.JsString)">
+            <summary>
+            Stop watching the compass referenced by the watch ID parameter.
+            </summary>
+            <param name="watchID"> The ID returned by compass.watchHeading.</param>
+            <example>
+            usage
+            <code>
+            var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
+            // ... later on ...
+            navigator.compass.clearWatch(watchID);
+            </code>
+            </example>
+        </member>
+        <member name="T:SharpKit.PhoneGap.compassHeading">
+            <summary>
+            A CompassHeading object is returned to the compassSuccess callback function when an error occurs
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.compassHeading.magneticHeading">
+            <summary>
+             The heading in degrees from 0 - 359.99 at a single moment in time.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.compassHeading.trueHeading">
+            <summary>
+            The heading relative to the geographic North Pole in degrees 0 - 359.99 at a single moment in time.
+            A negative value indicates that the true heading could not be determined.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.compassHeading.headingAccuracy">
+            <summary>
+             The deviation in degrees between the reported heading and the true heading.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.compassHeading.timestamp">
+            <summary>
+            The time at which this heading was determined. (milliseconds)
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CompassError">
+            <summary>
+            A CompassError object is returned to the compassError callback function when an error occurs.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CompassError.code">
+            <summary>
+            One of the predefined error codes listed below.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CompassOptions">
+            <summary>
+            An optional parameter to customize the retrieval of the compass.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CompassOptions.frequency">
+            <summary>
+             How often to retrieve the compass heading in milliseconds.(Default: 100)
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.CompassOptions.filter">
+            <summary>
+             The change in degrees required to initiate a watchHeading success callback
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Connection">
+            <summary>
+            The connection object gives access to the device's cellular and wifi connection information.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Contact">
+            <summary>
+            Contains properties that describe a contact, such as a user's personal or business contact
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Contact.clone">
+            <summary>
+            Returns a new Contact object that is a deep copy of the calling object, with the id property set to null.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Contact.remove">
+            <summary>
+            Removes the contact from the device contacts database. An error callback is called with a ContactError object if the removal is unsuccessful.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Contact.save">
+            <summary>
+            Saves a new contact to the device contacts database, or updates an existing contact if a contact with the same id already exists.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.id">
+            <summary>
+            A globally unique identifier
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.displayName">
+            <summary>
+            The name of this Contact, suitable for display to end-users.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.name">
+            <summary>
+             An object containing all components of a persons name.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.nickname">
+            <summary>
+             A casual name to address the contact by
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.phoneNumbers">
+            <summary>
+             An array of all the contact's phone numbers.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.emails">
+            <summary>
+            An array of all the contact's email addresses
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.addresses">
+            <summary>
+            An array of all the contact's addresses
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.ims">
+            <summary>
+             An array of all the contact's IM addresses
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.organizations">
+            <summary>
+            An array of all the contact's organizations.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.birthday">
+            <summary>
+            The birthday of the contact.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.note">
+            <summary>
+            A note about the contact.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.photos">
+            <summary>
+             An array of the contact's photos.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.categories">
+            <summary>
+            An array of all the contacts user defined categories.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Contact.urls">
+            <summary>
+            An array of web pages associated to the contact.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.ContactName">
+             <summary>
+             Contains name properties of a Contact object
+             </summary>
+             <example>
+             usage
+             <code>
+             function onSuccess(contacts) {
+                for (var i=0; i &lt;contacts.length; i++) {
+                    alert("Formatted: " + contacts[i].name.formatted + "\n" + 
+                            "Family Name: "  + contacts[i].name.familyName + "\n" + 
+                            "Given Name: "  + contacts[i].name.givenName + "\n" + 
+                            "Middle Name: "  + contacts[i].name.middleName + "\n" + 
+                            "Suffix: "  + contacts[i].name.honorificSuffix + "\n" + 
+                            "Prefix: "  + contacts[i].name.honorificSuffix);
+                }
+            };
+            function onError(contactError) {
+                alert('onError!');
+            };
+            var options = new ContactFindOptions();
+            options.filter="";
+            filter = ["displayName","name"];
+            navigator.contacts.find(filter, onSuccess, onError, options);
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactName.formatted">
+            <summary>
+            The complete name of the contact.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactName.familyName">
+            <summary>
+             The contacts family name.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactName.givenName">
+            <summary>
+             The contacts given name
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactName.middleName">
+            <summary>
+            The contacts middle name.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactName.honorificPrefix">
+            <summary>
+            The contacts prefix (example Mr. or Dr.)
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactName.honorificSuffix">
+            <summary>
+             The contacts suffix (example Esq.).
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.ContactField">
+             <summary>
+             Supports generic fields in a Contact object. Some properties that are stored as ContactField objects include email addresses, phone numbers, and urls.
+             </summary>
+             <example>
+             usage
+             <code>
+             // create a new contact
+            var contact = navigator.contacts.create();
+             // store contact phone numbers in ContactField[]
+            var phoneNumbers = [];
+            phoneNumbers[0] = new ContactField('work', '212-555-1234', false);
+            phoneNumbers[1] = new ContactField('mobile', '917-555-5432', true); // preferred number
+            phoneNumbers[2] = new ContactField('home', '203-555-7890', false);
+            contact.phoneNumbers = phoneNumbers;
+             // save the contact
+            contact.save();
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactField.type">
+            <summary>
+            A string that tells you what type of field this is (example: 'home'). 
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactField.value">
+            <summary>
+            The value of the field (such as a phone number or email address).
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactField.pref">
+            <summary>
+            Set to true if this ContactField contains the user's preferred value.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.ContactAddress">
+             <summary>
+             Contains address properties for a Contact object.
+             </summary>
+             <example>
+             usage
+             <code>
+             // display the address information for all contacts
+            function onSuccess(contacts) {
+                for (var i=0; i &lt;contacts.length; i++) {
+                    for (var j=0; j &lt;contacts[i].addresses.length; j++) {
+                        alert("Pref: " + contacts[i].addresses[j].pref + "\n" +
+                                "Type: " + contacts[i].addresses[j].type + "\n" +
+                                "Formatted: " + contacts[i].addresses[j].formatted + "\n" + 
+                                "Street Address: "  + contacts[i].addresses[j].streetAddress + "\n" + 
+                                "Locality: "  + contacts[i].addresses[j].locality + "\n" + 
+                                "Region: "  + contacts[i].addresses[j].region + "\n" + 
+                                "Postal Code: "  + contacts[i].addresses[j].postalCode + "\n" + 
+                                "Country: "  + contacts[i].addresses[j].country);
+                    }
+                }
+            };
+            function onError(contactError) {
+                alert('onError!');
+            };
+             // find all contacts
+            var options = new ContactFindOptions();
+            options.filter=""; 
+            var filter = ["displayName","addresses"];
+            navigator.contacts.find(filter, onSuccess, onError, options);
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactAddress.pref">
+            <summary>
+            Set to true if this ContactAddress contains the user's preferred value.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactAddress.type">
+            <summary>
+             A string that tells you what type of field this is (example: 'home')
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactAddress.formatted">
+            <summary>
+            The full address formatted for display
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactAddress.streetAddress">
+            <summary>
+            The full street address.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactAddress.locality">
+            <summary>
+            The city or locality
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactAddress.region">
+            <summary>
+            The state or region.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactAddress.postalCode">
+            <summary>
+             The zip code or postal code.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactAddress.country">
+            <summary>
+            The country name.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.ContactOrganization">
+             <summary>
+             Contains organization properties of a Contact object.
+             </summary>
+             <example>
+             usage
+             <code>
+             function onSuccess(contacts) {
+                for (var i=0; i &lt;contacts.length; i++) {
+                    for (var j=0; j&lt;contacts[i].organizations.length; j++) {
+                        alert("Pref: " + contacts[i].organizations[j].pref + "\n" +
+                                "Type: " + contacts[i].organizations[j].type + "\n" +
+                                "Name: " + contacts[i].organizations[j].name + "\n" + 
+                                "Department: "  + contacts[i].organizations[j].department + "\n" + 
+                                "Title: "  + contacts[i].organizations[j].title);
+                    }
+                }
+            };
+            function onError(contactError) {
+                alert('onError!');
+            };
+            var options = new ContactFindOptions();
+            options.filter="";
+            filter = ["displayName","organizations"];
+            navigator.contacts.find(filter, onSuccess, onError, options);
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactOrganization.pref">
+            <summary>
+            Set to true if this ContactOrganization contains the user's preferred value.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactOrganization.type">
+            <summary>
+             A string that tells you what type of field this is (example: 'home').
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactOrganization.name">
+            <summary>
+            The name of the organization
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactOrganization.department">
+            <summary>
+            The department the contract works for.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactOrganization.title">
+            <summary>
+            The contacts title at the organization. 
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.ContactFindOptions">
+             <summary>
+             Contains properties that can be used to filter the results of a contacts.find operation.
+             </summary>
+             <example>
+             usage
+             <code>
+             // success callback
+            function onSuccess(contacts) {
+                for (var i=0; i &lt;contacts.length; i++) {
+                    alert(contacts[i].displayName);
+                }
+            };
+             // error callback
+            function onError(contactError) {
+                alert('onError!');
+            };
+             // specify contact search criteria
+            var options = new ContactFindOptions();
+            options.filter="";          // empty search string returns all contacts
+            options.multiple=true;      // return multiple results
+            filter = ["displayName"];   // return contact.displayName field
+             // find contacts
+            navigator.contacts.find(filter, onSuccess, onError, options);
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactFindOptions.filter">
+            <summary>
+            The search string used to find contacts.(Default: "")
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactFindOptions.multiple">
+            <summary>
+             Determines if the find operation should return multiple contacts. (Default: false)
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.ContactError">
+            <summary>
+            A ContactError object is returned to the contactError callback when an error occurs.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.ContactError.code">
+            <summary>
+            One of the predefined error codes listed below.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.ContactSuccess">
+            <summary>
+            The contact array resulting from a find operation. (Contact)
+            </summary>
+            <param name="contacts"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.ContactErrorCB">
+            <summary>
+            Error callback function for contact functions.
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Contacts">
+            <summary>
+            The contacts object provides access to the device contacts database.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Contacts.create(System.Object)">
+            <summary>
+            contacts.create is a synchronous function that returns a new Contact object.
+            This method does not persist the Contact object to the device contacts database. To persist the Contact object to the device, invoke the Contact.save method.
+            </summary>
+            <param name="properties"></param>
+            <returns>Contains properties that describe a contact, such as a user's personal or business contact</returns>
+            <example>
+            usage
+            <code>
+            var myContact = navigator.contacts.create({"displayName": "Test User"});
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Contacts.find(SharpKit.JavaScript.JsArray{SharpKit.JavaScript.JsString},SharpKit.PhoneGap.ContactSuccess,SharpKit.PhoneGap.ContactError,SharpKit.PhoneGap.ContactFindOptions)">
+            <summary>
+            Queries the device contacts database and returns one or more Contact objects, each containing the fields specified.
+            </summary>
+            <param name="contactFields">Contact fields to be used as search qualifier. Only these fields will have values in the resulting Contact objects. [Required]</param>
+            <param name="contactSuccess">Success callback function that is invoked with the contacts returned from the contacts database. [Required]</param>
+            <param name="contactError">Error callback function. Invoked when error occurs. [Optional]</param>
+            <param name="contactFindOptions">Search options to filter contacts. [Optional]</param>
+            <returns>Contains properties that describe a contact, such as a user's personal or business contact.</returns>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Device">
+            <summary>
+            The device object describes the device's hardware and software.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Device.name">
+             <summary>
+             Get the device's model name.
+             </summary>
+             <example>
+             usage
+             <code>
+             // Android:    Nexus One       returns "Passion" (Nexus One code name)
+             //             Motorola Droid  returns "voles"
+             // BlackBerry: Torch 9800      returns "9800"
+             // iPhone:     All devices     returns a name set by iTunes e.g. "Joe's iPhone"
+             //
+            var name = device.name;
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Device.cordova">
+            <summary>
+            Get the version of Cordova running on the device.
+            </summary>
+            <example>
+            usage
+            <code>
+            var name = device.cordova;
+            </code>
+            </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Device.platform">
+             <summary>
+             Get the device's operating system name.
+             </summary>
+             <example>
+             usage
+             <code>
+             // Depending on the device, a few examples are:
+             //   - "Android"
+             //   - "BlackBerry"
+             //   - "iPhone"
+             //   - "webOS"
+             //   - "WinCE"
+            var devicePlatform = device.platform;
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Device.uuid">
+             <summary>
+             Get the device's Universally Unique Identifier (UUID=Universally unique identifier).
+             </summary>
+             <example>
+             usage
+             <code>
+             // Android: Returns a random 64-bit integer (as a string, again!)
+             //          The integer is generated on the device's first boot
+             //
+             // BlackBerry: Returns the PIN number of the device
+             //             This is a nine-digit unique integer (as a string, though!)
+             //
+             // iPhone: (Paraphrased from the UIDevice Class documentation)
+             //         Returns a string of hash values created from multiple hardware identifies.
+             //         It is guaranteed to be unique for every device and cannot be tied
+             //         to the user account.
+             // Windows Phone 7 : Returns a hash of device+current user, 
+             // if the user is not defined, a guid is generated and will persist until the app is uninstalled
+             // 
+             // webOS: returns the device NDUID
+            var deviceID = device.uuid;
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Device.version">
+             <summary>
+             Get the operating system version
+             </summary>
+             <example>
+             usage
+             <code>
+             // Android:    Froyo OS would return "2.2"
+             //             Eclair OS would return "2.1", "2.0.1", or "2.0"
+             //             Version can also return update level "2.1-update1" 
+             //
+             // BlackBerry: Torch 9800 using OS 6.0 would return "6.0.0.600"
+             //
+             // iPhone:     iOS 3.2 returns "3.2"
+             //
+             // Windows Phone 7: returns current OS version number, ex. on Mango returns 7.10.7720
+             // webOS: webOS 2.2.4 return 2.2.4
+            var deviceVersion = device.version;
+             </code>
+             </example>
+        </member>
+        <member name="T:SharpKit.PhoneGap.DirectoryEntry">
+            <summary>
+            This object represents a directory on a file system. It is defined in the W3C Directories and Systems specification.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.DirectoryEntry.getMetadata(SharpKit.JavaScript.JsAction{SharpKit.PhoneGap.Metadata},SharpKit.JavaScript.JsAction)">
+             <summary>
+             Look up metadata about a directory.
+             </summary>
+             <param name="successCallback"> A callback that is called with a Metadata object.</param>
+             <param name="errorCallback"> A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.</param>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             function success(metadata) {
+                console.log("Last Modified: " + metadata.modificationTime);
+            }
+            function fail(error) {
+                alert(error.code);
+            }
+             // Request the metadata object for this entry
+            entry.getMetadata(success, fail);
+             </code></example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.DirectoryEntry.setMetadata(SharpKit.JavaScript.JsAction,SharpKit.JavaScript.JsAction,SharpKit.PhoneGap.Metadata)">
+             <summary>
+             Set metadata on a directory. Only works on iOS currently - this will set the extended attributes of a directory.
+             </summary>
+             <param name="successCallback">A callback that is called when the metadata was successfully set.</param>
+             <param name="errorCallback"> A callback that is called when the metadata was not successfully set</param>
+             <param name="metadataObject">An object that contains the metadata keys and values</param>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             function success() {
+                console.log("The metadata was successfully set.");
+            }
+            function fail() {
+                alert("There was an error in setting the metadata");
+            }
+             // Set the metadata
+            entry.setMetadata(success, fail, { "com.apple.MobileBackup": 1});
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.DirectoryEntry.moveTo(SharpKit.PhoneGap.DirectoryEntry,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{SharpKit.PhoneGap.FileEntry},SharpKit.JavaScript.JsAction)">
+             <summary>
+             Move a directory to a different location on the file system. It is an error to attempt to:
+            move a directory inside itself or to any child at any depth;
+            move a directory into its parent if a name different from its current one is not provided;
+            move a directory to a path occupied by a file;
+            move a directory to a path occupied by a directory which is not empty.
+            In addition, an attempt to move a directory on top of an existing empty directory must attempt to delete and replace that directory.
+             </summary>
+             <param name="parent">The parent directory to which to move the directory.</param>
+             <param name="newName"> The new name of the directory. Defaults to the current name if unspecified</param>
+             <param name="successCallback">A callback that is called with the DirectoryEntry object of the new directory</param>
+             <param name="errorCallback">A callback that is called if an error occurs when attempting to move the directory. Invoked with a FileError object.</param>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             function success(entry) {
+                console.log("New Path: " + entry.fullPath);
+            }
+            function fail(error) {
+                alert(error.code);
+            }
+            function moveDir(entry) {
+                var parent = document.getElementById('parent').value,
+                    parentName = parent.substring(parent.lastIndexOf('/')+1),
+                    newName = document.getElementById('newName').value,
+                    parentEntry = new DirectoryEntry(parentName, parent);
+                // move the directory to a new directory and rename it
+                entry.moveTo(parentEntry, newName, success, fail);
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.DirectoryEntry.copyTo(SharpKit.PhoneGap.DirectoryEntry,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{SharpKit.PhoneGap.FileEntry},SharpKit.JavaScript.JsAction)">
+             <summary>
+             Copy a directory to a different location on the file system. It is an error to attempt to:
+             copy a directory inside itself at any depth;
+             copy a directory into its parent if a name different from its current one is not provided.
+             Directory copies are always recursive - that is, they copy all contents of the directory.
+             </summary>
+             <param name="parent">The parent directory to which to copy the directory.</param>
+             <param name="newName">The new name of the directory. Defaults to the current name if unspecified.</param>
+             <param name="successCallback">A callback that is called with the DirectoryEntry object of the new directory.</param>
+             <param name="errorCallback"> A callback that is called if an error occurs when attempting to copy the underlying directory. Invoked with a FileError object</param>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             function win(entry) {
+                console.log("New Path: " + entry.fullPath);
+            }
+            function fail(error) {
+                alert(error.code);
+            }
+            function copyDir(entry) {
+                var parent = document.getElementById('parent').value,
+                    parentName = parent.substring(parent.lastIndexOf('/')+1),
+                    newName = document.getElementById('newName').value,
+                    parentEntry = new DirectoryEntry(parentName, parent);
+                // copy the directory to a new directory and rename it
+                entry.copyTo(parentEntry, newName, success, fail);
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.DirectoryEntry.toURL">
+             <summary>
+             Returns a URL that can be used to locate the file.
+             </summary>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             // Request the URL for this entry
+            var fileURL = entry.toURL();
+            console.log(fileURL);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.DirectoryEntry.remove(SharpKit.JavaScript.JsAction,SharpKit.PhoneGap.FileErrorCallback)">
+            <summary>
+            Deletes a directory. It is an error to attempt to:
+            delete a directory that is not empty;
+            delete the root directory of a filesystem.
+            </summary>
+            <param name="successCallback"> A callback that is called after the directory has been deleted. Invoked with no parameters</param>
+            <param name="errorCallback">A callback that is called if an error occurs when attempting to delete the directory. Invoked with a FileError object</param>
+            <returns></returns>
+            <example>
+            usage
+            <code>
+            function success(entry) {
+                console.log("Removal succeeded");
+            }
+            function fail(error) {
+                alert('Error removing directory: ' + error.code);
+            }
+            remove this directory
+            entry.remove(success, fail);
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.DirectoryEntry.getParent(SharpKit.JavaScript.JsAction{SharpKit.PhoneGap.DirectoryEntry},SharpKit.PhoneGap.FileErrorCallback)">
+             <summary>
+             Look up the parent DirectoryEntry containing the directory.
+             </summary>
+             <param name="successCallback">A callback that is called with the directory's parent DirectoryEntry.</param>
+             <param name="errorCallback"> A callback that is called if an error occurs when attempting to retrieve the parent DirectoryEntry. Invoked with a FileError object</param>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             function success(parent) {
+                console.log("Parent Name: " + parent.name);
+            }
+            function fail(error) {
+                alert('Failed to get parent directory: ' + error.code);
+            }
+             // Get the parent DirectoryEntry
+            entry.getParent(success, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.DirectoryEntry.createReader">
+            <summary>
+            Creates a new DirectoryReader to read entries in a directory.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.DirectoryEntry.getDirectory(SharpKit.JavaScript.JsString,SharpKit.PhoneGap.Flags,SharpKit.JavaScript.JsAction{SharpKit.PhoneGap.DirectoryEntry},SharpKit.JavaScript.JsAction)">
+             <summary>
+             Creates or looks up an existing directory. It is an error to attempt to create a directory whose immediate parent does not yet exist.
+             </summary>
+             <param name="path">The path to the directory to be looked up or created. Either an absolute path, or a relative path from this DirectoryEntry.</param>
+             <param name="options">Options to specify whether the directory is created if it doesn't exist.</param>
+             <param name="successCallback">A callback that is invoked with a DirectoryEntry object. </param>
+             <param name="errorCallback"> A callback that is called if an error occurs creating or looking up the directory. Invoked with a FileError object.</param>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             function success(parent) {
+                console.log("Parent Name: " + parent.name);
+            }
+            function fail(error) {
+                alert("Unable to create new directory: " + error.code);
+            }
+             // Retrieve an existing directory, or create it if it does not already exist
+            entry.getDirectory("newDir", {create: true, exclusive: false}, success, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.DirectoryEntry.getFile(SharpKit.JavaScript.JsString,SharpKit.PhoneGap.Flags,SharpKit.JavaScript.JsAction{SharpKit.PhoneGap.FileEntry},SharpKit.JavaScript.JsAction)">
+             <summary>
+             Creates or looks up a file. It is an error to attempt to create a file whose immediate parent does not yet exist.
+             </summary>
+             <param name="path">The path to the file to be looked up or created. Either an absolute path, or a relative path from this DirectoryEntry.</param>
+             <param name="options">Options to specify whether the file is created if it doesn't exist.</param>
+             <param name="successCallback"> A callback that is invoked with a FileEntry object.</param>
+             <param name="errorCallback">- A callback that is called if an error occurs creating or looking up the file. Invoked with a FileError object.</param>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             function success(parent) {
+                console.log("Parent Name: " + parent.name);
+            }
+            function fail(error) {
+                alert("Failed to retrieve file: " + error.code);
+            }
+             // Retrieve an existing file, or create it if it does not exist
+            entry.getFile("newFile.txt", {create: true, exclusive: false}, success, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.DirectoryEntry.removeRecursively(SharpKit.JavaScript.JsAction,SharpKit.JavaScript.JsAction)">
+             <summary>
+             Deletes a directory and all of its contents. In the event of an error (e.g. trying to delete a directory that contains a file that cannot be removed), some of the contents of the directory may be deleted.
+             It is an error to attempt to delete the root directory of a filesystem.
+             </summary>
+             <param name="successCallback"> A callback that is called after the DirectoryEntry has been deleted. Invoked with no parameters.</param>
+             <param name="errorCallback">A callback that is called if an error occurs when attempting to delete the DirectoryEntry. Invoked with a FileError object</param>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             function success(parent) {
+                console.log("Remove Recursively Succeeded");
+            }
+            function fail(error) {
+                alert("Failed to remove directory or it's contents: " + error.code);
+            }
+             // remove the directory and all it's contents
+            entry.removeRecursively(success, fail);
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.DirectoryEntry.isFile">
+            <summary>
+            Always false.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.DirectoryEntry.isDirectory">
+            <summary>
+            Always true.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.DirectoryEntry.name">
+            <summary>
+            The name of the DirectoryEntry, excluding the path leading to it.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.DirectoryEntry.fullPath">
+            <summary>
+            The full absolute path from the root to the DirectoryEntry. 
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.DirectoryEntry.filesystem">
+            <summary>
+             The file system on which the DirectoryEntry resides.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Flags">
+            <summary>
+            This object is used to supply arguments to the DirectoryEntry getFile and getDirectory methods, which look up or create files and directories, respectively.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Flags.create">
+            <summary>
+            Used to indicate that the file or directory should be created, if it does not exist
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Flags.exclusive">
+            <summary>
+             By itself, exclusive has no effect. Used with create, it causes the file or directory creation to fail if the target path already exists.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileSystem">
+            <summary>
+            This object represents a file system.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileSystem.name">
+            <summary>
+            The name of the file system
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileSystem.root">
+            <summary>
+            The root directory of the file system.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.DirectoryReader">
+            <summary>
+            An object that lists files and directories in a directory. Defined in the Directories and Systems specification.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.DirectoryReader.readEntries(SharpKit.PhoneGap.ReadEntriesSuccessCallback,SharpKit.PhoneGap.ReadEntriesErrorCallback)">
+             <summary>
+             Read the entries in this directory.
+             </summary>
+             <param name="successCallback">- A callback that is passed an array of FileEntry and DirectoryEntry objects</param>
+             <param name="errorCallback">A callback that is called if an error occurs retrieving the directory listing. Invoked with a FileError object.</param>
+             <example>
+             usage
+             <code>
+             function success(entries) {
+                var i;
+                for (i=0; i &lt;entries.length; i++) {
+                    console.log(entries[i].name);
+                }
+            }
+            function fail(error) {
+                alert("Failed to list directory contents: " + error.code);
+            }
+             // Get a directory reader
+            var directoryReader = dirEntry.createReader();
+             // Get a list of all the entries in the directory
+            directoryReader.readEntries(success,fail);
+             </code>
+             </example>
+        </member>
+        <member name="T:SharpKit.PhoneGap.ReadEntriesSuccessCallback">
+            <summary>
+            A callback that is passed an array of FileEntry and DirectoryEntry objects. (Function)
+            </summary>
+            <param name="entries"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.ReadEntriesErrorCallback">
+            <summary>
+            A callback that is called if an error occurs retrieving the directory listing. Invoked with a FileError object.
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileError">
+            <summary>
+            A 'FileError' object is set when an error occurs in any of the File API methods.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileError.code">
+            <summary>
+             One of the pre-defined error codes listed below
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.File">
+            <summary>
+            The File object contains attributes of a single file. You can get an instance of a File object by calling the file method of a FileEntry object.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.File.name">
+            <summary>
+             The name of the file. 
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.File.fullPath">
+            <summary>
+             The full path of the file including the file name
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.File.type">
+            <summary>
+             The mime type of the file. 
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.File.lastModifiedDate">
+            <summary>
+            The last time the file was modified.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.File.size">
+            <summary>
+            The size of the file in bytes.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileEntry">
+            <summary>
+            This object represents a file on a file system. It is defined in the W3C Directories and Systems specification.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileEntry.getMetadata(SharpKit.PhoneGap.GetMetadataSuccessCallback,SharpKit.PhoneGap.GetMetadataErrorCallback)">
+             <summary>
+             Look up metadata about a file.
+             </summary>
+             <param name="successCallback"> A callback that is called with a Metadata object.</param>
+             <param name="errorCallback"> A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.</param>
+             <example>
+             <code>
+             function success(metadata) {
+                console.log("Last Modified: " + metadata.modificationTime);
+            }
+            function fail(error) {
+                alert(error.code);
+            }
+             // Request the metadata object for this entry
+            entry.getMetadata(success, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileEntry.setMetadata(SharpKit.PhoneGap.SetMetadataSuccessCallback,SharpKit.PhoneGap.SetMetadataErrorCallback,System.Object)">
+             <summary>
+             Set metadata on a file. Only works on iOS currently - this will set the extended attributes of a file.
+             </summary>
+             <param name="successCallback">A callback that is called when the metadata was successfully set.</param>
+             <param name="errorCallback">A callback that is called when the metadata was not successfully set.</param>
+             <param name="metadataObject">An object that contains the metadata keys and values. </param>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             function success() {
+                console.log("The metadata was successfully set.");
+            }
+            function fail() {
+                alert("There was an error in setting the metadata");
+            }
+             // Set the metadata
+            entry.setMetadata(success, fail, { "com.apple.MobileBackup": 1});
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileEntry.moveTo(SharpKit.PhoneGap.DirectoryEntry,SharpKit.JavaScript.JsString,SharpKit.PhoneGap.MoveToSuccessCallback,SharpKit.PhoneGap.MoveToErrorCallback)">
+             <summary>
+             Move a file to a different location on the file system. It is an error to attempt to:
+            move a file into its parent if a name different from its current one isn't provided;
+            move a file to a path occupied by a directory;
+            In addition, an attempt to move a file on top of an existing file must attempt to delete and replace that file.
+             </summary>
+             <param name="parent"> The parent directory to which to move the file.</param>
+             <param name="newName"> The new name of the file. Defaults to the current name if unspecified.</param>
+             <param name="successCallback">A callback that is called with the FileEntry object of the new file.</param>
+             <param name="errorCallback">A callback that is called if an error occurs when attempting to move the file. Invoked with a FileError object.</param>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             function success(entry) {
+                console.log("New Path: " + entry.fullPath);
+            }
+            function fail(error) {
+                alert(error.code);
+            }
+            function moveFile(entry) {
+                var parent = document.getElementById('parent').value,
+                    parentName = parent.substring(parent.lastIndexOf('/')+1),
+                    parentEntry = new DirectoryEntry(parentName, parent);
+                // move the file to a new directory and rename it
+                entry.moveTo(parentEntry, "newFile.txt", success, fail);
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileEntry.copyTo(SharpKit.PhoneGap.DirectoryEntry,SharpKit.JavaScript.JsString,SharpKit.PhoneGap.MoveToSuccessCallback,SharpKit.PhoneGap.MoveToErrorCallback)">
+             <summary>
+            Copy a file to a new location on the file system. It is an error to attempt to:
+            copy a file into its parent if a name different from its current one is not provided.
+             </summary>
+             <param name="parent"> The parent directory to which to copy the file.</param>
+             <param name="newName"> The new name of the file. Defaults to the current name if unspecified.</param>
+             <param name="successCallback">A callback that is called with the FileEntry object of the new file.</param>
+             <param name="errorCallback">A callback that is called if an error occurs when attempting to copy the file. Invoked with a FileError object.</param>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+            function win(entry) {
+                console.log("New Path: " + entry.fullPath);
+            }
+            function fail(error) {
+                alert(error.code);
+            }
+            function copyFile(entry) {
+                var parent = document.getElementById('parent').value,
+                    parentName = parent.substring(parent.lastIndexOf('/')+1),
+                    parentEntry = new DirectoryEntry(parentName, parent);
+                // copy the file to a new directory and rename it
+                entry.copyTo(parentEntry, "file.copy", success, fail);
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileEntry.toURL">
+             <summary>
+             Returns a URL that can be used to locate the file.
+             </summary>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             // Request the URL for this entry
+            var fileURL = entry.toURL();
+            console.log(fileURL);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileEntry.remove(SharpKit.PhoneGap.RemoveSuccessCallback,SharpKit.PhoneGap.RemoveErrorCallback)">
+             <summary>
+             Deletes a file.
+             </summary>
+             <param name="successCallback">A callback that is called after the file has been deleted. Invoked with no parameters. </param>
+             <param name="errorCallback"> A callback that is called if an error occurs when attempting to delete the file. Invoked with a FileError object</param>
+             <example>
+             usage
+             <code>
+             function success(entry) {
+                console.log("Removal succeeded");
+            }
+            function fail(error) {
+                alert('Error removing file: ' + error.code);
+            }
+             // remove the file
+            entry.remove(success, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileEntry.getParent(SharpKit.PhoneGap.GetParentSuccessCallback,SharpKit.PhoneGap.GetParentErrorCallback)">
+             <summary>
+             Look up the parent DirectoryEntry containing the file.
+             </summary>
+             <param name="successCallback">A callback that is called with the file's parent DirectoryEntry. </param>
+             <param name="errorCallback">A callback that is called if an error occurs when attempting to retrieve the parent DirectoryEntry. Invoked with a FileError object</param>
+             <example>
+             usage
+             <code>
+             function success(parent) {
+                console.log("Parent Name: " + parent.name);
+            }
+            function fail(error) {
+                alert(error.code);
+            }
+             // Get the parent DirectoryEntry
+            entry.getParent(success, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileEntry.createWriter(SharpKit.PhoneGap.CreateWriterSuccessCallback,SharpKit.PhoneGap.CreateWriterErrorCallback)">
+             <summary>
+             Create a FileWriter object associated with the file that the FileEntry represents.
+             </summary>
+             <param name="successCallback">A callback that is called with a FileWriter object.</param>
+             <param name="errorCallback">A callback that is called if an error occurs while attempting to create the FileWriter. Invoked with a FileError object.</param>
+             <example>
+             usage
+             <code>
+             function success(writer) {
+                writer.write("Some text to the file");
+            }
+            function fail(error) {
+                alert(error.code);
+            }
+             // create a FileWriter to write to the file
+            entry.createWriter(success, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileEntry.file(SharpKit.PhoneGap.FileSuccessCallback,SharpKit.PhoneGap.FileErrorCallback)">
+            <summary>
+            Return a File object that represents the current state of the file that this FileEntry represents.
+            </summary>
+            <param name="successCallback">A callback that is called with a File object.</param>
+            <param name="errorCallback"> A callback that is called if an error occurs when creating the File object (e.g. the underlying file no longer exists).
+            Invoked with a FileError object.</param>
+            <returns></returns>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileEntry.isFile">
+            <summary>
+            Always true.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileEntry.isDirectory">
+            <summary>
+            Always false.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileEntry.name">
+            <summary>
+            The name of the FileEntry, excluding the path leading to it.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileEntry.fullPath">
+            <summary>
+             The full absolute path from the root to the FileEntry.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileEntry.filesystem">
+            <summary>
+             The file system on which the FileEntry resides.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Metadata">
+             <summary>
+             This interface supplies information about the state of a file or directory.
+             </summary>
+             <example>
+             usage
+             <code>
+             function win(metadata) {
+                console.log("Last Modified: " + metadata.modificationTime);
+            }
+             // Request the metadata object for this entry
+            entry.getMetadata(win, null);
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Metadata.modificationTime">
+            <summary>
+             This is the time at which the file or directory was last modified.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.GetMetadataSuccessCallback">
+            <summary>
+             A callback that is called with a Metadata object. 
+            </summary>
+            <param name="metadata"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.GetMetadataErrorCallback">
+            <summary>
+            A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.SetMetadataSuccessCallback">
+            <summary>
+            A callback that is called when the metadata was successfully set. 
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.SetMetadataErrorCallback">
+            <summary>
+             A callback that is called when the metadata was not successfully set.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.MoveToSuccessCallback">
+            <summary>
+            A callback that is called with the FileEntry object of the new file.
+            </summary>
+            <param name="entry"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.MoveToErrorCallback">
+            <summary>
+            A callback that is called if an error occurs when attempting to move the file. Invoked with a FileError object.
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CopyToSuccessCallback">
+            <summary>
+            A callback that is called with the FileEntry object of the new file.
+            </summary>
+            <param name="entry"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CopyToErrorCallback">
+            <summary>
+            A callback that is called if an error occurs when attempting to copy the file. Invoked with a FileError object.
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.RemoveSuccessCallback">
+            <summary>
+             A callback that is called after the file has been deleted.  (?)Invoked with no parameters(?)
+            </summary>
+            <param name="entry"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.RemoveErrorCallback">
+             <summary>
+            A callback that is called if an error occurs when attempting to delete the file. Invoked with a FileError object.
+             </summary>
+             <param name="error"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.GetParentSuccessCallback">
+            <summary>
+             A callback that is called with the file's parent DirectoryEntry
+            </summary>
+            <param name="parent"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.GetParentErrorCallback">
+             <summary>
+            A callback that is called if an error occurs when attempting to retrieve the parent DirectoryEntry. Invoked with a FileError object.
+             </summary>
+             <param name="error"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileWriter">
+            <summary>
+            FileWriter is an object that allows one to write a file.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileWriter.abort">
+             <summary>
+             Aborts writing file.
+             </summary>
+             <example>
+             usage
+             <code>
+             function win(writer) {
+                writer.onwrite = function(evt) {
+                    console.log("write success");
+                };
+                writer.write("some sample text");
+                writer.abort();
+            };
+            var fail = function(evt) {
+                console.log(error.code);
+            };
+            entry.createWriter(win, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileWriter.seek(SharpKit.JavaScript.JsNumber)">
+             <summary>
+              Moves the file pointer to the byte specified.
+             </summary>
+             <param name="location"></param>
+             <example>
+             usage
+             <code>
+             function win(writer) {
+                // fast forwards file pointer to end of file
+                writer.seek(writer.length); 
+            };
+            var fail = function(evt) {
+                console.log(error.code);
+            };
+            entry.createWriter(win, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileWriter.truncate(SharpKit.JavaScript.JsNumber)">
+             <summary>
+             : Shortens the file to the length specified.
+             </summary>
+             <param name="length"></param>
+             <example>
+             usage
+             <code>
+             function win(writer) {
+                writer.truncate(10);    
+            };
+            var fail = function(evt) {
+                console.log(error.code);
+            };
+            entry.createWriter(win, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileWriter.write(SharpKit.JavaScript.JsString)">
+             <summary>
+             Writes data to the file with a UTF-8 encoding.
+             </summary>
+             <param name="s"></param>
+             <example>
+             usage
+             <code>
+             function win(writer) {
+                writer.onwrite = function(evt) {
+                    console.log("write success");
+                };
+                writer.write("some sample text");
+            };
+            var fail = function(evt) {
+                console.log(error.code);
+            };
+            entry.createWriter(win, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileWriter.append(SharpKit.JavaScript.JsString)">
+             <summary>
+             
+             </summary>
+             <param name="s"></param>
+             <example>
+             usage
+             <code>
+             function win(writer) {
+                writer.onwrite = function(evt) {
+                    console.log("write success");
+                };
+                writer.seek(writer.length);
+                writer.write("appended text");
+            };
+            var fail = function(evt) {
+                console.log(error.code);
+            };
+            entry.createWriter(win, fail);
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileWriter.readyState">
+            <summary>
+            One of the three states the reader can be in INIT, WRITING or DONE.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileWriter.fileName">
+            <summary>
+             The name of the file to be written.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileWriter.length">
+            <summary>
+             The length of the file to be written.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileWriter.position">
+            <summary>
+            The current position of the file pointer.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileWriter.error">
+            <summary>
+            An object containing errors
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileWriter.onwritestart">
+            <summary>
+            Called when the write starts.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileWriter.onprogress">
+            <summary>
+            Called while writing the file, reports progress (progess.loaded/progress.total).-NOT SUPPORTED
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileWriter.onwrite">
+            <summary>
+            Called when the request has completed successfully. 
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileWriter.onabort">
+            <summary>
+             Called when the write has been aborted. For instance, by invoking the abort() method. 
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileWriter.onerror">
+            <summary>
+            Called when the write has failed.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileWriter.onwriteend">
+            <summary>
+            Called when the request has completed (either in success or failure).
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileWriterReadyState">
+            <summary>
+            One of the three states the reader can be in INIT, WRITING or DONE.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CreateWriterSuccessCallback">
+            <summary>
+             A callback that is called with the file's parent DirectoryEntry
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.CreateWriterErrorCallback">
+             <summary>
+            A callback that is called if an error occurs when attempting to retrieve the parent DirectoryEntry. Invoked with a FileError object.
+             </summary>
+             <param name="error"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileSuccessCallback">
+            <summary>
+            A callback that is called with a File object
+            </summary>
+            <param name="file"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileErrorCallback">
+             <summary>
+            A callback that is called if an error occurs when creating the File object (e.g. the underlying file no longer exists). Invoked with a FileError object.
+             </summary>
+             <param name="error"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileReaderReadyState">
+            <summary>
+             One of the three states the reader can be in EMPTY, LOADING or DONE.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileReader">
+            <summary>
+            FileReader is an object that allows one to read a file.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileReader.abort">
+             <summary>
+             Aborts reading file.
+             </summary>
+             <example>
+             usage
+             <code>
+             function win(file) {
+                var reader = new FileReader();
+                reader.onloadend = function(evt) {
+                    console.log("read success");
+                    console.log(evt.target.result);
+                };
+                reader.readAsText(file);
+                reader.abort();
+            };
+            function fail(error) {
+                console.log(error.code);
+            }
+            entry.file(win, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileReader.readAsText(SharpKit.PhoneGap.File)">
+             <summary>
+             Read file and return data as a base64 encoded data url.
+             </summary>
+             <param name="file"></param>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             function win(file) {
+                var reader = new FileReader();
+                reader.onloadend = function(evt) {
+                    console.log("read success");
+                    console.log(evt.target.result);
+                };
+                reader.readAsDataURL(file);
+            };
+            var fail = function(evt) {
+                console.log(error.code);
+            };
+            entry.file(win, fail);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileReader.readAsText(SharpKit.PhoneGap.File,SharpKit.JavaScript.JsString)">
+             <summary>
+             Reads text file
+             </summary>
+             <param name="file">the file object to read</param>
+             <param name="encoding">the encoding to use to encode the file's content. Default is UTF8.</param>
+             <example>
+             usage
+             <code>
+             function win(file) {
+                var reader = new FileReader();
+                reader.onloadend = function(evt) {
+                    console.log("read success");
+                    console.log(evt.target.result);
+                };
+                reader.readAsText(file);
+            };
+            var fail = function(evt) {
+                console.log(error.code);
+            };
+            entry.file(win, fail);
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileReader.result">
+            <summary>
+            The contents of the file that has been read.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileReader.error">
+            <summary>
+            An object containing errors. 
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileReader.onloadstart">
+            <summary>
+            Called when the read starts.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileReader.onprogress">
+            <summary>
+             Called while reading the file, reports progress (progess.loaded/progress.total).-NOT SUPPORTED
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileReader.onload">
+            <summary>
+             Called when the read has successfully completed.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileReader.onabort">
+            <summary>
+            Called when the read has been aborted. For instance, by invoking the abort() method.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileReader.onerror">
+            <summary>
+            Called when the read has failed.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileReader.onloadend">
+            <summary>
+            Called when the request has completed (either in success or failure).
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileTransfer">
+            <summary>
+            FileTransfer is an object that allows you to upload files to a server or download files from a server.
+            The FileTransfer object provides a way to upload files to a remote server using an HTTP multi-part POST request.
+            Both HTTP and HTTPS protocols are supported. Optional parameters can be specified by passing a FileUploadOptions object to the upload method.
+            On successful upload, the success callback will be called with a FileUploadResult object.
+            If an error occurs, the error callback will be invoked with a FileTransferError object.
+            It is also possible to download a file from remote and save it on the device (only iOS and Android).
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileTransfer.upload(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.PhoneGap.UploadSuccessCallback,SharpKit.PhoneGap.UploadErrorCallback,SharpKit.PhoneGap.FileUploadOptions)">
+             <summary>
+              sends a file to a server.
+             </summary>
+             <param name="filePath">Full path of the file on the device</param>
+             <param name="server">URL of the server to receive the file</param>
+             <param name="successCallback"> A callback that is called with a Metadata object.</param>
+             <param name="errorCallback">- A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.</param>
+             <param name="options">Optional parameters such as file name and mimetype</param>
+             <example>
+             usage
+             <code>
+             // !! Assumes variable fileURI contains a valid URI to a  text file on the device
+            var win = function(r) {
+                console.log("Code = " + r.responseCode);
+                console.log("Response = " + r.response);
+                console.log("Sent = " + r.bytesSent);
+            }
+            var fail = function(error) {
+                alert("An error has occurred: Code = " + error.code);
+                console.log("upload error source " + error.source);
+                console.log("upload error target " + error.target);
+            }
+            var options = new FileUploadOptions();
+            options.fileKey="file";
+            options.fileName=fileURI.substr(fileURI.lastIndexOf('/')+1);
+            options.mimeType="text/plain";
+            var params = new Object();
+            params.value1 = "test";
+            params.value2 = "param";
+            options.params = params;
+            var ft = new FileTransfer();
+            ft.upload(fileURI, "http://some.server.com/upload.php", win, fail, options);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.FileTransfer.download(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.PhoneGap.DownloadSuccessCallback,SharpKit.PhoneGap.DownloadErrorCallback)">
+            <summary>
+            downloads a file from server.
+            </summary>
+            <param name="source">URL of the server to receive the file</param>
+            <param name="target"> Full path of the file on the device</param>
+            <param name="successCallback"> A callback that is called with a FileEntry object. </param>
+            <param name="errorCallback"> A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.</param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.UploadSuccessCallback">
+            <summary>
+             A callback that is called with a Metadata object. 
+            </summary>
+            <param name="successCallback "></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.UploadErrorCallback">
+            <summary>
+            A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.DownloadSuccessCallback">
+            <summary>
+              A callback that is called with a FileEntry object 
+            </summary>
+            <param name="successCallback "></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.DownloadErrorCallback">
+            <summary>
+             A callback that is called if an error occurs retrieving the Metadata. Invoked with a FileError object.
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileUploadOptions">
+            <summary>
+            A FileUploadOptions object can be passed to the FileTransfer objects upload method in order to specify additional parameters to the upload script.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileUploadOptions.fileKey">
+            <summary>
+            The name of the form element. If not set defaults to "file". 
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileUploadOptions.fileName">
+            <summary>
+            The file name you want the file to be saved as on the server. If not set defaults to "image.jpg".
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileUploadOptions.mimeType">
+            <summary>
+            The mime type of the data you are uploading. If not set defaults to "image/jpeg".
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileUploadOptions.params">
+            <summary>
+             A set of optional key/value pairs to be passed along in the HTTP request.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileUploadOptions.chunkedMode">
+            <summary>
+            Should the data be uploaded in chunked streaming mode. If not set defaults to "true". 
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileUploadResult">
+            <summary>
+            A FileUploadResult object is returned via the success callback of the FileTransfer upload method.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileUploadResult.bytesSent">
+            <summary>
+             The number of bytes sent to the server as part of the upload.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileUploadResult.responseCode">
+            <summary>
+            The HTTP response code returned by the server.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileUploadResult.response">
+            <summary>
+            The HTTP response returned by the server. 
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.FileTransferError">
+            <summary>
+            A FileTransferError object is returned via the error callback when an error occurs.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileTransferError.code">
+            <summary>
+            One of the predefined error codes listed below.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileTransferError.source">
+            <summary>
+             URI to the source 
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileTransferError.target">
+            <summary>
+             URI to the target  
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.FileTransferError.http_status">
+            <summary>
+             HTTP status code. This attribute is only available when a response code is received from the HTTP connection. 
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.LocalFileSystem">
+            <summary>
+            This object provides a way to obtain root file systems.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.LocalFileSystem.requestFileSystem(SharpKit.PhoneGap.LocalFileSystem,SharpKit.JavaScript.JsNumber,SharpKit.JavaScript.JsAction{SharpKit.PhoneGap.FileSystem},SharpKit.JavaScript.JsAction)">
+             <summary>
+             Requests a filesystem.
+             </summary>
+             <param name="fileSystem"></param>
+             <example>
+             usage
+             <code>
+             function onSuccess(fileSystem) {
+                console.log(fileSystem.name);
+            }
+             // request the persistent file system
+            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onSuccess, onError);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.LocalFileSystem.resolveLocalFileSystemURI(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction{SharpKit.PhoneGap.Entry},SharpKit.JavaScript.JsAction)">
+             <summary>
+              Retrieve a DirectoryEntry or FileEntry using local URI.
+             </summary>
+             <param name="entry"></param>
+             <example>
+             usage
+             <code>
+             function onSuccess(fileEntry) {
+                console.log(fileEntry.name);
+            }
+            window.resolveLocalFileSystemURI("file:///example.txt", onSuccess, onError);
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.LocalFileSystem.PERSISTENT">
+            <summary>
+            Used for storage that should not be removed by the user agent without application or user permission.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.LocalFileSystem.TEMPORARY">
+            <summary>
+             Used for storage with no guarantee of persistence.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Geolocation">
+            <summary>
+            The geolocation object provides access to the device's GPS sensor.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Geolocation.getCurrentPosition(SharpKit.PhoneGap.GeolocationSuccess,SharpKit.PhoneGap.GeolocationError,SharpKit.PhoneGap.GeolocationOptions)">
+            <summary>
+            geolocation.getCurrentPositon is an asynchronous function. It returns the device's current position to the
+            geolocationSuccess callback with a Position object as the parameter.
+            If there is an error, the geolocationError callback is invoked with a PositionError object.
+            </summary>
+            <param name="geolocationSuccess">The callback that is called with the current position.</param>
+            <param name="geolocationError">The callback that is called if there was an error.</param>
+            <param name="geolocationOptions"> The geolocation options.</param>
+            <returns>Contains Position coordinates and timestamp, created by the geolocation API.</returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Geolocation.getCurrentPosition(SharpKit.PhoneGap.GeolocationSuccess,SharpKit.PhoneGap.GeolocationError)">
+            <summary>
+            geolocation.getCurrentPositon is an asynchronous function. It returns the device's current position to the
+            geolocationSuccess callback with a Position object as the parameter.
+            If there is an error, the geolocationError callback is invoked with a PositionError object.
+            </summary>
+            <param name="geolocationSuccess">The callback that is called with the current position.</param>
+            <param name="geolocationError">The callback that is called if there was an error.</param>
+            <returns>Contains Position coordinates and timestamp, created by the geolocation API.</returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Geolocation.getCurrentPosition(SharpKit.PhoneGap.GeolocationSuccess,SharpKit.PhoneGap.GeolocationOptions)">
+            <summary>
+            geolocation.getCurrentPositon is an asynchronous function. It returns the device's current position to the
+            geolocationSuccess callback with a Position object as the parameter.
+            If there is an error, the geolocationError callback is invoked with a PositionError object.
+            </summary>
+            <param name="geolocationSuccess">The callback that is called with the current position.</param>
+            <param name="geolocationOptions"> The geolocation options.</param>
+            <returns>Contains Position coordinates and timestamp, created by the geolocation API.</returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Geolocation.getCurrentPosition(SharpKit.PhoneGap.GeolocationSuccess)">
+            <summary>
+            geolocation.getCurrentPositon is an asynchronous function. It returns the device's current position to the
+            geolocationSuccess callback with a Position object as the parameter.
+            If there is an error, the geolocationError callback is invoked with a PositionError object.
+            </summary>
+            <param name="geolocationSuccess">The callback that is called with the current position.</param>
+            <returns>Contains Position coordinates and timestamp, created by the geolocation API.</returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Geolocation.watchPosition(SharpKit.PhoneGap.GeolocationSuccess,SharpKit.PhoneGap.GeolocationError,SharpKit.PhoneGap.GeolocationOptions)">
+            <summary>
+            Watches for changes to the device's current position.
+            </summary>
+            <param name="geolocationSuccess">The callback that is called with the current position.</param>
+            <param name="geolocationError">The callback that is called if there was an error.</param>
+            <param name="geolocationOptions"> The geolocation options.</param>
+            <returns>returns a watch id that references the watch position interval. The watch id should be used with geolocation.clearWatch to stop watching for changes in position.</returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Geolocation.watchPosition(SharpKit.PhoneGap.GeolocationSuccess,SharpKit.PhoneGap.GeolocationError)">
+            <summary>
+            Watches for changes to the device's current position.
+            </summary>
+            <param name="geolocationSuccess">The callback that is called with the current position.</param>
+            <param name="geolocationError">The callback that is called if there was an error.</param>
+            <returns>returns a watch id that references the watch position interval. The watch id should be used with geolocation.clearWatch to stop watching for changes in position.</returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Geolocation.watchPosition(SharpKit.PhoneGap.GeolocationSuccess,SharpKit.PhoneGap.GeolocationOptions)">
+            <summary>
+            Watches for changes to the device's current position.
+            </summary>
+            <param name="geolocationSuccess">The callback that is called with the current position.</param>
+            <param name="geolocationOptions"> The geolocation options.</param>
+            <returns>returns a watch id that references the watch position interval. The watch id should be used with geolocation.clearWatch to stop watching for changes in position.</returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Geolocation.watchPosition(SharpKit.PhoneGap.GeolocationSuccess)">
+            <summary>
+            Watches for changes to the device's current position.
+            </summary>
+            <param name="geolocationSuccess">The callback that is called with the current position.</param>
+            <returns>returns a watch id that references the watch position interval. The watch id should be used with geolocation.clearWatch to stop watching for changes in position.</returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Geolocation.clearWatch(SharpKit.JavaScript.JsString)">
+             <summary>
+             Stop watching for changes to the device's location referenced by the watchID parameter.
+             </summary>
+             <param name="watchID">The id of the watchPosition interval to clear. </param>
+             <example>
+             usage
+             <code>
+             // Options: watch for changes in position, and use the most
+             // accurate position acquisition method available.
+             //
+            var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
+             // ...later on...
+            navigator.geolocation.clearWatch(watchID);
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Position.coords">
+            <summary>
+            A set of geographic coordinates.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Position.timestamp">
+            <summary>
+             Creation timestamp for coords. 
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Coordinates">
+            <summary>
+            A set of properties that describe the geographic coordinates of a position.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Coordinates.latitude">
+            <summary>
+             Latitude in decimal degrees. 
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Coordinates.longitude">
+            <summary>
+             Longitude in decimal degrees.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Coordinates.altitude">
+            <summary>
+             Height of the position in meters above the ellipsoid.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Coordinates.accuracy">
+            <summary>
+            Accuracy level of the latitude and longitude coordinates in meters.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Coordinates.altitudeAccuracy">
+            <summary>
+             Accuracy level of the altitude coordinate in meters.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Coordinates.heading">
+            <summary>
+            Direction of travel, specified in degrees counting clockwise relative to the true north.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Coordinates.speed">
+            <summary>
+            Current ground speed of the device, specified in meters per second.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.PositionError">
+            <summary>
+            A PositionError object is returned to the geolocationError callback when an error occurs.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.PositionError.code">
+            <summary>
+            One of the predefined error codes listed below.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.PositionError.message">
+            <summary>
+            Error message describing the details of the error encountered.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.PositionError.PERMISSION_DENIED">
+            <summary>
+            Returned when the user does not allow your application to retrieve position information. This is dependent on the platform.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.PositionError.POSITION_UNAVAILABLE">
+            <summary>
+            Returned when the device was unable to retrieve a position. In general this means the device has no network connectivity and/or cannot get a satellite fix.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.PositionError.TIMEOUT">
+            <summary>
+            Returned when the device was unable to retrieve a position within the time specified in the geolocationOptions' timeout property.
+            When using in conjunction with geolocation.
+            watchPosition, this error could be called into the geolocationError callback every timeout milliseconds.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.GeolocationSuccess">
+            <summary>
+            The user's callback function that is called when a geolocation position becomes available
+            (when using with geolocation.getCurrentPosition), or when the position changes (when using with geolocation.watchPosition).
+            </summary>
+            <param name="position">The geolocation position returned by the device.</param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.GeolocationError">
+            <summary>
+            The user's callback function that is called when there is an error for geolocation functions.
+            </summary>
+            <param name="error">The error returned by the device.</param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.GeolocationOptions">
+            <summary>
+            Optional parameters to customize the retrieval of the geolocation Position.
+            </summary>
+            <example>
+            usge
+            <code>
+            { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
+            </code>
+            </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.GeolocationOptions.enableHighAccuracy">
+            <summary>
+            Provides a hint that the application would like to receive the best possible results. By default, the device will attempt to retrieve a Position using network-based methods.
+            Setting this property to true tells the framework to use more accurate methods, such as satellite positioning.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.GeolocationOptions.timeout">
+            <summary>
+            The maximum length of time (milliseconds) that is allowed to pass from the call to geolocation.getCurrentPosition or geolocation.watchPosition
+            until the corresponding geolocationSuccess callback is invoked. If the geolocationSuccess callback is not invoked within this time,
+            the geolocationError callback will be invoked with a PositionError.TIMEOUT error code. NOTE: when used in conjunction with geolocation.watchPosition,
+            the geolocationError callback could be called on an interval every timeout milliseconds!
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.GeolocationOptions.maximumAge">
+            <summary>
+             Accept a cached position whose age is no greater than the specified time in milliseconds.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Media">
+            <summary>
+            The Media object provides the ability to record and play back audio files on a device.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.#ctor(SharpKit.JavaScript.JsString)">
+            <summary>
+            The Media object provides the ability to record and play back audio files on a device.
+            </summary>
+            <param name="src">A URI containing the audio content.</param>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.#ctor(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction)">
+            <summary>
+            The Media object provides the ability to record and play back audio files on a device.
+            </summary>
+            <param name="src">A URI containing the audio content</param>
+            <param name="mediaSuccess"> (Optional) The callback that is invoked after a Media object has completed the current play/record or stop action.</param>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.#ctor(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction,SharpKit.PhoneGap.MediaError)">
+            <summary>
+            The Media object provides the ability to record and play back audio files on a device.
+            </summary>
+            <param name="src">A URI containing the audio content</param>
+            <param name="mediaSuccess"> (Optional) The callback that is invoked after a Media object has completed the current play/record or stop action.</param>
+            <param name="mediaError"> (Optional) The callback that is invoked if there was an error.</param>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.#ctor(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction,SharpKit.PhoneGap.MediaError,SharpKit.JavaScript.JsAction)">
+            <summary>
+            The Media object provides the ability to record and play back audio files on a device.
+            </summary>
+            <param name="src">A URI containing the audio content</param>
+            <param name="mediaSuccess"> (Optional) The callback that is invoked after a Media object has completed the current play/record or stop action.</param>
+            <param name="mediaError"> (Optional) The callback that is invoked if there was an error.</param>
+            <param name="mediaStatus">(Optional) The callback that is invoked to indicate status changes</param>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.getCurrentPosition(SharpKit.JavaScript.JsFunction,SharpKit.PhoneGap.MediaError)">
+             <summary>
+             Returns the current position within an audio file.
+             </summary>
+             <param name="mediaSuccess">The callback that is called with the current position in seconds.</param>
+             <param name="mediaError">The callback that is called if there was an error.</param>
+             <example>
+             usage
+             <code>
+             // Audio player
+             //
+            var my_media = new Media(src, onSuccess, onError);
+             // Update media position every second
+            var mediaTimer = setInterval(function() {
+                // get media position
+                my_media.getCurrentPosition(
+                    // success callback
+                    function(position) {
+                        if (position > -1) {
+                            console.log((position) + " sec");
+                        }
+                    },
+                    // error callback
+                    function(e) {
+                        console.log("Error getting pos=" + e);
+                    }
+                );
+            }, 1000);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.getCurrentPosition(SharpKit.JavaScript.JsFunction)">
+             <summary>
+             Returns the current position within an audio file.
+             </summary>
+             <param name="mediaSuccess">The callback that is called with the current position in seconds.</param>
+             <example>
+             usage
+             <code>
+             // Audio player
+             //
+            var my_media = new Media(src, onSuccess, onError);
+             // Update media position every second
+            var mediaTimer = setInterval(function() {
+                // get media position
+                my_media.getCurrentPosition(
+                    // success callback
+                    function(position) {
+                        if (position > -1) {
+                            console.log((position) + " sec");
+                        }
+                    },
+                    // error callback
+                    function(e) {
+                        console.log("Error getting pos=" + e);
+                    }
+                );
+            }, 1000);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.getDuration">
+            <summary>
+            Returns the duration of an audio file.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.play">
+             <summary>
+             Starts or resumes playing an audio file.
+             </summary>
+             <example>
+             usage
+             <code>
+             // Play audio
+             //
+            function playAudio(url) {
+                // Play the audio file at url
+                var my_media = new Media(url,
+                    // success callback
+                    function() {
+                        console.log("playAudio():Audio Success");
+                    },
+                    // error callback
+                    function(err) {
+                        console.log("playAudio():Audio Error: "+err);
+                });
+                // Play audio
+                my_media.play();
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.pause">
+             <summary>
+             Pauses playing an audio file.
+             </summary>
+             <example>
+             usage
+             <code>
+             // Play audio
+             //
+            function playAudio(url) {
+                // Play the audio file at url
+                var my_media = new Media(url,
+                    // success callback
+                    function() {
+                        console.log("playAudio():Audio Success");
+                    },
+                    // error callback
+                    function(err) {
+                        console.log("playAudio():Audio Error: "+err);
+                });
+                // Play audio
+                my_media.play();
+                // Pause after 10 seconds
+                setTimeout(function() {
+                    media.pause();
+                }, 10000);        
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.release">
+             <summary>
+             Releases the underlying operating systems audio resources.
+             </summary>
+             <example>
+             usage
+             <code>
+             // Audio player
+             //
+            var my_media = new Media(src, onSuccess, onError);
+            my_media.play();
+            my_media.stop();
+            my_media.release();
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.seekTo(SharpKit.JavaScript.JsNumber)">
+             <summary>
+             Sets the current position within an audio file.
+             </summary>
+             <param name="milliseconds">The position to set the playback position within the audio in milliseconds. .</param>
+             <example>
+             usage
+             <code>
+                 // Audio player
+             //
+            var my_media = new Media(src, onSuccess, onError);
+            my_media.play();
+             // SeekTo to 10 seconds after 5 seconds
+            setTimeout(function() {
+                my_media.seekTo(10000);
+            }, 5000);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.startRecord">
+             <summary>
+             Starts recording an audio file.
+             </summary>
+             <example>
+             usage
+             <code>
+             // Record audio
+                    // 
+                    function recordAudio() {
+                var src = "myrecording.mp3";
+                var mediaRec = new Media(src,
+                    // success callback
+                    function() {
+                        console.log("recordAudio():Audio Success");
+                    },
+                    // error callback
+                    function(err) {
+                        console.log("recordAudio():Audio Error: "+ err.code);
+                    });
+                // Record audio
+                mediaRec.startRecord();
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.stopRecord">
+             <summary>
+             Stops recording an audio file.
+             </summary>
+             <example>
+             usage
+             <code>
+             // Record audio
+                    // 
+                    function recordAudio() {
+                var src = "myrecording.mp3";
+                var mediaRec = new Media(src,
+                    // success callback
+                    function() {
+                        console.log("recordAudio():Audio Success");
+                    },
+                    // error callback
+                    function(err) {
+                        console.log("recordAudio():Audio Error: "+ err.code);
+                    });
+                // Record audio
+                mediaRec.startRecord();
+                // Stop recording after 10 seconds
+                setTimeout(function() {
+                    mediaRec.stopRecord();
+                }, 10000);
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Media.stop">
+             <summary>
+             Stops playing an audio file.
+             </summary>
+             <example>
+             usage
+             <code>
+             // Play audio
+             //
+            function playAudio(url) {
+                // Play the audio file at url
+                var my_media = new Media(url,
+                    // success callback
+                    function() {
+                        console.log("playAudio():Audio Success");
+                    },
+                    // error callback
+                    function(err) {
+                        console.log("playAudio():Audio Error: "+err);
+                });
+                // Play audio
+                my_media.play();
+                // Pause after 10 seconds
+                setTimeout(function() {
+                    my_media.stop();
+                }, 10000);        
+            }
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Media.position">
+            <summary>
+            The position within the audio playback in seconds. Not automatically updated during play, call getCurrentPosition to update.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.Media.duration">
+            <summary>
+             The duration of the media in seconds.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.MediaError.code">
+            <summary>
+            One of the predefined error codes listed below.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.MediaError.message">
+            <summary>
+             Error message describing the details of the error.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Notification.alert(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+             <summary>
+             Most Cordova implementations use a native dialog box for this feature.
+             However, some platforms simply use the browser's alert function, which is typically less customizable.
+             </summary>
+             <param name="message">Dialog message</param>
+             <param name="alertCallback">Callback to invoke when alert dialog is dismissed. </param>
+             <param name="title">Dialog title (Optional, Default: "Alert")</param>
+             <param name="buttonName">Button name (Optional, Default: "OK")</param>
+             <example>
+             usage
+             <code>
+             // Android / BlackBerry WebWorks (OS 5.0 and higher) / iPhone
+             //
+            function alertDismissed() {
+                // do something
+            }
+            navigator.notification.alert(
+                'You are the winner!',  // message
+                alertDismissed,         // callback
+                'Game Over',            // title
+                'Done'                  // buttonName
+            );
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Notification.alert(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsAction,SharpKit.JavaScript.JsString)">
+             <summary>
+             Most Cordova implementations use a native dialog box for this feature.
+             However, some platforms simply use the browser's alert function, which is typically less customizable.
+             </summary>
+             <param name="message">Dialog message</param>
+             <param name="alertCallback">Callback to invoke when alert dialog is dismissed. </param>
+             <param name="title">Dialog title (Optional, Default: "Alert")</param>
+             <example>
+             usage
+             <code>
+             // Android / BlackBerry WebWorks (OS 5.0 and higher) / iPhone
+             //
+            function alertDismissed() {
+                // do something
+            }
+            navigator.notification.alert(
+                'You are the winner!',  // message
+                alertDismissed,         // callback
+                'Game Over',            // title
+                'Done'                  // buttonName
+            );
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Notification.confirm(SharpKit.JavaScript.JsString,SharpKit.PhoneGap.ConfirmCallback,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+             <summary>
+             Shows a customizable confirmation dialog box.
+             </summary>
+             <param name="message">Dialog message</param>
+             <param name="confirmCallback">Callback to invoke with index of button pressed (1, 2 or 3).</param>
+             <param name="title">Dialog title (Optional, Default: "Confirm")</param>
+             <param name="buttonLabels"> Comma separated string with button labels (Optional, Default: "OK,Cancel")</param>
+             <example>
+             usage
+             <code>
+             // process the confirmation dialog result
+            function onConfirm(buttonIndex) {
+                alert('You selected button ' + buttonIndex);
+            }
+             // Show a custom confirmation dialog
+             //
+            function showConfirm() {
+                navigator.notification.confirm(
+                    'You are the winner!',  // message
+                    onConfirm,              // callback to invoke with index of button pressed
+                    'Game Over',            // title
+                    'Restart,Exit'          // buttonLabels
+                );
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Notification.confirm(SharpKit.JavaScript.JsString,SharpKit.PhoneGap.ConfirmCallback)">
+             <summary>
+             Shows a customizable confirmation dialog box.
+             </summary>
+             <param name="message">Dialog message</param>
+             <param name="confirmCallback">Callback to invoke with index of button pressed (1, 2 or 3).</param>
+             <example>
+             usage
+             <code>
+             // process the confirmation dialog result
+            function onConfirm(buttonIndex) {
+                alert('You selected button ' + buttonIndex);
+            }
+             // Show a custom confirmation dialog
+             //
+            function showConfirm() {
+                navigator.notification.confirm(
+                    'You are the winner!',  // message
+                    onConfirm,              // callback to invoke with index of button pressed
+                    'Game Over',            // title
+                    'Restart,Exit'          // buttonLabels
+                );
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Notification.confirm(SharpKit.JavaScript.JsString,SharpKit.PhoneGap.ConfirmCallback,SharpKit.JavaScript.JsString)">
+             <summary>
+             Shows a customizable confirmation dialog box.
+             </summary>
+             <param name="message">Dialog message</param>
+             <param name="confirmCallback">Callback to invoke with index of button pressed (1, 2 or 3).</param>
+             <param name="titleOrButtonLabels">Dialog title (Optional, Default: "Confirm")
+             or
+             Comma separated string with button labels (Optional, Default: "OK,Cancel")</param>
+             <example>
+             usage
+             <code>
+             // process the confirmation dialog result
+            function onConfirm(buttonIndex) {
+                alert('You selected button ' + buttonIndex);
+            }
+             // Show a custom confirmation dialog
+             //
+            function showConfirm() {
+                navigator.notification.confirm(
+                    'You are the winner!',  // message
+                    onConfirm,              // callback to invoke with index of button pressed
+                    'Game Over',            // title
+                    'Restart,Exit'          // buttonLabels
+                );
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Notification.beep(SharpKit.JavaScript.JsNumber)">
+             <summary>
+             The device will play a beep sound.
+             </summary>
+             <param name="times">The number of times to repeat the beep </param>
+             <example>
+             usage
+             <code>
+             // Beep twice!
+            navigator.notification.beep(2);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Notification.vibrate(SharpKit.JavaScript.JsNumber)">
+             <summary>
+             Vibrates the device for the specified amount of time.
+             </summary>
+             <param name="times"> Milliseconds to vibrate the device. 1000 milliseconds equals 1 second</param>
+             <example>
+             usage
+             <code>
+             // Vibrate for 2.5 seconds
+             //
+            navigator.notification.vibrate(2500);
+             </code>
+             </example>
+        </member>
+        <member name="T:SharpKit.PhoneGap.ConfirmCallback">
+            <summary>
+             Callback to invoke with index of button pressed (1, 2 or 3)
+            </summary>
+            <param name="index">(1, 2 or 3)</param>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Database">
+            <summary>
+            Contains methods that allow the user to manipulate the Database
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Database.transaction(SharpKit.JavaScript.JsAction{SharpKit.PhoneGap.SQLTransaction},SharpKit.JavaScript.JsAction{SharpKit.PhoneGap.SQLError},SharpKit.JavaScript.JsAction)">
+             <summary>
+             Runs a database transaction.
+             </summary>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             function populateDB(tx) {
+                 tx.executeSql('DROP TABLE IF EXISTS DEMO');
+                 tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+                 tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
+                 tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+            }
+            function errorCB(err) {
+                alert("Error processing SQL: "+err.code);
+            }
+            function successCB() {
+                alert("success!");
+            }
+            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+            db.transaction(populateDB, errorCB, successCB);
+             </code>
+             </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Database.changeVersion(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+             <summary>
+             method allows scripts to atomically verify the version number and change it at the same time as doing a schema update.
+             </summary>
+             <returns></returns>
+             <example>
+             usage
+             <code>
+             var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+            db.changeVersion("1.0", "1.1");
+             </code>
+             </example>
+        </member>
+        <member name="T:SharpKit.PhoneGap.SQLTransaction">
+            <summary>
+            Contains methods that allow the user to execute SQL statements against the Database.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.SQLTransaction.executeSql(SharpKit.JavaScript.JsString)">
+            <summary>
+            executes a SQL statement
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SharpKit.PhoneGap.SQLResultSet">
+             <summary>
+             When the executeSql method of a SQLTransaction is called it will invoke it's callback with a SQLResultSet.
+             </summary>
+             <example>
+             usage
+             <code>
+             function queryDB(tx) {
+                tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+            }
+            function querySuccess(tx, results) {
+            console.log("Returned rows = " + results.rows.length);
+             // this will be true since it was a select statement and so rowsAffected was 0
+            if (!resultSet.rowsAffected) {
+              console.log('No rows affected!');
+              return false;
+            }
+             // for an insert statement, this property will return the ID of the last inserted row
+            console.log("Last inserted row ID = " + results.insertId);
+            }
+            function errorCB(err) {
+                alert("Error processing SQL: "+err.code);
+            }
+            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+            db.transaction(queryDB, errorCB);
+             </code>
+             </example>
+        </member>
+        <member name="P:SharpKit.PhoneGap.SQLResultSet.insertId">
+            <summary>
+            the row ID of the row that the SQLResultSet object's SQL statement inserted into the database
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.SQLResultSet.rowsAffected">
+            <summary>
+            the number of rows that were changed by the SQL statement. If the statement did not affect any rows then it is set to 0.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.SQLResultSet.rows">
+            <summary>
+             a SQLResultSetRowList representing the rows returned. If no rows are returned the object will be empty.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:SharpKit.PhoneGap.SQLResultSetList" -->
+        <member name="P:SharpKit.PhoneGap.SQLResultSetList.length">
+            <summary>
+            the number of rows returned by the SQL query
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.SQLResultSetList.item">
+            <summary>
+            returns the row at the specified index represented by a JavaScript object.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.SQLError">
+            <summary>
+            A SQLError object is thrown when an error occurs.
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.SQLError.code">
+            <summary>
+            One of the predefined error codes listed below
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.SQLError.message">
+            <summary>
+             A description of the error.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.LocalStorage">
+            <summary>
+            Provides access to a W3C Storage interface (http://dev.w3.org/html5/webstorage/#the-localstorage-attribute)
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.LocalStorage.key(SharpKit.JavaScript.JsNumber)">
+            <summary>
+            Returns the name of the key at the position specified.
+            </summary>
+            <returns></returns>
+            <example>
+            usage
+            <code>
+            var keyName = window.localStorage.key(0);
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.LocalStorage.getItem(SharpKit.JavaScript.JsString)">
+            <summary>
+            Returns the item identified by it's key.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+            <example>
+            usage
+            <code>
+            var value = window.localStorage.getItem("key");
+            // value is now equal to "value"
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.LocalStorage.setItem(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString)">
+            <summary>
+            Saves and item at the key provided.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <example>
+            usage
+            <code>
+            window.localStorage.setItem("key", "value");
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.LocalStorage.removeItem(SharpKit.JavaScript.JsString)">
+            <summary>
+            Removes the item identified by it's key.
+            </summary>
+            <param name="key"></param>
+            <example>
+            usage
+            <code>
+            window.localStorage.removeItem("key");
+            </code>
+            </example>
+        </member>
+        <member name="M:SharpKit.PhoneGap.LocalStorage.clear">
+            <summary>
+             Removes all of the key value pairs.
+            </summary>
+            <example>
+            usage
+            <code>
+            window.localStorage.clear();
+            </code>
+            </example>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Storage">
+            <summary>
+            Provides access to the devices storage options.
+            </summary>
+        </member>
+        <member name="M:SharpKit.PhoneGap.Storage.openDatabase(SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsString,SharpKit.JavaScript.JsNumber)">
+            <summary>
+            This method will create a new SQL Lite Database and return a Database object. Use the Database Object to manipulate the data.
+            </summary>
+            <param name="database_name">The name of the database.</param>
+            <param name="database_version">The version of the database.</param>
+            <param name="database_displayname">The display name of the database.</param>
+            <param name="database_size">The size of the database in bytes.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SharpKit.PhoneGap.Events">
+            <summary>
+            All PhoneGap events, in order to use, invisibly cast a document object to this (Events) type:
+            <example>
+            <code>
+            var doc = HtmlContext.document.As&lt;Events&gt;();
+            doc.deviceready += () => HtmlContext.alert("Deviceready");
+            </code></example>
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.deviceready">
+            <summary>
+            This is an event that fires when Cordova is fully loaded.
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.pause">
+            <summary>
+            This is an event that fires when a Cordova application is put into the background.
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.resume">
+            <summary>
+            This is an event that fires when a Cordova application is retrieved from the background.
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.online">
+            <summary>
+            This is an event that fires when a Cordova application is online (connected to the Internet).
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.offline">
+            <summary>
+            This is an event that fires when a Cordova application is offline (not connected to the Internet).
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.backbutton">
+            <summary>
+            This is an event that fires when the user presses the back button.
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.batterycritical">
+            <summary>
+            This is an event that fires when a Cordova application detects the battery has reached the critical level threshold.
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.batterylow">
+            <summary>
+            This is an event that fires when a Cordova application detects the battery has reached the low level threshold.
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.batterystatus">
+            <summary>
+            This is an event that fires when a Cordova application detects the battery has reached the low level threshold.
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.menubutton">
+            <summary>
+            This is an event that fires when the user presses the menu button.
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.searchbutton">
+            <summary>
+            This is an event that fires when the user presses the menu button.
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.startcallbutton">
+            <summary>
+            This is an event that fires when the user presses the start call button.
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.endcallbutton">
+            <summary>
+            This is an event that fires when the user presses the end call button.
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.volumedownbutton">
+            <summary>
+            This is an event that fires when the user presses the volume down button.
+            </summary>
+        </member>
+        <member name="E:SharpKit.PhoneGap.Events.volumeupbutton">
+            <summary>
+            This is an event that fires when the user presses the volume UP button.
+            </summary>
+        </member>
+        <member name="T:SharpKit.PhoneGap.BatteryStatus">
+            <summary>
+            The battery status handler will be called with an object that contains two properties:
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.BatteryStatus.level">
+            <summary>
+            The percentage of battery (0-100).
+            </summary>
+        </member>
+        <member name="P:SharpKit.PhoneGap.BatteryStatus.isPlugged">
+            <summary>
+             A boolean that represents whether or not the device is plugged in or not.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.jQTouch</name>
+    </assembly>
+    <members>
+        <member name="T:AssemblyDoc">
+            <summary>
+            SharpKit interfaces for jQueryMobile library.
+            A jQuery plugin for mobile web development on the iPhone, Android, iPod Touch, and other forward-thinking devices.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.addGlossToIcon">
+            <summary>
+            If set to true, allow iPhone to add gloss to your web clip icon.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.backSelector">
+            <summary>
+            Any valid CSS selector. Separate multiple values with a comma.	Defines elements that will trigger the “back” behavior of jQTouch when tapped. When the back behavior is invoked, the current panel moves off screen with a reverse animation and is removed from history.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.cacheGetRequests">
+            <summary>
+            If set to true, automatically caches GET requests, so subsequent clicks reference the already loaded data.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.cubeSelector">
+            <summary>
+            Any valid CSS selector. Separate multiple values with a comma.	Defines elements that will trigger a cube animation from the current panel to the target panel.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.dissolveSelector">
+            <summary>
+            Any valid CSS selector. Separate multiple values with a comma.	Defines elements that will trigger a dissolve animation from the current panel to the target panel.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.fadeSelector">
+            <summary>
+            Any valid CSS selector. Separate multiple values with a comma.	Defines elements that will trigger a fade animation from the current panel to the target panel.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.fixedViewport">
+            <summary>
+            If set to true, prevents users from being able to zoom in or out of the page.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.flipSelector">
+            <summary>
+            Any valid CSS selector. Separate multiple values with a comma.	Defines elements that will trigger a flip animation from the current panel to the target panel.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.formSelector">
+            <summary>
+            Any valid CSS selector. Separate multiple values with a comma.	 
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.fullScreen">
+            <summary>
+            When set to true, your app will open in full screen mode when launched from the users home screen. Has no effect on the display if the app is running in Mobile Safari.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.fullScreenClass">
+            <summary>
+            Class name that will be applied to the body when the app is launched in full screen mode. Allows you to write custom CSS that only executes in full screen mode.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.icon">
+            <summary>
+            null or a relative or absolute path to a 57x57 px png image file.	The web clip icon for your app. This is the image that will be displayed when a user saves your app to their home screen.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.popSelector">
+            <summary>
+            Any valid CSS selector. Separate multiple values with a comma.	Defines elements that will trigger a pop animation from the current panel to the target panel.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.preloadImages">
+            <summary>
+            An array of image paths to load them before page loads.	Ex: ["images/link_over.png", "images/link_select.png"]
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.slideInSelector">
+            <summary>
+            Any valid CSS selector. Separate multiple values with a comma.	Defines elements that will trigger a slide left animation from the current panel to the target panel.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.slideupSelector">
+            <summary>
+            Any valid CSS selector. Separate multiple values with a comma.	Defines elements that will cause the target panel to slide up into view in front of the current panel.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.startupScreen">
+            <summary>
+            null or a relative or absolute path to an image file.	Pass a relative or absolute path to a 320px x 460px startup screen for full screen apps. Use a 320px x 480px image if you set statusBar to black-translucent.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.statusBar">
+            <summary>
+            default, black-translucent, black	Defines the appearance of the 20 pixel status bar at the top of the window in an app launched in full screen mode.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.submitSelector">
+            <summary>
+            Any valid CSS selector. Separate multiple values with a comma.	Selector which, when clicked, will submit its parent form (and close keyboard if open).
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.swapSelector">
+            <summary>
+            Any valid CSS selector. Separate multiple values with a comma.	Defines elements that will cause the target panel to swap into view in front of the current panel.
+            </summary>
+        </member>
+        <member name="F:SharpKit.jQuery.jQTouch.jQTouchSettings.useAnimations">
+            <summary>
+            Set to false to disable all animations.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.jQuery.SimpleModal</name>
+    </assembly>
+    <members>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.appendTo">
+            <summary>
+            The jQuery selector to append the elements to. For ASP.NET, use 'form'.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.focus">
+            <summary>
+            Focus in the first visible, enabled element?
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.opacity">
+            <summary>
+            The opacity value for the overlay div, from 0 - 100
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.overlayId">
+            <summary>
+            The DOM element id for the overlay div
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.overlayCss">
+            <summary>
+            The CSS styling for the overlay div
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.containerId">
+            <summary>
+            The DOM element id for the container div
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.containerCss">
+            <summary>
+            The CSS styling for the container div
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.dataId">
+            <summary>
+            The DOM element id for the data div
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.dataCss">
+            <summary>
+            The CSS styling for the data div
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.minHeight">
+            <summary>
+            The minimum height for the container
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.minWidth">
+            <summary>
+            The minimum width for the container
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.maxHeight">
+            <summary>
+            The maximum height for the container. If not specified, the window height is used.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.maxWidth">
+            <summary>
+            The maximum width for the container. If not specified, the window width is used.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.autoResize">
+            <summary>
+            Resize the container if it exceeds the browser window dimensions?
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.autoPosition">
+            <summary>
+            Automatically position the container upon creation and on window resize?
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.zIndex">
+            <summary>
+            Starting z-index value
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.close">
+            <summary>
+            If true, closeHTML, escClose and overClose will be used if set. If false, none of them will be used.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.closeHTML">
+            <summary>
+            The HTML for the default close link. SimpleModal will automatically add the closeClass to this element.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.closeClass">
+            <summary>
+            The CSS class used to bind to the close event
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.escClose">
+            <summary>
+            Allow Esc keypress to close the dialog?
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.overlayClose">
+            <summary>
+            Allow click on overlay to close the dialog?
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.position">
+            <summary>
+            Position of container [top, left]. Can be number of pixels or percentage
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.persist">
+            <summary>
+            Persist the data across modal calls? Only used for existing DOM elements. If true, the data will be maintained across modal calls, if false, the data will be reverted to its original state.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.modal">
+            <summary>
+            User will be unable to interact with the page below the modal or tab away from the dialog. If false, the overlay, iframe, and certain events will be disabled allowing the user to interact with the page below the dialog.
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.onOpen">
+            <summary>
+            The callback function used in place of SimpleModal's open
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.onShow">
+            <summary>
+            The callback function used after the modal dialog has opened
+            </summary>
+        </member>
+        <member name="P:SharpKit.jQuery.SimpleModalOptions.onClose">
+            <summary>
+            The callback function used in place of SimpleModal's close
+            </summary>
+        </member>
+    </members>
+</doc>

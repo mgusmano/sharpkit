@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.jQuery.Query</name>
+    </assembly>
+    <members>
+        <member name="T:SharpKit.jQuery.QueryPlugin">
+            <summary>
+            jQuery.Query plugin
+            </summary>
+        </member>
+    </members>
+</doc>

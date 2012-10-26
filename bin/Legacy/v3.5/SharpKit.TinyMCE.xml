@@ -1,0 +1,2993 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpKit.TinyMCE</name>
+    </assembly>
+    <members>
+        <member name="T:SharpKit.TinyMCE.UndoManager">
+            <summary>
+            This event will fire when the user make an redo of a change.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.UndoManager.add(System.Object)">
+            <summary>
+            Adds a new undo level/snapshot to the undo list.
+            </summary>
+            <param name="l">Optional undo level object to add.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.UndoManager.beforeChange">
+            <summary>
+            Stores away a bookmark to be used when performing an undo action so that the selection is before
+            the change has been made.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.UndoManager.clear">
+            <summary>
+            Removes all undo levels.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.UndoManager.hasRedo">
+            <summary>
+            Returns true/false if the undo manager has any redo levels.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.UndoManager.hasUndo">
+            <summary>
+            Returns true/false if the undo manager has any undo levels.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.UndoManager.redo">
+            <summary>
+            Redoes the last action.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.UndoManager.undo">
+            <summary>
+            Undoes the last action.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.tinymce">
+            <summary>
+            Fires when an editor instance is removed from the tinymce collection.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.add(SharpKit.TinyMCE.Editor)">
+            <summary>
+            Adds an editor instance to the editor collection. This will also set it as the active editor.
+            </summary>
+            <param name="editor">Editor instance to add to the collection.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.addI18n(System.String,System.Object)">
+            <summary>
+            Adds a language pack, this gets called by the loaded language files like en.js.
+            </summary>
+            <param name="p">Prefix for the language items. For example en.myplugin</param>
+            <param name="o">Name/Value collection with items to add to the language group.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.addUnload(System.Object,System.Object)">
+            <summary>
+            Adds an unload handler to the document. This handler will be executed when the document gets unloaded.
+            This method is useful for dealing with browser memory leaks where it might be vital to remove DOM references etc.
+            </summary>
+            <param name="f">Function to execute before the document gets unloaded.</param>
+            <param name="s">Optional scope to execute the function in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.create(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a class, subclass or static singleton.
+            More details on this method can be found in the Wiki.
+            </summary>
+            <param name="s">Class name, inheritage and prefix.</param>
+            <param name="p">Collection of methods to add to the class.</param>
+            <param name="root">Optional root object defaults to the global window object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.createNS(System.String,System.Object)">
+            <summary>
+            Creates a namespace on a specific object.
+            </summary>
+            <param name="n">Namespace to create for example a.b.c.d.</param>
+            <param name="o">Optional object to add namespace to, defaults to window.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.each(System.Object,System.Object,System.Object)">
+            <summary>
+            Performs an iteration of all items in a collection such as an object or array. This method will execure the
+            callback function for each item in the collection, if the callback returns false the iteration will terminate.
+            The callback has the following format: cb(value, key_or_index).
+            </summary>
+            <param name="o">Collection to iterate.</param>
+            <param name="cb">Callback function to execute for each item.</param>
+            <param name="s">Optional scope to execute the callback in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.execCommand(System.String,System.Boolean,System.String)">
+            <summary>
+            Executes a specific command on the currently active editor.
+            </summary>
+            <param name="c">Command to perform for example Bold.</param>
+            <param name="u">Optional boolean state if a UI should be presented for the command or not.</param>
+            <param name="v">Optional value parameter like for example an URL to a link.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.execInstanceCommand(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Executes a command on a specific editor by id. This method was added for compatibility with the 2.x branch.
+            </summary>
+            <param name="id">Editor id to perform the command on.</param>
+            <param name="c">Command to perform for example Bold.</param>
+            <param name="u">Optional boolean state if a UI should be presented for the command or not.</param>
+            <param name="v">Optional value parameter like for example an URL to a link.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.explode(System.String,System.String)">
+            <summary>
+            Splits a string but removes the whitespace before and after each value.
+            </summary>
+            <param name="s">String to split.</param>
+            <param name="d">Delimiter to split by.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.extend(System.Object,System.Object)">
+            <summary>
+            Extends an object with the specified other object(s).
+            </summary>
+            <param name="obj">Object to extend with new items.</param>
+            <param name="ext__n">Object(s) to extend the specified object with.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.get">
+            <summary>
+            Returns a editor instance by id.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.getInstanceById(System.String)">
+            <summary>
+            Returns a editor instance by id. This method was added for compatibility with the 2.x branch.
+            </summary>
+            <param name="id">Editor instance id to return.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.grep(System.Array,System.Object)">
+            <summary>
+            Filters out items from the input array by calling the specified function for each item.
+            If the function returns false the item will be excluded if it returns true it will be included.
+            </summary>
+            <param name="a">Array of items to loop though.</param>
+            <param name="f">Function to call for each item. Include/exclude depends on it's return value.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.inArray(System.Array,System.Object)">
+            <summary>
+            Returns the index of a value in an array, this method will return -1 if the item wasn't found.
+            </summary>
+            <param name="a">Array/Object to search for value in.</param>
+            <param name="v">Value to check for inside the array.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.init(System.Object)">
+            <summary>
+            Initializes a set of editors. This method will create a bunch of editors based in the input.
+            </summary>
+            <param name="s">Settings object to be passed to each editor instance.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.is(System.Object,System.String)">
+            <summary>
+            Checks if a object is of a specific type for example an array.
+            </summary>
+            <param name="o">Object to check type of.</param>
+            <param name="t">Optional type to check for.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.makeMap(System.String,System.Object)">
+            <summary>
+            Makes a name/object map out of an array with names.
+            </summary>
+            <param name="delim">Optional delimiter to split string by.</param>
+            <param name="map">Optional map to add items to.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.map(System.Array,System.Object)">
+            <summary>
+            Creates a new array by the return value of each iteration function call. This enables you to convert
+            one array list into another.
+            </summary>
+            <param name="a">Array of items to iterate.</param>
+            <param name="f">Function to call for each item. It's return value will be the new value.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.remove(SharpKit.TinyMCE.Editor)">
+            <summary>
+            Removes a editor instance from the collection.
+            </summary>
+            <param name="e">Editor instance to remove.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.removeUnload(System.Object)">
+            <summary>
+            Removes the specified function form the unload handler list.
+            </summary>
+            <param name="f">Function to remove from unload handler list.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.resolve(System.String,System.Object)">
+            <summary>
+            Resolves a string and returns the object from a specific structure.
+            </summary>
+            <param name="n">Path to resolve for example a.b.c.d.</param>
+            <param name="o">Optional object to search though, defaults to window.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.triggerSave">
+            <summary>
+            Calls the save method on all editor instances in the collection. This can be useful when a form is to be submitted.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.trim(System.String)">
+            <summary>
+            Removes whitespace from the beginning and end of a string.
+            </summary>
+            <param name="s">String to remove whitespace from.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinymce.walk(System.Object,System.Object,System.String,System.String)">
+            <summary>
+            Executed the specified function for each item in a object tree.
+            </summary>
+            <param name="o">Object tree to walk though.</param>
+            <param name="f">Function to call for each item.</param>
+            <param name="n">Optional name of collection inside the objects to walk for example childNodes.</param>
+            <param name="s">Optional scope to execute the function in.</param>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.activeEditor">
+            <summary>
+            Currently active editor instance.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.baseURI">
+            <summary>
+            Absolute baseURI for the installation path of TinyMCE.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.editors">
+            <summary>
+            Collection of editor instances.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.i18n">
+            <summary>
+            Collection of language pack data.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.isAir">
+            <summary>
+            Constant that is true if the runtime is Adobe Air.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.isGecko">
+            <summary>
+            Constant that is true if the browser is Gecko.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.isIDevice">
+            <summary>
+            Constant that tells if the current browser is an iPhone or iPad.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.isIE">
+            <summary>
+            Constant that is true if the browser is IE.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.isIE6">
+            <summary>
+            Constant that is true if the browser is IE 6 or older.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.isIE7">
+            <summary>
+            Constant that is true if the browser is IE 7.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.isIE8">
+            <summary>
+            Constant that is true if the browser is IE 8.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.isIE9">
+            <summary>
+            Constant that is true if the browser is IE 9.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.isIOS5">
+            <summary>
+            Constant that is true if the current browser is running on iOS 5 or greater.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.isMac">
+            <summary>
+            Constant that is true if the os is Mac OS.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.isOpera">
+            <summary>
+            Constant that is true if the browser is Opera.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.isWebKit">
+            <summary>
+            Constant that is true if the browser is WebKit (Safari/Chrome).
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.majorVersion">
+            <summary>
+            Major version of TinyMCE build.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.minorVersion">
+            <summary>
+            Major version of TinyMCE build.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.tinymce.releaseDate">
+            <summary>
+            Release date of TinyMCE build.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.html.Serializer">
+            <summary>
+            This class is used to serialize down the DOM tree into a string using a Writer instance.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Serializer.serialize(SharpKit.TinyMCE.html.Node)">
+            <summary>
+            Serializes the specified node into a string.
+            </summary>
+            <param name="node">Node instance to serialize.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Serializer.#ctor(System.Object,SharpKit.TinyMCE.html.Schema)">
+            <summary>
+            Constructs a new Serializer instance.
+            </summary>
+            <param name="settings">Name/value settings object.</param>
+            <param name="schema">Schema instance to use.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ControlManager">
+            <summary>
+            This class is responsible for managing UI control instances.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.add(SharpKit.TinyMCE.ui.Control)">
+            <summary>
+            Adds a control to the control collection inside the manager.
+            </summary>
+            <param name="Control">instance to add to collection.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.#ctor(SharpKit.TinyMCE.Editor,System.Object)">
+            <summary>
+            Constructs a new control manager instance.
+            Consult the Wiki for more details on this class.
+            </summary>
+            <param name="ed">TinyMCE editor instance to add the control to.</param>
+            <param name="s">Optional settings object for the control manager.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.createButton(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a button control instance by id.
+            </summary>
+            <param name="id">Unique id for the new button instance. For example "bold".</param>
+            <param name="s">Optional settings object for the control.</param>
+            <param name="cc">Optional control class to use instead of the default one.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.createColorSplitButton(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a color split button control instance by id.
+            </summary>
+            <param name="id">Unique id for the new color split button instance. For example "forecolor".</param>
+            <param name="s">Optional settings object for the control.</param>
+            <param name="cc">Optional control class to use instead of the default one.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.createControl(System.String)">
+            <summary>
+            Creates a control by name, when a control is created it will automatically add it to the control collection.
+            It first ask all plugins for the specified control if the plugins didn't return a control then the default behavior
+            will be used.
+            </summary>
+            <param name="name">Control name to create for example "separator".</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.createDropMenu(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a drop menu control instance by id.
+            </summary>
+            <param name="id">Unique id for the new dropdown instance. For example "some menu".</param>
+            <param name="s">Optional settings object for the control.</param>
+            <param name="cc">Optional control class to use instead of the default one.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.createListBox(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a list box control instance by id. A list box is either a native select element or a DOM/JS based list box control. This
+            depends on the use_native_selects settings state.
+            </summary>
+            <param name="id">Unique id for the new listbox instance. For example "styles".</param>
+            <param name="s">Optional settings object for the control.</param>
+            <param name="cc">Optional control class to use instead of the default one.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.createMenuButton(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a menu button control instance by id.
+            </summary>
+            <param name="id">Unique id for the new menu button instance. For example "menu1".</param>
+            <param name="s">Optional settings object for the control.</param>
+            <param name="cc">Optional control class to use instead of the default one.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.createSeparator(System.Object)">
+            <summary>
+            Creates a separator control instance.
+            </summary>
+            <param name="cc">Optional control class to use instead of the default one.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.createSplitButton(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a split button control instance by id.
+            </summary>
+            <param name="id">Unique id for the new split button instance. For example "spellchecker".</param>
+            <param name="s">Optional settings object for the control.</param>
+            <param name="cc">Optional control class to use instead of the default one.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.createToolbar(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a toolbar container control instance by id.
+            </summary>
+            <param name="id">Unique id for the new toolbar container control instance. For example "toolbar1".</param>
+            <param name="s">Optional settings object for the control.</param>
+            <param name="cc">Optional control class to use instead of the default one.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.destroy">
+            <summary>
+            Destroy.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.get(System.String)">
+            <summary>
+            Returns a control by id or undefined it it wasn't found.
+            </summary>
+            <param name="id">Control instance name.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.setActive(System.String,System.Boolean)">
+            <summary>
+            Sets the active state of a control by id.
+            </summary>
+            <param name="id">Control id to set state on.</param>
+            <param name="s">Active state true/false.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.setControlType(System.String,System.Object)">
+            <summary>
+            Overrides a specific control type with a custom class.
+            </summary>
+            <param name="n">Name of the control to override for example button or dropmenu.</param>
+            <param name="c">Class reference to use instead of the default one.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ControlManager.setDisabled(System.String,System.Boolean)">
+            <summary>
+            Sets the dsiabled state of a control by id.
+            </summary>
+            <param name="id">Control id to set state on.</param>
+            <param name="s">Active state true/false.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.MenuItem">
+            <summary>
+            This class is base class for all menu item types like DropMenus items etc.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.MenuItem.isSelected">
+            <summary>
+            Returns true/false if the control is selected or not.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.MenuItem.#ctor(System.String,System.Object)">
+            <summary>
+            Constructs a new button control instance.
+            </summary>
+            <param name="id">Button control id for the button.</param>
+            <param name="s">Optional name/value settings object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.MenuItem.postRender">
+            <summary>
+            Post render handler. This function will be called after the UI has been
+            rendered so that events can be added.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.MenuItem.setSelected(System.Boolean)">
+            <summary>
+            Sets the selected state for the control. This will add CSS classes to the
+            element that contains the control. So that it can be selected visually.
+            </summary>
+            <param name="s">Boolean state if the control should be selected or not.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.MenuButton">
+            <summary>
+            Fires when the menu is rendered.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.MenuButton.hideMenu(System.Object)">
+            <summary>
+            Hides the menu. The optional event parameter is used to check where the event occured so it
+            doesn't close them menu if it was a event inside the menu.
+            </summary>
+            <param name="e">Optional event object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.MenuButton.#ctor(System.String,System.Object,SharpKit.TinyMCE.Editor)">
+            <summary>
+            Constructs a new split button control instance.
+            </summary>
+            <param name="id">Control id for the split button.</param>
+            <param name="s">Optional name/value settings object.</param>
+            <param name="ed">Optional the editor instance this button is for.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.MenuButton.postRender">
+            <summary>
+            Post render handler. This function will be called after the UI has been
+            rendered so that events can be added.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.MenuButton.renderMenu">
+            <summary>
+            Renders the menu to the DOM.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.MenuButton.showMenu">
+            <summary>
+            Shows the menu.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.ColorSplitButton">
+            <summary>
+            Fires when the menu is hidden.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ColorSplitButton.#ctor(System.String,System.Object,SharpKit.TinyMCE.Editor)">
+            <summary>
+            Constructs a new color split button control instance.
+            </summary>
+            <param name="id">Control id for the color split button.</param>
+            <param name="s">Optional name/value settings object.</param>
+            <param name="ed">The editor instance this button is for.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ColorSplitButton.destroy">
+            <summary>
+            Destroys the control. This means it will be removed from the DOM and any
+            events tied to it will also be removed.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ColorSplitButton.displayColor(System.String)">
+            <summary>
+            Change the currently selected color for the control.
+            </summary>
+            <param name="c">Color code value in hex for example: #FF00FF</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ColorSplitButton.hideMenu(System.Object)">
+            <summary>
+            Hides the color menu. The optional event parameter is used to check where the event occured so it
+            doesn't close them menu if it was a event inside the menu.
+            </summary>
+            <param name="e">Optional event object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ColorSplitButton.postRender">
+            <summary>
+            Post render event. This will be executed after the control has been rendered and can be used to
+            set states, add events to the control etc. It's recommended for subclasses of the control to call this method by using this.parent().
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ColorSplitButton.renderMenu">
+            <summary>
+            Renders the menu to the DOM.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ColorSplitButton.setColor(System.String)">
+            <summary>
+            Sets the current color for the control and hides the menu if it should be visible.
+            </summary>
+            <param name="c">Color code value in hex for example: #FF00FF</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ColorSplitButton.showMenu">
+            <summary>
+            Shows the color menu. The color menu is a layer places under the button
+            and displays a table of colors for the user to pick from.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.ui.ColorSplitButton.settings">
+            <summary>
+            Settings object.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.ui.ColorSplitButton.value">
+            <summary>
+            Current color value.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.html.Styles">
+            <summary>
+            This class is used to parse CSS styles it also compresses styles to reduce the output size.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Styles.parse(System.String)">
+            <summary>
+            Parses the specified style value into an object collection. This parser will also
+            merge and remove any redundant items that browsers might have added. It will also convert non hex
+            colors to hex values. Urls inside the styles will also be converted to absolute/relative based on settings.
+            </summary>
+            <param name="css">Style value to parse for example: border:1px solid red;.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Styles.serialize(System.Object,System.String)">
+            <summary>
+            Serializes the specified style object into a string.
+            </summary>
+            <param name="styles">Object to serialize as string for example: {border : '1px solid red'}</param>
+            <param name="element_name">Optional element name, if specified only the styles that matches the schema will be serialized.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Styles.toHex(System.String)">
+            <summary>
+            Parses the specified RGB color value and returns a hex version of that color.
+            </summary>
+            <param name="color">RGB string value like rgb(1,2,3)</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.ToolbarGroup">
+            <summary>
+            This class is used to group a set of toolbars together and control the keyboard navigation and focus.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ToolbarGroup.renderHTML">
+            <summary>
+            Renders the toolbar group as a HTML string.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.Editor">
+            <summary>
+            This class contains the core logic for a TinyMCE editor.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.addButton(System.String,System.Object)">
+            <summary>
+            Adds a button that later gets created by the ControlManager. This is a shorter and easier method
+            of adding buttons without the need to deal with the ControlManager directly. But it's also less
+            powerfull if you need more control use the ControlManagers factory methods instead.
+            </summary>
+            <param name="name">Button name to add.</param>
+            <param name="settings">Settings object with title, cmd etc.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.addCommand(System.String,System.Object,System.Object)">
+            <summary>
+            Adds a custom command to the editor, you can also override existing commands with this method.
+            The command that you add can be executed with execCommand.
+            </summary>
+            <param name="name">Command name to add/override.</param>
+            <param name="callback">Function to execute when the command occurs.</param>
+            <param name="scope">Optional scope to execute the function in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.addQueryStateHandler(System.String,System.Object,System.Object)">
+            <summary>
+            Adds a custom query state command to the editor, you can also override existing commands with this method.
+            The command that you add can be executed with queryCommandState function.
+            </summary>
+            <param name="name">Command name to add/override.</param>
+            <param name="callback">Function to execute when the command state retrival occurs.</param>
+            <param name="scope">Optional scope to execute the function in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.addQueryValueHandler(System.String,System.Object,System.Object)">
+            <summary>
+            Adds a custom query value command to the editor, you can also override existing commands with this method.
+            The command that you add can be executed with queryCommandValue function.
+            </summary>
+            <param name="name">Command name to add/override.</param>
+            <param name="callback">Function to execute when the command value retrival occurs.</param>
+            <param name="scope">Optional scope to execute the function in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.addShortcut(System.String,System.String,System.Object)">
+            <summary>
+            Adds a keyboard shortcut for some command or function.
+            </summary>
+            <param name="pa">Shortcut pattern. Like for example: ctrl+alt+o.</param>
+            <param name="desc">Text description for the command.</param>
+            <param name="sc">Optional scope to execute the function in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.addVisual(SharpKit.TinyMCE.dom.Element)">
+            <summary>
+            Adds visual aid for tables, anchors etc so they can be more easily edited inside the editor.
+            </summary>
+            <param name="elm">Optional root element to loop though to find tables etc that needs the visual aid.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.convertURL(System.String,System.String)">
+            <summary>
+            URL converter function this gets executed each time a user adds an img, a or
+            any other element that has a URL in it. This will be called both by the DOM and HTML
+            manipulation functions.
+            </summary>
+            <param name="url">URL to convert.</param>
+            <param name="name">Attribute name src, href etc.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.destroy(System.Boolean)">
+            <summary>
+            Destroys the editor instance by removing all events, element references or other resources
+            that could leak memory. This method will be called automatically when the page is unloaded
+            but you can also call it directly if you know what you are doing.
+            </summary>
+            <param name="s">Optional state if the destroy is an automatic destroy or user called one.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.#ctor(System.String,System.Object)">
+            <summary>
+            Constructs a editor instance by id.
+            </summary>
+            <param name="id">Unique id for the editor.</param>
+            <param name="settings">Optional settings string for the editor.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.execCallback(System.String)">
+            <summary>
+            Executes a legacy callback. This method is useful to call old 2.x option callbacks.
+            There new event model is a better way to add callback so this method might be removed in the future.
+            </summary>
+            <param name="n">Name of the callback to execute.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.execCommand(System.String,System.Boolean,System.Object,System.Object)">
+            <summary>
+            Executes a command on the current instance. These commands can be TinyMCE internal commands prefixed with "mce" or
+            they can be build in browser commands such as "Bold". A compleate list of browser commands is available on MSDN or Mozilla.org.
+            This function will dispatch the execCommand function on each plugin, theme or the execcommand_callback option if none of these
+            return true it will handle the command as a internal browser command.
+            </summary>
+            <param name="cmd">Command name to execute, for example mceLink or Bold.</param>
+            <param name="ui">True/false state if a UI (dialog) should be presented or not.</param>
+            <param name="val">Optional command value, this can be anything.</param>
+            <param name="a">Optional arguments object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.focus(System.Boolean)">
+            <summary>
+            Focuses/activates the editor. This will set this editor as the activeEditor in the tinymce collection
+            it will also place DOM focus inside the editor.
+            </summary>
+            <param name="skip_focus">Skip DOM focus. Just set is as the active editor.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.getBody">
+            <summary>
+            Returns the iframes body element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.getContainer">
+            <summary>
+            Returns the editors container element. The container element wrappes in
+            all the elements added to the page for the editor. Such as UI, iframe etc.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.getContent(System.Object)">
+            <summary>
+            Gets the content from the editor instance, this will cleanup the content before it gets returned using
+            the different cleanup rules options.
+            </summary>
+            <param name="args">Optional content object, this gets passed around through the whole get process.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.getContentAreaContainer">
+            <summary>
+            Returns the editors content area container element. The this element is the one who
+            holds the iframe or the editable element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.getDoc">
+            <summary>
+            Returns the iframes document object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.getElement">
+            <summary>
+            Returns the target element/textarea that got replaced with a TinyMCE editor instance.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.getLang(System.String,System.String)">
+            <summary>
+            Returns a language pack item by name/key.
+            </summary>
+            <param name="n">Name/key to get from the language pack.</param>
+            <param name="dv">Optional default value to retrive.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.getParam(System.String,System.String,System.String)">
+            <summary>
+            Returns a configuration parameter by name.
+            </summary>
+            <param name="n">Configruation parameter to retrive.</param>
+            <param name="dv">Optional default value to return.</param>
+            <param name="ty">Optional type parameter.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.getWin">
+            <summary>
+            Returns the iframes window object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.hide">
+            <summary>
+            Hides the editor and shows any textarea/div that the editor is supposed to replace.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.init">
+            <summary>
+            Initializes the editor this will be called automatically when
+            all plugins/themes and language packs are loaded by the rendered method.
+            This method will setup the iframe and create the theme and plugin instances.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.initContentBody">
+            <summary>
+            This method get called by the init method ones the iframe is loaded.
+            It will fill the iframe with contents, setups DOM and selection objects for the iframe.
+            This method should not be called directly.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.isDirty">
+            <summary>
+            Returns true/false if the editor is dirty or not. It will get dirty if the user has made modifications to the contents.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.isHidden">
+            <summary>
+            Returns true/false if the editor is hidden or not.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.load(System.Object)">
+            <summary>
+            Loads contents from the textarea or div element that got converted into an editor instance.
+            This method will move the contents from that textarea or div into the editor by using setContent
+            so all events etc that method has will get dispatched as well.
+            </summary>
+            <param name="o">Optional content object, this gets passed around through the whole load process.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.nodeChanged(System.Object)">
+            <summary>
+            Distpaches out a onNodeChange event to all observers. This method should be called when you
+            need to update the UI states or element path etc.
+            </summary>
+            <param name="o">Optional object to pass along for the node changed event.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.queryCommandState(System.String)">
+            <summary>
+            Returns a command specific state, for example if bold is enabled or not.
+            </summary>
+            <param name="cmd">Command to query state from.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.queryCommandValue(System.String)">
+            <summary>
+            Returns a command specific value, for example the current font size.
+            </summary>
+            <param name="c">Command to query value from.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.remove">
+            <summary>
+            Removes the editor from the dom and tinymce collection.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.render">
+            <summary>
+            Renderes the editor/adds it to the page.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.save(System.Object)">
+            <summary>
+            Saves the contents from a editor out to the textarea or div element that got converted into an editor instance.
+            This method will move the HTML contents from the editor into that textarea or div by getContent
+            so all events etc that method has will get dispatched as well.
+            </summary>
+            <param name="o">Optional content object, this gets passed around through the whole save process.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.setContent(System.String,System.Object)">
+            <summary>
+            Sets the specified content to the editor instance, this will cleanup the content before it gets set using
+            the different cleanup rules options.
+            </summary>
+            <param name="content">Content to set to editor, normally HTML contents but can be other formats as well.</param>
+            <param name="args">Optional content object, this gets passed around through the whole set process.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.setProgressState(System.Boolean,System.Object,System.Object)">
+            <summary>
+            Sets the progress state, this will display a throbber/progess for the editor.
+            This is ideal for asycronous operations like an AJAX save call.
+            </summary>
+            <param name="b">Boolean state if the progress should be shown or hidden.</param>
+            <param name="ti">Optional time to wait before the progress gets shown.</param>
+            <param name="o">Optional object to pass to the progress observers.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.show">
+            <summary>
+            Shows the editor and hides any textarea/div that the editor is supposed to replace.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Editor.translate(System.String)">
+            <summary>
+            Translates the specified string by replacing variables with language pack items it will also check if there is
+            a key mathcin the input.
+            </summary>
+            <param name="s">String to translate by the language pack data.</param>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.baseURI">
+            <summary>
+            URI object to current document that holds the TinyMCE editor instance.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.contentCSS">
+            <summary>
+            Array with CSS files to load into the iframe.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.contentStyles">
+            <summary>
+            Array of CSS styles to add to head of document when the editor loads.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.controlManager">
+            <summary>
+            Control manager instance for the editor.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.documentBaseURI">
+            <summary>
+            URI object to document configured for the TinyMCE instance.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.dom">
+            <summary>
+            DOM instance for the editor.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.formatter">
+            <summary>
+            Formatter instance.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.id">
+            <summary>
+            Editor instance id, normally the same as the div/textarea that was replaced.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.initialized">
+            <summary>
+            Is set to true after the editor instance has been initialized
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.isNotDirty">
+            <summary>
+            State to force the editor to return false on a isDirty call.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.parser">
+            <summary>
+            HTML parser will be used when contents is inserted into the editor.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.plugins">
+            <summary>
+            Name/Value object containting plugin instances.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.schema">
+            <summary>
+            Schema instance, enables you to validate elements and it's children.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.selection">
+            <summary>
+            Selection instance for the editor.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.serializer">
+            <summary>
+            DOM serializer for the editor.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.settings">
+            <summary>
+            Name/value collection with editor settings.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.theme">
+            <summary>
+            Reference to the theme instance that was used to generate the UI.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.undoManager">
+            <summary>
+            Undo manager instance, responsible for handling undo levels.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.Editor.windowManager">
+            <summary>
+            Window manager reference, use this to open new windows and dialogs.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.AddOnManager">
+            <summary>
+            Fires when a item is added.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.AddOnManager.add(System.String)">
+            <summary>
+            Adds a instance of the add-on by it's short name.
+            </summary>
+            <param name="id">Short name/id for the add-on.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.AddOnManager.get(System.String)">
+            <summary>
+            Returns the specified add on by the short name.
+            </summary>
+            <param name="n">Add-on to look for.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.AddOnManager.load(System.String,System.String,System.Object,System.Object)">
+            <summary>
+            Loads an add-on from a specific url.
+            </summary>
+            <param name="n">Short name of the add-on that gets loaded.</param>
+            <param name="u">URL to the add-on that will get loaded.</param>
+            <param name="cb">Optional callback to execute ones the add-on is loaded.</param>
+            <param name="s">Optional scope to execute the callback in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.AddOnManager.requireLangPack(System.String)">
+            <summary>
+            Loads a language pack for the specified add-on.
+            </summary>
+            <param name="n">Short name of the add-on.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.tinyMCEPopup">
+            <summary>
+            Fires when the popup is initialized.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.alert(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a alert dialog. Please don't use the blocking behavior of this
+            native version use the callback method instead then it can be extended.
+            </summary>
+            <param name="t">Title for the new alert dialog.</param>
+            <param name="cb">Callback function to be executed after the user has selected ok.</param>
+            <param name="s">Optional scope to execute the callback in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.close">
+            <summary>
+            Closes the current window.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.confirm(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a confirm dialog. Please don't use the blocking behavior of this
+            native version use the callback method instead then it can be extended.
+            </summary>
+            <param name="t">Title for the new confirm dialog.</param>
+            <param name="cb">Callback function to be executed after the user has selected ok or cancel.</param>
+            <param name="s">Optional scope to execute the callback in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.execCommand(System.String,System.Boolean,System.Object,System.Object)">
+            <summary>
+            Executed a command on editor that opened the dialog/popup.
+            </summary>
+            <param name="cmd">Command to execute.</param>
+            <param name="ui">Optional boolean value if the UI for the command should be presented or not.</param>
+            <param name="val">Optional value to pass with the comman like an URL.</param>
+            <param name="a">Optional arguments object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.executeOnLoad(System.String)">
+            <summary>
+            Will executed the specified string when the page has been loaded. This function
+            was added for compatibility with the 2.x branch.
+            </summary>
+            <param name="s">String to evalutate on init.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.getLang(System.String,System.String)">
+            <summary>
+            Returns a language item by key.
+            </summary>
+            <param name="n">Language item like mydialog.something.</param>
+            <param name="dv">Optional default value to return.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.getParam(System.String,System.String)">
+            <summary>
+            Returns a editor parameter/config option value.
+            </summary>
+            <param name="n">Name of the editor config option to retrive.</param>
+            <param name="dv">Optional default value to return.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.getWin">
+            <summary>
+            Returns the reference to the parent window that opened the dialog.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.getWindowArg(System.String,System.String)">
+            <summary>
+            Returns a window argument/parameter by name.
+            </summary>
+            <param name="n">Name of the window argument to retrive.</param>
+            <param name="dv">Optional default value to return.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.init">
+            <summary>
+            Initializes the popup this will be called automatically.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.openBrowser(System.String,System.String,System.String)">
+            <summary>
+            Opens a filebrowser/imagebrowser this will set the output value from
+            the browser as a value on the specified element.
+            </summary>
+            <param name="element_id">Id of the element to set value in.</param>
+            <param name="type">Type of browser to open image/file/flash.</param>
+            <param name="option">Option name to get the file_broswer_callback function name from.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.pickColor(System.Object,System.String)">
+            <summary>
+            Executes a color picker on the specified element id. When the user
+            then selects a color it will be set as the value of the specified element.
+            </summary>
+            <param name="e">DOM event object.</param>
+            <param name="element_id">Element id to be filled with the color value from the picker.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SharpKit.TinyMCE.tinyMCEPopup.requireLangPack" -->
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.resizeToInnerSize">
+            <summary>
+            Resizes the dialog to the inner size of the window. This is needed since various browsers
+            have different border sizes on windows.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.restoreSelection">
+            <summary>
+            Restores any stored selection. This can be useful since some browsers
+            looses it's selection if a control element is selected/focused inside the dialogs.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.tinyMCEPopup.storeSelection">
+            <summary>
+            Stores the current editor selection for later restoration. This can be useful since some browsers
+            looses it's selection if a control element is selected/focused inside the dialogs.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.html.Schema">
+            <summary>
+            Schema validator class.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Schema.addCustomElements(System.String)">
+            <summary>
+            Adds custom non HTML elements to the schema.
+            </summary>
+            <param name="custom_elements">Comma separated list of custom elements to add.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Schema.addValidChildren(System.String)">
+            <summary>
+            Parses a valid children string and adds them to the schema structure. The valid children format is for example: "element[child1|child2]".
+            </summary>
+            <param name="valid_children">Valid children elements string to parse</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Schema.addValidElements(System.String)">
+            <summary>
+            Parses a valid elements string and adds it to the schema. The valid elements format is for example "element[attr=default|otherattr]".
+            Existing rules will be replaced with the ones specified, so this extends the schema.
+            </summary>
+            <param name="valid_elements">String in the valid elements format to be parsed.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Schema.getBoolAttrs">
+            <summary>
+            Returns a map with boolean attributes.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Schema.getCustomElements">
+            <summary>
+            Returns an map object of all custom elements.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Schema.getElementRule(System.String)">
+            <summary>
+            Returns true/false if the specified element is valid or not
+            according to the schema.
+            </summary>
+            <param name="name">Element name to check for.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Schema.getNonEmptyElements">
+            <summary>
+            Returns a map with elements that should be treated as contents regardless if it has text
+            content in them or not such as TD, VIDEO or IMG.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SharpKit.TinyMCE.html.Schema.getSelfClosingElements" -->
+        <member name="M:SharpKit.TinyMCE.html.Schema.getShortEndedElements">
+            <summary>
+            Returns a map with short ended elements such as BR or IMG.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Schema.getWhiteSpaceElements">
+            <summary>
+            Returns a map with elements where white space is to be preserved like PRE or SCRIPT.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Schema.isValid(System.String,System.String)">
+            <summary>
+            Returns true/false if the specified element name and optional attribute is
+            valid according to the schema.
+            </summary>
+            <param name="name">Name of element to check.</param>
+            <param name="attr">Optional attribute name to check for.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Schema.isValidChild(System.String,System.String)">
+            <summary>
+            Returns true/false if the specified element and it's child is valid or not
+            according to the schema.
+            </summary>
+            <param name="name">Element name to check for.</param>
+            <param name="child">Element child to verify.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Schema.#ctor(System.Object)">
+            <summary>
+            Constructs a new Schema instance.
+            </summary>
+            <param name="settings">Name/value settings object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Schema.setValidElements(System.String)">
+            <summary>
+            Parses a valid elements string and sets it to the schema. The valid elements format is for example "element[attr=default|otherattr]".
+            Existing rules will be replaced with the ones specified, so this extends the schema.
+            </summary>
+            <param name="valid_elements">String in the valid elements format to be parsed.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.Toolbar">
+            <summary>
+            This class is used to create toolbars a toolbar is a container for other controls like buttons etc.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Toolbar.renderHTML">
+            <summary>
+            Renders the toolbar as a HTML string. This method is much faster than using the DOM and when
+            creating a whole toolbar with buttons it does make a lot of difference.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.plugins.AutoSave">
+            <summary>
+            This event gets fired when a draft removed/expired.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.plugins.AutoSave.getExpDate">
+            <summary>
+            Returns an expiration date UTC string.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.plugins.AutoSave.getInfo">
+            <summary>
+            Returns information about the plugin as a name/value array.
+            The current keys are longname, author, authorurl, infourl and version.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.plugins.AutoSave.hasDraft">
+            <summary>
+            This method will return true/false if there is a local storage draft available.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.plugins.AutoSave.init(SharpKit.TinyMCE.Editor,System.String)">
+            <summary>
+            Initializes the plugin, this will be executed after the plugin has been created.
+            This call is done before the editor instance has finished it's initialization so use the onInit event
+            of the editor instance to intercept that event.
+            </summary>
+            <param name="ed">Editor instance that the plugin is initialized in.</param>
+            <param name="url">Absolute URL to where the plugin is located.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.plugins.AutoSave.removeDraft">
+            <summary>
+            Removes the currently stored draft.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.plugins.AutoSave.restoreDraft">
+            <summary>
+            This method will restore the contents from the storage engine back to the editor.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.plugins.AutoSave.setupStorage">
+            <summary>
+            This method will setup the storage engine. If the browser has support for it.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.plugins.AutoSave.storeDraft">
+            <summary>
+            This method will store the current contents in the the storage engine.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.EditorCommands">
+            <summary>
+            This class enables you to add custom editor commands and it contains overrides for native browser commands to address va...
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.EditorCommands.addCommands(System.Object,System.String)">
+            <summary>
+            Adds commands to the command collection.
+            </summary>
+            <param name="command_list">Name/value collection with commands to add, the names can also be comma separated.</param>
+            <param name="type">Optional type to add, defaults to exec. Can be value or state as well.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.EditorCommands.execCommand(System.String,System.Boolean,System.Object)">
+            <summary>
+            Executes the specified command.
+            </summary>
+            <param name="command">Command to execute.</param>
+            <param name="ui">Optional user interface state.</param>
+            <param name="value">Optional value for command.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.EditorCommands.queryCommandState(System.String)">
+            <summary>
+            Queries the current state for a command for example if the current selection is "bold".
+            </summary>
+            <param name="command">Command to check the state of.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.EditorCommands.queryCommandValue(System.String)">
+            <summary>
+            Queries the command value for example the current fontsize.
+            </summary>
+            <param name="command">Command to check the value of.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.SplitButton">
+            <summary>
+            This class is used to create a split button.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.SplitButton.postRender">
+            <summary>
+            Post render handler. This function will be called after the UI has been
+            rendered so that events can be added.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.SplitButton.renderHTML">
+            <summary>
+            Renders the split button as a HTML string. This method is much faster than using the DOM and when
+            creating a whole toolbar with buttons it does make a lot of difference.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.SplitButton.#ctor(System.String,System.Object,SharpKit.TinyMCE.Editor)">
+            <summary>
+            Constructs a new split button control instance.
+            </summary>
+            <param name="id">Control id for the split button.</param>
+            <param name="s">Optional name/value settings object.</param>
+            <param name="ed">Optional the editor instance this button is for.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.ListBox">
+            <summary>
+            Fires when the menu gets rendered.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ListBox.add(System.String,System.String,System.Object)">
+            <summary>
+            Adds a option item to the list box.
+            </summary>
+            <param name="n">Title for the new option.</param>
+            <param name="v">Value for the new option.</param>
+            <param name="o">Optional object with settings like for example class.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ListBox.destroy">
+            <summary>
+            Destroys the ListBox i.e. clear memory and events.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ListBox.getLength(System.Object)">
+            <summary>
+            Returns the number of items inside the list box.
+            </summary>
+            <param name="Number">of items inside the list box.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ListBox.hideMenu">
+            <summary>
+            Hides the drop menu.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ListBox.#ctor(System.String,System.Object,SharpKit.TinyMCE.Editor)">
+            <summary>
+            Constructs a new listbox control instance.
+            </summary>
+            <param name="id">Control id for the list box.</param>
+            <param name="s">Optional name/value settings object.</param>
+            <param name="ed">Optional the editor instance this button is for.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ListBox.postRender">
+            <summary>
+            Post render event. This will be executed after the control has been rendered and can be used to
+            set states, add events to the control etc. It's recommended for subclasses of the control to call this method by using this.parent().
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ListBox.renderHTML">
+            <summary>
+            Renders the list box as a HTML string. This method is much faster than using the DOM and when
+            creating a whole toolbar with buttons it does make a lot of difference.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ListBox.renderMenu">
+            <summary>
+            Renders the menu to the DOM.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ListBox.select">
+            <summary>
+            Selects a item/option by value. This will both add a visual selection to the
+            item and change the title of the control to the title of the option.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ListBox.selectByIndex(System.String)">
+            <summary>
+            Selects a item/option by index. This will both add a visual selection to the
+            item and change the title of the control to the title of the option.
+            </summary>
+            <param name="idx">Index to select, pass -1 to select menu/title of select box.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.ListBox.showMenu">
+            <summary>
+            Displays the drop menu with all items.
+            </summary>
+        </member>
+        <member name="P:SharpKit.TinyMCE.ui.ListBox.items">
+            <summary>
+            Array of ListBox items.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.Container">
+            <summary>
+            This class is the base class for all container controls like toolbars.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Container.add(SharpKit.TinyMCE.ui.Control)">
+            <summary>
+            Adds a control to the collection of controls for the container.
+            </summary>
+            <param name="c">Control instance to add to the container.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Container.#ctor(System.String,System.Object)">
+            <summary>
+            Base contrustor a new container control instance.
+            </summary>
+            <param name="id">Control id to use for the container.</param>
+            <param name="s">Optional name/value settings object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Container.get(System.String)">
+            <summary>
+            Returns a control by id from the containers collection.
+            </summary>
+            <param name="n">Id for the control to retrive.</param>
+        </member>
+        <member name="P:SharpKit.TinyMCE.ui.Container.controls">
+            <summary>
+            Array of controls added to the container.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.html.Writer">
+            <summary>
+            This class is used to write HTML tags out it can be used with the Serializer or the SaxParser.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Writer.cdata(System.String)">
+            <summary>
+            Writes a cdata node such as <![CDATA[data]]>.
+            </summary>
+            <param name="text">String to write out inside the cdata.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SharpKit.TinyMCE.html.Writer.doctype(System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:SharpKit.TinyMCE.html.Writer.end(System.String)" -->
+        <member name="M:SharpKit.TinyMCE.html.Writer.getContent">
+            <summary>
+            Returns the contents that got serialized.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SharpKit.TinyMCE.html.Writer.pi(System.String,System.String)" -->
+        <member name="M:SharpKit.TinyMCE.html.Writer.reset">
+            <summary>
+            Resets the internal buffer if one wants to reuse the writer.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SharpKit.TinyMCE.html.Writer.start(System.String,System.Array,System.Boolean)" -->
+        <member name="M:SharpKit.TinyMCE.html.Writer.text(System.String,System.Boolean)">
+            <summary>
+            Writes a text node.
+            </summary>
+            <param name="text">String to write out.</param>
+            <param name="raw">Optional raw state if true the contents wont get encoded.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Writer.#ctor(System.Object)">
+            <summary>
+            Constructs a new Writer instance.
+            </summary>
+            <param name="settings">Name/value settings object.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.html.DomParser">
+            <summary>
+            This class parses HTML code into a DOM like structure of nodes it will remove redundant whitespace and make sure that th...
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.DomParser.addAttributeFilter(System.Object)">
+            <summary>
+            Adds a attribute filter function to the parser, the parser will collect nodes that has the specified attributes
+            and then execute the callback ones it has finished parsing the document.
+            </summary>
+            <param name="callback">Callback function to execute once it has collected nodes.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.DomParser.addNodeFilter(System.Object)">
+            <summary>
+            Adds a node filter function to the parser, the parser will collect the specified nodes by name
+            and then execute the callback ones it has finished parsing the document.
+            </summary>
+            <param name="callback">Callback function to execute once it has collected nodes.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.DomParser.#ctor(System.Object,SharpKit.TinyMCE.html.Schema)">
+            <summary>
+            Constructs a new DomParser instance.
+            </summary>
+            <param name="settings">Name/value collection of settings. comment, cdata, text, start and end are callbacks.</param>
+            <param name="schema">HTML Schema class to use when parsing.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.DomParser.parse(System.String,System.Object)">
+            <summary>
+            Parses the specified HTML string into a DOM like node tree and returns the result.
+            </summary>
+            <param name="html">Html string to sax parse.</param>
+            <param name="args">Optional args object that gets passed to all filter functions.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.dom.Element">
+            <summary>
+            Element class, this enables element blocking in IE.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Element.#ctor(System.String,System.Object)">
+            <summary>
+            Constructs a new Element instance. Consult the Wiki for more details on this class.
+            </summary>
+            <param name="id">Element ID to bind/execute methods on.</param>
+            <param name="settings">Optional settings name/value collection.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Element.getSize">
+            <summary>
+            Returns the size of the element by a object with w and h fields.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Element.getXY">
+            <summary>
+            Returns the absolute X, Y cordinate of the element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Element.moveBy(System.Object,System.Object)">
+            <summary>
+            Moves the element relative to the current position.
+            </summary>
+            <param name="x">Relative X cordinate of element position.</param>
+            <param name="y">Relative Y cordinate of element position.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Element.moveTo(System.Object,System.Object)">
+            <summary>
+            Moves the element to a specific absolute position.
+            </summary>
+            <param name="x">X cordinate of element position.</param>
+            <param name="y">Y cordinate of element position.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Element.on(System.String,System.Object,System.Object)">
+            <summary>
+            Adds a event handler to the element.
+            </summary>
+            <param name="n">Event name like for example "click".</param>
+            <param name="f">Function to execute on the specified event.</param>
+            <param name="s">Optional scope to execute function on.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Element.resizeBy(System.Object,System.Object)">
+            <summary>
+            Resizes the element relative to the current sizeto a specific size.
+            </summary>
+            <param name="w">Relative width of element.</param>
+            <param name="h">Relative height of element.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Element.resizeTo(System.Object,System.Object)">
+            <summary>
+            Resizes the element to a specific size.
+            </summary>
+            <param name="w">New width of element.</param>
+            <param name="h">New height of element.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Element.update(System.String)">
+            <summary>
+            Updates the element blocker in IE6 based on the style information of the element.
+            </summary>
+            <param name="k">Optional function key. Used internally.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.html.SaxParser">
+            <summary>
+            This class parses HTML code using pure JavaScript and executes various events for each item it finds.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.SaxParser.encodeAllRaw(System.String)">
+            <summary>
+            Encoded the specified text with both the attributes and text entities. This function will produce larger text contents
+            since it doesn't know if the context is within a attribute or text node. This was added for compatibility
+            and is exposed as the DOMUtils.encode function.
+            </summary>
+            <param name="text">Text to encode.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.SaxParser.encodeNamed(System.String,System.Boolean,System.Object)">
+            <summary>
+            Encodes the specified string using named entities. The core entities will be encoded as named ones but all non lower ascii characters
+            will be encoded into named entities.
+            </summary>
+            <param name="text">Text to encode.</param>
+            <param name="attr">Optional flag to specify if the text is attribute contents.</param>
+            <param name="entities">Optional parameter with entities to use.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.SaxParser.encodeNumeric(System.String,System.Boolean)">
+            <summary>
+            Encodes the specified string using numeric entities. The core entities will be encoded as named ones but all non lower ascii characters
+            will be encoded into numeric entities.
+            </summary>
+            <param name="text">Text to encode.</param>
+            <param name="attr">Optional flag to specify if the text is attribute contents.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.SaxParser.encodeRaw(System.String,System.Boolean)">
+            <summary>
+            Encodes the specified string using raw entities. This means only the required XML base entities will be endoded.
+            </summary>
+            <param name="text">Text to encode.</param>
+            <param name="attr">Optional flag to specify if the text is attribute contents.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.SaxParser.getEncodeFunc(System.String,System.String)">
+            <summary>
+            Returns an encode function based on the name(s) and it's optional entities.
+            </summary>
+            <param name="name">Comma separated list of encoders for example named,numeric.</param>
+            <param name="entities">Optional parameter with entities to use instead of the built in set.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.SaxParser.parse(System.String)">
+            <summary>
+            Parses the specified HTML string and executes the callbacks for each item it finds.
+            </summary>
+            <param name="html">Html string to sax parse.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.html.Node">
+            <summary>
+            This class is a minimalistic implementation of a DOM like node used by the DomParser class.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.append(SharpKit.TinyMCE.html.Node)">
+            <summary>
+            Appends a new node as a child of the current node.
+            </summary>
+            <param name="node">Node to append as a child of the current one.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.attr(System.String,System.String)">
+            <summary>
+            Gets/sets or removes an attribute by name.
+            </summary>
+            <param name="name">Attribute name to set or get.</param>
+            <param name="value">Optional value to set.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.clone">
+            <summary>
+            Does a shallow clones the node into a new node. It will also exclude id attributes since
+            there should only be one id per document.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.create(System.String,System.Object)">
+            <summary>
+            Creates a node of a specific type.
+            </summary>
+            <param name="name">Name of the node type to create for example "b" or "#text".</param>
+            <param name="attrs">Name/value collection of attributes that will be applied to elements.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.empty">
+            <summary>
+            Removes all children of the current node.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.getAll(System.String)">
+            <summary>
+            Get all children by name.
+            </summary>
+            <param name="name">Name of the child nodes to collect.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.insert(SharpKit.TinyMCE.html.Node,SharpKit.TinyMCE.html.Node,System.Boolean)">
+            <summary>
+            Inserts a node at a specific position as a child of the current node.
+            </summary>
+            <param name="node">Node to insert as a child of the current node.</param>
+            <param name="ref_node">Reference node to set node before/after.</param>
+            <param name="before">Optional state to insert the node before the reference node.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.isEmpty(System.Object)">
+            <summary>
+            Returns true/false if the node is to be considered empty or not.
+            </summary>
+            <param name="elements">Name/value object with elements that are automatically treated as non empty elements.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.#ctor(System.String,System.Object)">
+            <summary>
+            Constructs a new Node instance.
+            </summary>
+            <param name="name">Name of the node type.</param>
+            <param name="type">Numeric type representing the node.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.remove">
+            <summary>
+            Removes the node from it's parent.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.replace(SharpKit.TinyMCE.html.Node)">
+            <summary>
+            Replaces the current node with the specified one.
+            </summary>
+            <param name="node">Node to replace the current node with.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.unwrap">
+            <summary>
+            Unwraps the node in other words it removes the node but keeps the children.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.walk(System.Boolean)">
+            <summary>
+            Walks to the next or previous node and returns that node or null if it wasn't found.
+            </summary>
+            <param name="prev">Optional previous node state defaults to false.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.html.Node.wrap">
+            <summary>
+            Wraps the node in in another node.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.util.XHR">
+            <summary>
+            This class enables you to send XMLHTTPRequests cross browser.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.XHR.send(System.Object)">
+            <summary>
+            Sends a XMLHTTPRequest.
+            Consult the Wiki for details on what settings this method takes.
+            </summary>
+            <param name="o">Object will target URL, callbacks and other info needed to make the request.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.Menu">
+            <summary>
+            This class is base class for all menu types like DropMenus etc.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Menu.add(SharpKit.TinyMCE.ui.Control)">
+            <summary>
+            Adds a new menu, menu item or sub classes of them to the drop menu.
+            </summary>
+            <param name="o">Menu or menu item to add to the drop menu.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Menu.addMenu(System.Object)">
+            <summary>
+            Adds a sub menu to the menu.
+            </summary>
+            <param name="o">Menu control or a object with settings to be created into an control.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Menu.addSeparator">
+            <summary>
+            Adds a menu separator between the menu items.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Menu.collapse(System.Boolean)">
+            <summary>
+            Collapses the menu, this will hide the menu and all menu items.
+            </summary>
+            <param name="d">Optional deep state. If this is set to true all children will be collapsed as well.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Menu.createMenu(System.Object)">
+            <summary>
+            Created a new sub menu for the menu control.
+            </summary>
+            <param name="s">Optional name/value settings object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Menu.expand(System.Boolean)">
+            <summary>
+            Expands the menu, this will show them menu and all menu items.
+            </summary>
+            <param name="d">Optional deep state. If this is set to true all children will be expanded as well.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Menu.hasMenus">
+            <summary>
+            Returns true/false if the menu has sub menus or not.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Menu.isCollapsed">
+            <summary>
+            Returns true/false if the menu has been collapsed or not.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Menu.#ctor(System.String,System.Object)">
+            <summary>
+            Constructs a new button control instance.
+            </summary>
+            <param name="id">Button control id for the button.</param>
+            <param name="s">Optional name/value settings object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Menu.remove(SharpKit.TinyMCE.ui.Control)">
+            <summary>
+            Removes a specific sub menu or menu item from the menu.
+            </summary>
+            <param name="o">Menu item or menu to remove from menu.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Menu.removeAll">
+            <summary>
+            Removes all menu items and sub menu items from the menu.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.KeyboardNavigation">
+            <summary>
+            This class provides basic keyboard navigation using the arrow keys to children of a component.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.KeyboardNavigation.destroy">
+            <summary>
+            Destroys the KeyboardNavigation and unbinds any focus/blur event handles it might have added.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.KeyboardNavigation.#ctor(System.Object,SharpKit.TinyMCE.dom.DOMUtils)">
+            <summary>
+            Create a new KeyboardNavigation instance to handle the focus for a specific element.
+            </summary>
+            <param name="settings">the settings object to define how keyboard navigation works.</param>
+            <param name="dom">the DOMUtils instance to use.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.Control">
+            <summary>
+            This class is the base class for all controls like buttons, toolbars, containers.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Control.#ctor(System.String,System.Object)">
+            <summary>
+            Constructs a new control instance.
+            </summary>
+            <param name="id">Control id.</param>
+            <param name="s">Optional name/value settings object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Control.destroy">
+            <summary>
+            Destroys the control will free any memory by removing event listeners etc.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Control.isActive">
+            <summary>
+            Returns true/false if the control is disabled or not. This is a method since you can then
+            choose to check some class or some internal bool state in subclasses.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Control.isDisabled">
+            <summary>
+            Returns true/false if the control is disabled or not. This is a method since you can then
+            choose to check some class or some internal bool state in subclasses.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Control.isRendered">
+            <summary>
+            Returns true/false if the control has been rendered or not.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Control.postRender">
+            <summary>
+            Post render event. This will be executed after the control has been rendered and can be used to
+            set states, add events to the control etc. It's recommended for subclasses of the control to call this method by using this.parent().
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Control.remove">
+            <summary>
+            Removes the control. This means it will be removed from the DOM and any
+            events tied to it will also be removed.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Control.renderHTML">
+            <summary>
+            Renders the control as a HTML string. This method is much faster than using the DOM and when
+            creating a whole toolbar with buttons it does make a lot of difference.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Control.renderTo(SharpKit.TinyMCE.dom.Element)">
+            <summary>
+            Renders the control to the specified container element.
+            </summary>
+            <param name="n">HTML DOM element to add control to.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Control.setActive(System.Boolean)">
+            <summary>
+            Sets the activated state for the control. This will add CSS classes to the
+            element that contains the control. So that it can be activated visually.
+            </summary>
+            <param name="s">Boolean state if the control should be activated or not.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Control.setDisabled(System.Boolean)">
+            <summary>
+            Sets the disabled state for the control. This will add CSS classes to the
+            element that contains the control. So that it can be disabled visually.
+            </summary>
+            <param name="s">Boolean state if the control should be disabled or not.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Control.setState(System.String,System.Boolean)">
+            <summary>
+            Sets the specified class state for the control.
+            </summary>
+            <param name="c">Class name to add/remove depending on state.</param>
+            <param name="s">True/false state if the class should be removed or added.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.Theme">
+            <summary>
+            TinyMCE theme class.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Theme.getInfo">
+            <summary>
+            Meta info method, this method gets executed when TinyMCE wants to present information about the theme for example in the about/help dialog.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Theme.init(SharpKit.TinyMCE.Editor,System.String)">
+            <summary>
+            Initializes the theme.
+            </summary>
+            <param name="editor">Editor instance that created the theme instance.</param>
+            <param name="url">Absolute URL where the theme is located.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Theme.renderUI(System.Object)">
+            <summary>
+            This method is responsible for rendering/generating the overall user interface with toolbars, buttons, iframe containers etc.
+            </summary>
+            <param name="obj">Object parameter containing the targetNode DOM node that will be replaced visually with an editor instance.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.dom.DOMUtils">
+            <summary>
+            Utility class for various DOM manipulation and retrival functions.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.add(System.Object,System.String,System.Boolean)">
+            <summary>
+            Adds the specified element to another element or elements.
+            </summary>
+            <param name="a">Optional object collection with arguments to add to the new element(s).</param>
+            <param name="h">Optional inner HTML contents to add for each element.</param>
+            <param name="c">Optional internal state to indicate if it should create or add.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.addClass(System.String)">
+            <summary>
+            Adds a class to the specified element or elements.
+            </summary>
+            <param name="c">Class name to add to each element.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.addStyle(System.String)">
+            <summary>
+            Adds a style element at the top of the document with the specified cssText content.
+            </summary>
+            <param name="cssText">CSS Text style to add to top of head of document.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.bind(System.String,System.Object,System.Object)">
+            <summary>
+            Adds an event handler to the specified object.
+            </summary>
+            <param name="n">Name of event handler to add for example: click.</param>
+            <param name="f">Function to execute when the event occurs.</param>
+            <param name="s">Optional scope to execute the function in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.create(System.String,System.Object,System.String)">
+            <summary>
+            Creates a new element.
+            </summary>
+            <param name="n">Name of new element.</param>
+            <param name="a">Optional object name/value collection with element attributes.</param>
+            <param name="h">Optional HTML string to set as inner HTML of the element.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.createHTML(System.String,System.Object,System.String)">
+            <summary>
+            Create HTML string for element. The element will be closed unless an empty inner HTML string is passed.
+            </summary>
+            <param name="n">Name of new element.</param>
+            <param name="a">Optional object name/value collection with element attributes.</param>
+            <param name="h">Optional HTML string to set as inner HTML of the element.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.createRng">
+            <summary>
+            Created a new DOM Range object. This will use the native DOM Range API if it's
+            available if it's not it will fallback to the custom TinyMCE implementation.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SharpKit.TinyMCE.dom.DOMUtils.decode(System.String)" -->
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.destroy">
+            <summary>
+            Destroys all internal references to the DOM to solve IE leak issues.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.#ctor(System.Object,System.Object)">
+            <summary>
+            Constructs a new DOMUtils instance. Consult the Wiki for more details on settings etc for this class.
+            </summary>
+            <param name="d">Document reference to bind the utility class to.</param>
+            <param name="s">Optional settings collection.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SharpKit.TinyMCE.dom.DOMUtils.encode(System.String)" -->
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.findCommonAncestor(SharpKit.TinyMCE.dom.Element,SharpKit.TinyMCE.dom.Element)">
+            <summary>
+            Find the common ancestor of two elements. This is a shorter method than using the DOM Range logic.
+            </summary>
+            <param name="a">Element to find common ancestor of.</param>
+            <param name="b">Element to find common ancestor of.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.fire(System.String,System.Object)">
+            <summary>
+            Fires the specified event name with object on target.
+            </summary>
+            <param name="name">Name of the event to fire.</param>
+            <param name="evt">Event object to send.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.get">
+            <summary>
+            Returns the specified element by ID or the input element if it isn't a string.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getAttrib(System.String,System.String)">
+            <summary>
+            Returns the specified attribute by name.
+            </summary>
+            <param name="n">Name of attribute to get.</param>
+            <param name="dv">Optional default value to return if the attribute didn't exist.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getAttribs">
+            <summary>
+            Returns an NodeList with attributes for the element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getClasses">
+            <summary>
+            Returns a array of all single CSS classes in the document. A single CSS class is a simple
+            rule like ".class" complex ones like "div td.class" will not be added to output.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getNext(SharpKit.TinyMCE.html.Node)">
+            <summary>
+            Returns the next node that matches selector or function
+            </summary>
+            <param name="node">Node to find siblings from.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getOuterHTML">
+            <summary>
+            Returns the outer HTML of an element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getParent(System.Object,SharpKit.TinyMCE.html.Node)">
+            <summary>
+            Returns a node by the specified selector function. This function will
+            loop through all parent nodes and call the specified function for each node.
+            If the function then returns true indicating that it has found what it was looking for, the loop execution will then end
+            and the node it found will be returned.
+            </summary>
+            <param name="f">Selection function to execute on each node or CSS pattern.</param>
+            <param name="r">Optional root element, never go below this point.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getParents(System.Object,SharpKit.TinyMCE.html.Node)">
+            <summary>
+            Returns a node list of all parents matching the specified selector function or pattern.
+            If the function then returns true indicating that it has found what it was looking for and that node will be collected.
+            </summary>
+            <param name="f">Selection function to execute on each node or CSS pattern.</param>
+            <param name="r">Optional root element, never go below this point.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getPos(SharpKit.TinyMCE.dom.Element)">
+            <summary>
+            Returns the absolute x, y position of a node. The position will be returned in a object with x, y fields.
+            </summary>
+            <param name="ro">Optional root element to stop calculations at.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getPrev(SharpKit.TinyMCE.html.Node)">
+            <summary>
+            Returns the previous node that matches selector or function
+            </summary>
+            <param name="node">Node to find siblings from.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getRect">
+            <summary>
+            Returns the rectangle for a specific element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getRoot">
+            <summary>
+            Returns the root node of the document this is normally the body but might be a DIV. Parents like getParent will not
+            go above the point of this root node.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getSize">
+            <summary>
+            Returns the size dimensions of the specified element.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getStyle(System.String,System.Boolean)">
+            <summary>
+            Returns the current style or runtime/computed value of a element.
+            </summary>
+            <param name="na">Style name to return.</param>
+            <param name="c">Computed style.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.getViewPort(System.Object)">
+            <summary>
+            Returns the viewport of the window.
+            </summary>
+            <param name="w">Optional window to get viewport of.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.hasClass(System.String)">
+            <summary>
+            Returns true if the specified element has the specified class.
+            </summary>
+            <param name="c">CSS class to check for.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.hide">
+            <summary>
+            Hides the specified element(s) by ID by setting the "display" style.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.insertAfter(SharpKit.TinyMCE.dom.Element)">
+            <summary>
+            Inserts a element after the reference element.
+            </summary>
+            <param name="node">Element to insert after the reference.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.is(System.String)">
+            <summary>
+            Returns true/false if the specified element matches the specified css pattern.
+            </summary>
+            <param name="selector">CSS pattern to match the element agains.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.isBlock">
+            <summary>
+            Returns true/false if the specified element is a block element or not.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.isEmpty(System.Object)">
+            <summary>
+            Returns true/false if the specified node is to be considered empty or not.
+            </summary>
+            <param name="elements">Optional name/value object with elements that are automatically treated as non empty elements.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.isHidden">
+            <summary>
+            Returns true/false if the element is hidden or not by checking the "display" style.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.loadCSS(System.String)">
+            <summary>
+            Imports/loads the specified CSS file into the document bound to the class.
+            </summary>
+            <param name="u">URL to CSS file to load.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.parseStyle(System.String)">
+            <summary>
+            Parses the specified style value into an object collection. This parser will also
+            merge and remove any redundant items that browsers might have added. It will also convert non hex
+            colors to hex values. Urls inside the styles will also be converted to absolute/relative based on settings.
+            </summary>
+            <param name="st">Style value to parse for example: border:1px solid red;.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.remove(System.Boolean)">
+            <summary>
+            Removes/deletes the specified element(s) from the DOM.
+            </summary>
+            <param name="keep_children">Optional state to keep children or not. If set to true all children will be placed at the location of the removed element.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.removeClass(System.String)">
+            <summary>
+            Removes a class from the specified element or elements.
+            </summary>
+            <param name="c">Class name to remove to each element.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.rename(SharpKit.TinyMCE.dom.Element,System.String)">
+            <summary>
+            Renames the specified element to a new name and keep it's attributes and children.
+            </summary>
+            <param name="elm">Element to rename.</param>
+            <param name="name">Name of the new element.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.replace(SharpKit.TinyMCE.dom.Element,System.Boolean)">
+            <summary>
+            Replaces the specified element or elements with the specified element, the new element will
+            be cloned if multiple inputs elements are passed.
+            </summary>
+            <param name="n">New element to replace old ones with.</param>
+            <param name="k">Optional keep children state, if set to true child nodes from the old object will be added to new ones.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.run(System.Object,System.Object)">
+            <summary>
+            Executes the specified function on the element by id or dom element node or array of elements/id.
+            </summary>
+            <param name="f">Function to execute for each item.</param>
+            <param name="s">Optional scope to execute the function in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.select(System.String,System.Object)">
+            <summary>
+            Selects specific elements by a CSS level 3 pattern. For example "div#a1 p.test".
+            This function is optimized for the most common patterns needed in TinyMCE but it also performes good enough
+            on more complex patterns.
+            </summary>
+            <param name="p">CSS level 1 pattern to select/find elements by.</param>
+            <param name="s">Optional root element/scope element to search in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.serializeStyle(System.Object,System.String)">
+            <summary>
+            Serializes the specified style object into a string.
+            </summary>
+            <param name="o">Object to serialize as string for example: {border : '1px solid red'}</param>
+            <param name="name">Optional element name.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.setAttrib(System.String,System.String)">
+            <summary>
+            Sets the specified attributes value of a element or elements.
+            </summary>
+            <param name="n">Name of attribute to set.</param>
+            <param name="v">Value to set on the attribute of this value is falsy like null 0 or '' it will remove the attribute instead.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.setAttribs(System.Object)">
+            <summary>
+            Sets the specified attributes of a element or elements.
+            </summary>
+            <param name="o">Name/Value collection of attribute items to add to the element(s).</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.setHTML(System.String)">
+            <summary>
+            Sets the specified HTML content inside the element or elements. The HTML will first be processed this means
+            URLs will get converted, hex color values fixed etc. Check processHTML for details.
+            </summary>
+            <param name="h">HTML content to set as inner HTML of the element.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.setOuterHTML(System.Object,System.Object)">
+            <summary>
+            Sets the specified outer HTML on a element or elements.
+            </summary>
+            <param name="h">HTML code to set as outer value for the element.</param>
+            <param name="d">Optional document scope to use in this process defaults to the document of the DOM class.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.setStyle(System.String,System.String)">
+            <summary>
+            Sets the CSS style value on a HTML element. The name can be a camelcase string
+            or the CSS style name like background-color.
+            </summary>
+            <param name="na">Name of the style value to set.</param>
+            <param name="v">Value to set on the style.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.setStyles(System.Object)">
+            <summary>
+            Sets multiple styles on the specified element(s).
+            </summary>
+            <param name="o">Name/Value collection of style items to add to the element(s).</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.show">
+            <summary>
+            Shows the specified element(s) by ID by setting the "display" style.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.split(SharpKit.TinyMCE.dom.Element,SharpKit.TinyMCE.dom.Element,SharpKit.TinyMCE.dom.Element)">
+            <summary>
+            Splits an element into two new elements and places the specified split
+            element or element between the new ones. For example splitting the paragraph at the bold element in
+            this example <p>abc<b>abc</b>123</p> would produce <p>abc</p><b>abc</b><p>123</p>.
+            </summary>
+            <param name="pe">Parent element to split.</param>
+            <param name="e">Element to split at.</param>
+            <param name="re">Optional replacement element to replace the split element by.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.toHex(System.String)">
+            <summary>
+            Parses the specified RGB color value and returns a hex version of that color.
+            </summary>
+            <param name="s">RGB string value like rgb(1,2,3)</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.unbind(System.String,System.Object)">
+            <summary>
+            Removes the specified event handler by name and function from a element or collection of elements.
+            </summary>
+            <param name="n">Event handler name like for example: "click"</param>
+            <param name="f">Function to remove.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.DOMUtils.uniqueId(System.String)">
+            <summary>
+            Returns a unique id. This can be useful when generating elements on the fly.
+            This method will not check if the element allready exists.
+            </summary>
+            <param name="p">Optional prefix to add infront of all ids defaults to "mce_".</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.WindowManager">
+            <summary>
+            This class handles the creation of native windows and dialogs.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.WindowManager.alert(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a alert dialog. Please don't use the blocking behavior of this
+            native version use the callback method instead then it can be extended.
+            </summary>
+            <param name="t">Title for the new alert dialog.</param>
+            <param name="cb">Callback function to be executed after the user has selected ok.</param>
+            <param name="s">Optional scope to execute the callback in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.WindowManager.close(System.Object)">
+            <summary>
+            Closes the specified window. This will also dispatch out a onClose event.
+            </summary>
+            <param name="w">Native window object to close.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.WindowManager.confirm(System.String,System.Object,System.Object)">
+            <summary>
+            Creates a confirm dialog. Please don't use the blocking behavior of this
+            native version use the callback method instead then it can be extended.
+            </summary>
+            <param name="t">Title for the new confirm dialog.</param>
+            <param name="cb">Callback function to be executed after the user has selected ok or cancel.</param>
+            <param name="s">Optional scope to execute the callback in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.WindowManager.createInstance(System.String)">
+            <summary>
+            Creates a instance of a class. This method was needed since IE can't create instances
+            of classes from a parent window due to some reference problem. Any arguments passed after the class name
+            will be passed as arguments to the constructor.
+            </summary>
+            <param name="cl">Class name to create an instance of.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.WindowManager.open(System.Object,System.Object)">
+            <summary>
+            Opens a new window.
+            </summary>
+            <param name="s">Optional name/value settings collection contains things like width/height/url etc.</param>
+            <param name="p">Optional parameters/arguments collection can be used by the dialogs to retrive custom parameters.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.WindowManager.#ctor(SharpKit.TinyMCE.Editor)">
+            <summary>
+            Constructs a new window manager instance.
+            </summary>
+            <param name="ed">Editor instance that the windows are bound to.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.util.Cookie">
+            <summary>
+            This class contains simple cookie manangement functions.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.Cookie.get(System.String)">
+            <summary>
+            Gets the raw data of a cookie by name.
+            </summary>
+            <param name="n">Name of cookie to retrive.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.Cookie.getHash(System.String)">
+            <summary>
+            Parses the specified query string into an name/value object.
+            </summary>
+            <param name="n">String to parse into a n Hashtable object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.Cookie.remove(System.String,System.Object,System.Object)">
+            <summary>
+            Removes/deletes a cookie by name.
+            </summary>
+            <param name="name">Cookie name to remove/delete.</param>
+            <param name="path">Optional path to remove the cookie from.</param>
+            <param name="domain">Optional domain to restrict the cookie to.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.Cookie.set(System.String,System.String,System.Object,System.String,System.String,System.String)">
+            <summary>
+            Sets a raw cookie string.
+            </summary>
+            <param name="n">Name of the cookie.</param>
+            <param name="v">Raw cookie data.</param>
+            <param name="e">Optional date object for the expiration of the cookie.</param>
+            <param name="p">Optional path to restrict the cookie to.</param>
+            <param name="d">Optional domain to restrict the cookie to.</param>
+            <param name="s">Is the cookie secure or not.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.Cookie.setHash(System.String,System.Object,System.Object,System.String,System.String,System.String)">
+            <summary>
+            Sets a hashtable name/value object to a cookie.
+            </summary>
+            <param name="n">Name of the cookie.</param>
+            <param name="v">Hashtable object to set as cookie.</param>
+            <param name="e">Optional date object for the expiration of the cookie.</param>
+            <param name="p">Optional path to restrict the cookie to.</param>
+            <param name="d">Optional domain to restrict the cookie to.</param>
+            <param name="s">Is the cookie secure or not.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.Separator">
+            <summary>
+            This class is used to create vertical separator between other controls.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Separator.renderHTML">
+            <summary>
+            Renders the separator as a HTML string. This method is much faster than using the DOM and when
+            creating a whole toolbar with buttons it does make a lot of difference.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Separator.#ctor(System.String,System.Object)">
+            <summary>
+            Separator constructor.
+            </summary>
+            <param name="id">Control id to use for the Separator.</param>
+            <param name="s">Optional name/value settings object.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.plugins.ContextMenu">
+            <summary>
+            This event gets fired when the context menu is shown.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.plugins.ContextMenu.getInfo">
+            <summary>
+            Returns information about the plugin as a name/value array.
+            The current keys are longname, author, authorurl, infourl and version.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.plugins.ContextMenu.init(SharpKit.TinyMCE.Editor,System.String)">
+            <summary>
+            Initializes the plugin, this will be executed after the plugin has been created.
+            This call is done before the editor instance has finished it's initialization so use the onInit event
+            of the editor instance to intercept that event.
+            </summary>
+            <param name="ed">Editor instance that the plugin is initialized in.</param>
+            <param name="url">Absolute URL to where the plugin is located.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.util.JSON">
+            <summary>
+            JSON parser and serializer class.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.JSON.parse(System.String)">
+            <summary>
+            Unserializes/parses the specified JSON string into a object.
+            </summary>
+            <param name="s">JSON String to parse into a JavaScript object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.JSON.serialize(System.Object,System.String)">
+            <summary>
+            Serializes the specified object as a JSON string.
+            </summary>
+            <param name="obj">Object to serialize as a JSON string.</param>
+            <param name="quote">Optional quote string defaults to ".</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.Button">
+            <summary>
+            This class is used to create a UI button.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Button.#ctor(System.String,System.Object,SharpKit.TinyMCE.Editor)">
+            <summary>
+            Constructs a new button control instance.
+            </summary>
+            <param name="id">Control id for the button.</param>
+            <param name="s">Optional name/value settings object.</param>
+            <param name="ed">Optional the editor instance this button is for.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Button.postRender">
+            <summary>
+            Post render handler. This function will be called after the UI has been
+            rendered so that events can be added.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.Button.renderHTML">
+            <summary>
+            Renders the button as a HTML string. This method is much faster than using the DOM and when
+            creating a whole toolbar with buttons it does make a lot of difference.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.util.URI">
+            <summary>
+            This class handles parsing, modification and serialization of URI/URL strings.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.URI.getURI(System.Boolean)">
+            <summary>
+            Returns the full URI of the internal structure.
+            </summary>
+            <param name="nh">Optional no host and protocol part. Defaults to false.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.URI.setPath(System.String)">
+            <summary>
+            Sets the internal path part of the URI.
+            </summary>
+            <param name="p">Path string to set.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.URI.toAbsolute(System.String,System.Boolean)">
+            <summary>
+            Converts the specified URI into a absolute URI based on the current URI instance location.
+            </summary>
+            <param name="u">URI to convert into a relative path/URI.</param>
+            <param name="nh">No host and protocol prefix.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.URI.toAbsPath(System.String,System.String)">
+            <summary>
+            Converts a relative path into a absolute path.
+            </summary>
+            <param name="base">Base point to convert the path from.</param>
+            <param name="path">Relative path to convert into an absolute path.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.URI.toRelative(System.String)">
+            <summary>
+            Converts the specified URI into a relative URI based on the current URI instance location.
+            </summary>
+            <param name="u">URI to convert into a relative path/URI.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.URI.toRelPath(System.String,System.String)">
+            <summary>
+            Converts a absolute path into a relative path.
+            </summary>
+            <param name="base">Base point to convert the path from.</param>
+            <param name="path">Absolute path to convert into a relative path.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.URI.#ctor(System.String,System.Object)">
+            <summary>
+            Constucts a new URI instance.
+            </summary>
+            <param name="u">URI string to parse.</param>
+            <param name="s">Optional settings object.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.Plugin">
+            <summary>
+            Plugin base class, this is a pseudo class that describes how a plugin is to be created for TinyMCE.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Plugin.createControl(System.String,SharpKit.TinyMCE.ControlManager)">
+            <summary>
+            Gets called when a new control instance is created.
+            </summary>
+            <param name="name">Control name to create for example "mylistbox"</param>
+            <param name="controlman">Control manager/factory to use to create the control.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Plugin.getInfo">
+            <summary>
+            Meta info method, this method gets executed when TinyMCE wants to present information about the plugin for example in the about/help dialog.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Plugin.init(SharpKit.TinyMCE.Editor,System.String)">
+            <summary>
+            Initialization function for the plugin. This will be called when the plugin is created.
+            </summary>
+            <param name="editor">Editor instance that created the plugin instance.</param>
+            <param name="url">Absolute URL where the plugin is located.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.Formatter">
+            <summary>
+            Text formatter engine class.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Formatter.apply(System.String,System.Object,SharpKit.TinyMCE.html.Node)">
+            <summary>
+            Applies the specified format to the current selection or specified node.
+            </summary>
+            <param name="name">Name of format to apply.</param>
+            <param name="vars">Optional list of variables to replace within format before applying it.</param>
+            <param name="node">Optional node to apply the format to defaults to current selection.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Formatter.canApply(System.String)">
+            <summary>
+            Returns true/false if the specified format can be applied to the current selection or not. It will currently only check the state for selector formats, it returns true on all other format types.
+            </summary>
+            <param name="name">Name of format to check.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Formatter.formatChanged(System.String,System.Object,System.Boolean)">
+            <summary>
+            Executes the specified callback when the current selection matches the formats or not.
+            </summary>
+            <param name="formats">Comma separated list of formats to check for.</param>
+            <param name="callback">Callback with state and args when the format is changed/toggled on/off.</param>
+            <param name="similar">True/false state if the match should handle similar or exact formats.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Formatter.get(System.String)">
+            <summary>
+            Returns the format by name or all formats if no name is specified.
+            </summary>
+            <param name="name">Optional name to retrive by.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Formatter.match(System.String,System.Object,SharpKit.TinyMCE.html.Node)">
+            <summary>
+            Matches the current selection or specified node against the specified format name.
+            </summary>
+            <param name="name">Name of format to match.</param>
+            <param name="vars">Optional list of variables to replace before checking it.</param>
+            <param name="node">Optional node to check.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Formatter.matchAll(System.Array,System.Object)">
+            <summary>
+            Matches the current selection against the array of formats and returns a new array with matching formats.
+            </summary>
+            <param name="names">Name of format to match.</param>
+            <param name="vars">Optional list of variables to replace before checking it.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Formatter.matchNode(SharpKit.TinyMCE.html.Node,System.String,System.Object,System.Boolean)">
+            <summary>
+            Return true/false if the specified node has the specified format.
+            </summary>
+            <param name="node">Node to check the format on.</param>
+            <param name="name">Format name to check.</param>
+            <param name="vars">Optional list of variables to replace before checking it.</param>
+            <param name="similar">Match format that has similar properties.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Formatter.register">
+            <summary>
+            Registers a specific format by name.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Formatter.remove(System.String,System.Object)">
+            <summary>
+            Removes the specified format from the current selection or specified node.
+            </summary>
+            <param name="name">Name of format to remove.</param>
+            <param name="vars">Optional list of variables to replace within format before removing it.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.Formatter.toggle(System.String,System.Object,SharpKit.TinyMCE.html.Node)">
+            <summary>
+            Toggles the specified format on/off.
+            </summary>
+            <param name="name">Name of format to apply/remove.</param>
+            <param name="vars">Optional list of variables to replace within format before applying/removing it.</param>
+            <param name="node">Optional node to apply the format to or remove from. Defaults to current selection.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.util.JSONRequest">
+            <summary>
+            This class enables you to use JSON-RPC to call backend methods.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.JSONRequest.#ctor(System.Object)">
+            <summary>
+            Constructs a new JSONRequest instance.
+            </summary>
+            <param name="s">Optional settings object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.JSONRequest.send(System.Object)">
+            <summary>
+            Sends a JSON-RPC call. Consult the Wiki API documentation for more details on what you can pass to this function.
+            </summary>
+            <param name="o">Call object where there are three field id, method and params this object should also contain callbacks etc.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.JSONRequest.sendRPC(System.Object)">
+            <summary>
+            Simple helper function to send a JSON-RPC request without the need to initialize an object.
+            Consult the Wiki API documentation for more details on what you can pass to this function.
+            </summary>
+            <param name="o">Call object where there are three field id, method and params this object should also contain callbacks etc.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.util.Dispatcher">
+            <summary>
+            This class is used to dispatch event to observers/listeners.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.Dispatcher.add(System.Object,System.Object)">
+            <summary>
+            Add an observer function to be executed when a dispatch call is done.
+            </summary>
+            <param name="callback">Callback function to execute when a dispatch event occurs.</param>
+            <param name="s">Optional execution scope, defaults to the one specified in the class constructor.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.Dispatcher.addToTop(System.Object,System.Object)">
+            <summary>
+            Add an observer function to be executed to the top of the list of observers.
+            </summary>
+            <param name="callback">Callback function to execute when a dispatch event occurs.</param>
+            <param name="scope">Optional execution scope, defaults to the one specified in the class constructor.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.Dispatcher.dispatch(System.Object)">
+            <summary>
+            Dispatches an event to all observers/listeners.
+            </summary>
+            <param name="__">Any number of arguments to dispatch.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.Dispatcher.#ctor(System.Object)">
+            <summary>
+            Constructs a new event dispatcher object.
+            </summary>
+            <param name="scope">Optional default execution scope for all observer functions.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.util.Dispatcher.remove(System.Object)">
+            <summary>
+            Removes an observer function.
+            </summary>
+            <param name="callback">Observer function to remove.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.NativeListBox">
+            <summary>
+            This class is used to create list boxes/select list.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.NativeListBox.add(System.String,System.String,System.Object)">
+            <summary>
+            Adds a option item to the list box.
+            </summary>
+            <param name="n">Title for the new option.</param>
+            <param name="v">Value for the new option.</param>
+            <param name="o">Optional object with settings like for example class.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.NativeListBox.getLength">
+            <summary>
+            Executes the specified callback function for the menu item. In this case when the user clicks the menu item.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.NativeListBox.isDisabled">
+            <summary>
+            Returns true/false if the control is disabled or not. This is a method since you can then
+            choose to check some class or some internal bool state in subclasses.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.NativeListBox.#ctor(System.String,System.Object)">
+            <summary>
+            Constructs a new button control instance.
+            </summary>
+            <param name="id">Button control id for the button.</param>
+            <param name="s">Optional name/value settings object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.NativeListBox.postRender">
+            <summary>
+            Post render handler. This function will be called after the UI has been
+            rendered so that events can be added.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.NativeListBox.renderHTML">
+            <summary>
+            Renders the list box as a HTML string. This method is much faster than using the DOM and when
+            creating a whole toolbar with buttons it does make a lot of difference.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.NativeListBox.select">
+            <summary>
+            Selects a item/option by value. This will both add a visual selection to the
+            item and change the title of the control to the title of the option.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.NativeListBox.selectByIndex(System.String)">
+            <summary>
+            Selects a item/option by index. This will both add a visual selection to the
+            item and change the title of the control to the title of the option.
+            </summary>
+            <param name="idx">Index to select, pass -1 to select menu/title of select box.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.NativeListBox.setDisabled(System.Boolean)">
+            <summary>
+            Sets the disabled state for the control. This will add CSS classes to the
+            element that contains the control. So that it can be disabled visually.
+            </summary>
+            <param name="s">Boolean state if the control should be disabled or not.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.ui.DropMenu">
+            <summary>
+            This class is used to create drop menus, a drop menu can be a context menu, or a menu for a list box or a menu bar.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.DropMenu.add(SharpKit.TinyMCE.ui.Control)">
+            <summary>
+            Adds a new menu, menu item or sub classes of them to the drop menu.
+            </summary>
+            <param name="o">Menu or menu item to add to the drop menu.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.DropMenu.collapse(System.Boolean)">
+            <summary>
+            Collapses the menu, this will hide the menu and all menu items.
+            </summary>
+            <param name="d">Optional deep state. If this is set to true all children will be collapsed as well.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.DropMenu.createMenu(System.Object)">
+            <summary>
+            Created a new sub menu for the drop menu control.
+            </summary>
+            <param name="s">Optional name/value settings object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.DropMenu.destroy">
+            <summary>
+            Destroys the menu. This will remove the menu from the DOM and any events added to it etc.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.DropMenu.#ctor(System.String,System.Object)">
+            <summary>
+            Constructs a new drop menu control instance.
+            </summary>
+            <param name="id">Button control id for the button.</param>
+            <param name="s">Optional name/value settings object.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.DropMenu.hideMenu">
+            <summary>
+            Hides the displayed menu.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.DropMenu.remove(SharpKit.TinyMCE.ui.Control)">
+            <summary>
+            Removes a specific sub menu or menu item from the drop menu.
+            </summary>
+            <param name="o">Menu item or menu to remove from drop menu.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.DropMenu.renderNode">
+            <summary>
+            Renders the specified menu node to the dom.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.DropMenu.showMenu(System.Object,System.Object,System.Object)">
+            <summary>
+            Displays the menu at the specified cordinate.
+            </summary>
+            <param name="x">Horizontal position of the menu.</param>
+            <param name="y">Vertical position of the menu.</param>
+            <param name="px">Optional parent X position used when menus are cascading.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.ui.DropMenu.update">
+            <summary>
+            Repaints the menu after new items have been added dynamically.
+            </summary>
+        </member>
+        <member name="T:SharpKit.TinyMCE.dom.Serializer">
+            <summary>
+            Fires when the Serializer does a postProcess on the contents.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Serializer.addAttributeFilter(System.Object)">
+            <summary>
+            Adds a attribute filter function to the parser used by the serializer, the parser will collect nodes that has the specified attributes
+            and then execute the callback ones it has finished parsing the document.
+            </summary>
+            <param name="callback">Callback function to execute once it has collected nodes.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Serializer.addNodeFilter(System.Object)">
+            <summary>
+            Adds a node filter function to the parser used by the serializer, the parser will collect the specified nodes by name
+            and then execute the callback ones it has finished parsing the document.
+            </summary>
+            <param name="callback">Callback function to execute once it has collected nodes.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Serializer.addRules(System.String)">
+            <summary>
+            Adds valid elements rules to the serializers schema instance this enables you to specify things
+            like what elements should be outputted and what attributes specific elements might have.
+            Consult the Wiki for more details on this format.
+            </summary>
+            <param name="rules">Valid elements rules string to add to schema.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Serializer.serialize(System.Object,System.Object)">
+            <summary>
+            Serializes the specified browser DOM node into a HTML string.
+            </summary>
+            <param name="node">DOM node to serialize.</param>
+            <param name="args">Arguments option that gets passed to event handlers.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Serializer.#ctor(System.Object,SharpKit.TinyMCE.dom.DOMUtils,SharpKit.TinyMCE.html.Schema)">
+            <summary>
+            Constucts a new DOM serializer class.
+            </summary>
+            <param name="settings">Serializer settings object.</param>
+            <param name="dom">DOMUtils instance reference.</param>
+            <param name="schema">Optional schema reference.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Serializer.setRules(System.String)">
+            <summary>
+            Sets the valid elements rules to the serializers schema instance this enables you to specify things
+            like what elements should be outputted and what attributes specific elements might have.
+            Consult the Wiki for more details on this format.
+            </summary>
+            <param name="rules">Valid elements rules string.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.dom.Selection">
+            <summary>
+            This event gets executed when contents is extracted from the selection.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.collapse(System.Boolean)">
+            <summary>
+            Collapse the selection to start or end of range.
+            </summary>
+            <param name="to_start">Optional boolean state if to collapse to end or not. Defaults to start.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.getBookmark(System.Object,System.Boolean)">
+            <summary>
+            Returns a bookmark location for the current selection. This bookmark object
+            can then be used to restore the selection after some content modification to the document.
+            </summary>
+            <param name="type">Optional state if the bookmark should be simple or not. Default is complex.</param>
+            <param name="normalized">Optional state that enables you to get a position that it would be after normalization.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.getContent(System.Object)">
+            <summary>
+            Returns the selected contents using the DOM serializer passed in to this class.
+            </summary>
+            <param name="s">Optional settings class with for example output format text or html.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.getEnd">
+            <summary>
+            Returns the end element of a selection range. If the end is in a text
+            node the parent element will be returned.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.getNode">
+            <summary>
+            Returns the currently selected element or the common ancestor element for both start and end of the selection.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.getRng(System.Boolean)">
+            <summary>
+            Returns the browsers internal range object.
+            </summary>
+            <param name="w3c">Forces a compatible W3C range on IE.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.getSel">
+            <summary>
+            Returns the browsers internal selection object.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.getStart">
+            <summary>
+            Returns the start element of a selection range. If the start is in a text
+            node the parent element will be returned.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.isCollapsed">
+            <summary>
+            Returns true/false if the selection range is collapsed or not. Collapsed means if it's a caret or a larger selection.
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.moveToBookmark(System.Object)">
+            <summary>
+            Restores the selection to the specified bookmark.
+            </summary>
+            <param name="bookmark">Bookmark to restore selection from.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.select(SharpKit.TinyMCE.dom.Element,System.Boolean)">
+            <summary>
+            Selects the specified element. This will place the start and end of the selection range around the element.
+            </summary>
+            <param name="node">HMTL DOM element to select.</param>
+            <param name="content">Optional bool state if the contents should be selected or not on non IE browser.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.#ctor(SharpKit.TinyMCE.dom.DOMUtils,System.Object,SharpKit.TinyMCE.dom.Serializer)">
+            <summary>
+            Constructs a new selection instance.
+            </summary>
+            <param name="dom">DOMUtils object reference.</param>
+            <param name="win">Window to bind the selection object to.</param>
+            <param name="serializer">DOM serialization class to use for getContent.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.selectorChanged(System.String,System.Object)">
+            <summary>
+            Executes callback of the current selection matches the specified selector or not and passes the state and args to the callback.
+            </summary>
+            <param name="selector">CSS selector to check for.</param>
+            <param name="callback">Callback with state and args when the selector is matches or not.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.setContent(System.String,System.Object)">
+            <summary>
+            Sets the current selection to the specified content. If any contents is selected it will be replaced
+            with the contents passed in to this function. If there is no selection the contents will be inserted
+            where the caret is placed in the editor/page.
+            </summary>
+            <param name="content">HTML contents to set could also be other formats depending on settings.</param>
+            <param name="args">Optional settings object with for example data format.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.setNode(SharpKit.TinyMCE.dom.Element)">
+            <summary>
+            Sets the current selection to the specified DOM element.
+            </summary>
+            <param name="n">Element to set as the contents of the selection.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.Selection.setRng(System.Object)">
+            <summary>
+            Changes the selection to the specified DOM range.
+            </summary>
+            <param name="r">Range to select.</param>
+        </member>
+        <member name="T:SharpKit.TinyMCE.dom.ScriptLoader">
+            <summary>
+            This class handles asynchronous/synchronous loading of JavaScript files it will execute callbacks when various items get...
+            </summary>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.ScriptLoader.add(System.String,System.Object,System.Object)">
+            <summary>
+            Adds a specific script to the load queue of the script loader.
+            </summary>
+            <param name="url">Absolute URL to script to add.</param>
+            <param name="callback">Optional callback function to execute ones this script gets loaded.</param>
+            <param name="scope">Optional scope to execute callback in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.ScriptLoader.isDone(System.String)">
+            <summary>
+            Returns true/false if a script has been loaded or not.
+            </summary>
+            <param name="url">URL to check for.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.ScriptLoader.load(System.String,System.Object,System.Object)">
+            <summary>
+            Loads a specific script directly without adding it to the load queue.
+            </summary>
+            <param name="url">Absolute URL to script to add.</param>
+            <param name="callback">Optional callback function to execute ones this script gets loaded.</param>
+            <param name="scope">Optional scope to execute callback in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.ScriptLoader.loadQueue(System.Object,System.Object)">
+            <summary>
+            Starts the loading of the queue.
+            </summary>
+            <param name="callback">Optional callback to execute when all queued items are loaded.</param>
+            <param name="scope">Optional scope to execute the callback in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.ScriptLoader.loadScripts(System.Array,System.Object,System.Object)">
+            <summary>
+            Loads the specified queue of files and executes the callback ones they are loaded.
+            This method is generally not used outside this class but it might be useful in some scenarios.
+            </summary>
+            <param name="scripts">Array of queue items to load.</param>
+            <param name="callback">Optional callback to execute ones all items are loaded.</param>
+            <param name="scope">Optional scope to execute callback in.</param>
+        </member>
+        <member name="M:SharpKit.TinyMCE.dom.ScriptLoader.markDone(System.String)">
+            <summary>
+            Marks a specific script to be loaded. This can be useful if a script got loaded outside
+            the script loader or to skip it from loading some script.
+            </summary>
+            <param name="u">Absolute URL to the script to mark as loaded.</param>
+        </member>
+    </members>
+</doc>
