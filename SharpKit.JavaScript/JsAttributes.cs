@@ -273,6 +273,13 @@ namespace SharpKit.JavaScript
             }
         }
 
+
+        /// <summary>
+        /// The JavaScript code that will be generated when this type is passed as a generic argument to a generic method or generic type
+        /// </summary>
+        public string GenericArgumentJsCode { get; set; }
+
+
     }
     #endregion
 
