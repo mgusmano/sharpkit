@@ -1,6 +1,6 @@
 ﻿using SharpKit.JavaScript;
 using SharpKit.jQuery;
-using SharpKit.Html4;
+using SharpKit.Html;
 [assembly: JsType(JsMode.Prototype, Export = false)]
 
 namespace SharpKit.KendoUI
@@ -2393,7 +2393,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// If the event was triggered by a child datasource, this field holds a reference to the parent node.
         /// </summary>
-        public HtmlNode node { get; set; }
+        public HtmlElement node { get; set; }
     }
 
     [JsType(JsMode.Json)]

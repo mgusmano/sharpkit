@@ -1,4 +1,4 @@
-using SharpKit.Html4;
+using SharpKit.Html;
 using SharpKit.JavaScript;
 
 namespace SharpKit.KnockoutJs

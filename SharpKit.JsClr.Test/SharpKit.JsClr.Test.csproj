@@ -1,10 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion></ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E18669CC-D615-47BA-8C07-3A3F01B86A2D}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -73,9 +72,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpKit.Html4\SharpKit.Html4.csproj">
-      <Project>{AA74777B-DB40-4DCF-A69A-9DE5A6B2C380}</Project>
-      <Name>SharpKit.Html4</Name>
+    <ProjectReference Include="..\SharpKit.Html.Idl\SharpKit.Html.Idl.csproj">
+      <Project>{F1B6A826-60C3-4038-AABF-BD7C8380CC2F}</Project>
+      <Name>SharpKit.Html.Idl</Name>
     </ProjectReference>
     <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
@@ -97,12 +96,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>9503</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl></IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl></CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

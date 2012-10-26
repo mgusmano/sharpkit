@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
-using SharpKit.Html4;
+using SharpKit.Html;
 
 namespace SharpKit.Arshaw.FullCalendar
 {
@@ -368,7 +368,7 @@ namespace SharpKit.Arshaw.FullCalendar
         /// });
         ///</code>
         ///</example>
-        public JsAction<JsDate, bool, HtmlDomEventArgs, View> dayClick { get; set; }
+        public JsAction<JsDate, bool, Event, View> dayClick { get; set; }
 
         /// <summary>
         /// Triggered when the user clicks an event.
@@ -395,7 +395,7 @@ namespace SharpKit.Arshaw.FullCalendar
         /// });
         ///</code>
         ///</example>
-        public JsAction<Event, HtmlDomEventArgs, View> eventClick { get; set; }
+        public JsAction<Event, Event, View> eventClick { get; set; }
         //TODO: Return Value (?) http://arshaw.com/fullcalendar/docs/mouse/eventClick/
 
         /// <summary>
@@ -406,7 +406,7 @@ namespace SharpKit.Arshaw.FullCalendar
         /// view holds the current View Object.
         /// Within the callback function, this is set to the event's &lt;div> element.
         /// </summary>
-        public JsAction<Event, HtmlDomEventArgs, View> eventMouseover { get; set; }
+        public JsAction<Event, Event, View> eventMouseover { get; set; }
 
         /// <summary>
         /// Triggered when the user mouses out of an event.
@@ -416,7 +416,7 @@ namespace SharpKit.Arshaw.FullCalendar
         /// view holds the current View Object.
         /// Within the callback function, this is set to the event's &lt;div> element.
         /// </summary>
-        public JsAction<Event, HtmlDomEventArgs, View> eventMouseout { get; set; }
+        public JsAction<Event, Event, View> eventMouseout { get; set; }
 
 
 
@@ -482,7 +482,7 @@ namespace SharpKit.Arshaw.FullCalendar
         /// allDay is a boolean indicating if entire days were selected (days in month view or the "all-day" slot in the agenda view) or time slots were selected.
         /// jsEvent holds the primitive JavaScript event with information such as mouse coordinates. If select has been triggered via the select method, jsEvent will be undefined. (added in version 1.4.7)
         /// </summary>
-        public JsAction<JsDate, JsDate, bool, HtmlDomEventArgs, View> select { get; set; }
+        public JsAction<JsDate, JsDate, bool, Event, View> select { get; set; }
 
         /// <summary>
         /// A callback that will fire when the current selection is cleared.
@@ -494,7 +494,7 @@ namespace SharpKit.Arshaw.FullCalendar
         /// 4. The unselect method is called through the API.
         /// jsEvent holds the primitive JavaScript event with information such as mouse coordinates. If unselect has been triggered via the unselect method, jsEvent will be undefined. (added in version 1.4.7)
         /// </summary>
-        public JsAction<View, HtmlDomEventArgs> unselect { get; set; }
+        public JsAction<View, Event> unselect { get; set; }
 
         ///// <summary>
         ///// A method for programmatically selecting a period of time.
@@ -842,7 +842,7 @@ namespace SharpKit.Arshaw.FullCalendar
         /// ui holds the jQuery UI object.
         /// view holds the current View Object.
         /// </summary>
-        public JsAction<Event, HtmlDomEventArgs, jQuery.jQuery, View> eventDragStart { get; set; }
+        public JsAction<Event, Event, jQuery.jQuery, View> eventDragStart { get; set; }
 
         /// <summary>
         /// Triggered when event dragging stops.
@@ -854,7 +854,7 @@ namespace SharpKit.Arshaw.FullCalendar
         /// ui holds the jQuery UI object.
         /// view holds the current View Object.
         /// </summary>
-        public JsAction<Event, HtmlDomEventArgs, jQuery.jQuery, View> eventDragStop { get; set; }
+        public JsAction<Event, Event, jQuery.jQuery, View> eventDragStop { get; set; }
 
         /// <summary>
         /// Triggered when dragging stops and the event has moved to a different day/time.
@@ -899,7 +899,7 @@ namespace SharpKit.Arshaw.FullCalendar
         /// ui holds the jQuery UI object.
         /// view holds the current View Object.
         /// </summary>
-        public JsAction<Event, HtmlDomEventArgs, jQuery.jQuery, View> eventResizeStart { get; set; }
+        public JsAction<Event, Event, jQuery.jQuery, View> eventResizeStart { get; set; }
 
         /// <summary>
         /// Triggered when event resizing stops.
@@ -910,7 +910,7 @@ namespace SharpKit.Arshaw.FullCalendar
         /// ui holds the jQuery UI object.
         /// view holds the current View Object.
         /// </summary>
-        public JsAction<Event, HtmlDomEventArgs, jQuery.jQuery, View> eventResizeStop { get; set; }
+        public JsAction<Event, Event, jQuery.jQuery, View> eventResizeStop { get; set; }
 
         /// <summary>
         /// Triggered when resizing stops and the event has changed in duration.
@@ -1098,7 +1098,7 @@ namespace SharpKit.Arshaw.FullCalendar
         /// this holds the DOM element that has been dropped.
         /// To see this callback function in action, view the droppable article or look at this example.
         /// </summary>
-        public JsAction<JsDate, bool, HtmlDomEventArgs, jQuery.jQuery, HtmlElement> drop { get; set; }
+        public JsAction<JsDate, bool, Event, jQuery.jQuery, HtmlElement> drop { get; set; }
         //TODO: in the summary there are 5 elemnt, in the function there are 4. i added the last one
 
 
@@ -1271,7 +1271,7 @@ namespace SharpKit.Arshaw.FullCalendar
     /// <param name="jsEvent">jsEvent holds the native JavaScript event with low-level information such as mouse coordinates.</param>
     /// <param name="ui">ui holds the jQuery UI object.</param>
     /// <param name="view">view holds the current View Object.</param>
-    public delegate void EventDrop(Event @event, JsNumber dayDelta, JsNumber minuteDelta, bool allDay, object revertFunc, HtmlDomEventArgs jsEvent, jQuery.jQuery ui, View view);
+    public delegate void EventDrop(Event @event, JsNumber dayDelta, JsNumber minuteDelta, bool allDay, object revertFunc, Event jsEvent, jQuery.jQuery ui, View view);
 
     /// <summary>
     /// Triggered when resizing stops and the event has changed in duration.
@@ -1283,7 +1283,7 @@ namespace SharpKit.Arshaw.FullCalendar
     /// <param name="jsEvent">jsEvent holds the native JavaScript event with low-level information such as mouse coordinates.</param>
     /// <param name="ui">ui holds the jQuery UI object.</param>
     /// <param name="view">view holds the current View Object.</param>
-    public delegate void EventResize(Event @event, JsNumber dayDelta, JsNumber minuteDelta, object revertFunc, HtmlDomEventArgs jsEvent, jQuery.jQuery ui, View view);
+    public delegate void EventResize(Event @event, JsNumber dayDelta, JsNumber minuteDelta, object revertFunc, Event jsEvent, jQuery.jQuery ui, View view);
 
     public enum weekModeType
     {

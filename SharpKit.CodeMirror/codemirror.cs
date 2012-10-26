@@ -1,5 +1,5 @@
 ﻿using SharpKit.JavaScript;
-using SharpKit.Html4;
+using SharpKit.Html;
 
 namespace SharpKit.CodeMirror
 {
@@ -491,7 +491,7 @@ namespace SharpKit.CodeMirror
         /// Returns the hidden textarea used to read input.
         /// </summary>
         /// <returns></returns>
-        public HtmlTextArea getInputField() { return null; }
+        public HtmlTextAreaElement getInputField() { return null; }
 
         /// <summary>
         /// Returns the DOM node that represents the editor, and controls its width. Remove this from your tree to delete an editor instance. Set it's width style when resizing.
@@ -539,13 +539,13 @@ namespace SharpKit.CodeMirror
         /// Remove the editor, and restore the original textarea (with the editor's current content).
         /// </summary>
         /// <returns></returns>
-        public HtmlTextArea toTextArea() { return null; }
+        public HtmlTextAreaElement toTextArea() { return null; }
 
         /// <summary>
         /// Returns the textarea that the instance was based on.
         /// </summary>
         /// <returns></returns>
-        public HtmlTextArea getTextArea() { return null; }
+        public HtmlTextAreaElement getTextArea() { return null; }
 
         /// <summary>
         /// If you want to define extra methods in terms of the CodeMirror API, it is possible to use CodeMirror.defineExtension(name, value).

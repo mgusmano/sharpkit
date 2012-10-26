@@ -4,7 +4,7 @@
 //* SharpKit
 //***************************************************
 using SharpKit.JavaScript;
-using SharpKit.Html4;
+using SharpKit.Html;
 //using Ext.menu;
 using Ext.data;
 using Ext.lib;

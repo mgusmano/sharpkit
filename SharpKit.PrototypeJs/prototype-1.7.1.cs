@@ -1,5 +1,5 @@
 ﻿using SharpKit.JavaScript;
-using SharpKit.Html4;
+using SharpKit.Html;
 
 namespace SharpKit.PrototypeJs
 {

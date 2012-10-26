@@ -9,7 +9,7 @@ namespace Ext
 
     public partial class ExtContext
     {
-        [JsMethod(IgnoreGenericArguments=false, InsertArg0=")]
+        [JsMethod(IgnoreGenericArguments=false)]
         public static T create<T>(object config) { return default(T); }
         //public static Ext.window.MessageBox MessageBox { get; set; }
     }

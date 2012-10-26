@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using SharpKit.Html4;
+using SharpKit.Html;
 using SharpKit.JavaScript;
 
 namespace THREE

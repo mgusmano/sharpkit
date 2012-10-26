@@ -1,6 +1,6 @@
 ﻿
 using SharpKit.JavaScript;
-using SharpKit.Html4;
+using SharpKit.Html;
 using System;
 
 namespace SharpKit.Highcharts
@@ -1440,7 +1440,7 @@ namespace SharpKit.Highcharts
         /// 	fontSize: '12px'
         /// }
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
         /// <summary>
         /// The default series type for the chart. Can be one of line, spline, area, areaspline, column, bar, pie and scatter.
@@ -1683,7 +1683,7 @@ namespace SharpKit.Highcharts
         /// 
         /// }
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
         /// <summary>
         /// The text for the credits label. Defaults to "Highcharts.com".
@@ -2100,7 +2100,7 @@ namespace SharpKit.Highcharts
         /// 	color: '#3E576F'
         /// }
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
     }
 
@@ -2123,7 +2123,7 @@ namespace SharpKit.Highcharts
         /// 	top: '100px'
         /// }
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
     }
 
     #endregion
@@ -2273,7 +2273,7 @@ namespace SharpKit.Highcharts
         /// 	color: '#CCC'
         /// }
         /// </summary>
-        public HtmlElementStyle itemHiddenStyle { get; set; }
+        public CssStyleJson itemHiddenStyle { get; set; }
 
         /// <summary>
         /// CSS styles for each legend item in hover mode. Properties are inherited from style unless overridden here. Defaults to:
@@ -2281,7 +2281,7 @@ namespace SharpKit.Highcharts
         /// 	color: '#000'
         /// }
         /// </summary>
-        public HtmlElementStyle itemHoverStyle { get; set; }
+        public CssStyleJson itemHoverStyle { get; set; }
 
         /// <summary>
         /// The pixel bottom margin for each legend item. Defaults to 0.
@@ -2300,7 +2300,7 @@ namespace SharpKit.Highcharts
         /// 	color: '#3E576F'
         /// }
         /// </summary>
-        public HtmlElementStyle itemStyle { get; set; }
+        public CssStyleJson itemStyle { get; set; }
 
         /// <summary>
         /// The width for each legend item. This is useful in a horizontal layout with many items when you want the items to align vertically. . Defaults to null.
@@ -2379,7 +2379,7 @@ namespace SharpKit.Highcharts
         /// CSS styles for the legend area. In the 1.x versions the position of the legend area was determined by CSS. In 2.x,
         /// the position is determined by properties like align, verticalAlign, x and y, but the styles are still parsed for backwards compatibility.
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
         /// <summary>
         /// The pixel padding between the legend item symbol and the legend item text. Defaults to 5.
@@ -2466,7 +2466,7 @@ namespace SharpKit.Highcharts
         /// <summary>
         /// Text styles for the legend page navigation.
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
     }
 
@@ -2496,7 +2496,7 @@ namespace SharpKit.Highcharts
         /// 	top: '1em'
         /// }
         /// </summary>
-        public HtmlElementStyle labelStyle { get; set; }
+        public CssStyleJson labelStyle { get; set; }
 
         /// <summary>
         /// The duration in milliseconds of the fade in effect. Defaults to 100.
@@ -2512,7 +2512,7 @@ namespace SharpKit.Highcharts
         /// 	textAlign: 'center'
         /// }
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
     }
 
@@ -2538,7 +2538,7 @@ namespace SharpKit.Highcharts
         /// 	color: '#FFFFFF'
         /// }
         /// </summary>
-        public HtmlElementStyle menuItemHoverStyle { get; set; }
+        public CssStyleJson menuItemHoverStyle { get; set; }
 
         /// <summary>
         /// CSS styles for the individual items within the popup menu appearing by default when the export icon is clicked. The menu items are rendered in HTML. Defaults to
@@ -2548,7 +2548,7 @@ namespace SharpKit.Highcharts
         /// 	color: '#303030'
         /// }
         /// </summary>
-        public HtmlElementStyle menuItemStyle { get; set; }
+        public CssStyleJson menuItemStyle { get; set; }
 
         /// <summary>
         /// CSS styles for the popup menu appearing by default when the export icon is clicked. This menu is rendered in HTML. Defaults to
@@ -2557,7 +2557,7 @@ namespace SharpKit.Highcharts
         /// 	background: '#FFFFFF'
         /// }
         /// </summary>
-        public HtmlElementStyle menuStyle { get; set; }
+        public CssStyleJson menuStyle { get; set; }
     }
 
     /// <summary>
@@ -3222,7 +3222,7 @@ namespace SharpKit.Highcharts
         /// <summary>
         /// Styles for the label.
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
         /// <summary>
         /// The x position offset of the label relative to the point. Defaults to 0.
@@ -3837,7 +3837,7 @@ namespace SharpKit.Highcharts
         /// <summary>
         /// Styles for the label.
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
         /// <summary>
         /// X offset of the higher data labels relative to the point value. Defaults to 0.
@@ -5778,7 +5778,7 @@ namespace SharpKit.Highcharts
         /// 	fontSize: '16px'
         /// }
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
         /// <summary>
         /// The title of the chart. To disable the title, set the text to null. Defaults to "Chart title".
@@ -6348,7 +6348,7 @@ namespace SharpKit.Highcharts
         /// 	fontWeight: 'bold'
         /// }
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
         /// <summary>
         /// The x position offset of the label relative to the tick position on the axis. Defaults to 0.
@@ -6443,7 +6443,7 @@ namespace SharpKit.Highcharts
         /// <summary>
         /// CSS styles for the text label.
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
         /// <summary>
         /// The string text itself. A subset of HTML is supported.
@@ -6547,7 +6547,7 @@ namespace SharpKit.Highcharts
         /// <summary>
         /// CSS styles for the text label.
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
         /// <summary>
         /// The text alignment for the label.
@@ -7051,7 +7051,7 @@ namespace SharpKit.Highcharts
         /// 	'line-height': '14px'
         /// }
         /// </summary>
-        public HtmlElementStyle style { get; set; }
+        public CssStyleJson style { get; set; }
 
         /// <summary>
         /// The text alignment for the label.
@@ -7082,4 +7082,9 @@ namespace SharpKit.Highcharts
 
     #endregion
 
+
+    [JsType(JsMode.Json)]
+    public class CssStyleJson : CssStyleDeclaration
+    {
+    }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
 using SharpKit.KendoUI.Web;
-using SharpKit.Html4;
+using SharpKit.Html;
 using SharpKit.jQuery;
 using SharpKit.KendoUI;
 
@@ -3541,7 +3541,7 @@ namespace SharpKit.KendoUI.Web
         ///var range = editor.createRange();
         ///</code>
         ///</example>
-        public HtmlTextRange createRange(HtmlDocument document) { return null; }
+        public Range createRange(HtmlDocument document) { return null; }
 
         /// <summary>
         /// Gets the HTML encoded value of the editor.
@@ -3596,13 +3596,13 @@ namespace SharpKit.KendoUI.Web
         ///var range = editor.getRange();
         ///</code>
         ///</example>
-        public HtmlTextRange getRange() { return null; }
+        public Range getRange() { return null; }
 
         /// <summary>
         /// Gets a W3C-compatible Selection object form the editable area.
         /// </summary>
         /// <returns></returns>
-        public HtmlSelection getSelection() { return null; }
+        public Selection getSelection() { return null; }
 
         /// <summary>
         /// Pastes HTML into the editable area.
@@ -3636,7 +3636,7 @@ namespace SharpKit.KendoUI.Web
         ///editor.selectRange(range);
         ///</code>
         ///</example>
-        public void selectRange(HtmlTextRange range) { }
+        public void selectRange(Range range) { }
 
         public event JsAction<EmptyEventData> select { add { } remove { } }
         /// <summary>
@@ -9657,7 +9657,7 @@ namespace SharpKit.KendoUI.Web
         ///treeView.append({ text: "HTML5" }, $("#firstItem"));
         ///</code>
         ///</example>
-        public void append(JsString nodeData, HtmlNode parentNode) { }
+        public void append(JsString nodeData, Node parentNode) { }
         //TODO: parentNode type is Node
         /// <summary>
         /// Appends a node to a group of a TreeView. This method may also be used to reorder the nodes of a TreeView.
@@ -9826,7 +9826,7 @@ namespace SharpKit.KendoUI.Web
         ///treeView.insertAfter({ text: "JavaScript" }, $("#firstItem"));
         ///</code>
         ///</example>
-        public void insertAfter(JsString nodeData, HtmlNode referenceNode) { }
+        public void insertAfter(JsString nodeData, Node referenceNode) { }
 
         /// <summary>
         /// Inserts a node before another node. This method may also be used to reorder the nodes of a TreeView.
@@ -9840,7 +9840,7 @@ namespace SharpKit.KendoUI.Web
         ///treeView.insertBefore({ text: "CSS3" }, $("#firstItem"));
         ///</code>
         ///</example>
-        public void insertBefore(JsString nodeData, HtmlNode referenceNode) { }
+        public void insertBefore(JsString nodeData, Node referenceNode) { }
 
         /// <summary>
         /// Removes a node from a TreeView.
@@ -9859,7 +9859,7 @@ namespace SharpKit.KendoUI.Web
         /// Gets the selected node of a TreeView.
         /// </summary>
         /// <returns>The selected node of a TreeView.</returns>
-        public HtmlNode select() { return null; }
+        public Node select() { return null; }
         /// <summary>
         /// Sets the selected node of a TreeView.
         /// </summary>
@@ -10178,7 +10178,7 @@ namespace SharpKit.KendoUI.Web
     [JsType(JsMode.Json)]
     public class TreeViewEventData
     {
-        public HtmlNode node { get; set; }
+        public Node node { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -10187,7 +10187,7 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// The node that is being dragged.
         /// </summary>
-        public HtmlNode sourceNode { get; set; }
+        public Node sourceNode { get; set; }
 
         /// <summary>
         /// The element that the node is placed over.
@@ -10221,12 +10221,12 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// The node that is being dropped.
         /// </summary>
-        public HtmlNode sourceNode { get; set; }
+        public Node sourceNode { get; set; }
 
         /// <summary>
         /// The node that the sourceNode is being dropped upon.
         /// </summary>
-        public HtmlNode destinationNode { get; set; }
+        public Node destinationNode { get; set; }
 
         /// <summary>
         /// Shows where the source has been dropped. One of the values over, before, or after.
@@ -10240,7 +10240,7 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// The node that will be dragged.
         /// </summary>
-        public HtmlNode sourceNode { get; set; }
+        public Node sourceNode { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -10249,12 +10249,12 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// The node that is being dropped.
         /// </summary>
-        public HtmlNode sourceNode { get; set; }
+        public Node sourceNode { get; set; }
 
         /// <summary>
         /// The node that the sourceNode is being dropped upon.
         /// </summary>
-        public HtmlNode destinationNode { get; set; }
+        public Node destinationNode { get; set; }
 
         /// <summary>
         /// Whether this drop operation is permitted.

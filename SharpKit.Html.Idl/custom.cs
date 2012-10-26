@@ -192,4 +192,18 @@ namespace SharpKit.Html
         public static object parse(JsString json) { return null; }
 
     }
+
+    partial class Window
+    {
+        public int setTimeout(JsAction handler, int timeout) { return default(int); }
+        public int setInterval(JsAction handler, int timeout) { return default(int); }
+        public Window open() { return null; }
+
+    }
+    //public partial class HtmlWindow : Window
+    //{
+    //    public new HtmlDocument document { get; private set; }
+
+    //}
+
 }

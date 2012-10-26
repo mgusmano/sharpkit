@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
-using SharpKit.Html4;
+using SharpKit.Html;
 namespace SharpKit.jQuery
 {
     #region jQuery
@@ -2840,7 +2840,7 @@ namespace SharpKit.jQuery
     /// Tip: you can animate every CSS numeric property.
     /// </summary>
     [JsType(JsMode.Json)]
-    public class Map : HtmlElementStyle
+    public class Map : CssStyleDeclaration
     {
     }
 
@@ -2904,68 +2904,6 @@ namespace SharpKit.jQuery
         /// </summary>
         [JsMethod(Name = "$")]
         public static jQuery J(JsString selector) { return null; }
-    }
-
-    #endregion
-    #region jQueryContextBase
-    [JsType(JsMode.Global, Export = false)]
-    public partial class jQueryContextBase : HtmlContextBase
-    {
-        /// <summary>
-        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
-        /// </summary>
-        [JsMethod(Name = "$")]
-        protected static jQuery J(object obj) { return null; }
-        /// <summary>
-        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
-        /// </summary>
-        [JsMethod(Name = "$")]
-        protected static jQuery J(HtmlElement element) { return null; }
-        /// <summary>
-        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
-        /// </summary>
-        [JsMethod(Name = "$")]
-        protected static jQuery J(JsArray elementArray) { return null; }
-        /// <summary>
-        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
-        /// </summary>
-        [JsMethod(Name = "$")]
-        protected static jQuery J(jQuery jQuery_object) { return null; }
-        /// <summary>
-        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
-        /// </summary>
-        [JsMethod(Name = "$")]
-        protected static jQuery J() { return null; }
-        /// <summary>
-        /// Creates DOM elements on the fly from the provided string of raw HTML.
-        /// </summary>
-        [JsMethod(Name = "$")]
-        protected static jQuery J(JsString html, HtmlDocument ownerDocument) { return null; }
-        /// <summary>
-        /// Creates DOM elements on the fly from the provided string of raw HTML.
-        /// </summary>
-        [JsMethod(Name = "$")]
-        protected static jQuery J(JsString html, object props) { return null; }
-        /// <summary>
-        /// Binds a function to be executed when the DOM has finished loading.
-        /// </summary>
-        [JsMethod(Name = "$")]
-        protected static jQuery J(JsAction callback) { return null; }
-        /// <summary>
-        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
-        /// </summary>
-        [JsMethod(Name = "$")]
-        protected static jQuery J(JsString selector, HtmlElement context) { return null; }
-        /// <summary>
-        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
-        /// </summary>
-        [JsMethod(Name = "$")]
-        protected static jQuery J(JsString selector, jQuery context) { return null; }
-        /// <summary>
-        /// Accepts a string containing a CSS selector which is then used to match a set of elements.
-        /// </summary>
-        [JsMethod(Name = "$")]
-        protected static jQuery J(JsString selector) { return null; }
     }
 
     #endregion
@@ -3334,7 +3272,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Certain native events may have special properties that can be accessed as properties of the event.originalEvent object. To make special properties available in all event objects, we can add them to the jQuery.event.props array.
         /// </summary>
-        public HtmlDomEventArgs originalEvent { get; set; }
+        public DOMEvent originalEvent { get; set; }
 
         public JsBoolean altKey { get; set; }
         public object attrChange { get; set; }
