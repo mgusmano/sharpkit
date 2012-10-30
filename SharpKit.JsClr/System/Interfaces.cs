@@ -16,4 +16,11 @@ namespace SharpKit.JavaScript.Private
     {
         bool Equals(T other);
     }
+
+    [JsType(Name = "System.IComparar$1", Filename = "~/res/System.js")]
+    public interface JsImplIComparar<T>
+    {
+        int Compare(T x, T y);
+    }
+
 }

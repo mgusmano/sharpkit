@@ -141,7 +141,7 @@ namespace SharpKit.JavaScript.Private
 		
 		public void Sort(Comparison<T> comparison)
 		{
-			_list.sort(comparison.ToJsFunction());
+			_list.sort(comparison.As<JsFunction>());
 		}
 
         /// <summary>Performs the specified action on each element of the <see cref="T:System.Collections.Generic.List`1" />.</summary>

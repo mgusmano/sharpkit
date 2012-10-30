@@ -17,11 +17,11 @@ namespace SharpKit.JavaScript.Utils
 			throw new NotImplementedException("TODO: Implement");
 		}
 
-		[JsMethod(Code="return del._ToJsFunction();")]
-		public static JsFunction ToJsFunction(this MulticastDelegate del)
-		{
-			throw new NotImplementedException("TODO: Implement");
-		}
+        //[JsMethod(Code="return del._ToJsFunction();")]
+        //public static JsFunction ToJsFunction(this MulticastDelegate del)
+        //{
+        //    throw new NotImplementedException("TODO: Implement");
+        //}
 
 		public static object undefined;
 		[JsMethod(Code = "return obj==value;")]
