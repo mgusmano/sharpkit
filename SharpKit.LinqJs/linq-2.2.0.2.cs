@@ -62,26 +62,26 @@ namespace SharpKit.LinqJs
         /// <param type="RegExp/String" name="pattern">RegExp or Pattern string</param>
         /// <param type="Optional:String" name="flags" optional="true">If pattern is String then can use regexp flags "i" or "m" or "im"</param>
         /// <returns type="Enumerable"></returns>
-        public static Enumerable<T> Matches<T>(JsString input, JsRegExp pattern, JsString flags) { return null; }
+        public static Enumerable<JsString> Matches<T>(JsString input, JsRegExp pattern, JsString flags) { return null; }
         /// <summary>Global regex match and send regexp object.
         /// Ex: Matches((.)z,"0z1z2z") - $[1] => 0,1,2</summary>
         /// <param type="String" name="input">input string</param>
         /// <param type="RegExp/String" name="pattern">RegExp or Pattern string</param>
         /// <returns type="Enumerable"></returns>
-        public static Enumerable<T> Matches<T>(JsString input, JsRegExp pattern) { return null; }
+        public static Enumerable<JsString> Matches<T>(JsString input, JsRegExp pattern) { return null; }
         /// <summary>Global regex match and send regexp object.
         /// Ex: Matches((.)z,"0z1z2z") - $[1] => 0,1,2</summary>
         /// <param type="String" name="input">input string</param>
         /// <param type="RegExp/String" name="pattern">RegExp or Pattern string</param>
         /// <param type="Optional:String" name="flags" optional="true">If pattern is String then can use regexp flags "i" or "m" or "im"</param>
         /// <returns type="Enumerable"></returns>
-        public static Enumerable<T> Matches<T>(JsString input, JsString pattern, JsString flags) { return null; }
+        public static Enumerable<JsString> Matches<T>(JsString input, JsString pattern, JsString flags) { return null; }
         /// <summary>Global regex match and send regexp object.
         /// Ex: Matches((.)z,"0z1z2z") - $[1] => 0,1,2</summary>
         /// <param type="String" name="input">input string</param>
         /// <param type="RegExp/String" name="pattern">RegExp or Pattern string</param>
         /// <returns type="Enumerable"></returns>
-        public static Enumerable<T> Matches<T>(JsString input, JsString pattern) { return null; }
+        public static Enumerable<JsString> Matches<T>(JsString input, JsString pattern) { return null; }
 
         /// <summary>Generates a sequence of integral numbers within a specified range.
         /// Ex: Range(1,5) - 1,2,3,4,5</summary>
@@ -89,13 +89,13 @@ namespace SharpKit.LinqJs
         /// <param type="Number" integer="true" name="count">The number of sequential integers to generate.</param>
         /// <param type="Optional:Number" integer="true" name="step" optional="true">Step of generate number.(Ex:Range(0,3,5) - 0,5,10)</param>
         /// <returns type="Enumerable"></returns>
-        public static Enumerable<T> Range<T>(JsNumber start, JsNumber count, JsNumber step) { return null; }
+        public static Enumerable<JsNumber> Range<T>(JsNumber start, JsNumber count, JsNumber step) { return null; }
         /// <summary>Generates a sequence of integral numbers within a specified range.
         /// Ex: Range(1,5) - 1,2,3,4,5</summary>
         /// <param type="Number" integer="true" name="start">The value of the first integer in the sequence.</param>
         /// <param type="Number" integer="true" name="count">The number of sequential integers to generate.</param>
         /// <returns type="Enumerable"></returns>
-        public static Enumerable<T> Range<T>(JsNumber start, JsNumber count) { return null; }
+        public static Enumerable<JsNumber> Range<T>(JsNumber start, JsNumber count) { return null; }
 
         /// <summary>Generates a sequence of integral numbers within a specified range.
         /// Ex: RangeDown(5,5) - 5,4,3,2,1</summary>
@@ -103,13 +103,13 @@ namespace SharpKit.LinqJs
         /// <param type="Number" integer="true" name="count">The number of sequential integers to generate.</param>
         /// <param type="Optional:Number" integer="true" name="step" optional="true">Step of generate number.(Ex:RangeDown(0,3,5) - 0,-5,-10)</param>
         /// <returns type="Enumerable"></returns>
-        public static Enumerable<T> RangeDown<T>(JsNumber start, JsNumber count, JsNumber step) { return null; }
+        public static Enumerable<JsNumber> RangeDown<T>(JsNumber start, JsNumber count, JsNumber step) { return null; }
         /// <summary>Generates a sequence of integral numbers within a specified range.
         /// Ex: RangeDown(5,5) - 5,4,3,2,1</summary>
         /// <param type="Number" integer="true" name="start">The value of the first integer in the sequence.</param>
         /// <param type="Number" integer="true" name="count">The number of sequential integers to generate.</param>
         /// <returns type="Enumerable"></returns>
-        public static Enumerable<T> RangeDown<T>(JsNumber start, JsNumber count) { return null; }
+        public static Enumerable<JsNumber> RangeDown<T>(JsNumber start, JsNumber count) { return null; }
 
         /// <summary>Generates a sequence of integral numbers.
         /// Ex: RangeTo(10,12) - 10,11,12 RangeTo(0,-2) - 0, -1, -2</summary>
@@ -117,13 +117,13 @@ namespace SharpKit.LinqJs
         /// <param type="Number" integer="true" name="to">to integer</param>
         /// <param type="Optional:Number" integer="true" name="step" optional="true">Step of generate number.(Ex:RangeTo(0,7,3) - 0,3,6)</param>
         /// <returns type="Enumerable"></returns>
-        public static Enumerable<T> RangeTo<T>(JsNumber start, JsNumber to, JsNumber step) { return null; }
+        public static Enumerable<JsNumber> RangeTo<T>(JsNumber start, JsNumber to, JsNumber step) { return null; }
         /// <summary>Generates a sequence of integral numbers.
         /// Ex: RangeTo(10,12) - 10,11,12 RangeTo(0,-2) - 0, -1, -2</summary>
         /// <param type="Number" integer="true" name="start">start integer</param>
         /// <param type="Number" integer="true" name="to">to integer</param>
         /// <returns type="Enumerable"></returns>
-        public static Enumerable<T> RangeTo<T>(JsNumber start, JsNumber to) { return null; }
+        public static Enumerable<JsNumber> RangeTo<T>(JsNumber start, JsNumber to) { return null; }
 
         /// <summary>Generates a sequence that contains one repeated value.
         /// If omit count then generate to infinity.
