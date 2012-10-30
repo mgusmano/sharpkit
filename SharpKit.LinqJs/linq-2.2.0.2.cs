@@ -18,7 +18,7 @@ namespace SharpKit.LinqJs
     * http://linqjs.codeplex.com/
     *--------------------------------------------------------------------------*/
     [JsType(JsMode.Prototype, Export=false, Name="Enumerable")]
-    public class Enumerable
+    public static class Enumerable
     {
 
         /// <summary>Random choice from arguments.
@@ -1018,4 +1018,27 @@ namespace SharpKit.LinqJs
         ///return Enumerable&lt;T>.Empty().OrderBy();
         public static OrderedEnumerable<T> ThenByDescending<TKey>(JsFunc<T, TKey> keySelector) { return null; }
     }
+}
+
+namespace SharpKit.JavaScript
+{
+    [JsType(JsMode.Prototype, Export = false, Name = "Enumerable")]
+    public static class LinqJsEnumerable
+    {
+        /// <summary>
+        /// Make Enumerable from obj.
+        /// 1. null = Enumerable.Empty().
+        /// 2. Enumerable = Enumerable.
+        /// 3. Number/Boolean = Enumerable.Repeat(obj, 1).
+        /// 4. String = to CharArray.(Ex:"abc" => "a","b","c").
+        /// 5. Object/Function = to KeyValuePair(except function) Ex:"{a:0}" => (.Key=a, .Value=0).
+        /// 6. Array or ArrayLikeObject(has length) = to Enumerable.
+        /// 7. JScript's IEnumerable = to Enumerable(using Enumerator).
+        /// </summary>
+        /// <param name="list">list</param>
+        /// <returns type="Enumerable"></returns>
+        [JsMethod(Name="From")]
+        public static SharpKit.LinqJs.Enumerable<T> ToLinqJsEnumerable<T>(this JsArray<T> list) { return null; } //TODO:
+    }
+
 }
