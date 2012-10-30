@@ -69,8 +69,8 @@ namespace SharpKit.JavaScript.Private
 			}
 			set
 			{
-                if (!this.ContainsKey(key))
-                    throw new KeyNotFoundException("The specified key does not exist.");
+                //if (!this.ContainsKey(key))
+                //    throw new KeyNotFoundException("The specified key does not exist.");
                 var hashKey = GetHashKey(key);
 				this._table[hashKey] = value;
 				this._keys[hashKey] = key;
