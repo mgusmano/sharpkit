@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Html5Samples", "Html5Sample
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKitRaytracer", "SharpKitRaytracer\SharpKitRaytracer.csproj", "{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqJsSamples", "LinqJsSamples\LinqJsSamples.csproj", "{2E153C69-F234-450B-979D-EA678F1252CD}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -213,6 +215,14 @@ Global
 		{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}.v3.5|Any CPU.Build.0 = Release|Any CPU
 		{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
 		{5963BAB4-4B91-43B5-B5A9-6CA6BE353C8D}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{2E153C69-F234-450B-979D-EA678F1252CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E153C69-F234-450B-979D-EA678F1252CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E153C69-F234-450B-979D-EA678F1252CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E153C69-F234-450B-979D-EA678F1252CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E153C69-F234-450B-979D-EA678F1252CD}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{2E153C69-F234-450B-979D-EA678F1252CD}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{2E153C69-F234-450B-979D-EA678F1252CD}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{2E153C69-F234-450B-979D-EA678F1252CD}.v4.0|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
