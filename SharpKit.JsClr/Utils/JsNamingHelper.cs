@@ -99,7 +99,5 @@ namespace SharpKit.JavaScript
 			var name = mi.Name;
 			return name.StartsWith("set_") && mi.GetParameters().Length == 1;
 		}
-
-
 	}
 }

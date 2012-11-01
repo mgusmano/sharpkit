@@ -1,6 +1,4 @@
-﻿
-using SharpKit.JavaScript;
-namespace SharpKit.JavaScript.Private
+﻿namespace SharpKit.JavaScript.Private
 {
     [JsType(Name = "System.TimeSpan", Filename = "~/Internal/Core.js")]
     public class JsImplTimeSpan //TODO:: System.IComparable, System.IComparable<JsImplTimeSpan>, System.IEquatable<JsImplTimeSpan>//TODO:, System.IFormattable

@@ -10,7 +10,7 @@ namespace SharpKit.JavaScript.Private
     /// <remarks>
     /// A stack is a last-in first-out (LIFO) collection. 
     /// </remarks>
-    /// <see cref="http://en.wikipedia.org/wiki/Stack_(abstract_data_type)"/>
+    /// <see href="http://en.wikipedia.org/wiki/Stack_(abstract_data_type)"/>
     /// <typeparam name="T">The type of objects in the collection.</typeparam>
 	[JsType(Name = "System.Collections.Generic.Stack$1", Filename = "~/res/System.Collections.js")]
 	public class JsImplStack<T> : IEnumerable<T>, ICollection
