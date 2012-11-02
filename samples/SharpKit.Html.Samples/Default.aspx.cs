@@ -16,7 +16,7 @@ namespace SharpKit.Html.Samples
     }
 
     [JsType(JsMode.Global, Filename = "Default.js")]
-    public class DefaultClient : HtmlContextBase
+    public class DefaultClient
     {
         static void btnHello_click(DOMEvent e)
         {
@@ -25,9 +25,9 @@ namespace SharpKit.Html.Samples
 
         private static void WriteLine(JsString s)
         {
-            var div = document.createElement("div");
-            div.appendChild(document.createTextNode(s));
-            document.body.appendChild(div);
+            var div = HtmlContext.document.createElement("div");
+            div.appendChild(HtmlContext.document.createTextNode(s));
+            HtmlContext.document.body.appendChild(div);
         }
     }
 

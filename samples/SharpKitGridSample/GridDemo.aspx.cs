@@ -1,4 +1,4 @@
-﻿using SharpKit.Html4;
+﻿using SharpKit.Html;
 using SharpKit.JavaScript;
 using SharpKit.jQuery;
 
@@ -12,7 +12,7 @@ namespace SharpKitGridSample
         }
     }
     [JsType(JsMode.Global, Filename = "GridDemo.js")]
-    public class GridDemoClient : jQueryContextBase
+    public class GridDemoClient : jQueryContext
     {
         public static void Load()
         {
@@ -44,10 +44,10 @@ namespace SharpKitGridSample
             }
         }
         static Grid Grid;
-        static HtmlTableCell LastSortHeader;
+        static HtmlTableCellElement LastSortHeader;
         static JsString LastSort;
         static bool IsLastSortDescending;
-        public static void SortBy(HtmlTableCell header, JsString pe)
+        public static void SortBy(HtmlTableCellElement header, JsString pe)
         {
             J(LastSortHeader).removeClass("Sorted").removeClass("Descending");
             IsLastSortDescending = LastSort == pe && !IsLastSortDescending;

@@ -18,8 +18,8 @@ namespace KendoUISamples.examples.web.calendar
         {
             new jQuery("#calendar").kendoCalendar(new CalendarConfiguration
             {
-                change = onChange,
-                navigate = onNavigate
+                //change = onChange,
+                //navigate = onNavigate
             });
         }
         static void onChange()

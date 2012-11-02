@@ -4,7 +4,7 @@ using SharpKit.jQuery;
 
 
 [JsType(JsMode.Global, Filename = "Default.js")]
-class jQueryEventsSample : jQueryContextBase
+class jQueryEventsSample : jQueryContext
 {
     static void jQueryEventsSample_Load()
     {

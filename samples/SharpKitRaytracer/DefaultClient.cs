@@ -5,7 +5,7 @@ using SharpKit.jQuery;
 namespace SharpKitRaytracer
 {
     [JsType(JsMode.Global, Filename = "res/Default.js")]
-    public class DefaultClient : jQueryContextBase
+    public class DefaultClient : jQueryContext
     {
         static void DefaultClient_Load()
         {

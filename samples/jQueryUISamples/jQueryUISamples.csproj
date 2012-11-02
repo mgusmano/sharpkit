@@ -34,6 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SharpKit.Html, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\v4.0\SharpKit.Html.dll</HintPath>
+    </Reference>
     <Reference Include="SharpKit.jQueryUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -79,8 +83,6 @@
     <Content Include="demos\autocomplete\images\ui-anim_basic_16x16.gif" />
     <Content Include="demos\button\Checkbox.htm" />
     <Content Include="demos\button\Checkbox.js" />
-    <Content Include="demos\datepicker\DateRange.htm" />
-    <Content Include="demos\datepicker\DateRange.js" />
     <Content Include="demos\button\Default.htm" />
     <Content Include="demos\button\Default.js" />
     <Content Include="demos\button\Toolbar.htm" />
@@ -550,7 +552,6 @@
     <Compile Include="demos\autocomplete\ComboBox.cs" />
     <Compile Include="demos\autocomplete\CustomData.cs" />
     <Compile Include="demos\button\Checkbox.cs" />
-    <Compile Include="demos\datepicker\DateRange.cs" />
     <Compile Include="demos\button\Default.cs" />
     <Compile Include="demos\button\Icons.cs" />
     <Compile Include="demos\button\Radio.cs" />

@@ -42,7 +42,7 @@ namespace KendoUISamples.examples.web.autocomplete
             new jQuery("#search").click(setSearch);
             new jQuery("#word").keypress(setSearch);
 
-            new jQuery("#get").click(() => HtmlContext.window.alert(autoComplete.value()));
+            //new jQuery("#get").click(() => HtmlContext.window.alert(autoComplete.value()));
 
 
         }

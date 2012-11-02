@@ -1,27 +1,29 @@
 using SharpKit.JavaScript;
-using SharpKit.Html4;
+using SharpKit.Html;
 using SharpKit.jQuery;
 namespace SharpKitSourceMappingSample
 {
     [JsType(JsMode.Global, Filename = "~/res/Default.js")]
-    public class DefaultClient : jQueryContextBase
+    public class DefaultClient
     {
         static void DefaultClient_Load()
         {
-            J(document.body).append("Ready<br/>");
-            J(document.body).append("Ready world2<br/>");
-            J(document.body).append("Ready world3<br/>");
-            J(document.body).append("Ready world4<br/>");
-            J(document.body).append("Ready world5<br/>");
+            var doc = HtmlContext.document;
+            new jQuery(doc.body).append("Ready<br/>");
+            new jQuery(doc.body).append("Ready world2<br/>");
+            new jQuery(doc.body).append("Ready world3<br/>");
+            new jQuery(doc.body).append("Ready world4<br/>");
+            new jQuery(doc.body).append("Ready world5<br/>");
         }
 
-        static void btnTest_click(HtmlDomEventArgs e)
+        static void btnTest_click(DOMEvent e)
         {
-            J(document.body).append("Hello world<br/>");
-            J(document.body).append("Hello world2<br/>");
-            J(document.body).append("Hello world3<br/>");
-            J(document.body).append("Hello world4<br/>");
-            J(document.body).append("Hello world5<br/>");
+            var doc = HtmlContext.document;
+            new jQuery(doc.body).append("Hello world<br/>");
+            new jQuery(doc.body).append("Hello world2<br/>");
+            new jQuery(doc.body).append("Hello world3<br/>");
+            new jQuery(doc.body).append("Hello world4<br/>");
+            new jQuery(doc.body).append("Hello world5<br/>");
         }
     }
 }

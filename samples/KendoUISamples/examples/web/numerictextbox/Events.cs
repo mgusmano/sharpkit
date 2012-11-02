@@ -22,7 +22,7 @@ namespace KendoUISamples.examples.web.numerictextbox
                 spin = onSpin
             });
         }
-        static void onChange()
+        static void onChange(ChangeEventData e)
         {
             kendoConsole.log("Change :: " + JsContext.@this.As<NumericTextBox>().value());
         }

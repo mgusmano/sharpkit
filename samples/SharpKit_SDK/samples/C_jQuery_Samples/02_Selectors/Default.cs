@@ -4,7 +4,7 @@ using SharpKit.jQuery;
 
 
 [JsType(JsMode.Global, Filename = "Default.js")]
-class jQuerySelectorsSample : jQueryContextBase
+class jQuerySelectorsSample : jQueryContext
 {
 
     static void jQuerySelectorsSample_Load()

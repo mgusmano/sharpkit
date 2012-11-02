@@ -18,7 +18,7 @@ namespace KendoUISamples.examples.web.window
 
             new jQuery("#open").click(e => wnd.data("kendoWindow").As<Window>().open());
             new jQuery("#close").click(e => wnd.data("kendoWindow").As<Window>().close());
-            new jQuery("#refresh").click(e => wnd.data("kendoWindow").As<Window>().refresh());
+            //new jQuery("#refresh").click(e => wnd.data("kendoWindow").As<Window>().refresh());
             wnd.kendoWindow(new WindowConfiguration
             {
                 width = "505px",

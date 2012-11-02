@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="SharpKit.ExtJs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL" />
+    <Reference Include="SharpKit.ExtJs, Version=4.1.1.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="examples\simple-tasks\app\model\Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test1.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="examples\tree\" />

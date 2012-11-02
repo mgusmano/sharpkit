@@ -1,19 +1,21 @@
 ﻿using SharpKit.JavaScript;
 using SharpKit.Html4;
 using SharpKit.jQuery;
+using SharpKit.KendoUI.Web;
 
 namespace KendoUISamples
 {
-    [JsType(JsMode.Global, Filename = "res/Default.js")]
-    public class DefaultClient : jQueryContextBase
+    [JsType(JsMode.Global)]
+    public class DefaultClient
     {
         static void DefaultClient_Load()
         {
-            J(document.body).append("Ready<br/>");
+            new jQuery("aaa").kendoNumericTextBox().data("kendoNumericTextBox").As<NumericTextBox>().change += new JsAction<EmptyEventData>(DefaultClient_change);
         }
-        static void btnTest_click(HtmlDomEventArgs e)
+
+        static void DefaultClient_change(EmptyEventData arg)
         {
-            J(document.body).append("Hello world<br/>");
+            throw new System.NotImplementedException();
         }
     }
 }

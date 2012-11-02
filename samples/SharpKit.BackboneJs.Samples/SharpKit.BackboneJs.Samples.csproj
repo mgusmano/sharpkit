@@ -34,6 +34,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SharpKit.BackboneJs">
+      <HintPath>..\..\..\bin\v4.0\SharpKit.BackboneJs.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpKit.Html, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\v4.0\SharpKit.Html.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -46,7 +53,6 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="SharpKit.BackboneJs" />
     <Reference Include="SharpKit.Html4" />
     <Reference Include="SharpKit.JavaScript" />
     <Reference Include="SharpKit.jQuery" />

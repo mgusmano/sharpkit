@@ -22,12 +22,8 @@ namespace Html5Samples
     {
         static void Main()
         {
-            var geo = HtmlContext.navigator.As<NavigatorGeolocation>().geolocation;
-            geo.getCurrentPosition(pos =>
-                {
-                    HtmlContext.alert(pos);
-                    return JsContext.undefined.As<bool>();
-                });
+            var geo = HtmlContext.navigator.geolocation;
+            geo.getCurrentPosition(pos => HtmlContext.alert(pos));
         }
     }
 

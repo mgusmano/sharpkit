@@ -25,7 +25,7 @@ namespace KendoUISamples.examples.web.numerictextbox
             new jQuery("#disable").click(() => numerictextbox.enable(false));
             new jQuery("#value").kendoNumericTextBox(new NumericTextBoxConfiguration
             {
-                change = setValue
+                change = e=>setValue()
             });
             new jQuery("#set").click(setValue);
             new jQuery("#get").click(() => HtmlContext.window.alert(numerictextbox.value()));

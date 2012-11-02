@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SharpKit.JavaScript;
-using SharpKit.Html4;
+using SharpKit.Html;
 using SharpKit.jQuery;
 
 namespace SharpKitWcfAjaxSample
@@ -27,7 +27,7 @@ namespace SharpKitWcfAjaxSample
             btn.hide();
             btn.fadeIn(1000);
         }
-        static void btnTest_click(HtmlDomEventArgs e)
+        static void btnTest_click(DOMEvent e)
         {
             J(document.body).append("Hello world<br/>");
         }

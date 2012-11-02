@@ -3,7 +3,7 @@ using SharpKit.Html4;
 using SharpKit.jQuery;
 
 [JsType(JsMode.Global, Filename = "Default.js")]
-class jQueryAjaxSample : jQueryContextBase
+class jQueryAjaxSample : jQueryContext
 {
     static void btn_onclick()
     {

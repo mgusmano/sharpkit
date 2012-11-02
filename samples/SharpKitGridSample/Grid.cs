@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using SharpKit.JavaScript;
 using SharpKit.jQuery;
-using SharpKit.Html4;
+using SharpKit.Html;
 
 namespace SharpKitGridSample
 {
@@ -47,11 +47,11 @@ namespace SharpKitGridSample
         /// <summary>
         /// Topmost container element (TABLE) for the grid, needs to be set when creating a new grid
         /// </summary>
-        public HtmlElement Element { get; set; }
+        public Element Element { get; set; }
         /// <summary>
         /// A TBody element for the grid rows
         /// </summary>
-        public HtmlElement GridBody { get; set; }
+        public Element GridBody { get; set; }
         /// <summary>
         /// Gets the collection of rows contained in the grid, in hierarchial mode, only parent rows will be here.
         /// </summary>
@@ -63,7 +63,7 @@ namespace SharpKitGridSample
         {
             if (Element == null)
                 return;
-            Element["_Grid"] = this;
+            Element.As<JsObject>()["_Grid"] = this;
             if (GridBody == null || GridBody.nodeName != "TBODY")
             {
                 GridBody = document.createElement("TBODY");
@@ -92,7 +92,7 @@ namespace SharpKitGridSample
                 foreach (var gr in Rows)
                 {
                     if (gr.Element != null)
-                        gr.Element["_GridRow"] = null;
+                        gr.Element.As<JsObject>()["_GridRow"] = null;
                 }
                 Rows.Clear();
             }
@@ -102,9 +102,9 @@ namespace SharpKitGridSample
         /// </summary>
         /// <param name="template"></param>
         /// <returns></returns>
-        public HtmlElement CreateRowElement(HtmlElement template)
+        public Element CreateRowElement(Element template)
         {
-            return template.cloneNode(true);
+            return template.cloneNode(true).As<HtmlElement>();
         }
         /// <summary>
         /// Adds a new row to the grid
@@ -117,7 +117,7 @@ namespace SharpKitGridSample
             var lastRow = Rows.GetLast();
             var lastChild = lastRow != null ? lastRow.Element : null;
             body.AppendChildFast(gr.Element, lastChild);
-            gr.Element["_GridRow"] = gr;
+            gr.Element.As<JsObject>()["_GridRow"] = gr;
             Rows.push(gr);
             gr.IsVisible = true;
         }
@@ -129,7 +129,7 @@ namespace SharpKitGridSample
         {
                 gr.Element.parentNode.removeChild(gr.Element);
             Rows.Remove(gr);
-            gr.Element["_GridRow"] = null;
+            gr.Element.As<JsObject>()["_GridRow"] = null;
         }
         /// <summary>
         /// Shows and hides rows
@@ -161,7 +161,7 @@ namespace SharpKitGridSample
         /// <summary>
         /// The element containing the GridRow, should be a TableRow (TR) element
         /// </summary>
-        public HtmlElement Element { get; set; }
+        public Element Element { get; set; }
         /// <summary>
         /// A data object associated with this GridRow
         /// </summary>
@@ -182,30 +182,30 @@ namespace SharpKitGridSample
             HtmlContext.window.setTimeout(() =>
             {
                 var el = HtmlContext.document.createElement("a");
-                HasInsertAdjacentElement = new JsNativeAction<JsString, HtmlElement>(el.insertAdjacentElement) != null;
-                HasInnerText = JsContext.@typeof(el.innerText) != "undefined";
+                HasInsertAdjacentElement = new JsNativeAction<JsString, SharpKit.Html4.HtmlElement>(el.As<SharpKit.Html4.HtmlElement>().insertAdjacentElement) != null;
+                HasInnerText = JsContext.@typeof(el.As<SharpKit.Html4.HtmlElement>().innerText) != "undefined";
             }, 0);
         }
         public static void SetExtension<T>(this HtmlElement el, string name, T value)
         {
-            el[name] = value;
+            el.As<JsObject>()[name] = value;
         }
-        public static T GetExtension<T>(this HtmlElement el, string name)
+        public static T GetExtension<T>(this Element el, string name)
         {
-            return el[name].As<T>();
+            return el.As<JsObject>()[name].As<T>();
         }
-        public static T FindExtension<T>(this HtmlElement el, string name)
+        public static T FindExtension<T>(this Element el, string name)
         {
-            var el2 = el.FindParent(t => t[name] != null);
+            var el2 = el.FindParent(t => t.As<JsObject>()[name] != null);
             if (el2 == null)
                 return el2.As<T>();
-            return el2[name].As<T>();
+            return el2.As<JsObject>()[name].As<T>();
         }
 
-        public static void InnerTextFast(this HtmlElement el, JsString text)
+        public static void InnerTextFast(this Element el, JsString text)
         {
             if (HasInnerText)
-                el.innerText = text;
+                el.As<SharpKit.Html4.HtmlElement>().innerText = text;
             else
                 el.textContent = text;
         }
@@ -214,7 +214,7 @@ namespace SharpKitGridSample
         /// </summary>
         /// <param name="el"></param>
         /// <param name="text"></param>
-        public static void EmptyFast(this HtmlElement el)
+        public static void EmptyFast(this Element el)
         {
             var ch = el.firstChild;
             // Remove any remaining nodes
@@ -225,32 +225,32 @@ namespace SharpKitGridSample
             }
         }
 
-        public static void AppendChildFast(this HtmlElement el, HtmlElement newElement, HtmlElement lastChild)
+        public static void AppendChildFast(this Element el, Element newElement, Element lastChild)
         {
             if (lastChild != null && HasInsertAdjacentElement)
-                lastChild.insertAdjacentElement("afterEnd", newElement);
+                lastChild.As<SharpKit.Html4.HtmlElement>().insertAdjacentElement("afterEnd", newElement.As<SharpKit.Html4.HtmlElement>());
             else
                 el.appendChild(newElement);
         }
 
-        public static void AppendAfterSelf(this HtmlElement el, HtmlElement newElement)
+        public static void AppendAfterSelf(this Element el, Element newElement)
         {
             el.parentNode.insertBefore(newElement, el.nextSibling);
             //el.insertAdjacentElement("afterEnd", newElement);
         }
-        public static void AppendBeforeSelf(this HtmlElement el, HtmlElement newElement)
+        public static void AppendBeforeSelf(this Element el, HtmlElement newElement)
         {
             el.parentNode.insertBefore(newElement, el);
             //el.insertAdjacentElement("beforeStart", newElement);
         }
 
-        public static HtmlElement FindParent(this HtmlElement el, JsFunc<HtmlElement, bool> selector)
+        public static Element FindParent(this Element el, JsFunc<Element, bool> selector)
         {
             while (el != null)
             {
                 if (selector(el))
                     return el;
-                el = el.parentNode;
+                el = el.parentNode.As<HtmlElement>();
             }
             return null;
         }

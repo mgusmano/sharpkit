@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SharpKit.Html, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -50,7 +51,6 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="SharpKit.JavaScript" />
-    <Reference Include="SharpKit.Html4" />
     <Reference Include="SharpKit.jQuery" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@ using SharpKit.PhoneGap;
 namespace PhoneGapSamples
 {
     [JsType(JsMode.Prototype, Filename = "res/Default.js")]
-    public class DefaultClient : jQueryContextBase
+    public class DefaultClient
     {
         void DefaultClient_Load()
         {

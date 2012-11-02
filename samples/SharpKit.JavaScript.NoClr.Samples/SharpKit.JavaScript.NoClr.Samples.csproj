@@ -34,6 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SharpKit.Html, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL" />
+    <Reference Include="SharpKit.JavaScript.NoClr">
+      <HintPath>..\..\..\bin\v4.0\SharpKit.JavaScript.NoClr.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -46,9 +50,8 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.ApplicationServices" />
-	<Reference Include="SharpKit.Html4" />
+    <Reference Include="SharpKit.Html4" />
     <Reference Include="SharpKit.JavaScript" />
-    <Reference Include="SharpKit.JavaScript.NoClr" />
     <Reference Include="SharpKit.jQuery" />
   </ItemGroup>
   <ItemGroup>

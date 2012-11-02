@@ -34,8 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="SharpKit.Html.idl">
-      <HintPath>..\..\..\bin\v4.0\SharpKit.Html.idl.dll</HintPath>
+    <Reference Include="SharpKit.Html, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\v4.0\SharpKit.Html.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

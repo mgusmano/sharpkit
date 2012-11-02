@@ -489,7 +489,7 @@ namespace SharpKitRaytracer
     }
 
     [JsType(JsMode.Clr)]
-    public class RaytracerRunner : jQueryContextBase
+    public class RaytracerRunner : jQueryContext
     {
         Scene defaultScene()
         {

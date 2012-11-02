@@ -9,7 +9,7 @@ using SharpKit.JavaScript;
 namespace SharpKit.Html.Samples.Linq
 {
     [JsType(JsMode.Global, Filename = "Default.js")]
-    public class DefaultClient : HtmlContextBase
+    public class DefaultClient
     {
         //static void Descendents(DOMEvent e)
         //{

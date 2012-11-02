@@ -34,6 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SharpKit.Html.Linq">
+      <HintPath>..\..\..\bin\v4.0\SharpKit.Html.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -42,7 +45,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="SharpKit.Html" />
     <Reference Include="SharpKit.JavaScript" />
-    <Reference Include="SharpKit.Html.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Canvas\Canvas.htm" />
