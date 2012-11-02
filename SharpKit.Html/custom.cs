@@ -41,10 +41,19 @@ namespace SharpKit.Html
 	[JsType(JsMode.Json, OmitCasts = true, Export = false)]
 	public delegate void EventListener<T>(T evt);
 
+    public partial class ArrayBuffer
+    {
+        public ArrayBuffer() { }
+        public ArrayBuffer(int byteLength) { }
+    }
+
 	public partial class WebSocket
 	{
 		public WebSocket(string url) { }
 		public WebSocket(string url, JsString protocol) { }
+	    public void send(Blob data) { }
+        public void send(ArrayBuffer data) { }
+        public void send(ArrayBufferView data) { }
 	}
 
 	public partial class CssStyleDeclaration
