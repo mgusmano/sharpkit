@@ -17,7 +17,7 @@ namespace jQueryUISamples.demos.menu
             {
                 select = (e, ui) =>
                 {
-                    var link = ui.item.children("a:first");
+                    var link = ui.As<MenuUI>().item.children("a:first");
                     if (link.attr("target").As<bool>() || e.metaKey.As<bool>() || e.shiftKey || e.ctrlKey)
                     {
                         return;

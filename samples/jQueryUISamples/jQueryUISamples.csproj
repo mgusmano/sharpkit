@@ -224,6 +224,8 @@
     <Content Include="demos\sortable\Portlets.js" />
     <Content Include="demos\spinner\Default.js" />
     <Content Include="demos\spinner\Default.htm" />
+    <Content Include="demos\spinner\OverFlow.htm" />
+    <Content Include="demos\spinner\OverFlow.js" />
     <Content Include="demos\switchClass\Default.htm" />
     <Content Include="demos\switchClass\Default.js" />
     <Content Include="demos\tabs\Ajax.js" />
@@ -245,6 +247,12 @@
     <Content Include="demos\toggleClass\Default.js" />
     <Content Include="demos\tooltip\ajax\content1.html" />
     <Content Include="demos\tooltip\ajax\content2.html" />
+    <Content Include="demos\tooltip\CustomStyle.htm" />
+    <Content Include="demos\tooltip\CustomStyle.js" />
+    <Content Include="demos\tooltip\Default.htm" />
+    <Content Include="demos\tooltip\Default.js" />
+    <Content Include="demos\tooltip\Forms.htm" />
+    <Content Include="demos\tooltip\Forms.js" />
     <Content Include="demos\tooltip\images\st-stephens.jpg" />
     <Content Include="demos\tooltip\images\tower-bridge.jpg" />
     <Content Include="external\globalize.culture.de-DE.js" />
@@ -568,7 +576,6 @@
     <Compile Include="demos\accordion\Sortable.cs" />
     <Compile Include="demos\addClass\Default.cs" />
     <Compile Include="demos\animate\Default.cs" />
-    <Compile Include="demos\autocomplete\ComboBox.cs" />
     <Compile Include="demos\autocomplete\CustomData.cs" />
     <Compile Include="demos\button\Checkbox.cs" />
     <Compile Include="demos\button\Default.cs" />
@@ -630,7 +637,9 @@
     <Compile Include="demos\sortable\EmptyLists.cs" />
     <Compile Include="demos\sortable\Placeholder.cs" />
     <Compile Include="demos\sortable\Portlets.cs" />
+    <Compile Include="demos\spinner\Decimal.cs" />
     <Compile Include="demos\spinner\Default.cs" />
+    <Compile Include="demos\spinner\OverFlow.cs" />
     <Compile Include="demos\switchClass\Default.cs" />
     <Compile Include="demos\tabs\Ajax.cs" />
     <Compile Include="demos\tabs\Bottom.cs" />
@@ -642,6 +651,9 @@
     <Compile Include="demos\toggleClass\Default.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="demos\tooltip\CustomStyle.cs" />
+    <Compile Include="demos\tooltip\Default.cs" />
+    <Compile Include="demos\tooltip\Forms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
