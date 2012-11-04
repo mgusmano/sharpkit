@@ -47,14 +47,115 @@ namespace SharpKit.Html
         public ArrayBuffer(int byteLength) { }
     }
 
-    public partial class WebSocket
+    public partial class DataView
     {
-        public WebSocket(string url) { }
-        public WebSocket(string url, JsString protocol) { }
-        public void send(Blob data) { }
+        public DataView(ArrayBuffer buffer) { }
+        public DataView(ArrayBuffer buffer, int byteOffset) { }
+        public DataView(ArrayBuffer buffer, int byteOffset, int byteLength) { }
+
+        public sbyte getInt8(int byteOffset) { return default(sbyte); }
+        public byte getUint8(int byteOffset) { return default(byte); }
+
+        public void setInt8(int byteOffset, sbyte value) { }
+        public void setUint8(int byteOffset, byte value) { }
+    }
+
+    public partial class Int8Array
+    {
+        public Int8Array(int length) { }
+        public Int8Array(ArrayBuffer buffer) { }
+        public Int8Array(ArrayBuffer buffer, int byteOffset) { }
+        public Int8Array(ArrayBuffer buffer, int byteOffset, int length) { }
+        [JsProperty(NativeIndexer = true)]
+        public sbyte this[int key] { get { return default(sbyte); } set { } }
+    }
+    public partial class Uint8ClampedArray
+    {
+        public Uint8ClampedArray(int length) : base(length) { }
+        public Uint8ClampedArray(ArrayBuffer buffer) : base(buffer) { }
+        public Uint8ClampedArray(ArrayBuffer buffer, int byteOffset) : base(buffer, byteOffset) { }
+        public Uint8ClampedArray(ArrayBuffer buffer, int byteOffset, int length) : base(buffer, byteOffset, length) { }
+    }
+
+    public partial class Uint8Array
+    {
+        public Uint8Array(int length) { }
+        public Uint8Array(ArrayBuffer buffer) { }
+        public Uint8Array(ArrayBuffer buffer, int byteOffset) { }
+        public Uint8Array(ArrayBuffer buffer, int byteOffset, int length) { }
+        [JsProperty(NativeIndexer = true)]
+        public byte this[int key] { get { return default(byte); } set { } }
+    }
+
+    public partial class Int16Array
+    {
+        public Int16Array(int length) { }
+        public Int16Array(ArrayBuffer buffer) { }
+        public Int16Array(ArrayBuffer buffer, int byteOffset) { }
+        public Int16Array(ArrayBuffer buffer, int byteOffset, int length) { }
+        [JsProperty(NativeIndexer = true)]
+        public short this[int key] { get { return default(short); } set { } }
+    }
+
+    public partial class Uint16Array
+    {
+        public Uint16Array(int length) { }
+        public Uint16Array(ArrayBuffer buffer) { }
+        public Uint16Array(ArrayBuffer buffer, int byteOffset) { }
+        public Uint16Array(ArrayBuffer buffer, int byteOffset, int length) { }
+        [JsProperty(NativeIndexer = true)]
+        public ushort this[int key] { get { return default(ushort); } set { } }
+    }
+
+    public partial class Int32Array
+    {
+        public Int32Array(int length) { }
+        public Int32Array(ArrayBuffer buffer) { }
+        public Int32Array(ArrayBuffer buffer, int byteOffset) { }
+        public Int32Array(ArrayBuffer buffer, int byteOffset, int length) { }
+        [JsProperty(NativeIndexer = true)]
+        public int this[int key] { get { return default(int); } set { } }
+    }
+
+    public partial class Uint32Array
+    {
+        public Uint32Array(int length) { }
+        public Uint32Array(ArrayBuffer buffer) { }
+        public Uint32Array(ArrayBuffer buffer, int byteOffset) { }
+        public Uint32Array(ArrayBuffer buffer, int byteOffset, int length) { }
+        [JsProperty(NativeIndexer = true)]
+        public uint this[int key] { get { return default(uint); } set { } }
+    }
+
+    public partial class Float32Array
+    {
+        public Float32Array(int length) { }
+        public Float32Array(ArrayBuffer buffer) { }
+        public Float32Array(ArrayBuffer buffer, int byteOffset) { }
+        public Float32Array(ArrayBuffer buffer, int byteOffset, int length) { }
+        [JsProperty(NativeIndexer = true)]
+        public float this[int key] { get { return default(float); } set { } }
+    }
+
+    public partial class Float64Array
+    {
+        public Float64Array(int length) { }
+        public Float64Array(ArrayBuffer buffer) { }
+        public Float64Array(ArrayBuffer buffer, int byteOffset) { }
+        public Float64Array(ArrayBuffer buffer, int byteOffset, int length) { }
+        [JsProperty(NativeIndexer = true)]
+        public double this[int key] { get { return default(double); } set { } }
+    }
+
+	public partial class WebSocket
+	{
+		public WebSocket(string url) { }
+		public WebSocket(string url, JsString protocol) { }
+	    public void send(Blob data) { }
         public void send(ArrayBuffer data) { }
         public void send(ArrayBufferView data) { }
-    }
+	}
+
 
     public partial class CssStyleDeclaration
     {
