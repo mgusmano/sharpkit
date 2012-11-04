@@ -16,7 +16,8 @@ namespace THREE
 
         //properties
         public JsNumber boundRadius { get; set; }
-
+        public Geometry geometry { get; set; }
+        public Material material { get; set; }
         //methods
         public Mesh getMorphTargetIndexByName(JsString name) { return null; }
     }
