@@ -361,7 +361,6 @@ namespace SharpKit.jQuery
         public JsString icon { get; set; }
     }
     #endregion
-
     #region AddClass
     ///<summary>
     ///[edit]addClass( class, [duration] )
@@ -1507,57 +1506,6 @@ namespace SharpKit.jQuery
         ///Default: null
         ///</summary>
         public jQueryUIEvent callback { get; set; }
-    }
-    #endregion
-    #region Menu
-    /// <summary>
-    /// 
-    /// </summary>
-    public static partial class MenuExtension
-    {
-        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
-        public static jQuery menu(this jQuery query) { return default(jQuery); }
-
-    }
-    #endregion
-    #region MenuOptions
-    [JsType(JsMode.Json)]
-    public partial class MenuOptions
-    {
-        /// <summary>
-        /// (Default: false).
-        /// Disables the menu if set to true.
-        /// </summary>
-        public bool disabled { get; set; }
-        /// <summary>
-        /// (Default: { submenu: "ui-icon-carat-1-e" })
-        /// Icons to use for submenus, matching an icon defined by the jQuery UI CSS Framework.
-        /// <remarks>
-        /// submenu (string, default: "ui-icon-carat-1-e")
-        /// </remarks>
-        /// </summary>
-        public object icons { get; set; }
-        /// <summary>
-        /// (Default: "ul")
-        /// Selector for the elements that serve as the menu container, including sub-menus.
-        /// </summary>
-        public JsString menues { get; set; }
-        /// <summary>
-        /// (Default: { my: "top left", at: "top right" })
-        /// Identifies the position of submenus in relation to the associated parent menu item. 
-        /// The of option defaults to the parent menu item, but you can specify another element to position against.
-        /// You can refer to the jQuery UI Position utility for more details about the various options
-        /// </summary>
-        public object position { get; set; }
-        /// <summary>
-        /// (Default: "menu").
-        /// Customize the ARIA roles used for the menu and menu items. 
-        /// The default uses "menuitem" for items. Setting the role option to 
-        /// "listbox" will use "option" for items. 
-        /// If set to null, no roles will be set, 
-        /// which is useful if the menu is being controlled by another element that is maintaining focus.
-        /// </summary>
-        public JsString role { get; set; }
     }
     #endregion
     #region Progressbar
@@ -2996,6 +2944,8 @@ namespace SharpKit.jQuery
         /// When specified the actual property setting is delegated to this callback. Receives a single parameter which is a hash of top and left values for the position that should be set.
         /// </summary>
         public JsAction<object> @using { get; set; }
+        [JsProperty(Name = "using")]
+        public JsAction<JsObject, JsObject> usingExtend { get; set; }
         /// <summary>
         /// (Default: window)
         /// Element to position within, affecting collision detection. 
@@ -3021,6 +2971,7 @@ namespace SharpKit.jQuery
     [JsDelegate(NativeDelegates = true)]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void jQueryUIEvent<T>(Event e, T ui);
+
 
     #region Plugins as classes
     /// <summary>
@@ -4549,8 +4500,15 @@ namespace SharpKit.jQuery
         public JsNumber widthNumber { get; set; }
 
     }
-
     #region Menu
+    public static partial class MenuExtension
+    {
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery menu(this jQuery query) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery menu(this jQuery query, MenuOptions options) { return default(jQuery); }
+
+    }
 
     /// <summary>
     /// Themeable menu with mouse and keyboard interactions for navigation.
@@ -4737,7 +4695,7 @@ namespace SharpKit.jQuery
 
     }
 
-  
+
     [JsType(JsMode.Json)]
     public partial class MenuUI
     {
@@ -4748,8 +4706,57 @@ namespace SharpKit.jQuery
     }
 
     #endregion
-
+    #region MenuOptions
+    [JsType(JsMode.Json)]
+    public partial class MenuOptions
+    {
+        /// <summary>
+        /// (Default: false).
+        /// Disables the menu if set to true.
+        /// </summary>
+        public bool disabled { get; set; }
+        /// <summary>
+        /// (Default: { submenu: "ui-icon-carat-1-e" })
+        /// Icons to use for submenus, matching an icon defined by the jQuery UI CSS Framework.
+        /// <remarks>
+        /// submenu (string, default: "ui-icon-carat-1-e")
+        /// </remarks>
+        /// </summary>
+        public object icons { get; set; }
+        /// <summary>
+        /// (Default: "ul")
+        /// Selector for the elements that serve as the menu container, including sub-menus.
+        /// </summary>
+        public JsString menues { get; set; }
+        /// <summary>
+        /// (Default: { my: "top left", at: "top right" })
+        /// Identifies the position of submenus in relation to the associated parent menu item. 
+        /// The of option defaults to the parent menu item, but you can specify another element to position against.
+        /// You can refer to the jQuery UI Position utility for more details about the various options
+        /// </summary>
+        public object position { get; set; }
+        /// <summary>
+        /// (Default: "menu").
+        /// Customize the ARIA roles used for the menu and menu items. 
+        /// The default uses "menuitem" for items. Setting the role option to 
+        /// "listbox" will use "option" for items. 
+        /// If set to null, no roles will be set, 
+        /// which is useful if the menu is being controlled by another element that is maintaining focus.
+        /// </summary>
+        public JsString role { get; set; }
+        public jQueryUIEvent select { get; set; }
+    }
+    #endregion
     #region Spinner
+    public static partial class SpinnerExtension
+    {
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery spinner(this jQuery query) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery spinner(this jQuery query, SpinnerOptions options) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery spinner(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+    }
 
     /// <summary>
     /// Enhance a text input for entering numeric values, with up/down buttons and arrow key handling.
@@ -4874,7 +4881,8 @@ namespace SharpKit.jQuery
         public JsAction<Event, SpinnerUI> stop { get; set; }
 
     }
-
+    #endregion
+    #region SpinnerOptions
     [JsType(JsMode.Json)]
     public partial class SpinnerOptions
     {
@@ -5015,6 +5023,8 @@ namespace SharpKit.jQuery
         /// </summary>
         public JsAction<Event, SpinnerUI> stop { get; set; }
     }
+    #endregion
+    #region SpinnerIconsOptions
 
     /// <summary>
     /// Icons to use for buttons, matching an icon defined by the jQuery UI CSS Framework.
@@ -5044,8 +5054,16 @@ namespace SharpKit.jQuery
     }
 
     #endregion
-
     #region Tooltip
+    public static partial class TooltipExtension
+    {
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery tooltip(this jQuery query) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery tooltip(this jQuery query, TooltipOptions options) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery tooltip(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+    }
 
     /// <summary>
     /// Customizable, themeable tooltips, replacing native tooltips.
@@ -5128,6 +5146,8 @@ namespace SharpKit.jQuery
         [JsProperty(Name = "open")]
         public JsAction<Event, TooltipUI> openEvent { get; set; }
     }
+    #endregion
+    #region TooltipOptions
 
     [JsType(JsMode.Json)]
     public partial class TooltipOptions
@@ -5338,6 +5358,8 @@ namespace SharpKit.jQuery
         public JsAction<Event, TooltipUI> open { get; set; }
 
     }
+    #endregion
+    #region TooltipUI
 
     [JsType(JsMode.Json)]
     public partial class TooltipUI
