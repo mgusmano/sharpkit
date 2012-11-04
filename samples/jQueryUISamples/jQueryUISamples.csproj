@@ -166,6 +166,8 @@
     <Content Include="demos\index.html" />
     <Content Include="demos\menu\Default.htm" />
     <Content Include="demos\menu\Default.js" />
+    <Content Include="demos\menu\NavigationMenu.htm" />
+    <Content Include="demos\menu\NavigationMenu.js" />
     <Content Include="demos\position\Default.htm" />
     <Content Include="demos\position\Default.js" />
     <Content Include="demos\position\images\earth.jpg" />
@@ -220,6 +222,8 @@
     <Content Include="demos\sortable\Placeholder.js" />
     <Content Include="demos\sortable\Portles.htm" />
     <Content Include="demos\sortable\Portlets.js" />
+    <Content Include="demos\spinner\Default.js" />
+    <Content Include="demos\spinner\Default.htm" />
     <Content Include="demos\switchClass\Default.htm" />
     <Content Include="demos\switchClass\Default.js" />
     <Content Include="demos\tabs\Ajax.js" />
@@ -239,6 +243,21 @@
     <Content Include="demos\tabs\Vertical.js" />
     <Content Include="demos\toggleClass\Default.htm" />
     <Content Include="demos\toggleClass\Default.js" />
+    <Content Include="demos\tooltip\ajax\content1.html" />
+    <Content Include="demos\tooltip\ajax\content2.html" />
+    <Content Include="demos\tooltip\images\st-stephens.jpg" />
+    <Content Include="demos\tooltip\images\tower-bridge.jpg" />
+    <Content Include="external\globalize.culture.de-DE.js" />
+    <Content Include="external\globalize.culture.ja-JP.js" />
+    <Content Include="external\globalize.js" />
+    <Content Include="external\jquery.bgiframe-2.1.2.js" />
+    <Content Include="external\jquery.cookie.js" />
+    <Content Include="external\jquery.metadata.js" />
+    <Content Include="external\jquery.mousewheel.js" />
+    <Content Include="external\jshint.js" />
+    <Content Include="external\qunit.css" />
+    <Content Include="external\qunit.js" />
+    <Content Include="grunt.js" />
     <Content Include="jquery-1.8.0.js" />
     <Content Include="jquery-1.8.2.js" />
     <Content Include="res\jQueryUISamples.js" />
@@ -585,6 +604,7 @@
     <Compile Include="demos\effect\Default.cs" />
     <Compile Include="demos\hide\Default.cs" />
     <Compile Include="demos\menu\Default.cs" />
+    <Compile Include="demos\menu\NavigationMenu.cs" />
     <Compile Include="demos\position\Default.cs" />
     <Compile Include="demos\progressbar\Animated.cs" />
     <Compile Include="demos\progressbar\Default.cs" />
@@ -610,6 +630,7 @@
     <Compile Include="demos\sortable\EmptyLists.cs" />
     <Compile Include="demos\sortable\Placeholder.cs" />
     <Compile Include="demos\sortable\Portlets.cs" />
+    <Compile Include="demos\spinner\Default.cs" />
     <Compile Include="demos\switchClass\Default.cs" />
     <Compile Include="demos\tabs\Ajax.cs" />
     <Compile Include="demos\tabs\Bottom.cs" />
@@ -623,10 +644,47 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="demos\widget\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="demos\tabs\ajax\content3-slow.php" />
     <None Include="demos\tabs\ajax\content4-broken.php" />
+    <None Include="package.json" />
+    <None Include="ui.accordion.jquery.json" />
+    <None Include="ui.autocomplete.jquery.json" />
+    <None Include="ui.button.jquery.json" />
+    <None Include="ui.core.jquery.json" />
+    <None Include="ui.datepicker.jquery.json" />
+    <None Include="ui.dialog.jquery.json" />
+    <None Include="ui.draggable.jquery.json" />
+    <None Include="ui.droppable.jquery.json" />
+    <None Include="ui.effect-blind.jquery.json" />
+    <None Include="ui.effect-bounce.jquery.json" />
+    <None Include="ui.effect-clip.jquery.json" />
+    <None Include="ui.effect-drop.jquery.json" />
+    <None Include="ui.effect-explode.jquery.json" />
+    <None Include="ui.effect-fade.jquery.json" />
+    <None Include="ui.effect-fold.jquery.json" />
+    <None Include="ui.effect-highlight.jquery.json" />
+    <None Include="ui.effect-pulsate.jquery.json" />
+    <None Include="ui.effect-scale.jquery.json" />
+    <None Include="ui.effect-shake.jquery.json" />
+    <None Include="ui.effect-slide.jquery.json" />
+    <None Include="ui.effect-transfer.jquery.json" />
+    <None Include="ui.effect.jquery.json" />
+    <None Include="ui.menu.jquery.json" />
+    <None Include="ui.mouse.jquery.json" />
+    <None Include="ui.position.jquery.json" />
+    <None Include="ui.progressbar.jquery.json" />
+    <None Include="ui.resizable.jquery.json" />
+    <None Include="ui.selectable.jquery.json" />
+    <None Include="ui.slider.jquery.json" />
+    <None Include="ui.sortable.jquery.json" />
+    <None Include="ui.spinner.jquery.json" />
+    <None Include="ui.tabs.jquery.json" />
+    <None Include="ui.tooltip.jquery.json" />
+    <None Include="ui.widget.jquery.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
