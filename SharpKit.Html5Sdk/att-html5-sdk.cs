@@ -55,7 +55,7 @@ namespace SharpKit.Html5Sdk
         /// });
         /// </code>
         /// </exexample>
-        public geoLocation getDeviceLocation(GetDeviceInfoOptions options) { return null;}
+        public JsObject getDeviceLocation(GetDeviceInfoOptions options) { return null;}
         /// <summary>
         /// Retrieves SMS and MMS message headers.
         /// </summary>
