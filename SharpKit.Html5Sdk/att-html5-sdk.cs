@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SharpKit.JavaScript;
+using SharpKit.Html5;
 
 namespace SharpKit.Html5Sdk
 {
@@ -54,7 +55,7 @@ namespace SharpKit.Html5Sdk
         /// });
         /// </code>
         /// </exexample>
-        public JsObject getDeviceLocation(GetDeviceInfoOptions options) { return null;}
+        public geoLocation getDeviceLocation(GetDeviceInfoOptions options) { return null;}
         /// <summary>
         /// Retrieves SMS and MMS message headers.
         /// </summary>
