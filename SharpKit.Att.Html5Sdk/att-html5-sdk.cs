@@ -10,38 +10,38 @@ namespace SharpKit.Html5Sdk
     #region provider
     //TODO: return value of all methods
     [JsType(JsMode.Prototype, Export = false, Name = "Att.Provider")]
-    public partial class Provider
+    public partial class _Provider
     {
         /// <summary>
         /// Initiate client authorization window for the user to authorize the application against the given authScopes.
         /// </summary>
         /// <param name="options">An object which may contain the following properties: authScope, success or failure.
         /// </param>
-        public JsObject authorizeApp(AuthorizeOptions options) { return null;}
+        public object authorizeApp(AuthorizeOptions options) { return null; }
 
         /// <summary>
         /// ssues a request to cancel a subscription
         /// </summary>
         /// <param name="options"></param>
-        public JsObject cancelSubscription(CancelSubscriptionOptions options) { return null;}
+        public void cancelSubscription(CancelSubscriptionOptions options) { }
 
         /// <summary>
         /// Initiates a Tropo Session and delivers an object of key/value pairs to pass to the Tropo script
         /// </summary>
         /// <param name="options"></param>
-        public JsObject cmsCreateSession(CmsCreateSessionOptions options) { return null;}
+        public void cmsCreateSession(CmsCreateSessionOptions options) { }
 
         /// <summary>
         /// Sends a signal to an active CMS session script.
         /// </summary>
         /// <param name="options"></param>
-        public JsObject cmdSendSignal(CmsSendSignalOptions options) { return null;}
+        public void cmdSendSignal(CmsSendSignalOptions options) { }
 
         /// <summary>
         /// Returns information on a device
         /// </summary>
         /// <param name="options">An object which may contain the following properties: success or failure</param>
-        public JsObject getDeviceInfo(GetDeviceInfoOptions options) { return null;}
+        public void getDeviceInfo(GetDeviceInfoOptions options) { }
 
         /// <summary>
         /// Returns location info for a device
@@ -55,53 +55,53 @@ namespace SharpKit.Html5Sdk
         /// });
         /// </code>
         /// </exexample>
-        public JsObject getDeviceLocation(GetDeviceInfoOptions options) { return null;}
+        public void getDeviceLocation(GetDeviceInfoOptions options) { }
         /// <summary>
         /// Retrieves SMS and MMS message headers.
         /// </summary>
         /// <param name="options"></param>
         //TODO: BETA?
-        public JsObject getMessageHeaders(GetMessageHeadersOptions options) { return null;}
+        public void getMessageHeaders(GetMessageHeadersOptions options) { }
         /// <summary>
         /// Checks the status of a sent MMS
         /// </summary>
         /// <param name="options"></param>
-        public JsObject getMmsStatus(GetMmsStatusOptions options) { return null;}
+        public void getMmsStatus(GetMmsStatusOptions options) { }
         /// <summary>
         /// checks the status of a sent SMS.
         /// </summary>
         /// <param name="options"></param>
-        public JsObject getSmsStatus(GetSmsStatusOptions options) { return null;}
+        public void getSmsStatus(GetSmsStatusOptions options) { }
         /// <summary>
         /// Checks the details of subscription.
         /// </summary>
         /// <param name="options"></param>
-        public JsObject getSubscriptionDetails(GetSubscriptionDetailsOPtions options) { return null;}
+        public void getSubscriptionDetails(GetSubscriptionDetailsOPtions options) { }
         /// <summary>
         /// Checks the status of a subscription.
         /// </summary>
         /// <param name="options"></param>
-        public JsObject getSubscriptionStatus(StatusOptions options) { return null;}
+        public void getSubscriptionStatus(StatusOptions options) { }
         /// <summary>
         /// Checks the status of a transaction.
         /// </summary>
         /// <param name="options"></param>
-        public JsObject getTransactionStatus(StatusOptions options) { return null;}
+        public void getTransactionStatus(StatusOptions options) { }
         /// <summary>
         /// Checks to see if the app is authorized against the given authScopes.
         /// </summary>
         /// <param name="options"></param>
-        public JsObject isAuthorized(AuthorizeOptions options) { return null;}
+        public void isAuthorized(AuthorizeOptions options) { }
         /// <summary>
         /// Retrieves a list of SMSs sent to the application's short code.
         /// </summary>
         /// <param name="options"></param>
-        public JsObject recieveSms(RecieveSmsOptions options) { return null;}
+        public void recieveSms(RecieveSmsOptions options) { }
         /// <summary>
         /// Issues a request to refund a transaction.
         /// </summary>
         /// <param name="options"></param>
-        public JsObject refundTransaction(RefundTransactionOptions options) { return null;}
+        public void refundTransaction(RefundTransactionOptions options) { }
         /// <summary>
         /// Requests a subscription based on the payment options passed. 
         /// This method will present a popup to the user where they will be given the opportunity to authorize or decline the transaction with AT&T.
@@ -127,7 +127,7 @@ namespace SharpKit.Html5Sdk
         /// error_reason: "user_denied"
         /// </code>
         /// </example>
-        public JsObject requestPaidSubscription(RequestOptions options) { return null;}
+        public void requestPaidSubscription(RequestOptions options) { }
         /// <summary>
         /// Requests a one-time payment based on the options passed. 
         /// This method call will present a pop-up to the user where they will be given the opportunity to either authorize or decline the transaction.
@@ -148,38 +148,38 @@ namespace SharpKit.Html5Sdk
         /// });
         /// </code>
         /// </example>
-        public JsObject requestPayment(RequestOptions options) { return null;}
+        public void requestPayment(RequestOptions options) { }
         /// <summary>
         /// Sends an MMS to a recipient
         /// MMS allows for the delivery of different file types please see the developer documentation for an updated list.
         /// </summary>
         /// <param name="options"></param>
-        public JsObject sendMms(SendMmsOptions options) { return null;}
+        public void sendMms(SendMmsOptions options) { }
         /// <summary>
         /// Sends a Message on behalf Of.
         /// </summary>
         /// <param name="options"></param>
-        public JsObject sendMobo(SendMoboOptions options) { return null;}
+        public void sendMobo(SendMoboOptions options) { }
         /// <summary>
         /// Sends an SMS to a recipient ..
         /// </summary>
         /// <param name="options"></param>
-        public JsObject sendSms(SendSmsOptions options) { return null;}
+        public void sendSms(SendSmsOptions options) { }
         /// <summary>
         /// Encrypts the payload param so that it can be used in other Payment API calls.
         /// </summary>
         /// <param name="options"></param>
-        public JsObject signPayload(SignPayloadOptions options) { return null;}
+        public void signPayload(SignPayloadOptions options) { }
         /// <summary>
         /// Sends an audio file to retrieve the translation to text
         /// </summary>
         /// <param name="options"></param>
-        public JsObject speechToText(SpeechToTextOptions options) { return null;}
+        public void speechToText(SpeechToTextOptions options) { }
         /// <summary>
         /// Sends a WAP Push message
         /// </summary>
         /// <param name="options"></param>
-        public JsObject washPush(WashPushOptions options) { return null;}
+        public void washPush(WashPushOptions options) { }
         /// <summary>
         /// This helper routine will return a properly formatted URL to the SDK routine which will provide the source content (image, text, etc) for the specified message number and part.
         /// </summary>
@@ -263,11 +263,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region AuthorizeOptions
@@ -281,11 +281,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region CancelSubscriptionOptions
@@ -303,11 +303,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region CmsCreateSessionOptions
@@ -322,11 +322,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region CmsSendSignalOptions
@@ -344,11 +344,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region GetDeviceInfoOptions
@@ -358,11 +358,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region GetDeviceLocationOptaions
@@ -389,11 +389,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region GetMmsStatusOptions
@@ -407,11 +407,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region GetSmsStatusOptions
@@ -425,11 +425,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region GetSubscriptionDetailsOPtions
@@ -447,11 +447,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region RecieveSmsOptions
@@ -466,11 +466,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region  RefundTransactionOptions
@@ -488,11 +488,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region RequestOptions
@@ -506,11 +506,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
 
     }
     #endregion
@@ -544,11 +544,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region SendMoboOptions
@@ -588,11 +588,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
     }
     #endregion
     #region SendSmsOptions
@@ -610,11 +610,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
 
     }
     #endregion
@@ -629,11 +629,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
 
     }
     #endregion
@@ -689,11 +689,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
 
     }
     #endregion
@@ -712,11 +712,11 @@ namespace SharpKit.Html5Sdk
         /// <summary>
         /// success callback function
         /// </summary>
-        public JsAction success { get; set; }
+        public JsAction<object> success { get; set; }
         /// <summary>
         /// failure callback function
         /// </summary>
-        public JsAction failure { get; set; }
+        public JsAction<object> failure { get; set; }
 
     }
     #endregion
