@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SharpKit.JavaScript, Version=1.5.0.0, Culture=neutral, PublicKeyToken=2575297a09c47a96, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +43,12 @@
   <ItemGroup>
     <Compile Include="att-html5-sdk.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpKit.Html5\SharpKit.Html5.csproj">
+      <Project>{ADCA3C62-FC3C-47D8-819C-123E1158ABC8}</Project>
+      <Name>SharpKit.Html5</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
