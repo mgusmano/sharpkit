@@ -10,7 +10,7 @@ namespace ExtJsSamples.examples.simple_tasks.app.model
     [JsType(JsMode.Global, Filename = "Task-sk.js")]
     public class Task
     {
-        
+       
 //        Ext.define('SimpleTasks.model.Task', {
 //    extend: 'Ext.data.Model',
 //    fields: [
