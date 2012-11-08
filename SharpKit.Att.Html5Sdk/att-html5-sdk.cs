@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SharpKit.JavaScript;
-using SharpKit.Html5;
+using SharpKit.Html;
 
 namespace SharpKit.Html5Sdk
 {
