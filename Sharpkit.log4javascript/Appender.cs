@@ -9,7 +9,7 @@ namespace log4javascript
     /// <summary>
     /// There are methods common to all appenders
     /// </summary>
-    public abstract class Appender
+    public class Appender
     {
         /// <summary>
         /// Checks the logging event's level is at least as severe as the appender's threshold and calls the appender's append method if so.
@@ -21,7 +21,7 @@ namespace log4javascript
         /// Appender-specific method to append a log message. Every appender object should implement this method
         /// </summary>
         /// <param name="loggingEvent"></param>
-        public abstract void append(LoggingEvent loggingEvent);
+        public virtual void append(LoggingEvent loggingEvent) { }
         /// <summary>
         /// Sets the appender's layout
         /// </summary>
@@ -46,7 +46,7 @@ namespace log4javascript
         /// Returns a string representation of the appender. Every appender object should implement this method
         /// </summary>
         /// <returns></returns>
-        public abstract JsString toString();
+        public virtual JsString toString() { return default(JsString); }
 
         public sealed override string ToString()
         {

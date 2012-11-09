@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Log4JavascriptMaster.master.cs"
+    Inherits="log4javascriptSample.Log4JavascriptMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script type="text/javascript" src="Scripts/log4javascript_uncompressed.js"></script>
+    <script type="text/javascript" src="Scripts/sample.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table>
+        <tr>
+            <td>
+                <button onclick="AddSampleAll(); return false;">Level message</button>
+                <button onclick="AddSampleText(); return false;">Hi warn !</button>
+            </td>
+        </tr>
+    </table>
+    <asp:ContentPlaceHolder ID="body" runat="server" />
+    </form>
+</body>
+</html>
