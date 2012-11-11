@@ -350,7 +350,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> change { add { } remove { } }
+        public event JsAction<EmptyEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the drop-down list is closed
@@ -365,8 +371,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> closeEvent { add { } remove { } }
-        //TODO: event name is close
+        public event JsAction<EmptyEventData> closeEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"close\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"close\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the drop-down list is opened
@@ -381,8 +392,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> open { add { } remove { } }
-
+        public event JsAction<EmptyEventData> open
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"open\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"open\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a Li element is selected.
@@ -404,9 +420,13 @@ namespace SharpKit.KendoUI.Web
         ///autocomplete.data("kendoAutoComplete").unbind("select", onSelect);
         ///</code>
         ///</example>
-        public event JsAction<SelectEventData> selectEvent { add { } remove { } }
-        //TODO: event name is select
-
+        public event JsAction<SelectEventData> selectEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"select\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"select\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -894,8 +914,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> change { add { } remove { } }
-
+        public event JsAction<EmptyEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"chang\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires when navigate
         /// </summary>
@@ -909,8 +934,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> navigateEvent { add { } remove { } }
-        //TODO: event name is navigate
+        public event JsAction<EmptyEventData> navigateEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"navigate\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"navigate\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -1354,8 +1384,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> change { add { } remove { } }
-
+        public event JsAction<EmptyEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires when the drop-down list is closed
         /// </summary>
@@ -1369,8 +1404,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> closeEvent { add { } remove { } }
-        //TODO: event name is close
+        public event JsAction<EmptyEventData> closeEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"close\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"close\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the drop-down list is opened
@@ -1385,8 +1425,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> openEvent { add { } remove { } }
-        //TODO: event name is open
+        public event JsAction<EmptyEventData> openEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"open\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"open\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a Li element is selected.
@@ -1408,8 +1453,13 @@ namespace SharpKit.KendoUI.Web
         /// combobox.data("kendoComboBox").unbind("select", onSelect);
         ///</code>
         ///</example>
-        public event JsAction<SelectEventData> selectEvent { add { } remove { } }
-        //TODO: event name is select
+        public event JsAction<SelectEventData> selectEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"select\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"select\"")]
+            remove { }
+        }
 
     }
 
@@ -2068,8 +2118,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> change { add { } remove { } }
-
+        public event JsAction<EmptyEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires when the calendar is closed
         /// </summary>
@@ -2083,8 +2138,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> closeEvent { add { } remove { } }
-        //TODO: event name is close
+        public event JsAction<EmptyEventData> closeEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"close\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"close\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the calendar is opened
@@ -2099,8 +2159,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<ViewOptions> openEvent { add { } remove { } }
-        //TODO: event name is open
+        public event JsAction<ViewOptions> openEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"open\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"open\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -2596,8 +2661,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> change { add { } remove { } }
-
+        public event JsAction<EmptyEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires when the calendar or the time drop-down list is closed
         /// </summary>
@@ -2611,8 +2681,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> closeEvent { add { } remove { } }
-        //TODO: event name is close
+        public event JsAction<EmptyEventData> closeEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"close\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"close\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the calendar or the time drop-down list is opened
@@ -2627,8 +2702,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<ViewOptions> openEvent { add { } remove { } }
-        //TODO: event name is open
+        public event JsAction<ViewOptions> openEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"open\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"open\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -3153,8 +3233,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> change { add { } remove { } }
-
+        public event JsAction<EmptyEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires when the drop-down list is closed
         /// </summary>
@@ -3168,8 +3253,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> closeEvent { add { } remove { } }
-        //TODO: event name is close
+        public event JsAction<EmptyEventData> closeEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"close\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"close\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the drop-down list is opened
@@ -3184,8 +3274,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> openEvent { add { } remove { } }
-        //TODO: event name is open
+        public event JsAction<EmptyEventData> openEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"open\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"open\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a Li element is selected.
@@ -3207,8 +3302,13 @@ namespace SharpKit.KendoUI.Web
         /// combobox.data("kendoComboBox").unbind("select", onSelect);
         ///</code>
         ///</example>
-        public event JsAction<SelectEventData> selectEvent { add { } remove { } }
-        //TODO: event name is select
+        public event JsAction<SelectEventData> selectEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"select\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"select\"")]
+            remove { }
+        }
 
     }
 
@@ -3638,7 +3738,13 @@ namespace SharpKit.KendoUI.Web
         ///</example>
         public void selectRange(Range range) { }
 
-        public event JsAction<EmptyEventData> select { add { } remove { } }
+        public event JsAction<EmptyEventData> select
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"select\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"select\"")]
+            remove { }
+        }
         /// <summary>
         /// Gets or sets the Editor value.
         /// </summary>
@@ -4193,8 +4299,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> change { add { } remove { } }
-
+        public event JsAction<EmptyEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires when the grid has received data from the data source.
         /// </summary>
@@ -4208,8 +4319,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> dataBound { add { } remove { } }
-
+        public event JsAction<EmptyEventData> dataBound
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"dataBound\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"dataBound\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires when the grid detail row is collapsed.
         /// </summary>
@@ -4223,8 +4339,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<GridDetailCollapseEventData> detailCollapse { add { } remove { } }
-
+        public event JsAction<GridDetailCollapseEventData> detailCollapse
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"detailCollapse\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"detailCollapse\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires when the grid detail row is expanded.
         /// </summary>
@@ -4239,8 +4360,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<GridDetailCollapseEventData> detailExpand { add { } remove { } }
-
+        public event JsAction<GridDetailCollapseEventData> detailExpand
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"detailExpand\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"detailExpand\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires when the grid detail is initialized.
         /// </summary>
@@ -4253,8 +4379,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<GridDetailInitEventData> detailInit { add { } remove { } }
-
+        public event JsAction<GridDetailInitEventData> detailInit
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"detailInit\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"detailInit\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires when the grid enters edit mode.
         /// </summary>
@@ -4267,8 +4398,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<GridEditEventData> edit { add { } remove { } }
-
+        public event JsAction<GridEditEventData> edit
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"edit\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"edit\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires before the grid item is removed.
         /// </summary>
@@ -4281,8 +4417,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<GridRemoveEventData> remove { add { } remove { } }
-
+        public event JsAction<GridRemoveEventData> remove
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"remove\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"remove\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires before the grid item is changed.
         /// </summary>
@@ -4295,8 +4436,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<GridSaveEventData> save { add { } remove { } }
-
+        public event JsAction<GridSaveEventData> save
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"save\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"save\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires before the grid calls DataSource sync.
         /// </summary>
@@ -4309,8 +4455,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> saveChangesEvent { add { } remove { } }
-        //TODO: event name is saveChanges
+        public event JsAction<EmptyEventData> saveChangesEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"saveChange\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"saveChange\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the user resizes a column.
@@ -5508,12 +5659,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> change 
-        { 
-            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]    
+        public event JsAction<EmptyEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
             add { }
             [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
-            remove { } }
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the list view has received data from the data source. and is about to render it.
@@ -5528,12 +5680,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> dataBound 
+        public event JsAction<EmptyEventData> dataBound
         {
             [JsMethod(Name = "bind", InsertArg0 = "\"dateBound\"")]
             add { }
             [JsMethod(Name = "unbind", InsertArg0 = "\"DataBound\"")]
-            remove { } }
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the grid enters edit mode.
@@ -5547,7 +5700,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<ListViewEditEventData> editEvent { add { } remove { } }
+        public event JsAction<ListViewEditEventData> editEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"edit\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"edit\"")]
+            remove { }
+        }
         //TODO: event name is edit
 
         /// <summary>
@@ -5562,7 +5721,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<ListViewRemoveEventData> removeEvent { add { } remove { } }
+        public event JsAction<ListViewRemoveEventData> removeEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"remove\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"remove\"")]
+            remove { }
+        }
         //TODO: event name is remove
     }
 
@@ -6176,8 +6341,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<OneItemEventData> closeEvent { add { } remove { } }
-        //TODO: event name is close
+        public event JsAction<OneItemEventData> closeEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"close\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"close\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires before a sub menu gets opened.
@@ -6192,8 +6362,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<OneItemEventData> openEvent { add { } remove { } }
-        //TODO: event name is open
+        public event JsAction<OneItemEventData> openEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"open\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"open\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when a menu item gets selected.
@@ -6215,8 +6390,13 @@ namespace SharpKit.KendoUI.Web
         /// combobox.data("kendoComboBox").unbind("select", onSelect);
         ///</code>
         ///</example>
-        public event JsAction<OneItemEventData> selectEvent { add { } remove { } }
-        //TODO: event name is select
+        public event JsAction<OneItemEventData> selectEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"select\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"select\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -6329,8 +6509,8 @@ namespace SharpKit.KendoUI.Web
         ///</code>
         ///</example>
         public JsString popupCollision { get; set; }
-		
-		/// <summary>
+
+        /// <summary>
         /// Fires when a menu item gets selected.
         /// </summary>
         ///<example>
@@ -6350,7 +6530,7 @@ namespace SharpKit.KendoUI.Web
         /// combobox.data("kendoComboBox").unbind("select", onSelect);
         ///</code>
         ///</example>
-        public JsAction<OneItemEventData> select { get; set;  }
+        public JsAction<OneItemEventData> select { get; set; }
 
     }
 
@@ -6584,8 +6764,9 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> change { 
-            [JsMethod(Name="bind", InsertArg0="\"change\"")]
+        public event JsAction<EmptyEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
             add { }
             [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
             remove { }
@@ -6604,9 +6785,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> spin { add { } remove { } }
-
-
+        public event JsAction<EmptyEventData> spin
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"spin\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"spin\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -6810,7 +6995,7 @@ namespace SharpKit.KendoUI.Web
         /// </code>
         /// </example>
         public JsAction<ChangeEventData> change { get; set; }
-		
+
         /// <summary>
         /// Fires when the value is changed from the spin buttons.
         /// </summary>
@@ -6833,8 +7018,8 @@ namespace SharpKit.KendoUI.Web
         /// </code>
         /// </example>
         public JsAction spin { get; set; }
-		
-		/// <summary>
+
+        /// <summary>
         /// Specifies whether the up/down spin buttons should be rendered.  Default is true.
         /// </summary>
         /// <example>
@@ -6912,7 +7097,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> change { add { } remove { } }
+        public event JsAction<EmptyEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -7461,7 +7652,13 @@ namespace SharpKit.KendoUI.Web
         /// panelBar.data("kendoPanelBar").unbind("activate", onActivate);
         ///</code>
         ///</example>
-        public event JsAction<OneItemEventData> activate { add { } remove { } }
+        public event JsAction<OneItemEventData> activate
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"activate\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"activate\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when an item of a PanelBar is collapsed.
@@ -7483,8 +7680,13 @@ namespace SharpKit.KendoUI.Web
         /// panelBar.data("kendoPanelBar").unbind("collapse", onCollapse);
         ///</code>
         ///</example>
-        public event JsAction<OneItemEventData> collapseEvent { add { } remove { } }
-        //TODO: event name is collapse
+        public event JsAction<OneItemEventData> collapseEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"collapse\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"collapse\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when content is fetched from an AJAX request.
@@ -7499,7 +7701,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<PanelBarContentLoadEventData> contentLoad { add { } remove { } }
+        public event JsAction<PanelBarContentLoadEventData> contentLoad
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"contentLoad\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"contentLoad\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when AJAX request results in an error.
@@ -7514,7 +7722,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<PanelBarErrorEventData> error { add { } remove { } }
+        public event JsAction<PanelBarErrorEventData> error
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"error\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"error\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when an item of a PanelBar is expanded.
@@ -7536,8 +7750,13 @@ namespace SharpKit.KendoUI.Web
         /// panelBar.data("kendoPanelBar").unbind("expand", onExpand);
         ///</code>
         ///</example>
-        public event JsAction<OneItemEventData> expandEvent { add { } remove { } }
-        //TODO: event name is expand
+        public event JsAction<OneItemEventData> expandEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"expand\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"expand\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when an item of a PanelBar is selected.
@@ -7559,10 +7778,13 @@ namespace SharpKit.KendoUI.Web
         /// combobox.data("kendoComboBox").unbind("select", onSelect);
         ///</code>
         ///</example>
-        public event JsAction<OneItemEventData> selectEvent { add { } remove { } }
-        //TODO: event name is select
-
-
+        public event JsAction<OneItemEventData> selectEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"select\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"select\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -7904,12 +8126,24 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// Fires when the rangeSlider value changes as a result of selecting a new value with one of the drag handles or the keyboard.
         /// </summary>
-        public event JsAction<RangeSliderEventData> change { add { } remove { } }
+        public event JsAction<RangeSliderEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the user drags the drag handle to a new position.
         /// </summary>
-        public event JsAction<RangeSliderEventData> slide { add { } remove { } }
+        public event JsAction<RangeSliderEventData> slide
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"slide\"")]
+            add { }
+            [JsMethod(Name = "bind", InsertArg0 = "\"slide\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -8100,12 +8334,24 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// Fires when the slider value changes as a result of selecting a new value with the drag handle, buttons or keyboard.
         /// </summary>
-        public event JsAction<RangeSliderEventData> change { add { } remove { } }
+        public event JsAction<RangeSliderEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the user drags the drag handle to a new position.
         /// </summary>
-        public event JsAction<RangeSliderEventData> slide { add { } remove { } }
+        public event JsAction<RangeSliderEventData> slide
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"slide\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"slide\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -8534,8 +8780,13 @@ namespace SharpKit.KendoUI.Web
         /// panelBar.data("kendoPanelBar").unbind("collapse", onCollapse);
         ///</code>
         ///</example>
-        public event JsAction<SplitterEventData> collapseEvent { add { } remove { } }
-        //TODO: event name is collapse
+        public event JsAction<SplitterEventData> collapseEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"collapse\"")]
+            add { }
+            [JsMethod(Name = "bind", InsertArg0 = "\"collapse\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when the content for a pane has finished loading.
@@ -8557,7 +8808,13 @@ namespace SharpKit.KendoUI.Web
         /// splitter.data("kendoSplitter").unbind("contentLoad", onContentLoad);
         ///</code>
         ///</example>
-        public event JsAction<SplitterEventData> contentLoad { add { } remove { } }
+        public event JsAction<SplitterEventData> contentLoad
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"contentLoad\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"contentLoad\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a pane of a Splitter is expanded.
@@ -8579,8 +8836,13 @@ namespace SharpKit.KendoUI.Web
         /// panelBar.data("kendoPanelBar").unbind("expand", onExpand);
         ///</code>
         ///</example>
-        public event JsAction<SplitterEventData> expandEvent { add { } remove { } }
-        //TODO: event name is expand
+        public event JsAction<SplitterEventData> expandEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"expand\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"expand\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the splitter layout has changed
@@ -8598,7 +8860,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> layoutChange { add { } remove { } }
+        public event JsAction<EmptyEventData> layoutChange
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"layoutChange\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"layoutChange\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a pane is resized.
@@ -8620,7 +8888,13 @@ namespace SharpKit.KendoUI.Web
         /// splitter.data("kendoSplitter").unbind("resize", onResize);
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> resize { add { } remove { } }
+        public event JsAction<EmptyEventData> resize
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"resize\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"resize\"")]
+            remove { }
+        }
 
         /// <summary>
         /// 
@@ -9048,7 +9322,13 @@ namespace SharpKit.KendoUI.Web
         /// panelBar.data("kendoPanelBar").unbind("activate", onActivate);
         ///</code>
         ///</example>
-        public event JsAction<TabStripSelectEventData> activate { add { } remove { } }
+        public event JsAction<TabStripSelectEventData> activate
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"activate\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"activate\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when content is fetched from an AJAX request.
@@ -9063,7 +9343,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<TabStripSelectEventData> contentLoad { add { } remove { } }
+        public event JsAction<TabStripSelectEventData> contentLoad
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"contentLoad\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"contentLoad\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when an AJAX request results in an error.
@@ -9078,7 +9364,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<PanelBarErrorEventData> error { add { } remove { } }
+        public event JsAction<PanelBarErrorEventData> error
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"error\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"error\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered before a tab is selected.
@@ -9100,9 +9392,13 @@ namespace SharpKit.KendoUI.Web
         /// combobox.data("kendoComboBox").unbind("select", onSelect);
         ///</code>
         ///</example>
-        public event JsAction<TabStripSelectEventData> selectEvent { add { } remove { } }
-        //TODO: event name is select
-
+        public event JsAction<TabStripSelectEventData> selectEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"select\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"select\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -9493,7 +9789,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> change { add { } remove { } }
+        public event JsAction<EmptyEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the time drop-down list is closed
@@ -9508,8 +9810,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> closeEvent { add { } remove { } }
-        //TODO: event name is close
+        public event JsAction<EmptyEventData> closeEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"close\"")]
+            add { }
+            [JsMethod(Name = "bind", InsertArg0 = "\"close\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when the time drop-down list is opened
@@ -9524,8 +9831,13 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<ViewOptions> openEvent { add { } remove { } }
-        //TODO: event name is open
+        public event JsAction<ViewOptions> openEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"open\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"open\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -9907,8 +10219,13 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// Triggered before a subgroup gets collapsed.
         /// </summary>
-        public event JsAction<TreeViewEventData> collapseEvent { add { } remove { } }
-        //TODO: event name is collapse
+        public event JsAction<TreeViewEventData> collapseEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"collapse\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"collapse\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered while a node is being dragged.
@@ -9920,13 +10237,25 @@ namespace SharpKit.KendoUI.Web
         /// k-denied - Indicates an invalid operation
         /// Using this class will automatically make the drop operation invalid, so there will be no need to call setValid(false) in the drop event.
         /// </summary>
-        public event JsAction<TreeViewDragEventData> drag { add { } remove { } }
+        public event JsAction<TreeViewDragEventData> drag
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"drag\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"drag\"")]
+            remove { }
+        }
         //TODO:check summary (?)
 
         /// <summary>
         /// Triggered after a node has been dropped.
         /// </summary>
-        public event JsAction<TreeViewDragendEventData> dragend { add { } remove { } }
+        public event JsAction<TreeViewDragendEventData> dragend
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"dragend\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"dragend\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered before the dragging of a node starts.
@@ -9941,24 +10270,46 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<TreeViewDragstartEventData> dragstart { add { } remove { } }
+        public event JsAction<TreeViewDragstartEventData> dragstart
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"dragstart\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"dragstart\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a node is being dropped.
         /// </summary>
-        public event JsAction<TreeViewDropEventData> drop { add { } remove { } }
+        public event JsAction<TreeViewDropEventData> drop
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"drop\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"drop\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered before a subgroup gets expanded.
         /// </summary>
-        public event JsAction<TreeViewEventData> expandEvent { add { } remove { } }
-        //TODO: event name is expand
+        public event JsAction<TreeViewEventData> expandEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"expand\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"expand\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a node gets selected.
         /// </summary>
-        public event JsAction<TreeViewEventData> selectEvent { add { } remove { } }
-        //TODO: event name is select
+        public event JsAction<TreeViewEventData> selectEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"select\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"select\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -10388,7 +10739,13 @@ namespace SharpKit.KendoUI.Web
         /// }
         ///</code>
         ///</example>
-        public event JsAction<UploadCancelSelectEventData> cancel { add { } remove { } }
+        public event JsAction<UploadCancelSelectEventData> cancel
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"cancel\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"cancel\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when all active uploads have completed either successfully or with errors.
@@ -10407,7 +10764,13 @@ namespace SharpKit.KendoUI.Web
         /// }
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> complete { add { } remove { } }
+        public event JsAction<EmptyEventData> complete
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"complete\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"complete\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when an upload / remove operation has failed.
@@ -10431,7 +10794,13 @@ namespace SharpKit.KendoUI.Web
         /// }
         ///</code>
         ///</example>
-        public event JsAction<UploadErrorEventData> error { add { } remove { } }
+        public event JsAction<UploadErrorEventData> error
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"error\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"error\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when upload progress data is available.
@@ -10453,7 +10822,13 @@ namespace SharpKit.KendoUI.Web
         /// }
         ///</code>
         ///</example>
-        public event JsAction<UploadProgressEventData> progress { add { } remove { } }
+        public event JsAction<UploadProgressEventData> progress
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"progress\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"progress\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when an uploaded file is about to be removed. Cancelling the event will prevent the remove.
@@ -10476,7 +10851,13 @@ namespace SharpKit.KendoUI.Web
         ///}
         ///</code>
         ///</example>
-        public event JsAction<UploadUploadRemoveEventData> remove { add { } remove { } }
+        public event JsAction<UploadUploadRemoveEventData> remove
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"remove\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"remove\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a file(s) is selected. Note: Cancelling this event will prevent the selection from occurring.
@@ -10499,7 +10880,13 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<UploadCancelSelectEventData> select { add { } remove { } }
+        public event JsAction<UploadCancelSelectEventData> select
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"select\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"select\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when an upload / remove operation has been completed successfully.
@@ -10523,7 +10910,13 @@ namespace SharpKit.KendoUI.Web
         /// }
         ///</code>
         ///</example>
-        public event JsAction<UploadSuccessEventData> success { add { } remove { } }
+        public event JsAction<UploadSuccessEventData> success
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"success\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"success\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when one or more files are about to be uploaded. Cancelling the event will prevent the upload.
@@ -10551,10 +10944,13 @@ namespace SharpKit.KendoUI.Web
         /// }
         ///</code>
         ///</example>
-        public event JsAction<UploadUploadRemoveEventData> upload { add { } remove { } }
-
-
-
+        public event JsAction<UploadUploadRemoveEventData> upload
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"upload\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"upload\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -11063,54 +11459,103 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// Triggered when a Window has finished its opening animation.
         /// </summary>
-        public event JsAction<EmptyEventData> activate { add { } remove { } }
+        public event JsAction<EmptyEventData> activate
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"activate\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"activate\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a Window is closed (by a user or through the close() method).
         /// </summary>
-        public event JsAction<EmptyEventData> closeEvent { add { } remove { } }
-        //TODO: Event name is close
+        public event JsAction<EmptyEventData> closeEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"close\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"close\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a Window has finished its closing animation.
         /// </summary>
-        public event JsAction<EmptyEventData> deactivate { add { } remove { } }
+        public event JsAction<EmptyEventData> deactivate
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"deactivate\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"deactivate\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a Window has been moved by a user.
         /// </summary>
-        public event JsAction<EmptyEventData> dragend { add { } remove { } }
+        public event JsAction<EmptyEventData> dragend
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"dragend\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"dragend\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when the user starts to move the window.
         /// </summary>
-        public event JsAction<EmptyEventData> dragstart { add { } remove { } }
+        public event JsAction<EmptyEventData> dragstart
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"dragstart\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"dragstart\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when an AJAX request for content fails.
         /// </summary>
-        public event JsAction<EmptyEventData> error { add { } remove { } }
+        public event JsAction<EmptyEventData> error
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"error\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"error\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a Window is opened (i.e. the open() method is called).
         /// </summary>
-        public event JsAction<EmptyEventData> openEvent { add { } remove { } }
-        //TODO: Event name is open
+        public event JsAction<EmptyEventData> openEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"open\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"open\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when the content of a Window have been refreshed via AJAX.
         /// </summary>
-        public event JsAction<EmptyEventData> refreshEvent { add { } remove { } }
-        //TODO: Event name is refresh
+        public event JsAction<EmptyEventData> refreshEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"refresh\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"refresh\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Triggered when a Window has been resized by a user.
         /// </summary>
-        public event JsAction<EmptyEventData> resize { add { } remove { } }
+        public event JsAction<EmptyEventData> resize
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"resize\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"resize\"")]
+            remove { }
+        }
 
         //TODO: all events have no eventData (?)
-
-
     }
 
     [JsType(JsMode.Json)]
@@ -11276,7 +11721,7 @@ namespace SharpKit.KendoUI.Web
 
     #region Helpers
 
-	public class EmptyEventData
+    public class EmptyEventData
     {
     }
 
@@ -11289,7 +11734,7 @@ namespace SharpKit.KendoUI.Web
         public jQuery.jQuery item { get; set; }
     }
 
-    [JsType(PropertiesAsFields=true)]
+    [JsType(PropertiesAsFields = true)]
     public class OneItemEventData
     {
         /// <summary>
