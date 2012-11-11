@@ -5508,7 +5508,12 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> change { add { } remove { } }
+        public event JsAction<EmptyEventData> change 
+        { 
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]    
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { } }
 
         /// <summary>
         /// Fires when the list view has received data from the data source. and is about to render it.
@@ -5523,7 +5528,12 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public event JsAction<EmptyEventData> dataBound { add { } remove { } }
+        public event JsAction<EmptyEventData> dataBound 
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"dateBound\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"DataBound\"")]
+            remove { } }
 
         /// <summary>
         /// Fires when the grid enters edit mode.
