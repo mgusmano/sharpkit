@@ -63,6 +63,7 @@ namespace SharpKit.Html
     public partial class Int8Array
     {
         public Int8Array(int length) { }
+        public Int8Array(sbyte[] array) { }
         public Int8Array(ArrayBuffer buffer) { }
         public Int8Array(ArrayBuffer buffer, int byteOffset) { }
         public Int8Array(ArrayBuffer buffer, int byteOffset, int length) { }
@@ -80,6 +81,7 @@ namespace SharpKit.Html
     public partial class Uint8Array
     {
         public Uint8Array(int length) { }
+        public Uint8Array(byte[] array) { }
         public Uint8Array(ArrayBuffer buffer) { }
         public Uint8Array(ArrayBuffer buffer, int byteOffset) { }
         public Uint8Array(ArrayBuffer buffer, int byteOffset, int length) { }
@@ -90,6 +92,7 @@ namespace SharpKit.Html
     public partial class Int16Array
     {
         public Int16Array(int length) { }
+        public Int16Array(short[] array) { }
         public Int16Array(ArrayBuffer buffer) { }
         public Int16Array(ArrayBuffer buffer, int byteOffset) { }
         public Int16Array(ArrayBuffer buffer, int byteOffset, int length) { }
@@ -100,6 +103,7 @@ namespace SharpKit.Html
     public partial class Uint16Array
     {
         public Uint16Array(int length) { }
+        public Uint16Array(ushort[] array) { }
         public Uint16Array(ArrayBuffer buffer) { }
         public Uint16Array(ArrayBuffer buffer, int byteOffset) { }
         public Uint16Array(ArrayBuffer buffer, int byteOffset, int length) { }
@@ -110,6 +114,7 @@ namespace SharpKit.Html
     public partial class Int32Array
     {
         public Int32Array(int length) { }
+        public Int32Array(int[] array) { }
         public Int32Array(ArrayBuffer buffer) { }
         public Int32Array(ArrayBuffer buffer, int byteOffset) { }
         public Int32Array(ArrayBuffer buffer, int byteOffset, int length) { }
@@ -120,6 +125,7 @@ namespace SharpKit.Html
     public partial class Uint32Array
     {
         public Uint32Array(int length) { }
+        public Uint32Array(uint[] array) { }
         public Uint32Array(ArrayBuffer buffer) { }
         public Uint32Array(ArrayBuffer buffer, int byteOffset) { }
         public Uint32Array(ArrayBuffer buffer, int byteOffset, int length) { }
@@ -130,6 +136,7 @@ namespace SharpKit.Html
     public partial class Float32Array
     {
         public Float32Array(int length) { }
+        public Float32Array(float[] array) { }
         public Float32Array(ArrayBuffer buffer) { }
         public Float32Array(ArrayBuffer buffer, int byteOffset) { }
         public Float32Array(ArrayBuffer buffer, int byteOffset, int length) { }
@@ -140,6 +147,7 @@ namespace SharpKit.Html
     public partial class Float64Array
     {
         public Float64Array(int length) { }
+        public Float64Array(double[] array) { }
         public Float64Array(ArrayBuffer buffer) { }
         public Float64Array(ArrayBuffer buffer, int byteOffset) { }
         public Float64Array(ArrayBuffer buffer, int byteOffset, int length) { }
@@ -147,14 +155,14 @@ namespace SharpKit.Html
         public double this[int key] { get { return default(double); } set { } }
     }
 
-	public partial class WebSocket
-	{
-		public WebSocket(string url) { }
-		public WebSocket(string url, JsString protocol) { }
-	    public void send(Blob data) { }
+    public partial class WebSocket
+    {
+        public WebSocket(string url) { }
+        public WebSocket(string url, JsString protocol) { }
+        public void send(Blob data) { }
         public void send(ArrayBuffer data) { }
         public void send(ArrayBufferView data) { }
-	}
+    }
 
 
     public partial class CssStyleDeclaration
