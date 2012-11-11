@@ -1375,7 +1375,13 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public event JsAction change { add { } remove { } }
+        public event JsAction change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
 
         /// <summary>
         /// Fires when an error occurs during data read or sync. The event arguments are the same as the ones of the error event of $.ajax().
@@ -1392,8 +1398,13 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public event JsAction error { add { } remove { } }
-
+        public event JsAction error
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"error\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"error\"")]
+            remove { }
+        }
         /// <summary>
         /// Fires when data request is to be made.
         /// </summary>
@@ -1407,7 +1418,13 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public event JsAction<DataSourceRequestStartEventData> requestStart { add { } remove { } }
+        public event JsAction<DataSourceRequestStartEventData> requestStart
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"requestStart\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"requestStart\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -2956,8 +2973,13 @@ namespace SharpKit.KendoUI
         ///people[0].set("name", "Jane Doe"); // outputs "itemchange", "name", "Jane Doe"
         ///</code>
         ///</example>
-        public event JsAction<ObservableArrayChangeEventData<T>> change { add { } remove { } }
-
+        public event JsAction<ObservableArrayChangeEventData<T>> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -3120,21 +3142,35 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Raised when a field value is updated via the set method.
         /// </summary>
-        public event JsAction<ObservableObjectChangeEventData> change { add { } remove { } }
-
+        public event JsAction<ObservableObjectChangeEventData> change
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"change\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"change\"")]
+            remove { }
+        }
         /// <summary>
-        /// Raised when the get method is invoked. TODO: change name to "get"
+        /// Raised when the get method is invoked. 
         /// </summary>
-        public event JsAction<ObservableObjectChangeEventData> getEvent { add { } remove { } }
-
+        public event JsAction<ObservableObjectChangeEventData> getEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"get\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"get\"")]
+            remove { }
+        }
         /// <summary>
         /// Raised when the set method is invoked.
         /// The set event is raised before the field value is updated. Calling the get method from the event handler will return the old value.
         /// Calling e.preventDefault will prevent the update of the field and the change event will not be raised.
-        /// TODO: change name to "set"
         /// </summary>
-        public event JsAction<ObservableObjectSetEventData> setEvent { add { } remove { } }
-
+        public event JsAction<ObservableObjectSetEventData> setEvent
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"set\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"set\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
