@@ -73,3 +73,47 @@ var CoreTests$Methods$MethodOverloads =
     }
 };
 JsTypes.push(CoreTests$Methods$MethodOverloads);
+var CoreTests$Methods$GenericConstructorCall =
+{
+    fullname: "CoreTests.Methods.GenericConstructorCall",
+    baseTypeName: "System.Object",
+    assemblyName: "CoreTests",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            System.Object.ctor.call(this);
+        },
+        main: function ()
+        {
+            var foo = new CoreTests.Methods.GenericConstructor$2.ctor$$A(System.Int32.ctor, System.String.ctor, 5);
+            var bar = new CoreTests.Methods.GenericConstructor$2.ctor$$B(System.Int32.ctor, System.String.ctor, "test");
+            var kv = new System.Collections.Generic.KeyValuePair$2.ctor$$TKey$$TValue(System.Int32.ctor, System.String.ctor, 5, "");
+        }
+    }
+};
+JsTypes.push(CoreTests$Methods$GenericConstructorCall);
+var CoreTests$Methods$GenericConstructor$2 =
+{
+    fullname: "CoreTests.Methods.GenericConstructor$2",
+    baseTypeName: "System.Object",
+    assemblyName: "CoreTests",
+    Kind: "Class",
+    definition:
+    {
+        ctor$$A: function (A, B, arg)
+        {
+            this.A = A;
+            this.B = B;
+            System.Object.ctor.call(this);
+        },
+        ctor$$B: function (A, B, arg)
+        {
+            this.A = A;
+            this.B = B;
+            System.Object.ctor.call(this);
+        }
+    }
+};
+JsTypes.push(CoreTests$Methods$GenericConstructor$2);

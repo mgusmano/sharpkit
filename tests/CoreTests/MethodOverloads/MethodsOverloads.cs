@@ -63,4 +63,31 @@ namespace CoreTests.Methods
         }
 
     }
+
+    [JsType(JsMode.Clr)]
+    public class GenericConstructorCall
+    {
+        public void main()
+        {
+            var foo = new GenericConstructor<int, string>(5);
+            var bar = new GenericConstructor<int, string>("test");
+
+            var kv = new KeyValuePair<int, string>(5, "");
+        }
+    }
+
+    [JsType(JsMode.Clr)]
+    public class GenericConstructor<A, B>
+    {
+
+        public GenericConstructor(A arg)
+        {
+        }
+
+        public GenericConstructor(B arg)
+        {
+        }
+
+    }
+
 }
