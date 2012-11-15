@@ -654,11 +654,10 @@
     <Compile Include="demos\tooltip\CustomStyle.cs" />
     <Compile Include="demos\tooltip\Default.cs" />
     <Compile Include="demos\tooltip\Forms.cs" />
+    <Compile Include="demos\widget\Default.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="demos\widget\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="demos\tabs\ajax\content3-slow.php" />
     <None Include="demos\tabs\ajax\content4-broken.php" />
