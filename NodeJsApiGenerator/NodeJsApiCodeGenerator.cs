@@ -11,6 +11,7 @@ namespace NodeJsApiGenerator
 {
     class YuiCodeGenerator
     {
+        public static int i = 0;
         public YuiCodeGenerator()
         {
             Context = new AssemblyContext();
@@ -65,7 +66,12 @@ namespace NodeJsApiGenerator
                     ce.BaseClass = FindClass(baseClassName);
                     if (ce.BaseClass == null)
                     {
-                        Console.WriteLine("Warning: base class: {0} was not found", baseClassName);
+                        Console.WriteLine(i +"Warning: base class: {0} was not found", baseClassName);
+                        i++;
+                        if (i == 218)
+                        {
+                            Console.WriteLine("Help1");
+                        }
                     }
                 }
             }
@@ -321,17 +327,33 @@ namespace NodeJsApiGenerator
                     me.Parameters.Where(t => t.Name.IsNullOrEmpty()).ForEach(t => t.Name = "Undocumented");
                 }
 
-
+               
                 var doubles = ce.Members.RemoveDoublesByKey(t => t.UniqueName);
                 foreach (var d in doubles)
-                    Console.WriteLine("Warning: removed double: {0}", d);
+                {
+                    Console.WriteLine(i + " Warning: removed double: {0}", d);
+                    
+                    i++;
+                    if (i == 219)
+                    {
+                        Console.WriteLine("Help2");
+                    }
+                  
+                }
                 foreach (var group in ce.Members.GroupBy(t => t.Name))
                 {
+                   
                     var toRemove = group.GroupBy(t => t.GetType()).Skip(1).Ungroup();
                     foreach (var me in toRemove)
                     {
-                        Console.WriteLine("Warning: removed double: {0}", me.UniqueName);
+                        Console.WriteLine(i + " Warning: removed double: {0}", me.UniqueName);
                         ce.Members.Remove(me);
+                        if (i == 218)
+                        {
+                            Console.WriteLine("Help3");
+                        }
+                        i++;
+                        
                     }
                 }
                 foreach (var me in ce.Members)

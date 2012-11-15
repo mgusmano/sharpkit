@@ -96,6 +96,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.BackboneJs", "SharpKit.BackboneJs\SharpKit.BackboneJs.csproj", "{E4F53CA3-DD5B-47EF-9BF6-65C8829A260B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NodeJs", "NodeJs", "{008CB224-EE02-4F60-B7B0-58A675C9E4C6}"
+	ProjectSection(SolutionItems) = preProject
+		NodeJsApiGenerator\all.json = NodeJsApiGenerator\all.json
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodeJsApiGenerator", "NodeJsApiGenerator\NodeJsApiGenerator.csproj", "{D596377C-43EF-42E6-9EC7-8F5CC7346D9B}"
 EndProject
