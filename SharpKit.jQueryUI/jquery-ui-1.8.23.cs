@@ -5371,5 +5371,221 @@ namespace SharpKit.jQuery
     }
 
     #endregion
+    #region Widget
+    public static partial class WidgetExtention
+    {
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true, Name = "jQuery.Widget")]
+        public static jQuery widget(this jQuery query, JsString name, WidgetOptions options) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true, Name = "jQuery.Widget")]
+        public static jQuery widget(this jQuery query, JsString name, JsAction @base, WidgetOptions options) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true, Name = "jQuery.Widget")]
+        public static jQuery accordion(this jQuery query, JsString name, params object[] args) { return default(jQuery); }
+    }
+    #endregion Widget
+    #region WidgetOptions
+    [JsType(JsMode.Json)]
+    public partial class WidgetOptions
+    {
+        /// <summary>
+        /// Disables the jQuery.Widget if set to true.
+        /// </summary>
+        /// <example>
+        /// Initialize the jQuery.Widget with the disabled option specified:
+        /// <code>
+        /// $( ".selector" ).jQuery.Widget({ disabled: true });
+        /// </code>
+        /// Get or set the disabled option, after initialization:
+        /// <code>
+        /// // getter
+        /// var disabled = $( ".selector" ).jQuery.Widget( "option", "disabled" ); 
+        /// // setter
+        /// $( ".selector" ).jQuery.Widget( "option", "disabled", true );
+        /// </code>
+        /// </example>
+        public bool disabled { get; set; }
+        /// <summary>
+        /// When set to false, no animation will be used and the element will be hidden immediately. When set to true, the element will fade out with the default duration and the default easing.
+        /// </summary>
+        /// <example>
+        /// Initialize the jQuery.Widget with the hide option specified:
+        /// <code>
+        /// $( ".selector" ).jQuery.Widget({ hide: { effect: "explode", duration: 1000 } });
+        /// </code>
+        /// </example>
+        /// <example>
+        /// Get or set the hide option, after initialization:
+        /// <code>
+        /// // getter
+        /// var hide = $( ".selector" ).jQuery.Widget( "option", "hide" );
+        ///  
+        /// // setter
+        /// $( ".selector" ).jQuery.Widget( "option", "hide", { effect: "explode", duration: 1000 } );
+        /// </code>
+        /// </example>
+        [JsProperty(Name = "hide")]
+        public bool hideBoolean { get; set; }
+        /// <summary>
+        /// The element will fade out with the specified duration and the default easing.
+        /// </summary>
+        /// <example>
+        /// Initialize the jQuery.Widget with the hide option specified:
+        /// <code>
+        /// $( ".selector" ).jQuery.Widget({ hide: { effect: "explode", duration: 1000 } });
+        /// </code>
+        /// </example>
+        /// <example>
+        /// Get or set the hide option, after initialization:
+        /// <code>
+        /// // getter
+        /// var hide = $( ".selector" ).jQuery.Widget( "option", "hide" );
+        ///  
+        /// // setter
+        /// $( ".selector" ).jQuery.Widget( "option", "hide", { effect: "explode", duration: 1000 } );
+        /// </code>
+        /// </example>
+        [JsProperty(Name = "hide")]
+        public JsNumber hideNumber { get; set; }
+        /// <summary>
+        /// The element will be hidden using the specified effect. 
+        /// The value can either be the name of a built-in jQuery animateion method, such as "slideUp", or the name of a jQuery UI effect, such as "fold". 
+        /// In either case the effect will be used with the default duration and the default easing.
+        /// </summary>
+        /// <example>
+        /// Initialize the jQuery.Widget with the hide option specified:
+        /// <code>
+        /// $( ".selector" ).jQuery.Widget({ hide: { effect: "explode", duration: 1000 } });
+        /// </code>
+        /// </example>
+        /// <example>
+        /// Get or set the hide option, after initialization:
+        /// <code>
+        /// // getter
+        /// var hide = $( ".selector" ).jQuery.Widget( "option", "hide" );
+        ///  
+        /// // setter
+        /// $( ".selector" ).jQuery.Widget( "option", "hide", { effect: "explode", duration: 1000 } );
+        /// </code>
+        /// </example>
+        [JsProperty(Name = "hide")]
+        public JsString hideString { get; set; }
+        /// <summary>
+        ///  If the value is an object, then effect, duration, and easing properties may be provided. If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect. When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect. If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeOut" will be used.
+        /// </summary>
+        /// <example>
+        /// Initialize the jQuery.Widget with the hide option specified:
+        /// <code>
+        /// $( ".selector" ).jQuery.Widget({ hide: { effect: "explode", duration: 1000 } });
+        /// </code>
+        /// </example>
+        /// <example>
+        /// Get or set the hide option, after initialization:
+        /// <code>
+        /// // getter
+        /// var hide = $( ".selector" ).jQuery.Widget( "option", "hide" );
+        ///  
+        /// // setter
+        /// $( ".selector" ).jQuery.Widget( "option", "hide", { effect: "explode", duration: 1000 } );
+        /// </code>
+        /// </example>
+        public object hide { get; set; }
+        /// <summary>
+        /// When set to false, no animation will be used and the element will be shown immediately. When set to true, the element will fade in with the default duration and the default easing.
+        /// </summary>
+        /// <example>
+        /// Initialize the jQuery.Widget with the show option specified:
+        /// <code>
+        /// $( ".selector" ).jQuery.Widget({ show: { effect: "explode", duration: 1000 } });
+        /// </code>
+        /// <example>
+        /// Initialize the jQuery.Widget with the show option specified:
+        /// <code>
+        /// $( ".selector" ).jQuery.Widget({ show: { effect: "blind", duration: 800 } });
+        /// </code>
+        /// </example>
+        /// <example>
+        /// Get or set the show option, after initialization:
+        /// <code>
+        /// // getter
+        /// var show = $( ".selector" ).jQuery.Widget( "option", "show" );
+        ///  
+        /// // setter
+        /// $( ".selector" ).jQuery.Widget( "option", "show", { effect: "blind", duration: 800 } );
+        /// </code>
+        /// </example>
+        [JsProperty(Name = "show")]
+        public bool showBoolean { get; set; }
+        /// <summary>
+        /// The element will fade in with the specified duration and the default easing.
+        /// </summary>
+        /// <example>
+        /// Initialize the jQuery.Widget with the show option specified:
+        /// <code>
+        /// $( ".selector" ).jQuery.Widget({ show: { effect: "blind", duration: 800 } });
+        /// </code>
+        /// </example>
+        /// <example>
+        /// Get or set the show option, after initialization:
+        /// <code>
+        /// // getter
+        /// var show = $( ".selector" ).jQuery.Widget( "option", "show" );
+        ///  
+        /// // setter
+        /// $( ".selector" ).jQuery.Widget( "option", "show", { effect: "blind", duration: 800 } );
+        /// </code>
+        /// </example>
+        [JsProperty(Name = "show")]
+        public JsNumber showNumber { get; set; }
+        /// <summary>
+        /// The element will be shown using the specified effect. The value can either be the name of a built-in jQuery animateion method, such as "slideDown", or the name of a jQuery UI effect, such as "fold". In either case the effect will be used with the default duration and the default easing.
+        /// </summary>
+        /// <example>
+        /// Initialize the jQuery.Widget with the show option specified:
+        /// <code>
+        /// $( ".selector" ).jQuery.Widget({ show: { effect: "explode", duration: 1000 } });
+        /// </code>
+        /// <example>
+        /// Initialize the jQuery.Widget with the show option specified:
+        /// <code>
+        /// $( ".selector" ).jQuery.Widget({ show: { effect: "blind", duration: 800 } });
+        /// </code>
+        /// </example>
+        /// <example>
+        /// Get or set the show option, after initialization:
+        /// <code>
+        /// // getter
+        /// var show = $( ".selector" ).jQuery.Widget( "option", "show" );
+        ///  
+        /// // setter
+        /// $( ".selector" ).jQuery.Widget( "option", "show", { effect: "blind", duration: 800 } );
+        /// </code>
+        /// </example>
+        [JsProperty(Name = "show")]
+        public JsString showString { get; set; }
+        /// <summary>
+        ///  If the value is an object, then effect, duration, and easing properties may be provided. If the effect property contains the name of a jQuery method, then that method will be used; otherwise it is assumed to be the name of a jQuery UI effect. When using a jQuery UI effect that supports additional settings, you may include those settings in the object and they will be passed to the effect. If duration or easing is omitted, then the default values will be used. If effect is omitted, then "fadeIn" will be used.
+        /// </summary>
+        /// <example>
+        /// Initialize the jQuery.Widget with the show option specified:
+        /// <code>
+        /// $( ".selector" ).jQuery.Widget({ show: { effect: "blind", duration: 800 } });
+        /// </code>
+        /// </example>
+        /// <example>
+        /// Get or set the show option, after initialization:
+        /// <code>
+        /// // getter
+        /// var show = $( ".selector" ).jQuery.Widget( "option", "show" );
+        ///  
+        /// // setter
+        /// $( ".selector" ).jQuery.Widget( "option", "show", { effect: "blind", duration: 800 } );
+        /// </code>
+        /// </example>
+        public object show { get; set; }
+
+
+    }
+    #endregion
+
+
 
 }
