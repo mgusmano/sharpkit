@@ -25,8 +25,8 @@ namespace SharpKit.NodeJs
         /// <p>Verifies the signed data by using the <code>object</code> and <code>signature</code>. <code>object</code> is  a
         /// string containing a PEM encoded object, which can be one of RSA public key,
         /// DSA public key, or X.509 certificate. <code>signature</code> is the previously calculated
-        /// signature for the data, in the <code>signature_format</code> which can be <code>&apos;binary&apos;</code>,
-        /// <code>&apos;hex&apos;</code> or <code>&apos;base64&apos;</code>. Defaults to <code>&apos;binary&apos;</code>.
+        /// signature for the data, in the <code>signature_format</code> which can be <code>&#39;binary&#39;</code>,
+        /// <code>&#39;hex&#39;</code> or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// <p>Returns true or false depending on the validity of the signature for the data and public key.
         /// </p>
@@ -38,8 +38,8 @@ namespace SharpKit.NodeJs
         /// <p>Verifies the signed data by using the <code>object</code> and <code>signature</code>. <code>object</code> is  a
         /// string containing a PEM encoded object, which can be one of RSA public key,
         /// DSA public key, or X.509 certificate. <code>signature</code> is the previously calculated
-        /// signature for the data, in the <code>signature_format</code> which can be <code>&apos;binary&apos;</code>,
-        /// <code>&apos;hex&apos;</code> or <code>&apos;base64&apos;</code>. Defaults to <code>&apos;binary&apos;</code>.
+        /// signature for the data, in the <code>signature_format</code> which can be <code>&#39;binary&#39;</code>,
+        /// <code>&#39;hex&#39;</code> or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// <p>Returns true or false depending on the validity of the signature for the data and public key.
         /// </p>

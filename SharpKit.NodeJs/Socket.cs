@@ -32,7 +32,7 @@ namespace SharpKit.NodeJs
         public object addMembership(object multicastAddress, object multicastInterface){return null;}
         /// <summary>
         /// <p>Returns an object containing the address information for a socket.  For UDP sockets,
-        /// this object will contain <code>address</code> and <code>port</code>.
+        /// this object will contain <code>address</code> , <code>family</code> and <code>port</code>.
         /// </p>
         /// </summary>
         public object address(){return null;}
@@ -113,13 +113,13 @@ namespace SharpKit.NodeJs
         /// least until the next tick.  The only way to know for sure that a send has taken place
         /// is to use the callback.
         /// </p>
-        /// <p>If the socket has not been previously bound with a call to <code>bind</code>, it&apos;s
+        /// <p>If the socket has not been previously bound with a call to <code>bind</code>, it&#39;s
         /// assigned a random port number and bound to the &quot;all interfaces&quot; address
         /// (0.0.0.0 for <code>udp4</code> sockets, ::0 for <code>udp6</code> sockets).
         /// </p>
         /// <p>Example of sending a UDP packet to a random port on <code>localhost</code>;
         /// </p>
-        /// <pre><code>var dgram = require(&apos;dgram&apos;);
+        /// <pre><code>var dgram = require(&#39;dgram&#39;);
         /// var message = new Buffer(&quot;Some bytes&quot;);
         /// var client = dgram.createSocket(&quot;udp4&quot;);
         /// client.send(message, 0, message.length, 41234, &quot;localhost&quot;, function(err, bytes) {
@@ -147,9 +147,9 @@ namespace SharpKit.NodeJs
         /// a minimum <code>MTU</code> of <code>1500</code> (like Ethernet).</p>
         /// </li>
         /// </ul>
-        /// <p>Note that it&apos;s impossible to know in advance the MTU of each link through which
+        /// <p>Note that it&#39;s impossible to know in advance the MTU of each link through which
         /// a packet might travel, and that generally sending a datagram greater than
-        /// the (receiver) <code>MTU</code> won&apos;t work (the packet gets silently dropped, without
+        /// the (receiver) <code>MTU</code> won&#39;t work (the packet gets silently dropped, without
         /// informing the source that the data did not reach its intended recipient).
         /// </p>
         /// </summary>
@@ -162,13 +162,13 @@ namespace SharpKit.NodeJs
         /// least until the next tick.  The only way to know for sure that a send has taken place
         /// is to use the callback.
         /// </p>
-        /// <p>If the socket has not been previously bound with a call to <code>bind</code>, it&apos;s
+        /// <p>If the socket has not been previously bound with a call to <code>bind</code>, it&#39;s
         /// assigned a random port number and bound to the &quot;all interfaces&quot; address
         /// (0.0.0.0 for <code>udp4</code> sockets, ::0 for <code>udp6</code> sockets).
         /// </p>
         /// <p>Example of sending a UDP packet to a random port on <code>localhost</code>;
         /// </p>
-        /// <pre><code>var dgram = require(&apos;dgram&apos;);
+        /// <pre><code>var dgram = require(&#39;dgram&#39;);
         /// var message = new Buffer(&quot;Some bytes&quot;);
         /// var client = dgram.createSocket(&quot;udp4&quot;);
         /// client.send(message, 0, message.length, 41234, &quot;localhost&quot;, function(err, bytes) {
@@ -196,16 +196,16 @@ namespace SharpKit.NodeJs
         /// a minimum <code>MTU</code> of <code>1500</code> (like Ethernet).</p>
         /// </li>
         /// </ul>
-        /// <p>Note that it&apos;s impossible to know in advance the MTU of each link through which
+        /// <p>Note that it&#39;s impossible to know in advance the MTU of each link through which
         /// a packet might travel, and that generally sending a datagram greater than
-        /// the (receiver) <code>MTU</code> won&apos;t work (the packet gets silently dropped, without
+        /// the (receiver) <code>MTU</code> won&#39;t work (the packet gets silently dropped, without
         /// informing the source that the data did not reach its intended recipient).
         /// </p>
         /// </summary>
         public object send(object buf, object offset, object length, object port, object address, object callback){return null;}
         /// <summary>
         /// <p>Sets or clears the <code>SO_BROADCAST</code> socket option.  When this option is set, UDP packets
-        /// may be sent to a local interface&apos;s broadcast address.
+        /// may be sent to a local interface&#39;s broadcast address.
         /// </p>
         /// </summary>
         public object setBroadcast(object flag){return null;}
@@ -222,7 +222,7 @@ namespace SharpKit.NodeJs
         /// decrements the TTL. If the TTL is decremented to 0 by a router, it will not be forwarded.
         /// </p>
         /// <p>The argument to <code>setMulticastTTL()</code> is a number of hops between 0 and 255.  The default on most
-        /// systems is 64.
+        /// systems is 1.
         /// </p>
         /// </summary>
         public object setMulticastTTL(object ttl){return null;}

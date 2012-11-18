@@ -17,8 +17,8 @@ namespace SharpKit.NodeJs
     {
         /// <summary>
         /// <p>Returns any remaining plaintext which is deciphered,
-        /// with <code>output_encoding</code> being one of: <code>&apos;binary&apos;</code>, <code>&apos;ascii&apos;</code> or <code>&apos;utf8&apos;</code>.
-        /// Defaults to <code>&apos;binary&apos;</code>.
+        /// with <code>output_encoding</code> being one of: <code>&#39;binary&#39;</code>, <code>&#39;ascii&#39;</code> or <code>&#39;utf8&#39;</code>.
+        /// Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// <p>Note: <code>decipher</code> object can not be used after <code>final()</code> method been called.
         /// </p>
@@ -26,37 +26,44 @@ namespace SharpKit.NodeJs
         public object final(){return null;}
         /// <summary>
         /// <p>Returns any remaining plaintext which is deciphered,
-        /// with <code>output_encoding</code> being one of: <code>&apos;binary&apos;</code>, <code>&apos;ascii&apos;</code> or <code>&apos;utf8&apos;</code>.
-        /// Defaults to <code>&apos;binary&apos;</code>.
+        /// with <code>output_encoding</code> being one of: <code>&#39;binary&#39;</code>, <code>&#39;ascii&#39;</code> or <code>&#39;utf8&#39;</code>.
+        /// Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// <p>Note: <code>decipher</code> object can not be used after <code>final()</code> method been called.
         /// </p>
         /// </summary>
         public object final(object output_encoding){return null;}
         /// <summary>
-        /// <p>Updates the decipher with <code>data</code>, which is encoded in <code>&apos;binary&apos;</code>, <code>&apos;base64&apos;</code>
-        /// or <code>&apos;hex&apos;</code>. Defaults to <code>&apos;binary&apos;</code>.
+        /// <p>You can disable auto padding if the data has been encrypted without standard block padding to prevent
+        /// <code>decipher.final</code> from checking and removing it. Can only work if the input data&#39;s length is a multiple of the
+        /// ciphers block size. You must call this before streaming data to <code>decipher.update</code>.
+        /// </p>
+        /// </summary>
+        public object setAutoPadding(object auto_padding){return null;}
+        /// <summary>
+        /// <p>Updates the decipher with <code>data</code>, which is encoded in <code>&#39;binary&#39;</code>, <code>&#39;base64&#39;</code>
+        /// or <code>&#39;hex&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// <p>The <code>output_decoding</code> specifies in what format to return the deciphered
-        /// plaintext: <code>&apos;binary&apos;</code>, <code>&apos;ascii&apos;</code> or <code>&apos;utf8&apos;</code>. Defaults to <code>&apos;binary&apos;</code>.
+        /// plaintext: <code>&#39;binary&#39;</code>, <code>&#39;ascii&#39;</code> or <code>&#39;utf8&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// </summary>
         public object update(object data){return null;}
         /// <summary>
-        /// <p>Updates the decipher with <code>data</code>, which is encoded in <code>&apos;binary&apos;</code>, <code>&apos;base64&apos;</code>
-        /// or <code>&apos;hex&apos;</code>. Defaults to <code>&apos;binary&apos;</code>.
+        /// <p>Updates the decipher with <code>data</code>, which is encoded in <code>&#39;binary&#39;</code>, <code>&#39;base64&#39;</code>
+        /// or <code>&#39;hex&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// <p>The <code>output_decoding</code> specifies in what format to return the deciphered
-        /// plaintext: <code>&apos;binary&apos;</code>, <code>&apos;ascii&apos;</code> or <code>&apos;utf8&apos;</code>. Defaults to <code>&apos;binary&apos;</code>.
+        /// plaintext: <code>&#39;binary&#39;</code>, <code>&#39;ascii&#39;</code> or <code>&#39;utf8&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// </summary>
         public object update(object data, object output_encoding){return null;}
         /// <summary>
-        /// <p>Updates the decipher with <code>data</code>, which is encoded in <code>&apos;binary&apos;</code>, <code>&apos;base64&apos;</code>
-        /// or <code>&apos;hex&apos;</code>. Defaults to <code>&apos;binary&apos;</code>.
+        /// <p>Updates the decipher with <code>data</code>, which is encoded in <code>&#39;binary&#39;</code>, <code>&#39;base64&#39;</code>
+        /// or <code>&#39;hex&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// <p>The <code>output_decoding</code> specifies in what format to return the deciphered
-        /// plaintext: <code>&apos;binary&apos;</code>, <code>&apos;ascii&apos;</code> or <code>&apos;utf8&apos;</code>. Defaults to <code>&apos;binary&apos;</code>.
+        /// plaintext: <code>&#39;binary&#39;</code>, <code>&#39;ascii&#39;</code> or <code>&#39;utf8&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// </summary>
         public object update(object data, object input_encoding, object output_encoding){return null;}

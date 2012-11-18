@@ -8,55 +8,94 @@ using SharpKit.JavaScript;
 namespace SharpKit.NodeJs
 {
     /// <summary>
-    /// <p>The class that represents a readline interface with a stdin and stdout
+    /// <p>The class that represents a readline interface with an input and output
     /// stream.
     /// </p>
     /// </summary>
     public partial class Interface
     {
         /// <summary>
-        /// <p>  Closes tty.
+        /// <p>Closes the <code>Interface</code> instance, relinquishing control on the <code>input</code> and
+        /// <code>output</code> streams. The &quot;close&quot; event will also be emitted.
         /// </p>
         /// </summary>
         public object close(){return null;}
         /// <summary>
-        /// <p>  Pauses tty.
+        /// <p>Pauses the readline <code>input</code> stream, allowing it to be resumed later if needed.
         /// </p>
         /// </summary>
         public object pause(){return null;}
         /// <summary>
         /// <p>Readies readline for input from the user, putting the current <code>setPrompt</code>
-        /// options on a new line, giving the user a new spot to write.
+        /// options on a new line, giving the user a new spot to write. Set <code>preserveCursor</code>
+        /// to <code>true</code> to prevent the cursor placement being reset to <code>0</code>.
+        /// </p>
+        /// <p>This will also resume the <code>input</code> stream used with <code>createInterface</code> if it has
+        /// been paused.
         /// </p>
         /// </summary>
         public object prompt(){return null;}
         /// <summary>
-        /// <p>Prepends the prompt with <code>query</code> and invokes <code>callback</code> with the user&apos;s
-        /// response. Displays the query to the user, and then invokes <code>callback</code> with the
-        /// user&apos;s response after it has been typed.
+        /// <p>Readies readline for input from the user, putting the current <code>setPrompt</code>
+        /// options on a new line, giving the user a new spot to write. Set <code>preserveCursor</code>
+        /// to <code>true</code> to prevent the cursor placement being reset to <code>0</code>.
+        /// </p>
+        /// <p>This will also resume the <code>input</code> stream used with <code>createInterface</code> if it has
+        /// been paused.
+        /// </p>
+        /// </summary>
+        public object prompt(object preserveCursor){return null;}
+        /// <summary>
+        /// <p>Prepends the prompt with <code>query</code> and invokes <code>callback</code> with the user&#39;s
+        /// response. Displays the query to the user, and then invokes <code>callback</code>
+        /// with the user&#39;s response after it has been typed.
+        /// </p>
+        /// <p>This will also resume the <code>input</code> stream used with <code>createInterface</code> if
+        /// it has been paused.
         /// </p>
         /// <p>Example usage:
         /// </p>
-        /// <pre><code>interface.question(&apos;What is your favorite food?&apos;, function(answer) {
-        /// console.log(&apos;Oh, so your favorite food is &apos; + answer);
+        /// <pre><code>interface.question(&#39;What is your favorite food?&#39;, function(answer) {
+        /// console.log(&#39;Oh, so your favorite food is &#39; + answer);
         /// });</code></pre>
         /// </summary>
         public object question(object query, object callback){return null;}
         /// <summary>
-        /// <p>  Resumes tty.
+        /// <p>Resumes the readline <code>input</code> stream.
         /// </p>
         /// </summary>
         public object resume(){return null;}
         /// <summary>
         /// <p>Sets the prompt, for example when you run <code>node</code> on the command line, you see
-        /// <code>&gt; </code>, which is node&apos;s prompt.
+        /// <code>&gt; </code>, which is node&#39;s prompt.
         /// </p>
         /// </summary>
         public object setPrompt(object prompt, object length){return null;}
         /// <summary>
-        /// <p>  Writes to tty.
+        /// <p>Writes <code>data</code> to <code>output</code> stream. <code>key</code> is an object literal to represent a key
+        /// sequence; available if the terminal is a TTY.
         /// </p>
+        /// <p>This will also resume the <code>input</code> stream if it has been paused.
+        /// </p>
+        /// <p>Example:
+        /// </p>
+        /// <pre><code>rl.write(&#39;Delete me!&#39;);
+        /// // Simulate ctrl+u to delete the line written previously
+        /// rl.write(null, {ctrl: true, name: &#39;u&#39;});</code></pre>
         /// </summary>
-        public object write(){return null;}
+        public object write(object data){return null;}
+        /// <summary>
+        /// <p>Writes <code>data</code> to <code>output</code> stream. <code>key</code> is an object literal to represent a key
+        /// sequence; available if the terminal is a TTY.
+        /// </p>
+        /// <p>This will also resume the <code>input</code> stream if it has been paused.
+        /// </p>
+        /// <p>Example:
+        /// </p>
+        /// <pre><code>rl.write(&#39;Delete me!&#39;);
+        /// // Simulate ctrl+u to delete the line written previously
+        /// rl.write(null, {ctrl: true, name: &#39;u&#39;});</code></pre>
+        /// </summary>
+        public object write(object data, object key){return null;}
     }
 }

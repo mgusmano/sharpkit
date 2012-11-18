@@ -29,7 +29,7 @@ namespace SharpKit.NodeJs
         /// buf2[i] = 33; // ASCII !
         /// }
         /// buf1.copy(buf2, 8, 16, 20);
-        /// console.log(buf2.toString(&apos;ascii&apos;, 0, 25));
+        /// console.log(buf2.toString(&#39;ascii&#39;, 0, 25));
         /// // !!!!!!!!qrst!!!!!!!!!!!!!</code></pre>
         /// </summary>
         public object copy(object targetBuffer){return null;}
@@ -48,7 +48,7 @@ namespace SharpKit.NodeJs
         /// buf2[i] = 33; // ASCII !
         /// }
         /// buf1.copy(buf2, 8, 16, 20);
-        /// console.log(buf2.toString(&apos;ascii&apos;, 0, 25));
+        /// console.log(buf2.toString(&#39;ascii&#39;, 0, 25));
         /// // !!!!!!!!qrst!!!!!!!!!!!!!</code></pre>
         /// </summary>
         public object copy(object targetBuffer, object sourceEnd){return null;}
@@ -67,7 +67,7 @@ namespace SharpKit.NodeJs
         /// buf2[i] = 33; // ASCII !
         /// }
         /// buf1.copy(buf2, 8, 16, 20);
-        /// console.log(buf2.toString(&apos;ascii&apos;, 0, 25));
+        /// console.log(buf2.toString(&#39;ascii&#39;, 0, 25));
         /// // !!!!!!!!qrst!!!!!!!!!!!!!</code></pre>
         /// </summary>
         public object copy(object targetBuffer, object sourceStart, object sourceEnd){return null;}
@@ -86,7 +86,7 @@ namespace SharpKit.NodeJs
         /// buf2[i] = 33; // ASCII !
         /// }
         /// buf1.copy(buf2, 8, 16, 20);
-        /// console.log(buf2.toString(&apos;ascii&apos;, 0, 25));
+        /// console.log(buf2.toString(&#39;ascii&#39;, 0, 25));
         /// // !!!!!!!!qrst!!!!!!!!!!!!!</code></pre>
         /// </summary>
         public object copy(object targetBuffer, object targetStart, object sourceStart, object sourceEnd){return null;}
@@ -284,7 +284,7 @@ namespace SharpKit.NodeJs
         /// <p>Set <code>noAssert</code> to true to skip validation of <code>offset</code>. This means that <code>offset</code>
         /// may be beyond the end of the buffer. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.readUInt16*</code>, except buffer contents are treated as two&apos;s
+        /// <p>Works as <code>buffer.readUInt16*</code>, except buffer contents are treated as two&#39;s
         /// complement signed values.
         /// </p>
         /// </summary>
@@ -296,7 +296,7 @@ namespace SharpKit.NodeJs
         /// <p>Set <code>noAssert</code> to true to skip validation of <code>offset</code>. This means that <code>offset</code>
         /// may be beyond the end of the buffer. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.readUInt16*</code>, except buffer contents are treated as two&apos;s
+        /// <p>Works as <code>buffer.readUInt16*</code>, except buffer contents are treated as two&#39;s
         /// complement signed values.
         /// </p>
         /// </summary>
@@ -308,7 +308,7 @@ namespace SharpKit.NodeJs
         /// <p>Set <code>noAssert</code> to true to skip validation of <code>offset</code>. This means that <code>offset</code>
         /// may be beyond the end of the buffer. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.readUInt16*</code>, except buffer contents are treated as two&apos;s
+        /// <p>Works as <code>buffer.readUInt16*</code>, except buffer contents are treated as two&#39;s
         /// complement signed values.
         /// </p>
         /// </summary>
@@ -320,7 +320,7 @@ namespace SharpKit.NodeJs
         /// <p>Set <code>noAssert</code> to true to skip validation of <code>offset</code>. This means that <code>offset</code>
         /// may be beyond the end of the buffer. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.readUInt16*</code>, except buffer contents are treated as two&apos;s
+        /// <p>Works as <code>buffer.readUInt16*</code>, except buffer contents are treated as two&#39;s
         /// complement signed values.
         /// </p>
         /// </summary>
@@ -332,7 +332,7 @@ namespace SharpKit.NodeJs
         /// <p>Set <code>noAssert</code> to true to skip validation of <code>offset</code>. This means that <code>offset</code>
         /// may be beyond the end of the buffer. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.readUInt32*</code>, except buffer contents are treated as two&apos;s
+        /// <p>Works as <code>buffer.readUInt32*</code>, except buffer contents are treated as two&#39;s
         /// complement signed values.
         /// </p>
         /// </summary>
@@ -344,7 +344,7 @@ namespace SharpKit.NodeJs
         /// <p>Set <code>noAssert</code> to true to skip validation of <code>offset</code>. This means that <code>offset</code>
         /// may be beyond the end of the buffer. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.readUInt32*</code>, except buffer contents are treated as two&apos;s
+        /// <p>Works as <code>buffer.readUInt32*</code>, except buffer contents are treated as two&#39;s
         /// complement signed values.
         /// </p>
         /// </summary>
@@ -356,7 +356,7 @@ namespace SharpKit.NodeJs
         /// <p>Set <code>noAssert</code> to true to skip validation of <code>offset</code>. This means that <code>offset</code>
         /// may be beyond the end of the buffer. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.readUInt32*</code>, except buffer contents are treated as two&apos;s
+        /// <p>Works as <code>buffer.readUInt32*</code>, except buffer contents are treated as two&#39;s
         /// complement signed values.
         /// </p>
         /// </summary>
@@ -368,7 +368,7 @@ namespace SharpKit.NodeJs
         /// <p>Set <code>noAssert</code> to true to skip validation of <code>offset</code>. This means that <code>offset</code>
         /// may be beyond the end of the buffer. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.readUInt32*</code>, except buffer contents are treated as two&apos;s
+        /// <p>Works as <code>buffer.readUInt32*</code>, except buffer contents are treated as two&#39;s
         /// complement signed values.
         /// </p>
         /// </summary>
@@ -379,7 +379,7 @@ namespace SharpKit.NodeJs
         /// <p>Set <code>noAssert</code> to true to skip validation of <code>offset</code>. This means that <code>offset</code>
         /// may be beyond the end of the buffer. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.readUInt8</code>, except buffer contents are treated as two&apos;s
+        /// <p>Works as <code>buffer.readUInt8</code>, except buffer contents are treated as two&#39;s
         /// complement signed values.
         /// </p>
         /// </summary>
@@ -390,7 +390,7 @@ namespace SharpKit.NodeJs
         /// <p>Set <code>noAssert</code> to true to skip validation of <code>offset</code>. This means that <code>offset</code>
         /// may be beyond the end of the buffer. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.readUInt8</code>, except buffer contents are treated as two&apos;s
+        /// <p>Works as <code>buffer.readUInt8</code>, except buffer contents are treated as two&#39;s
         /// complement signed values.
         /// </p>
         /// </summary>
@@ -646,9 +646,9 @@ namespace SharpKit.NodeJs
         /// buf1[i] = i + 97; // 97 is ASCII a
         /// }
         /// var buf2 = buf1.slice(0, 3);
-        /// console.log(buf2.toString(&apos;ascii&apos;, 0, buf2.length));
+        /// console.log(buf2.toString(&#39;ascii&#39;, 0, buf2.length));
         /// buf1[0] = 33;
-        /// console.log(buf2.toString(&apos;ascii&apos;, 0, buf2.length));
+        /// console.log(buf2.toString(&#39;ascii&#39;, 0, buf2.length));
         /// // abc
         /// // !bc</code></pre>
         /// </summary>
@@ -668,9 +668,9 @@ namespace SharpKit.NodeJs
         /// buf1[i] = i + 97; // 97 is ASCII a
         /// }
         /// var buf2 = buf1.slice(0, 3);
-        /// console.log(buf2.toString(&apos;ascii&apos;, 0, buf2.length));
+        /// console.log(buf2.toString(&#39;ascii&#39;, 0, buf2.length));
         /// buf1[0] = 33;
-        /// console.log(buf2.toString(&apos;ascii&apos;, 0, buf2.length));
+        /// console.log(buf2.toString(&#39;ascii&#39;, 0, buf2.length));
         /// // abc
         /// // !bc</code></pre>
         /// </summary>
@@ -690,16 +690,16 @@ namespace SharpKit.NodeJs
         /// buf1[i] = i + 97; // 97 is ASCII a
         /// }
         /// var buf2 = buf1.slice(0, 3);
-        /// console.log(buf2.toString(&apos;ascii&apos;, 0, buf2.length));
+        /// console.log(buf2.toString(&#39;ascii&#39;, 0, buf2.length));
         /// buf1[0] = 33;
-        /// console.log(buf2.toString(&apos;ascii&apos;, 0, buf2.length));
+        /// console.log(buf2.toString(&#39;ascii&#39;, 0, buf2.length));
         /// // abc
         /// // !bc</code></pre>
         /// </summary>
         public object slice(object start, object end){return null;}
         /// <summary>
         /// <p>Decodes and returns a string from buffer data encoded with <code>encoding</code>
-        /// (defaults to <code>&apos;utf8&apos;</code>) beginning at <code>start</code> (defaults to <code>0</code>) and ending at
+        /// (defaults to <code>&#39;utf8&#39;</code>) beginning at <code>start</code> (defaults to <code>0</code>) and ending at
         /// <code>end</code> (defaults to <code>buffer.length</code>).
         /// </p>
         /// <p>See <code>buffer.write()</code> example, above.
@@ -708,7 +708,7 @@ namespace SharpKit.NodeJs
         public object toString(){return null;}
         /// <summary>
         /// <p>Decodes and returns a string from buffer data encoded with <code>encoding</code>
-        /// (defaults to <code>&apos;utf8&apos;</code>) beginning at <code>start</code> (defaults to <code>0</code>) and ending at
+        /// (defaults to <code>&#39;utf8&#39;</code>) beginning at <code>start</code> (defaults to <code>0</code>) and ending at
         /// <code>end</code> (defaults to <code>buffer.length</code>).
         /// </p>
         /// <p>See <code>buffer.write()</code> example, above.
@@ -717,7 +717,7 @@ namespace SharpKit.NodeJs
         public object toString(object end){return null;}
         /// <summary>
         /// <p>Decodes and returns a string from buffer data encoded with <code>encoding</code>
-        /// (defaults to <code>&apos;utf8&apos;</code>) beginning at <code>start</code> (defaults to <code>0</code>) and ending at
+        /// (defaults to <code>&#39;utf8&#39;</code>) beginning at <code>start</code> (defaults to <code>0</code>) and ending at
         /// <code>end</code> (defaults to <code>buffer.length</code>).
         /// </p>
         /// <p>See <code>buffer.write()</code> example, above.
@@ -726,7 +726,7 @@ namespace SharpKit.NodeJs
         public object toString(object start, object end){return null;}
         /// <summary>
         /// <p>Decodes and returns a string from buffer data encoded with <code>encoding</code>
-        /// (defaults to <code>&apos;utf8&apos;</code>) beginning at <code>start</code> (defaults to <code>0</code>) and ending at
+        /// (defaults to <code>&#39;utf8&#39;</code>) beginning at <code>start</code> (defaults to <code>0</code>) and ending at
         /// <code>end</code> (defaults to <code>buffer.length</code>).
         /// </p>
         /// <p>See <code>buffer.write()</code> example, above.
@@ -735,15 +735,15 @@ namespace SharpKit.NodeJs
         public object toString(object encoding, object start, object end){return null;}
         /// <summary>
         /// <p>Writes <code>string</code> to the buffer at <code>offset</code> using the given encoding.
-        /// <code>offset</code> defaults to <code>0</code>, <code>encoding</code> defaults to <code>&apos;utf8&apos;</code>. <code>length</code> is
+        /// <code>offset</code> defaults to <code>0</code>, <code>encoding</code> defaults to <code>&#39;utf8&#39;</code>. <code>length</code> is
         /// the number of bytes to write. Returns number of octets written. If <code>buffer</code> did
         /// not contain enough space to fit the entire string, it will write a partial
         /// amount of the string. <code>length</code> defaults to <code>buffer.length - offset</code>.
         /// The method will not write partial characters.
         /// </p>
         /// <pre><code>buf = new Buffer(256);
-        /// len = buf.write(&apos;\u00bd + \u00bc = \u00be&apos;, 0);
-        /// console.log(len + &quot; bytes: &quot; + buf.toString(&apos;utf8&apos;, 0, len));</code></pre>
+        /// len = buf.write(&#39;\u00bd + \u00bc = \u00be&#39;, 0);
+        /// console.log(len + &quot; bytes: &quot; + buf.toString(&#39;utf8&#39;, 0, len));</code></pre>
         /// <p>The number of characters written (which may be different than the number of
         /// bytes written) is set in <code>Buffer._charsWritten</code> and will be overwritten the
         /// next time <code>buf.write()</code> is called.
@@ -752,15 +752,15 @@ namespace SharpKit.NodeJs
         public object write(object @string){return null;}
         /// <summary>
         /// <p>Writes <code>string</code> to the buffer at <code>offset</code> using the given encoding.
-        /// <code>offset</code> defaults to <code>0</code>, <code>encoding</code> defaults to <code>&apos;utf8&apos;</code>. <code>length</code> is
+        /// <code>offset</code> defaults to <code>0</code>, <code>encoding</code> defaults to <code>&#39;utf8&#39;</code>. <code>length</code> is
         /// the number of bytes to write. Returns number of octets written. If <code>buffer</code> did
         /// not contain enough space to fit the entire string, it will write a partial
         /// amount of the string. <code>length</code> defaults to <code>buffer.length - offset</code>.
         /// The method will not write partial characters.
         /// </p>
         /// <pre><code>buf = new Buffer(256);
-        /// len = buf.write(&apos;\u00bd + \u00bc = \u00be&apos;, 0);
-        /// console.log(len + &quot; bytes: &quot; + buf.toString(&apos;utf8&apos;, 0, len));</code></pre>
+        /// len = buf.write(&#39;\u00bd + \u00bc = \u00be&#39;, 0);
+        /// console.log(len + &quot; bytes: &quot; + buf.toString(&#39;utf8&#39;, 0, len));</code></pre>
         /// <p>The number of characters written (which may be different than the number of
         /// bytes written) is set in <code>Buffer._charsWritten</code> and will be overwritten the
         /// next time <code>buf.write()</code> is called.
@@ -769,15 +769,15 @@ namespace SharpKit.NodeJs
         public object write(object @string, object encoding){return null;}
         /// <summary>
         /// <p>Writes <code>string</code> to the buffer at <code>offset</code> using the given encoding.
-        /// <code>offset</code> defaults to <code>0</code>, <code>encoding</code> defaults to <code>&apos;utf8&apos;</code>. <code>length</code> is
+        /// <code>offset</code> defaults to <code>0</code>, <code>encoding</code> defaults to <code>&#39;utf8&#39;</code>. <code>length</code> is
         /// the number of bytes to write. Returns number of octets written. If <code>buffer</code> did
         /// not contain enough space to fit the entire string, it will write a partial
         /// amount of the string. <code>length</code> defaults to <code>buffer.length - offset</code>.
         /// The method will not write partial characters.
         /// </p>
         /// <pre><code>buf = new Buffer(256);
-        /// len = buf.write(&apos;\u00bd + \u00bc = \u00be&apos;, 0);
-        /// console.log(len + &quot; bytes: &quot; + buf.toString(&apos;utf8&apos;, 0, len));</code></pre>
+        /// len = buf.write(&#39;\u00bd + \u00bc = \u00be&#39;, 0);
+        /// console.log(len + &quot; bytes: &quot; + buf.toString(&#39;utf8&#39;, 0, len));</code></pre>
         /// <p>The number of characters written (which may be different than the number of
         /// bytes written) is set in <code>Buffer._charsWritten</code> and will be overwritten the
         /// next time <code>buf.write()</code> is called.
@@ -786,15 +786,15 @@ namespace SharpKit.NodeJs
         public object write(object @string, object length, object encoding){return null;}
         /// <summary>
         /// <p>Writes <code>string</code> to the buffer at <code>offset</code> using the given encoding.
-        /// <code>offset</code> defaults to <code>0</code>, <code>encoding</code> defaults to <code>&apos;utf8&apos;</code>. <code>length</code> is
+        /// <code>offset</code> defaults to <code>0</code>, <code>encoding</code> defaults to <code>&#39;utf8&#39;</code>. <code>length</code> is
         /// the number of bytes to write. Returns number of octets written. If <code>buffer</code> did
         /// not contain enough space to fit the entire string, it will write a partial
         /// amount of the string. <code>length</code> defaults to <code>buffer.length - offset</code>.
         /// The method will not write partial characters.
         /// </p>
         /// <pre><code>buf = new Buffer(256);
-        /// len = buf.write(&apos;\u00bd + \u00bc = \u00be&apos;, 0);
-        /// console.log(len + &quot; bytes: &quot; + buf.toString(&apos;utf8&apos;, 0, len));</code></pre>
+        /// len = buf.write(&#39;\u00bd + \u00bc = \u00be&#39;, 0);
+        /// console.log(len + &quot; bytes: &quot; + buf.toString(&#39;utf8&#39;, 0, len));</code></pre>
         /// <p>The number of characters written (which may be different than the number of
         /// bytes written) is set in <code>Buffer._charsWritten</code> and will be overwritten the
         /// next time <code>buf.write()</code> is called.
@@ -970,7 +970,7 @@ namespace SharpKit.NodeJs
         /// beyond the end of the buffer leading to the values being silently dropped. This
         /// should not be used unless you are certain of correctness. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.writeUInt16*</code>, except value is written out as a two&apos;s
+        /// <p>Works as <code>buffer.writeUInt16*</code>, except value is written out as a two&#39;s
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
@@ -984,7 +984,7 @@ namespace SharpKit.NodeJs
         /// beyond the end of the buffer leading to the values being silently dropped. This
         /// should not be used unless you are certain of correctness. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.writeUInt16*</code>, except value is written out as a two&apos;s
+        /// <p>Works as <code>buffer.writeUInt16*</code>, except value is written out as a two&#39;s
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
@@ -998,7 +998,7 @@ namespace SharpKit.NodeJs
         /// beyond the end of the buffer leading to the values being silently dropped. This
         /// should not be used unless you are certain of correctness. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.writeUInt16*</code>, except value is written out as a two&apos;s
+        /// <p>Works as <code>buffer.writeUInt16*</code>, except value is written out as a two&#39;s
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
@@ -1012,7 +1012,7 @@ namespace SharpKit.NodeJs
         /// beyond the end of the buffer leading to the values being silently dropped. This
         /// should not be used unless you are certain of correctness. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.writeUInt16*</code>, except value is written out as a two&apos;s
+        /// <p>Works as <code>buffer.writeUInt16*</code>, except value is written out as a two&#39;s
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
@@ -1026,7 +1026,7 @@ namespace SharpKit.NodeJs
         /// beyond the end of the buffer leading to the values being silently dropped. This
         /// should not be used unless you are certain of correctness. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.writeUInt32*</code>, except value is written out as a two&apos;s
+        /// <p>Works as <code>buffer.writeUInt32*</code>, except value is written out as a two&#39;s
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
@@ -1040,7 +1040,7 @@ namespace SharpKit.NodeJs
         /// beyond the end of the buffer leading to the values being silently dropped. This
         /// should not be used unless you are certain of correctness. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.writeUInt32*</code>, except value is written out as a two&apos;s
+        /// <p>Works as <code>buffer.writeUInt32*</code>, except value is written out as a two&#39;s
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
@@ -1054,7 +1054,7 @@ namespace SharpKit.NodeJs
         /// beyond the end of the buffer leading to the values being silently dropped. This
         /// should not be used unless you are certain of correctness. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.writeUInt32*</code>, except value is written out as a two&apos;s
+        /// <p>Works as <code>buffer.writeUInt32*</code>, except value is written out as a two&#39;s
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
@@ -1068,7 +1068,7 @@ namespace SharpKit.NodeJs
         /// beyond the end of the buffer leading to the values being silently dropped. This
         /// should not be used unless you are certain of correctness. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.writeUInt32*</code>, except value is written out as a two&apos;s
+        /// <p>Works as <code>buffer.writeUInt32*</code>, except value is written out as a two&#39;s
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
@@ -1082,7 +1082,7 @@ namespace SharpKit.NodeJs
         /// beyond the end of the buffer leading to the values being silently dropped. This
         /// should not be used unless you are certain of correctness. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.writeUInt8</code>, except value is written out as a two&apos;s complement
+        /// <p>Works as <code>buffer.writeUInt8</code>, except value is written out as a two&#39;s complement
         /// signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
@@ -1096,7 +1096,7 @@ namespace SharpKit.NodeJs
         /// beyond the end of the buffer leading to the values being silently dropped. This
         /// should not be used unless you are certain of correctness. Defaults to <code>false</code>.
         /// </p>
-        /// <p>Works as <code>buffer.writeUInt8</code>, except value is written out as a two&apos;s complement
+        /// <p>Works as <code>buffer.writeUInt8</code>, except value is written out as a two&#39;s complement
         /// signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>

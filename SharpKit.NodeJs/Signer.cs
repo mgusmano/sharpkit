@@ -19,8 +19,8 @@ namespace SharpKit.NodeJs
         /// <p>Calculates the signature on all the updated data passed through the signer.
         /// <code>private_key</code> is a string containing the PEM encoded private key for signing.
         /// </p>
-        /// <p>Returns the signature in <code>output_format</code> which can be <code>&apos;binary&apos;</code>, <code>&apos;hex&apos;</code> or
-        /// <code>&apos;base64&apos;</code>. Defaults to <code>&apos;binary&apos;</code>.
+        /// <p>Returns the signature in <code>output_format</code> which can be <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code> or
+        /// <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// <p>Note: <code>signer</code> object can not be used after <code>sign()</code> method been called.
         /// </p>
@@ -30,8 +30,8 @@ namespace SharpKit.NodeJs
         /// <p>Calculates the signature on all the updated data passed through the signer.
         /// <code>private_key</code> is a string containing the PEM encoded private key for signing.
         /// </p>
-        /// <p>Returns the signature in <code>output_format</code> which can be <code>&apos;binary&apos;</code>, <code>&apos;hex&apos;</code> or
-        /// <code>&apos;base64&apos;</code>. Defaults to <code>&apos;binary&apos;</code>.
+        /// <p>Returns the signature in <code>output_format</code> which can be <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code> or
+        /// <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// <p>Note: <code>signer</code> object can not be used after <code>sign()</code> method been called.
         /// </p>

@@ -17,8 +17,8 @@ namespace SharpKit.NodeJs
     {
         /// <summary>
         /// <p>Calculates the digest of all of the passed data to be hashed.
-        /// The <code>encoding</code> can be <code>&apos;hex&apos;</code>, <code>&apos;binary&apos;</code> or <code>&apos;base64&apos;</code>.
-        /// Defaults to <code>&apos;binary&apos;</code>.
+        /// The <code>encoding</code> can be <code>&#39;hex&#39;</code>, <code>&#39;binary&#39;</code> or <code>&#39;base64&#39;</code>.
+        /// Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// <p>Note: <code>hash</code> object can not be used after <code>digest()</code> method been called.
         /// </p>
@@ -26,8 +26,8 @@ namespace SharpKit.NodeJs
         public object digest(){return null;}
         /// <summary>
         /// <p>Calculates the digest of all of the passed data to be hashed.
-        /// The <code>encoding</code> can be <code>&apos;hex&apos;</code>, <code>&apos;binary&apos;</code> or <code>&apos;base64&apos;</code>.
-        /// Defaults to <code>&apos;binary&apos;</code>.
+        /// The <code>encoding</code> can be <code>&#39;hex&#39;</code>, <code>&#39;binary&#39;</code> or <code>&#39;base64&#39;</code>.
+        /// Defaults to <code>&#39;binary&#39;</code>.
         /// </p>
         /// <p>Note: <code>hash</code> object can not be used after <code>digest()</code> method been called.
         /// </p>
@@ -35,16 +35,16 @@ namespace SharpKit.NodeJs
         public object digest(object encoding){return null;}
         /// <summary>
         /// <p>Updates the hash content with the given <code>data</code>, the encoding of which is given
-        /// in <code>input_encoding</code> and can be <code>&apos;utf8&apos;</code>, <code>&apos;ascii&apos;</code> or <code>&apos;binary&apos;</code>.
-        /// Defaults to <code>&apos;binary&apos;</code>.
+        /// in <code>input_encoding</code> and can be <code>&#39;utf8&#39;</code>, <code>&#39;ascii&#39;</code> or <code>&#39;binary&#39;</code>.
+        /// Defaults to <code>&#39;binary&#39;</code>.
         /// This can be called many times with new data as it is streamed.
         /// </p>
         /// </summary>
         public object update(object data){return null;}
         /// <summary>
         /// <p>Updates the hash content with the given <code>data</code>, the encoding of which is given
-        /// in <code>input_encoding</code> and can be <code>&apos;utf8&apos;</code>, <code>&apos;ascii&apos;</code> or <code>&apos;binary&apos;</code>.
-        /// Defaults to <code>&apos;binary&apos;</code>.
+        /// in <code>input_encoding</code> and can be <code>&#39;utf8&#39;</code>, <code>&#39;ascii&#39;</code> or <code>&#39;binary&#39;</code>.
+        /// Defaults to <code>&#39;binary&#39;</code>.
         /// This can be called many times with new data as it is streamed.
         /// </p>
         /// </summary>

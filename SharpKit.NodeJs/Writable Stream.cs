@@ -14,21 +14,23 @@ namespace SharpKit.NodeJs
     public partial class Writable_Stream
     {
         /// <summary>
-        /// <p>Closes the underlying file descriptor. Stream will not emit any more events.
-        /// Any queued write data will not be sent.
+        /// <p>Closes the underlying file descriptor. Stream is no longer <code>writable</code>
+        /// nor <code>readable</code>.  The stream will not emit any more &#39;data&#39;, or &#39;end&#39;
+        /// events. Any queued write data will not be sent.  The stream should emit
+        /// &#39;close&#39; event once its resources have been disposed of.
         /// </p>
         /// </summary>
         public object destroy(){return null;}
         /// <summary>
-        /// <p>After the write queue is drained, close the file descriptor. <code>destroySoon()</code>
-        /// can still destroy straight away, as long as there is no data left in the queue
-        /// for writes.
+        /// <p>After the write queue is drained, close the file descriptor.
+        /// <code>destroySoon()</code> can still destroy straight away, as long as there is no
+        /// data left in the queue for writes.
         /// </p>
         /// </summary>
         public object destroySoon(){return null;}
         /// <summary>
-        /// <p>Terminates the stream with EOF or FIN.
-        /// This call will allow queued write data to be sent before closing the stream.
+        /// <p>Terminates the stream with EOF or FIN.  This call will allow queued
+        /// write data to be sent before closing the stream.
         /// </p>
         /// </summary>
         public object end(){return null;}
@@ -38,8 +40,8 @@ namespace SharpKit.NodeJs
         /// </summary>
         public object end(object buffer){return null;}
         /// <summary>
-        /// <p>Sends <code>string</code> with the given <code>encoding</code> and terminates the stream with EOF
-        /// or FIN. This is useful to reduce the number of packets sent.
+        /// <p>Sends <code>string</code> with the given <code>encoding</code> and terminates the stream with
+        /// EOF or FIN. This is useful to reduce the number of packets sent.
         /// </p>
         /// </summary>
         public object end(object @string, object encoding){return null;}
@@ -49,34 +51,13 @@ namespace SharpKit.NodeJs
         /// </summary>
         public object write(object buffer){return null;}
         /// <summary>
-        /// <p>Writes <code>string</code> with the given <code>encoding</code> to the stream.  Returns <code>true</code> if
-        /// the string has been flushed to the kernel buffer.  Returns <code>false</code> to
-        /// indicate that the kernel buffer is full, and the data will be sent out in
-        /// the future. The <code>&apos;drain&apos;</code> event will indicate when the kernel buffer is
-        /// empty again. The <code>encoding</code> defaults to <code>&apos;utf8&apos;</code>.
-        /// </p>
-        /// <p>If the optional <code>fd</code> parameter is specified, it is interpreted as an integral
-        /// file descriptor to be sent over the stream. This is only supported for UNIX
-        /// streams, and is silently ignored otherwise. When writing a file descriptor in
-        /// this manner, closing the descriptor before the stream drains risks sending an
-        /// invalid (closed) FD.
+        /// <p>Writes <code>string</code> with the given <code>encoding</code> to the stream.  Returns <code>true</code>
+        /// if the string has been flushed to the kernel buffer.  Returns <code>false</code> to
+        /// indicate that the kernel buffer is full, and the data will be sent out
+        /// in the future. The <code>&#39;drain&#39;</code> event will indicate when the kernel buffer
+        /// is empty again. The <code>encoding</code> defaults to <code>&#39;utf8&#39;</code>.
         /// </p>
         /// </summary>
-        public object write(object @string, object fd){return null;}
-        /// <summary>
-        /// <p>Writes <code>string</code> with the given <code>encoding</code> to the stream.  Returns <code>true</code> if
-        /// the string has been flushed to the kernel buffer.  Returns <code>false</code> to
-        /// indicate that the kernel buffer is full, and the data will be sent out in
-        /// the future. The <code>&apos;drain&apos;</code> event will indicate when the kernel buffer is
-        /// empty again. The <code>encoding</code> defaults to <code>&apos;utf8&apos;</code>.
-        /// </p>
-        /// <p>If the optional <code>fd</code> parameter is specified, it is interpreted as an integral
-        /// file descriptor to be sent over the stream. This is only supported for UNIX
-        /// streams, and is silently ignored otherwise. When writing a file descriptor in
-        /// this manner, closing the descriptor before the stream drains risks sending an
-        /// invalid (closed) FD.
-        /// </p>
-        /// </summary>
-        public object write(object @string, object encoding, object fd){return null;}
+        public object write(object @string, object encoding){return null;}
     }
 }
