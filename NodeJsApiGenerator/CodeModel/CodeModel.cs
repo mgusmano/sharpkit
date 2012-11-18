@@ -93,6 +93,8 @@ namespace SharpKit.ExtJs4.Generator
 
         public Class Type { get; set; }
         public string Name { get; set; }
+        //Lee
+        public string returnValue { get; set; }
         public override string ToString()
         {
             return Name;
