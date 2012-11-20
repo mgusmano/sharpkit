@@ -14,6 +14,11 @@ namespace SharpKit.NodeJs
     /// </summary>
     public partial class Buffer
     {
+        public Buffer() { }
+        public Buffer(JsNumber size) { }
+        public Buffer(JsArray array) { }
+        public Buffer(JsString str) { }
+        public Buffer(JsString str, JsString encoding) { }
         /// <summary>
         /// <p>Does copy between buffers. The source and target regions can be overlapped.
         /// <code>targetStart</code> and <code>sourceStart</code> default to <code>0</code>.
@@ -29,7 +34,7 @@ namespace SharpKit.NodeJs
         /// buf2[i] = 33; // ASCII !
         /// }
         /// buf1.copy(buf2, 8, 16, 20);
-        /// console.log(buf2.toString(&#39;ascii&#39;, 0, 25));
+        /// console.log(buf2.toString('ascii', 0, 25));
         /// // !!!!!!!!qrst!!!!!!!!!!!!!</code></pre>
         /// </summary>
         public object copy(object targetBuffer){return null;}
@@ -48,10 +53,10 @@ namespace SharpKit.NodeJs
         /// buf2[i] = 33; // ASCII !
         /// }
         /// buf1.copy(buf2, 8, 16, 20);
-        /// console.log(buf2.toString(&#39;ascii&#39;, 0, 25));
+        /// console.log(buf2.toString('ascii', 0, 25));
         /// // !!!!!!!!qrst!!!!!!!!!!!!!</code></pre>
         /// </summary>
-        public object copy(object targetBuffer, object sourceEnd){return null;}
+        public object copy(object targetBuffer, JsNumber sourceEnd){return null;}
         /// <summary>
         /// <p>Does copy between buffers. The source and target regions can be overlapped.
         /// <code>targetStart</code> and <code>sourceStart</code> default to <code>0</code>.
@@ -67,10 +72,10 @@ namespace SharpKit.NodeJs
         /// buf2[i] = 33; // ASCII !
         /// }
         /// buf1.copy(buf2, 8, 16, 20);
-        /// console.log(buf2.toString(&#39;ascii&#39;, 0, 25));
+        /// console.log(buf2.toString('ascii', 0, 25));
         /// // !!!!!!!!qrst!!!!!!!!!!!!!</code></pre>
         /// </summary>
-        public object copy(object targetBuffer, object sourceStart, object sourceEnd){return null;}
+        public object copy(object targetBuffer, JsNumber sourceStart, JsNumber sourceEnd){return null;}
         /// <summary>
         /// <p>Does copy between buffers. The source and target regions can be overlapped.
         /// <code>targetStart</code> and <code>sourceStart</code> default to <code>0</code>.
@@ -86,10 +91,10 @@ namespace SharpKit.NodeJs
         /// buf2[i] = 33; // ASCII !
         /// }
         /// buf1.copy(buf2, 8, 16, 20);
-        /// console.log(buf2.toString(&#39;ascii&#39;, 0, 25));
+        /// console.log(buf2.toString('ascii', 0, 25));
         /// // !!!!!!!!qrst!!!!!!!!!!!!!</code></pre>
         /// </summary>
-        public object copy(object targetBuffer, object targetStart, object sourceStart, object sourceEnd){return null;}
+        public object copy(object targetBuffer, JsNumber targetStart, JsNumber sourceStart, JsNumber sourceEnd) { return null; }
         /// <summary>
         /// <p>Fills the buffer with the specified value. If the <code>offset</code> (defaults to <code>0</code>)
         /// and <code>end</code> (defaults to <code>buffer.length</code>) are not given it will fill the entire
@@ -107,7 +112,7 @@ namespace SharpKit.NodeJs
         /// <pre><code>var b = new Buffer(50);
         /// b.fill(&quot;h&quot;);</code></pre>
         /// </summary>
-        public object fill(object value, object end){return null;}
+        public object fill(object value, JsNumber end){return null;}
         /// <summary>
         /// <p>Fills the buffer with the specified value. If the <code>offset</code> (defaults to <code>0</code>)
         /// and <code>end</code> (defaults to <code>buffer.length</code>) are not given it will fill the entire
@@ -116,7 +121,7 @@ namespace SharpKit.NodeJs
         /// <pre><code>var b = new Buffer(50);
         /// b.fill(&quot;h&quot;);</code></pre>
         /// </summary>
-        public object fill(object value, object offset, object end){return null;}
+        public object fill(object value, JsNumber offset, JsNumber end){return null;}
         /// <summary>
         /// <p>Reads a 64 bit double from the buffer at the specified offset with specified
         /// endian format.
@@ -138,7 +143,7 @@ namespace SharpKit.NodeJs
         /// console.log(buf.readDoubleLE(0));
         /// // 0.3333333333333333</code></pre>
         /// </summary>
-        public object readDoubleBE(object offset){return null;}
+        public JsNumber readDoubleBE(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads a 64 bit double from the buffer at the specified offset with specified
         /// endian format.
@@ -160,7 +165,7 @@ namespace SharpKit.NodeJs
         /// console.log(buf.readDoubleLE(0));
         /// // 0.3333333333333333</code></pre>
         /// </summary>
-        public object readDoubleBE(object offset, object noAssert){return null;}
+        public JsNumber readDoubleBE(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Reads a 64 bit double from the buffer at the specified offset with specified
         /// endian format.
@@ -182,7 +187,7 @@ namespace SharpKit.NodeJs
         /// console.log(buf.readDoubleLE(0));
         /// // 0.3333333333333333</code></pre>
         /// </summary>
-        public object readDoubleLE(object offset){return null;}
+        public JsNumber readDoubleLE(JsNumber offset){return null;}
         /// <summary>
         /// <p>Reads a 64 bit double from the buffer at the specified offset with specified
         /// endian format.
@@ -204,7 +209,7 @@ namespace SharpKit.NodeJs
         /// console.log(buf.readDoubleLE(0));
         /// // 0.3333333333333333</code></pre>
         /// </summary>
-        public object readDoubleLE(object offset, object noAssert){return null;}
+        public JsNumber readDoubleLE(object offset, bool noAssert){return null;}
         /// <summary>
         /// <p>Reads a 32 bit float from the buffer at the specified offset with specified
         /// endian format.
@@ -222,7 +227,7 @@ namespace SharpKit.NodeJs
         /// console.log(buf.readFloatLE(0));
         /// // 0x01</code></pre>
         /// </summary>
-        public object readFloatBE(object offset){return null;}
+        public JsNumber readFloatBE(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads a 32 bit float from the buffer at the specified offset with specified
         /// endian format.
@@ -240,7 +245,7 @@ namespace SharpKit.NodeJs
         /// console.log(buf.readFloatLE(0));
         /// // 0x01</code></pre>
         /// </summary>
-        public object readFloatBE(object offset, object noAssert){return null;}
+        public JsNumber readFloatBE(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Reads a 32 bit float from the buffer at the specified offset with specified
         /// endian format.
@@ -258,7 +263,7 @@ namespace SharpKit.NodeJs
         /// console.log(buf.readFloatLE(0));
         /// // 0x01</code></pre>
         /// </summary>
-        public object readFloatLE(object offset){return null;}
+        public object readFloatLE(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads a 32 bit float from the buffer at the specified offset with specified
         /// endian format.
@@ -276,7 +281,7 @@ namespace SharpKit.NodeJs
         /// console.log(buf.readFloatLE(0));
         /// // 0x01</code></pre>
         /// </summary>
-        public object readFloatLE(object offset, object noAssert){return null;}
+        public JsNumber readFloatLE(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Reads a signed 16 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -288,7 +293,7 @@ namespace SharpKit.NodeJs
         /// complement signed values.
         /// </p>
         /// </summary>
-        public object readInt16BE(object offset){return null;}
+        public JsNumber readInt16BE(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads a signed 16 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -300,7 +305,7 @@ namespace SharpKit.NodeJs
         /// complement signed values.
         /// </p>
         /// </summary>
-        public object readInt16BE(object offset, object noAssert){return null;}
+        public JsNumber readInt16BE(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Reads a signed 16 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -312,7 +317,7 @@ namespace SharpKit.NodeJs
         /// complement signed values.
         /// </p>
         /// </summary>
-        public object readInt16LE(object offset){return null;}
+        public JsNumber readInt16LE(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads a signed 16 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -324,7 +329,7 @@ namespace SharpKit.NodeJs
         /// complement signed values.
         /// </p>
         /// </summary>
-        public object readInt16LE(object offset, object noAssert){return null;}
+        public JsNumber readInt16LE(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Reads a signed 32 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -336,7 +341,7 @@ namespace SharpKit.NodeJs
         /// complement signed values.
         /// </p>
         /// </summary>
-        public object readInt32BE(object offset){return null;}
+        public JsNumber readInt32BE(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads a signed 32 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -348,7 +353,7 @@ namespace SharpKit.NodeJs
         /// complement signed values.
         /// </p>
         /// </summary>
-        public object readInt32BE(object offset, object noAssert){return null;}
+        public JsNumber readInt32BE(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Reads a signed 32 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -360,7 +365,7 @@ namespace SharpKit.NodeJs
         /// complement signed values.
         /// </p>
         /// </summary>
-        public object readInt32LE(object offset){return null;}
+        public JsNumber readInt32LE(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads a signed 32 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -372,7 +377,7 @@ namespace SharpKit.NodeJs
         /// complement signed values.
         /// </p>
         /// </summary>
-        public object readInt32LE(object offset, object noAssert){return null;}
+        public JsNumber readInt32LE(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Reads a signed 8 bit integer from the buffer at the specified offset.
         /// </p>
@@ -383,7 +388,7 @@ namespace SharpKit.NodeJs
         /// complement signed values.
         /// </p>
         /// </summary>
-        public object readInt8(object offset){return null;}
+        public JsNumber readInt8(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads a signed 8 bit integer from the buffer at the specified offset.
         /// </p>
@@ -394,7 +399,7 @@ namespace SharpKit.NodeJs
         /// complement signed values.
         /// </p>
         /// </summary>
-        public object readInt8(object offset, object noAssert){return null;}
+        public JsNumber readInt8(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Reads an unsigned 16 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -422,7 +427,7 @@ namespace SharpKit.NodeJs
         /// // 0x2342
         /// // 0x4223</code></pre>
         /// </summary>
-        public object readUInt16BE(object offset){return null;}
+        public JsNumber readUInt16BE(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads an unsigned 16 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -450,7 +455,7 @@ namespace SharpKit.NodeJs
         /// // 0x2342
         /// // 0x4223</code></pre>
         /// </summary>
-        public object readUInt16BE(object offset, object noAssert){return null;}
+        public JsNumber readUInt16BE(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Reads an unsigned 16 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -478,7 +483,7 @@ namespace SharpKit.NodeJs
         /// // 0x2342
         /// // 0x4223</code></pre>
         /// </summary>
-        public object readUInt16LE(object offset){return null;}
+        public JsNumber readUInt16LE(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads an unsigned 16 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -506,7 +511,7 @@ namespace SharpKit.NodeJs
         /// // 0x2342
         /// // 0x4223</code></pre>
         /// </summary>
-        public object readUInt16LE(object offset, object noAssert){return null;}
+        public JsNumber readUInt16LE(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Reads an unsigned 32 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -526,7 +531,7 @@ namespace SharpKit.NodeJs
         /// // 0x03042342
         /// // 0x42230403</code></pre>
         /// </summary>
-        public object readUInt32BE(object offset){return null;}
+        public JsNumber readUInt32BE(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads an unsigned 32 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -546,7 +551,7 @@ namespace SharpKit.NodeJs
         /// // 0x03042342
         /// // 0x42230403</code></pre>
         /// </summary>
-        public object readUInt32BE(object offset, object noAssert){return null;}
+        public JsNumber readUInt32BE(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Reads an unsigned 32 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -566,7 +571,7 @@ namespace SharpKit.NodeJs
         /// // 0x03042342
         /// // 0x42230403</code></pre>
         /// </summary>
-        public object readUInt32LE(object offset){return null;}
+        public JsNumber readUInt32LE(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads an unsigned 32 bit integer from the buffer at the specified offset with
         /// specified endian format.
@@ -586,7 +591,7 @@ namespace SharpKit.NodeJs
         /// // 0x03042342
         /// // 0x42230403</code></pre>
         /// </summary>
-        public object readUInt32LE(object offset, object noAssert){return null;}
+        public JsNumber readUInt32LE(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Reads an unsigned 8 bit integer from the buffer at the specified offset.
         /// </p>
@@ -608,7 +613,7 @@ namespace SharpKit.NodeJs
         /// // 0x23
         /// // 0x42</code></pre>
         /// </summary>
-        public object readUInt8(object offset){return null;}
+        public JsNumber readUInt8(JsNumber offset) { return null; }
         /// <summary>
         /// <p>Reads an unsigned 8 bit integer from the buffer at the specified offset.
         /// </p>
@@ -630,7 +635,7 @@ namespace SharpKit.NodeJs
         /// // 0x23
         /// // 0x42</code></pre>
         /// </summary>
-        public object readUInt8(object offset, object noAssert){return null;}
+        public JsNumber readUInt8(JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Returns a new buffer which references the same memory as the old, but offset
         /// and cropped by the <code>start</code> (defaults to <code>0</code>) and <code>end</code> (defaults to
@@ -674,7 +679,7 @@ namespace SharpKit.NodeJs
         /// // abc
         /// // !bc</code></pre>
         /// </summary>
-        public object slice(object end){return null;}
+        public object slice(JsNumber end) { return null; }
         /// <summary>
         /// <p>Returns a new buffer which references the same memory as the old, but offset
         /// and cropped by the <code>start</code> (defaults to <code>0</code>) and <code>end</code> (defaults to
@@ -696,7 +701,7 @@ namespace SharpKit.NodeJs
         /// // abc
         /// // !bc</code></pre>
         /// </summary>
-        public object slice(object start, object end){return null;}
+        public object slice(JsNumber start, JsNumber end) { return null; }
         /// <summary>
         /// <p>Decodes and returns a string from buffer data encoded with <code>encoding</code>
         /// (defaults to <code>&#39;utf8&#39;</code>) beginning at <code>start</code> (defaults to <code>0</code>) and ending at
@@ -705,7 +710,7 @@ namespace SharpKit.NodeJs
         /// <p>See <code>buffer.write()</code> example, above.
         /// </p>
         /// </summary>
-        public object toString(){return null;}
+        public JsString toString(){return null;}
         /// <summary>
         /// <p>Decodes and returns a string from buffer data encoded with <code>encoding</code>
         /// (defaults to <code>&#39;utf8&#39;</code>) beginning at <code>start</code> (defaults to <code>0</code>) and ending at
@@ -714,7 +719,7 @@ namespace SharpKit.NodeJs
         /// <p>See <code>buffer.write()</code> example, above.
         /// </p>
         /// </summary>
-        public object toString(object end){return null;}
+        public JsString toString(JsNumber end) { return null; }
         /// <summary>
         /// <p>Decodes and returns a string from buffer data encoded with <code>encoding</code>
         /// (defaults to <code>&#39;utf8&#39;</code>) beginning at <code>start</code> (defaults to <code>0</code>) and ending at
@@ -723,7 +728,7 @@ namespace SharpKit.NodeJs
         /// <p>See <code>buffer.write()</code> example, above.
         /// </p>
         /// </summary>
-        public object toString(object start, object end){return null;}
+        public JsString toString(JsNumber start, JsNumber end){return null;}
         /// <summary>
         /// <p>Decodes and returns a string from buffer data encoded with <code>encoding</code>
         /// (defaults to <code>&#39;utf8&#39;</code>) beginning at <code>start</code> (defaults to <code>0</code>) and ending at
@@ -732,7 +737,7 @@ namespace SharpKit.NodeJs
         /// <p>See <code>buffer.write()</code> example, above.
         /// </p>
         /// </summary>
-        public object toString(object encoding, object start, object end){return null;}
+        public JsString toString(JsString encoding, JsNumber start, JsNumber end){return null;}
         /// <summary>
         /// <p>Writes <code>string</code> to the buffer at <code>offset</code> using the given encoding.
         /// <code>offset</code> defaults to <code>0</code>, <code>encoding</code> defaults to <code>&#39;utf8&#39;</code>. <code>length</code> is
@@ -749,7 +754,7 @@ namespace SharpKit.NodeJs
         /// next time <code>buf.write()</code> is called.
         /// </p>
         /// </summary>
-        public object write(object @string){return null;}
+        public JsNumber write(JsString @string){return null;}
         /// <summary>
         /// <p>Writes <code>string</code> to the buffer at <code>offset</code> using the given encoding.
         /// <code>offset</code> defaults to <code>0</code>, <code>encoding</code> defaults to <code>&#39;utf8&#39;</code>. <code>length</code> is
@@ -766,7 +771,7 @@ namespace SharpKit.NodeJs
         /// next time <code>buf.write()</code> is called.
         /// </p>
         /// </summary>
-        public object write(object @string, object encoding){return null;}
+        public JsNumber write(JsString @string, JsString encoding){return null;}
         /// <summary>
         /// <p>Writes <code>string</code> to the buffer at <code>offset</code> using the given encoding.
         /// <code>offset</code> defaults to <code>0</code>, <code>encoding</code> defaults to <code>&#39;utf8&#39;</code>. <code>length</code> is
@@ -783,7 +788,7 @@ namespace SharpKit.NodeJs
         /// next time <code>buf.write()</code> is called.
         /// </p>
         /// </summary>
-        public object write(object @string, object length, object encoding){return null;}
+        public JsNumber write(JsString @string, JsNumber length, JsString encoding){return null;}
         /// <summary>
         /// <p>Writes <code>string</code> to the buffer at <code>offset</code> using the given encoding.
         /// <code>offset</code> defaults to <code>0</code>, <code>encoding</code> defaults to <code>&#39;utf8&#39;</code>. <code>length</code> is
@@ -800,7 +805,7 @@ namespace SharpKit.NodeJs
         /// next time <code>buf.write()</code> is called.
         /// </p>
         /// </summary>
-        public object write(object @string, object offset, object length, object encoding){return null;}
+        public JsNumber write(JsString @string, JsNumber offset, JsNumber length, JsString encoding) { return null; }
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid 64 bit double.
@@ -820,7 +825,9 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer 43 eb d5 b7 dd f9 5f d7&gt;
         /// // &lt;Buffer d7 5f f9 dd b7 d5 eb 43&gt;</code></pre>
         /// </summary>
-        public object writeDoubleBE(object value, object offset){return null;}
+        public object writeDoubleBE(Double value, JsNumber offset) { return null; }
+        //TODO: Ask Dan-el the type of value
+        
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid 64 bit double.
@@ -840,7 +847,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer 43 eb d5 b7 dd f9 5f d7&gt;
         /// // &lt;Buffer d7 5f f9 dd b7 d5 eb 43&gt;</code></pre>
         /// </summary>
-        public object writeDoubleBE(object value, object offset, object noAssert){return null;}
+        public object writeDoubleBE(JsNumber value, JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid 64 bit double.
@@ -860,7 +867,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer 43 eb d5 b7 dd f9 5f d7&gt;
         /// // &lt;Buffer d7 5f f9 dd b7 d5 eb 43&gt;</code></pre>
         /// </summary>
-        public object writeDoubleLE(object value, object offset){return null;}
+        public object writeDoubleLE(Double value, JsNumber offset) { return null; }
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid 64 bit double.
@@ -880,7 +887,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer 43 eb d5 b7 dd f9 5f d7&gt;
         /// // &lt;Buffer d7 5f f9 dd b7 d5 eb 43&gt;</code></pre>
         /// </summary>
-        public object writeDoubleLE(object value, object offset, object noAssert){return null;}
+        public object writeDoubleLE(JsNumber value, JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid 32 bit float.
@@ -900,7 +907,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer 4f 4a fe bb&gt;
         /// // &lt;Buffer bb fe 4a 4f&gt;</code></pre>
         /// </summary>
-        public object writeFloatBE(object value, object offset){return null;}
+        public object writeFloatBE(JsNumber value, JsNumber offset) { return null; }
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid 32 bit float.
@@ -920,7 +927,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer 4f 4a fe bb&gt;
         /// // &lt;Buffer bb fe 4a 4f&gt;</code></pre>
         /// </summary>
-        public object writeFloatBE(object value, object offset, object noAssert){return null;}
+        public object writeFloatBE(JsNumber value, JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid 32 bit float.
@@ -940,7 +947,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer 4f 4a fe bb&gt;
         /// // &lt;Buffer bb fe 4a 4f&gt;</code></pre>
         /// </summary>
-        public object writeFloatLE(object value, object offset){return null;}
+        public object writeFloatLE(Double value, JsNumber offset) { return null; }
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid 32 bit float.
@@ -960,7 +967,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer 4f 4a fe bb&gt;
         /// // &lt;Buffer bb fe 4a 4f&gt;</code></pre>
         /// </summary>
-        public object writeFloatLE(object value, object offset, object noAssert){return null;}
+        public object writeFloatLE(Double value, JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid signed 16 bit integer.
@@ -974,7 +981,7 @@ namespace SharpKit.NodeJs
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
-        public object writeInt16BE(object value, object offset){return null;}
+        public object writeInt16BE(JsNumber value, JsNumber offset) { return null; }
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid signed 16 bit integer.
@@ -988,7 +995,7 @@ namespace SharpKit.NodeJs
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
-        public object writeInt16BE(object value, object offset, object noAssert){return null;}
+        public object writeInt16BE(JsNumber value, JsNumber offset, bool noAssert) { return null; }
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid signed 16 bit integer.
@@ -1002,7 +1009,7 @@ namespace SharpKit.NodeJs
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
-        public object writeInt16LE(object value, object offset){return null;}
+        public object writeInt16LE(JsNumber value, JsNumber offset){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid signed 16 bit integer.
@@ -1016,7 +1023,7 @@ namespace SharpKit.NodeJs
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
-        public object writeInt16LE(object value, object offset, object noAssert){return null;}
+        public object writeInt16LE(JsNumber value, JsNumber offset, bool noAssert){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid signed 32 bit integer.
@@ -1030,7 +1037,7 @@ namespace SharpKit.NodeJs
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
-        public object writeInt32BE(object value, object offset){return null;}
+        public object writeInt32BE(JsNumber value, JsNumber offset){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid signed 32 bit integer.
@@ -1044,7 +1051,7 @@ namespace SharpKit.NodeJs
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
-        public object writeInt32BE(object value, object offset, object noAssert){return null;}
+        public object writeInt32BE(JsNumber value, JsNumber offset, bool noAssert){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid signed 32 bit integer.
@@ -1058,7 +1065,7 @@ namespace SharpKit.NodeJs
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
-        public object writeInt32LE(object value, object offset){return null;}
+        public object writeInt32LE(JsNumber value, JsNumber offset){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid signed 32 bit integer.
@@ -1072,7 +1079,7 @@ namespace SharpKit.NodeJs
         /// complement signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
-        public object writeInt32LE(object value, object offset, object noAssert){return null;}
+        public object writeInt32LE(JsNumber value, JsNumber offset, bool noAssert){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset. Note, <code>value</code> must be a
         /// valid signed 8 bit integer.
@@ -1086,7 +1093,7 @@ namespace SharpKit.NodeJs
         /// signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
-        public object writeInt8(object value, object offset){return null;}
+        public object writeInt8(JsNumber value, JsNumber offset){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset. Note, <code>value</code> must be a
         /// valid signed 8 bit integer.
@@ -1100,7 +1107,7 @@ namespace SharpKit.NodeJs
         /// signed integer into <code>buffer</code>.
         /// </p>
         /// </summary>
-        public object writeInt8(object value, object offset, object noAssert){return null;}
+        public object writeInt8(JsNumber value, JsNumber offset, bool noAssert){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid unsigned 16 bit integer.
@@ -1122,7 +1129,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer de ad be ef&gt;
         /// // &lt;Buffer ad de ef be&gt;</code></pre>
         /// </summary>
-        public object writeUInt16BE(object value, object offset){return null;}
+        public object writeUInt16BE(JsNumber value, JsNumber offset){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid unsigned 16 bit integer.
@@ -1144,7 +1151,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer de ad be ef&gt;
         /// // &lt;Buffer ad de ef be&gt;</code></pre>
         /// </summary>
-        public object writeUInt16BE(object value, object offset, object noAssert){return null;}
+        public object writeUInt16BE(JsNumber value, JsNumber offset, bool noAssert){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid unsigned 16 bit integer.
@@ -1166,7 +1173,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer de ad be ef&gt;
         /// // &lt;Buffer ad de ef be&gt;</code></pre>
         /// </summary>
-        public object writeUInt16LE(object value, object offset){return null;}
+        public object writeUInt16LE(JsNumber value, JsNumber offset){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid unsigned 16 bit integer.
@@ -1188,7 +1195,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer de ad be ef&gt;
         /// // &lt;Buffer ad de ef be&gt;</code></pre>
         /// </summary>
-        public object writeUInt16LE(object value, object offset, object noAssert){return null;}
+        public object writeUInt16LE(JsNumber value, JsNumber offset, bool noAssert){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid unsigned 32 bit integer.
@@ -1208,7 +1215,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer fe ed fa ce&gt;
         /// // &lt;Buffer ce fa ed fe&gt;</code></pre>
         /// </summary>
-        public object writeUInt32BE(object value, object offset){return null;}
+        public object writeUInt32BE(JsNumber value, JsNumber offset){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid unsigned 32 bit integer.
@@ -1228,7 +1235,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer fe ed fa ce&gt;
         /// // &lt;Buffer ce fa ed fe&gt;</code></pre>
         /// </summary>
-        public object writeUInt32BE(object value, object offset, object noAssert){return null;}
+        public object writeUInt32BE(JsNumber value, JsNumber offset, bool noAssert){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid unsigned 32 bit integer.
@@ -1248,7 +1255,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer fe ed fa ce&gt;
         /// // &lt;Buffer ce fa ed fe&gt;</code></pre>
         /// </summary>
-        public object writeUInt32LE(object value, object offset){return null;}
+        public object writeUInt32LE(JsNumber value, JsNumber offset){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset with specified endian
         /// format. Note, <code>value</code> must be a valid unsigned 32 bit integer.
@@ -1268,7 +1275,7 @@ namespace SharpKit.NodeJs
         /// // &lt;Buffer fe ed fa ce&gt;
         /// // &lt;Buffer ce fa ed fe&gt;</code></pre>
         /// </summary>
-        public object writeUInt32LE(object value, object offset, object noAssert){return null;}
+        public object writeUInt32LE(JsNumber value, JsNumber offset, bool noAssert){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset. Note, <code>value</code> must be a
         /// valid unsigned 8 bit integer.
@@ -1288,7 +1295,7 @@ namespace SharpKit.NodeJs
         /// console.log(buf);
         /// // &lt;Buffer 03 04 23 42&gt;</code></pre>
         /// </summary>
-        public object writeUInt8(object value, object offset){return null;}
+        public object writeUInt8(JsNumber value, JsNumber offset){return null;}
         /// <summary>
         /// <p>Writes <code>value</code> to the buffer at the specified offset. Note, <code>value</code> must be a
         /// valid unsigned 8 bit integer.
@@ -1308,6 +1315,6 @@ namespace SharpKit.NodeJs
         /// console.log(buf);
         /// // &lt;Buffer 03 04 23 42&gt;</code></pre>
         /// </summary>
-        public object writeUInt8(object value, object offset, object noAssert){return null;}
+        public object writeUInt8(JsNumber value, JsNumber offset, bool noAssert){return null;}
     }
 }
