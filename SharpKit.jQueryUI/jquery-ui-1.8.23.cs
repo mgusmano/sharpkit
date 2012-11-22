@@ -5375,13 +5375,17 @@ namespace SharpKit.jQuery
     public static partial class WidgetExtention
     {
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true, Name = "jQuery.Widget")]
-        public static jQuery widget(this jQuery query, JsString name, WidgetOptions options) { return default(jQuery); }
+        public static jQuery Widget(this jQuery query, JsString name, WidgetOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true, Name = "jQuery.Widget")]
-        public static jQuery widget(this jQuery query, JsString name, JsAction @base, WidgetOptions options) { return default(jQuery); }
+        public static jQuery Widget(this jQuery query, JsString name, JsAction @base, WidgetOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true, Name = "jQuery.Widget")]
-        public static jQuery accordion(this jQuery query, JsString name, params object[] args) { return default(jQuery); }
+        public static jQuery Widget(this jQuery query, JsString name, params object[] args) { return default(jQuery); }
     }
     #endregion Widget
+
+    
+
+
     #region WidgetOptions
     [JsType(JsMode.Json)]
     public partial class WidgetOptions
