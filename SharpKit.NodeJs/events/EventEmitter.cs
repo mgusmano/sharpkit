@@ -8,14 +8,14 @@ using SharpKit.JavaScript;
 namespace SharpKit.NodeJs.events
 {
     /// <summary>
-    /// <p>To access the EventEmitter class, <code>require(&apos;events&apos;).EventEmitter</code>.
+    /// <p>To access the EventEmitter class, <code>require(&#39;events&#39;).EventEmitter</code>.
     /// </p>
     /// <p>When an <code>EventEmitter</code> instance experiences an error, the typical action is
-    /// to emit an <code>&apos;error&apos;</code> event.  Error events are treated as a special case in node.
+    /// to emit an <code>&#39;error&#39;</code> event.  Error events are treated as a special case in node.
     /// If there is no listener for it, then the default action is to print a stack
     /// trace and exit the program.
     /// </p>
-    /// <p>All EventEmitters emit the event <code>&apos;newListener&apos;</code> when new listeners are
+    /// <p>All EventEmitters emit the event <code>&#39;newListener&#39;</code> when new listeners are
     /// added.
     /// </p>
     /// </summary>
@@ -24,8 +24,8 @@ namespace SharpKit.NodeJs.events
         /// <summary>
         /// <p>Adds a listener to the end of the listeners array for the specified event.
         /// </p>
-        /// <pre><code>server.on(&apos;connection&apos;, function (stream) {
-        /// console.log(&apos;someone connected!&apos;);
+        /// <pre><code>server.on(&#39;connection&#39;, function (stream) {
+        /// console.log(&#39;someone connected!&#39;);
         /// });</code></pre>
         /// </summary>
         public object addListener(object @event, object listener){return null;}
@@ -50,20 +50,33 @@ namespace SharpKit.NodeJs.events
         /// </summary>
         public object emit(object @event, object arg1, object arg2, object ___){return null;}
         /// <summary>
-        /// <p>Returns an array of listeners for the specified event. This array can be
-        /// manipulated, e.g. to remove listeners.
+        /// <p>Returns an array of listeners for the specified event.
         /// </p>
-        /// <pre><code>server.on(&apos;connection&apos;, function (stream) {
-        /// console.log(&apos;someone connected!&apos;);
+        /// <pre><code>server.on(&#39;connection&#39;, function (stream) {
+        /// console.log(&#39;someone connected!&#39;);
         /// });
-        /// console.log(util.inspect(server.listeners(&apos;connection&apos;))); // [ [Function] ]</code></pre>
+        /// console.log(util.inspect(server.listeners(&#39;connection&#39;))); // [ [Function] ]</code></pre>
+        /// <p>This array <strong>may</strong> be a mutable reference to the same underlying list of
+        /// listeners that is used by the event subsystem.  However, certain
+        /// actions (specifically, removeAllListeners) will invalidate this
+        /// reference.
+        /// </p>
+        /// <p>If you would like to get a copy of the listeners at a specific point in
+        /// time that is guaranteed not to change, make a copy, for example by doing
+        /// <code>emitter.listeners(event).slice(0)</code>.
+        /// </p>
+        /// <p>In a future release of node, this behavior <strong>may</strong> change to always
+        /// return a copy, for consistency.  In your programs, please do not rely on
+        /// being able to modify the EventEmitter listeners using array methods.
+        /// Always use the &#39;on&#39; method to add new listeners.
+        /// </p>
         /// </summary>
         public object listeners(object @event){return null;}
         /// <summary>
         /// <p>Adds a listener to the end of the listeners array for the specified event.
         /// </p>
-        /// <pre><code>server.on(&apos;connection&apos;, function (stream) {
-        /// console.log(&apos;someone connected!&apos;);
+        /// <pre><code>server.on(&#39;connection&#39;, function (stream) {
+        /// console.log(&#39;someone connected!&#39;);
         /// });</code></pre>
         /// </summary>
         public object on(object @event, object listener){return null;}
@@ -72,18 +85,24 @@ namespace SharpKit.NodeJs.events
         /// invoked only the next time the event is fired, after which
         /// it is removed.
         /// </p>
-        /// <pre><code>server.once(&apos;connection&apos;, function (stream) {
-        /// console.log(&apos;Ah, we have our first user!&apos;);
+        /// <pre><code>server.once(&#39;connection&#39;, function (stream) {
+        /// console.log(&#39;Ah, we have our first user!&#39;);
         /// });</code></pre>
         /// </summary>
         public object once(object @event, object listener){return null;}
         /// <summary>
         /// <p>Removes all listeners, or those of the specified event.
         /// </p>
+        /// <p>Note that this will <strong>invalidate</strong> any arrays that have previously been
+        /// returned by <code>emitter.listeners(event)</code>.
+        /// </p>
         /// </summary>
         public object removeAllListeners(){return null;}
         /// <summary>
         /// <p>Removes all listeners, or those of the specified event.
+        /// </p>
+        /// <p>Note that this will <strong>invalidate</strong> any arrays that have previously been
+        /// returned by <code>emitter.listeners(event)</code>.
         /// </p>
         /// </summary>
         public object removeAllListeners(object @event){return null;}
@@ -92,11 +111,11 @@ namespace SharpKit.NodeJs.events
         /// <strong>Caution</strong>: changes array indices in the listener array behind the listener.
         /// </p>
         /// <pre><code>var callback = function(stream) {
-        /// console.log(&apos;someone connected!&apos;);
+        /// console.log(&#39;someone connected!&#39;);
         /// };
-        /// server.on(&apos;connection&apos;, callback);
+        /// server.on(&#39;connection&#39;, callback);
         /// // ...
-        /// server.removeListener(&apos;connection&apos;, callback);</code></pre>
+        /// server.removeListener(&#39;connection&#39;, callback);</code></pre>
         /// </summary>
         public object removeListener(object @event, object listener){return null;}
         /// <summary>

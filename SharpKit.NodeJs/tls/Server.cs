@@ -16,22 +16,22 @@ namespace SharpKit.NodeJs.tls
     public partial class Server
     {
         /// <summary>
-        /// <p>Add secure context that will be used if client request&apos;s SNI hostname is
+        /// <p>Add secure context that will be used if client request&#39;s SNI hostname is
         /// matching passed <code>hostname</code> (wildcards can be used). <code>credentials</code> can contain
         /// <code>key</code>, <code>cert</code> and <code>ca</code>.
         /// </p>
         /// </summary>
         public object addContext(object hostname, object credentials){return null;}
         /// <summary>
-        /// <p>Returns the bound address and port of the server as reported by the operating
-        /// system.
-        /// See <a href="net.html#server.address">net.Server.address()</a> for more information.
+        /// <p>Returns the bound address, the address family name and port of the
+        /// server as reported by the operating system.  See [net.Server.address()][] for
+        /// more information.
         /// </p>
         /// </summary>
         public object address(){return null;}
         /// <summary>
         /// <p>Stops the server from accepting new connections. This function is
-        /// asynchronous, the server is finally closed when the server emits a <code>&apos;close&apos;</code>
+        /// asynchronous, the server is finally closed when the server emits a <code>&#39;close&#39;</code>
         /// event.
         /// </p>
         /// </summary>

@@ -11,15 +11,16 @@ namespace SharpKit.NodeJs.net
     /// <p>This object is an abstraction of a TCP or UNIX socket.  <code>net.Socket</code>
     /// instances implement a duplex Stream interface.  They can be created by the
     /// user and used as a client (with <code>connect()</code>) or they can be created by Node
-    /// and passed to the user through the <code>&apos;connection&apos;</code> event of a server.
+    /// and passed to the user through the <code>&#39;connection&#39;</code> event of a server.
     /// </p>
     /// </summary>
     public partial class Socket
     {
         /// <summary>
-        /// <p>Returns the bound address and port of the socket as reported by the operating
-        /// system. Returns an object with two properties, e.g.
-        /// <code>{&quot;address&quot;:&quot;192.168.57.1&quot;, &quot;port&quot;:62053}</code>
+        /// <p>Returns the bound address, the address family name and port of the
+        /// socket as reported by the operating system. Returns an object with
+        /// three properties, e.g.
+        /// <code>{ port: 12346, family: &#39;IPv4&#39;, address: &#39;127.0.0.1&#39; }</code>
         /// </p>
         /// </summary>
         public object address(){return null;}
@@ -33,13 +34,12 @@ namespace SharpKit.NodeJs.net
         /// socket. Use this only if you are implementing a custom Socket or if a
         /// Socket is closed and you want to reuse it to connect to another server.
         /// </p>
-        /// <p>This function is asynchronous. When the <a href="#event_connect_">&apos;connect&apos;</a> event is
-        /// emitted the socket is established. If there is a problem connecting, the
-        /// <code>&apos;connect&apos;</code> event will not be emitted, the <code>&apos;error&apos;</code> event will be emitted with
-        /// the exception.
+        /// <p>This function is asynchronous. When the [&#39;connect&#39;][] event is emitted the
+        /// socket is established. If there is a problem connecting, the <code>&#39;connect&#39;</code> event
+        /// will not be emitted, the <code>&#39;error&#39;</code> event will be emitted with the exception.
         /// </p>
         /// <p>The <code>connectListener</code> parameter will be added as an listener for the
-        /// <a href="#event_connect_">&apos;connect&apos;</a> event.
+        /// [&#39;connect&#39;][] event.
         /// </p>
         /// </summary>
         public object connect(object path){return null;}
@@ -53,13 +53,12 @@ namespace SharpKit.NodeJs.net
         /// socket. Use this only if you are implementing a custom Socket or if a
         /// Socket is closed and you want to reuse it to connect to another server.
         /// </p>
-        /// <p>This function is asynchronous. When the <a href="#event_connect_">&apos;connect&apos;</a> event is
-        /// emitted the socket is established. If there is a problem connecting, the
-        /// <code>&apos;connect&apos;</code> event will not be emitted, the <code>&apos;error&apos;</code> event will be emitted with
-        /// the exception.
+        /// <p>This function is asynchronous. When the [&#39;connect&#39;][] event is emitted the
+        /// socket is established. If there is a problem connecting, the <code>&#39;connect&#39;</code> event
+        /// will not be emitted, the <code>&#39;error&#39;</code> event will be emitted with the exception.
         /// </p>
         /// <p>The <code>connectListener</code> parameter will be added as an listener for the
-        /// <a href="#event_connect_">&apos;connect&apos;</a> event.
+        /// [&#39;connect&#39;][] event.
         /// </p>
         /// </summary>
         public object connect(object path, object connectListener){return null;}
@@ -73,13 +72,12 @@ namespace SharpKit.NodeJs.net
         /// socket. Use this only if you are implementing a custom Socket or if a
         /// Socket is closed and you want to reuse it to connect to another server.
         /// </p>
-        /// <p>This function is asynchronous. When the <a href="#event_connect_">&apos;connect&apos;</a> event is
-        /// emitted the socket is established. If there is a problem connecting, the
-        /// <code>&apos;connect&apos;</code> event will not be emitted, the <code>&apos;error&apos;</code> event will be emitted with
-        /// the exception.
+        /// <p>This function is asynchronous. When the [&#39;connect&#39;][] event is emitted the
+        /// socket is established. If there is a problem connecting, the <code>&#39;connect&#39;</code> event
+        /// will not be emitted, the <code>&#39;error&#39;</code> event will be emitted with the exception.
         /// </p>
         /// <p>The <code>connectListener</code> parameter will be added as an listener for the
-        /// <a href="#event_connect_">&apos;connect&apos;</a> event.
+        /// [&#39;connect&#39;][] event.
         /// </p>
         /// </summary>
         public object connect(object port, object host, object connectListener){return null;}
@@ -117,7 +115,7 @@ namespace SharpKit.NodeJs.net
         /// </summary>
         public object end(object data, object encoding){return null;}
         /// <summary>
-        /// <p>Pauses the reading of data. That is, <code>&apos;data&apos;</code> events will not be emitted.
+        /// <p>Pauses the reading of data. That is, <code>&#39;data&#39;</code> events will not be emitted.
         /// Useful to throttle back an upload.
         /// </p>
         /// </summary>
@@ -128,14 +126,14 @@ namespace SharpKit.NodeJs.net
         /// </summary>
         public object resume(){return null;}
         /// <summary>
-        /// <p>Sets the encoding (either <code>&apos;ascii&apos;</code>, <code>&apos;utf8&apos;</code>, or <code>&apos;base64&apos;</code>) for data that is
-        /// received. Defaults to <code>null</code>.
+        /// <p>Set the encoding for the socket as a Readable Stream. See
+        /// [stream.setEncoding()][] for more information.
         /// </p>
         /// </summary>
         public object setEncoding(){return null;}
         /// <summary>
-        /// <p>Sets the encoding (either <code>&apos;ascii&apos;</code>, <code>&apos;utf8&apos;</code>, or <code>&apos;base64&apos;</code>) for data that is
-        /// received. Defaults to <code>null</code>.
+        /// <p>Set the encoding for the socket as a Readable Stream. See
+        /// [stream.setEncoding()][] for more information.
         /// </p>
         /// </summary>
         public object setEncoding(object encoding){return null;}
@@ -192,23 +190,17 @@ namespace SharpKit.NodeJs.net
         /// </summary>
         public object setNoDelay(object noDelay){return null;}
         /// <summary>
-        /// <p>This function has been removed in v0.3. It used to upgrade the connection to
-        /// SSL/TLS. See the <a href="tls.html#tLS_">TLS section</a> for the new API.
-        /// </p>
-        /// </summary>
-        public object setSecure(){return null;}
-        /// <summary>
         /// <p>Sets the socket to timeout after <code>timeout</code> milliseconds of inactivity on
         /// the socket. By default <code>net.Socket</code> do not have a timeout.
         /// </p>
-        /// <p>When an idle timeout is triggered the socket will receive a <code>&apos;timeout&apos;</code>
+        /// <p>When an idle timeout is triggered the socket will receive a <code>&#39;timeout&#39;</code>
         /// event but the connection will not be severed. The user must manually <code>end()</code>
         /// or <code>destroy()</code> the socket.
         /// </p>
         /// <p>If <code>timeout</code> is 0, then the existing idle timeout is disabled.
         /// </p>
         /// <p>The optional <code>callback</code> parameter will be added as a one time listener for the
-        /// <code>&apos;timeout&apos;</code> event.
+        /// <code>&#39;timeout&#39;</code> event.
         /// </p>
         /// </summary>
         public object setTimeout(object timeout){return null;}
@@ -216,14 +208,14 @@ namespace SharpKit.NodeJs.net
         /// <p>Sets the socket to timeout after <code>timeout</code> milliseconds of inactivity on
         /// the socket. By default <code>net.Socket</code> do not have a timeout.
         /// </p>
-        /// <p>When an idle timeout is triggered the socket will receive a <code>&apos;timeout&apos;</code>
+        /// <p>When an idle timeout is triggered the socket will receive a <code>&#39;timeout&#39;</code>
         /// event but the connection will not be severed. The user must manually <code>end()</code>
         /// or <code>destroy()</code> the socket.
         /// </p>
         /// <p>If <code>timeout</code> is 0, then the existing idle timeout is disabled.
         /// </p>
         /// <p>The optional <code>callback</code> parameter will be added as a one time listener for the
-        /// <code>&apos;timeout&apos;</code> event.
+        /// <code>&#39;timeout&#39;</code> event.
         /// </p>
         /// </summary>
         public object setTimeout(object timeout, object callback){return null;}
@@ -237,33 +229,18 @@ namespace SharpKit.NodeJs.net
         /// allowHalfOpen: false
         /// }</code></pre>
         /// <p><code>fd</code> allows you to specify the existing file descriptor of socket. <code>type</code>
-        /// specified underlying protocol. It can be <code>&apos;tcp4&apos;</code>, <code>&apos;tcp6&apos;</code>, or <code>&apos;unix&apos;</code>.
-        /// About <code>allowHalfOpen</code>, refer to <code>createServer()</code> and <code>&apos;end&apos;</code> event.
+        /// specified underlying protocol. It can be <code>&#39;tcp4&#39;</code>, <code>&#39;tcp6&#39;</code>, or <code>&#39;unix&#39;</code>.
+        /// About <code>allowHalfOpen</code>, refer to <code>createServer()</code> and <code>&#39;end&#39;</code> event.
         /// </p>
         /// </summary>
-        //public object Socket(){return null;}
-        /// <summary>
-        /// <p>Construct a new socket object.
-        /// </p>
-        /// <p><code>options</code> is an object with the following defaults:
-        /// </p>
-        /// <pre><code>{ fd: null
-        /// type: null
-        /// allowHalfOpen: false
-        /// }</code></pre>
-        /// <p><code>fd</code> allows you to specify the existing file descriptor of socket. <code>type</code>
-        /// specified underlying protocol. It can be <code>&apos;tcp4&apos;</code>, <code>&apos;tcp6&apos;</code>, or <code>&apos;unix&apos;</code>.
-        /// About <code>allowHalfOpen</code>, refer to <code>createServer()</code> and <code>&apos;end&apos;</code> event.
-        /// </p>
-        /// </summary>
-        //public object Socket(object options){return null;}
+        public Socket(object options=null){}
         /// <summary>
         /// <p>Sends data on the socket. The second parameter specifies the encoding in the
         /// case of a string--it defaults to UTF8 encoding.
         /// </p>
         /// <p>Returns <code>true</code> if the entire data was flushed successfully to the kernel
         /// buffer. Returns <code>false</code> if all or part of the data was queued in user memory.
-        /// <code>&apos;drain&apos;</code> will be emitted when the buffer is again free.
+        /// <code>&#39;drain&#39;</code> will be emitted when the buffer is again free.
         /// </p>
         /// <p>The optional <code>callback</code> parameter will be executed when the data is finally
         /// written out - this may not be immediately.
@@ -276,7 +253,7 @@ namespace SharpKit.NodeJs.net
         /// </p>
         /// <p>Returns <code>true</code> if the entire data was flushed successfully to the kernel
         /// buffer. Returns <code>false</code> if all or part of the data was queued in user memory.
-        /// <code>&apos;drain&apos;</code> will be emitted when the buffer is again free.
+        /// <code>&#39;drain&#39;</code> will be emitted when the buffer is again free.
         /// </p>
         /// <p>The optional <code>callback</code> parameter will be executed when the data is finally
         /// written out - this may not be immediately.
@@ -289,7 +266,7 @@ namespace SharpKit.NodeJs.net
         /// </p>
         /// <p>Returns <code>true</code> if the entire data was flushed successfully to the kernel
         /// buffer. Returns <code>false</code> if all or part of the data was queued in user memory.
-        /// <code>&apos;drain&apos;</code> will be emitted when the buffer is again free.
+        /// <code>&#39;drain&#39;</code> will be emitted when the buffer is again free.
         /// </p>
         /// <p>The optional <code>callback</code> parameter will be executed when the data is finally
         /// written out - this may not be immediately.

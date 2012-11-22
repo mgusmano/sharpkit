@@ -8,17 +8,21 @@ using SharpKit.JavaScript;
 namespace SharpKit.NodeJs.http
 {
     /// <summary>
-    /// <p>This is an <code>EventEmitter</code> with the following events:
+    /// <p>This is an [EventEmitter][] with the following events:
     /// </p>
     /// </summary>
     public partial class Server
     {
         /// <summary>
-        /// <p>Stops the server from accepting new connections.
-        /// See <a href="net.html#server.close">net.Server.close()</a>.
+        /// <p>Stops the server from accepting new connections.  See [net.Server.close()][].
         /// </p>
         /// </summary>
         public object close(){return null;}
+        /// <summary>
+        /// <p>Stops the server from accepting new connections.  See [net.Server.close()][].
+        /// </p>
+        /// </summary>
+        public object close(object callback){return null;}
         /// <summary>
         /// <p>Begin accepting connections on the specified port and hostname.  If the
         /// hostname is omitted, the server will accept connections directed to any
@@ -26,9 +30,13 @@ namespace SharpKit.NodeJs.http
         /// </p>
         /// <p>To listen to a unix socket, supply a filename instead of port and hostname.
         /// </p>
+        /// <p>Backlog is the maximum length of the queue of pending connections.
+        /// The actual length will be determined by your OS through sysctl settings such as
+        /// <code>tcp_max_syn_backlog</code> and <code>somaxconn</code> on linux. The default value of this
+        /// parameter is 511 (not 512).
+        /// </p>
         /// <p>This function is asynchronous. The last parameter <code>callback</code> will be added as
-        /// a listener for the <a href="net.html#event_listening_">&apos;listening&apos;</a> event.
-        /// See also <a href="net.html#server.listen">net.Server.listen()</a>.
+        /// a listener for the [&#39;listening&#39;][] event.  See also [net.Server.listen(port)][].
         /// </p>
         /// </summary>
         public object listen(object port){return null;}
@@ -36,8 +44,7 @@ namespace SharpKit.NodeJs.http
         /// <p>Start a UNIX socket server listening for connections on the given <code>path</code>.
         /// </p>
         /// <p>This function is asynchronous. The last parameter <code>callback</code> will be added as
-        /// a listener for the <a href="net.html#event_listening_">&apos;listening&apos;</a> event.
-        /// See also <a href="net.html#server.listen">net.Server.listen()</a>.
+        /// a listener for the [&#39;listening&#39;][] event.  See also [net.Server.listen(path)][].
         /// </p>
         /// </summary>
         public object listen(object path, object callback){return null;}
@@ -48,11 +55,32 @@ namespace SharpKit.NodeJs.http
         /// </p>
         /// <p>To listen to a unix socket, supply a filename instead of port and hostname.
         /// </p>
+        /// <p>Backlog is the maximum length of the queue of pending connections.
+        /// The actual length will be determined by your OS through sysctl settings such as
+        /// <code>tcp_max_syn_backlog</code> and <code>somaxconn</code> on linux. The default value of this
+        /// parameter is 511 (not 512).
+        /// </p>
         /// <p>This function is asynchronous. The last parameter <code>callback</code> will be added as
-        /// a listener for the <a href="net.html#event_listening_">&apos;listening&apos;</a> event.
-        /// See also <a href="net.html#server.listen">net.Server.listen()</a>.
+        /// a listener for the [&#39;listening&#39;][] event.  See also [net.Server.listen(port)][].
         /// </p>
         /// </summary>
-        public object listen(object port, object hostname, object callback){return null;}
+        public object listen(object port, object backlog, object callback){return null;}
+        /// <summary>
+        /// <p>Begin accepting connections on the specified port and hostname.  If the
+        /// hostname is omitted, the server will accept connections directed to any
+        /// IPv4 address (<code>INADDR_ANY</code>).
+        /// </p>
+        /// <p>To listen to a unix socket, supply a filename instead of port and hostname.
+        /// </p>
+        /// <p>Backlog is the maximum length of the queue of pending connections.
+        /// The actual length will be determined by your OS through sysctl settings such as
+        /// <code>tcp_max_syn_backlog</code> and <code>somaxconn</code> on linux. The default value of this
+        /// parameter is 511 (not 512).
+        /// </p>
+        /// <p>This function is asynchronous. The last parameter <code>callback</code> will be added as
+        /// a listener for the [&#39;listening&#39;][] event.  See also [net.Server.listen(port)][].
+        /// </p>
+        /// </summary>
+        public object listen(object port, object hostname, object backlog, object callback){return null;}
     }
 }

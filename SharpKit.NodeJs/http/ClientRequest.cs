@@ -14,37 +14,37 @@ namespace SharpKit.NodeJs.http
     /// <code>removeHeader(name)</code> API.  The actual header will be sent along with the first
     /// data chunk or when closing the connection.
     /// </p>
-    /// <p>To get the response, add a listener for <code>&apos;response&apos;</code> to the request object.
-    /// <code>&apos;response&apos;</code> will be emitted from the request object when the response
-    /// headers have been received.  The <code>&apos;response&apos;</code> event is executed with one
+    /// <p>To get the response, add a listener for <code>&#39;response&#39;</code> to the request object.
+    /// <code>&#39;response&#39;</code> will be emitted from the request object when the response
+    /// headers have been received.  The <code>&#39;response&#39;</code> event is executed with one
     /// argument which is an instance of <code>http.ClientResponse</code>.
     /// </p>
-    /// <p>During the <code>&apos;response&apos;</code> event, one can add listeners to the
-    /// response object; particularly to listen for the <code>&apos;data&apos;</code> event. Note that
-    /// the <code>&apos;response&apos;</code> event is called before any part of the response body is received,
+    /// <p>During the <code>&#39;response&#39;</code> event, one can add listeners to the
+    /// response object; particularly to listen for the <code>&#39;data&#39;</code> event. Note that
+    /// the <code>&#39;response&#39;</code> event is called before any part of the response body is received,
     /// so there is no need to worry about racing to catch the first part of the
-    /// body. As long as a listener for <code>&apos;data&apos;</code> is added during the <code>&apos;response&apos;</code>
+    /// body. As long as a listener for <code>&#39;data&#39;</code> is added during the <code>&#39;response&#39;</code>
     /// event, the entire body will be caught.
     /// </p>
     /// <pre><code>// Good
-    /// request.on(&apos;response&apos;, function (response) {
-    /// response.on(&apos;data&apos;, function (chunk) {
-    /// console.log(&apos;BODY: &apos; + chunk);
+    /// request.on(&#39;response&#39;, function (response) {
+    /// response.on(&#39;data&#39;, function (chunk) {
+    /// console.log(&#39;BODY: &#39; + chunk);
     /// });
     /// });
     /// // Bad - misses all or part of the body
-    /// request.on(&apos;response&apos;, function (response) {
+    /// request.on(&#39;response&#39;, function (response) {
     /// setTimeout(function () {
-    /// response.on(&apos;data&apos;, function (chunk) {
-    /// console.log(&apos;BODY: &apos; + chunk);
+    /// response.on(&#39;data&#39;, function (chunk) {
+    /// console.log(&#39;BODY: &#39; + chunk);
     /// });
     /// }, 10);
     /// });</code></pre>
     /// <p>Note: Node does not check whether Content-Length and the length of the body
     /// which has been transmitted are equal or not.
     /// </p>
-    /// <p>The request implements the <a href="stream.html#writable_stream">Writable  Stream</a>
-    /// interface. This is an <code>EventEmitter</code> with the following events:
+    /// <p>The request implements the [Writable Stream][] interface. This is an
+    /// [EventEmitter][] with the following events:
     /// </p>
     /// </summary>
     public partial class ClientRequest
@@ -57,7 +57,7 @@ namespace SharpKit.NodeJs.http
         /// <summary>
         /// <p>Finishes sending the request. If any parts of the body are
         /// unsent, it will flush them to the stream. If the request is
-        /// chunked, this will send the terminating <code>&apos;0\r\n\r\n&apos;</code>.
+        /// chunked, this will send the terminating <code>&#39;0\r\n\r\n&#39;</code>.
         /// </p>
         /// <p>If <code>data</code> is specified, it is equivalent to calling
         /// <code>request.write(data, encoding)</code> followed by <code>request.end()</code>.
@@ -67,7 +67,7 @@ namespace SharpKit.NodeJs.http
         /// <summary>
         /// <p>Finishes sending the request. If any parts of the body are
         /// unsent, it will flush them to the stream. If the request is
-        /// chunked, this will send the terminating <code>&apos;0\r\n\r\n&apos;</code>.
+        /// chunked, this will send the terminating <code>&#39;0\r\n\r\n&#39;</code>.
         /// </p>
         /// <p>If <code>data</code> is specified, it is equivalent to calling
         /// <code>request.write(data, encoding)</code> followed by <code>request.end()</code>.
@@ -77,7 +77,7 @@ namespace SharpKit.NodeJs.http
         /// <summary>
         /// <p>Finishes sending the request. If any parts of the body are
         /// unsent, it will flush them to the stream. If the request is
-        /// chunked, this will send the terminating <code>&apos;0\r\n\r\n&apos;</code>.
+        /// chunked, this will send the terminating <code>&#39;0\r\n\r\n&#39;</code>.
         /// </p>
         /// <p>If <code>data</code> is specified, it is equivalent to calling
         /// <code>request.write(data, encoding)</code> followed by <code>request.end()</code>.
@@ -86,50 +86,43 @@ namespace SharpKit.NodeJs.http
         public object end(object data, object encoding){return null;}
         /// <summary>
         /// <p>Once a socket is assigned to this request and is connected
-        /// <a href="net.html#socket.setNoDelay">socket.setNoDelay(noDelay)</a>
-        /// will be called.
+        /// [socket.setNoDelay()][] will be called.
         /// </p>
         /// </summary>
         public object setNoDelay(){return null;}
         /// <summary>
         /// <p>Once a socket is assigned to this request and is connected
-        /// <a href="net.html#socket.setNoDelay">socket.setNoDelay(noDelay)</a>
-        /// will be called.
+        /// [socket.setNoDelay()][] will be called.
         /// </p>
         /// </summary>
         public object setNoDelay(object noDelay){return null;}
         /// <summary>
         /// <p>Once a socket is assigned to this request and is connected
-        /// <a href="net.html#socket.setKeepAlive">socket.setKeepAlive(enable, [initialDelay])</a>
-        /// will be called.
+        /// [socket.setKeepAlive()][] will be called.
         /// </p>
         /// </summary>
         public object setSocketKeepAlive(){return null;}
         /// <summary>
         /// <p>Once a socket is assigned to this request and is connected
-        /// <a href="net.html#socket.setKeepAlive">socket.setKeepAlive(enable, [initialDelay])</a>
-        /// will be called.
+        /// [socket.setKeepAlive()][] will be called.
         /// </p>
         /// </summary>
         public object setSocketKeepAlive(object initialDelay){return null;}
         /// <summary>
         /// <p>Once a socket is assigned to this request and is connected
-        /// <a href="net.html#socket.setKeepAlive">socket.setKeepAlive(enable, [initialDelay])</a>
-        /// will be called.
+        /// [socket.setKeepAlive()][] will be called.
         /// </p>
         /// </summary>
         public object setSocketKeepAlive(object enable, object initialDelay){return null;}
         /// <summary>
         /// <p>Once a socket is assigned to this request and is connected
-        /// <a href="net.html#socket.setTimeout">socket.setTimeout(timeout, [callback])</a>
-        /// will be called.
+        /// [socket.setTimeout()][] will be called.
         /// </p>
         /// </summary>
         public object setTimeout(object timeout){return null;}
         /// <summary>
         /// <p>Once a socket is assigned to this request and is connected
-        /// <a href="net.html#socket.setTimeout">socket.setTimeout(timeout, [callback])</a>
-        /// will be called.
+        /// [socket.setTimeout()][] will be called.
         /// </p>
         /// </summary>
         public object setTimeout(object timeout, object callback){return null;}
@@ -137,13 +130,13 @@ namespace SharpKit.NodeJs.http
         /// <p>Sends a chunk of the body.  By calling this method
         /// many times, the user can stream a request body to a
         /// server--in that case it is suggested to use the
-        /// <code>[&apos;Transfer-Encoding&apos;, &apos;chunked&apos;]</code> header line when
+        /// <code>[&#39;Transfer-Encoding&#39;, &#39;chunked&#39;]</code> header line when
         /// creating the request.
         /// </p>
-        /// <p>The <code>chunk</code> argument should be a <a href="buffer.html">buffer</a> or a string.
+        /// <p>The <code>chunk</code> argument should be a [Buffer][] or a string.
         /// </p>
         /// <p>The <code>encoding</code> argument is optional and only applies when <code>chunk</code> is a string.
-        /// Defaults to <code>&apos;utf8&apos;</code>.
+        /// Defaults to <code>&#39;utf8&#39;</code>.
         /// </p>
         /// </summary>
         public object write(object chunk){return null;}
@@ -151,13 +144,13 @@ namespace SharpKit.NodeJs.http
         /// <p>Sends a chunk of the body.  By calling this method
         /// many times, the user can stream a request body to a
         /// server--in that case it is suggested to use the
-        /// <code>[&apos;Transfer-Encoding&apos;, &apos;chunked&apos;]</code> header line when
+        /// <code>[&#39;Transfer-Encoding&#39;, &#39;chunked&#39;]</code> header line when
         /// creating the request.
         /// </p>
-        /// <p>The <code>chunk</code> argument should be a <a href="buffer.html">buffer</a> or a string.
+        /// <p>The <code>chunk</code> argument should be a [Buffer][] or a string.
         /// </p>
         /// <p>The <code>encoding</code> argument is optional and only applies when <code>chunk</code> is a string.
-        /// Defaults to <code>&apos;utf8&apos;</code>.
+        /// Defaults to <code>&#39;utf8&#39;</code>.
         /// </p>
         /// </summary>
         public object write(object chunk, object encoding){return null;}

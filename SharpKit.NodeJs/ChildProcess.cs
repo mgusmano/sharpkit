@@ -21,6 +21,220 @@ namespace SharpKit.NodeJs
     /// </summary>
     public partial class ChildProcess
     {
+        #region static
+        /// <summary>
+        /// Runs a command in a shell and buffers the output.
+        /// <example>
+        /// <code>
+        /// var exec = require('child_process').exec,
+        ///    child;
+        ///
+        // child = exec('cat *.js bad_file | wc -l',
+        ///     function (error, stdout, stderr) {
+        ///     console.log('stdout: ' + stdout);
+        ///     console.log('stderr: ' + stderr);
+        ///     if (error !== null) {
+        ///       console.log('exec error: ' + error);
+        ///     }
+        /// });
+        /// </code>
+        /// The callback gets the arguments (error, stdout, stderr). On success, error will be null. On error, error will be an instance of Error and err.code will be the exit code of the child process, and err.signal will be set to the signal that terminated the process.
+        /// </example>
+        /// <example>There is a second optional argument to specify several options. The default options are
+        /// <code>
+        /// { encoding: 'utf8',
+        ///  timeout: 0,
+        ///  maxBuffer: 200*1024,
+        ///  killSignal: 'SIGTERM',
+        ///  cwd: null,
+        ///  env: null }
+        /// </code>
+        /// If timeout is greater than 0, then it will kill the child process if it runs longer than timeout milliseconds. The child process is killed with killSignal (default: 'SIGTERM'). maxBuffer specifies the largest amount of data allowed on stdout or stderr - if this value is exceeded then the child process is killed.
+        /// </example>
+        /// </summary>
+        /// <param name="command">The command to run, with space-separated arguments</param>
+        /// <param name="options">options Object
+        /// <list type="bullets">
+        /// <item> cwd String Current working directory of the child process</item>
+        /// <item> stdio Array|String Child's stdio configuration. (See above)</item>
+        /// <item> customFds Array Deprecated File descriptors for the child to use for stdio.</item>
+        /// <item> env Object Environment key-value pairs</item>
+        /// <item> encoding String (Default: 'utf8')</item>
+        /// <item> timeout Number (Default: 0)</item>
+        /// <item> maxBuffer Number (Default: 200*1024)</item>
+        /// <item> killSignal String (Default: 'SIGTERM')</item></list></param>
+        /// <param name="callback">Function called with the output when process terminates</param>
+        /// <returns>ChildProcess object</returns>
+        public static object exec(JsString command, JsAction<JsError, Buffer, Buffer> callback) { return null; }
+        /// <summary>
+        /// Runs a command in a shell and buffers the output.
+        /// <example>
+        /// <code>
+        /// var exec = require('child_process').exec,
+        ///    child;
+        ///
+        // child = exec('cat *.js bad_file | wc -l',
+        ///     function (error, stdout, stderr) {
+        ///     console.log('stdout: ' + stdout);
+        ///     console.log('stderr: ' + stderr);
+        ///     if (error !== null) {
+        ///       console.log('exec error: ' + error);
+        ///     }
+        /// });
+        /// </code>
+        /// The callback gets the arguments (error, stdout, stderr). On success, error will be null. On error, error will be an instance of Error and err.code will be the exit code of the child process, and err.signal will be set to the signal that terminated the process.
+        /// </example>
+        /// <example>There is a second optional argument to specify several options. The default options are
+        /// <code>
+        /// { encoding: 'utf8',
+        ///  timeout: 0,
+        ///  maxBuffer: 200*1024,
+        ///  killSignal: 'SIGTERM',
+        ///  cwd: null,
+        ///  env: null }
+        /// </code>
+        /// If timeout is greater than 0, then it will kill the child process if it runs longer than timeout milliseconds. The child process is killed with killSignal (default: 'SIGTERM'). maxBuffer specifies the largest amount of data allowed on stdout or stderr - if this value is exceeded then the child process is killed.
+        /// </example>
+        /// </summary>
+        /// <param name="command">The command to run, with space-separated arguments</param>
+        /// <param name="options">options Object
+        /// <list type="bullets">
+        /// <item> cwd String Current working directory of the child process</item>
+        /// <item> stdio Array|String Child's stdio configuration. (See above)</item>
+        /// <item> customFds Array Deprecated File descriptors for the child to use for stdio.</item>
+        /// <item> env Object Environment key-value pairs</item>
+        /// <item> encoding String (Default: 'utf8')</item>
+        /// <item> timeout Number (Default: 0)</item>
+        /// <item> maxBuffer Number (Default: 200*1024)</item>
+        /// <item> killSignal String (Default: 'SIGTERM')</item></list></param>
+        /// <param name="callback">Function called with the output when process terminates</param>
+        /// <returns>ChildProcess object</returns>
+        public static object exec(JsString command, ExecOptions options, JsAction<JsError, Buffer, Buffer> callback) { return null; }
+        /// <summary>
+        /// This is similar to child_process.exec() except it does not execute a subshell but rather the specified file directly. This makes it slightly leaner than child_process.exec. It has the same options.
+        /// </summary>
+        /// <param name="file">The filename of the program to run</param>
+        /// <param name="args">Array List of string arguments</param>
+        /// <param name="options">options Object
+        /// <list type="bullets">
+        /// <item> cwd String Current working directory of the child process</item>
+        /// <item> stdio Array|String Child's stdio configuration. (See above)</item>
+        /// <item> customFds Array Deprecated File descriptors for the child to use for stdio.</item>
+        /// <item> env Object Environment key-value pairs</item>
+        /// <item> encoding String (Default: 'utf8')</item>
+        /// <item> timeout Number (Default: 0)</item>
+        /// <item> maxBuffer Number (Default: 200*1024)</item>
+        /// <item> killSignal String (Default: 'SIGTERM')</item></list></param>
+        /// <param name="callback"> Function called with the output when process terminates</param>
+        /// <returns>ChildProcess object</returns>
+        public static object execFile(JsString file, JsArray<JsString> args, ExecOptions options, JsAction<JsError, Buffer, Buffer> callback) { return null; }
+        /// <summary>
+        /// This is a special case of the spawn() functionality for spawning Node processes. In addition to having all the methods in a normal ChildProcess instance, the returned object has a communication channel built-in. See child.send(message, [sendHandle]) for details.
+        ///
+        /// By default the spawned Node process will have the stdout, stderr associated with the parent's. To change this behavior set the silent property in the options object to true.
+        ///
+        /// The child process does not automatically exit once it's done, you need to call process.exit() explicitly. This limitation may be lifted in the future.
+        ///
+        /// These child Nodes are still whole new instances of V8. Assume at least 30ms startup and 10mb memory for each new Node. That is, you cannot create many thousands of them.
+        /// </summary>
+        /// <param name="modulePath"> The module to run in the child</param>
+        /// <returns> ChildProcess object</returns>
+        public static object fork(JsString modulePath) { return null; }
+        /// <summary>
+        /// This is a special case of the spawn() functionality for spawning Node processes. In addition to having all the methods in a normal ChildProcess instance, the returned object has a communication channel built-in. See child.send(message, [sendHandle]) for details.
+        ///
+        /// By default the spawned Node process will have the stdout, stderr associated with the parent's. To change this behavior set the silent property in the options object to true.
+        ///
+        /// The child process does not automatically exit once it's done, you need to call process.exit() explicitly. This limitation may be lifted in the future.
+        ///
+        /// These child Nodes are still whole new instances of V8. Assume at least 30ms startup and 10mb memory for each new Node. That is, you cannot create many thousands of them.
+        /// </summary>
+        /// <param name="modulePath"> The module to run in the child</param>
+        /// <param name="args">Array List of string arguments</param>
+        /// <returns>ChildProcess object</returns>
+        public static object fork(JsString modulePath, JsArray<JsString> args) { return null; }
+        /// <summary>
+        /// This is a special case of the spawn() functionality for spawning Node processes. In addition to having all the methods in a normal ChildProcess instance, the returned object has a communication channel built-in. See child.send(message, [sendHandle]) for details.
+        ///
+        /// By default the spawned Node process will have the stdout, stderr associated with the parent's. To change this behavior set the silent property in the options object to true.
+        ///
+        /// The child process does not automatically exit once it's done, you need to call process.exit() explicitly. This limitation may be lifted in the future.
+        ///
+        /// These child Nodes are still whole new instances of V8. Assume at least 30ms startup and 10mb memory for each new Node. That is, you cannot create many thousands of them.
+        /// </summary>
+        /// <param name="modulePath"> The module to run in the child</param>
+        /// <param name="options"></param>
+        /// <returns>ChildProcess object</returns>
+        public static object fork(JsString modulePath, ForkOptions options) { return null; }
+        /// <summary>
+        /// This is a special case of the spawn() functionality for spawning Node processes. In addition to having all the methods in a normal ChildProcess instance, the returned object has a communication channel built-in. See child.send(message, [sendHandle]) for details.
+        ///
+        /// By default the spawned Node process will have the stdout, stderr associated with the parent's. To change this behavior set the silent property in the options object to true.
+        ///
+        /// The child process does not automatically exit once it's done, you need to call process.exit() explicitly. This limitation may be lifted in the future.
+        ///
+        /// These child Nodes are still whole new instances of V8. Assume at least 30ms startup and 10mb memory for each new Node. That is, you cannot create many thousands of them.
+        /// </summary>
+        /// <param name="modulePath"> The module to run in the child</param>
+        /// <param name="args">Array List of string arguments</param>
+        /// <param name="options"></param>
+        /// <returns>ChildProcess object</returns>
+        public static object fork(JsString modulePath, JsArray<JsString> args, ForkOptions options) { return null; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="command"> String The command to run</param>
+        /// <returns>ChildProcess object</returns>
+        public static object spawn(JsString command) { return null; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="command"> String The command to run</param>
+        /// <param name="args">Array List of string arguments</param>
+        /// <returns>ChildProcess object</returns>
+        public static object spawn(JsString command, JsArray<JsString> args) { return null; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="command"> String The command to run</param>
+        /// <param name="options"></param>
+        /// <returns>ChildProcess object</returns>
+        public static object spawn(JsString command, SpawnOptions options) { return null; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="command"> String The command to run</param>
+        /// <param name="args">Array List of string arguments</param>
+        /// <param name="options"></param>
+        /// <returns>ChildProcess object</returns>
+        public static object spawn(JsString command, JsArray<JsString> args, SpawnOptions options) { return null; }
+
+        #endregion
+        #region events
+
+        /// <summary>
+        /// This event is emitted after the child process ends. If the process terminated normally, code is the final exit code of the process, otherwise null. If the process terminated due to receipt of a signal, signal is the string name of the signal, otherwise null.
+        ///
+        /// Note that the child process stdio streams might still be open.
+        /// </summary>
+        public JsAction<JsNumber, JsString> exit { get; set; }
+        /// <summary>
+        /// This event is emitted when the stdio streams of a child process have all terminated. This is distinct from 'exit', since multiple processes might share the same stdio streams.
+        /// </summary>
+        public JsAction close { get; set; }
+        /// <summary>
+        /// This event is emitted after using the .disconnect() method in the parent or in the child. After disconnecting it is no longer possible to send messages. An alternative way to check if you can send messages is to see if the child.connected property is true.
+        /// </summary>
+        [JsProperty(Name = "disconnect")]
+        public JsAction disconnectEvent { get; set; }
+        /// <summary>
+        /// Messages send by .send(message, [sendHandle]) are obtained using the message event.
+        /// message Object a parsed JSON object or primitive value
+        /// sendHandle Handle object a Socket or Server object
+        /// </summary>
+        public JsAction<Object, object> message { get; set; }
+        #endregion
+        #region Methods
         /// <summary>
         /// <p>To close the IPC connection between parent and child use the
         /// <code>child.disconnect()</code> method. This allows the child to exit gracefully since
@@ -30,7 +244,7 @@ namespace SharpKit.NodeJs
         /// <code>process.disconnect()</code> in the child process.
         /// </p>
         /// </summary>
-        public object disconnect(){return null;}
+        public object disconnect() { return null; }
         /// <summary>
         /// <p>Send a signal to the child process. If no argument is given, the process will
         /// be sent <code>&#39;SIGTERM&#39;</code>. See <code>signal(7)</code> for a list of available signals.
@@ -48,7 +262,7 @@ namespace SharpKit.NodeJs
         /// <p>See <code>kill(2)</code>
         /// </p>
         /// </summary>
-        public object kill(){return null;}
+        public object kill() { return null; }
         /// <summary>
         /// <p>Send a signal to the child process. If no argument is given, the process will
         /// be sent <code>&#39;SIGTERM&#39;</code>. See <code>signal(7)</code> for a list of available signals.
@@ -66,7 +280,11 @@ namespace SharpKit.NodeJs
         /// <p>See <code>kill(2)</code>
         /// </p>
         /// </summary>
-        public object kill(object signal){return null;}
+        public object kill(object signal) { return null; }
+        /// <summary>
+        /// The PID of the child process.
+        /// </summary>
+        public JsAction<int> pid { get; set; }
         /// <summary>
         /// <p>When using <code>child_process.fork()</code> you can write to the child using
         /// <code>child.send(message, [sendHandle])</code> and messages are received by
@@ -157,7 +375,7 @@ namespace SharpKit.NodeJs
         /// It is also recommended not to use <code>.maxConnections</code> in this condition.
         /// </p>
         /// </summary>
-        public object send(object message){return null;}
+        public object send(Object message) { return null; }
         /// <summary>
         /// <p>When using <code>child_process.fork()</code> you can write to the child using
         /// <code>child.send(message, [sendHandle])</code> and messages are received by
@@ -248,6 +466,144 @@ namespace SharpKit.NodeJs
         /// It is also recommended not to use <code>.maxConnections</code> in this condition.
         /// </p>
         /// </summary>
-        public object send(object message, object sendHandle){return null;}
+        public object send(Object message, object sendHandle) { return null; }
+        #endregion
+        /// <summary>
+        /// Stream object
+        /// A Writable Stream that represents the child process's stdin. Closing this stream via end() often causes the child process to terminate.
+        ///
+        /// If the child stdio streams are shared with the parent, then this will not be set.
+        /// </summary>
+        public JsAction<object> stdin { get; set; }
+        /// <summary>
+        /// Stream object
+        /// A Readable Stream that represents the child process's stdout.
+        /// 
+        /// If the child stdio streams are shared with the parent, then this will not be set.
+        /// </summary>
+        public JsAction<object> stdout { get; set; }
+        /// <summary>
+        /// A Readable Stream that represents the child process's stderr.
+        /// 
+        /// If the child stdio streams are shared with the parent, then this will not be set.
+        /// </summary>
+        public JsAction<object> stderr { get; set; }
+
     }
+
+    #region ExecOptions
+    [JsType(JsMode.Json)]
+    public partial class ExecOptions
+    {
+        /// <summary>
+        ///  Current working directory of the child process
+        /// </summary>
+        public JsString cwd { get; set; }
+        /// <summary>
+        /// Array|String Child's stdio configuration. 
+        /// </summary>
+        [JsProperty(Name = "stdio")]
+        public JsString stdioString { get; set; }
+        /// <summary>
+        /// Array|String Child's stdio configuration. 
+        /// </summary>
+        [JsProperty(Name = "stdio")]
+        public JsArray stdioArray { get; set; }
+        /// <summary>
+        /// Array|String Child's stdio configuration. Please use the correct type.
+        /// </summary>
+        public object stdio { get; set; }
+        /// <summary>
+        /// Array Deprecated File descriptors for the child to use for stdio. 
+        /// </summary>
+        public JsArray customFds { get; set; }
+        /// <summary>
+        /// Object Environment key-value pairs
+        /// </summary>
+        public object env { get; set; }
+        //TODO: env Object Environment key-value pairs
+        /// <summary>
+        /// (Default: 'utf8')
+        /// </summary>
+        public JsString encoding { get; set; }
+        /// <summary>
+        /// (Default: 0)
+        /// </summary>
+        public JsNumber timeOut { get; set; }
+        /// <summary>
+        /// (Default: 200*1024)
+        /// </summary>
+        public JsNumber maxBuffer { get; set; }
+        /// <summary>
+        /// (Default: 'SIGTERM')
+        /// </summary>
+        public JsString killSignal { get; set; }
+    }
+    #endregion
+    #region ForkOptions
+    [JsType(JsMode.Json)]
+    public partial class ForkOptions
+    {
+        /// <summary>
+        ///  Current working directory of the child process
+        /// </summary>
+        public JsString cwd { get; set; }
+        /// <summary>
+        /// Object Environment key-value pairs
+        /// </summary>
+        public object env { get; set; }
+        //TODO: env Object Environment key-value pairs
+        /// <summary>
+        /// (Default: 'utf8')
+        /// </summary>
+        public JsString encoding { get; set; }
+    }
+    #endregion
+    #region SpawnOptions
+    [JsType(JsMode.Json)]
+    public partial class SpawnOptions
+    {
+        /// <summary>
+        ///  Current working directory of the child process
+        /// </summary>
+        public JsString cwd { get; set; }
+        /// <summary>
+        /// Array|String Child's stdio configuration. 
+        /// </summary>
+        [JsProperty(Name = "stdio")]
+        public JsString stdioString { get; set; }
+        /// <summary>
+        /// Array|String Child's stdio configuration. 
+        /// </summary>
+        [JsProperty(Name = "stdio")]
+        public JsArray stdioArray { get; set; }
+        /// <summary>
+        /// Array|String Child's stdio configuration. Please use the correct type.
+        /// </summary>
+        public object stdio { get; set; }
+        /// <summary>
+        /// Array Deprecated File descriptors for the child to use for stdio. 
+        /// </summary>
+        public JsArray customFds { get; set; }
+        /// <summary>
+        /// Object Environment key-value pairs
+        /// </summary>
+        public object env { get; set; }
+        //TODO: env Object Environment key-value pairs
+        /// <summary>
+        /// The child will be a process group leader. 
+        /// </summary>
+        public bool detached { get; set; }
+        /// <summary>
+        ///  Sets the user identity of the process.
+        /// </summary>
+        public JsNumber uid { get; set; }
+        /// <summary>
+        /// Sets the group identity of the process. 
+        /// </summary>
+        public JsNumber gid { get; set; }
+    }
+    #endregion
+
+
 }

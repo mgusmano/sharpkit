@@ -9,10 +9,10 @@ namespace SharpKit.NodeJs.http
 {
     /// <summary>
     /// <p>This object is created internally by a HTTP server -- not by
-    /// the user -- and passed as the first argument to a <code>&apos;request&apos;</code> listener.
+    /// the user -- and passed as the first argument to a <code>&#39;request&#39;</code> listener.
     /// </p>
-    /// <p>The request implements the <a href="stream.html#readable_stream">Readable Stream</a>
-    /// interface. This is an <code>EventEmitter</code> with the following events:
+    /// <p>The request implements the [Readable Stream][] interface. This is an
+    /// [EventEmitter][] with the following events:
     /// </p>
     /// </summary>
     public partial class ServerRequest
@@ -28,14 +28,14 @@ namespace SharpKit.NodeJs.http
         /// </summary>
         public object resume(){return null;}
         /// <summary>
-        /// <p>Set the encoding for the request body. Either <code>&apos;utf8&apos;</code> or <code>&apos;binary&apos;</code>. Defaults
-        /// to <code>null</code>, which means that the <code>&apos;data&apos;</code> event will emit a <code>Buffer</code> object..
+        /// <p>Set the encoding for the request body. See [stream.setEncoding()][] for more
+        /// information.
         /// </p>
         /// </summary>
         public object setEncoding(){return null;}
         /// <summary>
-        /// <p>Set the encoding for the request body. Either <code>&apos;utf8&apos;</code> or <code>&apos;binary&apos;</code>. Defaults
-        /// to <code>null</code>, which means that the <code>&apos;data&apos;</code> event will emit a <code>Buffer</code> object..
+        /// <p>Set the encoding for the request body. See [stream.setEncoding()][] for more
+        /// information.
         /// </p>
         /// </summary>
         public object setEncoding(object encoding){return null;}

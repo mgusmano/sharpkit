@@ -8,8 +8,8 @@ using SharpKit.JavaScript;
 namespace SharpKit.NodeJs.https
 {
     /// <summary>
-    /// <p>An Agent object for HTTPS similar to <a href="http.html#http.Agent">http.Agent</a>.
-    /// See <a href="#https.request">https.request()</a> for more information.
+    /// <p>An Agent object for HTTPS similar to [http.Agent][].  See [https.request()][]
+    /// for more information.
     /// </p>
     /// </summary>
     public partial class Agent
