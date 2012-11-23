@@ -315,6 +315,7 @@ namespace SharpKit.Html
     {
         public object getUniform(WebGLProgram program, WebGLUniformLocation location) { return null; }
         public object getProgramParameter(WebGLProgram program, int pname) { return null; }
+        public object getShaderParameter(WebGLShader shader, int pname) { return null; }
     }
 
     partial class Window
