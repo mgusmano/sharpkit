@@ -184,6 +184,20 @@ namespace SharpKit.JavaScript.Private
 
 	}
 
+    [JsType(Name = "System.Collections.Generic.KeyNotFoundException", Filename = "~/Internal/Core.js")]
+    internal class JsImplKeyNotFoundException : JsImplException
+    {
+        public JsImplKeyNotFoundException() : base("JsImplKeyNotFoundException")
+        {
+        }
+        public JsImplKeyNotFoundException(string s) : base("JsImplKeyNotFoundException: " + s)
+        {
+        }
+        public JsImplKeyNotFoundException(string s, Exception innerException) : base("JsImplKeyNotFoundException: " + s, innerException)
+        {
+        }
+    }
+
 
 }
 //using System;
