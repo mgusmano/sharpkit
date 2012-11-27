@@ -231,7 +231,7 @@ namespace WebIDLParser
             string name = "";
             bool vStatic = false;
             bool vFinal = false;
-            while (true)
+            while (currentToken != null)
             {
                 if (currentToken.token == ECodeToken.brBigBraceEnd)
                 {
