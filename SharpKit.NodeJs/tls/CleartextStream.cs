@@ -26,7 +26,7 @@ namespace SharpKit.NodeJs.tls
         /// <code>{ port: 12346, family: &#39;IPv4&#39;, address: &#39;127.0.0.1&#39; }</code>
         /// </p>
         /// </summary>
-        public object address(){return null;}
+        public object address() { return null; }
         /// <summary>
         /// <p>Returns an object representing the cipher name and the SSL/TLS
         /// protocol version of the current connection.
@@ -39,7 +39,7 @@ namespace SharpKit.NodeJs.tls
         /// information.
         /// </p>
         /// </summary>
-        public object getCipher(){return null;}
+        public object getCipher() { return null; }
         /// <summary>
         /// <p>Returns an object representing the peer&#39;s certificate. The returned object has
         /// some properties corresponding to the field of the certificate.
@@ -67,6 +67,36 @@ namespace SharpKit.NodeJs.tls
         /// object.
         /// </p>
         /// </summary>
-        public object getPeerCertificate(){return null;}
+        public object getPeerCertificate() { return null; }
+        /// <summary>
+        /// This event is emitted after a new connection has been successfully handshaked. The listener will be called no matter if the server's certificate was authorized or not. 
+        /// It is up to the user to test cleartextStream.authorized to see if the server certificate was signed by one of the specified CAs. 
+        /// If cleartextStream.authorized === false then the error can be found in cleartextStream.authorizationError. 
+        /// Also if NPN was used - you can check cleartextStream.npnProtocol for negotiated protocol.
+        /// </summary>
+        public JsAction secureConnect { get; set; }
+        //TODO: event
     }
+    #region CleartextStreamOptions
+    [JsType(JsMode.Json)]
+    public partial class CleartextStreamOptions
+    {
+        /// <summary>
+        /// A boolean that is true if the peer certificate was signed by one of the specified CAs, otherwise false.
+        /// </summary>
+        public bool authorized { get; set; }
+        /// <summary>
+        /// The reason why the peer's certificate has not been verified. This property becomes available only when cleartextStream.authorized === false.
+        /// </summary>
+        public object authorizedError { get; set; }
+        /// <summary>
+        /// The string representation of the remote IP address. For example, '74.125.127.100' or '2001:4860:a005::68'.
+        /// </summary>
+        public JsString remoteAddress { get; set; }
+        /// <summary>
+        /// The numeric representation of the remote port. For example, 443.
+        /// </summary>
+        public JsNumber remotePort { get; set; }
+    }
+    #endregion
 }

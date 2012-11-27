@@ -13,5 +13,14 @@ namespace SharpKit.NodeJs.fs
     /// </summary>
     public partial class ReadStream
     {
+        #region events
+        /// <summary>
+        /// fd Integer file descriptor used by the WriteStream.
+        /// Emitted when the WriteStream's file is opened.
+        /// </summary>
+        public JsAction<int> open { get; set; }
+        #endregion
+        public JsNumber bytesWritten { get; set; }
+        //TODO
     }
 }

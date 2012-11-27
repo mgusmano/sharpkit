@@ -38,5 +38,29 @@ namespace SharpKit.NodeJs.http
     /// </summary>
     public partial class Agent
     {
+
     }
+    #region AgentOptions
+    [JsType(JsMode.Json)]
+    public partial class AgentOptions
+    {
+        /// <summary>
+        /// By default set to 5. Determines how many concurrent sockets the agent can have open per host.
+        /// </summary>
+        public JsNumber maxSockets { get; set; }
+        /// <summary>
+        /// An object which contains arrays of sockets currently in use by the Agent. Do not modify.
+        /// </summary>
+        public JsArray<Socket> sockets { get; set; }
+        /// <summary>
+        /// An object which contains queues of requests that have not yet been assigned to sockets. Do not modify.
+        /// </summary>
+        public Queue<object> requests { get; set; }
+        /// <summary>
+        /// Global instance of Agent which is used as the default for all http client requests.
+        /// </summary>
+        public Agent globalAgent { get; set; }
+        //TODO: http.globalAgent?
+    }
+    #endregion
 }
