@@ -77,7 +77,7 @@ namespace SharpKit.NodeJs.http
         /// </p>
         /// <pre><code>var contentType = response.getHeader(&#39;content-type&#39;);</code></pre>
         /// </summary>
-        public object getHeader(object name){return null;}
+        public object getHeader(JsString name){return null;}
         /// <summary>
         /// <p>Removes a header that&#39;s queued for implicit sending.
         /// </p>
@@ -85,7 +85,7 @@ namespace SharpKit.NodeJs.http
         /// </p>
         /// <pre><code>response.removeHeader(&quot;Content-Encoding&quot;);</code></pre>
         /// </summary>
-        public object removeHeader(object name){return null;}
+        public object removeHeader(JsString name){return null;}
         /// <summary>
         /// <p>Sets a single header value for implicit headers.  If this header already exists
         /// in the to-be-sent headers, its value will be replaced.  Use an array of strings
@@ -98,7 +98,7 @@ namespace SharpKit.NodeJs.http
         /// </p>
         /// <pre><code>response.setHeader(&quot;Set-Cookie&quot;, [&quot;type=ninja&quot;, &quot;language=javascript&quot;]);</code></pre>
         /// </summary>
-        public object setHeader(object name, object value){return null;}
+        public object setHeader(JsString name, object value){return null;}
         /// <summary>
         /// <p>If this method is called and <code>response.writeHead()</code> has not been called, it will
         /// switch to implicit header mode and flush the implicit headers.
@@ -238,5 +238,10 @@ namespace SharpKit.NodeJs.http
         /// </p>
         /// </summary>
         public object writeHead(object statusCode, object reasonPhrase, object headers){return null;}
+        /// <summary>
+        /// Indicates that the underlaying connection was terminated before response.end() was called or able to flush.
+        /// </summary>
+        public JsAction close { get; set; }
+        //TODO: event
     }
 }
