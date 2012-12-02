@@ -2797,6 +2797,11 @@ namespace SharpKit.jQuery
         }
 
         #endregion
+
+        /// <summary>
+        /// Set to false, to disable the jQuery-UI 1.8 API backward compatibility
+        /// </summary>
+        public static bool uiBackCompat;
     }
 
     public class AnimateOptions
