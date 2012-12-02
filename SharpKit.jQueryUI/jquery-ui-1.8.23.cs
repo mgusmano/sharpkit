@@ -1,5 +1,7 @@
 ﻿using SharpKit.JavaScript;
 using SharpKit.Html;
+using System;
+
 namespace SharpKit.jQuery
 {
     [JsType(JsMode.Prototype, Export = false)]
@@ -2931,6 +2933,7 @@ namespace SharpKit.jQuery
         ///<summary>
         ///Add these left-top values to the calculated position, eg. "50 50" (left top) A single value such as "50" will apply to both.
         ///</summary>
+        [Obsolete(@"Deprecated offset option; merged into my and at<br>(#6981) The offset option has been deprecated and offsets have been merged into the my and at options. The form for a position is now the named position, optionally followed by a plus or minus and then an offset. In addition, offsets now support percentages (see above). You should replace all uses of the offset option with offsets placed inside the my and/or at options.")]
         public string offset { get; set; }
         /// <summary>
         /// When the positioned element overflows the window in some direction, move it to an alternative position. Similar to my and at, this accepts a single value or a pair for horizontal/vertical, eg. "flip", "fit", "fit flip", "fit none".
