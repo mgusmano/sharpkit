@@ -325,10 +325,7 @@ namespace SharpKit.Html
         public Window open() { return null; }
 
     }
-    //public partial class HtmlWindow : Window
-    //{
-    //    public new HtmlDocument document { get; private set; }
 
-    //}
-
+    //TODO: Name="XMLHttpRequest", Name="Node"
+    //
 }

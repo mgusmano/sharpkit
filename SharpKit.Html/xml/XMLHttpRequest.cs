@@ -47,7 +47,7 @@ using SharpKit.Html.audio;
 using SharpKit.Html.webaudio;
 using SharpKit.Html.svg;
 
-[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true)]
+[JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name="XMLHttpRequest")]
 public partial class XMLHttpRequest
 {
 	public   XMLHttpRequest() {}
