@@ -53,6 +53,7 @@
     <Compile Include="Hmac.cs" />
     <Compile Include="https\Agent.cs" />
     <Compile Include="https\Server.cs" />
+    <Compile Include="https\Utils.cs" />
     <Compile Include="http\Agent.cs" />
     <Compile Include="http\ClientRequest.cs" />
     <Compile Include="http\ClientResponse.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Socket.cs" />
     <Compile Include="tls\CleartextStream.cs" />
     <Compile Include="tls\Server.cs" />
+    <Compile Include="tls\Utils.cs" />
     <Compile Include="Verify.cs" />
     <Compile Include="Writable Stream.cs" />
     <Compile Include="zlib\Deflate.cs" />
