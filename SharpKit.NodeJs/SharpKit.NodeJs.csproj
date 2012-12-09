@@ -49,6 +49,7 @@
     <Compile Include="fs\FSWatcher.cs" />
     <Compile Include="fs\ReadStream.cs" />
     <Compile Include="fs\Stats.cs" />
+    <Compile Include="fs\Utils.cs" />
     <Compile Include="Hash.cs" />
     <Compile Include="Hmac.cs" />
     <Compile Include="https\Agent.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="zlib\Inflate.cs" />
     <Compile Include="zlib\InflateRaw.cs" />
     <Compile Include="zlib\Unzip.cs" />
+    <Compile Include="zlib\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
