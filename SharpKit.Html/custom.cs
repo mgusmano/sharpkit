@@ -22,21 +22,10 @@
 
 *******************************************************************************************************/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using SharpKit.JavaScript;
-using SharpKit.Html.storage;
-using SharpKit.Html.threads;
-using SharpKit.Html.audio;
-using SharpKit.Html.webaudio;
-using SharpKit.Html.svg;
 
 namespace SharpKit.Html
 {
-
     [JsDelegate(NativeDelegates = true)]
     [JsType(JsMode.Json, OmitCasts = true, Export = false)]
     public delegate void EventListener<T>(T evt);
@@ -70,6 +59,7 @@ namespace SharpKit.Html
         [JsProperty(NativeIndexer = true)]
         public sbyte this[int key] { get { return default(sbyte); } set { } }
     }
+
     public partial class Uint8ClampedArray
     {
         public Uint8ClampedArray(int length) : base(length) { }
@@ -163,7 +153,6 @@ namespace SharpKit.Html
         public void send(ArrayBuffer data) { }
         public void send(ArrayBufferView data) { }
     }
-
 
     public partial class CssStyleDeclaration
     {
@@ -324,9 +313,20 @@ namespace SharpKit.Html
         public int setTimeout(JsAction handler, int timeout) { return default(int); }
         public int setInterval(JsAction handler, int timeout) { return default(int); }
         public Window open() { return null; }
-
     }
 
     //TODO: Name="XMLHttpRequest", Name="Node"
     //
+}
+
+namespace SharpKit.Html.storage
+{
+    partial class Storage
+    {
+        public string this[string key]
+        {
+            get { return getItem(key); }
+            set { setItem(key, value); }
+        }
+    }
 }

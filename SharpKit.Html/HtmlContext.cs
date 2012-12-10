@@ -1,9 +1,6 @@
+using System;
 using SharpKit.JavaScript;
 using SharpKit.Html.storage;
-using SharpKit.Html.threads;
-using SharpKit.Html.audio;
-using SharpKit.Html.webaudio;
-using SharpKit.Html.svg;
 
 namespace SharpKit.Html
 {
@@ -149,15 +146,15 @@ namespace SharpKit.Html
 		public static int setInterval(JsAction handler) { return 0; }
 		public static int setInterval(JsAction handler, object timeout, params object[] args) { return 0; }
 		public static void clearInterval(int handle) { }
-        [System.Obsolete("requestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
+        [Obsolete("requestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
         public static void requestAnimationFrame(JsAction handler) { }
-        [System.Obsolete("webkitRequestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
+        [Obsolete("webkitRequestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
         public static void webkitRequestAnimationFrame(JsAction handler) { }
-        [System.Obsolete("mozRequestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
+        [Obsolete("mozRequestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
         public static void mozRequestAnimationFrame(JsAction handler) { }
-        [System.Obsolete("oRequestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
+        [Obsolete("oRequestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
         public static void oRequestAnimationFrame(JsAction handler) { }
-        [System.Obsolete("msRequestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
+        [Obsolete("msRequestAnimationFrame is not a WHATWG-sanctioned function and may be deprecated without notice.", false)]
         public static void msRequestAnimationFrame(JsAction handler) { }
 
         // WindowDatabase
