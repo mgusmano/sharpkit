@@ -2788,12 +2788,14 @@ namespace SharpKit.jQuery
 
         public IEnumerator<HtmlElement> GetEnumerator()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < length; i++)
+                yield return this[i];
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < length; i++)
+                yield return this[i];
         }
 
         #endregion
