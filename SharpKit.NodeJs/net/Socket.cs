@@ -318,7 +318,7 @@ namespace SharpKit.NodeJs.net
     [JsType(JsMode.Json)]
     public partial class SocketOptions
     {
-        public object fd { get; set; }
+        public JsNumber fd { get; set; }
         public object type { get; set; }
         public bool allowHalfOpen { get; set; }
     }

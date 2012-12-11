@@ -49,5 +49,6 @@ namespace SharpKit.NodeJs.fs
     /// </summary>
     public partial class Stats
     {
+        //TODO
     }
 }

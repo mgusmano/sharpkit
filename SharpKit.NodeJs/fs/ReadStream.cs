@@ -20,7 +20,6 @@ namespace SharpKit.NodeJs.fs
         /// </summary>
         public JsAction<int> open { get; set; }
         #endregion
-        public JsNumber bytesWritten { get; set; }
-        //TODO
+        
     }
 }

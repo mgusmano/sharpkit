@@ -36,7 +36,7 @@ namespace SharpKit.NodeJs.fs
         /// <param name="fd"></param>
         /// <param name="len"></param>
         /// <returns></returns>
-        public object truncate(object fd, JsNumber len) { return null; }
+        public object truncate(JsNumber fd, JsNumber len) { return null; }
         /// <summary>
         /// Asynchronous ftruncate(2). No arguments other than a possible exception are given to the completion callback.
         /// </summary>
@@ -44,14 +44,14 @@ namespace SharpKit.NodeJs.fs
         /// <param name="len"></param>
         /// <param name="callback"></param>
         /// <returns></returns>
-        public object truncate(object fd, JsNumber len, JsAction callback) { return null; }
+        public object truncate(JsNumber fd, JsNumber len, JsAction callback) { return null; }
         /// <summary>
         /// Synchronous ftruncate(2).
         /// </summary>
         /// <param name="fd"></param>
         /// <param name="len"></param>
         /// <returns></returns>
-        public object truncateSync(object fd, JsNumber len) { return null; }
+        public object truncateSync(JsNumber fd, JsNumber len) { return null; }
         /// <summary>
         /// Asynchronous chown(2). No arguments other than a possible exception are given to the completion callback.
         /// </summary>
@@ -84,7 +84,7 @@ namespace SharpKit.NodeJs.fs
         /// <param name="uid"></param>
         /// <param name="gid"></param>
         /// <returns></returns>
-        public object fchown(object fd, JsNumber uid, JsNumber gid) { return null; }
+        public object fchown(JsNumber fd, JsNumber uid, JsNumber gid) { return null; }
         /// <summary>
         /// Asynchronous fchown(2). No arguments other than a possible exception are given to the completion callback.
         /// </summary>
@@ -93,7 +93,7 @@ namespace SharpKit.NodeJs.fs
         /// <param name="gid"></param>
         /// <param name="callback"></param>
         /// <returns></returns>
-        public object fchown(object fd, JsNumber uid, JsNumber gid, JsAction callback) { return null; }
+        public object fchown(JsNumber fd, JsNumber uid, JsNumber gid, JsAction callback) { return null; }
         /// <summary>
         /// Synchronous fchown(2). 
         /// </summary>
@@ -101,7 +101,7 @@ namespace SharpKit.NodeJs.fs
         /// <param name="uid"></param>
         /// <param name="gid"></param>
         /// <returns></returns>
-        public object fchownSync(object fd, JsNumber uid, JsNumber gid) { return null; }
+        public object fchownSync(JsNumber fd, JsNumber uid, JsNumber gid) { return null; }
         /// <summary>
         /// Asynchronous lchown(2). No arguments other than a possible exception are given to the completion callback.
         /// </summary>
@@ -155,7 +155,7 @@ namespace SharpKit.NodeJs.fs
         /// <param name="fd"></param>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public object fchmod(object fd, JsString mode) { return null; }
+        public object fchmod(JsNumber fd, JsString mode) { return null; }
         /// <summary>
         /// Asynchronous fchmod(2). No arguments other than a possible exception are given to the completion callback.
         /// </summary>
@@ -163,14 +163,14 @@ namespace SharpKit.NodeJs.fs
         /// <param name="mode"></param>
         /// <param name="callback"></param>
         /// <returns></returns>
-        public object fchmod(object fd, JsString mode, JsAction callback) { return null; }
+        public object fchmod(JsNumber fd, JsString mode, JsAction callback) { return null; }
         /// <summary>
         /// Synchronous fchmod(2).
         /// </summary>
         /// <param name="fd"></param>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public object fchmodSync(object fd, JsString mode) { return null; }
+        public object fchmodSync(JsNumber fd, JsString mode) { return null; }
         /// <summary>
         /// Asynchronous lchmod(2). No arguments other than a possible exception are given to the completion callback.
         /// Only available on Mac OS X.
@@ -222,18 +222,18 @@ namespace SharpKit.NodeJs.fs
         /// <returns></returns>
         public object lstat(JsString path, JsAction callback) { return null; }
         /// <summary>
-        /// Asynchronous fstat(2). The callback gets two arguments (err, stats) where stats is a fs.Stats object. fstat() is identical to stat(), except that the file to be stat-ed is specified by the file descriptor object fd. 
+        /// Asynchronous fstat(2). The callback gets two arguments (err, stats) where stats is a fs.Stats object. fstat() is identical to stat(), except that the file to be stat-ed is specified by the file descriptor JsNumber fd. 
         /// </summary>
         /// <param name="fd"></param>
         /// <returns></returns>
-        public object fstat(object fd) { return null; }
+        public object fstat(JsNumber fd) { return null; }
         /// <summary>
-        /// Asynchronous fstat(2). The callback gets two arguments (err, stats) where stats is a fs.Stats object. fstat() is identical to stat(), except that the file to be stat-ed is specified by the file descriptor object fd.
+        /// Asynchronous fstat(2). The callback gets two arguments (err, stats) where stats is a fs.Stats object. fstat() is identical to stat(), except that the file to be stat-ed is specified by the file descriptor JsNumber fd.
         /// </summary>
         /// <param name="fd"></param>
         /// <param name="callback"></param>
         /// <returns></returns>
-        public object fstat(object fd, JsAction callback) { return null; }
+        public object fstat(JsNumber fd, JsAction callback) { return null; }
         /// <summary>
         /// Synchronous stat(2). Returns an instance of fs.Stats.
         /// </summary>
@@ -251,7 +251,7 @@ namespace SharpKit.NodeJs.fs
         /// </summary>
         /// <param name="fd"></param>
         /// <returns></returns>
-        public Stats fstatSync(object fd) { return null; }
+        public Stats fstatSync(JsNumber fd) { return null; }
         /// <summary>
         /// Asynchronous link(2). No arguments other than a possible exception are given to the completion callback. 
         /// </summary>
@@ -484,42 +484,20 @@ namespace SharpKit.NodeJs.fs
         /// </summary>
         /// <param name="fd"></param>
         /// <returns></returns>
-        public object close(object fd) { return null; }
+        public object close(JsNumber fd) { return null; }
         /// <summary>
         /// Asynchronous close(2). No arguments other than a possible exception are given to the completion callback.
         /// </summary>
         /// <param name="fd"></param>
         /// <param name="?"></param>
         /// <returns></returns>
-        public object close(object fd, JsAction callback) { return null; }
+        public object close(JsNumber fd, JsAction callback) { return null; }
         /// <summary>
         /// Synchronous close(2). 
         /// </summary>
         /// <param name="fd"></param>
         /// <returns></returns>
-        public object closeSync(object fd) { return null; }
-        //        //
-        //        Asynchronous file open. See open(2). flags can be:
-
-        /// 'r' - Open file for reading. An exception occurs if the file does not exist.
-        /// 'r+' - Open file for reading and writing. An exception occurs if the file does not exist.
-        /// 'rs' - Open file for reading in synchronous mode. Instructs the operating system to bypass the local file system cache.
-        /// This is primarily useful for opening files on NFS mounts as it allows you to skip the potentially stale local cache. It has a very real impact on I/O performance so don't use this mode unless you need it.
-
-        //Note that this doesn't turn fs.open() into a synchronous blocking call. If that's what you want then you should be using fs.openSync()
-
-        //'rs+' - Open file for reading and writing, telling the OS to open it synchronously. See notes for 'rs' about using this with caution.
-        //'w' - Open file for writing. The file is created (if it does not exist) or truncated (if it exists).
-        //'wx' - Like 'w' but opens the file in exclusive mode.
-        //'w+' - Open file for reading and writing. The file is created (if it does not exist) or truncated (if it exists).
-        //'wx+' - Like 'w+' but opens the file in exclusive mode.
-        //'a' - Open file for appending. The file is created if it does not exist.
-        //'ax' - Like 'a' but opens the file in exclusive mode.
-        //'a+' - Open file for reading and appending. The file is created if it does not exist.
-        //'ax+' - Like 'a+' but opens the file in exclusive mode.
-        //mode defaults to 0666. The callback gets two arguments (err, fd).
-
-        //Exclusive mode (O_EXCL) ensures that path is newly created. fs.open() fails if a file by that name already exists. On POSIX systems, symlinks are not followed. Exclusive mode may or may not work with network file systems.
+        public object closeSync(JsNumber fd) { return null; }
         /// <summary>
         /// Asynchronous file open.
         /// </summary>
@@ -657,7 +635,7 @@ namespace SharpKit.NodeJs.fs
         /// <param name="atime"></param>
         /// <param name="mtime"></param>
         /// <returns></returns>
-        public object futimes(object fd, DateTime atime, DateTime mtime) { return null; }
+        public object futimes(JsNumber fd, DateTime atime, DateTime mtime) { return null; }
         /// <summary>
         /// Change the file timestamps of a file referenced by the supplied file descriptor.
         /// </summary>
@@ -666,7 +644,7 @@ namespace SharpKit.NodeJs.fs
         /// <param name="mtime"></param>
         /// <param name="callback"></param>
         /// <returns></returns>
-        public object futimes(object fd, DateTime atime, DateTime mtime, JsAction callback) { return null; }
+        public object futimes(JsNumber fd, DateTime atime, DateTime mtime, JsAction callback) { return null; }
         /// <summary>
         /// Change the file timestamps of a file referenced by the supplied file descriptor.
         /// </summary>
@@ -674,26 +652,26 @@ namespace SharpKit.NodeJs.fs
         /// <param name="atime"></param>
         /// <param name="mtime"></param>
         /// <returns></returns>
-        public object futimesSync(object fd, DateTime atime, DateTime mtime) { return null; }
+        public object futimesSync(JsNumber fd, DateTime atime, DateTime mtime) { return null; }
         /// <summary>
         /// Asynchronous fsync(2). No arguments other than a possible exception are given to the completion callback.
         /// </summary>
         /// <param name="fd"></param>
         /// <returns></returns>
-        public object fsync(object fd) { return null; }
+        public object fsync(JsNumber fd) { return null; }
         /// <summary>
         /// Asynchronous fsync(2). No arguments other than a possible exception are given to the completion callback.
         /// </summary>
         /// <param name="fd"></param>
         /// <param name="callback"></param>
         /// <returns></returns>
-        public object fsync(object fd, JsAction<JsError> callback) { return null; }
+        public object fsync(JsNumber fd, JsAction<JsError> callback) { return null; }
         /// <summary>
         /// Synchronous fsync(2). 
         /// </summary>
         /// <param name="fd"></param>
         /// <returns></returns>
-        public object fsyncSync(object fd) { return null; }
+        public object fsyncSync(JsNumber fd) { return null; }
         /// <summary>
         /// Asynchronously writes data to a file, replacing the file if it already exists. 
         /// </summary>
@@ -861,116 +839,342 @@ namespace SharpKit.NodeJs.fs
         /// <param name="encoding"></param>
         /// <returns></returns>
         public object appendFileSync(String filename, Buffer data, object encoding) { return null; }
-        //
+        /// <summary>
+        /// Stability: 2 - Unstable.  Use fs.watch instead, if possible.
+        /// Watch for changes on filename. The callback listener will be called each time the file is accessed.
+        /// If you want to be notified when the file was modified, not just accessed you need to compare curr.mtime and prev.mtime.
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="listener">
+        /// The listener gets two arguments the current stat object and the previous stat object:
+        /// <example>
+        /// <code>
+        /// fs.watchFile('message.text', function (curr, prev) {
+        ///   console.log('the current mtime is: ' + curr.mtime);
+        ///   console.log('the previous mtime was: ' + prev.mtime);
+        /// });
+        /// </code>
+        /// These stat objects are instances of fs.Stat.
+        /// </example>
+        /// </param>
+        /// <returns></returns>
+        public object watchFile(JsString filename, JsAction<object, object> listener) { return null; }
+        /// <summary>
+        /// Stability: 2 - Unstable.  Use fs.watch instead, if possible.
+        /// Watch for changes on filename. The callback listener will be called each time the file is accessed.
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="options">The options if provided should be an object containing two members a boolean, persistent, and interval. persistent indicates whether the process should continue to run as long as files are being watched. 
+        /// interval indicates how often the target should be polled, in milliseconds. The default is { persistent: true, interval: 5007 }.</param>
+        /// <param name="listener">
+        /// The listener gets two arguments the current stat object and the previous stat object:
+        /// <example>
+        /// <code>
+        /// fs.watchFile('message.text', function (curr, prev) {
+        ///   console.log('the current mtime is: ' + curr.mtime);
+        ///   console.log('the previous mtime was: ' + prev.mtime);
+        /// });
+        /// </code>
+        /// These stat objects are instances of fs.Stat.
+        /// </example>
+        /// </param>
+        /// <returns></returns>
+        public object watchFile(JsString filename, WatchFileOptions options, JsAction<Stats, Stats> listener) { return null; }
+        /// <summary>
+        /// Stability: 2 - Unstable.  Use fs.watch instead, if available.
+        /// Stop watching for changes on filename. If listener is specified, only that particular listener is removed. 
+        /// Otherwise, all listeners are removed and you have effectively stopped watching filename.
+        /// Calling fs.unwatchFile() with a filename that is not being watched is a no-op, not an error.
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public object unwatchFile(JsString fileName) { return null; }
+        /// <summary>
+        /// Stability: 2 - Unstable.  Use fs.watch instead, if available.
+        /// Stop watching for changes on filename. If listener is specified, only that particular listener is removed. 
+        /// Otherwise, all listeners are removed and you have effectively stopped watching filename.
+        /// Calling fs.unwatchFile() with a filename that is not being watched is a no-op, not an error.
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="listener"></param>
+        /// <returns></returns>
+        public object unwatchFile(JsString fileName, JsAction listener) { return null; }
+        /// <summary>
+        /// Stability: 2 - Unstable.
+        /// Watch for changes on filename, where filename is either a file or a directory. The returned object is a fs.FSWatcher.
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns>The returned object is a fs.FSWatcher.</returns>
+        /// <remarks>
+        /// <list type="bullet">
+        /// <item>Caveats
+        /// <description> The fs.watch API is not 100% consistent across platforms, and is unavailable in some situations.</description>
+        /// </item>
+        /// <item>
+        /// Availability
+        /// <description>
+        /// This feature depends on the underlying operating system providing a way to be notified of filesystem changes.
+        /// <list type="bullet">
+        /// On Linux systems, this uses inotify.
+        /// On BSD systems (including OS X), this uses kqueue.
+        /// On SunOS systems (including Solaris and SmartOS), this uses event ports.
+        /// On Windows systems, this feature depends on ReadDirectoryChangesW.
+        ///</list>
+        /// If the underlying functionality is not available for some reason, then fs.watch will not be able to function. For example, watching files or directories on network file systems (NFS, SMB, etc.) often doesn't work reliably or at all.
+        ///
+        /// You can still use fs.watchFile, which uses stat polling, but it is slower and less reliable.
+        /// </description>
+        /// </item>
+        ///<item>
+        /// Filename Argument
+        /// <description>
+        /// Providing filename argument in the callback is not supported on every platform (currently it's only supported on Linux and Windows). 
+        /// Even on supported platforms filename is not always guaranteed to be provided. 
+        /// Therefore, don't assume that filename argument is always provided in the callback, and have some fallback logic if it is null.
+        /// <example>
+        /// <code>
+        ///  public object watch('somedir', function (event, filename) {
+        ///   console.log('event is: ' + event);
+        ///   if (filename) {
+        ///     console.log('filename provided: ' + filename);
+        ///   } else {
+        ///     console.log('filename not provided');
+        ///   }
+        /// });
+        /// </code></example>
+        /// </description>
+        /// </item>
+        /// </list>
+        /// </remarks>
+        public FSWatcher watch(JsString fileName) { return null; }
+        /// <summary>
+        /// Stability: 2 - Unstable.
+        /// Watch for changes on filename, where filename is either a file or a directory. The returned object is a fs.FSWatcher.
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="listener">The listener callback gets two arguments (event, filename). event is either 'rename' or 'change', and filename is the name of the file which triggered the event.</param>
+        /// <returns>The returned object is a fs.FSWatcher.</returns>
+        /// <remarks>
+        /// <list type="bullet">
+        /// <item>Caveats
+        /// <description> The fs.watch API is not 100% consistent across platforms, and is unavailable in some situations.</description>
+        /// </item>
+        /// <item>
+        /// Availability
+        /// <description>
+        /// This feature depends on the underlying operating system providing a way to be notified of filesystem changes.
+        /// <list type="bullet">
+        /// On Linux systems, this uses inotify.
+        /// On BSD systems (including OS X), this uses kqueue.
+        /// On SunOS systems (including Solaris and SmartOS), this uses event ports.
+        /// On Windows systems, this feature depends on ReadDirectoryChangesW.
+        ///</list>
+        /// If the underlying functionality is not available for some reason, then fs.watch will not be able to function. For example, watching files or directories on network file systems (NFS, SMB, etc.) often doesn't work reliably or at all.
+        ///
+        /// You can still use fs.watchFile, which uses stat polling, but it is slower and less reliable.
+        /// </description>
+        /// </item>
+        ///<item>
+        /// Filename Argument
+        /// <description>
+        /// Providing filename argument in the callback is not supported on every platform (currently it's only supported on Linux and Windows). 
+        /// Even on supported platforms filename is not always guaranteed to be provided. 
+        /// Therefore, don't assume that filename argument is always provided in the callback, and have some fallback logic if it is null.
+        /// <example>
+        /// <code>
+        ///  public object watch('somedir', function (event, filename) {
+        ///   console.log('event is: ' + event);
+        ///   if (filename) {
+        ///     console.log('filename provided: ' + filename);
+        ///   } else {
+        ///     console.log('filename not provided');
+        ///   }
+        /// });
+        /// </code></example>
+        /// </description>
+        /// </item>
+        /// </list>
+        /// </remarks>
+        public FSWatcher watch(JsString fileName, JsAction<JsString, JsString> listener) { return null; }
+        /// <summary>
+        /// Stability: 2 - Unstable.
+        /// Watch for changes on filename, where filename is either a file or a directory. 
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="options">The options if provided should be an object containing a boolean member persistent, 
+        /// which indicates whether the process should continue to run as long as files are being watched. The default is { persistent: true }.</param>
+        /// <param name="listener">The listener callback gets two arguments (event, filename). event is either 'rename' or 'change', and filename is the name of the file which triggered the event.</param>
+        /// <returns>The returned object is a fs.FSWatcher.</returns>
+        /// <remarks>
+        /// <list type="bullet">
+        /// <item>Caveats
+        /// <description> The fs.watch API is not 100% consistent across platforms, and is unavailable in some situations.</description>
+        /// </item>
+        /// <item>
+        /// Availability
+        /// <description>
+        /// This feature depends on the underlying operating system providing a way to be notified of filesystem changes.
+        /// <list type="bullet">
+        /// On Linux systems, this uses inotify.
+        /// On BSD systems (including OS X), this uses kqueue.
+        /// On SunOS systems (including Solaris and SmartOS), this uses event ports.
+        /// On Windows systems, this feature depends on ReadDirectoryChangesW.
+        ///</list>
+        /// If the underlying functionality is not available for some reason, then fs.watch will not be able to function. For example, watching files or directories on network file systems (NFS, SMB, etc.) often doesn't work reliably or at all.
+        ///
+        /// You can still use fs.watchFile, which uses stat polling, but it is slower and less reliable.
+        /// </description>
+        /// </item>
+        ///<item>
+        /// Filename Argument
+        /// <description>
+        /// Providing filename argument in the callback is not supported on every platform (currently it's only supported on Linux and Windows). 
+        /// Even on supported platforms filename is not always guaranteed to be provided. 
+        /// Therefore, don't assume that filename argument is always provided in the callback, and have some fallback logic if it is null.
+        /// <example>
+        /// <code>
+        ///  public object watch('somedir', function (event, filename) {
+        ///   console.log('event is: ' + event);
+        ///   if (filename) {
+        ///     console.log('filename provided: ' + filename);
+        ///   } else {
+        ///     console.log('filename not provided');
+        ///   }
+        /// });
+        /// </code></example>
+        /// </description>
+        /// </item>
+        /// </list>
+        /// </remarks>
+        public FSWatcher watch(JsString fileName, WatchOptions options, JsAction<JsString, JsString> listener) { return null; }
+        /// <summary>
+        /// Test whether or not the given path exists by checking with the file system.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public object exists(JsString path) { return null; }
+        /// <summary>
+        /// Test whether or not the given path exists by checking with the file system.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="callback">call the callback argument with either true or false. 
+        /// <example>
+        /// Example:
+        /// <code>
+        /// fs.exists('/etc/passwd', function (exists) {
+        ///   util.debug(exists ? "it's there" : "no passwd!");
+        /// });
+        /// </code>
+        /// </example>
+        /// </param>
+        /// <returns></returns>
+        public object exists(JsString path, JsAction<bool> callback) { return null; }
+        /// <summary>
+        /// Synchronous version of fs.exists. 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public object existsSync(JsString path) { return null; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public ReadStream createReadStream(JsString path) { return null; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="options">
+        /// options is an object with the following defaults:
+        /// { flags: 'r',
+        ///   encoding: null,
+        ///   fd: null,
+        ///   mode: 0666,
+        ///   bufferSize: 64 * 1024
+        /// }
+        /// options can include start and end values to read a range of bytes from the file instead of the entire file. 
+        /// Both start and end are inclusive and start at 0.
+        /// </param>
+        /// <returns>Returns a new ReadStream object (See Readable Stream).</returns>
+        /// <example>
+        /// An example to read the last 10 bytes of a file which is 100 bytes long:
+        /// <code>
+        /// fs.createReadStream('sample.txt', {start: 90, end: 99});
+        /// </code>
+        /// </example>
+        public ReadStream createReadStream(JsString path, ReadStreamOptions options) { return null; }
+        /// <summary>
+        /// Returns a new WriteStream object (See Writable Stream).
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns>Returns a new WriteStream object (See Writable Stream).</returns>
+        public WriteStream createWriteStream(JsString path) { return null; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="options">
+        /// options is an object with the following defaults:
+        /// { flags: 'w',
+        ///  encoding: null,
+        ///  mode: 0666 }
+        /// options may also include a start option to allow writing data at some position past the beginning of the file. Modifying a file rather than replacing it may require a flags mode of r+ rather than the default mode w.</param>
+        /// <returns></returns>
+        public WriteStream createWriteStream(JsString path, WriteStreamOptions options) { return null; }
 
-        //fs.watchFile(filename, [options], listener) { return null; }
-        //Stability: 2 - Unstable.  Use fs.watch instead, if possible.
-        //Watch for changes on filename. The callback listener will be called each time the file is accessed.
-
-        //The second argument is optional. The options if provided should be an object containing two members a boolean, persistent, and interval. persistent indicates whether the process should continue to run as long as files are being watched. interval indicates how often the target should be polled, in milliseconds. The default is { persistent: true, interval: 5007 }.
-
-        //The listener gets two arguments the current stat object and the previous stat object:
-
-        //fs.watchFile('message.text', function (curr, prev) {
-        //  console.log('the current mtime is: ' + curr.mtime);
-        //  console.log('the previous mtime was: ' + prev.mtime);
-        //});
-        //These stat objects are instances of fs.Stat.
-
-        //If you want to be notified when the file was modified, not just accessed you need to compare curr.mtime and prev.mtime.
-
-        //fs.unwatchFile(filename, [listener]) { return null; }
-        //Stability: 2 - Unstable.  Use fs.watch instead, if available.
-        //Stop watching for changes on filename. If listener is specified, only that particular listener is removed. Otherwise, all listeners are removed and you have effectively stopped watching filename.
-
-        //Calling fs.unwatchFile() with a filename that is not being watched is a no-op, not an error.
-
-        //fs.watch(filename, [options], [listener]) { return null; }
-        //Stability: 2 - Unstable.
-        //Watch for changes on filename, where filename is either a file or a directory. The returned object is a fs.FSWatcher.
-
-        //The second argument is optional. The options if provided should be an object containing a boolean member persistent, which indicates whether the process should continue to run as long as files are being watched. The default is { persistent: true }.
-
-        //The listener callback gets two arguments (event, filename). event is either 'rename' or 'change', and filename is the name of the file which triggered the event.
-
-        //Caveats { return null; }
-        //The fs.watch API is not 100% consistent across platforms, and is unavailable in some situations.
-
-        //Availability { return null; }
-
-        //This feature depends on the underlying operating system providing a way to be notified of filesystem changes.
-
-        //On Linux systems, this uses inotify.
-        //On BSD systems (including OS X), this uses kqueue.
-        //On SunOS systems (including Solaris and SmartOS), this uses event ports.
-        //On Windows systems, this feature depends on ReadDirectoryChangesW.
-        //If the underlying functionality is not available for some reason, then fs.watch will not be able to function. For example, watching files or directories on network file systems (NFS, SMB, etc.) often doesn't work reliably or at all.
-
-        //You can still use fs.watchFile, which uses stat polling, but it is slower and less reliable.
-
-        //Filename Argument { return null; }
-
-        //Providing filename argument in the callback is not supported on every platform (currently it's only supported on Linux and Windows). Even on supported platforms filename is not always guaranteed to be provided. Therefore, don't assume that filename argument is always provided in the callback, and have some fallback logic if it is null.
-
-        //fs.watch('somedir', function (event, filename) {
-        //  console.log('event is: ' + event);
-        //  if (filename) {
-        //    console.log('filename provided: ' + filename);
-        //  } else {
-        //    console.log('filename not provided');
-        //  }
-        //});
-        //fs.exists(path, [callback]) { return null; }
-        //Test whether or not the given path exists by checking with the file system. Then call the callback argument with either true or false. Example:
-
-        //fs.exists('/etc/passwd', function (exists) {
-        //  util.debug(exists ? "it's there" : "no passwd!");
-        //});
-        //fs.existsSync(path) { return null; }
-        //Synchronous version of fs.exists.
-
-        //Class: fs.Stats { return null; }
-        //Objects returned from fs.stat(), fs.lstat() and fs.fstat() and their synchronous counterparts are of this type.
-
-        //stats.isFile()
-        //stats.isDirectory()
-        //stats.isBlockDevice()
-        //stats.isCharacterDevice()
-        //stats.isSymbolicLink() (only valid with fs.lstat())
-        //stats.isFIFO()
-        //stats.isSocket()
-        //For a regular file util.inspect(stats) would return a string very similar to this:
-
-        //{ dev: 2114,
-        //  ino: 48064969,
-        //  mode: 33188,
-        //  nlink: 1,
-        //  uid: 85,
-        //  gid: 100,
-        //  rdev: 0,
-        //  size: 527,
-        //  blksize: 4096,
-        //  blocks: 8,
-        //  atime: Mon, 10 Oct 2011 23:24:11 GMT,
-        //  mtime: Mon, 10 Oct 2011 23:24:11 GMT,
-        //  ctime: Mon, 10 Oct 2011 23:24:11 GMT }
-        //Please note that atime, mtime and ctime are instances of Date object and to compare the values of these objects you should use appropriate methods. For most general uses getTime() will return the number of milliseconds elapsed since 1 January 1970 00:00:00 UTC and this integer should be sufficient for any comparison, however there additional methods which can be used for displaying fuzzy information. More details can be found in the MDN JavaScript Reference page.
-
-        //fs.createReadStream(path, [options]) { return null; }
-        //Returns a new ReadStream object (See Readable Stream).
-
-        //options is an object with the following defaults:
-
-        //{ flags: 'r',
-        //  encoding: null,
-        //  fd: null,
-        //  mode: 0666,
-        //  bufferSize: 64 * 1024
-        //}
-        //options can include start and end values to read a range of bytes from the file instead of the entire file. Both start and end are inclusive and start at 0. The encoding can be 'utf8', 'ascii', or 'base64'.
-
-        //An example to read the last 10 bytes of a file which is 100 bytes long:
-
-        //fs.createReadStream('sample.txt', {start: 90, end: 99});
     }
+    #region WatchFileOptions
+    [JsType(JsMode.Json)]
+    public partial class WatchFileOptions
+    {
+        /// <summary>
+        /// persistent indicates whether the process should continue to run as long as files are being watched.
+        /// Default: true
+        /// </summary>
+        public bool persistent { get; set; }
+        /// <summary>
+        /// interval indicates how often the target should be polled, in milliseconds.
+        /// (Default: 5007)
+        /// </summary>
+        public JsNumber interval { get; set; }
+    }
+    #endregion
+    #region WatchOptions
+    [JsType(JsMode.Json)]
+    public partial class WatchOptions
+    {
+        /// <summary>
+        /// persistent indicates whether the process should continue to run as long as files are being watched.
+        /// Default: true
+        /// </summary>
+        public bool persistent { get; set; }
+    }
+    #endregion
+    #region ReadStreamOptions
+    [JsType(JsMode.Json)]
+    public partial class ReadStreamOptions
+    {
+        public JsString flags { get; set; }
+        /// <summary>
+        ///  The encoding can be 'utf8', 'ascii', or 'base64'.
+        /// </summary>
+        public JsString encoding { get; set; }
+        public JsNumber fd { get; set; }
+        public JsNumber mode { get; set; }
+        public JsNumber bufferSize { get; set; }
+        public JsNumber start { get; set; }
+        public JsNumber end { get; set; }
+    }
+    #endregion
+    #region WriteStreamOptions
+    [JsType(JsMode.Json)]
+    public partial class WriteStreamOptions
+    {
+        public JsString flags { get; set; }
+        public JsString encoding { get; set; }
+        public JsNumber mode { get; set; }
+        public JsNumber start { get; set; }
+    }
+    #endregion
 }
