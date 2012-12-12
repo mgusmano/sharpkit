@@ -57,7 +57,7 @@ namespace SharpKit.JavaScript.Private
         /// </summary>
         /// <param name="enumType">Type of the enum.</param>
         /// <param name="value">A string containing the name or value to convert.</param>
-        /// <param name="ignoreCase">if set to <c>true</c> [ignore case].</param>
+        /// <param name="ignoreCase"><value>true</value> to ignore case; <value>false</value> to regard case. </param>
         /// <returns>An object of type enumType whose value is represented by value.</returns>
         /// <exception cref="ArgumentNullException"><para>enumType</para> or <para>value</para> is null.</exception>
         /// <exception cref="ArgumentException"><para>enumType</para> or <para>value</para> is null.</exception>
