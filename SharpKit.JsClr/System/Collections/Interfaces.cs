@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using System.Text;
-
-using System.Collections;
+﻿using System.Collections;
 
 namespace SharpKit.JavaScript.Private
 {
@@ -24,13 +19,10 @@ namespace SharpKit.JavaScript.Private
 		ICollection Values { get; }
 	}
 
-
-
 	[JsType(Name = "System.Collections.IEnumerable", Filename = "~/Internal/Core.js")]
     public interface JsImplIEnumerable
 	{
 	}
-
 
 	[JsType(Name = "System.Collections.IEnumerator", Filename = "~/Internal/Core.js")]
 	public interface JsImplIEnumerator
@@ -42,11 +34,8 @@ namespace SharpKit.JavaScript.Private
 	{
 	}
 
-
-
 	[JsType(Name = "System.Collections.IList", Filename = "~/Internal/Core.js")]
 	internal interface JsImplIList : JsImplICollection
 	{
 	}
-
 }

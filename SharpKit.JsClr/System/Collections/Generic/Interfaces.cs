@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using System.Text;
-
-
-namespace SharpKit.JavaScript.Private
+﻿namespace SharpKit.JavaScript.Private
 {
 
     [JsType(Name = "System.Collections.Generic.IEnumerator$1", Filename = "~/Internal/Core.js")]
@@ -147,7 +141,6 @@ namespace SharpKit.JavaScript.Private
         bool SetEquals(JsImplIEnumerable<T> other);
     }
 
-
     /// <summary>Defines methods to support the comparison of objects for equality.</summary>
     /// <typeparam name="T">The type of objects to compare.This type parameter is contravariant. That is, you can use either the type you specified or any type that is less derived. For more information about covariance and contravariance, see Covariance and Contravariance in Generics.</typeparam>
     [JsType(Name="System.Collection.Generic.IEqualityComparer", Filename = "~/res/System.js")]
@@ -164,7 +157,6 @@ namespace SharpKit.JavaScript.Private
         /// <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj" /> is a reference type and <paramref name="obj" /> is null.</exception>
         int GetHashCode(T obj);
     }
-
 
     [JsType(Name="System.StringComparer", Filename = "~/res/System.Collections.js")]
     public abstract class StringComparer : JsImplIEqualityComparer<string>
