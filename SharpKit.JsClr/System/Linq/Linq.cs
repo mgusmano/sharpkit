@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-
-using System.Text;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using System.Collections;
-using System.Runtime.InteropServices;
-using System.Threading;
-
+using System.Collections.Generic;
 
 namespace SharpKit.JavaScript.Private
 {
@@ -106,6 +99,114 @@ namespace SharpKit.JavaScript.Private
                     return local;
                 }
             }
+            return default(TSource);
+        }
+
+        /// <summary>
+        /// Returns the only element of a sequence that satisfies a specified condition, 
+        /// and throws an exception if more than one such element exists.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements of <paramref name="source" />.</typeparam>
+        /// <param name="source">An <c ref="System.Collections.Generic.IEnumerable{T}">IEnumerable&lt;T&gt;</c> to return the single element of.</param>
+        /// <returns>The single element of the input sequence, or default(TSource) if the sequence contains no elements.</returns>
+        public static TSource Single<TSource>(this IEnumerable<TSource> source)
+        {
+            if (source == null)
+                throw Error.ArgumentNull("source");
+
+            IList<TSource> list = source as IList<TSource>;
+            if (list != null)
+            {
+                if (list.Count == 1)
+                    return list[0];
+                else
+                    throw new InvalidOperationException();
+            }
+            else
+            {
+                using (IEnumerator<TSource> enumerator = source.GetEnumerator())
+                {
+                    if (enumerator.MoveNext())
+                        return enumerator.Current;
+                }
+            }
+            throw Error.NoElements();
+        }
+
+        /// <summary>
+        /// Returns the only element of a sequence that satisfies a specified condition, 
+        /// and throws an exception if more than one such element exists.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements of <paramref name="source" />.</typeparam>
+        /// <param name="source">An <c ref="System.Collections.Generic.IEnumerable{T}">IEnumerable&lt;T&gt;</c> to return the single element of.</param>
+        /// <param name="predicate">A function to test an element for a condition.</param>
+        /// <returns>The single element of the input sequence, or default(TSource) if the sequence contains no elements.</returns>
+        public static TSource Single<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+        {
+            if (source == null)
+                throw Error.ArgumentNull("source");
+
+            if (predicate == null)
+                throw Error.ArgumentNull("predicate");
+
+            foreach (TSource local in source)
+                if (predicate(local))
+                    return local;
+
+            throw Error.NoMatch();
+        }
+
+        /// <summary>
+        /// Returns the only element of a sequence, or a default value if the sequence is empty; 
+        /// this method throws an exception if there is more than one element in the sequence.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">An <c ref="System.Collections.Generic.IEnumerable{T}">IEnumerable&lt;T&gt;</c> to return the single element of.</param>
+        /// <returns>The single element of the input sequence, or default(TSource) if the sequence contains no elements.</returns>
+        public static TSource SingleOrDefault<TSource>(this IEnumerable<TSource> source)
+        {
+            if (source == null)
+                throw Error.ArgumentNull("source");
+
+            IList<TSource> list = source as IList<TSource>;
+            if (list != null)
+            {
+                if (list.Count == 1)
+                    return list[0];
+                else 
+                    throw new InvalidOperationException();
+            }
+            else
+            {
+                using (IEnumerator<TSource> enumerator = source.GetEnumerator())
+                {
+                    if (enumerator.MoveNext())
+                        return enumerator.Current;
+                }
+            }
+            return default(TSource);
+        }
+
+        /// <summary>
+        /// Returns the only element of a sequence, or a default value if the sequence is empty;
+        /// this method throws an exception if there is more than one element in the sequence.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements of <paramref name="source" />.</typeparam>
+        /// <param name="source">An <c ref="System.Collections.Generic.IEnumerable{T}">IEnumerable&lt;T&gt;</c> to return the single element of.</param>
+        /// <param name="predicate">A function to test an element for a condition.</param>
+        /// <returns>The single element of the input sequence, or default(TSource) if the sequence contains no elements.</returns>
+        public static TSource SingleOrDefault<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+        {
+            // TODO: Check for more than 1 matching element.
+            if (source == null)
+                throw Error.ArgumentNull("source");
+
+            if (predicate == null)
+                throw Error.ArgumentNull("predicate");
+
+            foreach (TSource local in source)
+                if (predicate(local))
+                    return local;
             return default(TSource);
         }
 
