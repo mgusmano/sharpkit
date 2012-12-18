@@ -3404,6 +3404,43 @@ namespace SharpKit.jQuery
         /// obj.done(function( name ) {obj.hello( name ); // will alert "Hello John"}).hello( "Karl" ); // will alert "Hello Karl"
         /// </code>
         /// </example>
+        public Promise promise() { return null; }
+        /// <summary>
+        /// Return a Deferred's Promise object.
+        /// </summary>
+        /// <param name="target">
+        /// targetObject onto which the promise methods have to be attached
+        /// </param>
+        /// <returns>
+        /// Returns: Promise
+        /// </returns>
+        /// <note>
+        /// The deferred.promise() method allows an asynchronous function to prevent other code from interfering with the progress or status of its internal request. The Promise exposes only the Deferred methods needed to attach additional handlers or determine the state (then, done, fail, isResolved, and isRejected), but not ones that change the state (resolve, reject, resolveWith, and rejectWith). As of jQuery 1.6, the Promise also exposes the always and pipe Deferred methods.
+        /// If target is provided, deferred.promise() will attach the methods onto it and then return this object rather than create a new one. This can be useful to attach the Promise behavior to an object that already exists.
+        /// If you are creating a Deferred, keep a reference to the Deferred so that it can be resolved or rejected at some point. Return only the Promise object via deferred.promise() so other code can register callbacks or inspect the current state.
+        /// </note>
+        /// <example>
+        /// Create a Deferred and set two timer-based functions to either resolve or reject the Deferred after a random interval. Whichever one fires first "wins" and will call one of the callbacks. The second timeout has no effect since the Deferred is already complete (in a resolved or rejected state) from the first timeout action.
+        /// <code>
+        /// //Create a Deferred and return its Promise
+        /// function asyncEvent(){var dfd = new jQuery.Deferred();setTimeout(function(){dfd.resolve("hurray");}, Math.floor(Math.random()*1500));setTimeout(function(){dfd.reject("sorry");}, Math.floor(Math.random()*1500));return dfd.promise();}
+        /// // Attach a done and fail handler for the asyncEvent
+        /// $.when( asyncEvent() ).then(function(status){alert( status+', things are going well' );},function(status){alert( status+', you fail this time' );});
+        /// </code>
+        /// Use the target argument to promote an existing object to a Promise:
+        /// <code>
+        /// //Existing object
+        /// var obj = {hello: function( name ) {alert( "Hello " + name );}},
+        /// //Create a Deferred
+        /// defer = $.Deferred();
+        /// //Set object as a promise
+        /// defer.promise( obj );
+        /// // Resolve the deferred
+        /// defer.resolve( "John" );
+        /// // Use the object as a Promise
+        /// obj.done(function( name ) {obj.hello( name ); // will alert "Hello John"}).hello( "Karl" ); // will alert "Hello Karl"
+        /// </code>
+        /// </example>
         public Promise promise(object target) { return null; }
         /// <summary>
         /// Reject a Deferred object and call any failCallbacks with the given args.
