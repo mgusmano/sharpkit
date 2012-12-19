@@ -40,8 +40,16 @@ var CoreTests$Methods$MethodOverloads =
         {
             System.Object.ctor.call(this);
         },
+        Init$$String: function (x)
+        {
+        },
+        Init$$Int32: function (y)
+        {
+        },
         Main: function ()
         {
+            this.Init$$Int32(7);
+            this.Init$$String("sdfdsf");
             this.JsAct$$JsAction($CreateDelegate(this, this.Test));
             this.JsAct$$JsAction($CreateDelegate(this, this.TestString));
             this.JsAct$$JsAction($CreateDelegate(this, this.TestInt));

@@ -6,8 +6,9 @@ using SharpKit.JavaScript;
 
 namespace CoreTests.Constants
 {
+
     [JsType(JsMode.Prototype)]
-    class Test
+    class Constants
     {
         public static void MyMethod()
         {

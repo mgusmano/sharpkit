@@ -11,8 +11,13 @@ namespace CoreTests.Methods
     class MethodOverloads
     {
 
+        public void Init(string x) { }
+        internal void Init(int y) { }
+
         public void Main()
         {
+            Init(7);
+            Init("sdfdsf");
             JsAct(Test);
             JsAct(TestString);
             JsAct(TestInt);

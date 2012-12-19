@@ -229,6 +229,41 @@ namespace CoreTests.Dynamics
         {
         }
 
+
+    }
+    [JsType(JsMode.Prototype)]
+    class MichaelTest
+    {
+        public jQuery2 blah;
+
+        void foo()
+        {
+            dynamic wtf = blah;
+            jQuery2 grid = wtf;
+        }
+
+    }
+
+
+    [JsType(JsMode.Prototype)]
+    public class jQuery2
+    {
+    }
+
+
+    [JsType(JsMode.Prototype)]
+    class MichaelTest2
+    {
+        void foo()
+        {
+            var x = type;
+        }
+
+        dynamic _type;
+        public dynamic type
+        {
+            get { return _type; }
+        }
     }
 
 }

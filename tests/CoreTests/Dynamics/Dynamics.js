@@ -165,3 +165,27 @@ var CoreTests$Dynamics$Bug1 =
     }
 };
 JsTypes.push(CoreTests$Dynamics$Bug1);
+CoreTests.Dynamics.MichaelTest = function ()
+{
+    this.blah = null;
+};
+CoreTests.Dynamics.MichaelTest.prototype.foo = function ()
+{
+    var wtf = this.blah;
+    var grid = wtf;
+};
+CoreTests.Dynamics.jQuery2 = function ()
+{
+};
+CoreTests.Dynamics.MichaelTest2 = function ()
+{
+    this._type = null;
+};
+CoreTests.Dynamics.MichaelTest2.prototype.foo = function ()
+{
+    var x = this.get_type();
+};
+CoreTests.Dynamics.MichaelTest2.prototype.get_type = function ()
+{
+    return this._type;
+};
