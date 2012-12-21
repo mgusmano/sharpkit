@@ -46,6 +46,7 @@
     <Compile Include="console.cs" />
     <Compile Include="Decipher.cs" />
     <Compile Include="DiffieHellman.cs" />
+    <Compile Include="Domain.cs" />
     <Compile Include="events\EventEmitter.cs" />
     <Compile Include="fs\FSWatcher.cs" />
     <Compile Include="fs\ReadStream.cs" />
@@ -64,7 +65,9 @@
     <Compile Include="http\ServerRequest.cs" />
     <Compile Include="http\ServerResponse.cs" />
     <Compile Include="http\Utils.cs" />
-    <Compile Include="Interface.cs" />
+    <Compile Include="Path.cs" />
+    <Compile Include="queryString\Utils.cs" />
+    <Compile Include="readlLine\Interface.cs" />
     <Compile Include="net\Server.cs" />
     <Compile Include="net\Socket.cs" />
     <Compile Include="net\Utils.cs" />
