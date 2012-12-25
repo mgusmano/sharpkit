@@ -42,10 +42,13 @@
   <ItemGroup>
     <Compile Include="Buffer.cs" />
     <Compile Include="ChildProcess.cs" />
-    <Compile Include="Cipher.cs" />
+    <Compile Include="crypto\Cipher.cs" />
+    <Compile Include="cluster\Utils.cs" />
+    <Compile Include="cluster\Worker.cs" />
     <Compile Include="console.cs" />
-    <Compile Include="Decipher.cs" />
-    <Compile Include="DiffieHellman.cs" />
+    <Compile Include="crypto\Decipher.cs" />
+    <Compile Include="crypto\DiffieHellman.cs" />
+    <Compile Include="crypto\Utils.cs" />
     <Compile Include="Domain.cs" />
     <Compile Include="events\EventEmitter.cs" />
     <Compile Include="fs\FSWatcher.cs" />
@@ -53,8 +56,8 @@
     <Compile Include="fs\Stats.cs" />
     <Compile Include="fs\Utils.cs" />
     <Compile Include="fs\WriteStream.cs" />
-    <Compile Include="Hash.cs" />
-    <Compile Include="Hmac.cs" />
+    <Compile Include="crypto\Hash.cs" />
+    <Compile Include="crypto\Hmac.cs" />
     <Compile Include="https\Agent.cs" />
     <Compile Include="https\Server.cs" />
     <Compile Include="https\Utils.cs" />
@@ -77,13 +80,13 @@
     <Compile Include="Utilities.cs" />
     <Compile Include="vm\Script.cs" />
     <Compile Include="SecurePair.cs" />
-    <Compile Include="Signer.cs" />
+    <Compile Include="crypto\Signer.cs" />
     <Compile Include="SlowBuffer.cs" />
     <Compile Include="Socket.cs" />
     <Compile Include="tls\CleartextStream.cs" />
     <Compile Include="tls\Server.cs" />
     <Compile Include="tls\Utils.cs" />
-    <Compile Include="Verify.cs" />
+    <Compile Include="crypto\Verify.cs" />
     <Compile Include="vm\Utils.cs" />
     <Compile Include="stream\Writable Stream.cs" />
     <Compile Include="zlib\Deflate.cs" />
