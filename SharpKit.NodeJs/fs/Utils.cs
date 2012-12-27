@@ -6,6 +6,7 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.NodeJs.fs
 {
+    [JsType(JsMode.Prototype, Export = false, Name = "fs")]
     class Utils
     {
         /// <summary>

@@ -6,7 +6,7 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.NodeJs.http
 {
-    //TODO: name: http
+    [JsType(JsMode.Prototype, Export = false, Name = "http")]
     class Utils
     {
         /// <summary>

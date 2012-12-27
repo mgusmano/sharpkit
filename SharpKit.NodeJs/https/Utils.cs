@@ -7,7 +7,7 @@ using SharpKit.NodeJs.http;
 
 namespace SharpKit.NodeJs.https
 {
-    //TODO: class Name = https
+    [JsType(JsMode.Prototype, Export = false, Name = "https")]
     public partial class Utils
     {
         /// <summary>

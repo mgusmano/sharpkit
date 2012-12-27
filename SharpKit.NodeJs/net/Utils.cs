@@ -9,6 +9,7 @@ namespace SharpKit.NodeJs.net
     /// <summary>
     /// 
     /// </summary>
+    [JsType(JsMode.Prototype, Export = false, Name = "net")]
     public partial class Utils
     {
         /// <summary>

@@ -7,6 +7,7 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.NodeJs.tls
 {
+    [JsType(JsMode.Prototype, Export = false, Name = "tls")]
     public partial class Utils
     {
         /// <summary>

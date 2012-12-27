@@ -6,6 +6,7 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.NodeJs.zlib
 {
+    [JsType(JsMode.Prototype, Export = false, Name = "zlib")]
     public partial class Utils
     {
         /// <summary>

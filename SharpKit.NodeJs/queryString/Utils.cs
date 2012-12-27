@@ -9,6 +9,7 @@ namespace SharpKit.NodeJs.queryString
     /// <summary>
     /// This module provides utilities for dealing with query strings. It provides the following methods:
     /// </summary>
+    [JsType(JsMode.Prototype, Export = false, Name = "querystring")]
     class Utils
     {
         /// <summary>

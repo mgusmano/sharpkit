@@ -6,6 +6,7 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.NodeJs.vm
 {
+    [JsType(JsMode.Prototype, Export = false, Name = "vm")]
     class Utils
     {
         /// <summary>
