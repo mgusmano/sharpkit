@@ -49,6 +49,7 @@
     <Compile Include="crypto\Decipher.cs" />
     <Compile Include="crypto\DiffieHellman.cs" />
     <Compile Include="crypto\Utils.cs" />
+    <Compile Include="dns\utils.cs" />
     <Compile Include="Domain.cs" />
     <Compile Include="events\EventEmitter.cs" />
     <Compile Include="fs\FSWatcher.cs" />

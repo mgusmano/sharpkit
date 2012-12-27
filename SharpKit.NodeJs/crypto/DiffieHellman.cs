@@ -12,117 +12,105 @@ namespace SharpKit.NodeJs
     public partial class DiffieHellman
     {
         /// <summary>
-        /// <p>Computes the shared secret using <code>other_public_key</code> as the other party&#39;s
-        /// public key and returns the computed shared secret. Supplied key is
-        /// interpreted using specified <code>input_encoding</code>, and secret is encoded using
-        /// specified <code>output_encoding</code>. Encodings can be <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>, or
-        /// <code>&#39;base64&#39;</code>. The input encoding defaults to <code>&#39;binary&#39;</code>.
-        /// If no output encoding is given, the input encoding is used as output encoding.
-        /// </p>
-        /// </summary>
-        public object computeSecret(object other_public_key){return null;}
-        /// <summary>
-        /// <p>Computes the shared secret using <code>other_public_key</code> as the other party&#39;s
-        /// public key and returns the computed shared secret. Supplied key is
-        /// interpreted using specified <code>input_encoding</code>, and secret is encoded using
-        /// specified <code>output_encoding</code>. Encodings can be <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>, or
-        /// <code>&#39;base64&#39;</code>. The input encoding defaults to <code>&#39;binary&#39;</code>.
-        /// If no output encoding is given, the input encoding is used as output encoding.
-        /// </p>
-        /// </summary>
-        public object computeSecret(object other_public_key, object output_encoding){return null;}
-        /// <summary>
         /// Computes the shared secret using other_public_key as the other party's public key and returns the computed shared secret. 
-        /// Supplied key is interpreted using specified input_encoding, and secret is encoded using specified output_encoding. Encodings can be 'binary', 'hex', or 'base64'. 
-        /// The input encoding defaults to 'binary'. If no output encoding is given, the input encoding is used as output encoding.
+        /// Supplied key is interpreted using specified input_encoding, and secret is encoded using specified output_encoding.
         /// </summary>
         /// <param name="other_public_key"></param>
-        /// <param name="input_encoding"></param>
-        /// <param name="output_encoding"></param>
-        /// <returns></returns>
-        public object computeSecret(object other_public_key, object input_encoding, object output_encoding){return null;}
+        /// <returns>returns the computed shared secret.</returns>
+        public object computeSecret(object other_public_key) { return null; }
+        /// <summary>
+        /// Computes the shared secret using other_public_key as the other party's public key and returns the computed shared secret. 
+        /// Supplied key is interpreted using specified input_encoding, and secret is encoded using specified output_encoding.
+        /// </summary>
+        /// <param name="other_public_key"></param>
+        /// <param name="output_encoding">Encodings can be 'binary', 'hex', or 'base64'.</param>
+        /// <returns>returns the computed shared secret.</returns>
+        public object computeSecret(JsString other_public_key, JsString output_encoding) { return null; }
+        /// <summary>
+        /// Computes the shared secret using other_public_key as the other party's public key and returns the computed shared secret. 
+        /// Supplied key is interpreted using specified input_encoding, and secret is encoded using specified output_encoding.
+        /// </summary>
+        /// <param name="other_public_key"></param>
+        /// <param name="input_encoding">Encodings can be 'binary', 'hex', or 'base64'. 
+        /// The input encoding defaults to 'binary'. If no output encoding is given, the input encoding is used as output encoding.</param>
+        /// <param name="output_encoding">Encodings can be 'binary', 'hex', or 'base64'.</param>
+        /// <returns>returns the computed shared secret.</returns>
+        public object computeSecret(JsString other_public_key, JsString input_encoding, JsString output_encoding) { return null; }
         /// <summary>
         /// Generates private and public Diffie-Hellman key values, and returns the public key in the specified encoding. This key should be transferred to the other party. 
         /// </summary>
         /// <returns>returns the public key in the specified encoding.</returns>
-        public object generateKeys(){return null;}
+        public object generateKeys() { return null; }
         /// <summary>
         /// Generates private and public Diffie-Hellman key values, and returns the public key in the specified encoding. This key should be transferred to the other party. 
         /// </summary>
         /// <param name="encoding">Encoding can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.</param>
         /// <returns>returns the public key in the specified encoding.</returns>
-        public object generateKeys(JsString encoding){return null;}
+        public object generateKeys(JsString encoding) { return null; }
         /// <summary>
-        /// <p>Returns the Diffie-Hellman prime in the specified encoding, which can be
-        /// <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>, or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
-        /// </p>
+        /// Returns the Diffie-Hellman prime in the specified encoding, which can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.
         /// </summary>
-        public object getGenerator(){return null;}
+        /// <returns>Returns the Diffie-Hellman prime in the specified encoding</returns>
+        public object getGenerator() { return null; }
         /// <summary>
-        /// <p>Returns the Diffie-Hellman prime in the specified encoding, which can be
-        /// <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>, or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
-        /// </p>
+        /// Returns the Diffie-Hellman prime in the specified encoding, which can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.
         /// </summary>
-        public object getGenerator(object encoding){return null;}
+        /// <param name="encoding">can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.</param>
+        /// <returns>Returns the Diffie-Hellman prime in the specified encoding</returns>
+        public object getGenerator(JsString encoding) { return null; }
         /// <summary>
-        /// <p>Returns the Diffie-Hellman prime in the specified encoding, which can be
-        /// <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>, or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
-        /// </p>
+        /// Returns the Diffie-Hellman prime in the specified encoding, which can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.
         /// </summary>
-        public object getPrime(){return null;}
+        /// <returns>Returns the Diffie-Hellman prime in the specified encoding</returns>
+        public object getPrime() { return null; }
         /// <summary>
-        /// <p>Returns the Diffie-Hellman prime in the specified encoding, which can be
-        /// <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>, or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
-        /// </p>
+        /// Returns the Diffie-Hellman prime in the specified encoding, which can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.
         /// </summary>
-        public object getPrime(object encoding){return null;}
+        /// <param name="encoding">can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.</param>
+        /// <returns>Returns the Diffie-Hellman prime in the specified encoding</returns>
+        public object getPrime(JsString encoding) { return null; }
         /// <summary>
-        /// <p>Returns the Diffie-Hellman private key in the specified encoding, which can
-        /// be <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>, or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
-        /// </p>
+        /// Returns the Diffie-Hellman private key in the specified encoding, which can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.
         /// </summary>
-        public object getPrivateKey(){return null;}
+        /// <returns>Returns the Diffie-Hellman private key in the specified encoding</returns>
+        public object getPrivateKey() { return null; }
         /// <summary>
-        /// <p>Returns the Diffie-Hellman private key in the specified encoding, which can
-        /// be <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>, or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
-        /// </p>
+        /// Returns the Diffie-Hellman private key in the specified encoding, which can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.
         /// </summary>
-        public object getPrivateKey(object encoding){return null;}
+        /// <param name="encoding">'binary', 'hex', or 'base64'. Defaults to 'binary'.</param>
+        /// <returns>Returns the Diffie-Hellman private key in the specified encoding</returns>
+        public object getPrivateKey(JsString encoding) { return null; }
         /// <summary>
-        /// <p>Returns the Diffie-Hellman public key in the specified encoding, which can
-        /// be <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>, or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
-        /// </p>
+        /// Returns the Diffie-Hellman prime in the specified encoding, which can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.
         /// </summary>
-        public object getPublicKey(){return null;}
+        /// <returns>Returns the Diffie-Hellman prime in the specified encoding</returns>
+        public object getPublicKey() { return null; }
         /// <summary>
-        /// <p>Returns the Diffie-Hellman public key in the specified encoding, which can
-        /// be <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>, or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
-        /// </p>
+        /// Sets the Diffie-Hellman private key.
         /// </summary>
-        public object getPublicKey(object encoding){return null;}
+        /// <param name="encoding">Key encoding can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.</param>
+        public void getPublicKey(JsString encoding) { }
         /// <summary>
-        /// <p>Sets the Diffie-Hellman private key. Key encoding can be <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>,
-        /// or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
-        /// </p>
+        /// Sets the Diffie-Hellman private key. 
         /// </summary>
-        public object setPrivateKey(object public_key){return null;}
+        /// <param name="public_key"></param>
+        public void setPrivateKey(JsString public_key) { }
+       /// <summary>
+        /// Sets the Diffie-Hellman private key. 
+       /// </summary>
+       /// <param name="public_key"></param>
+        /// <param name="encoding">Key encoding can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.</param>
+        public void setPrivateKey(JsString public_key, JsString encoding) { }
+       /// <summary>
+        /// Sets the Diffie-Hellman public key
+       /// </summary>
+       /// <param name="public_key"></param>
+        public void setPublicKey(JsString public_key) { }
         /// <summary>
-        /// <p>Sets the Diffie-Hellman private key. Key encoding can be <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>,
-        /// or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
-        /// </p>
+        /// Sets the Diffie-Hellman public key. 
         /// </summary>
-        public object setPrivateKey(object public_key, object encoding){return null;}
-        /// <summary>
-        /// <p>Sets the Diffie-Hellman public key. Key encoding can be <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>,
-        /// or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
-        /// </p>
-        /// </summary>
-        public object setPublicKey(object public_key){return null;}
-        /// <summary>
-        /// <p>Sets the Diffie-Hellman public key. Key encoding can be <code>&#39;binary&#39;</code>, <code>&#39;hex&#39;</code>,
-        /// or <code>&#39;base64&#39;</code>. Defaults to <code>&#39;binary&#39;</code>.
-        /// </p>
-        /// </summary>
-        public object setPublicKey(object public_key, object encoding){return null;}
+        /// <param name="public_key"></param>
+        /// <param name="encoding">Key encoding can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.</param>
+        public void setPublicKey(JsString public_key, JsString encoding) { }
     }
 }

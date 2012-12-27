@@ -6,6 +6,7 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.NodeJs.crypto
 {
+    //TODO: compile name crypto.
     class Utils
     {
         /// <summary>
@@ -105,5 +106,92 @@ namespace SharpKit.NodeJs.crypto
         /// <param name="encoding">Encoding can be 'binary', 'hex', or 'base64'. Defaults to 'binary'.</param>
         /// <returns></returns>
         public DiffieHellman createDiffieHallman(JsNumber prime, JsString encoding) { return null; }
+        /// <summary>
+        /// Creates a predefined Diffie-Hellman key exchange object.   
+        /// The advantage of using this routine is that the parties don't have to generate nor exchange group modulus beforehand, saving both processor and communication time.
+        /// </summary>
+        /// <param name="group_name">
+        /// The supported groups are: 'modp1', 'modp2', 'modp5' (defined in RFC 2412) and 'modp14', 'modp15', 'modp16', 'modp17', 'modp18' (defined in RFC 3526).
+        /// </param>
+        /// <returns>The returned object mimics the interface of objects created by crypto.createDiffieHellman() above, 
+        /// but will not allow to change the keys (with diffieHellman.setPublicKey() for example).</returns>
+        /// <example>
+        /// Example (obtaining a shared secret):
+        /// <code>
+        /// var crypto = require('crypto');
+        /// var alice = crypto.getDiffieHellman('modp5');
+        /// var bob = crypto.getDiffieHellman('modp5');
+        ///
+        /// alice.generateKeys();
+        /// bob.generateKeys();
+        ///
+        /// var alice_secret = alice.computeSecret(bob.getPublicKey(), 'binary', 'hex');
+        /// var bob_secret = bob.computeSecret(alice.getPublicKey(), 'binary', 'hex');
+        ///
+        /// /* alice_secret and bob_secret should be the same */
+        /// console.log(alice_secret == bob_secret);
+        /// </code>
+        /// </example>
+        public object getDiffieHallman(JsString group_name) { return null; }
+        /// <summary>
+        /// Asynchronous PBKDF2 applies pseudorandom function HMAC-SHA1 to derive a key of given length from the given password, salt and iterations. 
+        /// The callback gets two arguments (err, derivedKey).
+        /// </summary>
+        /// <param name="passord"></param>
+        /// <param name="salt"></param>
+        /// <param name="iteration"></param>
+        /// <param name="keylen"></param>
+        /// <param name="callback"></param>
+        /// <returns></returns>
+        public object pdkf2(JsString passord, object salt, object iteration, JsNumber keylen, JsAction<JsError, JsString> callback) { return null; }
+        /// <summary>
+        /// Generates cryptographically strong pseudo-random data.
+        /// </summary>
+        /// <param name="size"></param>
+        /// <returns></returns>
+        /// <example>
+        /// Usage:
+        /// <code>
+        /// // async
+        /// crypto.randomBytes(256, function(ex, buf) {
+        ///   if (ex) throw ex;
+        ///   console.log('Have %d bytes of random data: %s', buf.length, buf);
+        /// });
+        ///
+        /// //  sync
+        /// try {
+        ///   var buf = crypto.randomBytes(256);
+        ///   console.log('Have %d bytes of random data: %s', buf.length, buf);
+        /// } catch (ex) {
+        ///   //  handle error
+        /// }
+        /// </code>
+        /// </example>
+        public object randomBytes(JsNumber size) { return null; }
+        /// <summary>
+        /// Generates cryptographically strong pseudo-random data.
+        /// </summary>
+        /// <param name="size"></param>
+        /// <param name="callback"></param>
+        /// <returns></returns>
+        /// <example>
+        /// Usage:
+        /// <code>
+        /// // async
+        /// crypto.randomBytes(256, function(ex, buf) {
+        ///   if (ex) throw ex;
+        ///   console.log('Have %d bytes of random data: %s', buf.length, buf);
+        /// });
+        ///
+        /// //  sync
+        /// try {
+        ///   var buf = crypto.randomBytes(256);
+        ///   console.log('Have %d bytes of random data: %s', buf.length, buf);
+        /// } catch (ex) {
+        ///   //  handle error
+        /// }
+        /// </code>
+        /// </example>
+        public object randomBytes(JsNumber size, JsAction<JsError, Buffer> callback) { return null; }
     }
 }
