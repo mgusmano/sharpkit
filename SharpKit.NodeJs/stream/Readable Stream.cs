@@ -133,7 +133,7 @@ namespace SharpKit.NodeJs
         public JsAction close { get; set; }
         #endregion
     }
-
+    //TODO:
     #region ReadableStreamOptions
     [JsType(JsMode.Json)]
     public partial class ReadableStreamOption
