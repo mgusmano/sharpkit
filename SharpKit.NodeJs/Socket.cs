@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SharpKit.JavaScript;
 namespace SharpKit.NodeJs
 {
+    //TODO: ask about UDP/ DatagramSockets
     /// <summary>
     /// <p>The dgram Socket class encapsulates the datagram functionality.  It
     /// should be created via <code>dgram.createSocket(type, [callback])</code>.
