@@ -4,11 +4,15 @@ using System.Linq;
 using System.Web;
 using SharpKit.Html;
 using SharpKit.NodeJs;
+using SharpKit.JavaScript;
 
 namespace NodeJsSamples
 {
-    public class HelloWorld
+    class HelloWorld
     {
-      
+         void main()
+        {
+            console.log("Hello World");
+        }
     }
 }
