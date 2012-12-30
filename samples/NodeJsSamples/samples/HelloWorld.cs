@@ -8,9 +8,10 @@ using SharpKit.JavaScript;
 
 namespace NodeJsSamples
 {
-    class HelloWorld
+    [JsType(JsMode.Global)]
+    static class HelloWorld
     {
-         void main()
+         static void OnReady()
         {
             console.log("Hello World");
         }
