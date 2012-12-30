@@ -11,6 +11,7 @@ namespace SharpKit.NodeJs.http
     /// [EventEmitter][] with the following events:
     /// </p>
     /// </summary>
+     [JsType(JsMode.Prototype, Export = false, Name = "serverResponse")]
     public partial class ServerResponse
     {
         /// <summary>

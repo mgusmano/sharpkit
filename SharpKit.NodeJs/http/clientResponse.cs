@@ -9,6 +9,7 @@ namespace SharpKit.NodeJs.http
     /// <summary>
     /// This object is created when making a request with http.request(). It is passed to the 'response' event of the request object.
     /// </summary>
+     [JsType(JsMode.Prototype, Export = false, Name = "clientResponse")]
     public partial class ClientResponse
     {
         #region Events

@@ -7,6 +7,7 @@ namespace SharpKit.NodeJs.http
     /// <p>This is an [EventEmitter][] with the following events:
     /// </p>
     /// </summary>
+     [JsType(JsMode.Prototype, Export = false, Name = "server")]
     public partial class Server
     {
         /// <summary>

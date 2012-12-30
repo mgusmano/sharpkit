@@ -9,6 +9,7 @@ namespace SharpKit.NodeJs
     /// it can be obtained using <code>cluster.worker</code>.
     /// </p>
     /// </summary>
+    [JsType(JsMode.Prototype, Export = false, Name = "worker")]
     public partial class Worker
     {
         /// <summary>

@@ -7,7 +7,7 @@ using SharpKit.JavaScript;
 namespace SharpKit.NodeJs.http
 {
     [JsType(JsMode.Prototype, Export = false, Name = "http")]
-    class Utils
+    public partial class Utils
     {
         /// <summary>
         /// 
@@ -19,7 +19,7 @@ namespace SharpKit.NodeJs.http
         /// </summary>
         /// <param name="requestListener">The requestListener is a function which is automatically added to the 'request' event.</param>
         /// <returns>Returns a new web server object.</returns> 
-        public object createServer(JsAction requestListener) { return null; }
+        public object createServer(JsAction<ServerRequest, ServerResponse> requestListener) { return null; }
         /// <summary>
         /// Node maintains several connections per server to make HTTP requests. This function allows one to transparently issue requests.
         /// </summary>
