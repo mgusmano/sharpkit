@@ -12,12 +12,15 @@ namespace jQueryUISamples.demos.widget
 
         static void OnReady()
         {
-            new jQuery( ".selector" ).widget("custom.colorize", new WidgetOptions {
-
+            object obj = null;
+            new jQuery( ".selector" ).Widget("custom.colorize", new WidgetOptions {
+             
                     
-            });//Widget(new WidgetOption{ disabled: true });
-
-          
+            
+            
+        });//Widget(new WidgetOption{ disabled: true });
+           
+        
         //        jQuery.Widget( "custom.colorize", new {
         //    // default options
         //    options = new {
