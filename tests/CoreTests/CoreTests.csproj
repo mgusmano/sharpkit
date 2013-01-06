@@ -37,6 +37,7 @@
     <Compile Include="Arrays\Class2.cs" />
     <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="GenericMethods\GenericMethods.cs" />
+    <Compile Include="Inheritance\PrototypeFromGlobal.cs" />
     <Compile Include="MethodOverloads\MethodsOverloads.cs" />
     <Compile Include="GenericsInheritance\Class1.cs" />
     <Compile Include="Interfaces\Class3.cs" />
@@ -77,6 +78,7 @@
     <Content Include="GenericMethods\GenericMethods.js" />
     <Content Include="GenericsInheritance\Class1.js" />
     <Content Include="GenericsInheritance\GenericsInheritance.js" />
+    <Content Include="Inheritance\PrototypeFromGlobal.js" />
     <Content Include="Interfaces\Class3.js" />
     <Content Include="MethodOverloads\MethodsOverloads.js" />
     <Content Include="Methods\NamedParameters.js" />
