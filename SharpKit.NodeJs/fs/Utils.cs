@@ -7,7 +7,7 @@ using SharpKit.JavaScript;
 namespace SharpKit.NodeJs.fs
 {
     [JsType(JsMode.Prototype, Export = false, Name = "fs")]
-    class Utils
+    public class Utils
     {
         /// <summary>
         /// Asynchronous rename(2). No arguments other than a possible exception are given to the completion callback.
@@ -341,6 +341,10 @@ namespace SharpKit.NodeJs.fs
         /// <param name="path"></param>
         /// <returns></returns>
         public object readlinkSync(JsString path) { return null; }
+        public object readFile(JsString filename) { return null; }
+        public object readFile(JsString filename, JsString encoding) { return null; }
+        public object readFile(JsString filename, JsString encoding, JsAction<JsError,JsString> callback) { return null; }
+        public object readFileSync(JsString filename, JsString encoding) { return null; }
         /// <summary>
         /// Asynchronous realJsString path(2). The callback gets two arguments (err, resolvedJsString path). May use process.cwd to resolve relative JsString paths. cache is an object literal of mapped JsString paths that can be used to force a specific JsString path resolution or avoid additional fs.stat calls for known real JsString paths. 
         /// </summary>

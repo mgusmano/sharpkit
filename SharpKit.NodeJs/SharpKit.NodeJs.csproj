@@ -79,6 +79,7 @@
     <Compile Include="stream\Readable Stream.cs" />
     <Compile Include="StringDecoder.cs" />
     <Compile Include="Timers.cs" />
+    <Compile Include="Url.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="vm\Script.cs" />
     <Compile Include="SecurePair.cs" />

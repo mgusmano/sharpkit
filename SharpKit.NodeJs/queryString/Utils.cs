@@ -10,7 +10,7 @@ namespace SharpKit.NodeJs.queryString
     /// This module provides utilities for dealing with query strings. It provides the following methods:
     /// </summary>
     [JsType(JsMode.Prototype, Export = false, Name = "querystring")]
-    class Utils
+    public class Utils
     {
         /// <summary>
         /// Serialize an object to a query string. Optionally override the default separator ('&') and assignment ('=') characters. 

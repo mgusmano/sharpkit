@@ -103,6 +103,20 @@ namespace SharpKit.NodeJs.events
         /// </example>
         public object on(JsString @event, JsAction<JsString> listener) { return null; }
         /// <summary>
+        /// Adds a listener to the end of the listeners array for the specified event.
+        /// </summary>
+        /// <param name="event"></param>
+        /// <param name="listener"></param>
+        /// <returns></returns>
+        /// <example>
+        /// <code>
+        /// server.on('connection', function (stream) {
+        ///  console.log('someone connected!');
+        /// });
+        /// </code>
+        /// </example>
+        public object on(JsString @event, JsAction listener) { return null; }
+        /// <summary>
         /// Adds a one time listener for the event. This listener is invoked only the next time the event is fired, after which it is removed.
         /// </summary>
         /// <param name="event"></param>

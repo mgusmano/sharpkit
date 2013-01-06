@@ -35,6 +35,7 @@ namespace SharpKit.NodeJs.http
         /// </p>
         /// </summary>
         public object setEncoding(object encoding) { return null; }
+        
         #region events
         /// <summary>
         /// Emitted when a piece of the message body is received. The chunk is a string if an encoding has been set with request.setEncoding(), otherwise it's a Buffer.

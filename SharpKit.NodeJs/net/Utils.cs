@@ -200,6 +200,7 @@ namespace SharpKit.NodeJs.net
         /// <param name="options"></param>
         /// <returns></returns>
         public object createConnection(ConnectOptions options) { return null; }
+        public object createConnection(object options) { return null; }
         /// <summary>
         /// Constructs a new socket object and opens the socket to the given location. When the socket is established, the 'connect' event will be emitted.
         /// </summary>

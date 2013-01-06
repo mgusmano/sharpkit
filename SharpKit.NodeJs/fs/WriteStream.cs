@@ -6,7 +6,7 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.NodeJs.fs
 {
-    class WriteStream
+    public class WriteStream
     {
         /// <summary>
         /// fd Integer file descriptor used by the WriteStream.
