@@ -299,7 +299,12 @@ JsTypes.push({ fullname: "System.Boolean", baseTypeName: "System.ValueType", def
 		if (s == null)
 			return false;
 		return s.toLowerCase().trim() == "true";
-	}
+	},
+    Parse: function (s) {
+        if (s == null)
+            return false;
+        return s.toLowerCase().trim() == "true";
+    }
 }
 });
 JsTypes.push({ fullname: "System.Int32", baseTypeName: "System.ValueType", definition:
