@@ -61,7 +61,11 @@ namespace SharpKit.JavaScript.Private
 
 		public T[] ToArray()
 		{
-			return this._list.Clone().As<T[]>();
+		    int len = this.Count;
+		    var array = new JsArray<T>(len);
+            for (int i = 0; i < len; i++)
+                array[i] = this[i];
+		    return array;
 		}
 
 		public void AddRange(IEnumerable<T> items)
