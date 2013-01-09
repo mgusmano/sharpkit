@@ -258,6 +258,8 @@ namespace SharpKit.jQuery
         public static jQuery autocomplete(this jQuery query, AutocompleteOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery autocomplete(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery autocomplete(this jQuery query, params object[] args) { return default(jQuery); }
     }
     #endregion
     #region AutocompleteOptions
@@ -1894,6 +1896,8 @@ namespace SharpKit.jQuery
         public static jQuery show(this jQuery query, ShowOptions options) { return default(jQuery); }
         [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
         public static jQuery show(this jQuery query, string methodName, params object[] args) { return default(jQuery); }
+        [JsMethod(ExtensionImplementedInInstance = true, NativeOverloads = true)]
+        public static jQuery show(this jQuery query, EffectType effect, object options, object speed, jQueryUIEvent callback) { return default(jQuery); }
     }
     #endregion
     #region ShowOptions
