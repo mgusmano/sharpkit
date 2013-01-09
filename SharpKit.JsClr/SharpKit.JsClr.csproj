@@ -42,11 +42,11 @@
     <Compile Include="System\Collections\Generic\HashSet.cs" />
     <Compile Include="System\Collections\Generic\Interfaces.cs" />
     <Compile Include="System\Collections\Generic\KeyValuePair.cs" />
+    <Compile Include="System\Collections\Generic\List.cs" />
     <Compile Include="System\Collections\Generic\Queue.cs" />
     <Compile Include="System\Collections\Generic\Stack.cs" />
     <Compile Include="System\Collections\Interfaces.cs" />
     <Compile Include="System\Collections\Generic\JsArrayEnumerator.cs" />
-    <Compile Include="System\Collections\List.cs" />
     <Compile Include="System\Collections\NotifyCollectionChangedEventArgs.cs" />
     <Compile Include="System\ComponentModel\CancelEventArgs.cs" />
     <Compile Include="System\ComponentModel\ListSortDirection.cs" />
@@ -88,6 +88,7 @@
     <Compile Include="System\Math.cs" />
     <Compile Include="System\Nullable.cs" />
     <Compile Include="System\Object.cs" />
+    <Compile Include="System\Random.cs" />
     <Compile Include="System\Reflection\BindingFlags.cs" />
     <Compile Include="System\Reflection\MemberInfo.cs" />
     <Compile Include="System\Reflection\PropertyInfo.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="System\TimeSpan.cs" />
     <Compile Include="System\Tuple.cs" />
     <Compile Include="System\Type.cs" />
+    <Compile Include="System\UInt32.cs" />
     <Compile Include="System\Uri.cs" />
     <Compile Include="System\ValueType.cs" />
     <Compile Include="Utils\Extensions.cs" />
