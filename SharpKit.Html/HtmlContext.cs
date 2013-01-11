@@ -1,6 +1,7 @@
 using System;
 using SharpKit.JavaScript;
 using SharpKit.Html.storage;
+using SharpKit.Html.modules.webdatabase;
 
 namespace SharpKit.Html
 {
@@ -14,7 +15,7 @@ namespace SharpKit.Html
 		public static JsString name { get; set; }
 		public static Location location { get; set; }
 		public static History history { get; private set; }
-		public static UndoManager undoManager { get; private set; }
+		//public static UndoManager undoManager { get; private set; }
 		public static Selection selection { get; private set; }
 		public static object locationbar { get; set; }
 		public static object menubar { get; set; }

@@ -75,7 +75,7 @@ namespace WebIDLParser
             }
             else
             {
-                ns.name = "SharpKit.Html." + path;
+                ns.name = "SharpKit.Html." + path.ToLower();
                 if (!Generator.namespaceNames.Contains(ns.name)) Generator.namespaceNames.Add(ns.name);
             }
 

@@ -23,6 +23,7 @@
 *******************************************************************************************************/
 
 using SharpKit.JavaScript;
+using SharpKit.Html.fileapi;
 
 namespace SharpKit.Html
 {
@@ -145,14 +146,14 @@ namespace SharpKit.Html
         public double this[int key] { get { return default(double); } set { } }
     }
 
-    public partial class WebSocket
-    {
-        public WebSocket(string url) { }
-        public WebSocket(string url, JsString protocol) { }
-        public void send(Blob data) { }
-        public void send(ArrayBuffer data) { }
-        public void send(ArrayBufferView data) { }
-    }
+    //public partial class WebSocket
+    //{
+    //    public WebSocket(string url) { }
+    //    public WebSocket(string url, JsString protocol) { }
+    //    public void send(Blob data) { }
+    //    public void send(ArrayBuffer data) { }
+    //    public void send(ArrayBufferView data) { }
+    //}
 
     public partial class CssStyleDeclaration
     {

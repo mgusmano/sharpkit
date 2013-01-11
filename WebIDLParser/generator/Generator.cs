@@ -226,7 +226,7 @@ namespace WebIDLParser
             //}
 
             if (!(System.IO.Directory.Exists(Path.GetDirectoryName(OutFile))))
-                System.IO.Directory.CreateDirectory(Path.GetDirectoryName(OutFile));
+                System.IO.Directory.CreateDirectory(Path.GetDirectoryName(OutFile).ToLower());
 
             TParsedFile Parser = new TParsedFile();
             Parser.convertFile(InFile, OutFile);
