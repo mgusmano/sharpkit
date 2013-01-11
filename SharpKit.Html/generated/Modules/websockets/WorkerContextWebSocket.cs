@@ -67,7 +67,6 @@ using SharpKit.Html.plugins;
 using SharpKit.Html.storage;
 using SharpKit.Html.svg;
 using SharpKit.Html.workers;
-using SharpKit.Html.xml;
 
 public partial class WorkerContext
 {

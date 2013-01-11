@@ -37,7 +37,7 @@
 
 using System;
 
-namespace SharpKit.Html.xml
+namespace SharpKit.Html
 {
 
 using SharpKit.JavaScript;
@@ -67,7 +67,6 @@ using SharpKit.Html.plugins;
 using SharpKit.Html.storage;
 using SharpKit.Html.svg;
 using SharpKit.Html.workers;
-using SharpKit.Html.xml;
 
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "DOMParser")]
 public partial class DOMParser

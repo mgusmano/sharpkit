@@ -66,6 +66,7 @@ namespace WebIDLParser
             Transformations.moveToRootNamespace("html.canvas");
             Transformations.moveToRootNamespace("modules.websockets");
             Transformations.moveToRootNamespace("page");
+            Transformations.moveToRootNamespace("xml");
 
             Transformations.generateElementConstructorForType("Html", "Element"); //This will extract "hr" from HtmlHrElement and generates document.createElement('hr')
             Transformations.generateElementConstructorForType("Svg", "Element");
