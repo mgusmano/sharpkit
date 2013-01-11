@@ -67,7 +67,7 @@ using SharpKit.Html.plugins;
 using SharpKit.Html.storage;
 using SharpKit.Html.svg;
 using SharpKit.Html.workers;
-using SharpKit.Html.xml;
+
 
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "HTMLScriptElement")]
 public partial class HtmlScriptElement : HtmlElement
@@ -78,7 +78,7 @@ public partial class HtmlScriptElement : HtmlElement
 	public  JsString htmlFor {get; set; }
 	public  JsString @event {get; set; }
 	public  JsString charset {get; set; }
-	public  bool async {get; set; }
+	public  bool @async {get; set; }
 	public  bool defer {get; set; }
 	public  JsString src {get; set; }
 	public  JsString type {get; set; }

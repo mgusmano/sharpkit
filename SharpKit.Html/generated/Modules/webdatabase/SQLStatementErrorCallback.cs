@@ -67,7 +67,7 @@ using SharpKit.Html.plugins;
 using SharpKit.Html.storage;
 using SharpKit.Html.svg;
 using SharpKit.Html.workers;
-using SharpKit.Html.xml;
+
 
 public delegate bool SQLStatementErrorCallback(SQLTransaction transaction, SQLError error);
 }

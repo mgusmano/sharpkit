@@ -67,7 +67,7 @@ using SharpKit.Html.plugins;
 using SharpKit.Html.storage;
 using SharpKit.Html.svg;
 using SharpKit.Html.workers;
-using SharpKit.Html.xml;
+
 
 [JsType(JsMode.Prototype, NativeEnumerator = false, NativeArrayEnumerator = true, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "HTMLSelectElement")]
 public partial class HtmlSelectElement : HtmlElement, IJsArrayEnumerable<Node>

@@ -24,6 +24,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="custom.cs" />
+    <Compile Include="custom\fileapi\Blob.cs" />
+    <Compile Include="custom\modules\filesystem\ILocalFileSystem.cs" />
+    <Compile Include="custom\page\Window.cs" />
+    <Compile Include="custom\storage\Storage.cs" />
     <Compile Include="generated\css\Counter.cs" />
     <Compile Include="generated\css\CSSCharsetRule.cs" />
     <Compile Include="generated\css\CSSFontFaceRule.cs" />
