@@ -59,14 +59,13 @@ namespace WebIDLParser
             Transformations.renameCsTypePrefix("SVG", "Svg");
             Transformations.renameCsTypePrefix("CSS", "Css");
 
-            //By default, all types will be generated in the global namespace SharpKit.Html
-            //Here can be specified, that some (IDL-)modules will moved into an seperate subname space
-            //The module name is defined in the IDL files.
-            Transformations.createSubNamespaceForModule("svg");
-            Transformations.createSubNamespaceForModule("storage");
-            Transformations.createSubNamespaceForModule("threads");
-            Transformations.createSubNamespaceForModule("audio");
-            Transformations.createSubNamespaceForModule("webaudio");
+            //---
+            Transformations.moveToRootNamespace("css");
+            Transformations.moveToRootNamespace("dom");
+            Transformations.moveToRootNamespace("html");
+            Transformations.moveToRootNamespace("html.canvas");
+            Transformations.moveToRootNamespace("modules.websockets");
+            Transformations.moveToRootNamespace("page");
 
             Transformations.generateElementConstructorForType("Html", "Element"); //This will extract "hr" from HtmlHrElement and generates document.createElement('hr')
             Transformations.generateElementConstructorForType("Svg", "Element");
@@ -89,6 +88,9 @@ namespace WebIDLParser
             //The Webkit IDL files have sometimes another return type for internal use. Here they can be corrected.
             Transformations.changeDelegateResultType("PositionCallback", "void");
             Transformations.changeDelegateResultType("PositionErrorCallback", "void");
+
+
+            Transformations.renameType("DOMWindow", "Window");
         }
 
     }

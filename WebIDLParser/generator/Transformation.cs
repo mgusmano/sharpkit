@@ -9,7 +9,8 @@ namespace WebIDLParser
     public static class TransformationConfig
     {
         public static Dictionary<string, string> renameTypePrefix =new Dictionary<string,string>();
-        public static HashSet<string> createSubNamespaceForModule = new HashSet<string>();
+        public static Dictionary<string, string> renameType = new Dictionary<string, string>();
+        public static HashSet<string> moveToRootNamespace = new HashSet<string>();
         public static List<Tuple<string, string>> generateElementConstructor = new List<Tuple<string, string>>();
         public static Dictionary<string, string> generateElementConstructorCorrectName = new Dictionary<string, string>();
         public static Dictionary<string, string> changeDelegateResultType = new Dictionary<string, string>();
@@ -23,8 +24,13 @@ namespace WebIDLParser
             TransformationConfig.renameTypePrefix.Add(oldPrefix, newPrefix);
         }
 
-        public static void createSubNamespaceForModule(string moduleName) {
-            TransformationConfig.createSubNamespaceForModule.Add(moduleName);
+        public static void renameType(string oldName, string newName)
+        {
+            TransformationConfig.renameType.Add(oldName, newName);
+        }
+
+        public static void moveToRootNamespace(string path) {
+            TransformationConfig.moveToRootNamespace.Add(path);
         }
 
         public static void generateElementConstructorForType(string typePrefix, string typePostfix)

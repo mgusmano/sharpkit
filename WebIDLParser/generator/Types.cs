@@ -83,12 +83,6 @@ namespace WebIDLParser
 
         public void write(StringBuilder sb)
         {
-            string strAlias = "";
-            if (aliasName != "")
-            {
-                strAlias = ", Name = \"" + aliasName + "\"";
-            }
-
             if (isDelegate())
             {
                 var del = members[0] as TMethod;
@@ -110,7 +104,8 @@ namespace WebIDLParser
             jsAttributes.Add("PropertiesAsFields", "true");
             jsAttributes.Add("NativeCasts", "true");
 
-            if (aliasName != "" && aliasName != name) jsAttributes.Add("Name", "\"" + aliasName + "\"");
+            if (aliasName == "") aliasName = name; //Give all types an Name-attribute (without namespace)
+            if (aliasName != "") jsAttributes.Add("Name", "\"" + aliasName + "\"");
 
             if (!isSupplemental) sb.Append("[JsType(JsMode.Prototype, " + jsAttributes.ToString() + ")]" + Environment.NewLine);
             string typeType = "class";
@@ -271,7 +266,7 @@ namespace WebIDLParser
             if (memList.Count != 0)
             {
                 members.InsertRange(0, memList);
-                createSubConstructors();
+                //createSubConstructors();
             }
         }
 
@@ -362,28 +357,28 @@ namespace WebIDLParser
 
         public void createSubConstructors()
         {
-            var types = Generator.findByBaseType(name);
-            foreach (var t in types)
+            var subTypes = Generator.findByBaseType(name);
+            foreach (var subType in subTypes)
             {
-                var memList = new TMemberList();
-                foreach (var mem in members)
+                var subCTorMemList = new TMemberList();
+                foreach (var baseMember in members)
                 {
-                    if (mem.name == "ctor")
+                    if (baseMember.name == "ctor")
                     {
-                        var method = (mem as TMethod);
-                        if (method.parameters.Count > 0)
+                        var baseCTor = (baseMember as TMethod);
+                        if (baseCTor.parameters.Count > 0)
                         {
-                            var ctor = new TMethod(t);
-                            ctor.name = method.name;
-                            ctor.resultType = method.resultType;
-                            ctor.baseMethod = method;
-                            memList.Add(ctor);
+                            var subCTor = new TMethod(subType);
+                            subCTor.name = baseCTor.name;
+                            subCTor.resultType = baseCTor.resultType;
+                            subCTor.baseMethod = baseCTor;
+                            subCTorMemList.Add(subCTor);
                         }
                     }
                 }
-                if (memList.Count > 0)
+                if (subCTorMemList.Count > 0)
                 {
-                    t.members.InsertRange(0, memList);
+                    subType.members.InsertRange(0, subCTorMemList);
                 }
             }
         }
@@ -476,7 +471,9 @@ namespace WebIDLParser
 
     public class TMethod : TMember
     {
-        public TMethod(TFileType parentType) : base(parentType) { }
+        public TMethod(TFileType parentType) : base(parentType) {
+            //if (parentType == null) throw new ArgumentException("parentType");
+        }
 
         public TParameterList parameters = new TParameterList();
         public TMethod baseMethod;

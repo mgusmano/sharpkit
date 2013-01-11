@@ -75,6 +75,13 @@ namespace WebIDLParser
                             t.aliasName = "Event";
                         }
 
+                        string newName;
+                        if (TransformationConfig.renameType.TryGetValue(t.name, out newName))
+                        {
+                            t.aliasName = t.name;
+                            t.rename(newName);
+                        }
+
                         //if (t.name.StartsWith("HTML"))
                         //{
                         //    t.aliasName = t.name;

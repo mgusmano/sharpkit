@@ -304,7 +304,6 @@ namespace WebIDLParser
 
         //KeyWords
         kwInterface,
-        kwModule,
         kwIn,
         kwStatic,
         kwConst,
@@ -924,7 +923,6 @@ namespace WebIDLParser
             AddTokenConst("STATIC", ECodeToken.kwStatic);
             AddTokenConst("INTERFACE", ECodeToken.kwInterface);
             AddTokenConst("READONLY", ECodeToken.kwReadonly);
-            AddTokenConst("MODULE", ECodeToken.kwModule);
             AddTokenConst("CONST", ECodeToken.kwConst);
             AddTokenConst("RAISES", ECodeToken.kwRaises);
             AddTokenConst("GETTER", ECodeToken.kwGetter);

@@ -47,6 +47,7 @@ namespace WebIDLParser
             this.inFile = inFile;
             var localIdlFile = Program.idlOutTempDirectory + @"\" + Path.GetFileName(inFile);
             var localIdlFile2 = Program.idlOutTempDirectory + @"\" + Path.GetFileNameWithoutExtension(inFile) + ".i";
+            var path = Path.GetDirectoryName(inFile).Replace(Program.idlInDirectory, "").Replace("\\", ".");
 
             if (File.Exists(localIdlFile)) File.Delete(localIdlFile);
             File.Copy(inFile, localIdlFile);
@@ -68,30 +69,43 @@ namespace WebIDLParser
             TNamespace ns = new TNamespace(this);
             nsList.Add(ns);
 
+            if (TransformationConfig.moveToRootNamespace.Contains(path.ToLower()))
+            {
+                ns.name = "SharpKit.Html";
+            }
+            else
+            {
+                ns.name = "SharpKit.Html." + path;
+                if (!Generator.namespaceNames.Contains(ns.name)) Generator.namespaceNames.Add(ns.name);
+            }
+
             getNextToken();
+            TAttributeList attributes = new TAttributeList();
             while (true)
             {
-                if (currentToken.token == ECodeToken.kwModule)
-                {
-                    getNextToken();
-                    var module = readDottedString();
-                    ns.name = "SharpKit.Html";
+                //if (currentToken.token == ECodeToken.kwModule)
+                //{
+                //    getNextToken();
+                //    var module = readDottedString();
+                //    ns.name = "SharpKit.Html";
 
-                    //var seperateModules = new HashSet<string>(new string[]{
-                    //    "svg",
-                    //    "storage",
-                    //    "threads",
-                    //    "audio",
-                    //    "webaudio",
-                    //});
+                //    //var seperateModules = new HashSet<string>(new string[]{
+                //    //    "svg",
+                //    //    "storage",
+                //    //    "threads",
+                //    //    "audio",
+                //    //    "webaudio",
+                //    //});
 
-                    if (TransformationConfig.createSubNamespaceForModule.Contains(module))
-                    {
-                        ns.name += "." + module;
-                        if (!Generator.namespaceNames.Contains(ns.name)) Generator.namespaceNames.Add(ns.name);
-                    }
+                //    if (TransformationConfig.createSubNamespaceForModule.Contains(module))
+                //    {
+                //        ns.name += "." + module;
+                //        if (!Generator.namespaceNames.Contains(ns.name)) Generator.namespaceNames.Add(ns.name);
+                //    }
 
-                }
+                //}
+
+
 
                 //if (CurrentToken.Token == ECodeToken.kwImport) {
                 //  GetNextToken();
@@ -102,9 +116,19 @@ namespace WebIDLParser
                 //}
                 ns.importList.Clear();
 
+                if (currentToken.token == ECodeToken.brSmallBraceBegin)
+                {
+                    attributes = readAttributes();
+                }
+
                 if (currentToken.token == ECodeToken.kwInterface) //new type
                 {
                     TFileType t = readInterfaceType();
+                    t.attributes = attributes;
+                    foreach (var attr in t.attributes)
+                        if (attr is TConstructorAttribute)
+                            ((TConstructorAttribute)attr).constructor.parentType = t;
+                    attributes = new TAttributeList(); //reset
                     t.ns = ns;
                     ns.types.Add(t);
                     t.checkProp();
@@ -423,6 +447,15 @@ namespace WebIDLParser
                 param.type = readType();
                 param.type.isResult = false;
 
+                if (currentToken.token == ECodeToken.syPoint) //method(string name...)
+                {
+                    param.type.isArray = true;
+                    param.paramArray = true;
+                    getNextToken();
+                    getNextToken();
+                    getNextToken();
+                }
+
                 param.name = currentToken.value;
                 mem.parameters.Add(param);
                 getNextToken();
@@ -605,6 +638,7 @@ namespace WebIDLParser
             {
                 var attr = readAttribute();
                 if (attr != null) attrList.Add(attr);
+                if (currentToken.token == ECodeToken.syComma) getNextToken();
                 if (currentToken.token == ECodeToken.brSmallBraceEnd)
                 {
                     getNextToken();
@@ -637,6 +671,7 @@ namespace WebIDLParser
                     return new TConstructorAttribute(mem) { name = ctorName };
                 }
                 value = currentToken.value; //TODO
+                getNextToken();
                 return new TNameAttribute() { name = name, value = value };
             }
 
