@@ -193,6 +193,28 @@ this.date = System.DateTime.MinValue.date;
         {
             return new JsImplDateTime(this.date.addMonths(months));
         }
+
+        public JsImplDateTime AddHours(int hours)
+        {
+            return new JsImplDateTime(this.date.addHours(hours));
+        }
+        public JsImplDateTime AddMilliseconds(int milliseconds)
+        {
+            return new JsImplDateTime(this.date.addMilliseconds(milliseconds));
+        }
+        public JsImplDateTime AddMinutes(int minutes)
+        {
+            return new JsImplDateTime(this.date.addMinutes(minutes));
+        }
+        public JsImplDateTime AddSeconds(int seconds)
+        {
+            return new JsImplDateTime(this.date.addSeconds(seconds));
+        }
+        public JsImplDateTime AddYears(int years)
+        {
+            return new JsImplDateTime(this.date.addYears(years));
+        }
+
         public static JsImplDateTime Now
         {
             get
@@ -287,18 +309,56 @@ this.date = System.DateTime.MinValue.date;
     [JsType(Filename = "~/Internal/Core.js")]
     static class Extensions
     {
+
+        public static JsDate addMilliseconds(this JsDate date, int miliseconds)
+        {
+            var date2 = new JsDate(date.valueOf());
+            date2.setMilliseconds(date2.getMilliseconds() + miliseconds);
+            return date2;
+        }
+
+        public static JsDate addSeconds(this JsDate date, int seconds)
+        {
+            var date2 = new JsDate(date.valueOf());
+            date2.setSeconds(date2.getSeconds() + seconds);
+            return date2;
+        }
+
+        public static JsDate addMinutes(this JsDate date, int minutes)
+        {
+            var date2 = new JsDate(date.valueOf());
+            date2.setMinutes(date2.getMinutes() + minutes);
+            return date2;
+        }
+
+        public static JsDate addHours(this JsDate date, int hours)
+        {
+            var date2 = new JsDate(date.valueOf());
+            date2.setHours(date2.getHours() + hours);
+            return date2;
+        }
+
         public static JsDate addDays(this JsDate date, JsNumber days)
         {
             var date2 = new JsDate(date.valueOf());
             date2.setDate(date2.getDate() + days);
             return date2;
         }
+
         public static JsDate addMonths(this JsDate date, JsNumber months)
         {
             var date2 = new JsDate(date.valueOf());
             date2.setMonth(date2.getMonth() + months);
             return date2;
         }
+
+        public static JsDate addYears(this JsDate date, JsNumber years)
+        {
+            var date2 = new JsDate(date.valueOf());
+            date2.setMonth(date2.getFullYear() + years);
+            return date2;
+        }
+
         public static JsDate removeTime(this JsDate date)
         {
             var date2 = new JsDate(date.getFullYear(), date.getMonth(), date.getDate());
