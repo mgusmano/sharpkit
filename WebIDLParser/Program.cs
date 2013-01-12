@@ -64,7 +64,7 @@ namespace WebIDLParser
             Transformations.moveToRootNamespace("dom");
             Transformations.moveToRootNamespace("html");
             Transformations.moveToRootNamespace("html.canvas");
-            Transformations.moveToRootNamespace("modules.websockets");
+            Transformations.moveToRootNamespace("websockets");
             Transformations.moveToRootNamespace("page");
             Transformations.moveToRootNamespace("xml");
 

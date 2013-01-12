@@ -69,6 +69,7 @@ namespace WebIDLParser
             TNamespace ns = new TNamespace(this);
             nsList.Add(ns);
 
+            path = path.Replace("Modules.", "");
             if (TransformationConfig.moveToRootNamespace.Contains(path.ToLower()))
             {
                 ns.name = "SharpKit.Html";

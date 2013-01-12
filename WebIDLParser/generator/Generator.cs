@@ -284,6 +284,7 @@ namespace WebIDLParser
 				"string",
 				"continue",
 				"override",
+                "async",
 				"lock",
 				"default",
 			});

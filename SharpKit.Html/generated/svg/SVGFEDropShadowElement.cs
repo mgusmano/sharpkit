@@ -46,28 +46,27 @@ using SharpKit.Html.html.shadow;
 using SharpKit.Html.html.track;
 using SharpKit.Html.inspector;
 using SharpKit.Html.loader.appcache;
-using SharpKit.Html.modules.battery;
-using SharpKit.Html.modules.filesystem;
-using SharpKit.Html.modules.gamepad;
-using SharpKit.Html.modules.geolocation;
-using SharpKit.Html.modules.indexeddb;
-using SharpKit.Html.modules.intents;
-using SharpKit.Html.modules.mediasource;
-using SharpKit.Html.modules.mediastream;
-using SharpKit.Html.modules.navigatorcontentutils;
-using SharpKit.Html.modules.networkinfo;
-using SharpKit.Html.modules.notifications;
-using SharpKit.Html.modules.proximity;
-using SharpKit.Html.modules.quota;
-using SharpKit.Html.modules.speech;
-using SharpKit.Html.modules.vibration;
-using SharpKit.Html.modules.webaudio;
-using SharpKit.Html.modules.webdatabase;
+using SharpKit.Html.battery;
+using SharpKit.Html.filesystem;
+using SharpKit.Html.gamepad;
+using SharpKit.Html.geolocation;
+using SharpKit.Html.indexeddb;
+using SharpKit.Html.intents;
+using SharpKit.Html.mediasource;
+using SharpKit.Html.mediastream;
+using SharpKit.Html.navigatorcontentutils;
+using SharpKit.Html.networkinfo;
+using SharpKit.Html.notifications;
+using SharpKit.Html.proximity;
+using SharpKit.Html.quota;
+using SharpKit.Html.speech;
+using SharpKit.Html.vibration;
+using SharpKit.Html.webaudio;
+using SharpKit.Html.webdatabase;
 using SharpKit.Html.plugins;
 using SharpKit.Html.storage;
 using SharpKit.Html.svg;
 using SharpKit.Html.workers;
-
 
 [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "SVGFEDropShadowElement")]
 public partial class SvgFEDropShadowElement : SvgElement, SvgFilterPrimitiveStandardAttributes

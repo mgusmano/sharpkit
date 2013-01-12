@@ -1,7 +1,7 @@
 using System;
 using SharpKit.JavaScript;
 using SharpKit.Html.storage;
-using SharpKit.Html.modules.webdatabase;
+using SharpKit.Html.webdatabase;
 
 namespace SharpKit.Html
 {
