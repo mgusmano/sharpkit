@@ -76,11 +76,11 @@ public partial class HtmlFrameSetElement : HtmlElement
 	public  JsString cols {get; set; }
 	public  JsString rows {get; set; }
 	public  EventListener onbeforeunload {get; set; }
-	public  EventListener onhashchange {get; set; }
+	public  EventListener<HashChangeEvent> onhashchange {get; set; }
 	public  EventListener<MessageEvent> onmessage {get; set; }
 	public  EventListener onoffline {get; set; }
 	public  EventListener ononline {get; set; }
-	public  EventListener onpopstate {get; set; }
+	public  EventListener<PopStateEvent> onpopstate {get; set; }
 	public  EventListener onresize {get; set; }
 	public  EventListener<StorageEvent> onstorage {get; set; }
 	public  EventListener onunload {get; set; }

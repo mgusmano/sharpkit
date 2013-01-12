@@ -171,7 +171,7 @@ public partial class Window
 	public  EventListener onended {get; set; }
 	public  EventListener<ErrorEvent> onerror {get; set; }
 	public  EventListener onfocus {get; set; }
-	public  EventListener onhashchange {get; set; }
+	public  EventListener<HashChangeEvent> onhashchange {get; set; }
 	public  EventListener oninput {get; set; }
 	public  EventListener oninvalid {get; set; }
 	public  EventListener onkeydown {get; set; }
@@ -195,7 +195,7 @@ public partial class Window
 	public  EventListener onpause {get; set; }
 	public  EventListener onplay {get; set; }
 	public  EventListener onplaying {get; set; }
-	public  EventListener onpopstate {get; set; }
+	public  EventListener<PopStateEvent> onpopstate {get; set; }
 	public  EventListener<ProgressEvent> onprogress {get; set; }
 	public  EventListener onratechange {get; set; }
 	public  EventListener onresize {get; set; }
@@ -217,8 +217,8 @@ public partial class Window
 	public  EventListener ontouchmove {get; set; }
 	public  EventListener ontouchend {get; set; }
 	public  EventListener ontouchcancel {get; set; }
-	public  EventListener ondevicemotion {get; set; }
-	public  EventListener ondeviceorientation {get; set; }
+	public  EventListener<DeviceMotionEvent> ondevicemotion {get; set; }
+	public  EventListener<DeviceOrientationEvent> ondeviceorientation {get; set; }
 	public  void addEventListener(string type, EventListener listener) {}
 	public  void addEventListener(string type, EventListener listener, bool useCapture) {}
 	public  void removeEventListener(string type, EventListener listener) {}

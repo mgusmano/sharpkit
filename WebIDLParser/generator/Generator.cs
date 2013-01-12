@@ -113,12 +113,12 @@ namespace WebIDLParser
                         {
                             if (mem.name.StartsWith("on") && mem.resultType.name == "EventListener")
                             {
-                                var eventName = mem.name.Substring(2, 1).ToUpper() + mem.name.Substring(3) + "Event";
-                                var eventType = findType(eventName);
+                                var eventName = mem.name.Substring(2) + "Event";
+                                var eventType = findType(eventName, true);
                                 if (eventType != null)
                                 {
                                     mem.resultType.name = "EventListener";
-                                    mem.resultType.genericType = new TType() { name = eventName };
+                                    mem.resultType.genericType = new TType() { name = eventType.name };
                                 }
                             }
                         }
@@ -159,15 +159,17 @@ namespace WebIDLParser
             Console.ReadKey();
         }
 
-        public static TFileType findType(string name)
+        public static TFileType findType(string name, bool ignoreCase = false)
         {
+            if (ignoreCase) name = name.ToLower();
             foreach (var pFile in Generator.parsedFiles)
             {
                 foreach (var ns in pFile.nsList)
                 {
                     foreach (var t in ns.types)
                     {
-                        if (t.name == name)
+                        var typeName = (ignoreCase ? t.name.ToLower() : t.name);
+                        if (typeName == name)
                         {
                             return t;
                         }
