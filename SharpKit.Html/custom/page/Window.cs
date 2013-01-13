@@ -1,7 +1,6 @@
 ﻿using System;
 using SharpKit.Html.filesystem;
-using SharpKit.Html.filesystem;
-using SharpKit.Html.storage;
+using SharpKit.Html.quota;
 using SharpKit.JavaScript;
 
 namespace SharpKit.Html
@@ -9,6 +8,11 @@ namespace SharpKit.Html
     //[JsType(JsMode.Prototype, Export = true, Name = "Window")]
     partial class Window : ILocalFileSystem
     {
+        public StorageInfo StorageInfo { get; private set; }
+
+        [Obsolete("Methods with the 'webkit' prefix may be deprecated without warning.")]
+        public StorageInfo webkitStorageInfo { get; private set; }
+
         //[JsMethod(Name = "requestFileSystem", Code = "(requestFileSystem||webkitRequestFileSystem)(type, size, successCallback, errorCallback);")]
         [JsMethod(Name = "requestFileSystem")]
         public void RequestFileSystem(ushort type, ulong size, FileSystemCallback successCallback, ErrorCallback errorCallback = null) { }
