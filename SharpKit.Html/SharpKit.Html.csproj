@@ -24,6 +24,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="custom.cs" />
+    <Compile Include="custom\dom\TouchEvent.cs" />
+    <Compile Include="custom\dom\MouseEvent.cs" />
     <Compile Include="custom\fileapi\Blob.cs" />
     <Compile Include="custom\modules\filesystem\ILocalFileSystem.cs" />
     <Compile Include="custom\page\Window.cs" />
@@ -645,6 +647,9 @@
     <Content Include="SharpKit.Html.XML">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="custom\html\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

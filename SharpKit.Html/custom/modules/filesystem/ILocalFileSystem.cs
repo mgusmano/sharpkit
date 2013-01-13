@@ -1,6 +1,4 @@
-﻿using SharpKit.Html.filesystem;
-using SharpKit.Html.storage;
-using SharpKit.JavaScript;
+﻿using SharpKit.JavaScript;
 
 namespace SharpKit.Html.filesystem
 {

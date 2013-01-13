@@ -2,7 +2,7 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.Html.fileapi
 {
-    public partial class Blob
+    partial class Blob
     {
         public Blob() { }
         public Blob(ArrayBuffer[] arrayBuffer) { }
