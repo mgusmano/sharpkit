@@ -6,12 +6,14 @@ using SharpKit.JavaScript;
 namespace SharpKit.Html
 {
     //[JsType(JsMode.Prototype, Export = true, Name = "Window")]
+    [JsType(PropertiesAsFields = true)]
     partial class Window : ILocalFileSystem
     {
         public StorageInfo StorageInfo { get; private set; }
 
+        [JsField(Name = "webkitStorageInfo")]
         [Obsolete("Methods with the 'webkit' prefix may be deprecated without warning.")]
-        public StorageInfo webkitStorageInfo { get; private set; }
+        public StorageInfo WebkitStorageInfo;
 
         //[JsMethod(Name = "requestFileSystem", Code = "(requestFileSystem||webkitRequestFileSystem)(type, size, successCallback, errorCallback);")]
         [JsMethod(Name = "requestFileSystem")]
