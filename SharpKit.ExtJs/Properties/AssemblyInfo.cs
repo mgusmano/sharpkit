@@ -1,6 +1,7 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using SharpKit.JavaScript;
 
 [assembly: AssemblyTitle("SharpKit.ExtJs")]
 [assembly: AssemblyDescription("")]
@@ -20,6 +21,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("4.1.1.0")]
 [assembly: AssemblyFileVersion("4.30.2000")]
 
+#if SANDBOX
+[assembly: JsNamespace(Namespace = "Ext", JsNamespace = "Ext4")]
+#endif
 
 
 /// <summary>
@@ -29,3 +33,5 @@ using System.Runtime.InteropServices;
 class AssemblyDoc
 {
 }
+
+
