@@ -21,7 +21,8 @@ namespace CoreTests.Enums
 
         private void alert(string p)
         {
-            throw new NotImplementedException();
+            var x = Enum1.b;
+            var y = Enum2.c;
         }
     }
 
@@ -32,4 +33,14 @@ namespace CoreTests.Enums
         b=2,
         c=3,
     }
+
+    [JsType(JsMode.Prototype)]
+    [JsEnum(ValuesAsNames=true)]
+    enum Enum2
+    {
+        a = 1,
+        b = 2,
+        c = 3,
+    }
+
 }

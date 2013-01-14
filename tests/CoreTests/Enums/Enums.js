@@ -1,17 +1,3 @@
-if (typeof($CreateException)=='undefined') 
-{
-    var $CreateException = function(ex, error) 
-    {
-        if(error==null)
-            error = new Error();
-        if(ex==null)
-            ex = new System.Exception.ctor();       
-        error.message = ex.message;
-        for (var p in ex)
-           error[p] = ex[p];
-        return error;
-    }
-}
 if (typeof(CoreTests) == "undefined")
     var CoreTests = {};
 if (typeof(CoreTests.Enums) == "undefined")
@@ -30,9 +16,11 @@ CoreTests.Enums.Enums.prototype.Reflect = function ()
 };
 CoreTests.Enums.Enums.prototype.alert = function (p)
 {
-    throw $CreateException(new System.NotImplementedException.ctor(), new Error());
+    var x = 2;
+    var y = 3;
 };
 CoreTests.Enums.Enum1 = {a: 1, b: 2, c: 3};
+CoreTests.Enums.Enum2 = {a: "a", b: "b", c: "c"};
 if (typeof(System) == "undefined")
     var System = {};
 if (typeof(System.ComponentModel) == "undefined")
