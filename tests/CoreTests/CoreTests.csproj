@@ -37,10 +37,12 @@
     <Compile Include="Arrays\Class2.cs" />
     <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="GenericMethods\GenericMethods.cs" />
+    <Compile Include="Inheritance\ClrFromGlobal.cs" />
     <Compile Include="Inheritance\PrototypeFromGlobal.cs" />
     <Compile Include="MethodOverloads\MethodsOverloads.cs" />
     <Compile Include="GenericsInheritance\Class1.cs" />
     <Compile Include="Interfaces\Class3.cs" />
+    <Compile Include="NativeJs\JsDateTest.cs" />
     <Compile Include="OutRefParameters\Class4.cs" />
     <Compile Include="ForEach\Class5.cs" />
     <Compile Include="Properties_\Class6.cs" />
@@ -78,10 +80,12 @@
     <Content Include="GenericMethods\GenericMethods.js" />
     <Content Include="GenericsInheritance\Class1.js" />
     <Content Include="GenericsInheritance\GenericsInheritance.js" />
+    <Content Include="Inheritance\ClrFromGlobal.js" />
     <Content Include="Inheritance\PrototypeFromGlobal.js" />
     <Content Include="Interfaces\Class3.js" />
     <Content Include="MethodOverloads\MethodsOverloads.js" />
     <Content Include="Methods\NamedParameters.js" />
+    <Content Include="NativeJs\JsDateTest.js" />
     <Content Include="OutRefParameters\Class4.js" />
     <Content Include="Params\Params.js" />
     <Content Include="Properties_\Class6.js" />
