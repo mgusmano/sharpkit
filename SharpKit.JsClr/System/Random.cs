@@ -6,7 +6,6 @@ namespace SharpKit.JavaScript.Private
     /// Represents a pseudo-random number generator, a device that produces a 
     /// sequence of numbers that meet certain statistical requirements for randomness.
     /// </summary>
-    /// <see href="http://en.wikipedia.org/wiki/Mersenne_Twister"></see>
     [JsType(Name = "System.Random", Filename = "~/Internal/Core.js")]
     public class JsImplRandom
     {
@@ -67,7 +66,7 @@ namespace SharpKit.JavaScript.Private
         public int Next(int minValue, int maxValue)
         {
             if (minValue > maxValue) throw new ArgumentOutOfRangeException();
-            return (JsMath.floor((maxValue - minValue + 1) * JsMath.random() + minValue)).As<int>();
+            return (JsMath.floor((maxValue - minValue) * JsMath.random() + minValue)).As<int>();
         }
 
         /// <summary>
