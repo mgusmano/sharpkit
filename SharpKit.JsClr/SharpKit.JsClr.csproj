@@ -93,6 +93,7 @@
     <Compile Include="System\Reflection\MemberInfo.cs" />
     <Compile Include="System\Reflection\PropertyInfo.cs" />
     <Compile Include="System\Runtime\Serialization\IExtensibleDataObject.cs" />
+    <Compile Include="System\Runtime\Serialization\ISerializable.cs" />
     <Compile Include="System\String.cs" />
     <Compile Include="System\StringEnumerator.cs" />
     <Compile Include="System\Text\StringBuilder.cs" />

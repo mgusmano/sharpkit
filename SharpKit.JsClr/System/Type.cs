@@ -188,9 +188,12 @@ namespace SharpKit.JavaScript.Private
 			if (baseType != null)
 			{
 				var pe = baseType.GetProperty(name);
-				_PropertiesByName[name] = pe;
-				_Properties.push(pe);
-				return;
+                if (pe != null)
+                {
+                    _PropertiesByName[name] = pe;
+                    _Properties.push(pe);
+                    return;
+                }
 			}
 			_PropertiesByName[name] = null;//mark as non existent
 		}
