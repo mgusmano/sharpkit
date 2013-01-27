@@ -51,7 +51,7 @@ namespace SharpKit.Web.Server.Handlers
                 }
             }
             string filename;
-            var path2 = context.Request.PathInfo;
+            var path2 = context.Request.Url.Query.Substring(1);
             if (path1.Contains("\\"))
             {
                 filename = path1 + path2.Replace("/", "\\");
