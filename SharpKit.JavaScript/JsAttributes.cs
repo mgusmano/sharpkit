@@ -16,8 +16,8 @@ namespace SharpKit.JavaScript
         /// <summary>
         /// Creates an instance of a JsTypeAttribute
         /// </summary>
-        public JsTypeAttribute() 
-        { 
+        public JsTypeAttribute()
+        {
         }
         /// <summary>
         /// Creates an instance of a JsTypeAttribute in the specified JsMode
@@ -396,6 +396,11 @@ namespace SharpKit.JavaScript
         /// </summary>
         public bool OmitSharpKitHeaderComment { get { return _OmitSharpKitHeaderComment.GetValueOrDefault(); } set { _OmitSharpKitHeaderComment = value; } } public bool? _OmitSharpKitHeaderComment;
 
+        /// <summary>
+        /// Forces omit casting
+        /// </summary>
+        public bool ForceOmitCasting { get { return _ForceOmitCasting.GetValueOrDefault(); } set { _ForceOmitCasting = value; } } public bool? _ForceOmitCasting;
+
     }
     #endregion
 
@@ -652,7 +657,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///Controls the interoperability and conversion of a .NET enum type into JavaScript.
     ///</summary>
-    [AttributeUsage(AttributeTargets.Enum | AttributeTargets.Assembly, AllowMultiple=true)]
+    [AttributeUsage(AttributeTargets.Enum | AttributeTargets.Assembly, AllowMultiple = true)]
     public partial class JsEnumAttribute : Attribute
     {
         /// <summary>
@@ -693,7 +698,7 @@ namespace SharpKit.JavaScript
     #endregion
 
     #region JsNamespaceAttribute
-    
+
     /// <summary>
     /// Allows mapping and replacement between C# and JavaScript namespace. Useful for creating shorter namespaces in JavaScript
     /// </summary>
@@ -720,7 +725,7 @@ namespace SharpKit.JavaScript
     //}
     #endregion
 
-    [AttributeUsage(AttributeTargets.Assembly, AllowMultiple=true)]
+    [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
     public partial class JsEmbeddedResourceAttribute : Attribute
     {
         public JsEmbeddedResourceAttribute()
