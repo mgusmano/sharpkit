@@ -6,6 +6,24 @@ namespace SharpKit.JavaScript.Private
 	internal class JsImplEnum
 	{
         /// <summary>
+        /// Retrieves the name of the constant in the specified enumeration that has the specified value.
+        /// </summary>
+        /// <param name="enumType">Type of the enum.</param>
+        /// <param name="value">The value.</param>
+        /// <returns>A string array of the names of the constants in enumType.</returns>
+        /// <exception cref="ArgumentNullException"><para>enumType</para> is null.</exception>
+        public static string GetName(Type enumType, object value)
+        {
+            if (enumType == null || value == null) throw new ArgumentNullException("enumType");
+
+            var jsType = enumType.As<JsImplType>()._JsType;
+            foreach (var p in jsType.staticDefinition)
+                if (p == value)
+                    return p.As<string>();
+            throw new ArgumentException("value");
+        }
+
+        /// <summary>
         /// Retrieves an array of the names of the constants in a specified enumeration.
         /// </summary>
         /// <param name="enumType">Type of the enum.</param>
