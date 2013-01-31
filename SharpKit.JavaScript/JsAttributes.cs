@@ -397,9 +397,9 @@ namespace SharpKit.JavaScript
         public bool OmitSharpKitHeaderComment { get { return _OmitSharpKitHeaderComment.GetValueOrDefault(); } set { _OmitSharpKitHeaderComment = value; } } public bool? _OmitSharpKitHeaderComment;
 
         /// <summary>
-        /// Forces omit casting
+        /// Overrides all OmitCasts definitions in the assembly, and skips any code generation for casting
         /// </summary>
-        public bool ForceOmitCasting { get { return _ForceOmitCasting.GetValueOrDefault(); } set { _ForceOmitCasting = value; } } public bool? _ForceOmitCasting;
+        public bool ForceOmitCasts { get { return _ForceOmitCasts.GetValueOrDefault(); } set { _ForceOmitCasts = value; } } public bool? _ForceOmitCasts;
 
     }
     #endregion
