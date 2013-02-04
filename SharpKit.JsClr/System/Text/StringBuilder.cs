@@ -380,14 +380,21 @@ namespace SharpKit.JavaScript.Private
 		{
 			get
 			{
-				return this.length;
+				return this.array.length;
 			}
 			set
 			{
-				if (value != 0)
-					throw new Exception("Not Implemented");
-				this.array.Clear();
-				this.length = value;
+				if (value < 0)
+                    throw new ArgumentOutOfRangeException();
+
+                // Setting the length in Javascript will truncate the array.
+                if (value < this.array.length)
+                    this.array.length = value;
+                else
+                {
+                    for(int i = this.array.length; i<length; i++)
+                        this.array.push('\x00');
+                }
 			}
 		}
 		[JsMethod(NativeOverloads = true)]
