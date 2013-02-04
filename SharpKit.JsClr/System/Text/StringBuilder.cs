@@ -69,11 +69,313 @@ namespace SharpKit.JavaScript.Private
 			}
 		}
 
-		public override string ToString()
+        /// <summary>
+        /// Inserts the string representation of a specified Unicode character into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, bool value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new IndexOutOfRangeException();
+
+            this.array.insert(index, value.ToString());
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of a specified 8-bit unsigned integer into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, byte value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of a specified Unicode character into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, char value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of a specified array of Unicode characters into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, char[] value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+
+        /// <summary>
+        /// Inserts the string representation of a decimal number into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, decimal value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of a double number into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, double value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of a short number into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, short value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of an int number into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, int value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of a long number into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, long value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of an object into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, object value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of a signed byte number into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, sbyte value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of a float number into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, float value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of a string into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, string value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of an unsigned short number into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, ushort value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of an unsigned int number into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, uint value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts the string representation of an unsigned long number into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, ulong value)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts one or more copies of a specified string into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <param name="count">The number of times to insert <para>value</para>.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, string value, int count)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            for (int i = 0; i < count; i++ )
+                this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Inserts one or more copies of a specified character array into this instance at the specified character position.
+        /// </summary>
+        /// <param name="index">The position in this instance where insertion begins.</param>
+        /// <param name="value">The value to insert.</param>
+        /// <param name="count">The number of times to insert <para>value</para>.</param>
+        /// <returns>A reference to this instance after the insert operation has completed.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"><para>index</para> is less than zero or greater than the length of this instance.</exception>
+        public JsImplStringBuilder Insert(int index, char[] value, int count)
+        {
+            if (index < 0 || index > this.array.length)
+                throw new ArgumentOutOfRangeException();
+
+            for (int i = 0; i < count; i++)
+                this.array.insert(index, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
+        public override string ToString()
 		{
 			return this.array.join("");
 		}
 
+        /// <summary>
+        /// Gets or sets the length.
+        /// </summary>
+        /// <value>The length.</value>
+        /// <exception cref="System.Exception">Not Implemented</exception>
 		public int Length
 		{
 			get
