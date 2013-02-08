@@ -42,6 +42,7 @@
     <Compile Include="MethodOverloads\MethodsOverloads.cs" />
     <Compile Include="GenericsInheritance\Class1.cs" />
     <Compile Include="Interfaces\Class3.cs" />
+    <Compile Include="Methods\Params.cs" />
     <Compile Include="NativeJs\JsDateTest.cs" />
     <Compile Include="OutRefParameters\Class4.cs" />
     <Compile Include="ForEach\Class5.cs" />
@@ -85,6 +86,7 @@
     <Content Include="Interfaces\Class3.js" />
     <Content Include="MethodOverloads\MethodsOverloads.js" />
     <Content Include="Methods\NamedParameters.js" />
+    <Content Include="Methods\Params.js" />
     <Content Include="NativeJs\JsDateTest.js" />
     <Content Include="OutRefParameters\Class4.js" />
     <Content Include="Params\Params.js" />
