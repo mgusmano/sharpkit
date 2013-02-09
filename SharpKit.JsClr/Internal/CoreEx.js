@@ -541,30 +541,30 @@ JsTypes.push({ fullname: "System.String", baseTypeName: "System.Object", definit
 {
 	Empty: "",
 	FormatCache: [],
-	Format: function (format, varargs) {
+	Format: function (format, argsArray) {
 		var cache = System.String.FormatCache;
-		var format = arguments[0];
-		for (var i = 1; i < arguments.length; i++) {
-			var re = cache[i - 1];
+		for (var i = 0; i < argsArray.length; i++)
+		{
+			var re = cache[i];
 			if (re == null) {
-				re = new RegExp('\\{' + (i - 1) + '\\}', 'gm');
+				re = new RegExp('\\{' + (i) + '\\}', 'gm');
 				cache.push(re);
-			}
-			format = format.replace(re, arguments[i]);
+}
+			format = format.replace(re, argsArray[i]);
 		}
 		return format;
 	},
-	Format$$String$$Object$Array: function (format, varargs) {
-		return System.String.Format.apply(null, arguments); //TODO: make native
+Format$$String$$Object$Array: function (format, argsArray){
+		return System.String.Format(format, argsArray);
 	},
 	Format$$String$$Object$$Object$$Object: function (s, obj1, obj2, obj3) {
-		return this.Format(s, obj1, obj2, obj3);
+	    return System.String.Format(s, [obj1, obj2, obj3]);
 	},
 	Format$$String$$Object$$Object: function (s, obj1, obj2) {
-		return this.Format(s, obj1, obj2);
+	    return System.String.Format(s, [obj1, obj2]);
 	},
 	Format$$String$$Object: function (s, obj1) {
-		return this.Format(s, obj1);
+	    return System.String.Format(s, [obj1]);
 	},
 	Join$$String$$String$Array: function (separator, values) {
 		return values.join(separator);
