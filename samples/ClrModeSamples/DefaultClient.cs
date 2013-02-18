@@ -1,6 +1,6 @@
 ﻿
 using SharpKit.JavaScript;
-using SharpKit.Html4;
+using SharpKit.Html;
 using SharpKit.jQuery;
 using System.Collections.Generic;
 
