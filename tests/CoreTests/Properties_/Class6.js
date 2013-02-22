@@ -25,4 +25,10 @@ SharpKitWebApp5.Class6.prototype.Foo = function ()
 {
     this.set_MyProperty(1);
     SharpKitWebApp5.Class6.set_MyStaticProperty(4);
+    this.set_MyProperty(this.get_MyProperty() + 1);
+    this.set_MyProperty(this.get_MyProperty() + 2);
+    this.set_MyProperty(this.get_MyProperty() - 1);
+    this.set_MyProperty(this.get_MyProperty() - 2);
+    this.set_MyProperty(this.get_MyProperty() + 1);
+    this.set_MyProperty(this.get_MyProperty() - 1);
 };

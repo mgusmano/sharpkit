@@ -14,6 +14,15 @@ namespace SharpKitWebApp5
         {
             MyProperty = 1;
             MyStaticProperty = 4;
+
+            MyProperty++;
+            MyProperty += 2;
+            MyProperty--;
+            MyProperty -= 2;
+
+
+            ++MyProperty;
+            --MyProperty;
         }
     }
 }
