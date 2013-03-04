@@ -65,6 +65,8 @@ namespace SharpKit.JavaScript.Compilation
             if (gti != -1 && name.As<JsString>().indexOf("[") > -1)
             {
                 var args = _ParseTypeNameArgs(name);
+                if (args == null)
+                    return null;
                 var type = JsTypeHelper.GetType(args[0].As<string>(), throwIfNotFound);
                 if (type == null)
                     return null;
