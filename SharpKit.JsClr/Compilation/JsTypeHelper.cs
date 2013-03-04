@@ -86,8 +86,17 @@ namespace SharpKit.JavaScript.Compilation
         [JsMethod(Code = @"	var code = name.replace(/, [a-zA-Z0-9, =.]+\]/g, ']'); //remove all the ', mscorlib, Version=1.0.0.0, publicKeyToken=xxxxxxxxx
 	code = code.replace(/`([0-9])/g, '$$$1,'); //remove the `2 and replace to $2, (the comma is for array to compile)
 	code = '[' + code + ']';
+try
+{
 	var args = eval(code);
-	return args;")]
+return args;
+}
+catch(e)
+{
+  //ERROR
+  return null;
+}
+	")]
         private static JsArray _ParseTypeNameArgs(string name)
         {
             throw new NotImplementedException();
