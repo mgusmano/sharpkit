@@ -3,10 +3,10 @@ using SharpKit.JavaScript;
 using SharpKit.Html;
 using SharpKit.jQuery;
 using SharpKit.Html.filesystem;
-
-namespace SharpKit.Google.ApiGenerator
+[assembly: JsNamespace(Namespace = "SharpKit.Google.Maps", JsNamespace = "google.maps")]
+namespace SharpKit.Google.Maps
 {
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class Map
     {
         /// <summary>
@@ -297,9 +297,13 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public ZoomControlOptions zoomControlOptions { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
-    class MapTypeId
+    [JsType(JsMode.Prototype, Export = false)]
+    enum MapTypeId
     {
+        HYBRID,//This map type displays a transparent layer of major streets on satellite images.
+        ROADMAP,//This map type displays a normal street map.
+        SATELLITE,//This map type displays satellite images.
+        TERRAIN,//This map type displays maps with physical features such as terrain and vegetation.
     }
     [JsType(JsMode.Json)]
     class MapTypeControlOptions
@@ -317,7 +321,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public MapTypeControlStyle style { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class MapTypeControlStyle
     {
     }
@@ -357,7 +361,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public ScaleControlStyle style { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class ScaleControlStyle
     {
     }
@@ -381,15 +385,15 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public ZoomControlStyle style { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class ZoomControlStyle
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class ControlPosition
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class Marker
     {
         /// <summary>
@@ -662,15 +666,15 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber strokeWeight { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class SymbolPath
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class Animation
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class InfoWindow
     {
         /// <summary>
@@ -741,7 +745,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber zIndex { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class Polyline
     {
         /// <summary>
@@ -894,7 +898,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public string repeat { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class Polygon
     {
         /// <summary>
@@ -1059,7 +1063,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber vertex { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class Rectangle
     {
         /// <summary>
@@ -1200,7 +1204,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber zIndex { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class Circle
     {
         /// <summary>
@@ -1365,7 +1369,7 @@ namespace SharpKit.Google.ApiGenerator
     class StrokePosition
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class GroundOverlay
     {
         /// <summary>
@@ -1421,7 +1425,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber opacity { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class OverlayView
     {
         /// <summary>
@@ -1510,7 +1514,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber getWorldWidth() { return null; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class Geocoder
     {
         /// <summary>
@@ -1542,7 +1546,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public string region { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class GeocoderStatus
     {
     }
@@ -1602,11 +1606,11 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public LatLngBounds viewport { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class GeocoderLocationType
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class DirectionsRenderer
     {
         /// <summary>
@@ -1714,7 +1718,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public bool suppressPolylines { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class DirectionsService
     {
         /// <summary>
@@ -1778,11 +1782,11 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsArray<DirectionsWaypoint> waypoints { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class TravelMode
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class UnitSystem
     {
     }
@@ -1810,7 +1814,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public bool stopover { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class DirectionsStatus
     {
     }
@@ -2098,7 +2102,7 @@ namespace SharpKit.Google.ApiGenerator
     class VehicleType
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class ElevationService
     {
         /// <summary>
@@ -2150,11 +2154,11 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber resolution { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class ElevationStatus
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class MaxZoomService
     {
         /// <summary>
@@ -2178,11 +2182,11 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber zoom { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class MaxZoomStatus
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class DistanceMatrixService
     {
         /// <summary>
@@ -2266,11 +2270,11 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public DistanceMatrixElementStatus status { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class DistanceMatrixStatus
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class DistanceMatrixElementStatus
     {
     }
@@ -2314,7 +2318,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public Size tileSize { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class MapTypeRegistry
     {
         /// <summary>
@@ -2338,7 +2342,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public LatLng fromPointToLatLng(Point pixel, bool nowrap = false) { return null; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class ImageMapType
     {
         /// <summary>
@@ -2390,7 +2394,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public Size tileSize { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class StyledMapType
     {
         /// <summary>
@@ -2478,7 +2482,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber weight { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class BicyclingLayer
     {
         /// <summary>
@@ -2494,7 +2498,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public void setMap(Map map) { }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class FusionTablesLayer
     {
         /// <summary>
@@ -2679,7 +2683,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public string value { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class KmlLayer
     {
         /// <summary>
@@ -2771,7 +2775,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public string snippet { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class KmlLayerStatus
     {
     }
@@ -2835,7 +2839,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public string uri { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class TrafficLayer
     {
         /// <summary>
@@ -2851,7 +2855,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public void setMap(Map map) { }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class TransitLayer
     {
         /// <summary>
@@ -2867,7 +2871,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public void setMap(Map map) { }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class StreetViewPanorama
     {
         /// <summary>
@@ -3131,7 +3135,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public Size worldSize { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class StreetViewService
     {
         /// <summary>
@@ -3143,11 +3147,11 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public void getPanoramaByLocation() { }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class StreetViewStatus
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class StreetViewCoverageLayer
     {
         /// <summary>
@@ -3167,7 +3171,7 @@ namespace SharpKit.Google.ApiGenerator
     class MapsEventListener
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class eventnamespace
     {
         /// <summary>
@@ -3215,7 +3219,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public LatLng latLng { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class LatLng
     {
         /// <summary>
@@ -3243,7 +3247,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public string toUrlValue(JsNumber precision = null) { return null; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class LatLngBounds
     {
         /// <summary>
@@ -3299,7 +3303,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public LatLngBounds union(LatLngBounds other) { return null; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class Point
     {
         /// <summary>
@@ -3323,7 +3327,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber y { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class Size
     {
         /// <summary>
@@ -3347,7 +3351,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber width { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class MVCObject
     {
         /// <summary>
@@ -3391,7 +3395,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public void unbindAll() { }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class MVCArray
     {
         /// <summary>
@@ -3451,7 +3455,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         //public JsAction<number,*> set_at{get; set;}
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class encodingnamespace
     {
         /// <summary>
@@ -3463,7 +3467,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public string encodePath(object path) { return null; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class sphericalnamespace
     {
         /// <summary>
@@ -3499,7 +3503,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public LatLng interpolate(LatLng from, LatLng to, JsNumber fraction) { return null; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class polynamespace
     {
         /// <summary>
@@ -3511,7 +3515,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public bool isLocationOnEdge(LatLng point, object poly, JsNumber tolerance = null) { return false; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class AdUnit
     {
         /// <summary>
@@ -3643,11 +3647,11 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public string urlColor { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class AdFormat
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class PanoramioLayer
     {
         /// <summary>
@@ -3740,7 +3744,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public Size pixelOffset { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class Autocomplete
     {
         /// <summary>
@@ -3840,7 +3844,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber offset { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class AutocompleteService
     {
         /// <summary>
@@ -4118,7 +4122,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsArray<string> types { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class PlacesService
     {
         /// <summary>
@@ -4142,7 +4146,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public void textSearch() { }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class PlacesServiceStatus
     {
     }
@@ -4214,11 +4218,11 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsArray<string> types { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class RankBy
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class SearchBox
     {
         /// <summary>
@@ -4270,7 +4274,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsArray<string> types { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class DrawingManager
     {
         /// <summary>
@@ -4386,11 +4390,11 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public OverlayType type { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class OverlayType
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class CloudLayer
     {
         /// <summary>
@@ -4406,7 +4410,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public void setMap(Map map) { }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class WeatherLayer
     {
         /// <summary>
@@ -4458,15 +4462,15 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public WindSpeedUnit windSpeedUnits { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class TemperatureUnit
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class WindSpeedUnit
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class LabelColor
     {
     }
@@ -4578,7 +4582,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public string shortDay { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class MapsEngineLayer
     {
         /// <summary>
@@ -4699,7 +4703,7 @@ namespace SharpKit.Google.ApiGenerator
     class MapsEngineStatus
     {
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class HeatmapLayer
     {
         /// <summary>
@@ -4764,7 +4768,7 @@ namespace SharpKit.Google.ApiGenerator
         /// </summary>
         public JsNumber weight { get; set; }
     }
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype, Export = false)]
     class DemographicsLayer
     {
         /// <summary>
