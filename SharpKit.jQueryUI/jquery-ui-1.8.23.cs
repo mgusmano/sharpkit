@@ -1544,6 +1544,11 @@ namespace SharpKit.jQuery
         ///Default: 0
         ///</summary>
         public int value { get; set; }
+        /// <summary>
+        /// The maximum progress bar value
+        /// Default: 100
+        /// </summary>
+        public int max { get; set; }
         ///<summary>
         ///This event is triggered when progressbar is created.
         ///</summary>
