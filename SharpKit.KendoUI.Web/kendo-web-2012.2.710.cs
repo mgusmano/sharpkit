@@ -4664,6 +4664,29 @@ namespace SharpKit.KendoUI.Web
         public JsAction<object> dataBound { get; set; }
 
         /// <summary>
+        /// Fires the first time a grid detail group is expanded.
+        /// </summary>
+        /// <example>
+        /// <code>
+        ///  $("#grid").kendoGrid({
+        ///     detailInit: function(e) {
+        ///     // handle event
+        ///     }
+        /// });
+        /// </code>
+        /// To set after initialization
+        /// <code>
+        /// // get a reference to the grid
+        /// var grid = $("#grid").data("kendoGrid");
+        /// // bind to the detailInit event
+        /// grid.bind("detailInit", function(e) {
+        ///     // handle event
+        /// });
+        /// </code>
+        /// </example>
+        public JsAction<object> detailInit { get; set; }
+
+        /// <summary>
         /// Indicates whether editing is enabled/disabled.
         /// </summary>
         ///<example>
