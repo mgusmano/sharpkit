@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SharpKit.Google.ApiGenerator
+namespace SharpKit.Google.Maps
 {
 
 
