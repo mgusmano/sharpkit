@@ -27,7 +27,7 @@ namespace qx.ui.embed
 		/// <summary>
 		/// Fired on change of the property <see cref="Html"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeHtmlEvent;
+		public event Action<qx.eventx.type.Data> OnChangeHtml;
 
 		#endregion Events
 

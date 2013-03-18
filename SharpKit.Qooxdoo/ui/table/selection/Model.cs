@@ -17,7 +17,7 @@ namespace qx.ui.table.selection
 		/// <summary>
 		/// <para>Fired when the selection has changed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ChangeSelectionEvent;
+		public event Action<qx.eventx.type.Event> OnChangeSelection;
 
 		#endregion Events
 

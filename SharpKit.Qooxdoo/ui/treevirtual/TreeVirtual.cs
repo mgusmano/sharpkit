@@ -25,7 +25,7 @@ namespace qx.ui.treevirtual
 		/// from the data model.  Each node object is described in
 		/// <see cref="qx.ui.treevirtual.SimpleTreeDataModel"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelection;
 
 		/// <summary>
 		/// <para>Fired when a tree branch is closed.</para>
@@ -33,7 +33,7 @@ namespace qx.ui.treevirtual
 		/// being closed) as described in
 		/// <see cref="qx.ui.treevirtual.SimpleTreeDataModel"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> TreeCloseEvent;
+		public event Action<qx.eventx.type.Data> OnTreeClose;
 
 		/// <summary>
 		/// <para>Fired when an empty tree branch is opened.</para>
@@ -41,7 +41,7 @@ namespace qx.ui.treevirtual
 		/// being opened) as described in
 		/// <see cref="qx.ui.treevirtual.SimpleTreeDataModel"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> TreeOpenWhileEmptyEvent;
+		public event Action<qx.eventx.type.Data> OnTreeOpenWhileEmpty;
 
 		/// <summary>
 		/// <para>Fired when a tree branch which already has content is opened.</para>
@@ -49,7 +49,7 @@ namespace qx.ui.treevirtual
 		/// being opened) as described in
 		/// <see cref="qx.ui.treevirtual.SimpleTreeDataModel"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> TreeOpenWithContentEvent;
+		public event Action<qx.eventx.type.Data> OnTreeOpenWithContent;
 
 		#endregion Events
 

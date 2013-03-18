@@ -32,32 +32,32 @@ namespace qx.bom.request
 		/// <summary>
 		/// <para>Fired when the request is aborted.</para>
 		/// </summary>
-		public event Action<qx.bom.request.Xhr> AbortEvent;
+		public event Action<qx.bom.request.Xhr> OnAbort;
 
 		/// <summary>
 		/// <para>Fired on error.</para>
 		/// </summary>
-		public event Action<qx.bom.request.Xhr> ErrorEvent;
+		public event Action<qx.bom.request.Xhr> OnError;
 
 		/// <summary>
 		/// <para>Fired on successful retrieval.</para>
 		/// </summary>
-		public event Action<qx.bom.request.Xhr> LoadEvent;
+		public event Action<qx.bom.request.Xhr> OnLoad;
 
 		/// <summary>
 		/// <para>Fired at loadend.</para>
 		/// </summary>
-		public event Action<qx.bom.request.Xhr> LoadendEvent;
+		public event Action<qx.bom.request.Xhr> OnLoadend;
 
 		/// <summary>
 		/// <para>Fired at ready state changes.</para>
 		/// </summary>
-		public event Action<qx.bom.request.Xhr> ReadystatechangeEvent;
+		public event Action<qx.bom.request.Xhr> OnReadystatechange;
 
 		/// <summary>
 		/// <para>Fired on timeouts.</para>
 		/// </summary>
-		public event Action<qx.bom.request.Xhr> TimeoutEvent;
+		public event Action<qx.bom.request.Xhr> OnTimeout;
 
 		#endregion Events
 

@@ -22,7 +22,7 @@ namespace qx.ui.table.columnmodel
 		/// <item>col: The model index of the column that was moved.</item>
 		/// </list</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> HeaderCellRendererChangedEvent;
+		public event Action<qx.eventx.type.Data> OnHeaderCellRendererChanged;
 
 		/// <summary>
 		/// <para>Fired when the column order has changed. The data property of the
@@ -33,7 +33,7 @@ namespace qx.ui.table.columnmodel
 		/// <item>toOverXPos: The new overall x position of the column.</item>
 		/// </list</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> OrderChangedEvent;
+		public event Action<qx.eventx.type.Data> OnOrderChanged;
 
 		/// <summary>
 		/// <para>Fired when the visibility of a column has changed. The data property of the
@@ -43,13 +43,13 @@ namespace qx.ui.table.columnmodel
 		/// <item>visible: Whether the column is now visible.</item>
 		/// </list</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> VisibilityChangedEvent;
+		public event Action<qx.eventx.type.Data> OnVisibilityChanged;
 
 		/// <summary>
 		/// <para>Fired when the visibility of a column has changed. This event is equal to
 		/// &#8220;visibilityChanged&#8221;, but is fired right before.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> VisibilityChangedPreEvent;
+		public event Action<qx.eventx.type.Data> OnVisibilityChangedPre;
 
 		/// <summary>
 		/// <para>Fired when the width of a column has changed. The data property of the event is
@@ -60,7 +60,7 @@ namespace qx.ui.table.columnmodel
 		/// <item>oldWidth: The old width of the column in pixels.</item>
 		/// </list</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> WidthChangedEvent;
+		public event Action<qx.eventx.type.Data> OnWidthChanged;
 
 		#endregion Events
 

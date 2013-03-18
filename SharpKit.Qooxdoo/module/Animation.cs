@@ -19,17 +19,17 @@ namespace qx.module
 		/// <summary>
 		/// <para>Fired when an animation has ended.</para>
 		/// </summary>
-		public event Action<object> AnimationEndEvent;
+		public event Action<object> OnAnimationEnd;
 
 		/// <summary>
 		/// <para>Fired when an animation has ended one iteration.</para>
 		/// </summary>
-		public event Action<object> AnimationIterationEvent;
+		public event Action<object> OnAnimationIteration;
 
 		/// <summary>
 		/// <para>Fired when an animation starts.</para>
 		/// </summary>
-		public event Action<object> AnimationStartEvent;
+		public event Action<object> OnAnimationStart;
 
 		#endregion Events
 

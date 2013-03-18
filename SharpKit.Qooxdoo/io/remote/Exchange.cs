@@ -18,37 +18,37 @@ namespace qx.io.remote
 		/// <summary>
 		/// <para>Fired whenever a request is aborted</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> AbortedEvent;
+		public event Action<qx.eventx.type.Event> OnAborted;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="State"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeStateEvent;
+		public event Action<qx.eventx.type.Data> OnChangeState;
 
 		/// <summary>
 		/// <para>Fired whenever a request is completed</para>
 		/// </summary>
-		public event Action<qx.io.remote.Response> CompletedEvent;
+		public event Action<qx.io.remote.Response> OnCompleted;
 
 		/// <summary>
 		/// <para>Fired whenever a request has failed</para>
 		/// </summary>
-		public event Action<qx.io.remote.Response> FailedEvent;
+		public event Action<qx.io.remote.Response> OnFailed;
 
 		/// <summary>
 		/// <para>Fired whenever a request is received</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ReceivingEvent;
+		public event Action<qx.eventx.type.Event> OnReceiving;
 
 		/// <summary>
 		/// <para>Fired whenever a request is send</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> SendingEvent;
+		public event Action<qx.eventx.type.Event> OnSending;
 
 		/// <summary>
 		/// <para>Fired whenever a request has timed out</para>
 		/// </summary>
-		public event Action<qx.io.remote.Response> TimeoutEvent;
+		public event Action<qx.io.remote.Response> OnTimeout;
 
 		#endregion Events
 

@@ -20,7 +20,7 @@ namespace qx.ui.tabview
 		/// <summary>
 		/// <para>Fires after the selection was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelection;
 
 		#endregion Events
 

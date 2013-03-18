@@ -91,16 +91,12 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
                         foreach (var propNode in child.Children)
                         {
                             var metaProperty = new MetaProperty(propNode);
-                            // Add all public properties
-                            if (metaProperty.AccessType != "protected")
+                            // Add 'x' in the end if property name = class name
+                            if (metaProperty.FormattedName == FormattedName)
                             {
-                                // Add 'x' in the end if property name = class name
-                                if (metaProperty.FormattedName == FormattedName)
-                                {
-                                    metaProperty.FormattedName += "x";
-                                }
-                                Properties.Add(metaProperty);
+                                metaProperty.FormattedName += "x";
                             }
+                            Properties.Add(metaProperty);
                         }
                         break;
                 }

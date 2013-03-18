@@ -19,48 +19,48 @@ namespace qx.io.remote
 		/// <summary>
 		/// <para>Fired when the pending request has been aborted.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> AbortedEvent;
+		public event Action<qx.eventx.type.Event> OnAborted;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="State"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeStateEvent;
+		public event Action<qx.eventx.type.Data> OnChangeState;
 
 		/// <summary>
 		/// <para>Fired once the request has finished successfully. The event object
 		/// can be used to read the transferred data.</para>
 		/// </summary>
-		public event Action<qx.io.remote.Response> CompletedEvent;
+		public event Action<qx.io.remote.Response> OnCompleted;
 
 		/// <summary>
 		/// <para>Fired when the Request object changes its state to &#8216;configured&#8217;</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ConfiguredEvent;
+		public event Action<qx.eventx.type.Event> OnConfigured;
 
 		/// <summary>
 		/// <para>Fired when the Request object changes its state to &#8216;created&#8217;</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> CreatedEvent;
+		public event Action<qx.eventx.type.Event> OnCreated;
 
 		/// <summary>
 		/// <para>Fired when the pending request failes.</para>
 		/// </summary>
-		public event Action<qx.io.remote.Response> FailedEvent;
+		public event Action<qx.io.remote.Response> OnFailed;
 
 		/// <summary>
 		/// <para>Fired when the Request object changes its state to &#8216;receiving&#8217;</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ReceivingEvent;
+		public event Action<qx.eventx.type.Event> OnReceiving;
 
 		/// <summary>
 		/// <para>Fired when the Request object changes its state to &#8216;sending&#8217;</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> SendingEvent;
+		public event Action<qx.eventx.type.Event> OnSending;
 
 		/// <summary>
 		/// <para>Fired when the pending request times out.</para>
 		/// </summary>
-		public event Action<qx.io.remote.Response> TimeoutEvent;
+		public event Action<qx.io.remote.Response> OnTimeout;
 
 		#endregion Events
 

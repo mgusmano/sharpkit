@@ -19,27 +19,27 @@ namespace qx.ui.virtualx.form
 		/// <summary>
 		/// Fired on change of the property <see cref="CellRenderer"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeCellRendererEvent;
+		public event Action<qx.eventx.type.Data> OnChangeCellRenderer;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Delegate"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeDelegateEvent;
+		public event Action<qx.eventx.type.Data> OnChangeDelegate;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="RowCount"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRowCountEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRowCount;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="RowHeight"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRowHeightEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRowHeight;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="ShowGridLines"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeShowGridLinesEvent;
+		public event Action<qx.eventx.type.Data> OnChangeShowGridLines;
 
 		#endregion Events
 

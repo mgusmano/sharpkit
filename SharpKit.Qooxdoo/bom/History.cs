@@ -31,18 +31,18 @@ namespace qx.bom
 		/// <summary>
 		/// Fired on change of the property <see cref="State"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeStateEvent;
+		public event Action<qx.eventx.type.Data> OnChangeState;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Title"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeTitleEvent;
+		public event Action<qx.eventx.type.Data> OnChangeTitle;
 
 		/// <summary>
 		/// <para>Fired when the user moved in the history. The data property of the event
 		/// holds the state, which was passed to <see cref="AddToHistory"/>.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> RequestEvent;
+		public event Action<qx.eventx.type.Data> OnRequest;
 
 		#endregion Events
 

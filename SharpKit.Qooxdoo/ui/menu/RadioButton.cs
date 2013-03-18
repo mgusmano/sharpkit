@@ -20,12 +20,12 @@ namespace qx.ui.menu
 		/// <summary>
 		/// <para>Fired when the value was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValueEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValue;
 
 		/// <summary>
 		/// <para>Fired when the model data changes</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		#endregion Events
 

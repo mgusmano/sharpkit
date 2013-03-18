@@ -25,12 +25,12 @@ namespace qx.io.request
 		/// <summary>
 		/// <para>Fired when request is aborted.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> AbortEvent;
+		public event Action<qx.eventx.type.Event> OnAbort;
 
 		/// <summary>
 		/// <para>Fired on change of the phase.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangePhaseEvent;
+		public event Action<qx.eventx.type.Data> OnChangePhase;
 
 		/// <summary>
 		/// <para>Fired on change of the parsed response.</para>
@@ -47,50 +47,50 @@ namespace qx.io.request
 		/// that when a new request is made the initial emtpy value
 		/// is ignored, instead only the final value is bound.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeResponseEvent;
+		public event Action<qx.eventx.type.Data> OnChangeResponse;
 
 		/// <summary>
 		/// <para>Fired when request completes with error.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ErrorEvent;
+		public event Action<qx.eventx.type.Event> OnError;
 
 		/// <summary>
 		/// <para>Fired on timeout, error or remote error.</para>
 		/// <para>This event is fired for convenience. Usually, it is recommended
 		/// to handle error related events in a more granular approach.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> FailEvent;
+		public event Action<qx.eventx.type.Event> OnFail;
 
 		/// <summary>
 		/// <para>Fired when request completes without error.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadEvent;
+		public event Action<qx.eventx.type.Event> OnLoad;
 
 		/// <summary>
 		/// <para>Fired when request completes with or without error.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadEndEvent;
+		public event Action<qx.eventx.type.Event> OnLoadEnd;
 
 		/// <summary>
 		/// <para>Fired on every change of the transport&#8217;s readyState.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ReadyStateChangeEvent;
+		public event Action<qx.eventx.type.Event> OnReadyStateChange;
 
 		/// <summary>
 		/// <para>Fired when request completes without error but erroneous HTTP status.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> StatusErrorEvent;
+		public event Action<qx.eventx.type.Event> OnStatusError;
 
 		/// <summary>
 		/// <para>Fired when request completes without error and transport&#8217;s status
 		/// indicates success.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> SuccessEvent;
+		public event Action<qx.eventx.type.Event> OnSuccess;
 
 		/// <summary>
 		/// <para>Fired when request reaches timeout limit.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> TimeoutEvent;
+		public event Action<qx.eventx.type.Event> OnTimeout;
 
 		#endregion Events
 

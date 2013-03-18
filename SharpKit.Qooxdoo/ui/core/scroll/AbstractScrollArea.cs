@@ -18,12 +18,12 @@ namespace qx.ui.core.scroll
 		/// <summary>
 		/// <para>Fired as soon as the scroll animation in X direction ends.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ScrollAnimationXEndEvent;
+		public event Action<qx.eventx.type.Event> OnScrollAnimationXEnd;
 
 		/// <summary>
 		/// <para>Fired as soon as the scroll animation in X direction ends.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ScrollAnimationYEndEvent;
+		public event Action<qx.eventx.type.Event> OnScrollAnimationYEnd;
 
 		#endregion Events
 

@@ -25,33 +25,33 @@ namespace qx.ui.form
 		/// <summary>
 		/// <para>Fired when the enabled state was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeEnabledEvent;
+		public event Action<qx.eventx.type.Data> OnChangeEnabled;
 
 		/// <summary>
 		/// <para>Fired when the invalidMessage was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeInvalidMessageEvent;
+		public event Action<qx.eventx.type.Data> OnChangeInvalidMessage;
 
 		/// <summary>
 		/// <para>Fired when the required was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRequiredEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRequired;
 
 		/// <summary>
 		/// <para>Fired when the valid state was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValidEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValid;
 
 		/// <summary>
 		/// <para>Fires after the selection was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelection;
 
 		/// <summary>
 		/// <para>Pseudo event. It will never be fired because the array itself can not
 		/// be changed. But the event description is needed for the data binding.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModelSelection;
 
 		#endregion Events
 

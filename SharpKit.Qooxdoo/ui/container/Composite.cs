@@ -40,14 +40,14 @@ namespace qx.ui.container
 		/// <see cref="qx.event.type.Data.GetData"/> method of the event returns the
 		/// added child.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> AddChildWidgetEvent;
+		public event Action<qx.eventx.type.Data> OnAddChildWidget;
 
 		/// <summary>
 		/// <para>This event is fired after a child widget has been removed from this widget.
 		/// The <see cref="qx.event.type.Data.GetData"/> method of the event returns the
 		/// removed child.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> RemoveChildWidgetEvent;
+		public event Action<qx.eventx.type.Data> OnRemoveChildWidget;
 
 		#endregion Events
 

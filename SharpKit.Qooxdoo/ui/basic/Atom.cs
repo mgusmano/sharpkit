@@ -30,22 +30,22 @@ namespace qx.ui.basic
 		/// <summary>
 		/// Fired on change of the property <see cref="Gap"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeGapEvent;
+		public event Action<qx.eventx.type.Data> OnChangeGap;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Icon"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeIconEvent;
+		public event Action<qx.eventx.type.Data> OnChangeIcon;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Label"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeLabelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeLabel;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Show"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeShowEvent;
+		public event Action<qx.eventx.type.Data> OnChangeShow;
 
 		#endregion Events
 

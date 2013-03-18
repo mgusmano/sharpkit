@@ -19,21 +19,21 @@ namespace qx.ui.embed
 		/// <para>The loaded action can be prevented by calling
 		/// <see cref="qx.event.type.Event.PreventDefault"/> on the event object</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadedEvent;
+		public event Action<qx.eventx.type.Event> OnLoaded;
 
 		/// <summary>
 		/// <para>Fired when the flash object still is loading.</para>
 		/// <para>The loading action can be prevented by calling
 		/// <see cref="qx.event.type.Event.PreventDefault"/> on the event object</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadingEvent;
+		public event Action<qx.eventx.type.Event> OnLoading;
 
 		/// <summary>
 		/// <para>Fired after the flash object has got a timeout.</para>
 		/// <para>The timeout action can be prevented by calling
 		/// <see cref="qx.event.type.Event.PreventDefault"/> on the event object</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> TimeoutEvent;
+		public event Action<qx.eventx.type.Event> OnTimeout;
 
 		#endregion Events
 

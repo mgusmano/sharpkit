@@ -43,13 +43,13 @@ namespace qx.ui.mobile.dialog
 		/// <summary>
 		/// <para>Fired when the selection of a single slot has changed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelection;
 
 		/// <summary>
 		/// <para>Fired when the picker is closed. This means user has confirmed its selection.
 		/// Thie events contains all data which were chosen by user.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ConfirmSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnConfirmSelection;
 
 		#endregion Events
 

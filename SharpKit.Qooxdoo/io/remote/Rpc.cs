@@ -14,22 +14,22 @@ namespace qx.io.remote
 		/// <summary>
 		/// <para>Fired when call aborted.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> AbortedEvent;
+		public event Action<qx.eventx.type.Event> OnAborted;
 
 		/// <summary>
 		/// <para>Fired when call is completed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> CompletedEvent;
+		public event Action<qx.eventx.type.Event> OnCompleted;
 
 		/// <summary>
 		/// <para>Fired when call failed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> FailedEvent;
+		public event Action<qx.eventx.type.Event> OnFailed;
 
 		/// <summary>
 		/// <para>Fired when call timed out.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> TimeoutEvent;
+		public event Action<qx.eventx.type.Event> OnTimeout;
 
 		#endregion Events
 

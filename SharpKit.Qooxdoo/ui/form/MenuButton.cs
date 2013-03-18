@@ -17,7 +17,7 @@ namespace qx.ui.form
 		/// <summary>
 		/// Fired on change of the property <see cref="Menu"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeMenuEvent;
+		public event Action<qx.eventx.type.Data> OnChangeMenu;
 
 		#endregion Events
 

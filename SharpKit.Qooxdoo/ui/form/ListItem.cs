@@ -18,12 +18,12 @@ namespace qx.ui.form
 		/// <summary>
 		/// <para>(Fired by <see cref="qx.ui.form.List"/>)</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ActionEvent;
+		public event Action<qx.eventx.type.Event> OnAction;
 
 		/// <summary>
 		/// <para>Fired when the model data changes</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		#endregion Events
 

@@ -18,18 +18,18 @@ namespace qx.ui.groupbox
 		/// <summary>
 		/// <para>Fired when the value was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValueEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValue;
 
 		/// <summary>
 		/// <para>Fired when the widget is executed. Sets the &#8220;data&#8221; property of the
 		/// event to the object that issued the command.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ExecuteEvent;
+		public event Action<qx.eventx.type.Data> OnExecute;
 
 		/// <summary>
 		/// <para>Fired when the model data changes</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		#endregion Events
 

@@ -19,7 +19,7 @@ namespace qx.ui.tabview
 		/// <para>Fired by <see cref="qx.ui.tabview.Page"/> if the close button is clicked.</para>
 		/// <para>Event data: The tab button.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> CloseEvent;
+		public event Action<qx.eventx.type.Data> OnClose;
 
 		#endregion Events
 

@@ -19,7 +19,7 @@ namespace qx.ui.table.columnmodel
 		/// <summary>
 		/// Fired on change of the property <see cref="Behavior"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeBehaviorEvent;
+		public event Action<qx.eventx.type.Data> OnChangeBehavior;
 
 		#endregion Events
 

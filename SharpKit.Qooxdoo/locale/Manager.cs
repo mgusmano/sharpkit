@@ -18,7 +18,7 @@ namespace qx.locale
 		/// <summary>
 		/// Fired on change of the property <see cref="Locale"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeLocaleEvent;
+		public event Action<qx.eventx.type.Data> OnChangeLocale;
 
 		#endregion Events
 

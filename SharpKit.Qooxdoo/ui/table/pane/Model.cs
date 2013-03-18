@@ -19,7 +19,7 @@ namespace qx.ui.table.pane
 		/// <summary>
 		/// <para>Fired when the model changed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ModelChangedEvent;
+		public event Action<qx.eventx.type.Event> OnModelChanged;
 
 		#endregion Events
 

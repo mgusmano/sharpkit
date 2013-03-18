@@ -20,7 +20,7 @@ namespace qx.ui.toolbar
 		/// <summary>
 		/// <para>Fired when the model data changes</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		#endregion Events
 

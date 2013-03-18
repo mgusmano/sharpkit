@@ -37,12 +37,12 @@ namespace qx.ui.indicator
 		/// <summary>
 		/// <para>Fired when the % complete value is changed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeEvent;
+		public event Action<qx.eventx.type.Data> OnChange;
 
 		/// <summary>
 		/// <para>Fired when the process is complete (value === maximum value)</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> CompleteEvent;
+		public event Action<qx.eventx.type.Event> OnComplete;
 
 		#endregion Events
 

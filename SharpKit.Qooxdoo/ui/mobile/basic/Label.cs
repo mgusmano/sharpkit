@@ -24,7 +24,7 @@ namespace qx.ui.mobile.basic
 		/// <summary>
 		/// Fired on change of the property <see cref="Value"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValueEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValue;
 
 		#endregion Events
 

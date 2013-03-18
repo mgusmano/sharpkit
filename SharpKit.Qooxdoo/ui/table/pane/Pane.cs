@@ -22,14 +22,14 @@ namespace qx.ui.table.pane
 		/// data or not. Can be used to give the user feedback of the loading state
 		/// of the rows.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> PaneReloadsDataEvent;
+		public event Action<qx.eventx.type.Data> OnPaneReloadsData;
 
 		/// <summary>
 		/// <para>Whenever the content of the table pane has been updated (rendered)
 		/// trigger a paneUpdated event. This allows the canvas cellrenderer to act
 		/// once the new cells have been integrated in the dom.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> PaneUpdatedEvent;
+		public event Action<qx.eventx.type.Event> OnPaneUpdated;
 
 		#endregion Events
 

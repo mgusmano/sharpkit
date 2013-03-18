@@ -17,22 +17,22 @@ namespace qx.ui.form
 		/// <summary>
 		/// <para>Fired when the enabled state was modified</para>
 		/// </summary>
-		event Action<qx.eventx.type.Data> ChangeEnabledEvent;
+		event Action<qx.eventx.type.Data> OnChangeEnabled;
 
 		/// <summary>
 		/// <para>Fired when the invalidMessage was modified</para>
 		/// </summary>
-		event Action<qx.eventx.type.Data> ChangeInvalidMessageEvent;
+		event Action<qx.eventx.type.Data> OnChangeInvalidMessage;
 
 		/// <summary>
 		/// <para>Fired when the required was modified</para>
 		/// </summary>
-		event Action<qx.eventx.type.Data> ChangeRequiredEvent;
+		event Action<qx.eventx.type.Data> OnChangeRequired;
 
 		/// <summary>
 		/// <para>Fired when the valid state was modified</para>
 		/// </summary>
-		event Action<qx.eventx.type.Data> ChangeValidEvent;
+		event Action<qx.eventx.type.Data> OnChangeValid;
 
 		#endregion Events
 

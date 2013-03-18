@@ -24,7 +24,7 @@ namespace qx.eventx
 		/// <summary>
 		/// <para>This event if fired each time the interval time has elapsed</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> IntervalEvent;
+		public event Action<qx.eventx.type.Event> OnInterval;
 
 		#endregion Events
 

@@ -22,12 +22,12 @@ namespace qx.ui.core
 		/// <summary>
 		/// <para>Fires after <see cref="Block"/> or <see cref="BlockContent"/> executed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> BlockedEvent;
+		public event Action<qx.eventx.type.Event> OnBlocked;
 
 		/// <summary>
 		/// <para>Fires after <see cref="Unblock"/> or <see cref="UnblockContent"/> executed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> UnblockedEvent;
+		public event Action<qx.eventx.type.Event> OnUnblocked;
 
 		#endregion Events
 

@@ -57,7 +57,7 @@ namespace qx.ui.embed
 		/// width and height of the canvas and the
 		/// rendering context.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> RedrawEvent;
+		public event Action<qx.eventx.type.Data> OnRedraw;
 
 		#endregion Events
 

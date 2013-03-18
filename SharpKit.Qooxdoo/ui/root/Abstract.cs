@@ -19,7 +19,7 @@ namespace qx.ui.root
 		/// <summary>
 		/// Fired on change of the property <see cref="GlobalCursor"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeGlobalCursorEvent;
+		public event Action<qx.eventx.type.Data> OnChangeGlobalCursor;
 
 		#endregion Events
 

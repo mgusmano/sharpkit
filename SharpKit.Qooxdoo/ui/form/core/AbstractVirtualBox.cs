@@ -20,47 +20,47 @@ namespace qx.ui.form.core
 		/// <summary>
 		/// Fired on change of the property <see cref="Delegate"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeDelegateEvent;
+		public event Action<qx.eventx.type.Data> OnChangeDelegate;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="IconOptions"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeIconOptionsEvent;
+		public event Action<qx.eventx.type.Data> OnChangeIconOptions;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="IconPath"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeIconPathEvent;
+		public event Action<qx.eventx.type.Data> OnChangeIconPath;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="LabelOptions"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeLabelOptionsEvent;
+		public event Action<qx.eventx.type.Data> OnChangeLabelOptions;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="LabelPath"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeLabelPathEvent;
+		public event Action<qx.eventx.type.Data> OnChangeLabelPath;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Model"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		/// <summary>
 		/// <para>Fired when the invalidMessage was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeInvalidMessageEvent;
+		public event Action<qx.eventx.type.Data> OnChangeInvalidMessage;
 
 		/// <summary>
 		/// <para>Fired when the required was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRequiredEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRequired;
 
 		/// <summary>
 		/// <para>Fired when the valid state was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValidEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValid;
 
 		#endregion Events
 

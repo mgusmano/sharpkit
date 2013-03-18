@@ -20,7 +20,7 @@ namespace qx.ui.progressive.model
 		/// <para>The event data is an integer: the number of elements now available on
 		/// the element queue.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> DataAvailableEvent;
+		public event Action<qx.eventx.type.Data> OnDataAvailable;
 
 		#endregion Events
 

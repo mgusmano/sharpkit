@@ -21,32 +21,32 @@ namespace qx.ui.virtualx.core
 		/// <summary>
 		/// <para>Fired if a cell is clicked.</para>
 		/// </summary>
-		public event Action<qx.ui.virtualx.core.CellEvent> CellClickEvent;
+		public event Action<qx.ui.virtualx.core.CellEvent> OnCellClick;
 
 		/// <summary>
 		/// <para>Fired if a cell is right-clicked.</para>
 		/// </summary>
-		public event Action<qx.ui.virtualx.core.CellEvent> CellContextmenuEvent;
+		public event Action<qx.ui.virtualx.core.CellEvent> OnCellContextmenu;
 
 		/// <summary>
 		/// <para>Fired if a cell is double-clicked.</para>
 		/// </summary>
-		public event Action<qx.ui.virtualx.core.CellEvent> CellDblclickEvent;
+		public event Action<qx.ui.virtualx.core.CellEvent> OnCellDblclick;
 
 		/// <summary>
 		/// <para>Fired if the pane is scrolled horizontally.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ScrollXEvent;
+		public event Action<qx.eventx.type.Data> OnScrollX;
 
 		/// <summary>
 		/// <para>Fired if the pane is scrolled vertically.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ScrollYEvent;
+		public event Action<qx.eventx.type.Data> OnScrollY;
 
 		/// <summary>
 		/// <para>Fired on resize of either the container or the (virtual) content.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> UpdateEvent;
+		public event Action<qx.eventx.type.Event> OnUpdate;
 
 		#endregion Events
 

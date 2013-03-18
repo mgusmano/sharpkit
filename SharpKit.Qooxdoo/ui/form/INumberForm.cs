@@ -17,7 +17,7 @@ namespace qx.ui.form
 		/// <summary>
 		/// <para>Fired when the value was modified</para>
 		/// </summary>
-		event Action<qx.eventx.type.Data> ChangeValueEvent;
+		event Action<qx.eventx.type.Data> OnChangeValue;
 
 		#endregion Events
 

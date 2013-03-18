@@ -20,7 +20,7 @@ namespace qx.ui.virtualx.core
 		/// <summary>
 		/// <para>Every change to the axis configuration triggers this event.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ChangeEvent;
+		public event Action<qx.eventx.type.Event> OnChange;
 
 		#endregion Events
 

@@ -17,14 +17,14 @@ namespace qx.ui.form.validation
 		/// <summary>
 		/// <para>Change event for the valid state.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValidEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValid;
 
 		/// <summary>
 		/// <para>Signals that the validation is done. This is not needed on synchronous
 		/// validation (validation is done right after the call) but very important
 		/// in the case an asynchronous validator will be used.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> CompleteEvent;
+		public event Action<qx.eventx.type.Event> OnComplete;
 
 		#endregion Events
 

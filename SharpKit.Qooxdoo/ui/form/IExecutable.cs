@@ -18,7 +18,7 @@ namespace qx.ui.form
 		/// <para>Fired when the widget is executed. Sets the &#8220;data&#8221; property of the
 		/// event to the object that issued the command.</para>
 		/// </summary>
-		event Action<qx.eventx.type.Data> ExecuteEvent;
+		event Action<qx.eventx.type.Data> OnExecute;
 
 		#endregion Events
 

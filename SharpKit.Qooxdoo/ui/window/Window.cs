@@ -21,78 +21,78 @@ namespace qx.ui.window
 		/// <para>The close action can be prevented by calling
 		/// <see cref="qx.event.type.Event.PreventDefault"/> on the event object</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> BeforeCloseEvent;
+		public event Action<qx.eventx.type.Event> OnBeforeClose;
 
 		/// <summary>
 		/// <para>Fired before the window is maximize.</para>
 		/// <para>The maximize action can be prevented by calling
 		/// <see cref="qx.event.type.Event.PreventDefault"/> on the event object</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> BeforeMaximizeEvent;
+		public event Action<qx.eventx.type.Event> OnBeforeMaximize;
 
 		/// <summary>
 		/// <para>Fired before the window is minimize.</para>
 		/// <para>The minimize action can be prevented by calling
 		/// <see cref="qx.event.type.Event.PreventDefault"/> on the event object</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> BeforeMinimizeEvent;
+		public event Action<qx.eventx.type.Event> OnBeforeMinimize;
 
 		/// <summary>
 		/// <para>Fired before the window is restored from a minimized or maximized state.</para>
 		/// <para>The restored action can be prevented by calling
 		/// <see cref="qx.event.type.Event.PreventDefault"/> on the event object</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> BeforeRestoreEvent;
+		public event Action<qx.eventx.type.Event> OnBeforeRestore;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Active"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeActiveEvent;
+		public event Action<qx.eventx.type.Data> OnChangeActive;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="AlwaysOnTop"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeAlwaysOnTopEvent;
+		public event Action<qx.eventx.type.Data> OnChangeAlwaysOnTop;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Caption"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeCaptionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeCaption;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Icon"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeIconEvent;
+		public event Action<qx.eventx.type.Data> OnChangeIcon;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Modal"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModalEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModal;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Status"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeStatusEvent;
+		public event Action<qx.eventx.type.Data> OnChangeStatus;
 
 		/// <summary>
 		/// <para>Fired if the window is closed</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> CloseEvent;
+		public event Action<qx.eventx.type.Event> OnClose;
 
 		/// <summary>
 		/// <para>Fired if the window is maximized</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> MaximizeEvent;
+		public event Action<qx.eventx.type.Event> OnMaximize;
 
 		/// <summary>
 		/// <para>Fired if the window is minimized</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> MinimizeEvent;
+		public event Action<qx.eventx.type.Event> OnMinimize;
 
 		/// <summary>
 		/// <para>Fired if the window is restored from a minimized or maximized state</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> RestoreEvent;
+		public event Action<qx.eventx.type.Event> OnRestore;
 
 		#endregion Events
 

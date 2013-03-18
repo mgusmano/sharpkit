@@ -54,20 +54,20 @@ namespace qx.io.request
 		/// fire a &#8220;load&#8221; event. If you are only interested in successful
 		/// responses, listen to the <see cref="Success"/> event instead.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadEvent;
+		public event Action<qx.eventx.type.Event> OnLoad;
 
 		/// <summary>
 		/// <para>Fired on every change of the transport&#8217;s readyState.</para>
 		/// <para>See <see cref="qx.bom.request.Xhr"/> for available readyStates.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ReadyStateChangeEvent;
+		public event Action<qx.eventx.type.Event> OnReadyStateChange;
 
 		/// <summary>
 		/// <para>Fired when request completes without error but erroneous HTTP status.</para>
 		/// <para>Refer to <see cref="qx.util.Request.IsSuccessful"/> for a list of HTTP
 		/// status considered successful.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> StatusErrorEvent;
+		public event Action<qx.eventx.type.Event> OnStatusError;
 
 		/// <summary>
 		/// <para>Fired when request completes without eror and transport&#8217;s status
@@ -75,7 +75,7 @@ namespace qx.io.request
 		/// <para>Refer to <see cref="qx.util.Request.IsSuccessful"/> for a list of HTTP
 		/// status considered successful.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> SuccessEvent;
+		public event Action<qx.eventx.type.Event> OnSuccess;
 
 		#endregion Events
 

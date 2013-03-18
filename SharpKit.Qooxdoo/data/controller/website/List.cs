@@ -30,22 +30,22 @@ namespace qx.data.controller.website
 		/// <summary>
 		/// Fired on change of the property <see cref="Delegate"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeDelegateEvent;
+		public event Action<qx.eventx.type.Data> OnChangeDelegate;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Model"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Target"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeTargetEvent;
+		public event Action<qx.eventx.type.Data> OnChangeTarget;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="TemplateId"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeTemplateIdEvent;
+		public event Action<qx.eventx.type.Data> OnChangeTemplateId;
 
 		#endregion Events
 

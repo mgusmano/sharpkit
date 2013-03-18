@@ -18,7 +18,7 @@ namespace qx.ui.form
 		/// <summary>
 		/// Fired on change of the property <see cref="Model"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		#endregion Events
 

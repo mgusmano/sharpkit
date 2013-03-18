@@ -41,17 +41,17 @@ namespace qx.ui.mobile.page
 		/// <summary>
 		/// <para>Fired when the user tapped on the navigation button</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ActionEvent;
+		public event Action<qx.eventx.type.Event> OnAction;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Title"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeTitleEvent;
+		public event Action<qx.eventx.type.Data> OnChangeTitle;
 
 		/// <summary>
 		/// <para>Fired when parent portrait container should hide. *</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> HidePortraitContainerEvent;
+		public event Action<qx.eventx.type.Event> OnHidePortraitContainer;
 
 		#endregion Events
 

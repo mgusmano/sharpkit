@@ -17,17 +17,17 @@ namespace qx.ui.form
 		/// <summary>
 		/// Fired on change of the property <see cref="InvalidMessage"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeInvalidMessageEvent;
+		public event Action<qx.eventx.type.Data> OnChangeInvalidMessage;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Required"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRequiredEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRequired;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Valid"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValidEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValid;
 
 		#endregion Events
 

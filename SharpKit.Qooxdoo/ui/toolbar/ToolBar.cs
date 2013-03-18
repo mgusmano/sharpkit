@@ -25,22 +25,22 @@ namespace qx.ui.toolbar
 		/// <summary>
 		/// Fired on change of the property <see cref="OpenMenu"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeOpenMenuEvent;
+		public event Action<qx.eventx.type.Data> OnChangeOpenMenu;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Show"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeShowEvent;
+		public event Action<qx.eventx.type.Data> OnChangeShow;
 
 		/// <summary>
 		/// <para>Fired if an item will be hidden by the <see cref="OverflowHandling"/>.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> HideItemEvent;
+		public event Action<qx.eventx.type.Data> OnHideItem;
 
 		/// <summary>
 		/// <para>Fired if an item will be show by the <see cref="OverflowHandling"/>.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ShowItemEvent;
+		public event Action<qx.eventx.type.Data> OnShowItem;
 
 		#endregion Events
 

@@ -30,7 +30,7 @@ namespace qx.ui.mobile.dialog
 		/// <summary>
 		/// <para>Fired when the selection is changed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelection;
 
 		#endregion Events
 

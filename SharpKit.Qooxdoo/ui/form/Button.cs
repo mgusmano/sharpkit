@@ -37,13 +37,13 @@ namespace qx.ui.form
 		/// <summary>
 		/// Fired on change of the property <see cref="Command"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeCommandEvent;
+		public event Action<qx.eventx.type.Data> OnChangeCommand;
 
 		/// <summary>
 		/// <para>Fired when the widget is executed. Sets the &#8220;data&#8221; property of the
 		/// event to the object that issued the command.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ExecuteEvent;
+		public event Action<qx.eventx.type.Data> OnExecute;
 
 		#endregion Events
 

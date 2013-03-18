@@ -21,7 +21,7 @@ namespace qx.ui.form
 		/// <para>Pseudo event. It will never be fired because the array itself can not
 		/// be changed. But the event description is needed for the data binding.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModelSelection;
 
 		#endregion Events
 

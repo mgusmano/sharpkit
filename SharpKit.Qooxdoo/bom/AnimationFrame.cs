@@ -45,12 +45,12 @@ namespace qx.bom
 		/// <summary>
 		/// <para>Fired as soon as the animation has ended.</para>
 		/// </summary>
-		public event Action<object> EndEvent;
+		public event Action<object> OnEnd;
 
 		/// <summary>
 		/// <para>Fired on every frame having the passed time as value.</para>
 		/// </summary>
-		public event Action<double> FrameEvent;
+		public event Action<double> OnFrame;
 
 		#endregion Events
 

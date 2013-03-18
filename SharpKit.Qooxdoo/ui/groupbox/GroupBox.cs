@@ -19,17 +19,17 @@ namespace qx.ui.groupbox
 		/// <summary>
 		/// <para>Fired when the invalidMessage was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeInvalidMessageEvent;
+		public event Action<qx.eventx.type.Data> OnChangeInvalidMessage;
 
 		/// <summary>
 		/// <para>Fired when the required was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRequiredEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRequired;
 
 		/// <summary>
 		/// <para>Fired when the valid state was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValidEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValid;
 
 		#endregion Events
 

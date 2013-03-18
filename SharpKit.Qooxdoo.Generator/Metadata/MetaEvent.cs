@@ -17,8 +17,8 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
             {
                 EventType = TypeMapper.MapType(typesNode.Children[0].GetAttributeValue("type"));
             }
-            // Add 'Event' in the end of all the event names because many times there will be properties or methods with the same names
-            FormattedName = FormattedName + "Event";
+            // Add 'On' in front of all the event names because many times there will be properties or methods with the same names
+            FormattedName = "On" + FormattedName;
         }
     }
 }

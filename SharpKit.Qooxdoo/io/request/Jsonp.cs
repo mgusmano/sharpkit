@@ -59,7 +59,7 @@ namespace qx.io.request
 		/// is fired. If you are only interested in the JSON data received, consider
 		/// listening to the <see cref="Success"/> event instead.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadEvent;
+		public event Action<qx.eventx.type.Event> OnLoad;
 
 		/// <summary>
 		/// <para>Fired when request completes without error but no data was received.</para>
@@ -74,12 +74,12 @@ namespace qx.io.request
 		/// hard-coded callback, set a custom callback name with
 		/// <see cref="SetCallbackName"/>.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> StatusErrorEvent;
+		public event Action<qx.eventx.type.Event> OnStatusError;
 
 		/// <summary>
 		/// <para>Fired when request completes without error and data has been received.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> SuccessEvent;
+		public event Action<qx.eventx.type.Event> OnSuccess;
 
 		#endregion Events
 

@@ -23,17 +23,17 @@ namespace qx.ui.table
 		/// <item>lastColumn: The model index of the last column that has changed.</item>
 		/// </list</para>
 		/// </summary>
-		event Action<qx.eventx.type.Data> DataChangedEvent;
+		event Action<qx.eventx.type.Data> OnDataChanged;
 
 		/// <summary>
 		/// <para>Fired when the meta data changed (the stuff shown in the table header).</para>
 		/// </summary>
-		event Action<qx.eventx.type.Event> MetaDataChangedEvent;
+		event Action<qx.eventx.type.Event> OnMetaDataChanged;
 
 		/// <summary>
 		/// <para>Fired after the table is sorted (but before the metaDataChanged event)</para>
 		/// </summary>
-		event Action<qx.eventx.type.Data> SortedEvent;
+		event Action<qx.eventx.type.Data> OnSorted;
 
 		#endregion Events
 

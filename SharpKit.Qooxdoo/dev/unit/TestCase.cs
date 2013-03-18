@@ -21,7 +21,7 @@ namespace qx.dev.unit
 		/// assertion call will still run.</para>
 		/// <para>Event data: The <see cref="qx.core.AssertionError"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> AssertionFailedEvent;
+		public event Action<qx.eventx.type.Data> OnAssertionFailed;
 
 		#endregion Events
 

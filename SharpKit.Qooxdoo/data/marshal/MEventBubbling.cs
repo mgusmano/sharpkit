@@ -33,7 +33,7 @@ namespace qx.data.marshal
 		/// Due to that, the getOldData method will always return null
 		/// because the old data is contained in the map.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeBubbleEvent;
+		public event Action<qx.eventx.type.Data> OnChangeBubble;
 
 		#endregion Events
 

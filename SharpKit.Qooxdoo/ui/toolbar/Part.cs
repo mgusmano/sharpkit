@@ -22,7 +22,7 @@ namespace qx.ui.toolbar
 		/// <summary>
 		/// Fired on change of the property <see cref="Show"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeShowEvent;
+		public event Action<qx.eventx.type.Data> OnChangeShow;
 
 		#endregion Events
 

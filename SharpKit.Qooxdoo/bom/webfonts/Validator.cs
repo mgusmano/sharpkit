@@ -20,7 +20,7 @@ namespace qx.bom.webfonts
 		/// is a map with the keys &#8220;family&#8221; (the font-family name) and &#8220;valid&#8221;
 		/// (Boolean).</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeStatusEvent;
+		public event Action<qx.eventx.type.Data> OnChangeStatus;
 
 		#endregion Events
 

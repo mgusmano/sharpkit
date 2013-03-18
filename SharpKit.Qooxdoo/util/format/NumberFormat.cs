@@ -17,7 +17,7 @@ namespace qx.util.format
 		/// <summary>
 		/// Fired on change of the property <see cref="Postfix"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeNumberFormatEvent;
+		public event Action<qx.eventx.type.Data> OnChangeNumberFormat;
 
 		#endregion Events
 

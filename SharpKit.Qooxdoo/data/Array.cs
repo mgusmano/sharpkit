@@ -28,13 +28,13 @@ namespace qx.data
 		/// &#8216;remove&#8217; or &#8216;order&#8217;</item>
 		/// <item>item: The item which has been changed.</item></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeEvent;
+		public event Action<qx.eventx.type.Data> OnChange;
 
 		/// <summary>
 		/// <para>The changeLength event will be fired every time the length of the
 		/// data structure changes.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ChangeLengthEvent;
+		public event Action<qx.eventx.type.Event> OnChangeLength;
 
 		/// <summary>
 		/// <para>The change event which will be fired on every change in the model no
@@ -53,7 +53,7 @@ namespace qx.data
 		/// Due to that, the getOldData method will always return null
 		/// because the old data is contained in the map.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeBubbleEvent;
+		public event Action<qx.eventx.type.Data> OnChangeBubble;
 
 		#endregion Events
 

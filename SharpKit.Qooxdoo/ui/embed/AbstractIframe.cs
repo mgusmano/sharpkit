@@ -17,7 +17,7 @@ namespace qx.ui.embed
 		/// <summary>
 		/// <para>The &#8220;load&#8221; event is fired after the iframe content has successfully been loaded.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadEvent;
+		public event Action<qx.eventx.type.Event> OnLoad;
 
 		/// <summary>
 		/// <para>The &#8220;navigate&#8221; event is fired whenever the location of the iframe
@@ -26,7 +26,7 @@ namespace qx.ui.embed
 		/// property in sync. Only works when the destination source is of same
 		/// origin than the page embedding the iframe.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> NavigateEvent;
+		public event Action<qx.eventx.type.Data> OnNavigate;
 
 		#endregion Events
 

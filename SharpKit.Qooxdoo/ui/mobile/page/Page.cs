@@ -47,37 +47,37 @@ namespace qx.ui.mobile.page
 		/// <para>Fired when the method <see cref="Back"/> is called. Data indicating
 		/// whether the action was triggered by a key event or not.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> BackEvent;
+		public event Action<qx.eventx.type.Data> OnBack;
 
 		/// <summary>
 		/// <para>Fired when the lifecycle method <see cref="Initialize"/> is called</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> InitializeEvent;
+		public event Action<qx.eventx.type.Event> OnInitialize;
 
 		/// <summary>
 		/// <para>Fired when the method <see cref="Menu"/> is called</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> MenuEvent;
+		public event Action<qx.eventx.type.Event> OnMenu;
 
 		/// <summary>
 		/// <para>Fired when the lifecycle method <see cref="Pause"/> is called</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> PauseEvent;
+		public event Action<qx.eventx.type.Event> OnPause;
 
 		/// <summary>
 		/// <para>Fired when the lifecycle method <see cref="Resume"/> is called</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ResumeEvent;
+		public event Action<qx.eventx.type.Event> OnResume;
 
 		/// <summary>
 		/// <para>Fired when the lifecycle method <see cref="Start"/> is called</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> StartEvent;
+		public event Action<qx.eventx.type.Event> OnStart;
 
 		/// <summary>
 		/// <para>Fired when the lifecycle method <see cref="Stop"/> is called</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> StopEvent;
+		public event Action<qx.eventx.type.Event> OnStop;
 
 		#endregion Events
 

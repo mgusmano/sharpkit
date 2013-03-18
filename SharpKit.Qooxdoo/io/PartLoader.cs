@@ -19,14 +19,14 @@ namespace qx.io
 		/// <para>Fired if a parts was loaded. The data of the event instance point to the
 		/// loaded part instance.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> PartLoadedEvent;
+		public event Action<qx.eventx.type.Data> OnPartLoaded;
 
 		/// <summary>
 		/// <para>Fired if a part could not be loaded. The event&#8217;s
 		/// <see cref="qx.event.type.Data.GetData"/> method returns the name of the failed
 		/// part.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> PartLoadingErrorEvent;
+		public event Action<qx.eventx.type.Data> OnPartLoadingError;
 
 		#endregion Events
 

@@ -20,22 +20,22 @@ namespace qx.ui.virtualx.form
 		/// <summary>
 		/// Fired on change of the property <see cref="Delegate"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeDelegateEvent;
+		public event Action<qx.eventx.type.Data> OnChangeDelegate;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Model"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Selection"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelection;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Target"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeTargetEvent;
+		public event Action<qx.eventx.type.Data> OnChangeTarget;
 
 		#endregion Events
 

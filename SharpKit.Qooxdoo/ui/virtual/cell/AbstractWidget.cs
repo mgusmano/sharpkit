@@ -17,7 +17,7 @@ namespace qx.ui.virtualx.cell
 		/// <summary>
 		/// <para>Fired when a new LayoutItem is created.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> CreatedEvent;
+		public event Action<qx.eventx.type.Data> OnCreated;
 
 		#endregion Events
 

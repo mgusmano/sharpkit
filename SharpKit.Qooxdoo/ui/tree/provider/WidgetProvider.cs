@@ -20,7 +20,7 @@ namespace qx.ui.tree.provider
 		/// <summary>
 		/// Fired on change of the property <see cref="Delegate"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeDelegateEvent;
+		public event Action<qx.eventx.type.Data> OnChangeDelegate;
 
 		#endregion Events
 

@@ -17,7 +17,7 @@ namespace qx.theme.manager
 		/// <summary>
 		/// Fired on change of the property <see cref="Theme"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeThemeEvent;
+		public event Action<qx.eventx.type.Data> OnChangeTheme;
 
 		#endregion Events
 

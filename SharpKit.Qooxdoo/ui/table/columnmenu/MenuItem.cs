@@ -19,7 +19,7 @@ namespace qx.ui.table.columnmenu
 		/// boolean indicating whether the table column associated with this menu
 		/// item is now visible.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeVisibleEvent;
+		public event Action<qx.eventx.type.Data> OnChangeVisible;
 
 		#endregion Events
 

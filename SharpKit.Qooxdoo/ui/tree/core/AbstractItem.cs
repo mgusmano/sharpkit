@@ -19,37 +19,37 @@ namespace qx.ui.tree.core
 		/// <summary>
 		/// Fired on change of the property <see cref="Icon"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeIconEvent;
+		public event Action<qx.eventx.type.Data> OnChangeIcon;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="IconOpened"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeIconOpenedEvent;
+		public event Action<qx.eventx.type.Data> OnChangeIconOpened;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Indent"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeIndentEvent;
+		public event Action<qx.eventx.type.Data> OnChangeIndent;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Label"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeLabelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeLabel;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Open"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeOpenEvent;
+		public event Action<qx.eventx.type.Data> OnChangeOpen;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="OpenSymbolMode"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeOpenSymbolModeEvent;
+		public event Action<qx.eventx.type.Data> OnChangeOpenSymbolMode;
 
 		/// <summary>
 		/// <para>Fired when the model data changes</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		#endregion Events
 

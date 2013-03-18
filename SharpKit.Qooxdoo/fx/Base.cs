@@ -17,17 +17,17 @@ namespace qx.fx
 		/// <summary>
 		/// <para>This event is fired when effect ends.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> FinishEvent;
+		public event Action<qx.eventx.type.Event> OnFinish;
 
 		/// <summary>
 		/// <para>This event is fired when effect starts.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> SetupEvent;
+		public event Action<qx.eventx.type.Event> OnSetup;
 
 		/// <summary>
 		/// <para>This event is fired every time a frame is rendered.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> UpdateEvent;
+		public event Action<qx.eventx.type.Event> OnUpdate;
 
 		#endregion Events
 

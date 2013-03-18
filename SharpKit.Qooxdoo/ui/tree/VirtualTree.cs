@@ -54,32 +54,32 @@ namespace qx.ui.tree
 		/// <summary>
 		/// Fired on change of the property <see cref="Delegate"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeDelegateEvent;
+		public event Action<qx.eventx.type.Data> OnChangeDelegate;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Model"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="OpenMode"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeOpenModeEvent;
+		public event Action<qx.eventx.type.Data> OnChangeOpenMode;
 
 		/// <summary>
 		/// <para>Fired when a node is closed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> CloseEvent;
+		public event Action<qx.eventx.type.Data> OnClose;
 
 		/// <summary>
 		/// <para>Fired when a node is opened.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> OpenEvent;
+		public event Action<qx.eventx.type.Data> OnOpen;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Selection"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelection;
 
 		#endregion Events
 

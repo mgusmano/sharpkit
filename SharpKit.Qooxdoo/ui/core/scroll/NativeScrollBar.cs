@@ -33,12 +33,12 @@ namespace qx.ui.core.scroll
 		/// <summary>
 		/// <para>Fired if the user scroll</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ScrollEvent;
+		public event Action<qx.eventx.type.Data> OnScroll;
 
 		/// <summary>
 		/// <para>Fired as soon as the scroll animation ended.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ScrollAnimationEndEvent;
+		public event Action<qx.eventx.type.Event> OnScrollAnimationEnd;
 
 		#endregion Events
 

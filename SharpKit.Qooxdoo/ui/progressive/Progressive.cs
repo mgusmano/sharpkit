@@ -43,7 +43,7 @@ namespace qx.ui.progressive
 		/// 
 		/// 
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ProgressEvent;
+		public event Action<qx.eventx.type.Data> OnProgress;
 
 		/// <summary>
 		/// <para>This event is fired after each element is rendered.</para>
@@ -71,12 +71,12 @@ namespace qx.ui.progressive
 		/// changes such as progress bars are being updated, use the
 		/// &#8220;progress&#8221; event.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ProgressDetailEvent;
+		public event Action<qx.eventx.type.Data> OnProgressDetail;
 
 		/// <summary>
 		/// <para>Event fired when rendering ends.  The data is the state object.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> RenderEndEvent;
+		public event Action<qx.eventx.type.Data> OnRenderEnd;
 
 		/// <summary>
 		/// <para>Event fired when rendering begins.</para>
@@ -92,7 +92,7 @@ namespace qx.ui.progressive
 		/// 
 		/// 
 		/// </summary>
-		public event Action<qx.eventx.type.Data> RenderStartEvent;
+		public event Action<qx.eventx.type.Data> OnRenderStart;
 
 		#endregion Events
 

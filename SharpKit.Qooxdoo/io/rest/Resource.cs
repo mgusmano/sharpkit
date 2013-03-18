@@ -92,14 +92,14 @@ namespace qx.io.rest
 		/// <para>Fired when any request associated to action given in prefix fails.</para>
 		/// <para>For example, &#8220;indexError&#8221; is fired when index() failed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Rest> ActionErrorEvent;
+		public event Action<qx.eventx.type.Rest> OnActionError;
 
 		/// <summary>
 		/// <para>Fired when request associated to action given in prefix was successful.</para>
 		/// <para>For example, &#8220;indexSuccess&#8221; is fired when index() was
 		/// successful.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Rest> ActionSuccessEvent;
+		public event Action<qx.eventx.type.Rest> OnActionSuccess;
 
 		/// <summary>
 		/// <para>Fired when any request fails.</para>
@@ -108,7 +108,7 @@ namespace qx.io.rest
 		/// Additionally, an action specific event is fired that follows the pattern
 		/// &#8221;Error&#8221;, e.g. &#8220;indexError&#8221;.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Rest> ErrorEvent;
+		public event Action<qx.eventx.type.Rest> OnError;
 
 		/// <summary>
 		/// <para>Fired when any request was successful.</para>
@@ -117,7 +117,7 @@ namespace qx.io.rest
 		/// Additionally, an action specific event is fired that follows the pattern
 		/// &#8221;Success&#8221;, e.g. &#8220;indexSuccess&#8221;.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Rest> SuccessEvent;
+		public event Action<qx.eventx.type.Rest> OnSuccess;
 
 		#endregion Events
 

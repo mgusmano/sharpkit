@@ -24,13 +24,13 @@ namespace qx.data
 		/// &#8216;remove&#8217; or &#8216;order&#8217;</item>
 		/// <item>item: The item which has been changed.</item></para>
 		/// </summary>
-		event Action<qx.eventx.type.Data> ChangeEvent;
+		event Action<qx.eventx.type.Data> OnChange;
 
 		/// <summary>
 		/// <para>The changeLength event will be fired every time the length of the
 		/// data structure changes.</para>
 		/// </summary>
-		event Action<qx.eventx.type.Event> ChangeLengthEvent;
+		event Action<qx.eventx.type.Event> OnChangeLength;
 
 		#endregion Events
 

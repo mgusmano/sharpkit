@@ -19,33 +19,33 @@ namespace qx.ui.menu
 		/// <summary>
 		/// Fired on change of the property <see cref="Icon"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeIconEvent;
+		public event Action<qx.eventx.type.Data> OnChangeIcon;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Label"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeLabelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeLabel;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Menu"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeMenuEvent;
+		public event Action<qx.eventx.type.Data> OnChangeMenu;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="ShowCommandLabel"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeShowCommandLabelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeShowCommandLabel;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Command"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeCommandEvent;
+		public event Action<qx.eventx.type.Data> OnChangeCommand;
 
 		/// <summary>
 		/// <para>Fired when the widget is executed. Sets the &#8220;data&#8221; property of the
 		/// event to the object that issued the command.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ExecuteEvent;
+		public event Action<qx.eventx.type.Data> OnExecute;
 
 		#endregion Events
 

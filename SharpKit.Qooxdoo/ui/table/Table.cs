@@ -19,42 +19,42 @@ namespace qx.ui.table
 		/// <summary>
 		/// <para>Dispatched when a data cell has been clicked.</para>
 		/// </summary>
-		public event Action<qx.ui.table.pane.CellEvent> CellClickEvent;
+		public event Action<qx.ui.table.pane.CellEvent> OnCellClick;
 
 		/// <summary>
 		/// <para>Dispatched when the context menu is needed in a data cell</para>
 		/// </summary>
-		public event Action<qx.ui.table.pane.CellEvent> CellContextmenuEvent;
+		public event Action<qx.ui.table.pane.CellEvent> OnCellContextmenu;
 
 		/// <summary>
 		/// <para>Dispatched when a data cell has been clicked.</para>
 		/// </summary>
-		public event Action<qx.ui.table.pane.CellEvent> CellDblclickEvent;
+		public event Action<qx.ui.table.pane.CellEvent> OnCellDblclick;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="DataRowRenderer"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeDataRowRendererEvent;
+		public event Action<qx.eventx.type.Data> OnChangeDataRowRenderer;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="HeaderCellHeight"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeHeaderCellHeightEvent;
+		public event Action<qx.eventx.type.Data> OnChangeHeaderCellHeight;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="RowHeight"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRowHeightEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRowHeight;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="SelectionModel"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectionModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelectionModel;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="TableModel"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeTableModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeTableModel;
 
 		/// <summary>
 		/// <para>Dispatched after adding the column list to the column visibility menu.
@@ -62,7 +62,7 @@ namespace qx.ui.table
 		/// may add additional items to the menu, which appear at the bottom of the
 		/// menu.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ColumnVisibilityMenuCreateEndEvent;
+		public event Action<qx.eventx.type.Data> OnColumnVisibilityMenuCreateEnd;
 
 		/// <summary>
 		/// <para>Dispatched before adding the column list to the column visibility menu.
@@ -70,7 +70,7 @@ namespace qx.ui.table
 		/// may add additional items to the menu, which appear at the top of the
 		/// menu.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ColumnVisibilityMenuCreateStartEvent;
+		public event Action<qx.eventx.type.Data> OnColumnVisibilityMenuCreateStart;
 
 		/// <summary>
 		/// <para>Dispatched after a cell editor is flushed.</para>
@@ -82,19 +82,19 @@ namespace qx.ui.table
 		/// <item>oldValue</item>
 		/// </list</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> DataEditedEvent;
+		public event Action<qx.eventx.type.Data> OnDataEdited;
 
 		/// <summary>
 		/// <para>Dispatched when the width of the table has changed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> TableWidthChangedEvent;
+		public event Action<qx.eventx.type.Event> OnTableWidthChanged;
 
 		/// <summary>
 		/// <para>Dispatched when updating scrollbars discovers that a vertical scrollbar
 		/// is needed when it previously was not, or vice versa.  The data is a
 		/// boolean indicating whether a vertical scrollbar is now being used.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> VerticalScrollBarChangedEvent;
+		public event Action<qx.eventx.type.Data> OnVerticalScrollBarChanged;
 
 		#endregion Events
 

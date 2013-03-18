@@ -18,17 +18,17 @@ namespace qx.ui.control
 		/// <summary>
 		/// <para>Fired when the value was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValueEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValue;
 
 		/// <summary>
 		/// <para>Fired when the &#8220;Cancel&#8221; button is clicked.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> DialogcancelEvent;
+		public event Action<qx.eventx.type.Event> OnDialogcancel;
 
 		/// <summary>
 		/// <para>Fired when the &#8220;OK&#8221; button is clicked.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> DialogokEvent;
+		public event Action<qx.eventx.type.Event> OnDialogok;
 
 		#endregion Events
 

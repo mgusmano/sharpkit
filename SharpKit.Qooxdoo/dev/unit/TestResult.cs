@@ -19,43 +19,43 @@ namespace qx.dev.unit
 		/// <para>Fired if a performance test returned results.</para>
 		/// <para>Event data: The test <see cref="qx.dev.unit.TestFunction"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> EndMeasurementEvent;
+		public event Action<qx.eventx.type.Data> OnEndMeasurement;
 
 		/// <summary>
 		/// <para>Fired after the test has finished</para>
 		/// <para>Event data: The test <see cref="qx.dev.unit.TestFunction"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> EndTestEvent;
+		public event Action<qx.eventx.type.Data> OnEndTest;
 
 		/// <summary>
 		/// <para>Fired if the test raised an <see cref="qx.core.AssertionError"/></para>
 		/// <para>Event data: The test <see cref="qx.dev.unit.TestFunction"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ErrorEvent;
+		public event Action<qx.eventx.type.Data> OnError;
 
 		/// <summary>
 		/// <para>Fired if the test failed with a different exception</para>
 		/// <para>Event data: The test <see cref="qx.dev.unit.TestFunction"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> FailureEvent;
+		public event Action<qx.eventx.type.Data> OnFailure;
 
 		/// <summary>
 		/// <para>Fired if the test was skipped, e.g. because a requirement was not met.</para>
 		/// <para>Event data: The test <see cref="qx.dev.unit.TestFunction"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> SkipEvent;
+		public event Action<qx.eventx.type.Data> OnSkip;
 
 		/// <summary>
 		/// <para>Fired before the test is started</para>
 		/// <para>Event data: The test <see cref="qx.dev.unit.TestFunction"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> StartTestEvent;
+		public event Action<qx.eventx.type.Data> OnStartTest;
 
 		/// <summary>
 		/// <para>Fired if an asynchronous test sets a timeout</para>
 		/// <para>Event data: The test <see cref="qx.dev.unit.TestFunction"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> WaitEvent;
+		public event Action<qx.eventx.type.Data> OnWait;
 
 		#endregion Events
 

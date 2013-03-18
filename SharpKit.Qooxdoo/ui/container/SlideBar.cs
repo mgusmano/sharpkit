@@ -18,7 +18,7 @@ namespace qx.ui.container
 		/// <summary>
 		/// <para>Fired on scroll animation end invoked by &#8216;scroll*&#8217; methods.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ScrollAnimationEndEvent;
+		public event Action<qx.eventx.type.Event> OnScrollAnimationEnd;
 
 		#endregion Events
 

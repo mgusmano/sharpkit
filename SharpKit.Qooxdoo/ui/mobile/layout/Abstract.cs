@@ -20,7 +20,7 @@ namespace qx.ui.mobile.layout
 		/// <summary>
 		/// <para>Fired when the layout is updated. Data contains the &#8220;widget&#8221;, &#8220;action&#8221;, &#8220;properties&#8221;</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> UpdateLayoutEvent;
+		public event Action<qx.eventx.type.Data> OnUpdateLayout;
 
 		#endregion Events
 

@@ -47,12 +47,12 @@ namespace qx.ui.mobile.dialog
 		/// <summary>
 		/// Fired on change of the property <see cref="Icon"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeIconEvent;
+		public event Action<qx.eventx.type.Data> OnChangeIcon;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Title"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeTitleEvent;
+		public event Action<qx.eventx.type.Data> OnChangeTitle;
 
 		#endregion Events
 

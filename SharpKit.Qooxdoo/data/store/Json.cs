@@ -32,30 +32,30 @@ namespace qx.data.store
 		/// <summary>
 		/// Fired on change of the property <see cref="Model"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="State"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeStateEvent;
+		public event Action<qx.eventx.type.Data> OnChangeState;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Url"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeUrlEvent;
+		public event Action<qx.eventx.type.Data> OnChangeUrl;
 
 		/// <summary>
 		/// <para>Fired when an error (aborted, timeout or failed) occurred
 		/// during the load. The data contains the respons of the request.
 		/// If you want more details, use the <see cref="ChangeState"/> event.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ErrorEvent;
+		public event Action<qx.eventx.type.Data> OnError;
 
 		/// <summary>
 		/// <para>Data event fired after the model has been created. The data will be the
 		/// created model.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> LoadedEvent;
+		public event Action<qx.eventx.type.Data> OnLoaded;
 
 		#endregion Events
 

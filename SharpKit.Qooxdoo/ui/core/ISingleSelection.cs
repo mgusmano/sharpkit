@@ -17,7 +17,7 @@ namespace qx.ui.core
 		/// <summary>
 		/// <para>Fires after the selection was modified</para>
 		/// </summary>
-		event Action<qx.eventx.type.Data> ChangeSelectionEvent;
+		event Action<qx.eventx.type.Data> OnChangeSelection;
 
 		#endregion Events
 

@@ -35,43 +35,43 @@ namespace qx.ui.control
 		/// <summary>
 		/// Fired on change of the property <see cref="ShownMonth"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeShownMonthEvent;
+		public event Action<qx.eventx.type.Data> OnChangeShownMonth;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="ShownYear"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeShownYearEvent;
+		public event Action<qx.eventx.type.Data> OnChangeShownYear;
 
 		/// <summary>
 		/// <para>Fired when the value was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValueEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValue;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Command"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeCommandEvent;
+		public event Action<qx.eventx.type.Data> OnChangeCommand;
 
 		/// <summary>
 		/// <para>Fired when the widget is executed. Sets the &#8220;data&#8221; property of the
 		/// event to the object that issued the command.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ExecuteEvent;
+		public event Action<qx.eventx.type.Data> OnExecute;
 
 		/// <summary>
 		/// <para>Fired when the invalidMessage was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeInvalidMessageEvent;
+		public event Action<qx.eventx.type.Data> OnChangeInvalidMessage;
 
 		/// <summary>
 		/// <para>Fired when the required was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRequiredEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRequired;
 
 		/// <summary>
 		/// <para>Fired when the valid state was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValidEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValid;
 
 		#endregion Events
 

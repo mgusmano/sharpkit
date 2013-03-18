@@ -30,12 +30,12 @@ namespace qx.ui.mobile.layout
 		/// <summary>
 		/// <para>Fired when the animation of a page transition ends</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> AnimationEndEvent;
+		public event Action<qx.eventx.type.Data> OnAnimationEnd;
 
 		/// <summary>
 		/// <para>Fired when the animation of a page transition starts</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> AnimationStartEvent;
+		public event Action<qx.eventx.type.Data> OnAnimationStart;
 
 		#endregion Events
 

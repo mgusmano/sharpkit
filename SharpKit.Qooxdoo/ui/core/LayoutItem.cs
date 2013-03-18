@@ -18,12 +18,12 @@ namespace qx.ui.core
 		/// <summary>
 		/// Fired on change of the property <see cref="Height"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeHeightEvent;
+		public event Action<qx.eventx.type.Data> OnChangeHeight;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Width"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeWidthEvent;
+		public event Action<qx.eventx.type.Data> OnChangeWidth;
 
 		#endregion Events
 

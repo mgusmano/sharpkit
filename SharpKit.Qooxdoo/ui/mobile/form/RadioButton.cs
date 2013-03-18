@@ -29,14 +29,14 @@ namespace qx.ui.mobile.form
 		/// <summary>
 		/// <para>Fired when the selection value is changed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValueEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValue;
 
 		/// <summary>
 		/// <para>The event is fired on every keystroke modifying the value of the field.</para>
 		/// <para>The method <see cref="qx.event.type.Data.GetData"/> returns the
 		/// current value of the text field.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> InputEvent;
+		public event Action<qx.eventx.type.Data> OnInput;
 
 		#endregion Events
 

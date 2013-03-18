@@ -41,12 +41,12 @@ namespace qx.ui.mobile.form
 		/// <summary>
 		/// <para>Fired when the model data changes</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		/// <summary>
 		/// <para>Fired when user selects an item.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelection;
 
 		/// <summary>
 		/// <para>The event is fired each time the text field looses focus and the
@@ -57,29 +57,29 @@ namespace qx.ui.mobile.form
 		/// <para>The method <see cref="qx.event.type.Data.GetData"/> returns the
 		/// current text value of the field.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValueEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValue;
 
 		/// <summary>
 		/// <para>The event is fired on every keystroke modifying the value of the field.</para>
 		/// <para>The method <see cref="qx.event.type.Data.GetData"/> returns the
 		/// current value of the text field.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> InputEvent;
+		public event Action<qx.eventx.type.Data> OnInput;
 
 		/// <summary>
 		/// <para>Fired when the invalidMessage was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeInvalidMessageEvent;
+		public event Action<qx.eventx.type.Data> OnChangeInvalidMessage;
 
 		/// <summary>
 		/// <para>Fired when the required was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRequiredEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRequired;
 
 		/// <summary>
 		/// <para>Fired when the valid state was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValidEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValid;
 
 		#endregion Events
 

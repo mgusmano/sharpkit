@@ -25,12 +25,12 @@ namespace qx.ui.mobile.basic
 		/// <summary>
 		/// <para>Fired if the image has been loaded.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadedEvent;
+		public event Action<qx.eventx.type.Event> OnLoaded;
 
 		/// <summary>
 		/// <para>Fired if the image source can not be loaded.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadingFailedEvent;
+		public event Action<qx.eventx.type.Event> OnLoadingFailed;
 
 		#endregion Events
 

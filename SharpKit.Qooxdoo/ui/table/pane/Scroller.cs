@@ -20,47 +20,47 @@ namespace qx.ui.table.pane
 		/// <summary>
 		/// <para>Dispatched when a sortable header was clicked</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> BeforeSortEvent;
+		public event Action<qx.eventx.type.Data> OnBeforeSort;
 
 		/// <summary>
 		/// <para>See <see cref="qx.ui.table.Table.CellClick"/>.</para>
 		/// </summary>
-		public event Action<qx.ui.table.pane.CellEvent> CellClickEvent;
+		public event Action<qx.ui.table.pane.CellEvent> OnCellClick;
 
 		/// <summary>
 		/// <para>See <see cref="qx.ui.table.Table.CellContextmenu"/>.</para>
 		/// </summary>
-		public event Action<qx.ui.table.pane.CellEvent> CellContextmenuEvent;
+		public event Action<qx.ui.table.pane.CellEvent> OnCellContextmenu;
 
 		/// <summary>
 		/// <para>See <see cref="qx.ui.table.Table.CellDblclick"/>.</para>
 		/// </summary>
-		public event Action<qx.ui.table.pane.CellEvent> CellDblclickEvent;
+		public event Action<qx.ui.table.pane.CellEvent> OnCellDblclick;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="HorizontalScrollBarVisible"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeHorizontalScrollBarVisibleEvent;
+		public event Action<qx.eventx.type.Data> OnChangeHorizontalScrollBarVisible;
 
 		/// <summary>
 		/// <para>Dispatched if the pane is scrolled vertically</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeScrollXEvent;
+		public event Action<qx.eventx.type.Data> OnChangeScrollX;
 
 		/// <summary>
 		/// <para>Dispatched if the pane is scolled horizontally</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeScrollYEvent;
+		public event Action<qx.eventx.type.Data> OnChangeScrollY;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="TablePaneModel"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeTablePaneModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeTablePaneModel;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="VerticalScrollBarVisible"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeVerticalScrollBarVisibleEvent;
+		public event Action<qx.eventx.type.Data> OnChangeVerticalScrollBarVisible;
 
 		#endregion Events
 

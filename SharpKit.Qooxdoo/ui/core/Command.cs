@@ -20,38 +20,38 @@ namespace qx.ui.core
 		/// <summary>
 		/// Fired on change of the property <see cref="Enabled"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeEnabledEvent;
+		public event Action<qx.eventx.type.Data> OnChangeEnabled;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Icon"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeIconEvent;
+		public event Action<qx.eventx.type.Data> OnChangeIcon;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Label"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeLabelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeLabel;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Menu"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeMenuEvent;
+		public event Action<qx.eventx.type.Data> OnChangeMenu;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="ToolTipText"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeToolTipTextEvent;
+		public event Action<qx.eventx.type.Data> OnChangeToolTipText;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Value"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValueEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValue;
 
 		/// <summary>
 		/// <para>Fired when the command is executed. Sets the &#8220;data&#8221; property of the
 		/// event to the object that issued the command.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ExecuteEvent;
+		public event Action<qx.eventx.type.Data> OnExecute;
 
 		#endregion Events
 

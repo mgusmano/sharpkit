@@ -21,7 +21,7 @@ namespace qx.ui.virtualx.layer
 		/// <para>Is fired when the <see cref="#_fullUpdate"/> or the
 		/// <see cref="#_updateLayerWindow"/> is finished.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> UpdatedEvent;
+		public event Action<qx.eventx.type.Event> OnUpdated;
 
 		#endregion Events
 

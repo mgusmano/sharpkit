@@ -42,17 +42,17 @@ namespace qx.ui.basic
 		/// <summary>
 		/// Fired on change of the property <see cref="Rich"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRichEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRich;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="TextAlign"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeTextAlignEvent;
+		public event Action<qx.eventx.type.Data> OnChangeTextAlign;
 
 		/// <summary>
 		/// <para>Fired when the value was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValueEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValue;
 
 		#endregion Events
 

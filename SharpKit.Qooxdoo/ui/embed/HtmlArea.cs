@@ -27,7 +27,7 @@ namespace qx.ui.embed
 		/// <item>target &#8211; DOM element target</item>
 		/// </list
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ContextmenuEvent;
+		public event Action<qx.eventx.type.Data> OnContextmenu;
 
 		/// <summary>
 		/// <para>This event holds a data map which informs about the formatting at the
@@ -48,38 +48,38 @@ namespace qx.ui.embed
 		/// </list
 		/// <para>This map can be used to control/update a toolbar states.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> CursorContextEvent;
+		public event Action<qx.eventx.type.Data> OnCursorContext;
 
 		/// <summary>
 		/// <para>This event is dispatched when the editor gets the focus and his own handling is done</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> FocusedEvent;
+		public event Action<qx.eventx.type.Event> OnFocused;
 
 		/// <summary>
 		/// <para>This event is dispatched when the document receives an &#8220;focusout&#8221; event</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> FocusOutEvent;
+		public event Action<qx.eventx.type.Event> OnFocusOut;
 
 		/// <summary>
 		/// <para>Thrown when the editor gets an error at loading time.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> LoadingErrorEvent;
+		public event Action<qx.eventx.type.Data> OnLoadingError;
 
 		/// <summary>
 		/// <para>Only available if messengerMode is active. This event returns the current content of the editor.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> MessengerContentEvent;
+		public event Action<qx.eventx.type.Data> OnMessengerContent;
 
 		/// <summary>
 		/// <para>This event is dispatched when the editor is ready to use</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ReadyEvent;
+		public event Action<qx.eventx.type.Event> OnReady;
 
 		/// <summary>
 		/// <para>This event is dispatched when the editor is ready to use after it was
 		/// re-located and re-initialized. Only implemented for Gecko browsers.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ReadyAfterInvalidEvent;
+		public event Action<qx.eventx.type.Event> OnReadyAfterInvalid;
 
 		/// <summary>
 		/// <para>Holds information about the state of undo/redo
@@ -88,7 +88,7 @@ namespace qx.ui.embed
 		/// the kind the &#8220;cursorContext&#8221; event works.
 		/// (1 = active/pressed, 0 = possible/not pressed, -1 = disabled)</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> UndoRedoStateEvent;
+		public event Action<qx.eventx.type.Data> OnUndoRedoState;
 
 		#endregion Events
 

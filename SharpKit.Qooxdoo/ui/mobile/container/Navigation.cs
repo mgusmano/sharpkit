@@ -31,7 +31,7 @@ namespace qx.ui.mobile.container
 		/// <summary>
 		/// <para>Fired when the navigation bar gets updated</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> UpdateEvent;
+		public event Action<qx.eventx.type.Data> OnUpdate;
 
 		#endregion Events
 

@@ -18,22 +18,22 @@ namespace qx.ui.control
 		/// <summary>
 		/// Fired on change of the property <see cref="Blue"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeBlueEvent;
+		public event Action<qx.eventx.type.Data> OnChangeBlue;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Green"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeGreenEvent;
+		public event Action<qx.eventx.type.Data> OnChangeGreen;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Red"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRedEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRed;
 
 		/// <summary>
 		/// <para>Fired when the value was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValueEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValue;
 
 		#endregion Events
 

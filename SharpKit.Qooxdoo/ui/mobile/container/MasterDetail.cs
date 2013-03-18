@@ -27,7 +27,7 @@ namespace qx.ui.mobile.container
 		/// <para>Fired when the layout of the master detail is changed. This happens
 		/// when the orientation of the device is changed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> LayoutChangeEvent;
+		public event Action<qx.eventx.type.Data> OnLayoutChange;
 
 		#endregion Events
 

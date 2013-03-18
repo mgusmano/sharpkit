@@ -21,12 +21,12 @@ namespace qx.bom
 		/// <summary>
 		/// <para>Fired when an error occurs</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ErrorEvent;
+		public event Action<qx.eventx.type.Data> OnError;
 
 		/// <summary>
 		/// <para>Fired when the position is updated</para>
 		/// </summary>
-		public event Action<qx.eventx.type.GeoPosition> PositionEvent;
+		public event Action<qx.eventx.type.GeoPosition> OnPosition;
 
 		#endregion Events
 

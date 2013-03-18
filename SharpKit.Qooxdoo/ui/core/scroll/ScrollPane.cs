@@ -20,22 +20,22 @@ namespace qx.ui.core.scroll
 		/// <summary>
 		/// <para>Fired on scroll animation end invoked by &#8216;scroll*&#8217; methods.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ScrollAnimationEndEvent;
+		public event Action<qx.eventx.type.Event> OnScrollAnimationEnd;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="ScrollX"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ScrollXEvent;
+		public event Action<qx.eventx.type.Data> OnScrollX;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="ScrollY"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ScrollYEvent;
+		public event Action<qx.eventx.type.Data> OnScrollY;
 
 		/// <summary>
 		/// <para>Fired on resize of both the container or the content.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> UpdateEvent;
+		public event Action<qx.eventx.type.Event> OnUpdate;
 
 		#endregion Events
 

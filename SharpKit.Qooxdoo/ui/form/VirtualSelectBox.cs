@@ -19,7 +19,7 @@ namespace qx.ui.form
 		/// <summary>
 		/// Fired on change of the property <see cref="Selection"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelection;
 
 		#endregion Events
 

@@ -40,126 +40,126 @@ namespace qx.ui.core
 		/// <summary>
 		/// <para>When the widget gets active (receives keyboard events etc.)</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Focus> ActivateEvent;
+		public event Action<qx.eventx.type.Focus> OnActivate;
 
 		/// <summary>
 		/// <para>Fired after the widget appears on the screen.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> AppearEvent;
+		public event Action<qx.eventx.type.Event> OnAppear;
 
 		/// <summary>
 		/// <para>Fired before the context menu is opened.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> BeforeContextmenuOpenEvent;
+		public event Action<qx.eventx.type.Data> OnBeforeContextmenuOpen;
 
 		/// <summary>
 		/// <para>The event is fired when the widget gets blurred. Only widgets which are
 		/// <see cref="Focusable"/> receive this event.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Focus> BlurEvent;
+		public event Action<qx.eventx.type.Focus> OnBlur;
 
 		/// <summary>
 		/// <para>Fired if the widget becomes the capturing widget by a call to <see cref="Capture"/>.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> CaptureEvent;
+		public event Action<qx.eventx.type.Event> OnCapture;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Appearance"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeAppearanceEvent;
+		public event Action<qx.eventx.type.Data> OnChangeAppearance;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="BackgroundColor"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeBackgroundColorEvent;
+		public event Action<qx.eventx.type.Data> OnChangeBackgroundColor;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="ContextMenu"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeContextMenuEvent;
+		public event Action<qx.eventx.type.Data> OnChangeContextMenu;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Decorator"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeDecoratorEvent;
+		public event Action<qx.eventx.type.Data> OnChangeDecorator;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Enabled"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeEnabledEvent;
+		public event Action<qx.eventx.type.Data> OnChangeEnabled;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Font"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeFontEvent;
+		public event Action<qx.eventx.type.Data> OnChangeFont;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="NativeContextMenu"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeNativeContextMenuEvent;
+		public event Action<qx.eventx.type.Data> OnChangeNativeContextMenu;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Selectable"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectableEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelectable;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Shadow"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeShadowEvent;
+		public event Action<qx.eventx.type.Data> OnChangeShadow;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="TextColor"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeTextColorEvent;
+		public event Action<qx.eventx.type.Data> OnChangeTextColor;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="ToolTipText"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeToolTipTextEvent;
+		public event Action<qx.eventx.type.Data> OnChangeToolTipText;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Visibility"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeVisibilityEvent;
+		public event Action<qx.eventx.type.Data> OnChangeVisibility;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="ZIndex"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeZIndexEvent;
+		public event Action<qx.eventx.type.Data> OnChangeZIndex;
 
 		/// <summary>
 		/// <para>Widget is clicked using left or middle button.
 		/// <see cref="qx.event.type.Mouse.GetButton"/> for more details.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> ClickEvent;
+		public event Action<qx.eventx.type.Mouse> OnClick;
 
 		/// <summary>
 		/// <para>Widget is clicked using the right mouse button.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> ContextmenuEvent;
+		public event Action<qx.eventx.type.Mouse> OnContextmenu;
 
 		/// <summary>
 		/// <para>Fired after the creation of a child control. The passed data is the
 		/// newly created child widget.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> CreateChildControlEvent;
+		public event Action<qx.eventx.type.Data> OnCreateChildControl;
 
 		/// <summary>
 		/// <para>Widget is double clicked using left or middle button.
 		/// <see cref="qx.event.type.Mouse.GetButton"/> for more details.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> DblclickEvent;
+		public event Action<qx.eventx.type.Mouse> OnDblclick;
 
 		/// <summary>
 		/// <para>When the widget gets inactive</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Focus> DeactivateEvent;
+		public event Action<qx.eventx.type.Focus> OnDeactivate;
 
 		/// <summary>
 		/// <para>Fired after the widget disappears from the screen.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> DisappearEvent;
+		public event Action<qx.eventx.type.Event> OnDisappear;
 
 		/// <summary>
 		/// <para>Fired during the drag. Contains the current mouse coordinates
@@ -168,7 +168,7 @@ namespace qx.ui.core
 		/// <para>Modeled after the WHATWG specification of Drag&amp;Drop:
 		/// http://www.whatwg.org/specs/web-apps/current-work/#dnd</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Drag> DragEvent;
+		public event Action<qx.eventx.type.Drag> OnDrag;
 
 		/// <summary>
 		/// <para>Fired when the drag configuration has been modified e.g. the user
@@ -177,19 +177,19 @@ namespace qx.ui.core
 		/// droppable element, you can cancel the event and prevent a drop based on
 		/// e.g. the current action.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Drag> DragchangeEvent;
+		public event Action<qx.eventx.type.Drag> OnDragchange;
 
 		/// <summary>
 		/// <para>Fired on the source (drag) target every time a drag session was ended.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Drag> DragendEvent;
+		public event Action<qx.eventx.type.Drag> OnDragend;
 
 		/// <summary>
 		/// <para>Fired on a potential drop target when leaving it.</para>
 		/// <para>Modeled after the WHATWG specification of Drag&amp;Drop:
 		/// http://www.whatwg.org/specs/web-apps/current-work/#dnd</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Drag> DragleaveEvent;
+		public event Action<qx.eventx.type.Drag> OnDragleave;
 
 		/// <summary>
 		/// <para>Fired on a potential drop target when reaching it via the mouse.
@@ -198,7 +198,7 @@ namespace qx.ui.core
 		/// <para>Modeled after the WHATWG specification of Drag&amp;Drop:
 		/// http://www.whatwg.org/specs/web-apps/current-work/#dnd</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Drag> DragoverEvent;
+		public event Action<qx.eventx.type.Drag> OnDragover;
 
 		/// <summary>
 		/// <para>Initiate the drag-and-drop operation. This event is cancelable
@@ -206,7 +206,7 @@ namespace qx.ui.core
 		/// <para>Modeled after the WHATWG specification of Drag&amp;Drop:
 		/// http://www.whatwg.org/specs/web-apps/current-work/#dnd</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Drag> DragstartEvent;
+		public event Action<qx.eventx.type.Drag> OnDragstart;
 
 		/// <summary>
 		/// <para>Fired on the drop target when the drag&amp;drop action is finished
@@ -215,7 +215,7 @@ namespace qx.ui.core
 		/// <para>Modeled after the WHATWG specification of Drag&amp;Drop:
 		/// http://www.whatwg.org/specs/web-apps/current-work/#dnd</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Drag> DropEvent;
+		public event Action<qx.eventx.type.Drag> OnDrop;
 
 		/// <summary>
 		/// <para>Fired when the drop was successfully done and the target widget
@@ -223,29 +223,29 @@ namespace qx.ui.core
 		/// respecting the selected action, to the event. This can be done using
 		/// the event&#8217;s <see cref="qx.event.type.Drag.AddData"/> method.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Drag> DroprequestEvent;
+		public event Action<qx.eventx.type.Drag> OnDroprequest;
 
 		/// <summary>
 		/// <para>The event is fired when the widget gets focused. Only widgets which are
 		/// <see cref="Focusable"/> receive this event.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Focus> FocusEvent;
+		public event Action<qx.eventx.type.Focus> OnFocus;
 
 		/// <summary>
 		/// <para>When the widget itself or any child of the widget receive the focus.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Focus> FocusinEvent;
+		public event Action<qx.eventx.type.Focus> OnFocusin;
 
 		/// <summary>
 		/// <para>When the widget itself or any child of the widget lost the focus.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Focus> FocusoutEvent;
+		public event Action<qx.eventx.type.Focus> OnFocusout;
 
 		/// <summary>
 		/// <para>This event if fired if a keyboard key is pressed down. This event is
 		/// only fired once if the user keeps the key pressed for a while.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.KeySequence> KeydownEvent;
+		public event Action<qx.eventx.type.KeySequence> OnKeydown;
 
 		/// <summary>
 		/// <para>This event is fired if the pressed key or keys result in a printable
@@ -255,78 +255,78 @@ namespace qx.ui.core
 		/// <para>The unicode code of the pressed key can be read using
 		/// <see cref="qx.event.type.KeyInput.GetCharCode"/>.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.KeyInput> KeyinputEvent;
+		public event Action<qx.eventx.type.KeyInput> OnKeyinput;
 
 		/// <summary>
 		/// <para>This event is fired any time a key is pressed. It will be repeated if
 		/// the user keeps the key pressed. The pressed key can be determined using
 		/// <see cref="qx.event.type.KeySequence.GetKeyIdentifier"/>.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.KeySequence> KeypressEvent;
+		public event Action<qx.eventx.type.KeySequence> OnKeypress;
 
 		/// <summary>
 		/// <para>This event if fired if a keyboard key is released.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.KeySequence> KeyupEvent;
+		public event Action<qx.eventx.type.KeySequence> OnKeyup;
 
 		/// <summary>
 		/// <para>Fired if the widget looses the capturing mode by a call to
 		/// <see cref="ReleaseCapture"/> or a mouse click.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LosecaptureEvent;
+		public event Action<qx.eventx.type.Event> OnLosecapture;
 
 		/// <summary>
 		/// <para>Mouse button is pressed on the widget.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> MousedownEvent;
+		public event Action<qx.eventx.type.Mouse> OnMousedown;
 
 		/// <summary>
 		/// <para>Fired if the mouse cursor moves over the widget.
 		/// The data property of the event contains the widget&#8217;s computed location
 		/// and dimension as returned by <see cref="qx.ui.core.LayoutItem.GetBounds"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> MousemoveEvent;
+		public event Action<qx.eventx.type.Mouse> OnMousemove;
 
 		/// <summary>
 		/// <para>Fired if the mouse cursor leaves widget.</para>
 		/// <para>Note: This event is also dispatched if the widget is disabled!</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> MouseoutEvent;
+		public event Action<qx.eventx.type.Mouse> OnMouseout;
 
 		/// <summary>
 		/// <para>Fired if the mouse cursor enters the widget.</para>
 		/// <para>Note: This event is also dispatched if the widget is disabled!</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> MouseoverEvent;
+		public event Action<qx.eventx.type.Mouse> OnMouseover;
 
 		/// <summary>
 		/// <para>Mouse button is released on the widget.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> MouseupEvent;
+		public event Action<qx.eventx.type.Mouse> OnMouseup;
 
 		/// <summary>
 		/// <para>Fired if the mouse wheel is used over the widget.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.MouseWheel> MousewheelEvent;
+		public event Action<qx.eventx.type.MouseWheel> OnMousewheel;
 
 		/// <summary>
 		/// <para>Fired on move (after layout) of the widget.
 		/// The data property of the event contains the widget&#8217;s computed location
 		/// and dimension as returned by <see cref="qx.ui.core.LayoutItem.GetBounds"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> MoveEvent;
+		public event Action<qx.eventx.type.Data> OnMove;
 
 		/// <summary>
 		/// <para>Fired on resize (after layout) of the widget.
 		/// The data property of the event contains the widget&#8217;s computed location
 		/// and dimension as returned by <see cref="qx.ui.core.LayoutItem.GetBounds"/></para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ResizeEvent;
+		public event Action<qx.eventx.type.Data> OnResize;
 
 		/// <summary>
 		/// <para>Fired when a finger swipes over the screen.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Touch> SwipeEvent;
+		public event Action<qx.eventx.type.Touch> OnSwipe;
 
 		/// <summary>
 		/// <para>Fired after the appearance has been applied. This happens before the
@@ -334,32 +334,32 @@ namespace qx.ui.core
 		/// contains the state map. This can be used to react on state changes or to
 		/// read properties set by the appearance.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> SyncAppearanceEvent;
+		public event Action<qx.eventx.type.Data> OnSyncAppearance;
 
 		/// <summary>
 		/// <para>Fired when a finger taps on the screen.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Touch> TapEvent;
+		public event Action<qx.eventx.type.Touch> OnTap;
 
 		/// <summary>
 		/// <para>Fired if a touch at the screen is canceled.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Touch> TouchcancelEvent;
+		public event Action<qx.eventx.type.Touch> OnTouchcancel;
 
 		/// <summary>
 		/// <para>Fired if a touch at the screen has ended.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Touch> TouchendEvent;
+		public event Action<qx.eventx.type.Touch> OnTouchend;
 
 		/// <summary>
 		/// <para>Fired during a touch at the screen.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Touch> TouchmoveEvent;
+		public event Action<qx.eventx.type.Touch> OnTouchmove;
 
 		/// <summary>
 		/// <para>Fired if a touch at the screen is started.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Touch> TouchstartEvent;
+		public event Action<qx.eventx.type.Touch> OnTouchstart;
 
 		#endregion Events
 

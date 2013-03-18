@@ -35,49 +35,49 @@ namespace qx.ui.mobile.form
 		/// <summary>
 		/// Fired on change of the property <see cref="Maximum"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeMaximumEvent;
+		public event Action<qx.eventx.type.Data> OnChangeMaximum;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Minimum"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeMinimumEvent;
+		public event Action<qx.eventx.type.Data> OnChangeMinimum;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Step"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeStepEvent;
+		public event Action<qx.eventx.type.Data> OnChangeStep;
 
 		/// <summary>
 		/// <para>Fired when the value was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValueEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValue;
 
 		/// <summary>
 		/// <para>The event is fired on every keystroke modifying the value of the field.</para>
 		/// <para>The method <see cref="qx.event.type.Data.GetData"/> returns the
 		/// current value of the text field.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> InputEvent;
+		public event Action<qx.eventx.type.Data> OnInput;
 
 		/// <summary>
 		/// <para>Fired when the invalidMessage was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeInvalidMessageEvent;
+		public event Action<qx.eventx.type.Data> OnChangeInvalidMessage;
 
 		/// <summary>
 		/// <para>Fired when the required was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRequiredEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRequired;
 
 		/// <summary>
 		/// <para>Fired when the valid state was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValidEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValid;
 
 		/// <summary>
 		/// <para>Fired when the model data changes</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModel;
 
 		#endregion Events
 

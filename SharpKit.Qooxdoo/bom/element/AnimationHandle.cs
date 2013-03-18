@@ -20,17 +20,17 @@ namespace qx.bom.element
 		/// <para>Fired when the animation started via <see cref="qx.bom.element.Animation"/> has
 		/// ended.</para>
 		/// </summary>
-		public event Action<qx.html.Element> EndEvent;
+		public event Action<qx.html.Element> OnEnd;
 
 		/// <summary>
 		/// <para>Fired on every iteration of the animation.</para>
 		/// </summary>
-		public event Action<qx.html.Element> IterationEvent;
+		public event Action<qx.html.Element> OnIteration;
 
 		/// <summary>
 		/// <para>Fired when the animation started via <see cref="qx.bom.element.Animation"/>.</para>
 		/// </summary>
-		public event Action<qx.html.Element> StartEvent;
+		public event Action<qx.html.Element> OnStart;
 
 		#endregion Events
 

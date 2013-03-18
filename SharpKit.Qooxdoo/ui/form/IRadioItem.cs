@@ -17,7 +17,7 @@ namespace qx.ui.form
 		/// <summary>
 		/// <para>Fired when the item was checked or unchecked</para>
 		/// </summary>
-		event Action<qx.eventx.type.Data> ChangeValueEvent;
+		event Action<qx.eventx.type.Data> OnChangeValue;
 
 		#endregion Events
 

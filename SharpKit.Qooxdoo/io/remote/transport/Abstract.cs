@@ -17,47 +17,47 @@ namespace qx.io.remote.transport
 		/// <summary>
 		/// <para>Event when a request is aborted</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> AbortedEvent;
+		public event Action<qx.eventx.type.Event> OnAborted;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="State"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeStateEvent;
+		public event Action<qx.eventx.type.Data> OnChangeState;
 
 		/// <summary>
 		/// <para>Event when a request is completed</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> CompletedEvent;
+		public event Action<qx.eventx.type.Event> OnCompleted;
 
 		/// <summary>
 		/// <para>Event when a request is configured</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ConfiguredEvent;
+		public event Action<qx.eventx.type.Event> OnConfigured;
 
 		/// <summary>
 		/// <para>Event when a request is created</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> CreatedEvent;
+		public event Action<qx.eventx.type.Event> OnCreated;
 
 		/// <summary>
 		/// <para>Event when a request has failed</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> FailedEvent;
+		public event Action<qx.eventx.type.Event> OnFailed;
 
 		/// <summary>
 		/// <para>Event when a request is received</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ReceivingEvent;
+		public event Action<qx.eventx.type.Event> OnReceiving;
 
 		/// <summary>
 		/// <para>Event when a request is send</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> SendingEvent;
+		public event Action<qx.eventx.type.Event> OnSending;
 
 		/// <summary>
 		/// <para>Event when a request has timed out</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> TimeoutEvent;
+		public event Action<qx.eventx.type.Event> OnTimeout;
 
 		#endregion Events
 

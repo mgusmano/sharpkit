@@ -31,50 +31,50 @@ namespace qx.ui.tree
 		/// <see cref="qx.event.type.Data.GetData"/> method of the event returns the
 		/// added item.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> AddItemEvent;
+		public event Action<qx.eventx.type.Data> OnAddItem;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="OpenMode"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeOpenModeEvent;
+		public event Action<qx.eventx.type.Data> OnChangeOpenMode;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Root"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRootEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRoot;
 
 		/// <summary>
 		/// <para>This event is fired after a tree item has been removed from the tree.
 		/// The <see cref="qx.event.type.Data.GetData"/> method of the event returns the
 		/// removed item.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> RemoveItemEvent;
+		public event Action<qx.eventx.type.Data> OnRemoveItem;
 
 		/// <summary>
 		/// <para>Fires after the selection was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelection;
 
 		/// <summary>
 		/// <para>Pseudo event. It will never be fired because the array itself can not
 		/// be changed. But the event description is needed for the data binding.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeModelSelectionEvent;
+		public event Action<qx.eventx.type.Data> OnChangeModelSelection;
 
 		/// <summary>
 		/// <para>Fired when the invalidMessage was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeInvalidMessageEvent;
+		public event Action<qx.eventx.type.Data> OnChangeInvalidMessage;
 
 		/// <summary>
 		/// <para>Fired when the required was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeRequiredEvent;
+		public event Action<qx.eventx.type.Data> OnChangeRequired;
 
 		/// <summary>
 		/// <para>Fired when the valid state was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeValidEvent;
+		public event Action<qx.eventx.type.Data> OnChangeValid;
 
 		#endregion Events
 

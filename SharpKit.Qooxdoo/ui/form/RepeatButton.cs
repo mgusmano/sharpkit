@@ -36,17 +36,17 @@ namespace qx.ui.form
 		/// <para>This event gets dispatched with every interval. The timer gets executed
 		/// as long as the user holds down the mouse button.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ExecuteEvent;
+		public event Action<qx.eventx.type.Event> OnExecute;
 
 		/// <summary>
 		/// <para>This event gets dispatched when the button is pressed.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> PressEvent;
+		public event Action<qx.eventx.type.Event> OnPress;
 
 		/// <summary>
 		/// <para>This event gets dispatched when the button is released.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ReleaseEvent;
+		public event Action<qx.eventx.type.Event> OnRelease;
 
 		#endregion Events
 

@@ -17,13 +17,13 @@ namespace qx.bom
 		/// <summary>
 		/// Fired on change of the property <see cref="Enabled"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeEnabledEvent;
+		public event Action<qx.eventx.type.Data> OnChangeEnabled;
 
 		/// <summary>
 		/// <para>Fired when the command is executed. Sets the &#8220;data&#8221; property of the event to
 		/// the object that issued the command.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ExecuteEvent;
+		public event Action<qx.eventx.type.Data> OnExecute;
 
 		#endregion Events
 

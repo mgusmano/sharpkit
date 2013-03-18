@@ -18,12 +18,12 @@ namespace qx.ui.core
 		/// <summary>
 		/// Fired on change of the property <see cref="Command"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeCommandEvent;
+		public event Action<qx.eventx.type.Data> OnChangeCommand;
 
 		/// <summary>
 		/// <para>Fired if the <see cref="Execute"/> method is invoked.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> ExecuteEvent;
+		public event Action<qx.eventx.type.Event> OnExecute;
 
 		#endregion Events
 

@@ -30,21 +30,21 @@ namespace qx.ui.basic
 		/// <summary>
 		/// Fired on change of the property <see cref="Source"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSourceEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSource;
 
 		/// <summary>
 		/// <para>Fired if the image has been loaded.</para>
 		/// <para>Attention: This event is only used for images which are loaded externally
 		/// (aka unmanaged images).</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadedEvent;
+		public event Action<qx.eventx.type.Event> OnLoaded;
 
 		/// <summary>
 		/// <para>Fired if the image source can not be loaded.</para>
 		/// <para>Attention: This event is only used for images which are loaded externally
 		/// (aka unmanaged images).</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadingFailedEvent;
+		public event Action<qx.eventx.type.Event> OnLoadingFailed;
 
 		#endregion Events
 

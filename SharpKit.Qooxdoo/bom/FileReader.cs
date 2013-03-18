@@ -23,33 +23,33 @@ namespace qx.bom
 		/// dispatched, or after &#8220;loadstart&#8221; has been dispatched, if &#8220;progress&#8221; has
 		/// not been dispatched&#8221;</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> AbortEvent;
+		public event Action<qx.eventx.type.Data> OnAbort;
 
 		/// <summary>
 		/// <para>Fired when an error occurs</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ErrorEvent;
+		public event Action<qx.eventx.type.Data> OnError;
 
 		/// <summary>
 		/// <para>Fired when progression is successful</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> LoadEvent;
+		public event Action<qx.eventx.type.Data> OnLoad;
 
 		/// <summary>
 		/// <para>Fired when progress has stopped, after any of &#8220;error&#8221;, &#8220;abort&#8221;, or
 		/// &#8220;load&#8221; have been dispatched.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> LoadendEvent;
+		public event Action<qx.eventx.type.Data> OnLoadend;
 
 		/// <summary>
 		/// <para>Fired when progress has begun.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> LoadstartEvent;
+		public event Action<qx.eventx.type.Data> OnLoadstart;
 
 		/// <summary>
 		/// <para>Fired while making progress, presumably at a minimum of every 50ms</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ProgressEvent;
+		public event Action<qx.eventx.type.Data> OnProgress;
 
 		#endregion Events
 

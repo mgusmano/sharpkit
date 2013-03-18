@@ -18,92 +18,92 @@ namespace qx.ui.mobile.core
 		/// <summary>
 		/// <para>When the widget gets active (receives keyboard events etc.)</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Focus> ActivateEvent;
+		public event Action<qx.eventx.type.Focus> OnActivate;
 
 		/// <summary>
 		/// <para>Fired after the widget appears on the screen.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> AppearEvent;
+		public event Action<qx.eventx.type.Event> OnAppear;
 
 		/// <summary>
 		/// <para>Fired before the context menu is opened.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> BeforeContextmenuOpenEvent;
+		public event Action<qx.eventx.type.Mouse> OnBeforeContextmenuOpen;
 
 		/// <summary>
 		/// <para>The event is fired when the widget gets blurred.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Focus> BlurEvent;
+		public event Action<qx.eventx.type.Focus> OnBlur;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Enabled"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeEnabledEvent;
+		public event Action<qx.eventx.type.Data> OnChangeEnabled;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Id"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeIdEvent;
+		public event Action<qx.eventx.type.Data> OnChangeId;
 
 		/// <summary>
 		/// Fired on change of the property <see cref="Visibility"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeVisibilityEvent;
+		public event Action<qx.eventx.type.Data> OnChangeVisibility;
 
 		/// <summary>
 		/// <para>Widget is clicked using left or middle button.
 		/// <see cref="qx.event.type.Mouse.GetButton"/> for more details.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> ClickEvent;
+		public event Action<qx.eventx.type.Mouse> OnClick;
 
 		/// <summary>
 		/// <para>Widget is clicked using the right mouse button.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> ContextmenuEvent;
+		public event Action<qx.eventx.type.Mouse> OnContextmenu;
 
 		/// <summary>
 		/// <para>Widget is double clicked using left or middle button.
 		/// <see cref="qx.event.type.Mouse.GetButton"/> for more details.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> DblclickEvent;
+		public event Action<qx.eventx.type.Mouse> OnDblclick;
 
 		/// <summary>
 		/// <para>When the widget gets inactive</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Focus> DeactivateEvent;
+		public event Action<qx.eventx.type.Focus> OnDeactivate;
 
 		/// <summary>
 		/// <para>Fired after the widget disappears from the screen.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> DisappearEvent;
+		public event Action<qx.eventx.type.Event> OnDisappear;
 
 		/// <summary>
 		/// <para>Fired after a massive DOM manipulation, e.g. when DOM elements were
 		/// added or styles were changed. Listen to this event, if you need to
 		/// recalculate a layout or have to update your view.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> DomupdatedEvent;
+		public event Action<qx.eventx.type.Event> OnDomupdated;
 
 		/// <summary>
 		/// <para>The event is fired when the widget gets focused.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Focus> FocusEvent;
+		public event Action<qx.eventx.type.Focus> OnFocus;
 
 		/// <summary>
 		/// <para>When the widget itself or any child of the widget receive the focus.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Focus> FocusinEvent;
+		public event Action<qx.eventx.type.Focus> OnFocusin;
 
 		/// <summary>
 		/// <para>When the widget itself or any child of the widget lost the focus.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Focus> FocusoutEvent;
+		public event Action<qx.eventx.type.Focus> OnFocusout;
 
 		/// <summary>
 		/// <para>This event if fired if a keyboard key is pressed down. This event is
 		/// only fired once if the user keeps the key pressed for a while.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.KeySequence> KeydownEvent;
+		public event Action<qx.eventx.type.KeySequence> OnKeydown;
 
 		/// <summary>
 		/// <para>This event is fired if the pressed key or keys result in a printable
@@ -113,79 +113,79 @@ namespace qx.ui.mobile.core
 		/// <para>The unicode code of the pressed key can be read using
 		/// <see cref="qx.event.type.KeyInput.GetCharCode"/>.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.KeyInput> KeyinputEvent;
+		public event Action<qx.eventx.type.KeyInput> OnKeyinput;
 
 		/// <summary>
 		/// <para>This event is fired any time a key is pressed. It will be repeated if
 		/// the user keeps the key pressed. The pressed key can be determined using
 		/// <see cref="qx.event.type.KeySequence.GetKeyIdentifier"/>.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.KeySequence> KeypressEvent;
+		public event Action<qx.eventx.type.KeySequence> OnKeypress;
 
 		/// <summary>
 		/// <para>This event if fired if a keyboard key is released.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.KeySequence> KeyupEvent;
+		public event Action<qx.eventx.type.KeySequence> OnKeyup;
 
 		/// <summary>
 		/// <para>Mouse button is pressed on the widget.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> MousedownEvent;
+		public event Action<qx.eventx.type.Mouse> OnMousedown;
 
 		/// <summary>
 		/// <para>Fired if the mouse cursor moves over the widget.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> MousemoveEvent;
+		public event Action<qx.eventx.type.Mouse> OnMousemove;
 
 		/// <summary>
 		/// <para>Fired if the mouse cursor leaves widget.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> MouseoutEvent;
+		public event Action<qx.eventx.type.Mouse> OnMouseout;
 
 		/// <summary>
 		/// <para>Fired if the mouse cursor enters the widget.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> MouseoverEvent;
+		public event Action<qx.eventx.type.Mouse> OnMouseover;
 
 		/// <summary>
 		/// <para>Mouse button is released on the widget.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Mouse> MouseupEvent;
+		public event Action<qx.eventx.type.Mouse> OnMouseup;
 
 		/// <summary>
 		/// <para>Fired if the mouse wheel is used over the widget.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.MouseWheel> MousewheelEvent;
+		public event Action<qx.eventx.type.MouseWheel> OnMousewheel;
 
 		/// <summary>
 		/// <para>Fired when a finger swipes over the screen.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Touch> SwipeEvent;
+		public event Action<qx.eventx.type.Touch> OnSwipe;
 
 		/// <summary>
 		/// <para>Fired when a finger taps on the screen.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Touch> TapEvent;
+		public event Action<qx.eventx.type.Touch> OnTap;
 
 		/// <summary>
 		/// <para>Fired if a touch at the screen is cancled.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Touch> TouchcancelEvent;
+		public event Action<qx.eventx.type.Touch> OnTouchcancel;
 
 		/// <summary>
 		/// <para>Fired if a touch at the screen has ended.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Touch> TouchendEvent;
+		public event Action<qx.eventx.type.Touch> OnTouchend;
 
 		/// <summary>
 		/// <para>Fired during a touch at the screen.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Touch> TouchmoveEvent;
+		public event Action<qx.eventx.type.Touch> OnTouchmove;
 
 		/// <summary>
 		/// <para>Fired if a touch at the screen is started.</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Touch> TouchstartEvent;
+		public event Action<qx.eventx.type.Touch> OnTouchstart;
 
 		#endregion Events
 

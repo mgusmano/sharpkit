@@ -19,7 +19,7 @@ namespace qx.ui.core
 		/// <summary>
 		/// <para>Fires after the selection was modified</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeSelectedEvent;
+		public event Action<qx.eventx.type.Data> OnChangeSelected;
 
 		#endregion Events
 

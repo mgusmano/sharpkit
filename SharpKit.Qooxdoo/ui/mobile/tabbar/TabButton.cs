@@ -19,7 +19,7 @@ namespace qx.ui.mobile.tabbar
 		/// <summary>
 		/// Fired on change of the property <see cref="View"/>.
 		/// </summary>
-		public event Action<qx.eventx.type.Data> ChangeViewEvent;
+		public event Action<qx.eventx.type.Data> OnChangeView;
 
 		#endregion Events
 

@@ -18,37 +18,37 @@ namespace qx.bom.media
 		/// <summary>
 		/// <para>Fired when the media has finished to play</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> EndedEvent;
+		public event Action<qx.eventx.type.Event> OnEnded;
 
 		/// <summary>
 		/// <para>Fired when the media is laoded enough to start play</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadeddataEvent;
+		public event Action<qx.eventx.type.Event> OnLoadeddata;
 
 		/// <summary>
 		/// <para>Fired when the media is laoded enough to start play</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> LoadedmetadataEvent;
+		public event Action<qx.eventx.type.Event> OnLoadedmetadata;
 
 		/// <summary>
 		/// <para>Fired when the media is paused</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> PauseEvent;
+		public event Action<qx.eventx.type.Event> OnPause;
 
 		/// <summary>
 		/// <para>Fired when the media starts to play</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> PlayEvent;
+		public event Action<qx.eventx.type.Event> OnPlay;
 
 		/// <summary>
 		/// <para>Fired when the current time of the media has changed</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> TimeupdateEvent;
+		public event Action<qx.eventx.type.Event> OnTimeupdate;
 
 		/// <summary>
 		/// <para>Fired when the volume property is changed</para>
 		/// </summary>
-		public event Action<qx.eventx.type.Event> VolumechangeEvent;
+		public event Action<qx.eventx.type.Event> OnVolumechange;
 
 		#endregion Events
 
