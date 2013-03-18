@@ -26,7 +26,7 @@ namespace qx.eventx
 		/// <param name="ctx">The context of the listener.</param>
 		/// <returns>An unique id for the attached listener.</returns>
 		[JsMethod(Name = "addListener")]
-		public double AddListener(string name, Action<object> listener, object ctx = null) { throw new NotImplementedException(); }
+		public double AddListener(string name, Action<qx.eventx.type.Data> listener, object ctx = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Alternative for <see cref="Once"/>.</para>
@@ -36,7 +36,7 @@ namespace qx.eventx
 		/// <param name="ctx">The context of the listener.</param>
 		/// <returns>An unique id for the attached listener.</returns>
 		[JsMethod(Name = "addListenerOnce")]
-		public double AddListenerOnce(string name, Action<object> listener, object ctx = null) { throw new NotImplementedException(); }
+		public double AddListenerOnce(string name, Action<qx.eventx.type.Data> listener, object ctx = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Emits an event with the given name. The data will be passed
@@ -56,7 +56,7 @@ namespace qx.eventx
 		/// <param name="ctx">The context of the listener.</param>
 		/// <returns>The listener&#8217;s id if it was removed or null if it wasn&#8217;t found</returns>
 		[JsMethod(Name = "off")]
-		public double Off(string name, Action<object> listener, object ctx = null) { throw new NotImplementedException(); }
+		public double Off(string name, Action<qx.eventx.type.Data> listener, object ctx = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Removes the listener identified by the given id. The id
@@ -76,7 +76,7 @@ namespace qx.eventx
 		/// <param name="ctx">The context of the listener.</param>
 		/// <returns>An unique id for the attached listener.</returns>
 		[JsMethod(Name = "on")]
-		public double On(string name, Action<object> listener, object ctx = null) { throw new NotImplementedException(); }
+		public double On(string name, Action<qx.eventx.type.Data> listener, object ctx = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Attach a listener to the event emitter which will be executed only once.
@@ -88,7 +88,7 @@ namespace qx.eventx
 		/// <param name="ctx">The context of the listener.</param>
 		/// <returns>An unique id for the attached listener.</returns>
 		[JsMethod(Name = "once")]
-		public double Once(string name, Action<object> listener, object ctx = null) { throw new NotImplementedException(); }
+		public double Once(string name, Action<qx.eventx.type.Data> listener, object ctx = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Alternative for <see cref="Off"/>.</para>
@@ -97,7 +97,7 @@ namespace qx.eventx
 		/// <param name="listener">The function execute on #emit.</param>
 		/// <param name="ctx">The context of the listener.</param>
 		[JsMethod(Name = "removeListener")]
-		public void RemoveListener(string name, Action<object> listener, object ctx = null) { throw new NotImplementedException(); }
+		public void RemoveListener(string name, Action<qx.eventx.type.Data> listener, object ctx = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Alternative for <see cref="OffById"/>.</para>

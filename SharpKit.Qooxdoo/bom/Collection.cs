@@ -164,7 +164,7 @@ namespace qx.bom
 		/// <param name="capture">Whether to attach the event to the capturing phase or the bubbling phase of the event. The default is to attach the event handler to the bubbling phase.</param>
 		/// <returns>The collection is returned for chaining proposes</returns>
 		[JsMethod(Name = "addListener")]
-		public Collection AddListener(string type, Action<object> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
+		public Collection AddListener(string type, Action<qx.eventx.type.Data> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Insert content after each of the matched elements.</para>
@@ -619,7 +619,7 @@ namespace qx.bom
 		/// <param name="capture">Whether to remove the event listener of the bubbling or of the capturing phase.</param>
 		/// <returns>The collection is returned for chaining proposes</returns>
 		[JsMethod(Name = "removeListener")]
-		public Collection RemoveListener(string type, Action<object> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
+		public Collection RemoveListener(string type, Action<qx.eventx.type.Data> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Replaces the elements matched by the specified selector

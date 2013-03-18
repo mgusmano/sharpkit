@@ -100,7 +100,7 @@ namespace qx.core
 		/// <param name="listener">The function which will be invoked in the listener. The function has one parameter called e which is the event.</param>
 		/// <param name="msg">Message to be shows if the assertion fails.</param>
 		[JsMethod(Name = "assertEventFired")]
-		public void AssertEventFired(object obj, string eventx, Action<object> invokeFunc, Action<object> listener = null, string msg = "") { throw new NotImplementedException(); }
+		public void AssertEventFired(object obj, string eventx, Action<object> invokeFunc, Action<qx.eventx.type.Data> listener = null, string msg = "") { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Assert that an event is not fired.</para>

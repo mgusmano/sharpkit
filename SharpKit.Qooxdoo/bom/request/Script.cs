@@ -108,7 +108,7 @@ namespace qx.bom.request
 		/// <param name="ctx">The context of the listener.</param>
 		/// <returns>Self for chaining.</returns>
 		[JsMethod(Name = "on")]
-		public qx.bom.request.Script On(string name, Action<object> listener, object ctx) { throw new NotImplementedException(); }
+		public qx.bom.request.Script On(string name, Action<qx.eventx.type.Data> listener, object ctx) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Event handler for XHR event &#8220;abort&#8221; that is fired when request

@@ -36,7 +36,7 @@ namespace qx.bom
 		/// <param name="capture">Whether to attach the event to the capturing phase or the bubbling phase of the event. The default is to attach the event handler to the bubbling phase.</param>
 		/// <returns>An opaque id, which can be used to remove the event listener using the #removeListenerById method.</returns>
 		[JsMethod(Name = "addListener")]
-		public static string AddListener(qx.html.Element element, string type, Action<object> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
+		public static string AddListener(qx.html.Element element, string type, Action<qx.eventx.type.Data> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Blurs the given element</para>
@@ -107,7 +107,7 @@ namespace qx.bom
 		/// <param name="capture">Whether to remove the event listener of the bubbling or of the capturing phase.</param>
 		/// <returns>true if the listener was removed</returns>
 		[JsMethod(Name = "removeListener")]
-		public static bool RemoveListener(qx.html.Element element, string type, Action<object> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
+		public static bool RemoveListener(qx.html.Element element, string type, Action<qx.eventx.type.Data> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Removes an event listener from an event target by an id returned by

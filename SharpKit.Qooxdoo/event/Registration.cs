@@ -45,7 +45,7 @@ namespace qx.eventx
 		/// <param name="capture">Whether to attach the event to the capturing phase or the bubbling phase of the event. The default is to attach the event handler to the bubbling phase.</param>
 		/// <returns>An opaque id, which can be used to remove the event listener using the #removeListenerById method.</returns>
 		[JsMethod(Name = "addListener")]
-		public static object AddListener(object target, string type, Action<object> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
+		public static object AddListener(object target, string type, Action<qx.eventx.type.Data> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Get an event instance of the given class, which can be dispatched using
@@ -149,7 +149,7 @@ namespace qx.eventx
 		/// <param name="capture">Whether to remove the event listener of the bubbling or of the capturing phase.</param>
 		/// <returns>Whether the event was removed. Return false if the event was already removed before.</returns>
 		[JsMethod(Name = "removeListener")]
-		public static bool RemoveListener(object target, string type, Action<object> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
+		public static bool RemoveListener(object target, string type, Action<qx.eventx.type.Data> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Removes an event listener from an event target by an id returned by

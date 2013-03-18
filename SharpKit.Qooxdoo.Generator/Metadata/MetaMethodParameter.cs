@@ -45,6 +45,10 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
                     }
                 }
             }
+
+            if (Type == "Function" && Name == "listener")
+                Type = "FunctionListener";
+
             Type = TypeMapper.MapType(Type);
             if (Type == null)
             {

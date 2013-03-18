@@ -43,7 +43,7 @@ namespace qx.module
 		/// <param name="context">Listener callback context</param>
 		/// <returns>The collection for chaining</returns>
 		[JsMethod(Name = "off")]
-		public static qxWeb Off(string type, Action<object> listener, object context) { throw new NotImplementedException(); }
+		public static qxWeb Off(string type, Action<qx.eventx.type.Data> listener, object context) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Registers a listener for the given event type on each item in the
@@ -54,7 +54,7 @@ namespace qx.module
 		/// <param name="context">Context the callback function will be executed in. Default: The element on which the listener was registered</param>
 		/// <returns>The collection for chaining</returns>
 		[JsMethod(Name = "on")]
-		public static qxWeb On(string type, Action<object> listener, object context) { throw new NotImplementedException(); }
+		public static qxWeb On(string type, Action<qx.eventx.type.Data> listener, object context) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Attaches a listener for the given event that will be executed only once.</para>
@@ -64,7 +64,7 @@ namespace qx.module
 		/// <param name="context">Context the callback function will be executed in. Default: The element on which the listener was registered</param>
 		/// <returns>The collection for chaining</returns>
 		[JsMethod(Name = "once")]
-		public static qxWeb Once(string type, Action<object> listener, object context) { throw new NotImplementedException(); }
+		public static qxWeb Once(string type, Action<qx.eventx.type.Data> listener, object context) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

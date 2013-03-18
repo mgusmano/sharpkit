@@ -107,7 +107,7 @@ namespace qx.core
 		/// <param name="capture">Whether to attach the event to the capturing phase or the bubbling phase of the event. The default is to attach the event handler to the bubbling phase.</param>
 		/// <returns>An opaque id, which can be used to remove the event listener using the #removeListenerById method.</returns>
 		[JsMethod(Name = "addListener")]
-		public string AddListener(string type, Action<object> listener, object self = null, bool capture = false) { throw new NotImplementedException(); }
+		public string AddListener(string type, Action<qx.eventx.type.Data> listener, object self = null, bool capture = false) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Add event listener to this object, which is only called once. After the
@@ -119,7 +119,7 @@ namespace qx.core
 		/// <param name="capture">Whether to attach the event to the capturing phase or the bubbling phase of the event. The default is to attach the event handler to the bubbling phase.</param>
 		/// <returns>An opaque id, which can be used to remove the event listener using the #removeListenerById method.</returns>
 		[JsMethod(Name = "addListenerOnce")]
-		public string AddListenerOnce(string type, Action<object> listener, object self = null, bool capture = false) { throw new NotImplementedException(); }
+		public string AddListenerOnce(string type, Action<qx.eventx.type.Data> listener, object self = null, bool capture = false) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Dispatch an event on this object</para>
@@ -180,7 +180,7 @@ namespace qx.core
 		/// <param name="capture">Whether to remove the event listener of the bubbling or of the capturing phase.</param>
 		/// <returns>Whether the event was removed successfully (has existed)</returns>
 		[JsMethod(Name = "removeListener")]
-		public bool RemoveListener(string type, Action<object> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
+		public bool RemoveListener(string type, Action<qx.eventx.type.Data> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Removes an event listener from an event target by an id returned by
@@ -272,7 +272,7 @@ namespace qx.core
 		/// <param name="listener">The function which will be invoked in the listener. The function has one parameter called e which is the event.</param>
 		/// <param name="msg">Message to be shows if the assertion fails.</param>
 		[JsMethod(Name = "assertEventFired")]
-		public void AssertEventFired(object obj, string eventx, Action<object> invokeFunc, Action<object> listener = null, string msg = "") { throw new NotImplementedException(); }
+		public void AssertEventFired(object obj, string eventx, Action<object> invokeFunc, Action<qx.eventx.type.Data> listener = null, string msg = "") { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Assert that an event is not fired.</para>

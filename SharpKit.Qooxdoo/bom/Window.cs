@@ -130,7 +130,7 @@ namespace qx.bom
 		/// <param name="self">Reference to the &#8216;this&#8217; variable inside the event listener. When not given, &#8216;this&#8217; variable will be the new window</param>
 		/// <returns>native window object</returns>
 		[JsMethod(Name = "open")]
-		public static Window Open(string url, string name, object options, bool modal, bool useNativeModalDialog, Action<object> listener, object self) { throw new NotImplementedException(); }
+		public static Window Open(string url, string name, object options, bool modal, bool useNativeModalDialog, Action<qx.eventx.type.Data> listener, object self) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Resizing an opened window is not allowed in the most browsers anymore.</para>

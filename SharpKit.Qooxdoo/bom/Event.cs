@@ -29,7 +29,7 @@ namespace qx.bom
 		/// <param name="listener">The pointer to the function to assign</param>
 		/// <param name="useCapture">A Boolean value that specifies the event phase to add the event handler for the capturing phase or the bubbling phase.</param>
 		[JsMethod(Name = "addNativeListener")]
-		public static void AddNativeListener(object target, string type, Action<object> listener, bool useCapture = false) { throw new NotImplementedException(); }
+		public static void AddNativeListener(object target, string type, Action<qx.eventx.type.Data> listener, bool useCapture = false) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Fires a synthetic native event on the given element.</para>
@@ -74,7 +74,7 @@ namespace qx.bom
 		/// <param name="listener">The pointer to the function to assign</param>
 		/// <param name="useCapture">A Boolean value that specifies the event phase to remove the event handler for the capturing phase or the bubbling phase.</param>
 		[JsMethod(Name = "removeNativeListener")]
-		public static void RemoveNativeListener(object target, string type, Action<object> listener, bool useCapture = false) { throw new NotImplementedException(); }
+		public static void RemoveNativeListener(object target, string type, Action<qx.eventx.type.Data> listener, bool useCapture = false) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Stops the propagation of the given event to the parent element.</para>

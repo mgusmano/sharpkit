@@ -622,7 +622,7 @@ namespace qx
 		/// <param name="context">Context the callback function will be executed in. Default: The element on which the listener was registered</param>
 		/// <returns>The collection for chaining</returns>
 		[JsMethod(Name = "on")]
-		public qxWeb On(string type, Action<object> listener, object context) { throw new NotImplementedException(); }
+		public qxWeb On(string type, Action<qx.eventx.type.Data> listener, object context) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Adds an overlay to all items in the collection that intercepts mouse
@@ -1074,7 +1074,7 @@ namespace qx
 		/// <param name="context">Listener callback context</param>
 		/// <returns>The collection for chaining</returns>
 		[JsMethod(Name = "off")]
-		public qxWeb Off(string type, Action<object> listener, object context) { throw new NotImplementedException(); }
+		public qxWeb Off(string type, Action<qx.eventx.type.Data> listener, object context) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Checks if the first element in the collection has the given class name</para>
@@ -1112,7 +1112,7 @@ namespace qx
 		/// <param name="context">Context the callback function will be executed in. Default: The element on which the listener was registered</param>
 		/// <returns>The collection for chaining</returns>
 		[JsMethod(Name = "once")]
-		public qxWeb Once(string type, Action<object> listener, object context) { throw new NotImplementedException(); }
+		public qxWeb Once(string type, Action<qx.eventx.type.Data> listener, object context) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

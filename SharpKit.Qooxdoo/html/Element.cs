@@ -75,7 +75,7 @@ namespace qx.html
 		/// <param name="capture">Whether capturing should be enabled</param>
 		/// <returns>An opaque id, which can be used to remove the event listener using the #removeListenerById method.</returns>
 		[JsMethod(Name = "addListener")]
-		public object AddListener(string type, Action<object> listener, object self = null, bool capture = false) { throw new NotImplementedException(); }
+		public object AddListener(string type, Action<qx.eventx.type.Data> listener, object self = null, bool capture = false) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Mark this element to get blurred on the next flush of the queue</para>
@@ -444,7 +444,7 @@ namespace qx.html
 		/// <param name="capture">Whether capturing should be enabled</param>
 		/// <returns>this object (for chaining support)</returns>
 		[JsMethod(Name = "removeListener")]
-		public qx.html.Element RemoveListener(string type, Action<object> listener, object self, bool capture = false) { throw new NotImplementedException(); }
+		public qx.html.Element RemoveListener(string type, Action<qx.eventx.type.Data> listener, object self, bool capture = false) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Removes an event listener from an event target by an id returned by

@@ -379,7 +379,7 @@ namespace qx.ui.table
 		/// <param name="capture">Whether to attach the event to the capturing phase or the bubbling phase of the event. The default is to attach the event handler to the bubbling phase.</param>
 		/// <returns>An opaque id, which can be used to remove the event listener using the #removeListenerById method.</returns>
 		[JsMethod(Name = "addListener")]
-		public string AddListener(string type, Action<object> listener, object self = null, bool capture = false) { throw new NotImplementedException(); }
+		public string AddListener(string type, Action<qx.eventx.type.Data> listener, object self = null, bool capture = false) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Activates the blocker widgets on all column headers and the
@@ -984,7 +984,7 @@ namespace qx.ui.table
 		/// <param name="capture">Whether to remove the event listener of the bubbling or of the capturing phase.</param>
 		/// <returns>Whether the event was removed successfully (has existed)</returns>
 		[JsMethod(Name = "removeListener")]
-		public bool RemoveListener(string type, Action<object> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
+		public bool RemoveListener(string type, Action<qx.eventx.type.Data> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Removes an event listener from an event target by an id returned by
