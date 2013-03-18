@@ -90,6 +90,13 @@ namespace qx.eventx.handler
 		public void Deactivate(qx.html.Element element) { throw new NotImplementedException(); }
 
 		/// <summary>
+		/// <para>Focuses the given DOM element</para>
+		/// </summary>
+		/// <param name="element">DOM element to focus</param>
+		[JsMethod(Name = "focus")]
+		public void FocusElement(qx.html.Element element) { throw new NotImplementedException(); }
+
+		/// <summary>
 		/// <para>Returns the (computed) value of the property active.</para>
 		/// </summary>
 		[JsMethod(Name = "getActive")]

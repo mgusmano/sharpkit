@@ -13,7 +13,7 @@ namespace qx.ui.virtualx.cell
 	/// <para>EXPERIMENTAL!</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.virtual.cell.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object, qx.ui.virtualx.cell.ICell
+    public abstract partial class Abstract : qx.core.Object, qx.ui.virtualx.cell.ICell
     {
 		#region Methods
 

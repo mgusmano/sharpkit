@@ -17,7 +17,7 @@ namespace qx.ui.virtualx.layer
 	/// to increase the performance.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.virtual.layer.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.ui.core.Widget, qx.ui.virtualx.core.ILayer
+    public abstract partial class Abstract : qx.ui.core.Widget, qx.ui.virtualx.core.ILayer
     {
 		#region Properties
 

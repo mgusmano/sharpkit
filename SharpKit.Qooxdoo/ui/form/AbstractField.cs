@@ -14,7 +14,7 @@ namespace qx.ui.form
 	/// <see cref="Input"/> or <see cref="ChangeValue"/> events, respectively.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.form.AbstractField", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractField : qx.ui.core.Widget, qx.ui.form.IStringForm, qx.ui.form.IForm
+    public abstract partial class AbstractField : qx.ui.core.Widget, qx.ui.form.IStringForm, qx.ui.form.IForm
     {
 		#region Events
 

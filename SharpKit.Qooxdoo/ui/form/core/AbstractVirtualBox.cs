@@ -13,7 +13,7 @@ namespace qx.ui.form.core
 	/// and the whole children management.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.form.core.AbstractVirtualBox", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractVirtualBox : qx.ui.core.Widget, qx.ui.form.IForm
+    public abstract partial class AbstractVirtualBox : qx.ui.core.Widget, qx.ui.form.IForm
     {
 		#region Events
 

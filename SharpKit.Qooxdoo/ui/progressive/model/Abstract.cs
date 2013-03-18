@@ -10,7 +10,7 @@ namespace qx.ui.progressive.model
 	/// <para>Data Model for Progressive renderer.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.progressive.model.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object
+    public abstract partial class Abstract : qx.core.Object
     {
 		#region Events
 

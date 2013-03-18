@@ -10,7 +10,7 @@ namespace qx.ui.mobile.list.renderer
 	/// <para>Base class for all list item renderer.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.mobile.list.renderer.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.ui.mobile.container.Composite
+    public abstract partial class Abstract : qx.ui.mobile.container.Composite
     {
 		#region Properties
 

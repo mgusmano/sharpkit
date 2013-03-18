@@ -11,7 +11,7 @@ namespace qx.ui.progressive.headfoot
 	/// renderer.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.progressive.headfoot.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.ui.container.Composite
+    public abstract partial class Abstract : qx.ui.container.Composite
     {
 		#region Methods
 

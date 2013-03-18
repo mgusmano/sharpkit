@@ -18,7 +18,7 @@ namespace qx.io.request
 	/// <see cref="#_getConfiguredUrl"/> and <see cref="#_getConfiguredRequestHeaders"/>.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.io.request.AbstractRequest", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractRequest : qx.core.Object
+    public abstract partial class AbstractRequest : qx.core.Object
     {
 		#region Events
 

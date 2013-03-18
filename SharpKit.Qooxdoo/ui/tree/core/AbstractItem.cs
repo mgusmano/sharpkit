@@ -12,7 +12,7 @@ namespace qx.ui.tree.core
 	/// qx.ui.tree.core.AbstractTreeItem} and <see cref="qx.ui.tree.VirtualTreeItem"/> classes.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.tree.core.AbstractItem", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractItem : qx.ui.core.Widget, qx.ui.form.IModel
+    public abstract partial class AbstractItem : qx.ui.core.Widget, qx.ui.form.IModel
     {
 		#region Events
 

@@ -11,7 +11,7 @@ namespace qx.ui.table.cellrenderer
 	/// implementations must implement the method <see cref="#_identifyImage"/>.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.table.cellrenderer.AbstractImage", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractImage : qx.ui.table.cellrenderer.Abstract
+    public abstract partial class AbstractImage : qx.ui.table.cellrenderer.Abstract
     {
 		#region Properties
 

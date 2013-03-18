@@ -10,7 +10,7 @@ namespace qx.ui.progressive.renderer
 	/// <para>Abstract renderer for Progressive.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.progressive.renderer.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object
+    public abstract partial class Abstract : qx.core.Object
     {
 		#region Methods
 

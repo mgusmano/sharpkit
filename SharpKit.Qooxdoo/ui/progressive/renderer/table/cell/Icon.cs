@@ -10,7 +10,7 @@ namespace qx.ui.progressive.renderer.table.cell
 	/// <para>Abstract Icon cell renderer.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.progressive.renderer.table.cell.Icon", OmitOptionalParameters = true, Export = false)]
-    public partial class Icon : qx.ui.progressive.renderer.table.cell.Abstract
+    public abstract partial class Icon : qx.ui.progressive.renderer.table.cell.Abstract
     {
 		#region Methods
 

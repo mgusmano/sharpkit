@@ -11,7 +11,7 @@ namespace qx.ui.mobile.form
 	/// <para>Abstract class for all input fields.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.mobile.form.Input", OmitOptionalParameters = true, Export = false)]
-    public partial class Input : qx.ui.mobile.core.Widget, qx.ui.form.IForm, qx.ui.form.IModel
+    public abstract partial class Input : qx.ui.mobile.core.Widget, qx.ui.form.IForm, qx.ui.form.IModel
     {
 		#region Events
 

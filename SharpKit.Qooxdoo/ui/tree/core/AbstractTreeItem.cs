@@ -11,7 +11,7 @@ namespace qx.ui.tree.core
 	/// qx.ui.tree.TreeFile} and <see cref="qx.ui.tree.TreeFolder"/> classes.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.tree.core.AbstractTreeItem", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractTreeItem : qx.ui.tree.core.AbstractItem
+    public abstract partial class AbstractTreeItem : qx.ui.tree.core.AbstractItem
     {
 		#region Properties
 

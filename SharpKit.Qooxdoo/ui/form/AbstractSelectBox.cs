@@ -12,7 +12,7 @@ namespace qx.ui.form
 	/// with a list and the whole children management.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.form.AbstractSelectBox", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractSelectBox : qx.ui.core.Widget, qx.ui.form.IForm
+    public abstract partial class AbstractSelectBox : qx.ui.core.Widget, qx.ui.form.IForm
     {
 		#region Events
 

@@ -13,7 +13,7 @@ using <#= u #>;
 namespace <#= model.Namespace #>
 {
     <#= model.ParseXMLComment(1) #>[JsType(JsMode.Prototype, Name = "<#= model.FullName #>", OmitOptionalParameters = true, Export = false)]
-    public partial class <#= model.Name #> <#= model.InheritanceList #>
+    public <# if (model.IsAbstract) { #>abstract <# } #>partial class <#= model.Name #> <#= model.InheritanceList #>
     {
 <# var events = model.GetAllEvents(); if (events.Count > 0) { #>
 		#region Events

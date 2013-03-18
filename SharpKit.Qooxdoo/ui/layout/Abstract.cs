@@ -13,7 +13,7 @@ namespace qx.ui.layout
 	/// <see cref="RenderLayout"/> and <see cref="GetSizeHint"/>.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.layout.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object
+    public abstract partial class Abstract : qx.core.Object
     {
 		#region Methods
 

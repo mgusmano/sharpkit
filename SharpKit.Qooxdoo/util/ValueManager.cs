@@ -10,7 +10,7 @@ namespace qx.util
 	/// <para>Abstract base class for all managers of themed values.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.util.ValueManager", OmitOptionalParameters = true, Export = false)]
-    public partial class ValueManager : qx.core.Object
+    public abstract partial class ValueManager : qx.core.Object
     {
 		#region Methods
 

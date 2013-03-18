@@ -11,7 +11,7 @@ namespace qx.ui.table.model
 	/// need to care for row handling.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.table.model.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object, qx.ui.table.ITableModel
+    public abstract partial class Abstract : qx.core.Object, qx.ui.table.ITableModel
     {
 		#region Events
 

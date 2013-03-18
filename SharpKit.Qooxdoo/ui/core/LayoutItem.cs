@@ -11,7 +11,7 @@ namespace qx.ui.core
 	/// <see cref="qx.ui.layout.Abstract"/>.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.core.LayoutItem", OmitOptionalParameters = true, Export = false)]
-    public partial class LayoutItem : qx.core.Object
+    public abstract partial class LayoutItem : qx.core.Object
     {
 		#region Events
 

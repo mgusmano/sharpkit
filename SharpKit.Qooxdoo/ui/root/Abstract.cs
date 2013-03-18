@@ -12,7 +12,7 @@ namespace qx.ui.root
 	/// <para>Shared implementation for all root widgets.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.root.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.ui.core.Widget
+    public abstract partial class Abstract : qx.ui.core.Widget
     {
 		#region Events
 

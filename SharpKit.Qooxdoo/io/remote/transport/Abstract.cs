@@ -10,7 +10,7 @@ namespace qx.io.remote.transport
 	/// <para>Abstract for all transport implementations</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.io.remote.transport.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object
+    public abstract partial class Abstract : qx.core.Object
     {
 		#region Events
 

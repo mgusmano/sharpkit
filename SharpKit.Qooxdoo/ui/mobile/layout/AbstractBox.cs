@@ -10,7 +10,7 @@ namespace qx.ui.mobile.layout
 	/// <para>Base class for all box layout managers.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.mobile.layout.AbstractBox", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractBox : qx.ui.mobile.layout.Abstract
+    public abstract partial class AbstractBox : qx.ui.mobile.layout.Abstract
     {
 		#region Properties
 

@@ -10,7 +10,7 @@ namespace qx.ui.progressive.structure
 	/// <para>Abstract structure definition for Progressive</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.progressive.structure.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object
+    public abstract partial class Abstract : qx.core.Object
     {
 		#region Methods
 

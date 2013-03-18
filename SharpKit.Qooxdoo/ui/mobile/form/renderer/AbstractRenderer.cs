@@ -13,7 +13,7 @@ namespace qx.ui.mobile.form.renderer
 	/// methods in order to customize the way the form gets into the DOM.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.mobile.form.renderer.AbstractRenderer", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractRenderer : qx.ui.mobile.core.Widget, qx.ui.form.renderer.IFormRenderer
+    public abstract partial class AbstractRenderer : qx.ui.mobile.core.Widget, qx.ui.form.renderer.IFormRenderer
     {
 		#region Properties
 

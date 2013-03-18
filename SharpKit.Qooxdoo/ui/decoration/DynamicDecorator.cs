@@ -12,7 +12,7 @@ namespace qx.ui.decoration
 	/// included mixins into one working decorator.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.decoration.DynamicDecorator", OmitOptionalParameters = true, Export = false)]
-    public partial class DynamicDecorator : qx.ui.decoration.Abstract
+    public abstract partial class DynamicDecorator : qx.ui.decoration.Abstract
     {
 		#region Methods
 

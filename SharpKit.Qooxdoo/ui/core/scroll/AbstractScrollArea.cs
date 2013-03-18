@@ -11,7 +11,7 @@ namespace qx.ui.core.scroll
 	/// if the content size exceeds the size of the container.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.core.scroll.AbstractScrollArea", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractScrollArea : qx.ui.core.Widget
+    public abstract partial class AbstractScrollArea : qx.ui.core.Widget
     {
 		#region Events
 

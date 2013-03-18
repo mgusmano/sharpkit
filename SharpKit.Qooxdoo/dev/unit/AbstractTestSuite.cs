@@ -11,7 +11,7 @@ namespace qx.dev.unit
 	/// which should be run together.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.dev.unit.AbstractTestSuite", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractTestSuite : qx.core.Object
+    public abstract partial class AbstractTestSuite : qx.core.Object
     {
 		#region Methods
 

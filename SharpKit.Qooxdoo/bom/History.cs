@@ -24,7 +24,7 @@ namespace qx.bom
 	/// (http://developer.yahoo.com/yui/license.txt).</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.bom.History", OmitOptionalParameters = true, Export = false)]
-    public partial class History : qx.core.Object
+    public abstract partial class History : qx.core.Object
     {
 		#region Events
 

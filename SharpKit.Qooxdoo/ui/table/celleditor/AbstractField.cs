@@ -10,7 +10,7 @@ namespace qx.ui.table.celleditor
 	/// <para>An abstract cell editor factory creating text/password/spinner/... fields.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.table.celleditor.AbstractField", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractField : qx.core.Object, qx.ui.table.ICellEditorFactory
+    public abstract partial class AbstractField : qx.core.Object, qx.ui.table.ICellEditorFactory
     {
 		#region Properties
 

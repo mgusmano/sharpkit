@@ -15,7 +15,7 @@ namespace qx.ui.decoration
 	/// weather the decorator is initialized of not.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.decoration.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object
+    public abstract partial class Abstract : qx.core.Object
     {
 		#region Properties
 

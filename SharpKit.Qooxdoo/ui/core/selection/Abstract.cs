@@ -13,7 +13,7 @@ namespace qx.ui.core.selection
 	/// known from native applications.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.core.selection.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object
+    public abstract partial class Abstract : qx.core.Object
     {
 		#region Events
 

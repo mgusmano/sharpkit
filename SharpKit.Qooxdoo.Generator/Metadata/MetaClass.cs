@@ -18,6 +18,7 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
         public bool IsStatic { get; set; }
         public bool IsMixin { get; set; }
         public bool IsInterface { get; set; }
+        public bool IsAbstract { get; set; }
 
         public List<string> Usings { get; set; }
         public List<MetaMethod> Methods { get; set; }
@@ -44,6 +45,7 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
             }
 
             IsStatic = node.Attributes.ContainsKey("isStatic") && node.GetAttributeValue("isStatic") == "True";
+            IsAbstract = node.Attributes.ContainsKey("isAbstract") && node.GetAttributeValue("isAbstract") == "True";
             IsMixin = node.Attributes.ContainsKey("type") && node.GetAttributeValue("type") == "mixin";
             IsInterface = node.Attributes.ContainsKey("type") && node.GetAttributeValue("type") == "interface";
 

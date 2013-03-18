@@ -11,7 +11,7 @@ namespace qx.ui.table.cellrenderer
 	/// (borders, selected look, ...).</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.table.cellrenderer.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object, qx.ui.table.ICellRenderer
+    public abstract partial class Abstract : qx.core.Object, qx.ui.table.ICellRenderer
     {
 		#region Properties
 

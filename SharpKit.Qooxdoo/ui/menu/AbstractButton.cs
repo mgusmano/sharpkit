@@ -12,7 +12,7 @@ namespace qx.ui.menu
 	/// for example normal buttons, checkboxes or radiobuttons.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.menu.AbstractButton", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractButton : qx.ui.core.Widget, qx.ui.form.IExecutable
+    public abstract partial class AbstractButton : qx.ui.core.Widget, qx.ui.form.IExecutable
     {
 		#region Events
 

@@ -10,7 +10,7 @@ namespace qx.eventx.dispatch
 	/// <para>Event dispatcher for all bubbling events.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.event.dispatch.AbstractBubbling", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractBubbling : qx.core.Object, qx.eventx.IEventDispatcher
+    public abstract partial class AbstractBubbling : qx.core.Object, qx.eventx.IEventDispatcher
     {
 		#region Methods
 

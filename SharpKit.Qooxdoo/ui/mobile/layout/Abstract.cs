@@ -13,7 +13,7 @@ namespace qx.ui.mobile.layout
 	/// <see cref="#_getSupportedChildLayoutProperties"/> and <see cref="#_setLayoutProperty"/>.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.mobile.layout.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object
+    public abstract partial class Abstract : qx.core.Object
     {
 		#region Events
 

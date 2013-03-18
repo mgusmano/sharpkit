@@ -11,7 +11,7 @@ namespace qx.application
 	/// <para>Abstract base class for GUI applications using qooxdoo widgets.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.application.AbstractGui", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractGui : qx.core.Object, qx.application.IApplication
+    public abstract partial class AbstractGui : qx.core.Object, qx.application.IApplication
     {
 		#region Methods
 

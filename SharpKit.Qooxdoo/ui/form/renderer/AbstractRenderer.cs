@@ -14,7 +14,7 @@ namespace qx.ui.form.renderer
 	/// be sure to do that before calling this.base(arguments, form).</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.form.renderer.AbstractRenderer", OmitOptionalParameters = true, Export = false)]
-    public partial class AbstractRenderer : qx.ui.core.Widget, qx.ui.form.renderer.IFormRenderer
+    public abstract partial class AbstractRenderer : qx.ui.core.Widget, qx.ui.form.renderer.IFormRenderer
     {
 		#region Methods
 

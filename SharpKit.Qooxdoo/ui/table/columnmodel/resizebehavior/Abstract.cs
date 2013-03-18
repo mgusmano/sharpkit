@@ -11,7 +11,7 @@ namespace qx.ui.table.columnmodel.resizebehavior
 	/// class.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.ui.table.columnmodel.resizebehavior.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object
+    public abstract partial class Abstract : qx.core.Object
     {
 		#region Methods
 

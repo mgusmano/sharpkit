@@ -11,7 +11,7 @@ namespace qx.bom.media
 	/// <para>Media element. Other media types can derive from this class.</para>
 	/// </summary>
 	[JsType(JsMode.Prototype, Name = "qx.bom.media.Abstract", OmitOptionalParameters = true, Export = false)]
-    public partial class Abstract : qx.core.Object
+    public abstract partial class Abstract : qx.core.Object
     {
 		#region Events
 
