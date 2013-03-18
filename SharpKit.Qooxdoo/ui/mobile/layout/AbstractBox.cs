@@ -54,11 +54,20 @@ namespace qx.ui.mobile.layout
 		/// <param name="reversed">Sets the #reversed property</param>
 		public AbstractBox(string alignX = null, string alignY = null, bool? reversed = null) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This method is called by the widget to connect the widget with the layout.</para>
+		/// </summary>
+		/// <param name="widget">The widget to connect to</param>
 		[JsMethod(Name = "connectToWidget")]
-		public void ConnectToWidget(object widget) { throw new NotImplementedException(); }
+		public void ConnectToWidget(qx.ui.mobile.core.Widget widget) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Disconnects the layout from a given child widget. Can be overridden in a concrete
+		/// interface implementation.</para>
+		/// </summary>
+		/// <param name="widget">The widget to connect to</param>
 		[JsMethod(Name = "disconnectFromChildWidget")]
-		public void DisconnectFromChildWidget(object widget) { throw new NotImplementedException(); }
+		public void DisconnectFromChildWidget(qx.ui.mobile.core.Widget widget) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property alignX.</para>

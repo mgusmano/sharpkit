@@ -207,8 +207,15 @@ namespace qx.ui.core
 		[JsMethod(Name = "clearSeparators")]
 		public void ClearSeparators() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>EXPERIMENTAL &#8211; NOT READY FOR PRODUCTION</para>
+		/// <para>Returns a clone of this object. Copies over all user configured
+		/// property values. Do not configure a parent nor apply the appearance
+		/// styles directly.</para>
+		/// </summary>
+		/// <returns>The clone</returns>
 		[JsMethod(Name = "clone")]
-		public void Clone() { throw new NotImplementedException(); }
+		public qx.core.Object Clone() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property alignX.</para>

@@ -25,14 +25,31 @@ namespace qx.ui.root
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget is enabled. Disabled widgets are usually grayed out
+		/// and do not process user created events. While in the disabled state most
+		/// user input events are blocked. Only the <see cref="Mouseover"/> and
+		/// <see cref="Mouseout"/> events will be dispatched.</para>
+		/// </summary>
 		[JsProperty(Name = "enabled", NativeField = true)]
-		public object Enabled { get; set; }
+		public bool Enabled { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget is focusable e.g. rendering a focus border and visualize
+		/// as active element.</para>
+		/// <para>See also <see cref="IsTabable"/> which allows runtime checks for
+		/// isChecked or other stuff to test whether the widget is
+		/// reachable via the TAB key.</para>
+		/// </summary>
 		[JsProperty(Name = "focusable", NativeField = true)]
-		public object Focusable { get; set; }
+		public bool Focusable { get; set; }
 
 		/// <summary>
 		/// <para>Sets the global cursor style</para>
@@ -153,8 +170,13 @@ namespace qx.ui.root
 		[JsMethod(Name = "isNativeHelp")]
 		public void IsNativeHelp() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Whether the item is a root item and directly connected to
+		/// the DOM.</para>
+		/// </summary>
+		/// <returns>Whether the item a root item</returns>
 		[JsMethod(Name = "isRootWidget")]
-		public void IsRootWidget() { throw new NotImplementedException(); }
+		public bool IsRootWidget() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Resets the user value of the property globalCursor.</para>

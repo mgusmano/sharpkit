@@ -106,7 +106,9 @@ namespace SharpKit.Qooxdoo.Generator
                             // Write output class to .cs file
                             if (content != null)
                             {
-                                var outputFile = Path.Combine(generatedPath, metaClass.FullName.Replace(".", @"\") + ".cs");
+                                var relOutputFile = metaClass.OriginalFullName.Replace(".", @"\") + ".cs";
+                                if (!relOutputFile.StartsWith(@"qx\")) relOutputFile = @"qx\" + relOutputFile;
+                                var outputFile = Path.Combine(generatedPath, relOutputFile);
                                 var outputPath = Path.GetDirectoryName(outputFile);
                                 if (!Directory.Exists(outputPath)) Directory.CreateDirectory(outputPath);
                                 File.WriteAllText(outputFile, content);

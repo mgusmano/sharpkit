@@ -9,6 +9,7 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
     public class MetaClass : MetaItem
     {
         public string Namespace { get; set; }
+        public string OriginalFullName { get; set; }
         public string FullName { get; set; }
         public string BaseClass { get; set; }
         public string InheritanceList { get; set; }
@@ -35,7 +36,8 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
             Events = new List<MetaEvent>();
             MixinClasses = new List<MetaClass>();
 
-            FullName = node.Attributes["fullName"];
+            OriginalFullName = node.Attributes["fullName"];
+            FullName = TypeMapper.MapType(OriginalFullName);
             BaseClass = TypeMapper.MapType(node.GetAttributeValue("superClass"));
             Namespace = TypeMapper.MapNamespace(node.Attributes["packageName"]);
             if (String.IsNullOrWhiteSpace(Namespace))
@@ -72,10 +74,12 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
             }
             if (InheritanceList == null) InheritanceList = "";
 
-            var mixins = node.GetAttributeValue("mixins");
-            if (!String.IsNullOrWhiteSpace(mixins))
+            var mixinList = node.GetAttributeValue("mixins");
+            if (mixinList != null)
             {
-                Mixins = mixins.Split(',').ToList();
+                Mixins = mixinList.Split(',').ToList();
+                for (int i = 0; i < Mixins.Count; i++)
+                    Mixins[i] = TypeMapper.MapNamespace(Mixins[i]);
             }
             else
             {
@@ -172,7 +176,8 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
                         Name = Name,
                         FormattedName = Name,
                         ReturnType = "",
-                        Parameters = new List<MetaMethodParameter>()
+                        Parameters = new List<MetaMethodParameter>(),
+                        AutoInsert = true
                     });
                 }
             }
@@ -212,12 +217,30 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
             {
                 allMethods.AddRange(mixinClass.Methods.Where(m => !m.IsConstructor && allMethods.FirstOrDefault(m1 => m1.Name == m.Name) == null));
             }
+
+            // Replace original methods metadata with the one from docFrom class (it has more accurate description and other data)
+            for (int i = 0; i < allMethods.Count; i++)
+            {
+                if (!allMethods[i].AutoInsert && allMethods[i].DocFrom != null)
+                {
+                    var fromClass = allClasses.FirstOrDefault(c => allMethods[i].DocFrom == c.FullName);
+                    if (fromClass != null)
+                    {
+                        var fromMethod = fromClass.Methods.FirstOrDefault(m => !m.AutoInsert && m.Name == allMethods[i].Name);
+                        if (fromMethod != null)
+                        {
+                            allMethods[i] = fromMethod;
+                        }
+                    }
+                }
+            }
+
             // Replace original methods metadata with the one from interfaces (it has more accurate description and other data)
             if (Interfaces.Count > 0)
             {
                 foreach (var interf in Interfaces)
                 {
-                    var interfaceClass = allClasses.FirstOrDefault(c => c.IsInterface && c.Namespace + "." + c.Name == interf);
+                    var interfaceClass = allClasses.FirstOrDefault(c => c.IsInterface && c.FullName == interf);
                     if (interfaceClass != null)
                     {
                         for (int i = 0; i < allMethods.Count; i++)
@@ -231,6 +254,7 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
                     }
                 }
             }
+
             return allMethods;
         }
 
@@ -242,12 +266,30 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
             {
                 allProperties.AddRange(mixinClass.Properties.Where(p => allProperties.FirstOrDefault(p1 => p1.Name == p.Name) == null));
             }
+
+            // Replace original properties metadata with the one from docFrom class (it has more accurate description and other data)
+            for (int i = 0; i < allProperties.Count; i++)
+            {
+                if (allProperties[i].DocFrom != null)
+                {
+                    var fromClass = allClasses.FirstOrDefault(c => allProperties[i].DocFrom == c.FullName);
+                    if (fromClass != null)
+                    {
+                        var fromProperty = fromClass.Properties.FirstOrDefault(p => p.Name == allProperties[i].Name);
+                        if (fromProperty != null)
+                        {
+                            allProperties[i] = fromProperty;
+                        }
+                    }
+                }
+            }
+
             // Replace original properties metadata with the one from interfaces (it has more accurate description and other data)
             if (Interfaces.Count > 0)
             {
                 foreach (var interf in Interfaces)
                 {
-                    var interfaceClass = allClasses.FirstOrDefault(c => c.IsInterface && c.Namespace + "." + c.Name == interf);
+                    var interfaceClass = allClasses.FirstOrDefault(c => c.IsInterface && c.FullName == interf);
                     if (interfaceClass != null)
                     {
                         for (int i = 0; i < allProperties.Count; i++)
@@ -261,6 +303,7 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
                     }
                 }
             }
+
             return allProperties;
         }
 
@@ -272,12 +315,30 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
             {
                 allEvents.AddRange(mixinClass.Events.Where(e => allEvents.FirstOrDefault(e1 => e1.Name == e.Name) == null));
             }
+
+            // Replace original events metadata with the one from docFrom class (it has more accurate description and other data)
+            for (int i = 0; i < allEvents.Count; i++)
+            {
+                if (allEvents[i].DocFrom != null)
+                {
+                    var fromClass = allClasses.FirstOrDefault(c => allEvents[i].DocFrom == c.FullName);
+                    if (fromClass != null)
+                    {
+                        var fromEvent = fromClass.Events.FirstOrDefault(e => e.Name == allEvents[i].Name);
+                        if (fromEvent != null)
+                        {
+                            allEvents[i] = fromEvent;
+                        }
+                    }
+                }
+            }
+
             // Replace original events metadata with the one from interfaces (it has more accurate description and other data)
             if (Interfaces.Count > 0)
             {
                 foreach (var interf in Interfaces)
                 {
-                    var interfaceClass = allClasses.FirstOrDefault(c => c.IsInterface && c.Namespace + "." + c.Name == interf);
+                    var interfaceClass = allClasses.FirstOrDefault(c => c.IsInterface && c.FullName == interf);
                     if (interfaceClass != null)
                     {
                         for (int i = 0; i < allEvents.Count; i++)
@@ -291,6 +352,7 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
                     }
                 }
             }
+
             return allEvents;
         }
     }

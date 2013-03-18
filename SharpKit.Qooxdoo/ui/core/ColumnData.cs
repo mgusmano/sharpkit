@@ -32,8 +32,16 @@ namespace qx.ui.core
 		[JsMethod(Name = "getFlex")]
 		public double GetFlex() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Used by the layout engine to apply coordinates and dimensions.</para>
+		/// </summary>
+		/// <param name="left">Any integer value for the left position, always in pixels</param>
+		/// <param name="top">Any integer value for the top position, always in pixels</param>
+		/// <param name="width">Any positive integer value for the width, always in pixels</param>
+		/// <param name="height">Any positive integer value for the height, always in pixels</param>
+		/// <returns>A map of which layout sizes changed.</returns>
 		[JsMethod(Name = "renderLayout")]
-		public void RenderLayout(object left, object top, object width, object height) { throw new NotImplementedException(); }
+		public object RenderLayout(double left, double top, double width, double height) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Set the column width. The column width can be one of the following

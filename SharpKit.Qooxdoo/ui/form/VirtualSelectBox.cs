@@ -25,8 +25,12 @@ namespace qx.ui.form
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>Current selected items.</para>
@@ -37,8 +41,17 @@ namespace qx.ui.form
 		[JsProperty(Name = "selection", NativeField = true)]
 		public qx.data.Array Selection { get; set; }
 
+		/// <summary>
+		/// <para>The LayoutItem&#8216;s preferred width.</para>
+		/// <para>The computed width may differ from the given width due to
+		/// stretching. Also take a look at the related properties
+		/// <see cref="MinWidth"/> and <see cref="MaxWidth"/>.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "width", NativeField = true)]
-		public object Width { get; set; }
+		public double Width { get; set; }
 
 		#endregion Properties
 
@@ -77,6 +90,11 @@ namespace qx.ui.form
 		[JsMethod(Name = "setSelection")]
 		public void SetSelection(qx.data.IListData value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This method is called during the flush of the
+		/// <see cref="qx.ui.core.queue.Widget widget queue"/>.</para>
+		/// </summary>
+		/// <param name="jobs">A map of jobs.</param>
 		[JsMethod(Name = "syncWidget")]
 		public void SyncWidget(object jobs) { throw new NotImplementedException(); }
 

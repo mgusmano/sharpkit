@@ -32,8 +32,14 @@ namespace qx.io.part
 		[JsMethod(Name = "load")]
 		public void Load(Action<object> callback, object self) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Method for preloading this part.
+		/// Empty implementation! Regular parts can not be preloaded.</para>
+		/// </summary>
+		/// <param name="callback">Callback for the preload.</param>
+		/// <param name="self">The context of the callback.</param>
 		[JsMethod(Name = "preload")]
-		public void Preload(object callback, object self) { throw new NotImplementedException(); }
+		public void Preload(Action<object> callback, object self) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

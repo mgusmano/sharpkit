@@ -19,14 +19,24 @@ namespace qx.ui.menu
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>Whether the item can grow horizontally.</para>
+		/// </summary>
 		[JsProperty(Name = "allowGrowX", NativeField = true)]
-		public object AllowGrowX { get; set; }
+		public bool AllowGrowX { get; set; }
 
+		/// <summary>
+		/// <para>Whether the item can grow vertically.</para>
+		/// </summary>
 		[JsProperty(Name = "allowGrowY", NativeField = true)]
-		public object AllowGrowY { get; set; }
+		public bool AllowGrowY { get; set; }
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>Default arrow column width if no sub menus are rendered</para>
@@ -68,11 +78,24 @@ namespace qx.ui.menu
 		[JsProperty(Name = "iconColumnWidth", NativeField = true)]
 		public double IconColumnWidth { get; set; }
 
+		/// <summary>
+		/// <para>If this property if enabled, the widget and all of its child widgets
+		/// will never get activated. The activation keeps at the currently
+		/// activated widget.</para>
+		/// <para>This is mainly useful for widget authors. Please use with caution!</para>
+		/// </summary>
 		[JsProperty(Name = "keepActive", NativeField = true)]
-		public object KeepActive { get; set; }
+		public bool KeepActive { get; set; }
 
+		/// <summary>
+		/// <para>If this property is enabled, the widget and all of its child widgets
+		/// will never get focused. The focus keeps at the currently
+		/// focused widget.</para>
+		/// <para>This only works for widgets which are not <see cref="Focusable"/>.</para>
+		/// <para>This is mainly useful for widget authors. Please use with caution!</para>
+		/// </summary>
 		[JsProperty(Name = "keepFocus", NativeField = true)]
-		public object KeepFocus { get; set; }
+		public bool KeepFocus { get; set; }
 
 		/// <summary>
 		/// <para>The currently opened button (sub menu is visible)</para>
@@ -119,6 +142,18 @@ namespace qx.ui.menu
 		[JsProperty(Name = "spacingY", NativeField = true)]
 		public double SpacingY { get; set; }
 
+		/// <summary>
+		/// <para>Controls the visibility. Valid values are:</para>
+		/// <list type="bullet">
+		/// <item>visible: Render the widget</item>
+		/// <item>hidden: Hide the widget but don't relayout the widget's parent.</item>
+		/// <item>excluded: Hide the widget and relayout the parent as if the
+		/// widget was not a child of its parent.</item>
+		/// </list
+		/// </summary>
+		/// <remarks>
+		/// Possible values: "visible","hidden","excluded"
+		/// </remarks>
 		[JsProperty(Name = "visibility", NativeField = true)]
 		public object Visibility { get; set; }
 
@@ -253,8 +288,14 @@ namespace qx.ui.menu
 		[JsMethod(Name = "getBlockerOpacity")]
 		public double GetBlockerOpacity() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the widget which contains the children and
+		/// is relevant for laying them out. This is from the user point of
+		/// view and may not be identical to the technical structure.</para>
+		/// </summary>
+		/// <returns>Widget which contains the children.</returns>
 		[JsMethod(Name = "getChildrenContainer")]
-		public void GetChildrenContainer() { throw new NotImplementedException(); }
+		public qx.ui.core.Widget GetChildrenContainer() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property closeInterval.</para>
@@ -640,6 +681,11 @@ namespace qx.ui.menu
 		[JsMethod(Name = "setSpacingY")]
 		public void SetSpacingY(double value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This method is called during the flush of the
+		/// <see cref="qx.ui.core.queue.Widget widget queue"/>.</para>
+		/// </summary>
+		/// <param name="jobs">A map of jobs.</param>
 		[JsMethod(Name = "syncWidget")]
 		public void SyncWidget(object jobs) { throw new NotImplementedException(); }
 

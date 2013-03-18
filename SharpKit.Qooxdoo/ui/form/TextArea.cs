@@ -14,8 +14,12 @@ namespace qx.ui.form
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>Whether the TextArea should automatically adjust to
@@ -181,8 +185,12 @@ namespace qx.ui.form
 		[JsMethod(Name = "setSingleStep")]
 		public void SetSingleStep(double value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Sets the element&#8217;s value.</para>
+		/// </summary>
+		/// <param name="value">The new value of the element.</param>
 		[JsMethod(Name = "setValue")]
-		public void SetValue(object value) { throw new NotImplementedException(); }
+		public void SetValue(string value) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Sets the user value of the property wrap.</para>

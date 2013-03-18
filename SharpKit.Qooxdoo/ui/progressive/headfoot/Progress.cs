@@ -21,8 +21,13 @@ namespace qx.ui.progressive.headfoot
 		/// <param name="labelArr">Array of labels, one for each of the columns.</param>
 		public Progress(qx.ui.progressive.renderer.table.Widths columnWidths, JsArray labelArr) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Join this header/footer to a Progressive.  This makes the Progressive
+		/// object available to the header/footer through the _progressive member.</para>
+		/// </summary>
+		/// <param name="progressive">Progressive object to which we&#8217;re being joined.</param>
 		[JsMethod(Name = "join")]
-		public void Join(object progressive) { throw new NotImplementedException(); }
+		public void Join(qx.ui.progressive.Progressive progressive) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

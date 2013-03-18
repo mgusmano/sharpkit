@@ -24,8 +24,12 @@ namespace qx.ui.tabview
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>Any URI String supported by qx.ui.basic.Image to display an icon in Page&#8217;s button.</para>

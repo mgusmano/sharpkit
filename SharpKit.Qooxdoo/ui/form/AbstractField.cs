@@ -66,8 +66,15 @@ namespace qx.ui.form
 		[JsProperty(Name = "filter", NativeField = true)]
 		public JsRegExp Filter { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget is focusable e.g. rendering a focus border and visualize
+		/// as active element.</para>
+		/// <para>See also <see cref="IsTabable"/> which allows runtime checks for
+		/// isChecked or other stuff to test whether the widget is
+		/// reachable via the TAB key.</para>
+		/// </summary>
 		[JsProperty(Name = "focusable", NativeField = true)]
-		public object Focusable { get; set; }
+		public bool Focusable { get; set; }
 
 		/// <summary>
 		/// <para>Whether the <see cref="ChangeValue"/> event should be fired on every key
@@ -100,8 +107,14 @@ namespace qx.ui.form
 		[JsProperty(Name = "readOnly", NativeField = true)]
 		public bool ReadOnly { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget contains content which may be selected by the user.</para>
+		/// <para>If the value set to true the native browser selection can
+		/// be used for text selection. But it is normally useful for
+		/// forms fields, longer texts/documents, editors, etc.</para>
+		/// </summary>
 		[JsProperty(Name = "selectable", NativeField = true)]
-		public object Selectable { get; set; }
+		public bool Selectable { get; set; }
 
 		/// <summary>
 		/// <para>Alignment of the text</para>
@@ -165,8 +178,12 @@ namespace qx.ui.form
 		[JsMethod(Name = "getFilter")]
 		public JsRegExp GetFilter() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the element which should be focused.</para>
+		/// </summary>
+		/// <returns>The html element to focus.</returns>
 		[JsMethod(Name = "getFocusElement")]
-		public void GetFocusElement() { throw new NotImplementedException(); }
+		public qx.html.Element GetFocusElement() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property liveUpdate.</para>
@@ -303,8 +320,16 @@ namespace qx.ui.form
 		[JsMethod(Name = "isReadOnly")]
 		public void IsReadOnly() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Used by the layout engine to apply coordinates and dimensions.</para>
+		/// </summary>
+		/// <param name="left">Any integer value for the left position, always in pixels</param>
+		/// <param name="top">Any integer value for the top position, always in pixels</param>
+		/// <param name="width">Any positive integer value for the width, always in pixels</param>
+		/// <param name="height">Any positive integer value for the height, always in pixels</param>
+		/// <returns>A map of which layout sizes changed.</returns>
 		[JsMethod(Name = "renderLayout")]
-		public void RenderLayout(object left, object top, object width, object height) { throw new NotImplementedException(); }
+		public object RenderLayout(double left, double top, double width, double height) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Resets the user value of the property filter.</para>

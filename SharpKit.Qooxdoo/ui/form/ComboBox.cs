@@ -27,8 +27,12 @@ namespace qx.ui.form
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>String value which will be shown as a hint if the field is all of:
@@ -55,6 +59,9 @@ namespace qx.ui.form
 		[JsMethod(Name = "clearTextSelection")]
 		public void ClearTextSelection() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Focus this widget.</para>
+		/// </summary>
 		[JsMethod(Name = "focus")]
 		public void Focus() { throw new NotImplementedException(); }
 

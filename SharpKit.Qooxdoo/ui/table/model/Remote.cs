@@ -103,8 +103,12 @@ namespace qx.ui.table.model
 		[JsMethod(Name = "getMaxCachedBlockCount")]
 		public double GetMaxCachedBlockCount() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the number of rows in the model.</para>
+		/// </summary>
+		/// <returns>the number of rows.</returns>
 		[JsMethod(Name = "getRowCount")]
-		public void GetRowCount() { throw new NotImplementedException(); }
+		public double GetRowCount() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>See overridden method for details.</para>
@@ -114,11 +118,22 @@ namespace qx.ui.table.model
 		[JsMethod(Name = "getRowData")]
 		public object GetRowData(double rowIndex) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the column index the model is sorted by. If the model is not sorted
+		/// -1 is returned.</para>
+		/// </summary>
+		/// <returns>the column index the model is sorted by.</returns>
 		[JsMethod(Name = "getSortColumnIndex")]
-		public void GetSortColumnIndex() { throw new NotImplementedException(); }
+		public double GetSortColumnIndex() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns a cell value by column index.</para>
+		/// </summary>
+		/// <param name="columnIndex">the index of the column.</param>
+		/// <param name="rowIndex">the index of the row.</param>
+		/// <returns>The value of the cell.</returns>
 		[JsMethod(Name = "getValue")]
-		public void GetValue(object columnIndex, object rowIndex) { throw new NotImplementedException(); }
+		public object GetValue(double columnIndex, double rowIndex) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Calls the apply method and dispatches the change event of the property blockConcurrentLoadRowCount
@@ -168,14 +183,28 @@ namespace qx.ui.table.model
 		[JsMethod(Name = "isClearCacheOnRemove")]
 		public void IsClearCacheOnRemove() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns whether a column is editable.</para>
+		/// </summary>
+		/// <param name="columnIndex">the column to check.</param>
+		/// <returns>whether the column is editable.</returns>
 		[JsMethod(Name = "isColumnEditable")]
-		public void IsColumnEditable(object columnIndex) { throw new NotImplementedException(); }
+		public bool IsColumnEditable(double columnIndex) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns whether a column is sortable.</para>
+		/// </summary>
+		/// <param name="columnIndex">the column to check.</param>
+		/// <returns>whether the column is sortable.</returns>
 		[JsMethod(Name = "isColumnSortable")]
-		public void IsColumnSortable(object columnIndex) { throw new NotImplementedException(); }
+		public bool IsColumnSortable(double columnIndex) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns whether the model is sorted ascending.</para>
+		/// </summary>
+		/// <returns>whether the model is sorted ascending.</returns>
 		[JsMethod(Name = "isSortAscending")]
-		public void IsSortAscending() { throw new NotImplementedException(); }
+		public bool IsSortAscending() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Iterates through all cached rows.</para>
@@ -190,8 +219,14 @@ namespace qx.ui.table.model
 		[JsMethod(Name = "iterateCachedRows")]
 		public void IterateCachedRows(Action<object> iterator, object objectx) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Prefetches some rows. This is a hint to the model that the specified rows
+		/// will be read soon.</para>
+		/// </summary>
+		/// <param name="firstRowIndex">the index of first row.</param>
+		/// <param name="lastRowIndex">the index of last row.</param>
 		[JsMethod(Name = "prefetchRows")]
-		public void PrefetchRows(object firstRowIndex, object lastRowIndex) { throw new NotImplementedException(); }
+		public void PrefetchRows(double firstRowIndex, double lastRowIndex) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Reloads the model and clears the local cache.</para>
@@ -316,11 +351,22 @@ namespace qx.ui.table.model
 		[JsMethod(Name = "setSortColumnIndexWithoutSortingData")]
 		public void SetSortColumnIndexWithoutSortingData(double sortColumnIndex) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Sets a cell value by column index.</para>
+		/// </summary>
+		/// <param name="columnIndex">The index of the column.</param>
+		/// <param name="rowIndex">the index of the row.</param>
+		/// <param name="value">The new value.</param>
 		[JsMethod(Name = "setValue")]
-		public void SetValue(object columnIndex, object rowIndex, object value) { throw new NotImplementedException(); }
+		public void SetValue(double columnIndex, double rowIndex, object value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Sorts the model by a column.</para>
+		/// </summary>
+		/// <param name="columnIndex">the column to sort by.</param>
+		/// <param name="ascending">whether to sort ascending.</param>
 		[JsMethod(Name = "sortByColumn")]
-		public void SortByColumn(object columnIndex, object ascending) { throw new NotImplementedException(); }
+		public void SortByColumn(double columnIndex, bool ascending) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Toggles the (computed) value of the boolean property blockConcurrentLoadRowCount.</para>

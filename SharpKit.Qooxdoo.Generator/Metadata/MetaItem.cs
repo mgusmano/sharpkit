@@ -14,6 +14,8 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
         public string Name { get; set; }
         public string FormattedName { get; set; }
         public string Comment { get; set; }
+        public string OverriddenFrom { get; set; }
+        public string DocFrom { get; set; }
 
         public MetaItem()
         {
@@ -34,6 +36,18 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
                 {
                     Comment = descNode.Attributes["text"];
                 }
+            }
+
+            OverriddenFrom = node.GetAttributeValue("overriddenFrom");
+            if (OverriddenFrom != null)
+            {
+                OverriddenFrom = TypeMapper.MapType(OverriddenFrom);
+            }
+
+            DocFrom = node.GetAttributeValue("docFrom");
+            if (DocFrom != null)
+            {
+                DocFrom = TypeMapper.MapType(DocFrom);
             }
         }
 

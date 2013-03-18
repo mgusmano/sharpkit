@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using SharpKit.Html;
 using SharpKit.JavaScript;
+using qx.ui.core;
 
 namespace qx.ui.mobile.container
 {
@@ -37,8 +38,17 @@ namespace qx.ui.mobile.container
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The default CSS class used for this widget. The default CSS class
+		/// should contain the common appearance of the widget.
+		/// It is set to the container element of the widget. Use <see cref="AddCssClass"/>
+		/// to enhance the default appearance of the widget.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "defaultCssClass", NativeField = true)]
-		public object DefaultCssClass { get; set; }
+		public string DefaultCssClass { get; set; }
 
 		#endregion Properties
 
@@ -46,8 +56,13 @@ namespace qx.ui.mobile.container
 
 		public Navigation() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Adds a new child widget.</para>
+		/// </summary>
+		/// <param name="child">the widget to add.</param>
+		/// <param name="layoutProperties">Optional layout data for widget.</param>
 		[JsMethod(Name = "add")]
-		public void Add(object widget) { throw new NotImplementedException(); }
+		public void Add(Widget child, object layoutProperties = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the content container. Add all your widgets to this container.</para>
@@ -70,8 +85,12 @@ namespace qx.ui.mobile.container
 		[JsMethod(Name = "getNavigationBar")]
 		public qx.ui.mobile.navigationbar.NavigationBar GetNavigationBar() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Remove the given child widget.</para>
+		/// </summary>
+		/// <param name="child">the widget to remove</param>
 		[JsMethod(Name = "remove")]
-		public void Remove(object widget) { throw new NotImplementedException(); }
+		public void Remove(Widget child) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

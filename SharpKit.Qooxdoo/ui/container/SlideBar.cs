@@ -24,8 +24,12 @@ namespace qx.ui.container
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>Orientation of the bar</para>
@@ -51,8 +55,14 @@ namespace qx.ui.container
 		/// <param name="orientation">The slide bar orientation</param>
 		public SlideBar(string orientation = "horizontal") { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the widget which contains the children and
+		/// is relevant for laying them out. This is from the user point of
+		/// view and may not be identical to the technical structure.</para>
+		/// </summary>
+		/// <returns>Widget which contains the children.</returns>
 		[JsMethod(Name = "getChildrenContainer")]
-		public void GetChildrenContainer() { throw new NotImplementedException(); }
+		public qx.ui.core.Widget GetChildrenContainer() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property orientation.</para>

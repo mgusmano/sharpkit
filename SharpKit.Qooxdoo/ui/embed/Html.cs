@@ -42,8 +42,15 @@ namespace qx.ui.embed
 		[JsProperty(Name = "cssClass", NativeField = true)]
 		public string CssClass { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget is focusable e.g. rendering a focus border and visualize
+		/// as active element.</para>
+		/// <para>See also <see cref="IsTabable"/> which allows runtime checks for
+		/// isChecked or other stuff to test whether the widget is
+		/// reachable via the TAB key.</para>
+		/// </summary>
 		[JsProperty(Name = "focusable", NativeField = true)]
-		public object Focusable { get; set; }
+		public bool Focusable { get; set; }
 
 		/// <summary>
 		/// <para>Any text string which can contain HTML, too</para>
@@ -54,8 +61,14 @@ namespace qx.ui.embed
 		[JsProperty(Name = "html", NativeField = true)]
 		public string Htmlx { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget contains content which may be selected by the user.</para>
+		/// <para>If the value set to true the native browser selection can
+		/// be used for text selection. But it is normally useful for
+		/// forms fields, longer texts/documents, editors, etc.</para>
+		/// </summary>
 		[JsProperty(Name = "selectable", NativeField = true)]
-		public object Selectable { get; set; }
+		public bool Selectable { get; set; }
 
 		/// <summary>
 		/// <para>Overflow group property</para>
@@ -98,8 +111,12 @@ namespace qx.ui.embed
 		[JsMethod(Name = "getCssClass")]
 		public string GetCssClass() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the element which should be focused.</para>
+		/// </summary>
+		/// <returns>The html element to focus.</returns>
 		[JsMethod(Name = "getFocusElement")]
-		public void GetFocusElement() { throw new NotImplementedException(); }
+		public qx.html.Element GetFocusElement() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property html.</para>

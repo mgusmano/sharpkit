@@ -70,8 +70,12 @@ namespace qx.ui.tree.core
 		[JsMethod(Name = "addBefore")]
 		public void AddBefore(AbstractTreeItem treeItem, AbstractTreeItem before) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Sets a state.</para>
+		/// </summary>
+		/// <param name="state">The state to add</param>
 		[JsMethod(Name = "addState")]
-		public void AddState(object state) { throw new NotImplementedException(); }
+		public void AddState(string state) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Get all child items.</para>
@@ -100,8 +104,13 @@ namespace qx.ui.tree.core
 		[JsMethod(Name = "getItems")]
 		public AbstractTreeItem GetItems(bool recursive = true, bool invisible = true, bool ignoreFirst = true) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Computes the item&#8217;s nesting level. If the item is not part of a tree
+		/// this function will return null.</para>
+		/// </summary>
+		/// <returns>The item&#8217;s nesting level or null.</returns>
 		[JsMethod(Name = "getLevel")]
-		public void GetLevel() { throw new NotImplementedException(); }
+		public double GetLevel() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property parent.</para>
@@ -126,8 +135,12 @@ namespace qx.ui.tree.core
 		[JsMethod(Name = "getTree")]
 		public qx.ui.tree.Tree GetTree() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Whether the item has any children</para>
+		/// </summary>
+		/// <returns>Whether the item has any children.</returns>
 		[JsMethod(Name = "hasChildren")]
-		public void HasChildren() { throw new NotImplementedException(); }
+		public bool HasChildren() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Whether the tree item has a children container</para>
@@ -165,8 +178,12 @@ namespace qx.ui.tree.core
 		[JsMethod(Name = "removeAt")]
 		public void RemoveAt(double index) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Clears a state.</para>
+		/// </summary>
+		/// <param name="state">the state to clear.</param>
 		[JsMethod(Name = "removeState")]
-		public void RemoveState(object state) { throw new NotImplementedException(); }
+		public void RemoveState(string state) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Resets the user value of the property parent.</para>

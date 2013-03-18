@@ -14,8 +14,12 @@ namespace qx.ui.progressive.headfoot
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		#endregion Properties
 
@@ -35,8 +39,13 @@ namespace qx.ui.progressive.headfoot
 		[JsMethod(Name = "getLayoutChildren")]
 		public JsArray GetLayoutChildren() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Join this header/footer to a Progressive.  This makes the Progressive
+		/// object available to the header/footer through the _progressive member.</para>
+		/// </summary>
+		/// <param name="progressive">Progressive object to which we&#8217;re being joined.</param>
 		[JsMethod(Name = "join")]
-		public void Join(object progressive) { throw new NotImplementedException(); }
+		public void Join(qx.ui.progressive.Progressive progressive) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

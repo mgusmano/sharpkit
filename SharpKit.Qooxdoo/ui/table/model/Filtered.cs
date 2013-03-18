@@ -80,8 +80,13 @@ namespace qx.ui.table.model
 		[JsMethod(Name = "resetHiddenRows")]
 		public void ResetHiddenRows() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Sets the whole data in a bulk.</para>
+		/// </summary>
+		/// <param name="rowArr">An array containing an array for each row. Each row-array contains the values in that row in the order of the columns in this model.</param>
+		/// <param name="clearSorting">Whether to clear the sort state.</param>
 		[JsMethod(Name = "setData")]
-		public void SetData(object rowArr, object clearSorting) { throw new NotImplementedException(); }
+		public void SetData(object rowArr, bool clearSorting = true) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

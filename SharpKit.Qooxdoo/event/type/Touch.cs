@@ -145,6 +145,11 @@ namespace qx.eventx.type
 		[JsMethod(Name = "isMultiTouch")]
 		public bool IsMultiTouch() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Stops event from all further processing. Execute this when the
+		/// current handler should have &#8220;exclusive rights&#8221; to the event
+		/// and no further reaction by anyone else should happen.</para>
+		/// </summary>
 		[JsMethod(Name = "stop")]
 		public void Stop() { throw new NotImplementedException(); }
 

@@ -72,8 +72,12 @@ namespace qx.ui.list
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>Indicates that the list is managing the <see cref="Groups"/> automatically.</para>
@@ -91,8 +95,15 @@ namespace qx.ui.list
 		[JsProperty(Name = "delegate", NativeField = true)]
 		public object Delegate { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget is focusable e.g. rendering a focus border and visualize
+		/// as active element.</para>
+		/// <para>See also <see cref="IsTabable"/> which allows runtime checks for
+		/// isChecked or other stuff to test whether the widget is
+		/// reachable via the TAB key.</para>
+		/// </summary>
 		[JsProperty(Name = "focusable", NativeField = true)]
-		public object Focusable { get; set; }
+		public bool Focusable { get; set; }
 
 		/// <summary>
 		/// <para>A map containing the options for the group label binding. The possible keys
@@ -125,8 +136,17 @@ namespace qx.ui.list
 		[JsProperty(Name = "groups", NativeField = true)]
 		public qx.data.Array Groups { get; set; }
 
+		/// <summary>
+		/// <para>The item&#8217;s preferred height.</para>
+		/// <para>The computed height may differ from the given height due to
+		/// stretching. Also take a look at the related properties
+		/// <see cref="MinHeight"/> and <see cref="MaxHeight"/>.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "height", NativeField = true)]
-		public object Height { get; set; }
+		public double Height { get; set; }
 
 		/// <summary>
 		/// <para>A map containing the options for the icon binding. The possible keys
@@ -185,8 +205,17 @@ namespace qx.ui.list
 		[JsProperty(Name = "model", NativeField = true)]
 		public qx.data.Array Model { get; set; }
 
+		/// <summary>
+		/// <para>The LayoutItem&#8216;s preferred width.</para>
+		/// <para>The computed width may differ from the given width due to
+		/// stretching. Also take a look at the related properties
+		/// <see cref="MinWidth"/> and <see cref="MaxWidth"/>.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "width", NativeField = true)]
-		public object Width { get; set; }
+		public double Width { get; set; }
 
 		/// <summary>
 		/// <para>Enable drag selection (multi selection of items through

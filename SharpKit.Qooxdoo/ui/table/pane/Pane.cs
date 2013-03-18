@@ -35,8 +35,11 @@ namespace qx.ui.table.pane
 
 		#region Properties
 
+		/// <summary>
+		/// <para>Whether the item can shrink horizontally.</para>
+		/// </summary>
 		[JsProperty(Name = "allowShrinkX", NativeField = true)]
-		public object AllowShrinkX { get; set; }
+		public bool AllowShrinkX { get; set; }
 
 		/// <summary>
 		/// <para>The index of the first row to show.</para>

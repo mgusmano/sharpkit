@@ -82,8 +82,13 @@ namespace qx.ui.virtualx.cell
 		[JsMethod(Name = "setDelegate")]
 		public void SetDelegate(object value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Update the data the cell widget should display</para>
+		/// </summary>
+		/// <param name="widget">The cell widget to update</param>
+		/// <param name="data">The data to display</param>
 		[JsMethod(Name = "updateData")]
-		public void UpdateData(object widget, object data) { throw new NotImplementedException(); }
+		public void UpdateData(qx.ui.core.LayoutItem widget, object data) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

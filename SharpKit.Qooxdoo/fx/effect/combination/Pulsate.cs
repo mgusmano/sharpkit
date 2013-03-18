@@ -30,9 +30,17 @@ namespace qx.fx.effect.combination
 		/// <param name="element">The DOM element</param>
 		public Pulsate(object element) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This internal function is called after
+		/// the effect actually has ended.</para>
+		/// </summary>
 		[JsMethod(Name = "afterFinish")]
 		public void AfterFinish() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This internal function is called before
+		/// the effect&#8217;s &#8220;setup&#8221; method gets called.</para>
+		/// </summary>
 		[JsMethod(Name = "beforeSetup")]
 		public void BeforeSetup() { throw new NotImplementedException(); }
 
@@ -42,11 +50,18 @@ namespace qx.fx.effect.combination
 		[JsMethod(Name = "cancel")]
 		public void Cancel() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Ends the effect</para>
+		/// </summary>
 		[JsMethod(Name = "end")]
 		public void End() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Starts the effect</para>
+		/// </summary>
+		/// <returns>true if the effect was successfully started</returns>
 		[JsMethod(Name = "start")]
-		public void Start() { throw new NotImplementedException(); }
+		public bool Start() { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

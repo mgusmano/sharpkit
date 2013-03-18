@@ -83,14 +83,35 @@ namespace qx.ui.decoration
 		/// <param name="backgroundColor">Initialize with background color</param>
 		public Background(string backgroundColor) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the basic markup structure used for this decoration.
+		/// This later updated on DOM to resize or tint the element.</para>
+		/// </summary>
+		/// <returns>Basic markup</returns>
 		[JsMethod(Name = "getMarkup")]
-		public void GetMarkup() { throw new NotImplementedException(); }
+		public string GetMarkup() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Resizes the element respecting the configured borders
+		/// to the given width and height. Should automatically
+		/// respect the box model of the client to correctly
+		/// compute the dimensions.</para>
+		/// </summary>
+		/// <param name="element">The element to update</param>
+		/// <param name="width">Width of the element</param>
+		/// <param name="height">Height of the element</param>
 		[JsMethod(Name = "resize")]
-		public void Resize(object element, object width, object height) { throw new NotImplementedException(); }
+		public void Resize(qx.html.Element element, double width, double height) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Applies the given background color to the element
+		/// or fallback to the background color defined
+		/// by the decoration itself.</para>
+		/// </summary>
+		/// <param name="element">The element to update</param>
+		/// <param name="bgcolor">The color to apply or null</param>
 		[JsMethod(Name = "tint")]
-		public void Tint(object element, object bgcolor) { throw new NotImplementedException(); }
+		public void Tint(qx.html.Element element, string bgcolor) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property backgroundImage.</para>

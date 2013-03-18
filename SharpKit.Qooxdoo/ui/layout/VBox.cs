@@ -195,8 +195,13 @@ namespace qx.ui.layout
 		[JsMethod(Name = "isReversed")]
 		public void IsReversed() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Applies the children layout.</para>
+		/// </summary>
+		/// <param name="availWidth">Final width available for the content (in pixel)</param>
+		/// <param name="availHeight">Final height available for the content (in pixel)</param>
 		[JsMethod(Name = "renderLayout")]
-		public void RenderLayout(object availWidth, object availHeight) { throw new NotImplementedException(); }
+		public void RenderLayout(double availWidth, double availHeight) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Resets the user value of the property alignX.</para>

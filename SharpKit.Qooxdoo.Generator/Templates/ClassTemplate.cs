@@ -65,7 +65,7 @@ namespace SharpKit.Qooxdoo.Generator.Templates
             this.Write("[JsType(JsMode.Prototype, Name = \"");
             
             #line 15 "C:\Users\Nik\Downloads\sharpkit\SharpKit.Qooxdoo.Generator\Templates\ClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(model.FullName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.OriginalFullName));
             
             #line default
             #line hidden

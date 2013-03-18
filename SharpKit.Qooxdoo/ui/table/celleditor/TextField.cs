@@ -16,8 +16,13 @@ namespace qx.ui.table.celleditor
 
 		public TextField() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the current value of a cell editor.</para>
+		/// </summary>
+		/// <param name="cellEditor">The cell editor formally created by #createCellEditor.</param>
+		/// <returns>the current value from the editor.</returns>
 		[JsMethod(Name = "getCellEditorValue")]
-		public void GetCellEditorValue(object cellEditor) { throw new NotImplementedException(); }
+		public object GetCellEditorValue(qx.ui.core.Widget cellEditor) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

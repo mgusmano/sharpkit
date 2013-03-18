@@ -26,8 +26,12 @@ namespace qx.fx.effect.core
 		[JsMethod(Name = "finish")]
 		public void Finish() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Starts the effect</para>
+		/// </summary>
+		/// <returns>true if the effect was successfully started</returns>
 		[JsMethod(Name = "start")]
-		public void Start() { throw new NotImplementedException(); }
+		public bool Start() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Renders all child effects</para>

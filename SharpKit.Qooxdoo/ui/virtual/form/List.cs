@@ -45,8 +45,12 @@ namespace qx.ui.virtualx.form
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>The cell renderer to use</para>
@@ -294,6 +298,11 @@ namespace qx.ui.virtualx.form
 		[JsMethod(Name = "setUseWidgetCells")]
 		public void SetUseWidgetCells(bool value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This method is called during the flush of the
+		/// <see cref="qx.ui.core.queue.Widget widget queue"/>.</para>
+		/// </summary>
+		/// <param name="jobs">A map of jobs.</param>
 		[JsMethod(Name = "syncWidget")]
 		public void SyncWidget(object jobs) { throw new NotImplementedException(); }
 

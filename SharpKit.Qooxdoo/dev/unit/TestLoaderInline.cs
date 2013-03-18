@@ -30,6 +30,9 @@ namespace qx.dev.unit
 
 		public TestLoaderInline() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Called when the application relevant classes are loaded and ready.</para>
+		/// </summary>
 		[JsMethod(Name = "main")]
 		public void Main() { throw new NotImplementedException(); }
 

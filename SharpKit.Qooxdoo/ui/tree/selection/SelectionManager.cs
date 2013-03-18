@@ -16,8 +16,13 @@ namespace qx.ui.tree.selection
 
 		public SelectionManager() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns all selectable items of the container.</para>
+		/// </summary>
+		/// <param name="all">true for all selectables, false for the selectables the user can interactively select</param>
+		/// <returns>A list of items</returns>
 		[JsMethod(Name = "getSelectables")]
-		public void GetSelectables(object all) { throw new NotImplementedException(); }
+		public JsArray GetSelectables(bool all) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

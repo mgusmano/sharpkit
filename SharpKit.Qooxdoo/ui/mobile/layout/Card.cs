@@ -59,11 +59,21 @@ namespace qx.ui.mobile.layout
 
 		public Card() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Connects the layout to a given child widget. Can be overridden in a concrete
+		/// interface implementation.</para>
+		/// </summary>
+		/// <param name="widget">The widget to connect to</param>
 		[JsMethod(Name = "connectToChildWidget")]
-		public void ConnectToChildWidget(object widget) { throw new NotImplementedException(); }
+		public void ConnectToChildWidget(qx.ui.mobile.core.Widget widget) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Disconnects the layout from a given child widget. Can be overridden in a concrete
+		/// interface implementation.</para>
+		/// </summary>
+		/// <param name="widget">The widget to connect to</param>
 		[JsMethod(Name = "disconnectFromChildWidget")]
-		public void DisconnectFromChildWidget(object widget) { throw new NotImplementedException(); }
+		public void DisconnectFromChildWidget(qx.ui.mobile.core.Widget widget) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property defaultAnimation.</para>
@@ -137,8 +147,14 @@ namespace qx.ui.mobile.layout
 		[JsMethod(Name = "toggleShowAnimation")]
 		public void ToggleShowAnimation() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Updates the layout. Method is called by a widget, when it changes its state.</para>
+		/// </summary>
+		/// <param name="widget">The target widget</param>
+		/// <param name="action">The causing action that triggered the layout update.</param>
+		/// <param name="properties">The animation properties to set. Key / value pairs.</param>
 		[JsMethod(Name = "updateLayout")]
-		public void UpdateLayout(object widget, object action, object properties) { throw new NotImplementedException(); }
+		public void UpdateLayout(qx.ui.mobile.core.Widget widget, string action, object properties) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

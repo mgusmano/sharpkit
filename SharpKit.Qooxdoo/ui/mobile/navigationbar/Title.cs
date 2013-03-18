@@ -14,8 +14,11 @@ namespace qx.ui.mobile.navigationbar
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>Controls whether text wrap is activated or not.</para>
+		/// </summary>
 		[JsProperty(Name = "wrap", NativeField = true)]
-		public object Wrap { get; set; }
+		public bool Wrap { get; set; }
 
 		#endregion Properties
 

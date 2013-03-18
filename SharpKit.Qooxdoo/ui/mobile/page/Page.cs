@@ -83,8 +83,17 @@ namespace qx.ui.mobile.page
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The default CSS class used for this widget. The default CSS class
+		/// should contain the common appearance of the widget.
+		/// It is set to the container element of the widget. Use <see cref="AddCssClass"/>
+		/// to enhance the default appearance of the widget.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "defaultCssClass", NativeField = true)]
-		public object DefaultCssClass { get; set; }
+		public string DefaultCssClass { get; set; }
 
 		/// <summary>
 		/// <para>Whether the resize should fire the &#8220;domupdated&#8221; event. Set this to &#8220;true&#8221;
@@ -114,6 +123,10 @@ namespace qx.ui.mobile.page
 		[JsMethod(Name = "back")]
 		public bool Back(bool triggeredByKeyEvent) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Hide this widget and exclude it from the underlying layout.</para>
+		/// </summary>
+		/// <param name="properties">The animation properties to set. Key / value pairs.</param>
 		[JsMethod(Name = "exclude")]
 		public void Exclude(object properties) { throw new NotImplementedException(); }
 
@@ -160,6 +173,10 @@ namespace qx.ui.mobile.page
 		[JsMethod(Name = "resume")]
 		public void Resume() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Make this widget visible.</para>
+		/// </summary>
+		/// <param name="properties">The animation properties to set. Key / value pairs.</param>
 		[JsMethod(Name = "show")]
 		public void Show(object properties) { throw new NotImplementedException(); }
 

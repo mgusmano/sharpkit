@@ -58,6 +58,11 @@ namespace qx.fx.effect.combination
 		/// <param name="element">The DOM element</param>
 		public Shrink(object element) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This internal function is called before
+		/// &#8220;afterFinished&#8221; and after the effect
+		/// actually has ended.</para>
+		/// </summary>
 		[JsMethod(Name = "afterFinishInternal")]
 		public void AfterFinishInternal() { throw new NotImplementedException(); }
 
@@ -187,11 +192,21 @@ namespace qx.fx.effect.combination
 		[JsMethod(Name = "setScaleTransition")]
 		public void SetScaleTransition(object value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This internal function is called
+		/// before the effect starts to configure
+		/// the element or prepare other effects.</para>
+		/// <para>Fires &#8220;setup&#8221; event.</para>
+		/// </summary>
 		[JsMethod(Name = "setup")]
 		public void Setup() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Starts the effect</para>
+		/// </summary>
+		/// <returns>true if the effect was successfully started</returns>
 		[JsMethod(Name = "start")]
-		public void Start() { throw new NotImplementedException(); }
+		public bool Start() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Toggles the (computed) value of the boolean property modifyDisplay.</para>

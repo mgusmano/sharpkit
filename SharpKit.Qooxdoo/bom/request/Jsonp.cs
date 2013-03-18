@@ -42,6 +42,9 @@ namespace qx.bom.request
 		[JsMethod(Name = "callback")]
 		public void Callback(object data) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Dispose object.</para>
+		/// </summary>
 		[JsMethod(Name = "dispose")]
 		public void Dispose() { throw new NotImplementedException(); }
 

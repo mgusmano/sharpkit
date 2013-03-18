@@ -381,6 +381,11 @@ namespace qx.ui.tree.core
 		[JsMethod(Name = "setOpenSymbolMode")]
 		public void SetOpenSymbolMode(object value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This method is called during the flush of the
+		/// <see cref="qx.ui.core.queue.Widget widget queue"/>.</para>
+		/// </summary>
+		/// <param name="jobs">A map of jobs.</param>
 		[JsMethod(Name = "syncWidget")]
 		public void SyncWidget(object jobs) { throw new NotImplementedException(); }
 

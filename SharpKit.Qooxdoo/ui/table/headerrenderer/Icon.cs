@@ -61,8 +61,13 @@ namespace qx.ui.table.headerrenderer
 		[JsMethod(Name = "setIconUrl")]
 		public void SetIconUrl(string value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Updates a header cell.</para>
+		/// </summary>
+		/// <param name="cellInfo">A map containing the information about the cell to create. This map has the same structure as in #createHeaderCell.</param>
+		/// <param name="cellWidget">the widget that renders the header cell. This is the same widget formally created by #createHeaderCell.</param>
 		[JsMethod(Name = "updateHeaderCell")]
-		public void UpdateHeaderCell(object cellInfo, object cellWidget) { throw new NotImplementedException(); }
+		public void UpdateHeaderCell(object cellInfo, qx.ui.core.Widget cellWidget) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

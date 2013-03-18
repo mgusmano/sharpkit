@@ -12,7 +12,7 @@ using <#= u #>;
 
 namespace <#= model.Namespace #>
 {
-    <#= model.ParseXMLComment(1) #>[JsType(JsMode.Prototype, Name = "<#= model.FullName #>", OmitOptionalParameters = true, Export = false)]
+    <#= model.ParseXMLComment(1) #>[JsType(JsMode.Prototype, Name = "<#= model.OriginalFullName #>", OmitOptionalParameters = true, Export = false)]
     public <# if (model.IsAbstract) { #>abstract <# } #>partial class <#= model.Name #> <#= model.InheritanceList #>
     {
 <# var events = model.GetAllEvents(); if (events.Count > 0) { #>

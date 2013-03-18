@@ -118,8 +118,12 @@ namespace qx.ui.layout
 		/// <param name="alignX">Horizontal alignment of the whole children block #alignX.</param>
 		public Flow(double spacingX = 0, double spacingY = 0, string alignX = "left") { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This method is called by the widget to connect the widget with the layout.</para>
+		/// </summary>
+		/// <param name="widget">The widget to connect to.</param>
 		[JsMethod(Name = "connectToWidget")]
-		public void ConnectToWidget(object widget) { throw new NotImplementedException(); }
+		public void ConnectToWidget(qx.ui.core.Widget widget) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property alignX.</para>
@@ -133,8 +137,16 @@ namespace qx.ui.layout
 		[JsMethod(Name = "getAlignY")]
 		public object GetAlignY() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>If layout wants to trade height for width it has to implement this
+		/// method and return the preferred height if it is resized to
+		/// the given width. This function returns null if the item
+		/// do not support height for width.</para>
+		/// </summary>
+		/// <param name="width">The computed width</param>
+		/// <returns>The desired height</returns>
 		[JsMethod(Name = "getHeightForWidth")]
-		public void GetHeightForWidth(object width) { throw new NotImplementedException(); }
+		public double GetHeightForWidth(double width) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property reversed.</para>
@@ -154,8 +166,12 @@ namespace qx.ui.layout
 		[JsMethod(Name = "getSpacingY")]
 		public double GetSpacingY() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Whether the layout manager supports height for width.</para>
+		/// </summary>
+		/// <returns>Whether the layout manager supports height for width</returns>
 		[JsMethod(Name = "hasHeightForWidth")]
-		public void HasHeightForWidth() { throw new NotImplementedException(); }
+		public bool HasHeightForWidth() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Calls the apply method and dispatches the change event of the property alignX

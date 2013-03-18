@@ -132,11 +132,24 @@ namespace qx.fx.effect.core
 		[JsMethod(Name = "setY")]
 		public void SetY(double value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Starts the effect</para>
+		/// </summary>
+		/// <returns>true if the effect was successfully started</returns>
 		[JsMethod(Name = "start")]
-		public void Start() { throw new NotImplementedException(); }
+		public bool Start() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This internal function is called
+		/// each time the effect performs an
+		/// step of the animation.</para>
+		/// <para>Sub classes will overwrite this to
+		/// perform the actual changes on element
+		/// properties.</para>
+		/// </summary>
+		/// <param name="position">Animation setup as Number between 0 and 1.</param>
 		[JsMethod(Name = "update")]
-		public void Update(object position) { throw new NotImplementedException(); }
+		public void Update(double position) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

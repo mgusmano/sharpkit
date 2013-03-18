@@ -58,17 +58,30 @@ namespace qx.ui.basic
 
 		#region Properties
 
+		/// <summary>
+		/// <para>Whether the item can grow horizontally.</para>
+		/// </summary>
 		[JsProperty(Name = "allowGrowX", NativeField = true)]
-		public object AllowGrowX { get; set; }
+		public bool AllowGrowX { get; set; }
 
+		/// <summary>
+		/// <para>Whether the item can grow vertically.</para>
+		/// </summary>
 		[JsProperty(Name = "allowGrowY", NativeField = true)]
-		public object AllowGrowY { get; set; }
+		public bool AllowGrowY { get; set; }
 
+		/// <summary>
+		/// <para>Whether the item can shrink vertically.</para>
+		/// </summary>
 		[JsProperty(Name = "allowShrinkY", NativeField = true)]
-		public object AllowShrinkY { get; set; }
+		public bool AllowShrinkY { get; set; }
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>The buddy property can be used to connect the label to another widget.
@@ -98,8 +111,14 @@ namespace qx.ui.basic
 		[JsProperty(Name = "rich", NativeField = true)]
 		public bool Rich { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget contains content which may be selected by the user.</para>
+		/// <para>If the value set to true the native browser selection can
+		/// be used for text selection. But it is normally useful for
+		/// forms fields, longer texts/documents, editors, etc.</para>
+		/// </summary>
 		[JsProperty(Name = "selectable", NativeField = true)]
-		public object Selectable { get; set; }
+		public bool Selectable { get; set; }
 
 		/// <summary>
 		/// <para>Control the text alignment</para>

@@ -9,7 +9,7 @@ namespace qx
     /// <summary>
 	/// <para>Compatibility class for <see cref="qxWeb"/>.</para>
 	/// </summary>
-	[JsType(JsMode.Prototype, Name = "qx.q", OmitOptionalParameters = true, Export = false)]
+	[JsType(JsMode.Prototype, Name = "q", OmitOptionalParameters = true, Export = false)]
     public partial class q : qxWeb
     {
 		#region Methods

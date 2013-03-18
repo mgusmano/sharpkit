@@ -117,8 +117,12 @@ namespace qx.ui.table
 		[JsProperty(Name = "alwaysUpdateCells", NativeField = true)]
 		public bool AlwaysUpdateCells { get; set; }
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>Whether to show the column visibility button</para>
@@ -147,8 +151,15 @@ namespace qx.ui.table
 		[JsProperty(Name = "dataRowRenderer", NativeField = true)]
 		public qx.ui.table.IRowRenderer DataRowRenderer { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget is focusable e.g. rendering a focus border and visualize
+		/// as active element.</para>
+		/// <para>See also <see cref="IsTabable"/> which allows runtime checks for
+		/// isChecked or other stuff to test whether the widget is
+		/// reachable via the TAB key.</para>
+		/// </summary>
 		[JsProperty(Name = "focusable", NativeField = true)]
-		public object Focusable { get; set; }
+		public bool Focusable { get; set; }
 
 		/// <summary>
 		/// <para>Whether the focus should moved when the mouse is moved over a cell. If false
@@ -212,8 +223,15 @@ namespace qx.ui.table
 		[JsProperty(Name = "metaColumnCounts", NativeField = true)]
 		public object MetaColumnCounts { get; set; }
 
+		/// <summary>
+		/// <para>The user provided minimal width.</para>
+		/// <para>Also take a look at the related properties <see cref="Width"/> and <see cref="MaxWidth"/>.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "minWidth", NativeField = true)]
-		public object MinWidth { get; set; }
+		public double MinWidth { get; set; }
 
 		/// <summary>
 		/// <para>A function to call when before modal cell editor is opened.</para>
@@ -352,8 +370,16 @@ namespace qx.ui.table
 		/// <param name="custom">A map provided to override the various supplemental classes allocated within this constructor.  Each property must be a function which returns an object instance, as indicated by shown the defaults listed here:   initiallyHiddenColumns  {Array?} A list of column numbers that should be initially invisible. Any column not mentioned will be initially visible, and if no array is provided, all columns will be initially visible.  selectionManager    function(obj) { return new qx.ui.table.selection.Manager(obj); }    selectionModel    function(obj) { return new qx.ui.table.selection.Model(obj); }    tableColumnModel    function(obj) { return new qx.ui.table.columnmodel.Basic(obj); }    tablePaneModel    function(obj) { return new qx.ui.table.pane.Model(obj); }    tablePane    function(obj) { return new qx.ui.table.pane.Pane(obj); }    tablePaneHeader    function(obj) { return new qx.ui.table.pane.Header(obj); }    tablePaneScroller    function(obj) { return new qx.ui.table.pane.Scroller(obj); }    tablePaneModel    function(obj) { return new qx.ui.table.pane.Model(obj); }    columnMenu    function() { return new qx.ui.table.columnmenu.Button(); }    </param>
 		public Table(qx.ui.table.ITableModel tableModel = null, object custom = null) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Add event listener to this object.</para>
+		/// </summary>
+		/// <param name="type">name of the event type</param>
+		/// <param name="listener">event callback function</param>
+		/// <param name="self">Reference to the &#8216;this&#8217; variable inside the event listener. When not given, the corresponding dispatcher usually falls back to a default, which is the target by convention. Note this is not a strict requirement, i.e. custom dispatchers can follow a different strategy.</param>
+		/// <param name="capture">Whether to attach the event to the capturing phase or the bubbling phase of the event. The default is to attach the event handler to the bubbling phase.</param>
+		/// <returns>An opaque id, which can be used to remove the event listener using the #removeListenerById method.</returns>
 		[JsMethod(Name = "addListener")]
-		public void AddListener(object type, object listener, object self, object capture) { throw new NotImplementedException(); }
+		public string AddListener(string type, Action<object> listener, object self = null, bool capture = false) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Activates the blocker widgets on all column headers and the
@@ -380,6 +406,11 @@ namespace qx.ui.table
 		[JsMethod(Name = "clearFocusedRowHighlight")]
 		public void ClearFocusedRowHighlight(qx.eventx.type.Mouse evt) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Removes this widget from its parent and disposes it.</para>
+		/// <para>Please note that the widget is not disposed synchronously. The
+		/// real dispose happens after the next queue flush.</para>
+		/// </summary>
 		[JsMethod(Name = "destroy")]
 		public void Destroy() { throw new NotImplementedException(); }
 
@@ -944,11 +975,25 @@ namespace qx.ui.table
 		[JsMethod(Name = "moveFocusedCell")]
 		public void MoveFocusedCell(double deltaX, double deltaY) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Remove event listener from this object</para>
+		/// </summary>
+		/// <param name="type">name of the event type</param>
+		/// <param name="listener">event callback function</param>
+		/// <param name="self">reference to the &#8216;this&#8217; variable inside the callback</param>
+		/// <param name="capture">Whether to remove the event listener of the bubbling or of the capturing phase.</param>
+		/// <returns>Whether the event was removed successfully (has existed)</returns>
 		[JsMethod(Name = "removeListener")]
-		public void RemoveListener(object type, object listener, object self, object capture) { throw new NotImplementedException(); }
+		public bool RemoveListener(string type, Action<object> listener, object self = null, bool? capture = null) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Removes an event listener from an event target by an id returned by
+		/// <see cref="AddListener"/></para>
+		/// </summary>
+		/// <param name="id">The id returned by #addListener</param>
+		/// <returns>Whether the event was removed successfully (has existed)</returns>
 		[JsMethod(Name = "removeListenerById")]
-		public void RemoveListenerById(object id) { throw new NotImplementedException(); }
+		public bool RemoveListenerById(string id) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Resets the user value of the property additionalStatusBarText.</para>

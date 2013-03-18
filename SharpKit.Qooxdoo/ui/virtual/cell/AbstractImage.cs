@@ -17,8 +17,14 @@ namespace qx.ui.virtualx.cell
 
 		public AbstractImage() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Get cell&#8217;S HTML content</para>
+		/// </summary>
+		/// <param name="value">The cell&#8217;s data value</param>
+		/// <param name="states">A map containing the cell&#8217;s state names as map keys.</param>
+		/// <returns>The cell&#8217;s content as HTML fragment.</returns>
 		[JsMethod(Name = "getContent")]
-		public void GetContent(object value, object states) { throw new NotImplementedException(); }
+		public string GetContent(object value, object states) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

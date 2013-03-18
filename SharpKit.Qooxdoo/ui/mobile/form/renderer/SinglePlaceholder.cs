@@ -20,8 +20,19 @@ namespace qx.ui.mobile.form.renderer
 		/// <param name="form">The target form of this renderer</param>
 		public SinglePlaceholder(qx.ui.mobile.form.Form form) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Add a group of form items with the corresponding names. The names should
+		/// be displayed as hint for the user what to do with the form item.
+		/// The title is optional and can be used as grouping for the given form
+		/// items.</para>
+		/// </summary>
+		/// <param name="items">An array of form items to render.</param>
+		/// <param name="names">An array of names for the form items.</param>
+		/// <param name="title">A title of the group you are adding.</param>
+		/// <param name="itemsOptions">The added additional data.</param>
+		/// <param name="headerOptions">The options map as defined by the form for the current group header.</param>
 		[JsMethod(Name = "addItems")]
-		public void AddItems(object items, object names, object title) { throw new NotImplementedException(); }
+		public void AddItems(qx.ui.core.Widget items, string names, string title, JsArray itemsOptions = null, object headerOptions = null) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

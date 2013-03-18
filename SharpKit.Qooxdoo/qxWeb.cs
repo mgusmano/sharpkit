@@ -19,7 +19,7 @@ namespace qx
 	/// is used instead.</para>
 	/// user manual.</para>
 	/// </summary>
-	[JsType(JsMode.Prototype, Name = "qx.qxWeb", OmitOptionalParameters = true, Export = false)]
+	[JsType(JsMode.Prototype, Name = "qxWeb", OmitOptionalParameters = true, Export = false)]
     public partial class qxWeb : qx.type.BaseArray
     {
 		#region Methods

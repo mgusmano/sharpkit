@@ -24,8 +24,12 @@ namespace qx.ui.form
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>Formatting function that will be applied to the value of a selected model
@@ -61,8 +65,17 @@ namespace qx.ui.form
 		[JsProperty(Name = "value", NativeField = true)]
 		public object Value { get; set; }
 
+		/// <summary>
+		/// <para>The LayoutItem&#8216;s preferred width.</para>
+		/// <para>The computed width may differ from the given width due to
+		/// stretching. Also take a look at the related properties
+		/// <see cref="MinWidth"/> and <see cref="MaxWidth"/>.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "width", NativeField = true)]
-		public object Width { get; set; }
+		public double Width { get; set; }
 
 		#endregion Properties
 
@@ -79,6 +92,9 @@ namespace qx.ui.form
 		[JsMethod(Name = "clearTextSelection")]
 		public void ClearTextSelection() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Focus this widget.</para>
+		/// </summary>
 		[JsMethod(Name = "focus")]
 		public void Focus() { throw new NotImplementedException(); }
 

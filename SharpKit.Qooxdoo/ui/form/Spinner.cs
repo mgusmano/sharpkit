@@ -71,11 +71,18 @@ namespace qx.ui.form
 
 		#region Properties
 
+		/// <summary>
+		/// <para>Whether the item can shrink vertically.</para>
+		/// </summary>
 		[JsProperty(Name = "allowShrinkY", NativeField = true)]
-		public object AllowShrinkY { get; set; }
+		public bool AllowShrinkY { get; set; }
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>Controls whether the textfield of the spinner is editable or not</para>
@@ -83,8 +90,15 @@ namespace qx.ui.form
 		[JsProperty(Name = "editable", NativeField = true)]
 		public bool Editable { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget is focusable e.g. rendering a focus border and visualize
+		/// as active element.</para>
+		/// <para>See also <see cref="IsTabable"/> which allows runtime checks for
+		/// isChecked or other stuff to test whether the widget is
+		/// reachable via the TAB key.</para>
+		/// </summary>
 		[JsProperty(Name = "focusable", NativeField = true)]
-		public object Focusable { get; set; }
+		public bool Focusable { get; set; }
 
 		/// <summary>
 		/// <para>maximal value of the Range object</para>

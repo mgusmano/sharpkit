@@ -30,11 +30,28 @@ namespace qx.ui.mobile.basic
 
 		#region Properties
 
+		/// <summary>
+		/// <para>Whether the widget should be the target of an event. Set this property
+		/// to false when the widget is a child of another widget and
+		/// shouldn&#8217;t react on events.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "anonymous", NativeField = true)]
-		public object Anonymous { get; set; }
+		public bool Anonymous { get; set; }
 
+		/// <summary>
+		/// <para>The default CSS class used for this widget. The default CSS class
+		/// should contain the common appearance of the widget.
+		/// It is set to the container element of the widget. Use <see cref="AddCssClass"/>
+		/// to enhance the default appearance of the widget.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "defaultCssClass", NativeField = true)]
-		public object DefaultCssClass { get; set; }
+		public string DefaultCssClass { get; set; }
 
 		/// <summary>
 		/// <para>Text or HTML content to display</para>

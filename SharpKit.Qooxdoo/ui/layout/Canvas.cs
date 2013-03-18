@@ -62,8 +62,13 @@ namespace qx.ui.layout
 
 		public Canvas() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Applies the children layout.</para>
+		/// </summary>
+		/// <param name="availWidth">Final width available for the content (in pixel)</param>
+		/// <param name="availHeight">Final height available for the content (in pixel)</param>
 		[JsMethod(Name = "renderLayout")]
-		public void RenderLayout(object availWidth, object availHeight) { throw new NotImplementedException(); }
+		public void RenderLayout(double availWidth, double availHeight) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

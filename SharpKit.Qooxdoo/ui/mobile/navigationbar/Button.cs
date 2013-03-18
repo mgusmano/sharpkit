@@ -14,8 +14,17 @@ namespace qx.ui.mobile.navigationbar
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>The default CSS class used for this widget. The default CSS class
+		/// should contain the common appearance of the widget.
+		/// It is set to the container element of the widget. Use <see cref="AddCssClass"/>
+		/// to enhance the default appearance of the widget.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "defaultCssClass", NativeField = true)]
-		public object DefaultCssClass { get; set; }
+		public string DefaultCssClass { get; set; }
 
 		#endregion Properties
 

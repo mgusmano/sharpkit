@@ -52,11 +52,29 @@ namespace qx.ui.virtualx.core
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The item&#8217;s preferred height.</para>
+		/// <para>The computed height may differ from the given height due to
+		/// stretching. Also take a look at the related properties
+		/// <see cref="MinHeight"/> and <see cref="MaxHeight"/>.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "height", NativeField = true)]
-		public object Height { get; set; }
+		public double Height { get; set; }
 
+		/// <summary>
+		/// <para>The LayoutItem&#8216;s preferred width.</para>
+		/// <para>The computed width may differ from the given width due to
+		/// stretching. Also take a look at the related properties
+		/// <see cref="MinWidth"/> and <see cref="MaxWidth"/>.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "width", NativeField = true)]
-		public object Width { get; set; }
+		public double Width { get; set; }
 
 		#endregion Properties
 
@@ -232,6 +250,11 @@ namespace qx.ui.virtualx.core
 		[JsMethod(Name = "setScrollY")]
 		public void SetScrollY(double value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This method is called during the flush of the
+		/// <see cref="qx.ui.core.queue.Widget widget queue"/>.</para>
+		/// </summary>
+		/// <param name="jobs">A map of jobs.</param>
 		[JsMethod(Name = "syncWidget")]
 		public void SyncWidget(object jobs) { throw new NotImplementedException(); }
 

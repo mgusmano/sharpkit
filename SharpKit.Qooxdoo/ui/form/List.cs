@@ -61,8 +61,12 @@ namespace qx.ui.form
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>Controls whether the inline-find feature is activated or not</para>
@@ -70,8 +74,15 @@ namespace qx.ui.form
 		[JsProperty(Name = "enableInlineFind", NativeField = true)]
 		public bool EnableInlineFind { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget is focusable e.g. rendering a focus border and visualize
+		/// as active element.</para>
+		/// <para>See also <see cref="IsTabable"/> which allows runtime checks for
+		/// isChecked or other stuff to test whether the widget is
+		/// reachable via the TAB key.</para>
+		/// </summary>
 		[JsProperty(Name = "focusable", NativeField = true)]
-		public object Focusable { get; set; }
+		public bool Focusable { get; set; }
 
 		/// <summary>
 		/// <para>Whether the list should be rendered horizontal or vertical.</para>
@@ -171,8 +182,14 @@ namespace qx.ui.form
 		[JsMethod(Name = "findItemByLabelFuzzy")]
 		public qx.ui.form.ListItem FindItemByLabelFuzzy(string search) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the widget which contains the children and
+		/// is relevant for laying them out. This is from the user point of
+		/// view and may not be identical to the technical structure.</para>
+		/// </summary>
+		/// <returns>Widget which contains the children.</returns>
 		[JsMethod(Name = "getChildrenContainer")]
-		public void GetChildrenContainer() { throw new NotImplementedException(); }
+		public qx.ui.core.Widget GetChildrenContainer() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property enableInlineFind.</para>

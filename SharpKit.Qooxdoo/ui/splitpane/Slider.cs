@@ -14,11 +14,17 @@ namespace qx.ui.splitpane
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>Whether the item can shrink horizontally.</para>
+		/// </summary>
 		[JsProperty(Name = "allowShrinkX", NativeField = true)]
-		public object AllowShrinkX { get; set; }
+		public bool AllowShrinkX { get; set; }
 
+		/// <summary>
+		/// <para>Whether the item can shrink vertically.</para>
+		/// </summary>
 		[JsProperty(Name = "allowShrinkY", NativeField = true)]
-		public object AllowShrinkY { get; set; }
+		public bool AllowShrinkY { get; set; }
 
 		#endregion Properties
 

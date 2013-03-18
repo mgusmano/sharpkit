@@ -14,6 +14,7 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
         public string ReturnType { get; set; }
         public string ReturnComment { get; set; }
         public List<MetaMethodParameter> Parameters { get; set; }
+        public bool AutoInsert { get; set; }
 
         public MetaMethod()
         {
@@ -22,7 +23,7 @@ namespace SharpKit.Qooxdoo.Generator.Metadata
 
         public MetaMethod(Node node, MetaClass metaClass) : base(node)
         {
-            IsConstructor = node.Attributes.ContainsKey("isCtor");
+            IsConstructor = node.Attributes.ContainsKey("isCtor") && node.GetAttributeValue("isCtor") == "True";
             if (IsConstructor)
             {
                 Name = metaClass.Name;

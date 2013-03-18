@@ -18,8 +18,13 @@ namespace qx.ui.progressive.renderer
 
 		public FunctionCaller() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Render the provided element in the renderer&#8217;s unique way.</para>
+		/// </summary>
+		/// <param name="state">Data relevant to the current rendering session.</param>
+		/// <param name="element">An object containing at least the following members:   renderer  The name of a renderer.  That name is used by qx.ui.progressive.Progressive to select the renderer to be used to render this element.  The name should match one provided to qx.ui.progressive.Progressive#addRenderer.    data   The data to be passed to the renderer.  The data may be of any type that the renderer knows how to render.  </param>
 		[JsMethod(Name = "render")]
-		public void Render(object state, object element) { throw new NotImplementedException(); }
+		public void Render(qx.ui.progressive.State state, object element) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

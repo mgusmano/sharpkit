@@ -16,8 +16,14 @@ namespace qx.eventx.type
 
 		public Native() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Create a clone of the event object, which is not automatically disposed
+		/// or pooled after an event dispatch.</para>
+		/// </summary>
+		/// <param name="embryo">Optional event class, which will be configured using the data of this event instance. The event must be an instance of this event class. If the value is null, a new pooled instance is created.</param>
+		/// <returns>a clone of this class.</returns>
 		[JsMethod(Name = "clone")]
-		public void Clone(object embryo) { throw new NotImplementedException(); }
+		public qx.eventx.type.Event Clone(qx.eventx.type.Event embryo = null) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Get the native browser event object of this event.</para>

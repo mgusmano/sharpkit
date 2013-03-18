@@ -49,8 +49,12 @@ namespace qx.ui.form
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>The formatter, which converts the selected date to a string. *</para>
@@ -58,8 +62,15 @@ namespace qx.ui.form
 		[JsProperty(Name = "dateFormat", NativeField = true)]
 		public qx.util.format.DateFormat DateFormat { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget is focusable e.g. rendering a focus border and visualize
+		/// as active element.</para>
+		/// <para>See also <see cref="IsTabable"/> which allows runtime checks for
+		/// isChecked or other stuff to test whether the widget is
+		/// reachable via the TAB key.</para>
+		/// </summary>
 		[JsProperty(Name = "focusable", NativeField = true)]
-		public object Focusable { get; set; }
+		public bool Focusable { get; set; }
 
 		/// <summary>
 		/// <para>String value which will be shown as a hint if the field is all of:
@@ -72,8 +83,17 @@ namespace qx.ui.form
 		[JsProperty(Name = "placeholder", NativeField = true)]
 		public string Placeholder { get; set; }
 
+		/// <summary>
+		/// <para>The LayoutItem&#8216;s preferred width.</para>
+		/// <para>The computed width may differ from the given width due to
+		/// stretching. Also take a look at the related properties
+		/// <see cref="MinWidth"/> and <see cref="MaxWidth"/>.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "width", NativeField = true)]
-		public object Width { get; set; }
+		public double Width { get; set; }
 
 		/// <summary>
 		/// <para>Message which is shown in an invalid tooltip.</para>

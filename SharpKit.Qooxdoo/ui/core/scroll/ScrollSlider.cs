@@ -19,8 +19,28 @@ namespace qx.ui.core.scroll
 
 		public ScrollSlider(object orientation) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>A size hint computes the dimensions of a widget. It returns
+		/// the recommended dimensions as well as the min and max dimensions.
+		/// The min and max values already respect the stretching properties.</para>
+		/// Wording
+		/// <list type="bullet">
+		/// <item>User value: Value defined by the widget user, using the size properties</item>
+		/// <item>Layout value: The value computed by <see cref="qx.ui.core.Widget#_getContentHint"/></item>
+		/// </list
+		/// Algorithm
+		/// <list type="bullet">
+		/// <item>minSize: If the user min size is not null, the user value is taken,
+		/// otherwise the layout value is used.</item>
+		/// <item>(preferred) size: If the user value is not null the user value is used,
+		/// otherwise the layout value is used.</item>
+		/// <item>max size: Same as the preferred size.</item>
+		/// </list
+		/// </summary>
+		/// <param name="compute">Automatically compute size hint if currently not cached?</param>
+		/// <returns>The map with the preferred width/height and the allowed minimum and maximum values in cases where shrinking or growing is required.</returns>
 		[JsMethod(Name = "getSizeHint")]
-		public void GetSizeHint(object compute) { throw new NotImplementedException(); }
+		public object GetSizeHint(bool compute = true) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

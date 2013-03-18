@@ -57,8 +57,13 @@ namespace qx.ui.mobile.list.renderer
 		[JsMethod(Name = "getTitleWidget")]
 		public qx.ui.mobile.basic.Label GetTitleWidget() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Resets the value of the given property. If no generated resetter could be
+		/// found, a handwritten resetter will be invoked, if available.</para>
+		/// </summary>
+		/// <param name="prop">Name of the property.</param>
 		[JsMethod(Name = "reset")]
-		public void Reset() { throw new NotImplementedException(); }
+		public void Reset(string prop) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Sets the source of the image widget.</para>

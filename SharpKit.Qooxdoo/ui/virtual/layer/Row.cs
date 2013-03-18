@@ -15,8 +15,12 @@ namespace qx.ui.virtualx.layer
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		#endregion Properties
 
@@ -24,11 +28,21 @@ namespace qx.ui.virtualx.layer
 
 		public Row() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Sets the decorator for the given index</para>
+		/// </summary>
+		/// <param name="index">Index to set the color for</param>
+		/// <param name="decorator">the decorator to set. A value of null will reset the decorator.</param>
 		[JsMethod(Name = "setBackground")]
-		public void SetBackground(object index, object decorator) { throw new NotImplementedException(); }
+		public void SetBackground(double index, qx.html.Decorator decorator) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Sets the color for the given index</para>
+		/// </summary>
+		/// <param name="index">Index to set the color for</param>
+		/// <param name="color">the color to set. A value of null will reset the color.</param>
 		[JsMethod(Name = "setColor")]
-		public void SetColor(object index, object color) { throw new NotImplementedException(); }
+		public void SetColor(double index, string color) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

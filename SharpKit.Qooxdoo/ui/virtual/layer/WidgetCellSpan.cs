@@ -17,8 +17,16 @@ namespace qx.ui.virtualx.layer
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>Whether the widget is anonymous.</para>
+		/// <para>Anonymous widgets are ignored in the event hierarchy. This is useful
+		/// for combined widgets where the internal structure do not have a custom
+		/// appearance with a different styling from the element around. This is
+		/// especially true for widgets like checkboxes or buttons where the text
+		/// or icon are handled synchronously for state changes to the outer widget.</para>
+		/// </summary>
 		[JsProperty(Name = "anonymous", NativeField = true)]
-		public object Anonymous { get; set; }
+		public bool Anonymous { get; set; }
 
 		#endregion Properties
 

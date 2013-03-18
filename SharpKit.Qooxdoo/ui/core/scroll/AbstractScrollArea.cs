@@ -29,11 +29,24 @@ namespace qx.ui.core.scroll
 
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
+		/// <summary>
+		/// <para>The item&#8217;s preferred height.</para>
+		/// <para>The computed height may differ from the given height due to
+		/// stretching. Also take a look at the related properties
+		/// <see cref="MinHeight"/> and <see cref="MaxHeight"/>.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "height", NativeField = true)]
-		public object Height { get; set; }
+		public double Height { get; set; }
 
 		/// <summary>
 		/// <para>Group property, to set the overflow of both scroll bars.</para>
@@ -69,8 +82,17 @@ namespace qx.ui.core.scroll
 		[JsProperty(Name = "scrollbarY", NativeField = true)]
 		public object ScrollbarY { get; set; }
 
+		/// <summary>
+		/// <para>The LayoutItem&#8216;s preferred width.</para>
+		/// <para>The computed width may differ from the given width due to
+		/// stretching. Also take a look at the related properties
+		/// <see cref="MinWidth"/> and <see cref="MaxWidth"/>.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "width", NativeField = true)]
-		public object Width { get; set; }
+		public double Width { get; set; }
 
 		#endregion Properties
 

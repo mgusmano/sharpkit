@@ -73,6 +73,11 @@ namespace qx.fx.effect.core
 
 		public Scale(object element) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This internal function is called
+		/// when the effect has finished.</para>
+		/// <para>Fires &#8220;finish&#8221; event.</para>
+		/// </summary>
 		[JsMethod(Name = "finish")]
 		public void Finish() { throw new NotImplementedException(); }
 
@@ -346,6 +351,12 @@ namespace qx.fx.effect.core
 		[JsMethod(Name = "setScaleY")]
 		public void SetScaleY(bool value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This internal function is called
+		/// before the effect starts to configure
+		/// the element or prepare other effects.</para>
+		/// <para>Fires &#8220;setup&#8221; event.</para>
+		/// </summary>
 		[JsMethod(Name = "setup")]
 		public void Setup() { throw new NotImplementedException(); }
 
@@ -379,8 +390,17 @@ namespace qx.fx.effect.core
 		[JsMethod(Name = "toggleScaleY")]
 		public void ToggleScaleY() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This internal function is called
+		/// each time the effect performs an
+		/// step of the animation.</para>
+		/// <para>Sub classes will overwrite this to
+		/// perform the actual changes on element
+		/// properties.</para>
+		/// </summary>
+		/// <param name="position">Animation setup as Number between 0 and 1.</param>
 		[JsMethod(Name = "update")]
-		public void Update(object position) { throw new NotImplementedException(); }
+		public void Update(double position) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

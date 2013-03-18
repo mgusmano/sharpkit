@@ -15,12 +15,30 @@ namespace qx.ui.toolbar
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget is focusable e.g. rendering a focus border and visualize
+		/// as active element.</para>
+		/// <para>See also <see cref="IsTabable"/> which allows runtime checks for
+		/// isChecked or other stuff to test whether the widget is
+		/// reachable via the TAB key.</para>
+		/// </summary>
 		[JsProperty(Name = "focusable", NativeField = true)]
-		public object Focusable { get; set; }
+		public bool Focusable { get; set; }
 
+		/// <summary>
+		/// <para>Configure the visibility of the sub elements/widgets.
+		/// Possible values: both, label, icon</para>
+		/// </summary>
+		/// <remarks>
+		/// Possible values: "both","label","icon"
+		/// </remarks>
 		[JsProperty(Name = "show", NativeField = true)]
 		public object Show { get; set; }
 
@@ -30,7 +48,10 @@ namespace qx.ui.toolbar
 
 		public Button() { throw new NotImplementedException(); }
 
-		public Button(object label, object icon, object command) { throw new NotImplementedException(); }
+		/// <param name="label">label of the atom</param>
+		/// <param name="icon">Icon URL of the atom</param>
+		/// <param name="command">Command instance to connect with</param>
+		public Button(string label, string icon = null, qx.ui.core.Command command = null) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

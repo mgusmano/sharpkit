@@ -19,11 +19,23 @@ namespace qx.ui.menu
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>Whether the widget is anonymous.</para>
+		/// <para>Anonymous widgets are ignored in the event hierarchy. This is useful
+		/// for combined widgets where the internal structure do not have a custom
+		/// appearance with a different styling from the element around. This is
+		/// especially true for widgets like checkboxes or buttons where the text
+		/// or icon are handled synchronously for state changes to the outer widget.</para>
+		/// </summary>
 		[JsProperty(Name = "anonymous", NativeField = true)]
-		public object Anonymous { get; set; }
+		public bool Anonymous { get; set; }
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		#endregion Properties
 

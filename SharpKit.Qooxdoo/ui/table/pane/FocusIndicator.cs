@@ -32,6 +32,18 @@ namespace qx.ui.table.pane
 		[JsProperty(Name = "row", NativeField = true)]
 		public double Row { get; set; }
 
+		/// <summary>
+		/// <para>Controls the visibility. Valid values are:</para>
+		/// <list type="bullet">
+		/// <item>visible: Render the widget</item>
+		/// <item>hidden: Hide the widget but don't relayout the widget's parent.</item>
+		/// <item>excluded: Hide the widget and relayout the parent as if the
+		/// widget was not a child of its parent.</item>
+		/// </list
+		/// </summary>
+		/// <remarks>
+		/// Possible values: "visible","hidden","excluded"
+		/// </remarks>
 		[JsProperty(Name = "visibility", NativeField = true)]
 		public object Visibility { get; set; }
 

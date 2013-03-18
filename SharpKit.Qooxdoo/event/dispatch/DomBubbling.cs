@@ -16,8 +16,15 @@ namespace qx.eventx.dispatch
 
 		public DomBubbling() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Whether the dispatcher is responsible for the this event.</para>
+		/// </summary>
+		/// <param name="target">The event dispatch target</param>
+		/// <param name="eventx">The event object</param>
+		/// <param name="type">the event type</param>
+		/// <returns>Whether the event dispatcher is responsible for the this event</returns>
 		[JsMethod(Name = "canDispatchEvent")]
-		public void CanDispatchEvent(object target, object eventx, object type) { throw new NotImplementedException(); }
+		public bool CanDispatchEvent(object target, qx.eventx.type.Event eventx, string type) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

@@ -717,11 +717,21 @@ namespace qx.ui.core
 		[JsMethod(Name = "capture")]
 		public void Capture(bool containerCapture = true) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Reconfigure number of separators</para>
+		/// </summary>
 		[JsMethod(Name = "clearSeparators")]
 		public void ClearSeparators() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>EXPERIMENTAL &#8211; NOT READY FOR PRODUCTION</para>
+		/// <para>Returns a clone of this object. Copies over all user configured
+		/// property values. Do not configure a parent nor apply the appearance
+		/// styles directly.</para>
+		/// </summary>
+		/// <returns>The clone</returns>
 		[JsMethod(Name = "clone")]
-		public void Clone() { throw new NotImplementedException(); }
+		public qx.core.Object Clone() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Deactivate this widget e.g. for keyboard events.</para>
@@ -1373,6 +1383,10 @@ namespace qx.ui.core
 		[JsMethod(Name = "initZIndex")]
 		public void InitZIndex(object value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Called by the layout manager to mark this item&#8217;s layout as invalid.
+		/// This function should clear all layout relevant caches.</para>
+		/// </summary>
 		[JsMethod(Name = "invalidateLayoutCache")]
 		public void InvalidateLayoutCache() { throw new NotImplementedException(); }
 
@@ -1498,11 +1512,24 @@ namespace qx.ui.core
 		[JsMethod(Name = "removeState")]
 		public void RemoveState(string state) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Used by the layout engine to apply coordinates and dimensions.</para>
+		/// </summary>
+		/// <param name="left">Any integer value for the left position, always in pixels</param>
+		/// <param name="top">Any integer value for the top position, always in pixels</param>
+		/// <param name="width">Any positive integer value for the width, always in pixels</param>
+		/// <param name="height">Any positive integer value for the height, always in pixels</param>
+		/// <returns>A map of which layout sizes changed.</returns>
 		[JsMethod(Name = "renderLayout")]
-		public void RenderLayout(object left, object top, object width, object height) { throw new NotImplementedException(); }
+		public object RenderLayout(double left, double top, double width, double height) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Renders a separator between two children</para>
+		/// </summary>
+		/// <param name="separator">The separator to render</param>
+		/// <param name="bounds">Contains the left and top coordinate and the width and height of the separator to render.</param>
 		[JsMethod(Name = "renderSeparator")]
-		public void RenderSeparator(object separator, object bounds) { throw new NotImplementedException(); }
+		public void RenderSeparator(qx.html.Decorator separator, object bounds) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Replaces the first state with the second one.</para>
@@ -1920,8 +1947,12 @@ namespace qx.ui.core
 		[JsMethod(Name = "setKeepFocus")]
 		public void SetKeepFocus(bool value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Set the parent</para>
+		/// </summary>
+		/// <param name="parent">The new parent.</param>
 		[JsMethod(Name = "setLayoutParent")]
-		public void SetLayoutParent(object parent) { throw new NotImplementedException(); }
+		public void SetLayoutParent(qx.ui.core.Widget parent) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Sets the user value of the property nativeContextMenu.</para>

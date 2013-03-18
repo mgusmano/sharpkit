@@ -15,8 +15,12 @@ namespace qx.ui.tree
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		#endregion Properties
 
@@ -24,11 +28,20 @@ namespace qx.ui.tree
 
 		public VirtualTreeItem() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Computes the item&#8217;s nesting level. If the item is not part of a tree
+		/// this function will return null.</para>
+		/// </summary>
+		/// <returns>The item&#8217;s nesting level or null.</returns>
 		[JsMethod(Name = "getLevel")]
-		public void GetLevel() { throw new NotImplementedException(); }
+		public double GetLevel() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Whether the item has any children</para>
+		/// </summary>
+		/// <returns>Whether the item has any children.</returns>
 		[JsMethod(Name = "hasChildren")]
-		public void HasChildren() { throw new NotImplementedException(); }
+		public bool HasChildren() { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

@@ -23,11 +23,22 @@ namespace qx.ui.form.core
 
 		#region Properties
 
+		/// <summary>
+		/// <para>Whether to let the system decide when to hide the popup. Setting
+		/// this to false gives you better control but it also requires you
+		/// to handle the closing of the popup.</para>
+		/// </summary>
 		[JsProperty(Name = "autoHide", NativeField = true)]
-		public object AutoHide { get; set; }
+		public bool AutoHide { get; set; }
 
+		/// <summary>
+		/// <para>If this property if enabled, the widget and all of its child widgets
+		/// will never get activated. The activation keeps at the currently
+		/// activated widget.</para>
+		/// <para>This is mainly useful for widget authors. Please use with caution!</para>
+		/// </summary>
 		[JsProperty(Name = "keepActive", NativeField = true)]
-		public object KeepActive { get; set; }
+		public bool KeepActive { get; set; }
 
 		/// <summary>
 		/// <para>Current selected items.</para>

@@ -1,6 +1,6 @@
 1. Generate qooxdoo Api documentation (run 'generate.py api' in the framework dir)
 2. Run QxSharpGen on that folder
-3. If there are errors while trying to build the results, remove from class declarations the interfaces that can't be satisfied, also remove the duplicate methods / properties.
+3. If there are errors while trying to build the results, resolve the namespaces, remove from class declarations the interfaces that can't be satisfied, also remove the duplicate methods / properties.
 
 
 

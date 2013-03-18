@@ -61,8 +61,13 @@ namespace qx.ui.progressive.renderer.table
 		[JsMethod(Name = "initDefaultRowHeight")]
 		public void InitDefaultRowHeight(object value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Join this renderer to its <see cref="qx.ui.progressive.Progressive"/>.</para>
+		/// </summary>
+		/// <param name="progressive">The Progressive object to which we are being joined.</param>
+		/// <param name="name">The name by which the data model will reference this renderer.  This is important to know in order to access the appropriate member of the qx.ui.progressive.State&#8216;s renderer array.  That array is accessed from the renderer by state.getRendererData()[element.renderer] where element.renderer will be the name provided here.</param>
 		[JsMethod(Name = "join")]
-		public void Join(object progressive, object name) { throw new NotImplementedException(); }
+		public void Join(qx.ui.progressive.Progressive progressive, string name) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Remove a cell renderer previously added with <see cref="AddRenderer"/>.</para>
@@ -71,8 +76,13 @@ namespace qx.ui.progressive.renderer.table
 		[JsMethod(Name = "removeRenderer")]
 		public void RemoveRenderer(double column) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Render the provided element in the renderer&#8217;s unique way.</para>
+		/// </summary>
+		/// <param name="state">Data relevant to the current rendering session.</param>
+		/// <param name="element">An object containing at least the following members:   renderer  The name of a renderer.  That name is used by qx.ui.progressive.Progressive to select the renderer to be used to render this element.  The name should match one provided to qx.ui.progressive.Progressive#addRenderer.    data   The data to be passed to the renderer.  The data may be of any type that the renderer knows how to render.  </param>
 		[JsMethod(Name = "render")]
-		public void Render(object state, object element) { throw new NotImplementedException(); }
+		public void Render(qx.ui.progressive.State state, object element) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Resets the user value of the property defaultRowHeight.</para>

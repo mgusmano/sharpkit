@@ -51,8 +51,11 @@ namespace qx.ui.menu
 
 		#region Properties
 
+		/// <summary>
+		/// <para>Controls if a tooltip should shown or not.</para>
+		/// </summary>
 		[JsProperty(Name = "blockToolTip", NativeField = true)]
-		public object BlockToolTip { get; set; }
+		public bool BlockToolTip { get; set; }
 
 		/// <summary>
 		/// <para>The icon to use</para>

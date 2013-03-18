@@ -168,11 +168,24 @@ namespace qx.ui.treevirtual
 		[JsMethod(Name = "getNodeRowMap")]
 		public JsArray GetNodeRowMap() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the number of rows in the model.</para>
+		/// </summary>
+		/// <returns>the number of rows.</returns>
 		[JsMethod(Name = "getRowCount")]
-		public void GetRowCount() { throw new NotImplementedException(); }
+		public double GetRowCount() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the data of one row. This function may be overridden by models which hold
+		/// all data of a row in one object. By using this function, clients have a way of
+		/// quickly retrieving the entire row data.</para>
+		/// Important:Models which do not have their row data accessible in one object
+		/// may return null.
+		/// </summary>
+		/// <param name="rowIndex">the model index of the row.</param>
+		/// <returns>the row data as an object or null if the model does not support row data objects. The details on the object returned are determined by the model implementation only.</returns>
 		[JsMethod(Name = "getRowData")]
-		public void GetRowData(object rowIndex) { throw new NotImplementedException(); }
+		public object GetRowData(double rowIndex) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>This operation maps nodes to rowIndexes.  It does the opposite job to <see cref="GetNodeFromRow"/>.</para>
@@ -229,11 +242,21 @@ namespace qx.ui.treevirtual
 		[JsMethod(Name = "initFilter")]
 		public void InitFilter(object value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns whether a column is editable.</para>
+		/// </summary>
+		/// <param name="columnIndex">the column to check.</param>
+		/// <returns>whether the column is editable.</returns>
 		[JsMethod(Name = "isColumnEditable")]
-		public void IsColumnEditable(object columnIndex) { throw new NotImplementedException(); }
+		public bool IsColumnEditable(double columnIndex) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns whether a column is sortable.</para>
+		/// </summary>
+		/// <param name="columnIndex">the column to check.</param>
+		/// <returns>whether the column is sortable.</returns>
 		[JsMethod(Name = "isColumnSortable")]
-		public void IsColumnSortable(object columnIndex) { throw new NotImplementedException(); }
+		public bool IsColumnSortable(double columnIndex) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Move a node in the tree.</para>
@@ -334,8 +357,14 @@ namespace qx.ui.treevirtual
 		[JsMethod(Name = "setTreeColumn")]
 		public void SetTreeColumn(double columnIndex) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Sets a cell value by column index.</para>
+		/// </summary>
+		/// <param name="columnIndex">The index of the column.</param>
+		/// <param name="rowIndex">the index of the row.</param>
+		/// <param name="value">The new value.</param>
 		[JsMethod(Name = "setValue")]
-		public void SetValue(object columnIndex, object rowIndex, object value) { throw new NotImplementedException(); }
+		public void SetValue(double columnIndex, double rowIndex, object value) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Sorts the model by a column.</para>

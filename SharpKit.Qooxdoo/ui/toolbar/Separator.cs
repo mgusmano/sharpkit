@@ -15,17 +15,47 @@ namespace qx.ui.toolbar
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>Whether the widget is anonymous.</para>
+		/// <para>Anonymous widgets are ignored in the event hierarchy. This is useful
+		/// for combined widgets where the internal structure do not have a custom
+		/// appearance with a different styling from the element around. This is
+		/// especially true for widgets like checkboxes or buttons where the text
+		/// or icon are handled synchronously for state changes to the outer widget.</para>
+		/// </summary>
 		[JsProperty(Name = "anonymous", NativeField = true)]
-		public object Anonymous { get; set; }
+		public bool Anonymous { get; set; }
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
+		/// <summary>
+		/// <para>The item&#8217;s preferred height.</para>
+		/// <para>The computed height may differ from the given height due to
+		/// stretching. Also take a look at the related properties
+		/// <see cref="MinHeight"/> and <see cref="MaxHeight"/>.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "height", NativeField = true)]
-		public object Height { get; set; }
+		public double Height { get; set; }
 
+		/// <summary>
+		/// <para>The LayoutItem&#8216;s preferred width.</para>
+		/// <para>The computed width may differ from the given width due to
+		/// stretching. Also take a look at the related properties
+		/// <see cref="MinWidth"/> and <see cref="MaxWidth"/>.</para>
+		/// </summary>
+		/// <remarks>
+		/// Allow nulls: true
+		/// </remarks>
 		[JsProperty(Name = "width", NativeField = true)]
-		public object Width { get; set; }
+		public double Width { get; set; }
 
 		#endregion Properties
 

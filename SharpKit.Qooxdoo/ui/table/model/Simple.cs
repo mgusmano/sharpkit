@@ -76,11 +76,24 @@ namespace qx.ui.table.model
 		[JsMethod(Name = "getDataAsMapArray")]
 		public object GetDataAsMapArray() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the number of rows in the model.</para>
+		/// </summary>
+		/// <returns>the number of rows.</returns>
 		[JsMethod(Name = "getRowCount")]
-		public void GetRowCount() { throw new NotImplementedException(); }
+		public double GetRowCount() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the data of one row. This function may be overridden by models which hold
+		/// all data of a row in one object. By using this function, clients have a way of
+		/// quickly retrieving the entire row data.</para>
+		/// Important:Models which do not have their row data accessible in one object
+		/// may return null.
+		/// </summary>
+		/// <param name="rowIndex">the model index of the row.</param>
+		/// <returns>the row data as an object or null if the model does not support row data objects. The details on the object returned are determined by the model implementation only.</returns>
 		[JsMethod(Name = "getRowData")]
-		public void GetRowData(object rowIndex) { throw new NotImplementedException(); }
+		public object GetRowData(double rowIndex) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the data of one row as map containing the column IDs as key and
@@ -91,8 +104,13 @@ namespace qx.ui.table.model
 		[JsMethod(Name = "getRowDataAsMap")]
 		public object GetRowDataAsMap(double rowIndex) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the column index the model is sorted by. If the model is not sorted
+		/// -1 is returned.</para>
+		/// </summary>
+		/// <returns>the column index the model is sorted by.</returns>
 		[JsMethod(Name = "getSortColumnIndex")]
-		public void GetSortColumnIndex() { throw new NotImplementedException(); }
+		public double GetSortColumnIndex() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the sortMethod(s) for a table column.</para>
@@ -102,8 +120,14 @@ namespace qx.ui.table.model
 		[JsMethod(Name = "getSortMethods")]
 		public object GetSortMethods(double columnIndex) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns a cell value by column index.</para>
+		/// </summary>
+		/// <param name="columnIndex">the index of the column.</param>
+		/// <param name="rowIndex">the index of the row.</param>
+		/// <returns>The value of the cell.</returns>
 		[JsMethod(Name = "getValue")]
-		public void GetValue(object columnIndex, object rowIndex) { throw new NotImplementedException(); }
+		public object GetValue(double columnIndex, double rowIndex) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Calls the apply method and dispatches the change event of the property caseSensitiveSorting
@@ -120,14 +144,28 @@ namespace qx.ui.table.model
 		[JsMethod(Name = "isCaseSensitiveSorting")]
 		public void IsCaseSensitiveSorting() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns whether a column is editable.</para>
+		/// </summary>
+		/// <param name="columnIndex">the column to check.</param>
+		/// <returns>whether the column is editable.</returns>
 		[JsMethod(Name = "isColumnEditable")]
-		public void IsColumnEditable(object columnIndex) { throw new NotImplementedException(); }
+		public bool IsColumnEditable(double columnIndex) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns whether a column is sortable.</para>
+		/// </summary>
+		/// <param name="columnIndex">the column to check.</param>
+		/// <returns>whether the column is sortable.</returns>
 		[JsMethod(Name = "isColumnSortable")]
-		public void IsColumnSortable(object columnIndex) { throw new NotImplementedException(); }
+		public bool IsColumnSortable(double columnIndex) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns whether the model is sorted ascending.</para>
+		/// </summary>
+		/// <returns>whether the model is sorted ascending.</returns>
 		[JsMethod(Name = "isSortAscending")]
-		public void IsSortAscending() { throw new NotImplementedException(); }
+		public bool IsSortAscending() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Removes some rows from the model.</para>
@@ -225,11 +263,22 @@ namespace qx.ui.table.model
 		[JsMethod(Name = "setSortMethods")]
 		public void SetSortMethods(double columnIndex, object compare) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Sets a cell value by column index.</para>
+		/// </summary>
+		/// <param name="columnIndex">The index of the column.</param>
+		/// <param name="rowIndex">the index of the row.</param>
+		/// <param name="value">The new value.</param>
 		[JsMethod(Name = "setValue")]
-		public void SetValue(object columnIndex, object rowIndex, object value) { throw new NotImplementedException(); }
+		public void SetValue(double columnIndex, double rowIndex, object value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Sorts the model by a column.</para>
+		/// </summary>
+		/// <param name="columnIndex">the column to sort by.</param>
+		/// <param name="ascending">whether to sort ascending.</param>
 		[JsMethod(Name = "sortByColumn")]
-		public void SortByColumn(object columnIndex, object ascending) { throw new NotImplementedException(); }
+		public void SortByColumn(double columnIndex, bool ascending) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Toggles the (computed) value of the boolean property caseSensitiveSorting.</para>

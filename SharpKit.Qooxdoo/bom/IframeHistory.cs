@@ -18,8 +18,13 @@ namespace qx.bom
 
 		public IframeHistory() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Adds an entry to the browser history.</para>
+		/// </summary>
+		/// <param name="state">a string representing the state of the application. This command will be delivered in the data property of the &#8220;request&#8221; event.</param>
+		/// <param name="newTitle">the page title to set after the history entry is done. This title should represent the new state of the application.</param>
 		[JsMethod(Name = "addToHistory")]
-		public void AddToHistory(object state, object newTitle) { throw new NotImplementedException(); }
+		public void AddToHistory(string state, string newTitle = null) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

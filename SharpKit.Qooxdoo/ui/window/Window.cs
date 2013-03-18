@@ -129,8 +129,12 @@ namespace qx.ui.window
 		[JsProperty(Name = "alwaysOnTop", NativeField = true)]
 		public bool AlwaysOnTop { get; set; }
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>The text of the caption</para>
@@ -141,8 +145,15 @@ namespace qx.ui.window
 		[JsProperty(Name = "caption", NativeField = true)]
 		public object Caption { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget is focusable e.g. rendering a focus border and visualize
+		/// as active element.</para>
+		/// <para>See also <see cref="IsTabable"/> which allows runtime checks for
+		/// isChecked or other stuff to test whether the widget is
+		/// reachable via the TAB key.</para>
+		/// </summary>
 		[JsProperty(Name = "focusable", NativeField = true)]
-		public object Focusable { get; set; }
+		public bool Focusable { get; set; }
 
 		/// <summary>
 		/// <para>The icon of the caption</para>
@@ -192,6 +203,18 @@ namespace qx.ui.window
 		[JsProperty(Name = "status", NativeField = true)]
 		public string Status { get; set; }
 
+		/// <summary>
+		/// <para>Controls the visibility. Valid values are:</para>
+		/// <list type="bullet">
+		/// <item>visible: Render the widget</item>
+		/// <item>hidden: Hide the widget but don't relayout the widget's parent.</item>
+		/// <item>excluded: Hide the widget and relayout the parent as if the
+		/// widget was not a child of its parent.</item>
+		/// </list
+		/// </summary>
+		/// <remarks>
+		/// Possible values: "visible","hidden","excluded"
+		/// </remarks>
 		[JsProperty(Name = "visibility", NativeField = true)]
 		public object Visibility { get; set; }
 
@@ -780,8 +803,12 @@ namespace qx.ui.window
 		[JsMethod(Name = "setIcon")]
 		public void SetIcon(string value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Set the parent</para>
+		/// </summary>
+		/// <param name="parent">The new parent.</param>
 		[JsMethod(Name = "setLayoutParent")]
-		public void SetLayoutParent(object parent) { throw new NotImplementedException(); }
+		public void SetLayoutParent(qx.ui.core.Widget parent) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Sets the user value of the property modal.</para>

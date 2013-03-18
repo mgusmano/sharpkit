@@ -25,8 +25,13 @@ namespace qx.ui.progressive.structure
 		/// <param name="pane">The container to use as the pane, applied to the Progressive structure.  If null, a qx.ui.core.Widget will be instantiated for use as the pane.</param>
 		public Default(qx.ui.progressive.headfoot.Abstract header, qx.ui.progressive.headfoot.Abstract footer, qx.ui.core.Widget pane) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Apply the structure typically defined in the constructor to the
+		/// Progressive.</para>
+		/// </summary>
+		/// <param name="progressive">The Progressive to which the structure is to be applied.</param>
 		[JsMethod(Name = "applyStructure")]
-		public void ApplyStructure(object progressive) { throw new NotImplementedException(); }
+		public void ApplyStructure(qx.ui.progressive.Progressive progressive) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Return the footer</para>

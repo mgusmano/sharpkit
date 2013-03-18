@@ -50,20 +50,36 @@ namespace qx.ui.basic
 
 		#region Properties
 
+		/// <summary>
+		/// <para>Whether the item can grow horizontally.</para>
+		/// </summary>
 		[JsProperty(Name = "allowGrowX", NativeField = true)]
-		public object AllowGrowX { get; set; }
+		public bool AllowGrowX { get; set; }
 
+		/// <summary>
+		/// <para>Whether the item can grow vertically.</para>
+		/// </summary>
 		[JsProperty(Name = "allowGrowY", NativeField = true)]
-		public object AllowGrowY { get; set; }
+		public bool AllowGrowY { get; set; }
 
+		/// <summary>
+		/// <para>Whether the item can shrink horizontally.</para>
+		/// </summary>
 		[JsProperty(Name = "allowShrinkX", NativeField = true)]
-		public object AllowShrinkX { get; set; }
+		public bool AllowShrinkX { get; set; }
 
+		/// <summary>
+		/// <para>Whether the item can shrink vertically.</para>
+		/// </summary>
 		[JsProperty(Name = "allowShrinkY", NativeField = true)]
-		public object AllowShrinkY { get; set; }
+		public bool AllowShrinkY { get; set; }
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>Whether the image should be scaled to the given dimensions</para>
@@ -91,8 +107,13 @@ namespace qx.ui.basic
 		/// <param name="source">The URL of the image to display.</param>
 		public Image(string source = null) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns the element wrapper of the widget&#8217;s content element.
+		/// This method exposes widget internal and must be used with caution!</para>
+		/// </summary>
+		/// <returns>The widget&#8217;s content element</returns>
 		[JsMethod(Name = "getContentElement")]
-		public void GetContentElement() { throw new NotImplementedException(); }
+		public qx.html.Element GetContentElement() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property scale.</para>

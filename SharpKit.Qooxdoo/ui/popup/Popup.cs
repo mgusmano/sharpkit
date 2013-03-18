@@ -18,8 +18,12 @@ namespace qx.ui.popup
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		/// <summary>
 		/// <para>Whether to let the system decide when to hide the popup. Setting
@@ -29,6 +33,18 @@ namespace qx.ui.popup
 		[JsProperty(Name = "autoHide", NativeField = true)]
 		public bool AutoHide { get; set; }
 
+		/// <summary>
+		/// <para>Controls the visibility. Valid values are:</para>
+		/// <list type="bullet">
+		/// <item>visible: Render the widget</item>
+		/// <item>hidden: Hide the widget but don't relayout the widget's parent.</item>
+		/// <item>excluded: Hide the widget and relayout the parent as if the
+		/// widget was not a child of its parent.</item>
+		/// </list
+		/// </summary>
+		/// <remarks>
+		/// Possible values: "visible","hidden","excluded"
+		/// </remarks>
 		[JsProperty(Name = "visibility", NativeField = true)]
 		public object Visibility { get; set; }
 
@@ -171,6 +187,9 @@ namespace qx.ui.popup
 		[JsMethod(Name = "setAutoHide")]
 		public void SetAutoHide(bool value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Make this widget visible.</para>
+		/// </summary>
 		[JsMethod(Name = "show")]
 		public void Show() { throw new NotImplementedException(); }
 

@@ -117,8 +117,14 @@ namespace qx.ui.virtualx.cell
 		[JsMethod(Name = "getAppearance")]
 		public string GetAppearance() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Get the element attributes for the cell</para>
+		/// </summary>
+		/// <param name="value">The cell&#8217;s data value</param>
+		/// <param name="states">A map containing the cell&#8217;s state names as map keys.</param>
+		/// <returns>Compiled string of cell attributes. e.g. &#8216;tabIndex=&#8220;1&#8221; readonly=&#8220;false&#8221;&#8217;</returns>
 		[JsMethod(Name = "getAttributes")]
-		public void GetAttributes(object value, object states) { throw new NotImplementedException(); }
+		public string GetAttributes(object value, object states) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property backgroundColor.</para>
@@ -126,14 +132,40 @@ namespace qx.ui.virtualx.cell
 		[JsMethod(Name = "getBackgroundColor")]
 		public string GetBackgroundColor() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Returns all relevant properties of the cell:
+		/// <list type="bullet">
+		/// <item>classes (String): Space separated class names</item>
+		/// <item>style (String): CSS styles</item>
+		/// <item>attributes (String): Space separated attributes</item>
+		/// <item>content (String): HTML fragment of the innerHTML of the cell</item>
+		/// <item>insets (Array): insets (padding + border) of the cell as
+		/// two-dimensional array.</item>
+		/// </list</para>
+		/// </summary>
+		/// <param name="data">Data needed for the cell to render.</param>
+		/// <param name="states">The states set on the cell (e.g. selected, focused, editable).</param>
+		/// <returns>Cell properties (see above.)</returns>
 		[JsMethod(Name = "getCellProperties")]
-		public void GetCellProperties(object value, object states) { throw new NotImplementedException(); }
+		public object GetCellProperties(object data, object states) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Get cell&#8217;S HTML content</para>
+		/// </summary>
+		/// <param name="value">The cell&#8217;s data value</param>
+		/// <param name="states">A map containing the cell&#8217;s state names as map keys.</param>
+		/// <returns>The cell&#8217;s content as HTML fragment.</returns>
 		[JsMethod(Name = "getContent")]
-		public void GetContent(object value, object states) { throw new NotImplementedException(); }
+		public string GetContent(object value, object states) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Get the css classes for the cell</para>
+		/// </summary>
+		/// <param name="value">The cell&#8217;s data value</param>
+		/// <param name="states">A map containing the cell&#8217;s state names as map keys.</param>
+		/// <returns>Space separated list of CSS classes</returns>
 		[JsMethod(Name = "getCssClasses")]
-		public void GetCssClasses(object value, object states) { throw new NotImplementedException(); }
+		public string GetCssClasses(object value, object states) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property font.</para>
@@ -141,8 +173,15 @@ namespace qx.ui.virtualx.cell
 		[JsMethod(Name = "getFont")]
 		public string GetFont() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Get the cell&#8217;s insets. Insets are the sum of the cell&#8217;s padding and
+		/// border width.</para>
+		/// </summary>
+		/// <param name="value">The cell&#8217;s data value</param>
+		/// <param name="states">A map containing the cell&#8217;s state names as map keys.</param>
+		/// <returns>An array containing the sum of horizontal insets at index 0 and the sum of vertical insets at index 1.</returns>
 		[JsMethod(Name = "getInsets")]
-		public void GetInsets(object value, object states) { throw new NotImplementedException(); }
+		public double GetInsets(object value, object states) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property paddingBottom.</para>
@@ -168,8 +207,14 @@ namespace qx.ui.virtualx.cell
 		[JsMethod(Name = "getPaddingTop")]
 		public double GetPaddingTop() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Get the CSS styles for the cell</para>
+		/// </summary>
+		/// <param name="value">The cell&#8217;s data value</param>
+		/// <param name="states">A map containing the cell&#8217;s state names as map keys.</param>
+		/// <returns>Compiled string of CSS styles. e.g. &#8216;color=&#8220;red; padding: 10px&#8217;</returns>
 		[JsMethod(Name = "getStyles")]
-		public void GetStyles(object value, object states) { throw new NotImplementedException(); }
+		public string GetStyles(object value, object states) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Returns the (computed) value of the property textAlign.</para>

@@ -31,11 +31,23 @@ namespace qx.eventx.dispatch
 		[JsMethod(Name = "activateCapture")]
 		public void ActivateCapture(qx.html.Element element, bool containerCapture = true) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Whether the dispatcher is responsible for the this event.</para>
+		/// </summary>
+		/// <param name="target">The event dispatch target</param>
+		/// <param name="eventx">The event object</param>
+		/// <param name="type">the event type</param>
+		/// <returns>Whether the event dispatcher is responsible for the this event</returns>
 		[JsMethod(Name = "canDispatchEvent")]
-		public void CanDispatchEvent(object target, object eventx, object type) { throw new NotImplementedException(); }
+		public bool CanDispatchEvent(object target, qx.eventx.type.Event eventx, string type) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Dispatch an event on this object</para>
+		/// </summary>
+		/// <param name="evt">event to dispatch</param>
+		/// <returns>Whether the event default was prevented or not. Returns true, when the event was NOT prevented.</returns>
 		[JsMethod(Name = "dispatchEvent")]
-		public void DispatchEvent(object target, object eventx, object type) { throw new NotImplementedException(); }
+		public bool DispatchEvent(qx.eventx.type.Event evt) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Get the element currently capturing events.</para>

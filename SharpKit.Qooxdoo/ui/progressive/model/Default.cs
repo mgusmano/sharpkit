@@ -34,11 +34,19 @@ namespace qx.ui.progressive.model
 		[JsMethod(Name = "addElements")]
 		public void AddElements(JsArray elems) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Get the number of data elements currently available.</para>
+		/// </summary>
+		/// <returns></returns>
 		[JsMethod(Name = "getElementCount")]
-		public void GetElementCount() { throw new NotImplementedException(); }
+		public double GetElementCount() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Get the next available element from the data model.</para>
+		/// </summary>
+		/// <returns>The returned object must provide at least the following members:   renderer  The name of a renderer.  That name is used by qx.ui.progressive.Progressive to select the renderer to be used to render this element.  The name should match one provided to qx.ui.progressive.Progressive#addRenderer.    data   The data to be passed to the renderer.  The data may be of any type that the renderer knows how to render.  </returns>
 		[JsMethod(Name = "getNextElement")]
-		public void GetNextElement() { throw new NotImplementedException(); }
+		public object GetNextElement() { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

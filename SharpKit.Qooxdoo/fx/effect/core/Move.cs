@@ -43,6 +43,11 @@ namespace qx.fx.effect.core
 
 		public Move() { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This internal function is called before
+		/// &#8220;afterFinished&#8221; and after the effect
+		/// actually has ended.</para>
+		/// </summary>
 		[JsMethod(Name = "afterFinishInternal")]
 		public void AfterFinishInternal() { throw new NotImplementedException(); }
 
@@ -122,6 +127,12 @@ namespace qx.fx.effect.core
 		[JsMethod(Name = "setMode")]
 		public void SetMode(object value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This internal function is called
+		/// before the effect starts to configure
+		/// the element or prepare other effects.</para>
+		/// <para>Fires &#8220;setup&#8221; event.</para>
+		/// </summary>
 		[JsMethod(Name = "setup")]
 		public void Setup() { throw new NotImplementedException(); }
 
@@ -139,8 +150,17 @@ namespace qx.fx.effect.core
 		[JsMethod(Name = "setY")]
 		public void SetY(double value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>This internal function is called
+		/// each time the effect performs an
+		/// step of the animation.</para>
+		/// <para>Sub classes will overwrite this to
+		/// perform the actual changes on element
+		/// properties.</para>
+		/// </summary>
+		/// <param name="position">Animation setup as Number between 0 and 1.</param>
 		[JsMethod(Name = "update")]
-		public void Update(object position) { throw new NotImplementedException(); }
+		public void Update(double position) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }

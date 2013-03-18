@@ -369,8 +369,12 @@ namespace qx.fx.effect.combination
 		[JsMethod(Name = "setStartColor")]
 		public void SetStartColor(string value) { throw new NotImplementedException(); }
 
+		/// <summary>
+		/// <para>Starts the effect</para>
+		/// </summary>
+		/// <returns>true if the effect was successfully started</returns>
 		[JsMethod(Name = "start")]
-		public void Start() { throw new NotImplementedException(); }
+		public bool Start() { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// <para>Toggles the (computed) value of the boolean property keepBackgroundImage.</para>

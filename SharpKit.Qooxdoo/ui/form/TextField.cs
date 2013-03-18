@@ -14,14 +14,24 @@ namespace qx.ui.form
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>Whether the item can grow vertically.</para>
+		/// </summary>
 		[JsProperty(Name = "allowGrowY", NativeField = true)]
-		public object AllowGrowY { get; set; }
+		public bool AllowGrowY { get; set; }
 
+		/// <summary>
+		/// <para>Whether the item can shrink vertically.</para>
+		/// </summary>
 		[JsProperty(Name = "allowShrinkY", NativeField = true)]
-		public object AllowShrinkY { get; set; }
+		public bool AllowShrinkY { get; set; }
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
 		#endregion Properties
 

@@ -15,11 +15,22 @@ namespace qx.ui.toolbar
     {
 		#region Properties
 
+		/// <summary>
+		/// <para>The appearance ID. This ID is used to identify the appearance theme
+		/// entry to use for this widget. This controls the styling of the element.</para>
+		/// </summary>
 		[JsProperty(Name = "appearance", NativeField = true)]
-		public object Appearance { get; set; }
+		public string Appearance { get; set; }
 
+		/// <summary>
+		/// <para>Whether the widget is focusable e.g. rendering a focus border and visualize
+		/// as active element.</para>
+		/// <para>See also <see cref="IsTabable"/> which allows runtime checks for
+		/// isChecked or other stuff to test whether the widget is
+		/// reachable via the TAB key.</para>
+		/// </summary>
 		[JsProperty(Name = "focusable", NativeField = true)]
-		public object Focusable { get; set; }
+		public bool Focusable { get; set; }
 
 		#endregion Properties
 
@@ -27,7 +38,11 @@ namespace qx.ui.toolbar
 
 		public SplitButton() { throw new NotImplementedException(); }
 
-		public SplitButton(object label, object icon, object menu, object command) { throw new NotImplementedException(); }
+		/// <param name="label">Label to use</param>
+		/// <param name="icon">Icon to use</param>
+		/// <param name="menu">Connect to menu instance</param>
+		/// <param name="command">Command instance to connect with</param>
+		public SplitButton(string label, string icon = null, qx.ui.menu.Menu menu = null, qx.ui.core.Command command = null) { throw new NotImplementedException(); }
 
 		#endregion Methods
     }
