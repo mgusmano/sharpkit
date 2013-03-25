@@ -1,11 +1,10 @@
 ﻿using System;
 using SharpKit.JavaScript;
 using SharpKit.Html;
-using SharpKit.Html.filesystem;
-[assembly: JsNamespace(Namespace = "SharpKit.Google.Maps", JsNamespace = "google.maps")]
+
 namespace SharpKit.Google.Maps
 {
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.Map")]
     class Map
     {
         /// <summary>
@@ -72,17 +71,17 @@ namespace SharpKit.Google.Maps
         public void setTilt(JsNumber tilt) { }
         public void setZoom(JsNumber zoom) { }
         /// <summary>
-        ///Additional controls to attach to the map. To add a control to the map, add the control's <div> to the MVCArray corresponding to the ControlPosition where it should be rendered.
+        ///Additional controls to attach to the map. To add a control to the map, add the control's &lt;div&gt; to the MVCArray corresponding to the ControlPosition where it should be rendered.
         /// </summary>
-        public JsArray<MVCJsArray<Node>> controls { get; set; }
+        public JsArray<MVCArray<Node>> controls { get; set; }
         /// <summary>
-        ///A registry of MapType instances by string ID.
+        ///A registry of MapType instances by JsString ID.
         /// </summary>
         public MapTypeRegistry mapTypes { get; set; }
         /// <summary>
         ///Additional map types to overlay.
         /// </summary>
-        public MVCJsArray<MapType> overlayMapTypes { get; set; }
+        public MVCArray<MapType> overlayMapTypes { get; set; }
         /// <summary>
         ///This event is fired when the viewport bounds have changed.
         /// </summary>
@@ -166,7 +165,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Color used for the background of the Map div. This color will be visible when tiles have not yet loaded as the user pans. This option can only be set when the map is initialized.
         /// </summary>
-        public string backgroundColor { get; set; }
+        public JsString backgroundColor { get; set; }
         /// <summary>
         ///The initial Map center. Required.
         /// </summary>
@@ -186,11 +185,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The name or url of the cursor to display when mousing over a draggable map.
         /// </summary>
-        public string draggableCursor { get; set; }
+        public JsString draggableCursor { get; set; }
         /// <summary>
         ///The name or url of the cursor to display when the map is being dragged.
         /// </summary>
-        public string draggingCursor { get; set; }
+        public JsString draggingCursor { get; set; }
         /// <summary>
         ///The heading for aerial imagery in degrees measured clockwise from cardinal direction North. Headings are snapped to the nearest available angle for which imagery is available.
         /// </summary>
@@ -296,13 +295,25 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public ZoomControlOptions zoomControlOptions { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
-    enum MapTypeId
+    [JsType(JsMode.Prototype, Name = "google.maps.MapTypeId")]
+    class MapTypeId
     {
-        HYBRID,//This map type displays a transparent layer of major streets on satellite images.
-        ROADMAP,//This map type displays a normal street map.
-        SATELLITE,//This map type displays satellite images.
-        TERRAIN,//This map type displays maps with physical features such as terrain and vegetation.
+        /// <summary>
+        ///This map type displays a transparent layer of major streets on satellite images.
+        /// </summary>
+        public static object HYBRID { get; set; }
+        /// <summary>
+        ///This map type displays a normal street map.
+        /// </summary>
+        public static object ROADMAP { get; set; }
+        /// <summary>
+        ///This map type displays satellite images.
+        /// </summary>
+        public static object SATELLITE { get; set; }
+        /// <summary>
+        ///This map type displays maps with physical features such as terrain and vegetation.
+        /// </summary>
+        public static object TERRAIN { get; set; }
     }
     [JsType(JsMode.Json)]
     class MapTypeControlOptions
@@ -320,9 +331,21 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public MapTypeControlStyle style { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.MapTypeControlStyle")]
     class MapTypeControlStyle
     {
+        /// <summary>
+        ///Uses the default map type control. The control which DEFAULT maps to will vary according to window size and other factors. It may change in future versions of the API.
+        /// </summary>
+        public static object DEFAULT { get; set; }
+        /// <summary>
+        ///A dropdown menu for the screen realestate conscious.
+        /// </summary>
+        public static object DROPDOWN_MENU { get; set; }
+        /// <summary>
+        ///The standard horizontal radio buttons bar.
+        /// </summary>
+        public static object HORIZONTAL_BAR { get; set; }
     }
     [JsType(JsMode.Json)]
     class OverviewMapControlOptions
@@ -360,9 +383,13 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public ScaleControlStyle style { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.ScaleControlStyle")]
     class ScaleControlStyle
     {
+        /// <summary>
+        ///The standard scale control.
+        /// </summary>
+        public static object DEFAULT { get; set; }
     }
     [JsType(JsMode.Json)]
     class StreetViewControlOptions
@@ -384,15 +411,75 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public ZoomControlStyle style { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.ZoomControlStyle")]
     class ZoomControlStyle
     {
+        /// <summary>
+        ///The default zoom control. The control which DEFAULT maps to will vary according to map size and other factors. It may change in future versions of the API.
+        /// </summary>
+        public static object DEFAULT { get; set; }
+        /// <summary>
+        ///The larger control, with the zoom slider in addition to +/- buttons.
+        /// </summary>
+        public static object LARGE { get; set; }
+        /// <summary>
+        ///A small control with buttons to zoom in and out.
+        /// </summary>
+        public static object SMALL { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.ControlPosition")]
     class ControlPosition
     {
+        /// <summary>
+        ///Elements are positioned in the center of the bottom row.
+        /// </summary>
+        public static object BOTTOM_CENTER { get; set; }
+        /// <summary>
+        ///Elements are positioned in the bottom left and flow towards the middle. Elements are positioned to the right of the Google logo.
+        /// </summary>
+        public static object BOTTOM_LEFT { get; set; }
+        /// <summary>
+        ///Elements are positioned in the bottom right and flow towards the middle. Elements are positioned to the left of the copyrights.
+        /// </summary>
+        public static object BOTTOM_RIGHT { get; set; }
+        /// <summary>
+        ///Elements are positioned on the left, above bottom-left elements, and flow upwards.
+        /// </summary>
+        public static object LEFT_BOTTOM { get; set; }
+        /// <summary>
+        ///Elements are positioned in the center of the left side.
+        /// </summary>
+        public static object LEFT_CENTER { get; set; }
+        /// <summary>
+        ///Elements are positioned on the left, below top-left elements, and flow downwards.
+        /// </summary>
+        public static object LEFT_TOP { get; set; }
+        /// <summary>
+        ///Elements are positioned on the right, above bottom-right elements, and flow upwards.
+        /// </summary>
+        public static object RIGHT_BOTTOM { get; set; }
+        /// <summary>
+        ///Elements are positioned in the center of the right side.
+        /// </summary>
+        public static object RIGHT_CENTER { get; set; }
+        /// <summary>
+        ///Elements are positioned on the right, below top-right elements, and flow downwards.
+        /// </summary>
+        public static object RIGHT_TOP { get; set; }
+        /// <summary>
+        ///Elements are positioned in the center of the top row.
+        /// </summary>
+        public static object TOP_CENTER { get; set; }
+        /// <summary>
+        ///Elements are positioned in the top left and flow towards the middle.
+        /// </summary>
+        public static object TOP_LEFT { get; set; }
+        /// <summary>
+        ///Elements are positioned in the top right and flow towards the middle.
+        /// </summary>
+        public static object TOP_RIGHT { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.Marker")]
     class Marker
     {
         /// <summary>
@@ -401,7 +488,7 @@ namespace SharpKit.Google.Maps
         public Marker(MarkerOptions opts = null) { }
         public Animation getAnimation() { return null; }
         public bool getClickable() { return false; }
-        public string getCursor() { return null; }
+        public JsString getCursor() { return null; }
         public bool getDraggable() { return false; }
         public bool getFlat() { return false; }
         public object getIcon() { return null; }
@@ -409,7 +496,7 @@ namespace SharpKit.Google.Maps
         public LatLng getPosition() { return null; }
         public object getShadow() { return null; }
         public MarkerShape getShape() { return null; }
-        public string getTitle() { return null; }
+        public JsString getTitle() { return null; }
         public bool getVisible() { return false; }
         public JsNumber getZIndex() { return null; }
         /// <summary>
@@ -417,7 +504,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public void setAnimation(Animation animation) { }
         public void setClickable(bool flag) { }
-        public void setCursor(string cursor) { }
+        public void setCursor(JsString cursor) { }
         public void setDraggable(bool flag) { }
         public void setFlat(bool flag) { }
         public void setIcon(object icon) { }
@@ -429,9 +516,13 @@ namespace SharpKit.Google.Maps
         public void setPosition(LatLng latlng) { }
         public void setShadow(object shadow) { }
         public void setShape(MarkerShape shape) { }
-        public void setTitle(string title) { }
+        public void setTitle(JsString title) { }
         public void setVisible(bool visible) { }
         public void setZIndex(JsNumber zIndex) { }
+        /// <summary>
+        ///The maximum default z-index that the API will assign to a marker. You may set a higher z-index to bring a marker to the front.
+        /// </summary>
+        public static object MAX_ZINDEX { get; set; }
         /// <summary>
         ///This event is fired when the marker's animation property changes.
         /// </summary>
@@ -539,7 +630,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Mouse cursor to show on hover
         /// </summary>
-        public string cursor { get; set; }
+        public JsString cursor { get; set; }
         /// <summary>
         ///If true, the marker can be dragged. Default value is false.
         /// </summary>
@@ -549,7 +640,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public bool flat { get; set; }
         /// <summary>
-        ///Icon for the foreground. If a string is provided, it is treated as though it were an Icon with the string as url.
+        ///Icon for the foreground. If a JsString is provided, it is treated as though it were an Icon with the JsString as url.
         /// </summary>
         public object icon { get; set; }
         /// <summary>
@@ -569,7 +660,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public bool raiseOnDrag { get; set; }
         /// <summary>
-        ///Shadow image. If a string is provided, it is treated as though it were an Icon with the string as url.
+        ///Shadow image. If a JsString is provided, it is treated as though it were an Icon with the JsString as url.
         /// </summary>
         public object shadow { get; set; }
         /// <summary>
@@ -579,7 +670,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Rollover text
         /// </summary>
-        public string title { get; set; }
+        public JsString title { get; set; }
         /// <summary>
         ///If true, the marker is visible
         /// </summary>
@@ -611,7 +702,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The URL of the image or sprite sheet.
         /// </summary>
-        public string url { get; set; }
+        public JsString url { get; set; }
     }
     [JsType(JsMode.Json)]
     class MarkerShape
@@ -623,7 +714,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Describes the shape's type and can be circle, poly or rect.
         /// </summary>
-        public string type { get; set; }
+        public JsString type { get; set; }
     }
     [JsType(JsMode.Json)]
     class Symbol
@@ -635,7 +726,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The symbol's fill color. All CSS3 colors are supported except for extended named colors. For symbol markers, this defaults to 'black'. For symbols on polylines, this defaults to the stroke color of the corresponding polyline.
         /// </summary>
-        public string fillColor { get; set; }
+        public JsString fillColor { get; set; }
         /// <summary>
         ///The symbol's fill opacity. Defaults to 0.
         /// </summary>
@@ -655,7 +746,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The symbol's stroke color. All CSS3 colors are supported except for extended named colors. For symbol markers, this defaults to 'black'. For symbols on a polyline, this defaults to the stroke color of the polyline.
         /// </summary>
-        public string strokeColor { get; set; }
+        public JsString strokeColor { get; set; }
         /// <summary>
         ///The symbol's stroke opacity. For symbol markers, this defaults to 1. For symbols on a polyline, this defaults to the stroke opacity of the polyline.
         /// </summary>
@@ -665,15 +756,43 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber strokeWeight { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.SymbolPath")]
     class SymbolPath
     {
+        /// <summary>
+        ///A backward-pointing closed arrow.
+        /// </summary>
+        public static object BACKWARD_CLOSED_ARROW { get; set; }
+        /// <summary>
+        ///A backward-pointing open arrow.
+        /// </summary>
+        public static object BACKWARD_OPEN_ARROW { get; set; }
+        /// <summary>
+        ///A circle.
+        /// </summary>
+        public static object CIRCLE { get; set; }
+        /// <summary>
+        ///A forward-pointing closed arrow.
+        /// </summary>
+        public static object FORWARD_CLOSED_ARROW { get; set; }
+        /// <summary>
+        ///A forward-pointing open arrow.
+        /// </summary>
+        public static object FORWARD_OPEN_ARROW { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.Animation")]
     class Animation
     {
+        /// <summary>
+        ///Marker bounces until animation is stopped.
+        /// </summary>
+        public static object BOUNCE { get; set; }
+        /// <summary>
+        ///Marker falls from the top of the map ending with a small bounce.
+        /// </summary>
+        public static object DROP { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.InfoWindow")]
     class InfoWindow
     {
         /// <summary>
@@ -704,7 +823,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsAction content_changed { get; set; }
         /// <summary>
-        ///This event is fired when the <div> containing the InfoWindow's content is attached to the DOM. You may wish to monitor this event if you are building out your info window content dynamically.
+        ///This event is fired when the &lt;div&gt; containing the InfoWindow's content is attached to the DOM. You may wish to monitor this event if you are building out your info window content dynamically.
         /// </summary>
         public JsAction domready { get; set; }
         /// <summary>
@@ -720,7 +839,7 @@ namespace SharpKit.Google.Maps
     class InfoWindowOptions
     {
         /// <summary>
-        ///Content to display in the InfoWindow. This can be an HTML element, a plain-text string, or a string containing HTML. The InfoWindow will be sized according to the content. To set an explicit size for the content, set content to be a HTML element with that size.
+        ///Content to display in the InfoWindow. This can be an HTML element, a plain-text JsString, or a JsString containing HTML. The InfoWindow will be sized according to the content. To set an explicit size for the content, set content to be a HTML element with that size.
         /// </summary>
         public object content { get; set; }
         /// <summary>
@@ -744,7 +863,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber zIndex { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.Polyline")]
     class Polyline
     {
         /// <summary>
@@ -766,7 +885,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Retrieves the first path.
         /// </summary>
-        public MVCJsArray<LatLng> getPath() { return null; }
+        public MVCArray<LatLng> getPath() { return null; }
         /// <summary>
         ///Returns whether this poly is visible on the map.
         /// </summary>
@@ -859,7 +978,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The stroke color. All CSS3 colors are supported except for extended named colors.
         /// </summary>
-        public string strokeColor { get; set; }
+        public JsString strokeColor { get; set; }
         /// <summary>
         ///The stroke opacity between 0.0 and 1.0.
         /// </summary>
@@ -891,13 +1010,13 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The distance from the start of the line at which an icon is to be rendered. This distance may be expressed as a percentage of line's length (e.g. '50%') or in pixels (e.g. '50px'). Defaults to '100%'.
         /// </summary>
-        public string offset { get; set; }
+        public JsString offset { get; set; }
         /// <summary>
         ///The distance between consecutive icons on the line. This distance may be expressed as a percentage of the line's length (e.g. '50%') or in pixels (e.g. '50px'). To disable repeating of the icon, specify '0'. Defaults to '0'.
         /// </summary>
-        public string repeat { get; set; }
+        public JsString repeat { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.Polygon")]
     class Polygon
     {
         /// <summary>
@@ -919,11 +1038,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Retrieves the first path.
         /// </summary>
-        public MVCJsArray<LatLng> getPath() { return null; }
+        public MVCArray<LatLng> getPath() { return null; }
         /// <summary>
         ///Retrieves the paths for this polygon.
         /// </summary>
-        public MVCJsArray<MVCJsArray<LatLng>> getPaths() { return null; }
+        public MVCArray<MVCArray<LatLng>> getPaths() { return null; }
         /// <summary>
         ///Returns whether this poly is visible on the map.
         /// </summary>
@@ -1004,7 +1123,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The fill color. All CSS3 colors are supported except for extended named colors.
         /// </summary>
-        public string fillColor { get; set; }
+        public JsString fillColor { get; set; }
         /// <summary>
         ///The fill opacity between 0.0 and 1.0
         /// </summary>
@@ -1024,7 +1143,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The stroke color. All CSS3 colors are supported except for extended named colors.
         /// </summary>
-        public string strokeColor { get; set; }
+        public JsString strokeColor { get; set; }
         /// <summary>
         ///The stroke opacity between 0.0 and 1.0
         /// </summary>
@@ -1062,7 +1181,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber vertex { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.Rectangle")]
     class Rectangle
     {
         /// <summary>
@@ -1169,7 +1288,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The fill color. All CSS3 colors are supported except for extended named colors.
         /// </summary>
-        public string fillColor { get; set; }
+        public JsString fillColor { get; set; }
         /// <summary>
         ///The fill opacity between 0.0 and 1.0
         /// </summary>
@@ -1181,7 +1300,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The stroke color. All CSS3 colors are supported except for extended named colors.
         /// </summary>
-        public string strokeColor { get; set; }
+        public JsString strokeColor { get; set; }
         /// <summary>
         ///The stroke opacity between 0.0 and 1.0
         /// </summary>
@@ -1203,7 +1322,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber zIndex { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.Circle")]
     class Circle
     {
         /// <summary>
@@ -1326,7 +1445,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The fill color. All CSS3 colors are supported except for extended named colors.
         /// </summary>
-        public string fillColor { get; set; }
+        public JsString fillColor { get; set; }
         /// <summary>
         ///The fill opacity between 0.0 and 1.0
         /// </summary>
@@ -1342,7 +1461,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The stroke color. All CSS3 colors are supported except for extended named colors.
         /// </summary>
-        public string strokeColor { get; set; }
+        public JsString strokeColor { get; set; }
         /// <summary>
         ///The stroke opacity between 0.0 and 1.0
         /// </summary>
@@ -1367,14 +1486,26 @@ namespace SharpKit.Google.Maps
     [JsType(JsMode.Json)]
     class StrokePosition
     {
+        /// <summary>
+        ///The stroke is centered on the polygon's path, with half the stroke inside the polygon and half the stroke outside the polygon.
+        /// </summary>
+        public static object CENTER { get; set; }
+        /// <summary>
+        ///The stroke lies inside the polygon.
+        /// </summary>
+        public static object INSIDE { get; set; }
+        /// <summary>
+        ///The stroke lies outside the polygon.
+        /// </summary>
+        public static object OUTSIDE { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.GroundOverlay")]
     class GroundOverlay
     {
         /// <summary>
         ///Creates a ground overlay from the provided image URL and its LatLngBounds. The image is scaled to fit the current bounds, and projected using the current map projection.
         /// </summary>
-        public GroundOverlay(string url, LatLngBounds bounds, GroundOverlayOptions opts = null) { }
+        public GroundOverlay(JsString url, LatLngBounds bounds, GroundOverlayOptions opts = null) { }
         /// <summary>
         ///Gets the LatLngBounds of this overlay.
         /// </summary>
@@ -1390,7 +1521,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Gets the url of the projected image.
         /// </summary>
-        public string getUrl() { return null; }
+        public JsString getUrl() { return null; }
         /// <summary>
         ///Renders the ground overlay on the specified map. If map is set to null, the overlay is removed.
         /// </summary>
@@ -1424,7 +1555,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber opacity { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.OverlayView")]
     class OverlayView
     {
         /// <summary>
@@ -1513,7 +1644,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber getWorldWidth() { return null; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.Geocoder")]
     class Geocoder
     {
         /// <summary>
@@ -1531,7 +1662,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Address. Optional.
         /// </summary>
-        public string address { get; set; }
+        public JsString address { get; set; }
         /// <summary>
         ///LatLngBounds within which to search. Optional.
         /// </summary>
@@ -1543,11 +1674,39 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Country code used to bias the search, specified as a Unicode region subtag / CLDR identifier. Optional.
         /// </summary>
-        public string region { get; set; }
+        public JsString region { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.GeocoderStatus")]
     class GeocoderStatus
     {
+        /// <summary>
+        ///There was a problem contacting the Google servers.
+        /// </summary>
+        public static object ERROR { get; set; }
+        /// <summary>
+        ///This GeocoderRequest was invalid.
+        /// </summary>
+        public static object INVALID_REQUEST { get; set; }
+        /// <summary>
+        ///The response contains a valid GeocoderResponse.
+        /// </summary>
+        public static object OK { get; set; }
+        /// <summary>
+        ///The webpage has gone over the requests limit in too short a period of time.
+        /// </summary>
+        public static object OVER_QUERY_LIMIT { get; set; }
+        /// <summary>
+        ///The webpage is not allowed to use the geocoder.
+        /// </summary>
+        public static object REQUEST_DENIED { get; set; }
+        /// <summary>
+        ///A geocoding request could not be processed due to a server error. The request may succeed if you try again.
+        /// </summary>
+        public static object UNKNOWN_ERROR { get; set; }
+        /// <summary>
+        ///No result was found for this GeocoderRequest.
+        /// </summary>
+        public static object ZERO_RESULTS { get; set; }
     }
     [JsType(JsMode.Json)]
     class GeocoderResult
@@ -1557,9 +1716,9 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsArray<GeocoderAddressComponent> address_components { get; set; }
         /// <summary>
-        ///A string containing the human-readable address of this location.
+        ///A JsString containing the human-readable address of this location.
         /// </summary>
-        public string formatted_address { get; set; }
+        public JsString formatted_address { get; set; }
         /// <summary>
         ///A GeocoderGeometry object
         /// </summary>
@@ -1567,7 +1726,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///An array of strings denoting the type of the returned geocoded element. For a list of possible strings, refer to the Address Component Types section of the Developer's Guide.
         /// </summary>
-        public JsArray<string> types { get; set; }
+        public JsArray<JsString> types { get; set; }
     }
     [JsType(JsMode.Json)]
     class GeocoderAddressComponent
@@ -1575,15 +1734,15 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The full text of the address component
         /// </summary>
-        public string long_name { get; set; }
+        public JsString long_name { get; set; }
         /// <summary>
         ///The abbreviated, short text of the given address component
         /// </summary>
-        public string short_name { get; set; }
+        public JsString short_name { get; set; }
         /// <summary>
         ///An array of strings denoting the type of this address component. A list of valid types can be found here
         /// </summary>
-        public JsArray<string> types { get; set; }
+        public JsArray<JsString> types { get; set; }
     }
     [JsType(JsMode.Json)]
     class GeocoderGeometry
@@ -1605,15 +1764,31 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public LatLngBounds viewport { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.GeocoderLocationType")]
     class GeocoderLocationType
     {
+        /// <summary>
+        ///The returned result is approximate.
+        /// </summary>
+        public static object APPROXIMATE { get; set; }
+        /// <summary>
+        ///The returned result is the geometric center of a result such a line (e.g. street) or polygon (region).
+        /// </summary>
+        public static object GEOMETRIC_CENTER { get; set; }
+        /// <summary>
+        ///The returned result reflects an approximation (usually on a road) interpolated between two precise points (such as intersections). Interpolated results are generally returned when rooftop geocodes are unavailable for a street address.
+        /// </summary>
+        public static object RANGE_INTERPOLATED { get; set; }
+        /// <summary>
+        ///The returned result reflects a precise geocode.
+        /// </summary>
+        public static object ROOFTOP { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.DirectionsRenderer")]
     class DirectionsRenderer
     {
         /// <summary>
-        ///Creates the renderer with the given options. Directions can be rendered on a map (as visual overlays) or additionally on a <div> panel (as textual instructions).
+        ///Creates the renderer with the given options. Directions can be rendered on a map (as visual overlays) or additionally on a &lt;div&gt; panel (as textual instructions).
         /// </summary>
         public DirectionsRenderer(DirectionsRendererOptions opts = null) { }
         /// <summary>
@@ -1625,7 +1800,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public Map getMap() { return null; }
         /// <summary>
-        ///Returns the panel <div> in which the DirectionsResult is rendered.
+        ///Returns the panel &lt;div&gt; in which the DirectionsResult is rendered.
         /// </summary>
         public Node getPanel() { return null; }
         /// <summary>
@@ -1645,7 +1820,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public void setOptions(DirectionsRendererOptions options) { }
         /// <summary>
-        ///This method renders the directions in a <div>. Pass null to remove the content from the panel.
+        ///This method renders the directions in a &lt;div&gt;. Pass null to remove the content from the panel.
         /// </summary>
         public void setPanel(Node panel) { }
         /// <summary>
@@ -1661,7 +1836,7 @@ namespace SharpKit.Google.Maps
     class DirectionsRendererOptions
     {
         /// <summary>
-        ///The directions to display on the map and/or in a <div> panel, retrieved as a DirectionsResult object from DirectionsService.
+        ///The directions to display on the map and/or in a &lt;div&gt; panel, retrieved as a DirectionsResult object from DirectionsService.
         /// </summary>
         public DirectionsResult directions { get; set; }
         /// <summary>
@@ -1685,7 +1860,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public MarkerOptions markerOptions { get; set; }
         /// <summary>
-        ///The <div> in which to display the directions steps.
+        ///The &lt;div&gt; in which to display the directions steps.
         /// </summary>
         public Node panel { get; set; }
         /// <summary>
@@ -1717,7 +1892,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public bool suppressPolylines { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.DirectionsService")]
     class DirectionsService
     {
         /// <summary>
@@ -1741,7 +1916,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public bool avoidTolls { get; set; }
         /// <summary>
-        ///Location of destination. This can be specified as either a string to be geocoded or a LatLng. Required.
+        ///Location of destination. This can be specified as either a JsString to be geocoded or a LatLng. Required.
         /// </summary>
         public object destination { get; set; }
         /// <summary>
@@ -1753,7 +1928,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public bool optimizeWaypoints { get; set; }
         /// <summary>
-        ///Location of origin. This can be specified as either a string to be geocoded or a LatLng. Required.
+        ///Location of origin. This can be specified as either a JsString to be geocoded or a LatLng. Required.
         /// </summary>
         public object origin { get; set; }
         /// <summary>
@@ -1763,7 +1938,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Region code used as a bias for geocoding requests. Optional.
         /// </summary>
-        public string region { get; set; }
+        public JsString region { get; set; }
         /// <summary>
         ///Settings that apply only to requests where travelMode is TRANSIT. This object will have no effect for other travel modes.
         /// </summary>
@@ -1781,13 +1956,37 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsArray<DirectionsWaypoint> waypoints { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.TravelMode")]
     class TravelMode
     {
+        /// <summary>
+        ///Specifies a bicycling directions request.
+        /// </summary>
+        public static object BICYCLING { get; set; }
+        /// <summary>
+        ///Specifies a driving directions request.
+        /// </summary>
+        public static object DRIVING { get; set; }
+        /// <summary>
+        ///Specifies a transit directions request.
+        /// </summary>
+        public static object TRANSIT { get; set; }
+        /// <summary>
+        ///Specifies a walking directions request.
+        /// </summary>
+        public static object WALKING { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.UnitSystem")]
     class UnitSystem
     {
+        /// <summary>
+        ///Specifies that distances in the DirectionsResult should be expressed in imperial units.
+        /// </summary>
+        public static object IMPERIAL { get; set; }
+        /// <summary>
+        ///Specifies that distances in the DirectionsResult should be expressed in metric units.
+        /// </summary>
+        public static object METRIC { get; set; }
     }
     [JsType(JsMode.Json)]
     class TransitOptions
@@ -1805,7 +2004,7 @@ namespace SharpKit.Google.Maps
     class DirectionsWaypoint
     {
         /// <summary>
-        ///Waypoint location. Can be an address string or LatLng. Optional.
+        ///Waypoint location. Can be an address JsString or LatLng. Optional.
         /// </summary>
         public object location { get; set; }
         /// <summary>
@@ -1813,9 +2012,41 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public bool stopover { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.DirectionsStatus")]
     class DirectionsStatus
     {
+        /// <summary>
+        ///The DirectionsRequest provided was invalid.
+        /// </summary>
+        public static object INVALID_REQUEST { get; set; }
+        /// <summary>
+        ///Too many DirectionsWaypoints were provided in the DirectionsRequest. The total allowed waypoints is 8, plus the origin and destination. Maps API for Business customers are allowed 23 waypoints, plus the origin, and destination.
+        /// </summary>
+        public static object MAX_WAYPOINTS_EXCEEDED { get; set; }
+        /// <summary>
+        ///At least one of the origin, destination, or waypoints could not be geocoded.
+        /// </summary>
+        public static object NOT_FOUND { get; set; }
+        /// <summary>
+        ///The response contains a valid DirectionsResult.
+        /// </summary>
+        public static object OK { get; set; }
+        /// <summary>
+        ///The webpage has gone over the requests limit in too short a period of time.
+        /// </summary>
+        public static object OVER_QUERY_LIMIT { get; set; }
+        /// <summary>
+        ///The webpage is not allowed to use the directions service.
+        /// </summary>
+        public static object REQUEST_DENIED { get; set; }
+        /// <summary>
+        ///A directions request could not be processed due to a server error. The request may succeed if you try again.
+        /// </summary>
+        public static object UNKNOWN_ERROR { get; set; }
+        /// <summary>
+        ///No route could be found between the origin and destination.
+        /// </summary>
+        public static object ZERO_RESULTS { get; set; }
     }
     [JsType(JsMode.Json)]
     class DirectionsResult
@@ -1835,7 +2066,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Copyrights text to be displayed for this route.
         /// </summary>
-        public string copyrights { get; set; }
+        public JsString copyrights { get; set; }
         /// <summary>
         ///An array of DirectionsLegs, each of which contains information about the steps of which it is composed. There will be one leg for each waypoint or destination specified. So a route with no waypoints will contain one DirectionsLeg and a route with one waypoint will contain two.
         /// </summary>
@@ -1847,7 +2078,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Warnings to be displayed when showing these directions.
         /// </summary>
-        public JsArray<string> warnings { get; set; }
+        public JsArray<JsString> warnings { get; set; }
         /// <summary>
         ///If optimizeWaypoints was set to true, this field will contain the re-ordered permutation of the input waypoints. For example, if the input was:   Origin: Los Angeles   Waypoints: Dallas, Bangor, Phoenix   Destination: New York and the optimized output was ordered as follows:   Origin: Los Angeles   Waypoints: Phoenix, Dallas, Bangor   Destination: New York then this field will be an Array containing the values [2, 0, 1]. Note that the numbering of waypoints is zero-based. If any of the input waypoints has stopover set to false, this field will be empty, since route optimization is not available for such queries.
         /// </summary>
@@ -1875,7 +2106,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The address of the destination of this leg.
         /// </summary>
-        public string end_address { get; set; }
+        public JsString end_address { get; set; }
         /// <summary>
         ///The DirectionsService calculates directions between locations by using the nearest transportation option (usually a road) at the start and end locations. end_location indicates the actual geocoded destination, which may be different than the end_location of the last step if, for example, the road is not near the destination of this leg.
         /// </summary>
@@ -1883,7 +2114,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The address of the origin of this leg.
         /// </summary>
-        public string start_address { get; set; }
+        public JsString start_address { get; set; }
         /// <summary>
         ///The DirectionsService calculates directions between locations by using the nearest transportation option (usually a road) at the start and end locations. start_location indicates the actual geocoded origin, which may be different than the start_location of the first step if, for example, the road is not near the origin of this leg.
         /// </summary>
@@ -1915,7 +2146,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Instructions for this step.
         /// </summary>
-        public string instructions { get; set; }
+        public JsString instructions { get; set; }
         /// <summary>
         ///A sequence of LatLngs describing the course of this step.
         /// </summary>
@@ -1941,9 +2172,9 @@ namespace SharpKit.Google.Maps
     class Distance
     {
         /// <summary>
-        ///A string representation of the distance value, using the UnitSystem specified in the request.
+        ///A JsString representation of the distance value, using the UnitSystem specified in the request.
         /// </summary>
-        public string text { get; set; }
+        public JsString text { get; set; }
         /// <summary>
         ///The distance in meters.
         /// </summary>
@@ -1953,9 +2184,9 @@ namespace SharpKit.Google.Maps
     class Duration
     {
         /// <summary>
-        ///A string representation of the duration value.
+        ///A JsString representation of the duration value.
         /// </summary>
-        public string text { get; set; }
+        public JsString text { get; set; }
         /// <summary>
         ///The duration in seconds.
         /// </summary>
@@ -1965,13 +2196,13 @@ namespace SharpKit.Google.Maps
     class Time
     {
         /// <summary>
-        ///A string representing the time's value. The time is displayed in the time zone of the transit stop.
+        ///A JsString representing the time's value. The time is displayed in the time zone of the transit stop.
         /// </summary>
-        public string text { get; set; }
+        public JsString text { get; set; }
         /// <summary>
         ///The time zone in which this stop lies. The value is the name of the time zone as defined in the IANA Time Zone Database, e.g. "America/New_York".
         /// </summary>
-        public string time_zone { get; set; }
+        public JsString time_zone { get; set; }
         /// <summary>
         ///The time of this departure or arrival, specified as a JavaScript Date object.
         /// </summary>
@@ -1999,7 +2230,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The direction in which to travel on this line, as it is marked on the vehicle or at the departure stop.
         /// </summary>
-        public string headsign { get; set; }
+        public JsString headsign { get; set; }
         /// <summary>
         ///The expected number of seconds between equivalent vehicles at this stop.
         /// </summary>
@@ -2023,7 +2254,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The name of this transit stop.
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
     }
     [JsType(JsMode.Json)]
     class TransitLine
@@ -2033,29 +2264,29 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsArray<TransitAgency> agencies { get; set; }
         /// <summary>
-        ///The color commonly used in signage for this transit line, represented as a hex string.
+        ///The color commonly used in signage for this transit line, represented as a hex JsString.
         /// </summary>
-        public string color { get; set; }
+        public JsString color { get; set; }
         /// <summary>
         ///The URL for an icon associated with this line.
         /// </summary>
-        public string icon { get; set; }
+        public JsString icon { get; set; }
         /// <summary>
         ///The full name of this transit line, e.g. "8 Avenue Local".
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
         /// <summary>
         ///The short name of this transit line, e.g. "E".
         /// </summary>
-        public string short_name { get; set; }
+        public JsString short_name { get; set; }
         /// <summary>
-        ///The text color commonly used in signage for this transit line, represented as a hex string.
+        ///The text color commonly used in signage for this transit line, represented as a hex JsString.
         /// </summary>
-        public string text_color { get; set; }
+        public JsString text_color { get; set; }
         /// <summary>
         ///The agency's URL which is specific to this transit line.
         /// </summary>
-        public string url { get; set; }
+        public JsString url { get; set; }
         /// <summary>
         ///The type of vehicle used, e.g. train or bus.
         /// </summary>
@@ -2067,15 +2298,15 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The name of this transit agency.
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
         /// <summary>
         ///The transit agency's phone number.
         /// </summary>
-        public string phone { get; set; }
+        public JsString phone { get; set; }
         /// <summary>
         ///The transit agency's URL.
         /// </summary>
-        public string url { get; set; }
+        public JsString url { get; set; }
     }
     [JsType(JsMode.Json)]
     class TransitVehicle
@@ -2083,15 +2314,15 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///A URL for an icon that corresponds to the type of vehicle used on this line.
         /// </summary>
-        public string icon { get; set; }
+        public JsString icon { get; set; }
         /// <summary>
         ///A URL for an icon that corresponds to the type of vehicle used in this region instead of the more general icon.
         /// </summary>
-        public string local_icon { get; set; }
+        public JsString local_icon { get; set; }
         /// <summary>
         ///A name for this type of TransitVehicle, e.g. "Train" or "Bus".
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
         /// <summary>
         ///The type of vehicle used, e.g. train, bus, or ferry.
         /// </summary>
@@ -2100,8 +2331,76 @@ namespace SharpKit.Google.Maps
     [JsType(JsMode.Json)]
     class VehicleType
     {
+        /// <summary>
+        ///Bus.
+        /// </summary>
+        public static object BUS { get; set; }
+        /// <summary>
+        ///A vehicle that operates on a cable, usually on the ground. Aerial cable cars may be of the type GONDOLA_LIFT.
+        /// </summary>
+        public static object CABLE_CAR { get; set; }
+        /// <summary>
+        ///Commuter rail.
+        /// </summary>
+        public static object COMMUTER_TRAIN { get; set; }
+        /// <summary>
+        ///Ferry.
+        /// </summary>
+        public static object FERRY { get; set; }
+        /// <summary>
+        ///A vehicle that is pulled up a steep incline by a cable.
+        /// </summary>
+        public static object FUNICULAR { get; set; }
+        /// <summary>
+        ///An aerial cable car.
+        /// </summary>
+        public static object GONDOLA_LIFT { get; set; }
+        /// <summary>
+        ///Heavy rail.
+        /// </summary>
+        public static object HEAVY_RAIL { get; set; }
+        /// <summary>
+        ///High speed train.
+        /// </summary>
+        public static object HIGH_SPEED_TRAIN { get; set; }
+        /// <summary>
+        ///Intercity bus.
+        /// </summary>
+        public static object INTERCITY_BUS { get; set; }
+        /// <summary>
+        ///Light rail.
+        /// </summary>
+        public static object METRO_RAIL { get; set; }
+        /// <summary>
+        ///Monorail.
+        /// </summary>
+        public static object MONORAIL { get; set; }
+        /// <summary>
+        ///Other vehicles.
+        /// </summary>
+        public static object OTHER { get; set; }
+        /// <summary>
+        ///Rail.
+        /// </summary>
+        public static object RAIL { get; set; }
+        /// <summary>
+        ///Share taxi is a sort of bus transport with ability to drop off and pick up passengers anywhere on its route. Generally share taxi uses minibus vehicles.
+        /// </summary>
+        public static object SHARE_TAXI { get; set; }
+        /// <summary>
+        ///Underground light rail.
+        /// </summary>
+        public static object SUBWAY { get; set; }
+        /// <summary>
+        ///Above ground light rail.
+        /// </summary>
+        public static object TRAM { get; set; }
+        /// <summary>
+        ///Trolleybus.
+        /// </summary>
+        public static object TROLLEYBUS { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.ElevationService")]
     class ElevationService
     {
         /// <summary>
@@ -2153,11 +2452,31 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber resolution { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.ElevationStatus")]
     class ElevationStatus
     {
+        /// <summary>
+        ///This request was invalid.
+        /// </summary>
+        public static object INVALID_REQUEST { get; set; }
+        /// <summary>
+        ///The request did not encounter any errors.
+        /// </summary>
+        public static object OK { get; set; }
+        /// <summary>
+        ///The webpage has gone over the requests limit in too short a period of time.
+        /// </summary>
+        public static object OVER_QUERY_LIMIT { get; set; }
+        /// <summary>
+        ///The webpage is not allowed to use the elevation service for some reason.
+        /// </summary>
+        public static object REQUEST_DENIED { get; set; }
+        /// <summary>
+        ///A geocoding, directions or elevation request could not be successfully processed, yet the exact reason for the failure is not known.
+        /// </summary>
+        public static object UNKNOWN_ERROR { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.MaxZoomService")]
     class MaxZoomService
     {
         /// <summary>
@@ -2181,11 +2500,19 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber zoom { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.MaxZoomStatus")]
     class MaxZoomStatus
     {
+        /// <summary>
+        ///There was a problem contacting the Google servers.
+        /// </summary>
+        public static object ERROR { get; set; }
+        /// <summary>
+        ///The response contains a valid MaxZoomResult.
+        /// </summary>
+        public static object OK { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.DistanceMatrixService")]
     class DistanceMatrixService
     {
         /// <summary>
@@ -2219,7 +2546,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Region code used as a bias for geocoding requests. Optional.
         /// </summary>
-        public string region { get; set; }
+        public JsString region { get; set; }
         /// <summary>
         ///Type of routing requested. Required.
         /// </summary>
@@ -2235,11 +2562,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The formatted destination addresses.
         /// </summary>
-        public JsArray<string> destinationAddresses { get; set; }
+        public JsArray<JsString> destinationAddresses { get; set; }
         /// <summary>
         ///The formatted origin addresses.
         /// </summary>
-        public JsArray<string> originAddresses { get; set; }
+        public JsArray<JsString> originAddresses { get; set; }
         /// <summary>
         ///The rows of the matrix, corresponding to the origin addresses.
         /// </summary>
@@ -2269,13 +2596,53 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public DistanceMatrixElementStatus status { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.DistanceMatrixStatus")]
     class DistanceMatrixStatus
     {
+        /// <summary>
+        ///The provided request was invalid.
+        /// </summary>
+        public static object INVALID_REQUEST { get; set; }
+        /// <summary>
+        ///The request contains more than 25 origins, or more than 25 destinations.
+        /// </summary>
+        public static object MAX_DIMENSIONS_EXCEEDED { get; set; }
+        /// <summary>
+        ///The product of origins and destinations exceeds the per-query limit.
+        /// </summary>
+        public static object MAX_ELEMENTS_EXCEEDED { get; set; }
+        /// <summary>
+        ///The response contains a valid result.
+        /// </summary>
+        public static object OK { get; set; }
+        /// <summary>
+        ///Too many elements have been requested within the allowed time period. The request should succeed if you try again after a reasonable amount of time.
+        /// </summary>
+        public static object OVER_QUERY_LIMIT { get; set; }
+        /// <summary>
+        ///The service denied use of the Distance Matrix service by your web page.
+        /// </summary>
+        public static object REQUEST_DENIED { get; set; }
+        /// <summary>
+        ///A Distance Matrix request could not be processed due to a server error. The request may succeed if you try again.
+        /// </summary>
+        public static object UNKNOWN_ERROR { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.DistanceMatrixElementStatus")]
     class DistanceMatrixElementStatus
     {
+        /// <summary>
+        ///The origin and/or destination of this pairing could not be geocoded.
+        /// </summary>
+        public static object NOT_FOUND { get; set; }
+        /// <summary>
+        ///The response contains a valid result.
+        /// </summary>
+        public static object OK { get; set; }
+        /// <summary>
+        ///No route could be found between the origin and destination.
+        /// </summary>
+        public static object ZERO_RESULTS { get; set; }
     }
     [JsType(JsMode.Json)]
     class MapType
@@ -2291,7 +2658,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Alt text to display when this MapType's button is hovered over in the MapTypeControl. Optional.
         /// </summary>
-        public string alt { get; set; }
+        public JsString alt { get; set; }
         /// <summary>
         ///The maximum zoom level for the map when displaying this MapType. Required for base MapTypes, ignored for overlay MapTypes.
         /// </summary>
@@ -2303,7 +2670,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Name to display in the MapTypeControl. Optional.
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
         /// <summary>
         ///The Projection used to render this MapType. Optional; defaults to Mercator.
         /// </summary>
@@ -2317,7 +2684,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public Size tileSize { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.MapTypeRegistry")]
     class MapTypeRegistry
     {
         /// <summary>
@@ -2325,9 +2692,9 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public MapTypeRegistry() { }
         /// <summary>
-        ///Sets the registry to associate the passed string identifier with the passed MapType.
+        ///Sets the registry to associate the passed JsString identifier with the passed MapType.
         /// </summary>
-        public void set(string id, MapType mapType) { }
+        public void set(JsString id, MapType mapType) { }
     }
     [JsType(JsMode.Json)]
     class Projection
@@ -2341,7 +2708,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public LatLng fromPointToLatLng(Point pixel, bool nowrap = false) { return null; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.ImageMapType")]
     class ImageMapType
     {
         /// <summary>
@@ -2367,11 +2734,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Alt text to display when this MapType's button is hovered over in the MapTypeControl.
         /// </summary>
-        public string alt { get; set; }
+        public JsString alt { get; set; }
         /// <summary>
-        ///Returns a string (URL) for given tile coordinate (x, y) and zoom level. This function should have a signature of: getTileUrl(Point, number):string
+        ///Returns a JsString (URL) for given tile coordinate (x, y) and zoom level. This function should have a signature of: getTileUrl(Point, number):JsString
         /// </summary>
-        //public Function(Point,number):string getTileUrl{get; set;}
+        public JsFunc<Point, JsNumber, JsString> getTileUrl { get; set; }
         /// <summary>
         ///The maximum zoom level for the map when displaying this MapType.
         /// </summary>
@@ -2383,7 +2750,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Name to display in the MapTypeControl.
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
         /// <summary>
         ///The opacity to apply to the tiles. The opacity should be specified as a float value between 0 and 1.0, where 0 is fully transparent and 1 is fully opaque.
         /// </summary>
@@ -2393,7 +2760,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public Size tileSize { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.StyledMapType")]
     class StyledMapType
     {
         /// <summary>
@@ -2407,7 +2774,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Text to display when this MapType's button is hovered over in the map type control.
         /// </summary>
-        public string alt { get; set; }
+        public JsString alt { get; set; }
         /// <summary>
         ///The maximum zoom level for the map when displaying this MapType. Optional.
         /// </summary>
@@ -2419,7 +2786,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The name to display in the map type control.
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
     }
     [JsType(JsMode.Json)]
     class MapTypeStyle
@@ -2440,26 +2807,194 @@ namespace SharpKit.Google.Maps
     [JsType(JsMode.Json)]
     class MapTypeStyleFeatureType
     {
+        /// <summary>
+        ///Apply the rule to administrative areas.
+        /// </summary>
+        public static object administrative { get; set; }
+        ///// <summary>
+        /////Apply the rule to countries.
+        ///// </summary>
+        //public static object administrative.country{get; set;}
+        ///// <summary>
+        /////Apply the rule to land parcels.
+        ///// </summary>
+        //public static object administrative.land_parcel{get; set;}
+        ///// <summary>
+        /////Apply the rule to localities.
+        ///// </summary>
+        //public static object administrative.locality{get; set;}
+        ///// <summary>
+        /////Apply the rule to neighborhoods.
+        ///// </summary>
+        //public static object administrative.neighborhood{get; set;}
+        ///// <summary>
+        /////Apply the rule to provinces.
+        ///// </summary>
+        //public static object administrative.province{get; set;}
+        /// <summary>
+        ///Apply the rule to all selector types.
+        /// </summary>
+        public static object all { get; set; }
+        /// <summary>
+        ///Apply the rule to landscapes.
+        /// </summary>
+        public static object landscape { get; set; }
+        ///// <summary>
+        /////Apply the rule to man made structures.
+        ///// </summary>
+        //public static object landscape.man_made{get; set;}
+        ///// <summary>
+        /////Apply the rule to natural features.
+        ///// </summary>
+        //public static object landscape.natural{get; set;}
+        ///// <summary>
+        /////Apply the rule to landcover.
+        ///// </summary>
+        //public static object landscape.natural.landcover{get; set;}
+        ///// <summary>
+        /////Apply the rule to terrain.
+        ///// </summary>
+        //public static object landscape.natural.terrain{get; set;}
+        /// <summary>
+        ///Apply the rule to points of interest.
+        /// </summary>
+        public static object poi { get; set; }
+        ///// <summary>
+        /////Apply the rule to attractions for tourists.
+        ///// </summary>
+        //public static object poi.attraction{get; set;}
+        ///// <summary>
+        /////Apply the rule to businesses.
+        ///// </summary>
+        //public static object poi.business{get; set;}
+        ///// <summary>
+        /////Apply the rule to government buildings.
+        ///// </summary>
+        //public static object poi.government{get; set;}
+        ///// <summary>
+        /////Apply the rule to emergency services (hospitals, pharmacies, police, doctors, etc).
+        ///// </summary>
+        //public static object poi.medical{get; set;}
+        ///// <summary>
+        /////Apply the rule to parks.
+        ///// </summary>
+        //public static object poi.park{get; set;}
+        ///// <summary>
+        /////Apply the rule to places of worship, such as church, temple, or mosque.
+        ///// </summary>
+        //public static object poi.place_of_worship{get; set;}
+        ///// <summary>
+        /////Apply the rule to schools.
+        ///// </summary>
+        //public static object poi.school{get; set;}
+        ///// <summary>
+        /////Apply the rule to sports complexes.
+        ///// </summary>
+        //public static object poi.sports_complex{get; set;}
+        /// <summary>
+        ///Apply the rule to all roads.
+        /// </summary>
+        public static object road { get; set; }
+        ///// <summary>
+        /////Apply the rule to arterial roads.
+        ///// </summary>
+        //public static object road.arterial{get; set;}
+        ///// <summary>
+        /////Apply the rule to highways.
+        ///// </summary>
+        //public static object road.highway{get; set;}
+        ///// <summary>
+        /////Apply the rule to controlled-access highways.
+        ///// </summary>
+        //public static object road.highway.controlled_access{get; set;}
+        ///// <summary>
+        /////Apply the rule to local roads.
+        ///// </summary>
+        //public static object road.local{get; set;}
+        /// <summary>
+        ///Apply the rule to all transit stations and lines.
+        /// </summary>
+        public static object transit { get; set; }
+        ///// <summary>
+        /////Apply the rule to transit lines.
+        ///// </summary>
+        //public static object transit.line{get; set;}
+        ///// <summary>
+        /////Apply the rule to all transit stations.
+        ///// </summary>
+        //public static object transit.station{get; set;}
+        ///// <summary>
+        /////Apply the rule to airports.
+        ///// </summary>
+        //public static object transit.station.airport{get; set;}
+        ///// <summary>
+        /////Apply the rule to bus stops.
+        ///// </summary>
+        //public static object transit.station.bus{get; set;}
+        ///// <summary>
+        /////Apply the rule to rail stations.
+        ///// </summary>
+        //public static object transit.station.rail{get; set;}
+        /// <summary>
+        ///Apply the rule to bodies of water.
+        /// </summary>
+        public static object water { get; set; }
     }
     [JsType(JsMode.Json)]
     class MapTypeStyleElementType
     {
+        /// <summary>
+        ///Apply the rule to all elements of the specified feature.
+        /// </summary>
+        public static object all { get; set; }
+        /// <summary>
+        ///Apply the rule to the feature's geometry.
+        /// </summary>
+        public static object geometry { get; set; }
+        ///// <summary>
+        /////Apply the rule to the fill of the feature's geometry.
+        ///// </summary>
+        //public static object geometry.fill{get; set;}
+        ///// <summary>
+        /////Apply the rule to the stroke of the feature's geometry.
+        ///// </summary>
+        //public static object geometry.stroke{get; set;}
+        /// <summary>
+        ///Apply the rule to the feature's labels.
+        /// </summary>
+        public static object labels { get; set; }
+        ///// <summary>
+        /////Apply the rule to icons within the feature's labels.
+        ///// </summary>
+        //public static object labels.icon{get; set;}
+        ///// <summary>
+        /////Apply the rule to the text in the feature's label.
+        ///// </summary>
+        //public static object labels.text{get; set;}
+        ///// <summary>
+        /////Apply the rule to the fill of the text in the feature's labels.
+        ///// </summary>
+        //public static object labels.text.fill{get; set;}
+        ///// <summary>
+        /////Apply the rule to the stroke of the text in the feature's labels.
+        ///// </summary>
+        //public static object labels.text.stroke{get; set;}
     }
     [JsType(JsMode.Json)]
     class MapTypeStyler
     {
         /// <summary>
-        ///Sets the color of the feature. Valid values: An RGB hex string, i.e. '#ff0000'.
+        ///Sets the color of the feature. Valid values: An RGB hex JsString, i.e. '#ff0000'.
         /// </summary>
-        public string color { get; set; }
+        public JsString color { get; set; }
         /// <summary>
         ///Modifies the gamma by raising the lightness to the given power. Valid values: Floating point numbers, [0.01, 10], with 1.0 representing no change.
         /// </summary>
         public JsNumber gamma { get; set; }
         /// <summary>
-        ///Sets the hue of the feature to match the hue of the color supplied. Note that the saturation and lightness of the feature is conserved, which means that the feature will not match the color supplied exactly. Valid values: An RGB hex string, i.e. '#ff0000'.
+        ///Sets the hue of the feature to match the hue of the color supplied. Note that the saturation and lightness of the feature is conserved, which means that the feature will not match the color supplied exactly. Valid values: An RGB hex JsString, i.e. '#ff0000'.
         /// </summary>
-        public string hue { get; set; }
+        public JsString hue { get; set; }
         /// <summary>
         ///A value of true will invert the lightness of the feature while preserving the hue and saturation.
         /// </summary>
@@ -2475,13 +3010,13 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Sets the visibility of the feature. Valid values: 'on', 'off' or 'simplifed'.
         /// </summary>
-        public string visibility { get; set; }
+        public JsString visibility { get; set; }
         /// <summary>
         ///Sets the weight of the feature, in pixels. Valid values: Integers greater than or equal to zero.
         /// </summary>
         public JsNumber weight { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.BicyclingLayer")]
     class BicyclingLayer
     {
         /// <summary>
@@ -2497,7 +3032,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public void setMap(Map map) { }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.FusionTablesLayer")]
     class FusionTablesLayer
     {
         /// <summary>
@@ -2552,7 +3087,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The ID of the Fusion Tables table to display. This ID can be found in the table's URL, as the value of the dsrcid parameter. Required.
         /// </summary>
-        public string from { get; set; }
+        public JsString from { get; set; }
         /// <summary>
         ///Limit on the number of results returned by the query.
         /// </summary>
@@ -2564,15 +3099,15 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The method by which to sort the results. Accepts either of: A column name. The column name may be suffixed with ASC or DESC (e.g. col2 DESC) to specify ascending or descending sort. An ST_DISTANCE spatial relationship (sort by distance). A column and the coordinate from which to calculate distance must be passed, for example, orderBy: 'ST_DISTANCE(col1, LATLNG(1.2, 3.4))'.
         /// </summary>
-        public string orderBy { get; set; }
+        public JsString orderBy { get; set; }
         /// <summary>
         ///A column, containing geographic features to be displayed on the map. See Fusion Tables Setup in the Maps API documentation for information about valid columns.
         /// </summary>
-        public string select { get; set; }
+        public JsString select { get; set; }
         /// <summary>
         ///The SQL predicate to be applied to the layer.
         /// </summary>
-        public string where { get; set; }
+        public JsString where { get; set; }
     }
     [JsType(JsMode.Json)]
     class FusionTablesStyle
@@ -2592,7 +3127,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The SQL predicate to be applied to the layer.
         /// </summary>
-        public string where { get; set; }
+        public JsString where { get; set; }
     }
     [JsType(JsMode.Json)]
     class FusionTablesHeatmap
@@ -2608,7 +3143,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The name of a Fusion Tables supported icon
         /// </summary>
-        public string iconName { get; set; }
+        public JsString iconName { get; set; }
     }
     [JsType(JsMode.Json)]
     class FusionTablesPolygonOptions
@@ -2616,7 +3151,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The fill color, defined by a six-digit hexadecimal number in RRGGBB format (e.g. #00AAFF).
         /// </summary>
-        public string fillColor { get; set; }
+        public JsString fillColor { get; set; }
         /// <summary>
         ///The fill opacity between 0.0 and 1.0.
         /// </summary>
@@ -2624,7 +3159,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The fill color, defined by a six-digit hexadecimal number in RRGGBB format (e.g. #00AAFF).
         /// </summary>
-        public string strokeColor { get; set; }
+        public JsString strokeColor { get; set; }
         /// <summary>
         ///The stroke opacity between 0.0 and 1.0.
         /// </summary>
@@ -2640,7 +3175,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The fill color, defined by a six-digit hexadecimal number in RRGGBB format (e.g. #00AAFF).
         /// </summary>
-        public string strokeColor { get; set; }
+        public JsString strokeColor { get; set; }
         /// <summary>
         ///The stroke opacity between 0.0 and 1.0.
         /// </summary>
@@ -2656,7 +3191,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Pre-rendered HTML content, as placed in the infowindow by the default UI.
         /// </summary>
-        public string infoWindowHtml { get; set; }
+        public JsString infoWindowHtml { get; set; }
         /// <summary>
         ///The position at which to anchor an infowindow on the clicked feature.
         /// </summary>
@@ -2668,7 +3203,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///A collection of FusionTablesCell objects, indexed by column name, representing the contents of the table row which included the clicked feature.
         /// </summary>
-        //public Object.<FusionTablesCell> row{get; set;}
+        public JsObject<FusionTablesCell> row { get; set; }
     }
     [JsType(JsMode.Json)]
     class FusionTablesCell
@@ -2676,13 +3211,13 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The name of the column in which the cell was located.
         /// </summary>
-        public string columnName { get; set; }
+        public JsString columnName { get; set; }
         /// <summary>
         ///The contents of the cell.
         /// </summary>
-        public string value { get; set; }
+        public JsString value { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.KmlLayer")]
     class KmlLayer
     {
         /// <summary>
@@ -2708,7 +3243,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The URL of the KML file being displayed.
         /// </summary>
-        public string getUrl() { return null; }
+        public JsString getUrl() { return null; }
         /// <summary>
         ///Renders the KML Layer on the specified map. If map is set to null, the layer is removed.
         /// </summary>
@@ -2716,7 +3251,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Set the URL of the KML file to display.
         /// </summary>
-        public void setUrl(string url) { }
+        public void setUrl(JsString url) { }
         /// <summary>
         ///This event is fired when a feature in the layer is clicked.
         /// </summary>
@@ -2752,31 +3287,67 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The URL of the KML document to display.
         /// </summary>
-        public string url { get; set; }
+        public JsString url { get; set; }
     }
     [JsType(JsMode.Json)]
     class KmlLayerMetadata
     {
         /// <summary>
-        ///The layer's <atom:author>, extracted from the layer markup.
+        ///The layer's -atom:author-, extracted from the layer markup.
         /// </summary>
         public KmlAuthor author { get; set; }
         /// <summary>
-        ///The layer's <description>, extracted from the layer markup.
+        ///The layer's -description-, extracted from the layer markup.
         /// </summary>
-        public string description { get; set; }
+        public JsString description { get; set; }
         /// <summary>
-        ///The layer's <name>, extracted from the layer markup.
+        ///The layer's -name-, extracted from the layer markup.
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
         /// <summary>
-        ///The layer's <Snippet>, extracted from the layer markup
+        ///The layer's -Snippet-, extracted from the layer markup
         /// </summary>
-        public string snippet { get; set; }
+        public JsString snippet { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.KmlLayerStatus")]
     class KmlLayerStatus
     {
+        /// <summary>
+        ///The document could not be found. Most likely it is an invalid URL, or the document is not publicly available.
+        /// </summary>
+        public static object DOCUMENT_NOT_FOUND { get; set; }
+        /// <summary>
+        ///The document exceeds the file size limits of KmlLayer.
+        /// </summary>
+        public static object DOCUMENT_TOO_LARGE { get; set; }
+        /// <summary>
+        ///The document could not be fetched.
+        /// </summary>
+        public static object FETCH_ERROR { get; set; }
+        /// <summary>
+        ///The document is not a valid KML, KMZ or GeoRSS document.
+        /// </summary>
+        public static object INVALID_DOCUMENT { get; set; }
+        /// <summary>
+        ///The KmlLayer is invalid.
+        /// </summary>
+        public static object INVALID_REQUEST { get; set; }
+        /// <summary>
+        ///The document exceeds the feature limits of KmlLayer.
+        /// </summary>
+        public static object LIMITS_EXCEEDED { get; set; }
+        /// <summary>
+        ///The layer loaded successfully.
+        /// </summary>
+        public static object OK { get; set; }
+        /// <summary>
+        ///The document could not be loaded within a reasonable amount of time.
+        /// </summary>
+        public static object TIMED_OUT { get; set; }
+        /// <summary>
+        ///The document failed to load for an unknown reason.
+        /// </summary>
+        public static object UNKNOWN { get; set; }
     }
     [JsType(JsMode.Json)]
     class KmlMouseEvent
@@ -2798,47 +3369,47 @@ namespace SharpKit.Google.Maps
     class KmlFeatureData
     {
         /// <summary>
-        ///The feature's <atom:author>, extracted from the layer markup (if specified).
+        ///The feature's -atom:author-, extracted from the layer markup (if specified).
         /// </summary>
         public KmlAuthor author { get; set; }
         /// <summary>
-        ///The feature's <description>, extracted from the layer markup.
+        ///The feature's -description-, extracted from the layer markup.
         /// </summary>
-        public string description { get; set; }
+        public JsString description { get; set; }
         /// <summary>
-        ///The feature's <id>, extracted from the layer markup. If no <id> has been specified, a unique ID will be generated for this feature.
+        ///The feature's -id-, extracted from the layer markup. If no -id- has been specified, a unique ID will be generated for this feature.
         /// </summary>
-        public string id { get; set; }
+        public JsString id { get; set; }
         /// <summary>
         ///The feature's balloon styled text, if set.
         /// </summary>
-        public string infoWindowHtml { get; set; }
+        public JsString infoWindowHtml { get; set; }
         /// <summary>
-        ///The feature's <name>, extracted from the layer markup.
+        ///The feature's -name-, extracted from the layer markup.
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
         /// <summary>
-        ///The feature's <Snippet>, extracted from the layer markup.
+        ///The feature's -Snippet-, extracted from the layer markup.
         /// </summary>
-        public string snippet { get; set; }
+        public JsString snippet { get; set; }
     }
     [JsType(JsMode.Json)]
     class KmlAuthor
     {
         /// <summary>
-        ///The author's e-mail address, or an empty string if not specified.
+        ///The author's e-mail address, or an empty JsString if not specified.
         /// </summary>
-        public string email { get; set; }
+        public JsString email { get; set; }
         /// <summary>
-        ///The author's name, or an empty string if not specified.
+        ///The author's name, or an empty JsString if not specified.
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
         /// <summary>
-        ///The author's home page, or an empty string if not specified.
+        ///The author's home page, or an empty JsString if not specified.
         /// </summary>
-        public string uri { get; set; }
+        public JsString uri { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.TrafficLayer")]
     class TrafficLayer
     {
         /// <summary>
@@ -2854,7 +3425,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public void setMap(Map map) { }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.TransitLayer")]
     class TransitLayer
     {
         /// <summary>
@@ -2870,7 +3441,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public void setMap(Map map) { }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.StreetViewPanorama")]
     class StreetViewPanorama
     {
         /// <summary>
@@ -2884,7 +3455,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Returns the current panorama ID for the Street View panorama. This id is stable within the browser's current session only.
         /// </summary>
-        public string getPano() { return null; }
+        public JsString getPano() { return null; }
         /// <summary>
         ///Returns the heading and pitch of the photographer when this panorama was taken. For Street View panoramas on the road, this also reveals in which direction the car was travelling. This data is available after the pano_changed event.
         /// </summary>
@@ -2912,7 +3483,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Sets the current panorama ID for the Street View panorama.
         /// </summary>
-        public void setPano(string pano) { }
+        public void setPano(JsString pano) { }
         /// <summary>
         ///Sets the current LatLng position for the Street View panorama.
         /// </summary>
@@ -2922,7 +3493,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public void setPov(StreetViewPov pov) { }
         /// <summary>
-        ///Sets to true to make the panorama visible. If set to false, the panorama will be hidden whether it is embedded in the map or in its own <div>.
+        ///Sets to true to make the panorama visible. If set to false, the panorama will be hidden whether it is embedded in the map or in its own &lt;div&gt;.
         /// </summary>
         public void setVisible(bool flag) { }
         /// <summary>
@@ -2930,9 +3501,9 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public void setZoom(JsNumber zoom) { }
         /// <summary>
-        ///Additional controls to attach to the panorama. To add a control to the panorama, add the control's <div> to the MVCArray corresponding to the ControlPosition where it should be rendered.
+        ///Additional controls to attach to the panorama. To add a control to the panorama, add the control's &lt;div&gt; to the MVCArray corresponding to the ControlPosition where it should be rendered.
         /// </summary>
-        public JsArray<MVCJsArray<Node>> controls { get; set; }
+        public JsArray<MVCArray<Node>> controls { get; set; }
         /// <summary>
         ///This event is fired when the close button is clicked.
         /// </summary>
@@ -3008,11 +3579,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The panorama ID, which should be set when specifying a custom panorama.
         /// </summary>
-        public string pano { get; set; }
+        public JsString pano { get; set; }
         /// <summary>
-        ///Custom panorama provider, which takes a string pano id and returns an object defining the panorama given that id. This function must be defined to specify custom panorama imagery.
+        ///Custom panorama provider, which takes a JsString pano id and returns an object defining the panorama given that id. This function must be defined to specify custom panorama imagery.
         /// </summary>
-        //public Function(string):StreetViewPanoramaData panoProvider{get; set;}
+        public JsFunc<JsString, StreetViewPanoramaData> panoProvider { get; set; }
         /// <summary>
         ///The LatLng position of the Street View panorama.
         /// </summary>
@@ -3050,9 +3621,9 @@ namespace SharpKit.Google.Maps
     class StreetViewLink
     {
         /// <summary>
-        ///A localized string describing the link.
+        ///A localized JsString describing the link.
         /// </summary>
-        public string description { get; set; }
+        public JsString description { get; set; }
         /// <summary>
         ///The heading of the link.
         /// </summary>
@@ -3060,7 +3631,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///A unique identifier for the panorama. This id is stable within a session but unstable across sessions.
         /// </summary>
-        public string pano { get; set; }
+        public JsString pano { get; set; }
     }
     [JsType(JsMode.Json)]
     class StreetViewPov
@@ -3080,11 +3651,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Specifies the copyright text for this panorama.
         /// </summary>
-        public string copyright { get; set; }
+        public JsString copyright { get; set; }
         /// <summary>
-        ///Specifies the year and month in which the imagery in this panorama was acquired. The date string is in the form YYYY-MM.
+        ///Specifies the year and month in which the imagery in this panorama was acquired. The date JsString is in the form YYYY-MM.
         /// </summary>
-        public string imageDate { get; set; }
+        public JsString imageDate { get; set; }
         /// <summary>
         ///Specifies the navigational links to adjacent panoramas.
         /// </summary>
@@ -3102,9 +3673,9 @@ namespace SharpKit.Google.Maps
     class StreetViewLocation
     {
         /// <summary>
-        ///A localized string describing the location.
+        ///A localized JsString describing the location.
         /// </summary>
-        public string description { get; set; }
+        public JsString description { get; set; }
         /// <summary>
         ///The latlng of the panorama.
         /// </summary>
@@ -3112,7 +3683,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///A unique identifier for the panorama. This is stable within a session but unstable across sessions.
         /// </summary>
-        public string pano { get; set; }
+        public JsString pano { get; set; }
     }
     [JsType(JsMode.Json)]
     class StreetViewTileData
@@ -3120,7 +3691,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Gets the tile image URL for the specified tile. pano is the panorama ID of the Street View tile. tileZoom is the zoom level of the tile. tileX is the x-coordinate of the tile. tileY is the y-coordinate of the tile. Returns the URL for the tile image.
         /// </summary>
-        public string getTileUrl(string pano, JsNumber tileZoom, JsNumber tileX, JsNumber tileY) { return null; }
+        public JsString getTileUrl(JsString pano, JsNumber tileZoom, JsNumber tileX, JsNumber tileY) { return null; }
         /// <summary>
         ///The heading (in degrees) at the center of the panoramic tiles.
         /// </summary>
@@ -3134,7 +3705,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public Size worldSize { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.StreetViewService")]
     class StreetViewService
     {
         /// <summary>
@@ -3146,11 +3717,23 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public void getPanoramaByLocation() { }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.StreetViewStatus")]
     class StreetViewStatus
     {
+        /// <summary>
+        ///The request was successful.
+        /// </summary>
+        public static object OK { get; set; }
+        /// <summary>
+        ///The request could not be successfully processed, yet the exact reason for failure is unknown.
+        /// </summary>
+        public static object UNKNOWN_ERROR { get; set; }
+        /// <summary>
+        ///There are no nearby panoramas.
+        /// </summary>
+        public static object ZERO_RESULTS { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.StreetViewCoverageLayer")]
     class StreetViewCoverageLayer
     {
         /// <summary>
@@ -3170,25 +3753,25 @@ namespace SharpKit.Google.Maps
     class MapsEventListener
     {
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.eventnamespace")]
     class eventnamespace
     {
         /// <summary>
         ///Cross browser event handler registration. This listener is removed by calling removeListener(handle) for the handle that is returned by this function.
         /// </summary>
-        public MapsEventListener addDomListener(Object instance, string eventName, JsAction handler, bool capture = false) { return null; }
+        public MapsEventListener addDomListener(Object instance, JsString eventName, JsAction handler, bool capture = false) { return null; }
         /// <summary>
         ///Wrapper around addDomListener that removes the listener after the first event.
         /// </summary>
-        public MapsEventListener addDomListenerOnce(Object instance, string eventName, JsAction handler, bool capture = false) { return null; }
+        public MapsEventListener addDomListenerOnce(Object instance, JsString eventName, JsAction handler, bool capture = false) { return null; }
         /// <summary>
         ///Adds the given listener function to the given event name for the given object instance. Returns an identifier for this listener that can be used with removeListener().
         /// </summary>
-        public MapsEventListener addListener(Object instance, string eventName, JsAction handler) { return null; }
+        public MapsEventListener addListener(Object instance, JsString eventName, JsAction handler) { return null; }
         /// <summary>
         ///Like addListener, but the handler removes itself after handling the first event.
         /// </summary>
-        public MapsEventListener addListenerOnce(Object instance, string eventName, JsAction handler) { return null; }
+        public MapsEventListener addListenerOnce(Object instance, JsString eventName, JsAction handler) { return null; }
         /// <summary>
         ///Removes all listeners for all events for the given instance.
         /// </summary>
@@ -3196,7 +3779,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Removes all listeners for the given event for the given instance.
         /// </summary>
-        public void clearListeners(Object instance, string eventName) { }
+        public void clearListeners(Object instance, JsString eventName) { }
         /// <summary>
         ///Removes the given listener, which should have been returned by addListener above.
         /// </summary>
@@ -3204,7 +3787,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Triggers the given event. All arguments after eventName are passed as arguments to the listeners.
         /// </summary>
-        public void trigger(Object instance, string eventName, object var_args) { }
+        public void trigger(Object instance, JsString eventName, object var_args) { }
     }
     [JsType(JsMode.Json)]
     class MouseEvent
@@ -3218,7 +3801,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public LatLng latLng { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.LatLng")]
     class LatLng
     {
         /// <summary>
@@ -3238,15 +3821,15 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber lng() { return null; }
         /// <summary>
-        ///Converts to string representation.
+        ///Converts to JsString representation.
         /// </summary>
-        public string toString() { return null; }
+        public JsString toString() { return null; }
         /// <summary>
-        ///Returns a string of the form "lat,lng" for this LatLng. We round the lat/lng values to 6 decimal places by default.
+        ///Returns a JsString of the form "lat,lng" for this LatLng. We round the lat/lng values to 6 decimal places by default.
         /// </summary>
-        public string toUrlValue(JsNumber precision = null) { return null; }
+        public JsString toUrlValue(JsNumber precision = null) { return null; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.LatLngBounds")]
     class LatLngBounds
     {
         /// <summary>
@@ -3290,19 +3873,19 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public LatLng toSpan() { return null; }
         /// <summary>
-        ///Converts to string.
+        ///Converts to JsString.
         /// </summary>
-        public string toString() { return null; }
+        public JsString toString() { return null; }
         /// <summary>
-        ///Returns a string of the form "lat_lo,lng_lo,lat_hi,lng_hi" for this bounds, where "lo" corresponds to the southwest corner of the bounding box, while "hi" corresponds to the northeast corner of that box.
+        ///Returns a JsString of the form "lat_lo,lng_lo,lat_hi,lng_hi" for this bounds, where "lo" corresponds to the southwest corner of the bounding box, while "hi" corresponds to the northeast corner of that box.
         /// </summary>
-        public string toUrlValue(JsNumber precision = null) { return null; }
+        public JsString toUrlValue(JsNumber precision = null) { return null; }
         /// <summary>
         ///Extends this bounds to contain the union of this and the given bounds.
         /// </summary>
         public LatLngBounds union(LatLngBounds other) { return null; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.Point")]
     class Point
     {
         /// <summary>
@@ -3314,9 +3897,9 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public bool equals(Point other) { return false; }
         /// <summary>
-        ///Returns a string representation of this Point.
+        ///Returns a JsString representation of this Point.
         /// </summary>
-        public string toString() { return null; }
+        public JsString toString() { return null; }
         /// <summary>
         ///The X coordinate
         /// </summary>
@@ -3326,21 +3909,21 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber y { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.Size")]
     class Size
     {
         /// <summary>
         ///Two-dimensonal size, where width is the distance on the x-axis, and height is the distance on the y-axis.
         /// </summary>
-        public Size(JsNumber width, JsNumber height, string widthUnit = null, string heightUnit = null) { }
+        public Size(JsNumber width, JsNumber height, JsString widthUnit = null, JsString heightUnit = null) { }
         /// <summary>
         ///Compares two Sizes.
         /// </summary>
         public bool equals(Size other) { return false; }
         /// <summary>
-        ///Returns a string representation of this Size.
+        ///Returns a JsString representation of this Size.
         /// </summary>
-        public string toString() { return null; }
+        public JsString toString() { return null; }
         /// <summary>
         ///The height along the y-axis, in pixels.
         /// </summary>
@@ -3350,7 +3933,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber width { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.MVCObject")]
     class MVCObject
     {
         /// <summary>
@@ -3360,27 +3943,27 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Adds the given listener function to the given event name. Returns an identifier for this listener that can be used with google.maps.event.removeListener.
         /// </summary>
-        public MapsEventListener addListener(string eventName, JsAction handler) { return null; }
+        public MapsEventListener addListener(JsString eventName, JsAction handler) { return null; }
         /// <summary>
         ///Binds a View to a Model.
         /// </summary>
-        public void bindTo(string key, MVCObject target, string targetKey = null, bool noNotify = false) { }
+        public void bindTo(JsString key, MVCObject target, JsString targetKey = null, bool noNotify = false) { }
         /// <summary>
         ///Generic handler for state changes. Override this in derived classes to handle arbitrary state changes.
         /// </summary>
-        public void changed(string key) { }
+        public void changed(JsString key) { }
         /// <summary>
         ///Gets a value.
         /// </summary>
-        public object get(string key) { return null; }
+        public object get(JsString key) { return null; }
         /// <summary>
         ///Notify all observers of a change on this property. This notifies both objects that are bound to the object's property as well as the object that it is bound to.
         /// </summary>
-        public void notify(string key) { }
+        public void notify(JsString key) { }
         /// <summary>
         ///Sets a value.
         /// </summary>
-        public void set(string key, object value) { }
+        public void set(JsString key, object value) { }
         /// <summary>
         ///Sets a collection of key-value pairs.
         /// </summary>
@@ -3388,19 +3971,19 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Removes a binding. Unbinding will set the unbound property to the current value. The object will not be notified, as the value has not changed.
         /// </summary>
-        public void unbind(string key) { }
+        public void unbind(JsString key) { }
         /// <summary>
         ///Removes all bindings.
         /// </summary>
         public void unbindAll() { }
     }
-    [JsType(JsMode.Prototype, Export = false)]
-    class MVCArray
+    [JsType(JsMode.Prototype, Name = "google.maps.MVCArray")]
+    class MVCArray<T>
     {
         /// <summary>
         ///A mutable MVC Array.
         /// </summary>
-        public MVCArray(Array array = null) { }
+        public MVCArray(JsArray<T> array = null) { }
         /// <summary>
         ///Removes all elements from the array.
         /// </summary>
@@ -3424,7 +4007,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Inserts an element at the specified index.
         /// </summary>
-        public void insertAt(JsNumber i, object elem) { }
+        public void insertAt(JsNumber i, T elem) { }
         /// <summary>
         ///Removes the last element of the array and returns that element.
         /// </summary>
@@ -3440,33 +4023,33 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Sets an element at the specified index.
         /// </summary>
-        public void setAt(JsNumber i, object elem) { }
+        public void setAt(JsNumber i, T elem) { }
         /// <summary>
         ///This event is fired when insertAt() is called. The event passes the index that was passed to insertAt().
         /// </summary>
-        //public JsAction<number> insert_at{get; set;}
+        public JsAction<JsNumber> insert_at { get; set; }
         /// <summary>
         ///This event is fired when removeAt() is called. The event passes the index that was passed to removeAt() and the element that was removed from the array.
         /// </summary>
-        //public JsAction<number,*> remove_at{get; set;}
+        public JsAction<JsNumber, T> remove_at { get; set; }
         /// <summary>
         ///This event is fired when setAt() is called. The event passes the index that was passed to setAt() and the element that was previously in the array at that index.
         /// </summary>
-        //public JsAction<number,*> set_at{get; set;}
+        public JsAction<JsNumber, T> set_at { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.geometry.encodingnamespace")]
     class encodingnamespace
     {
         /// <summary>
-        ///Decodes an encoded path string into a sequence of LatLngs.
+        ///Decodes an encoded path JsString into a sequence of LatLngs.
         /// </summary>
-        public JsArray<LatLng> decodePath(string encodedPath) { return null; }
+        public JsArray<LatLng> decodePath(JsString encodedPath) { return null; }
         /// <summary>
-        ///Encodes a sequence of LatLngs into an encoded path string.
+        ///Encodes a sequence of LatLngs into an encoded path JsString.
         /// </summary>
-        public string encodePath(object path) { return null; }
+        public JsString encodePath(object path) { return null; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.geometry.sphericalnamespace")]
     class sphericalnamespace
     {
         /// <summary>
@@ -3502,7 +4085,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public LatLng interpolate(LatLng from, LatLng to, JsNumber fraction) { return null; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.geometry.polynamespace")]
     class polynamespace
     {
         /// <summary>
@@ -3514,7 +4097,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public bool isLocationOnEdge(LatLng point, object poly, JsNumber tolerance = null) { return false; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.adsense.AdUnit")]
     class AdUnit
     {
         /// <summary>
@@ -3524,15 +4107,15 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Returns the AdUnit's background color.
         /// </summary>
-        public string getBackgroundColor() { return null; }
+        public JsString getBackgroundColor() { return null; }
         /// <summary>
         ///Returns the AdUnit's border color.
         /// </summary>
-        public string getBorderColor() { return null; }
+        public JsString getBorderColor() { return null; }
         /// <summary>
         ///Returns the channel number in use by this AdUnit.
         /// </summary>
-        public string getChannelNumber() { return null; }
+        public JsString getChannelNumber() { return null; }
         /// <summary>
         ///Returns the containing element of the AdUnit.
         /// </summary>
@@ -3552,31 +4135,31 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Returns the specified AdSense For Content publisher ID.
         /// </summary>
-        public string getPublisherId() { return null; }
+        public JsString getPublisherId() { return null; }
         /// <summary>
         ///Returns the AdUnit's text color.
         /// </summary>
-        public string getTextColor() { return null; }
+        public JsString getTextColor() { return null; }
         /// <summary>
         ///Returns the AdUnit's title color.
         /// </summary>
-        public string getTitleColor() { return null; }
+        public JsString getTitleColor() { return null; }
         /// <summary>
         ///Returns the AdUnit's URL color.
         /// </summary>
-        public string getUrlColor() { return null; }
+        public JsString getUrlColor() { return null; }
         /// <summary>
         ///Sets the AdUnit's background color.
         /// </summary>
-        public string setBackgroundColor() { return null; }
+        public JsString setBackgroundColor() { return null; }
         /// <summary>
         ///Sets the AdUnit's border color.
         /// </summary>
-        public string setBorderColor() { return null; }
+        public JsString setBorderColor() { return null; }
         /// <summary>
         ///Specifies the channel number for this AdUnit. Channel numbers are optional and can be created for Google AdSense tracking.
         /// </summary>
-        public void setChannelNumber(string channelNumber) { }
+        public void setChannelNumber(JsString channelNumber) { }
         /// <summary>
         ///Specifies the display format for this AdUnit.
         /// </summary>
@@ -3592,15 +4175,15 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Sets the AdUnit's text color.
         /// </summary>
-        public string setTextColor() { return null; }
+        public JsString setTextColor() { return null; }
         /// <summary>
         ///Sets the AdUnit's title color.
         /// </summary>
-        public string setTitleColor() { return null; }
+        public JsString setTitleColor() { return null; }
         /// <summary>
         ///Sets the AdUnit's URL color.
         /// </summary>
-        public string setUrlColor() { return null; }
+        public JsString setUrlColor() { return null; }
     }
     [JsType(JsMode.Json)]
     class AdUnitOptions
@@ -3608,15 +4191,15 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The AdUnit's background color. (Optional)
         /// </summary>
-        public string backgroundColor { get; set; }
+        public JsString backgroundColor { get; set; }
         /// <summary>
         ///The AdUnit's border color. (Optional)
         /// </summary>
-        public string borderColor { get; set; }
+        public JsString borderColor { get; set; }
         /// <summary>
-        ///The AdSense For Content channel number for tracking the performance of this AdUnit. It must be stored as a string as it will typically be a large UINT64. (Optional)
+        ///The AdSense For Content channel number for tracking the performance of this AdUnit. It must be stored as a JsString as it will typically be a large UINT64. (Optional)
         /// </summary>
-        public string channelNumber { get; set; }
+        public JsString channelNumber { get; set; }
         /// <summary>
         ///the Format of the AdUnit. See https://google.com/adsense/adformats. (Optional)
         /// </summary>
@@ -3632,25 +4215,97 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Your AdSense for Content publisher ID. Required and must be set at the time of initialization. (Required)
         /// </summary>
-        public string publisherId { get; set; }
+        public JsString publisherId { get; set; }
         /// <summary>
         ///The AdUnit's text color. (Optional)
         /// </summary>
-        public string textColor { get; set; }
+        public JsString textColor { get; set; }
         /// <summary>
         ///The AdUnit's title color. (Optional)
         /// </summary>
-        public string titleColor { get; set; }
+        public JsString titleColor { get; set; }
         /// <summary>
         ///The AdUnit's URL color. (Optional)
         /// </summary>
-        public string urlColor { get; set; }
+        public JsString urlColor { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.adsense.AdFormat")]
     class AdFormat
     {
+        /// <summary>
+        ///A horizontal "banner" ad. (468x60px)
+        /// </summary>
+        public static object BANNER { get; set; }
+        /// <summary>
+        ///A small ad. (125x125px)
+        /// </summary>
+        public static object BUTTON { get; set; }
+        /// <summary>
+        ///A smaller horizontal "banner" ad. (234x60px)
+        /// </summary>
+        public static object HALF_BANNER { get; set; }
+        /// <summary>
+        ///A large horizontal ad link unit. (728x15px)
+        /// </summary>
+        public static object LARGE_HORIZONTAL_LINK_UNIT { get; set; }
+        /// <summary>
+        ///A large rectangular ad. (336x280px)
+        /// </summary>
+        public static object LARGE_RECTANGLE { get; set; }
+        /// <summary>
+        ///A large vertical ad link unit. (180x90px)
+        /// </summary>
+        public static object LARGE_VERTICAL_LINK_UNIT { get; set; }
+        /// <summary>
+        ///A fully horizontal display area. (728x90px)
+        /// </summary>
+        public static object LEADERBOARD { get; set; }
+        /// <summary>
+        ///A medium rectangular ad. (300x250px)
+        /// </summary>
+        public static object MEDIUM_RECTANGLE { get; set; }
+        /// <summary>
+        ///A medium vertical ad link unit. (160x90px)
+        /// </summary>
+        public static object MEDIUM_VERTICAL_LINK_UNIT { get; set; }
+        /// <summary>
+        ///A large vertical ad. (120x600px)
+        /// </summary>
+        public static object SKYSCRAPER { get; set; }
+        /// <summary>
+        ///A small horizontal ad link unit. (468x15px)
+        /// </summary>
+        public static object SMALL_HORIZONTAL_LINK_UNIT { get; set; }
+        /// <summary>
+        ///A small rectangular ad. (180x150px)
+        /// </summary>
+        public static object SMALL_RECTANGLE { get; set; }
+        /// <summary>
+        ///A smaller square ad. (200x200px)
+        /// </summary>
+        public static object SMALL_SQUARE { get; set; }
+        /// <summary>
+        ///A small vertical ad link unit. (120x90px)
+        /// </summary>
+        public static object SMALL_VERTICAL_LINK_UNIT { get; set; }
+        /// <summary>
+        ///A square ad with large type. (250x250px)
+        /// </summary>
+        public static object SQUARE { get; set; }
+        /// <summary>
+        ///A medium-sized vertical ad. (120x240px)
+        /// </summary>
+        public static object VERTICAL_BANNER { get; set; }
+        /// <summary>
+        ///A wide, vertical ad using larger type. (160x600px)
+        /// </summary>
+        public static object WIDE_SKYSCRAPER { get; set; }
+        /// <summary>
+        ///An extra large vertical ad link unit. (200x90px)
+        /// </summary>
+        public static object X_LARGE_VERTICAL_LINK_UNIT { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.panoramio.PanoramioLayer")]
     class PanoramioLayer
     {
         /// <summary>
@@ -3661,15 +4316,15 @@ namespace SharpKit.Google.Maps
         ///Returns the map on which this layer is displayed.
         /// </summary>
         public Map getMap() { return null; }
-        public string getTag() { return null; }
-        public string getUserId() { return null; }
+        public JsString getTag() { return null; }
+        public JsString getUserId() { return null; }
         /// <summary>
         ///Renders the layer on the specified map. If map is set to null, the layer will be removed.
         /// </summary>
         public void setMap(Map map) { }
         public void setOptions(PanoramioLayerOptions options) { }
-        public void setTag(string tag) { }
-        public void setUserId(string userId) { }
+        public void setTag(JsString tag) { }
+        public void setUserId(JsString userId) { }
         /// <summary>
         ///This event is fired when a feature in the layer is clicked.
         /// </summary>
@@ -3691,13 +4346,13 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public bool suppressInfoWindows { get; set; }
         /// <summary>
-        ///A panoramio tag used to filter the photos which are displayed. Only photos which have been tagged with the supplied string will be shown.
+        ///A panoramio tag used to filter the photos which are displayed. Only photos which have been tagged with the supplied JsString will be shown.
         /// </summary>
-        public string tag { get; set; }
+        public JsString tag { get; set; }
         /// <summary>
         ///A Panoramio user ID. If provided, only photos by this user will be displayed on the map. If both a tag and user ID are provided, the tag will take precedence.
         /// </summary>
-        public string userId { get; set; }
+        public JsString userId { get; set; }
     }
     [JsType(JsMode.Json)]
     class PanoramioFeature
@@ -3705,23 +4360,23 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The username of the user who uploaded this photo.
         /// </summary>
-        public string author { get; set; }
+        public JsString author { get; set; }
         /// <summary>
         ///The unique identifier for this photo, as used in the Panoramio API (see http://www.panoramio.com/api/widget/api.html).
         /// </summary>
-        public string photoId { get; set; }
+        public JsString photoId { get; set; }
         /// <summary>
         ///The title of the photo.
         /// </summary>
-        public string title { get; set; }
+        public JsString title { get; set; }
         /// <summary>
         ///The URL of the photo.
         /// </summary>
-        public string url { get; set; }
+        public JsString url { get; set; }
         /// <summary>
         ///The unique identifier for the user who uploaded this photo, as used in the Panoramio API (see http://www.panoramio.com/api/widget/api.html).
         /// </summary>
-        public string userId { get; set; }
+        public JsString userId { get; set; }
     }
     [JsType(JsMode.Json)]
     class PanoramioMouseEvent
@@ -3733,7 +4388,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Pre-rendered HTML content to display within a feature's InfoWindow when clicked.
         /// </summary>
-        public string infoWindowHtml { get; set; }
+        public JsString infoWindowHtml { get; set; }
         /// <summary>
         ///The position at which to anchor an info window on the clicked feature.
         /// </summary>
@@ -3743,13 +4398,13 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public Size pixelOffset { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.places.Autocomplete")]
     class Autocomplete
     {
         /// <summary>
         ///Creates a new instance of Autocomplete that attaches to the specified input text field with the given options.
         /// </summary>
-        public Autocomplete(HTMLInputElement inputField, AutocompleteOptions opts = null) { }
+        public Autocomplete(HtmlInputElement el, AutocompleteOptions opts = null) { }
         /// <summary>
         ///Returns the bounds to which predictions are biased.
         /// </summary>
@@ -3769,7 +4424,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Sets the types of predictions to be returned. Supported types are 'establishment' for businesses and 'geocode' for addresses. If no type is specified, both types will be returned. The setTypes method accepts a single element array.
         /// </summary>
-        public void setTypes(JsArray<string> types) { }
+        public void setTypes(JsArray<JsString> types) { }
         /// <summary>
         ///This event is fired when a PlaceResult is made available for a Place the user has selected. If the user enters the name of a Place that was not suggested by the control and presses the Enter key, or if a Place detail request fails, a place_changed event will be fired that contains the user input in the name property, with no other properties defined.
         /// </summary>
@@ -3789,7 +4444,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The types of predictions to be returned. Four types are supported: 'establishment' for businesses, 'geocode' for addresses, '(regions)' for administrative regions and '(cities)' for localities. If nothing is specified, all types are returned.
         /// </summary>
-        public JsArray<string> types { get; set; }
+        public JsArray<JsString> types { get; set; }
     }
     [JsType(JsMode.Json)]
     class AutocompletePrediction
@@ -3797,11 +4452,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///This is the unformatted version of the query suggested by the Places service.
         /// </summary>
-        public string description { get; set; }
+        public JsString description { get; set; }
         /// <summary>
         ///A stable ID for this place, intended to be interoperable with those returned by the place search service.
         /// </summary>
-        public string id { get; set; }
+        public JsString id { get; set; }
         /// <summary>
         ///A set of substrings in the place's description that match elements in the user's input, suitable for use in highlighting those substrings. Each substring is identified by an offset and a length, expressed in unicode characters.
         /// </summary>
@@ -3809,7 +4464,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///A reference that can be used to retrieve details about this place using the place details service (see PlacesService.getDetails()).
         /// </summary>
-        public string reference { get; set; }
+        public JsString reference { get; set; }
         /// <summary>
         ///Information about individual terms in the above description, from most to least specific. For example, "Taco Bell", "Willitis", and "CA".
         /// </summary>
@@ -3817,7 +4472,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///An array of types that the prediction belongs to, for example 'establishment' or 'geocode'.
         /// </summary>
-        public JsArray<string> types { get; set; }
+        public JsArray<JsString> types { get; set; }
     }
     [JsType(JsMode.Json)]
     class PredictionTerm
@@ -3829,7 +4484,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The value of this term, e.g. "Taco Bell".
         /// </summary>
-        public string value { get; set; }
+        public JsString value { get; set; }
     }
     [JsType(JsMode.Json)]
     class PredictionSubstring
@@ -3839,11 +4494,11 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber length { get; set; }
         /// <summary>
-        ///The offset to the substring's start within the description string.
+        ///The offset to the substring's start within the description JsString.
         /// </summary>
         public JsNumber offset { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.places.AutocompleteService")]
     class AutocompleteService
     {
         /// <summary>
@@ -3871,9 +4526,9 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public ComponentRestrictions componentRestrictions { get; set; }
         /// <summary>
-        ///The user entered input string.
+        ///The user entered input JsString.
         /// </summary>
-        public string input { get; set; }
+        public JsString input { get; set; }
         /// <summary>
         ///Location for prediction biasing. Predictions will be biased towards the given location and radius. Alternatively, bounds can be used.
         /// </summary>
@@ -3889,7 +4544,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The types of predictions to be returned. Four types are supported: 'establishment' for businesses, 'geocode' for addresses, '(regions)' for administrative regions and '(cities)' for localities. If nothing is specified, all types are returned.
         /// </summary>
-        public JsArray<string> types { get; set; }
+        public JsArray<JsString> types { get; set; }
     }
     [JsType(JsMode.Json)]
     class ComponentRestrictions
@@ -3897,7 +4552,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Restricts predictions to the specified country (ISO 3166-1 Alpha-2 country code, case insensitive). E.g., us, br, au.
         /// </summary>
-        public string country { get; set; }
+        public JsString country { get; set; }
     }
     [JsType(JsMode.Json)]
     class PlaceAspectRating
@@ -3909,7 +4564,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The aspect type, e.g. "food", "decor", "service", "overall".
         /// </summary>
-        public string type { get; set; }
+        public JsString type { get; set; }
     }
     [JsType(JsMode.Json)]
     class PlaceDetailsRequest
@@ -3917,7 +4572,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The reference of the Place for which details are being requested.
         /// </summary>
-        public string reference { get; set; }
+        public JsString reference { get; set; }
     }
     [JsType(JsMode.Json)]
     class PlaceGeometry
@@ -3937,7 +4592,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Returns the image URL corresponding to the specified options. You must include a PhotoOptions object with at least one of maxWidth or maxHeight specified.
         /// </summary>
-        public string getUrl(PhotoOptions opts) { return null; }
+        public JsString getUrl(PhotoOptions opts) { return null; }
         /// <summary>
         ///The height of the photo in pixels.
         /// </summary>
@@ -3945,7 +4600,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Attribution text to be displayed for this photo.
         /// </summary>
-        public JsArray<string> html_attributions { get; set; }
+        public JsArray<JsString> html_attributions { get; set; }
         /// <summary>
         ///The width of the photo in pixels.
         /// </summary>
@@ -3977,11 +4632,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The Place's full address.
         /// </summary>
-        public string formatted_address { get; set; }
+        public JsString formatted_address { get; set; }
         /// <summary>
         ///The Place's phone number, formatted according to the number's regional convention.
         /// </summary>
-        public string formatted_phone_number { get; set; }
+        public JsString formatted_phone_number { get; set; }
         /// <summary>
         ///The Place's geometry-related information.
         /// </summary>
@@ -3989,23 +4644,23 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Attribution text to be displayed for this Place result.
         /// </summary>
-        public JsArray<string> html_attributions { get; set; }
+        public JsArray<JsString> html_attributions { get; set; }
         /// <summary>
         ///URL to an image resource that can be used to represent this Place's category.
         /// </summary>
-        public string icon { get; set; }
+        public JsString icon { get; set; }
         /// <summary>
         ///A unique identifier denoting this Place. This identifier may not be used to retrieve information about this Place, and to verify the identity of a Place across separate searches. As ids can occasionally change, it is recommended that the stored id for a Place be compared with the id returned in later Details requests for the same Place, and updated if necessary.
         /// </summary>
-        public string id { get; set; }
+        public JsString id { get; set; }
         /// <summary>
         ///The Place's phone number in international format. International format includes the country code, and is prefixed with the plus (+) sign.
         /// </summary>
-        public string international_phone_number { get; set; }
+        public JsString international_phone_number { get; set; }
         /// <summary>
         ///The Place's name. Note: In the case of user entered Places, this is the raw text, as typed by the user. Please exercise caution when using this data, as malicious users may try to use it as a vector for code injection attacks (See http://en.wikipedia.org/wiki/Code_injection).
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
         /// <summary>
         ///A flag indicating whether the Place is permanently closed. If the place is not permanently closed, the flag is not present in search or details responses.
         /// </summary>
@@ -4018,24 +4673,18 @@ namespace SharpKit.Google.Maps
         ///The price level of the Place, on a scale of 0 to 4. Price levels are interpreted as follows: Value Description 0 Free 1 Inexpensive 2 Moderate 3 Expensive 4 Very Expensive
         /// </summary>
         public JsNumber price_level { get; set; }
-        //public {get; set;}
-        //public Free 0{get; set;}
-        //public Inexpensive 1{get; set;}
-        //public Moderate 2{get; set;}
-        //public Expensive 3{get; set;}
-        //public VeryExpensive 4{get; set;}
         /// <summary>
         ///The Place's rating, from 0.0 to 5.0, based on user reviews.
         /// </summary>
         public JsNumber rating { get; set; }
         /// <summary>
-        ///An opaque string that may be used to retrieve up-to-date information about this Place (via PlacesService.getDetails()). reference contains a unique token that you can use to retrieve additional information about this Place in a Place Details request. You can store this token and use it at any time in future to refresh cached data about this Place, but the same token is not guaranteed to be returned for any given Place across different searches.
+        ///An opaque JsString that may be used to retrieve up-to-date information about this Place (via PlacesService.getDetails()). reference contains a unique token that you can use to retrieve additional information about this Place in a Place Details request. You can store this token and use it at any time in future to refresh cached data about this Place, but the same token is not guaranteed to be returned for any given Place across different searches.
         /// </summary>
-        public string reference { get; set; }
+        public JsString reference { get; set; }
         /// <summary>
         ///The editorial review summary. Only visible in details responses, for customers of Maps API for Business and when extensions: 'review_summary' is specified in the details request.
         /// </summary>
-        public string review_summary { get; set; }
+        public JsString review_summary { get; set; }
         /// <summary>
         ///A list of reviews of this Place.
         /// </summary>
@@ -4043,19 +4692,19 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///An array of types for this Place (e.g., ["political",  "locality"] or ["restaurant", "establishment"]).
         /// </summary>
-        public JsArray<string> types { get; set; }
+        public JsArray<JsString> types { get; set; }
         /// <summary>
         ///URL of the associated Google Place Page.
         /// </summary>
-        public string url { get; set; }
+        public JsString url { get; set; }
         /// <summary>
         ///A fragment of the Place's address for disambiguation (usually street name and locality).
         /// </summary>
-        public string vicinity { get; set; }
+        public JsString vicinity { get; set; }
         /// <summary>
         ///The authoritative website for this Place, such as a business' homepage.
         /// </summary>
-        public string website { get; set; }
+        public JsString website { get; set; }
     }
     [JsType(JsMode.Json)]
     class PlaceReview
@@ -4067,15 +4716,15 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The name of the reviewer.
         /// </summary>
-        public string author_name { get; set; }
+        public JsString author_name { get; set; }
         /// <summary>
         ///A link to the reviewer's profile. This will be undefined when the reviewer's profile is unavailable.
         /// </summary>
-        public string author_url { get; set; }
+        public JsString author_url { get; set; }
         /// <summary>
         ///The text of a review.
         /// </summary>
-        public string text { get; set; }
+        public JsString text { get; set; }
     }
     [JsType(JsMode.Json)]
     class PlaceSearchPagination
@@ -4099,7 +4748,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///A term to be matched against all available fields, including but not limited to name, type, and address, as well as customer reviews and other third-party content.
         /// </summary>
-        public string keyword { get; set; }
+        public JsString keyword { get; set; }
         /// <summary>
         ///The location around which to search for Places.
         /// </summary>
@@ -4107,7 +4756,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Restricts the Place search results to Places that include this text in the name.
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
         /// <summary>
         ///The distance from the given location within which to search for Places, in meters. The maximum allowed value is 50â€‰000.
         /// </summary>
@@ -4119,9 +4768,9 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Restricts the Place search results to Places with a type matching at least one of the specified types in this array. Valid types are given here.
         /// </summary>
-        public JsArray<string> types { get; set; }
+        public JsArray<JsString> types { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.places.PlacesService")]
     class PlacesService
     {
         /// <summary>
@@ -4145,9 +4794,33 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public void textSearch() { }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.places.PlacesServiceStatus")]
     class PlacesServiceStatus
     {
+        /// <summary>
+        ///This request was invalid.
+        /// </summary>
+        public static object INVALID_REQUEST { get; set; }
+        /// <summary>
+        ///The response contains a valid result.
+        /// </summary>
+        public static object OK { get; set; }
+        /// <summary>
+        ///The application has gone over its request quota.
+        /// </summary>
+        public static object OVER_QUERY_LIMIT { get; set; }
+        /// <summary>
+        ///The application is not allowed to use the PlacesService.
+        /// </summary>
+        public static object REQUEST_DENIED { get; set; }
+        /// <summary>
+        ///The PlacesService request could not be processed due to a server error. The request may succeed if you try again.
+        /// </summary>
+        public static object UNKNOWN_ERROR { get; set; }
+        /// <summary>
+        ///No result was found for this request.
+        /// </summary>
+        public static object ZERO_RESULTS { get; set; }
     }
     [JsType(JsMode.Json)]
     class QueryAutocompletePrediction
@@ -4155,7 +4828,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///This is the unformatted version of the query suggested by the Places service.
         /// </summary>
-        public string description { get; set; }
+        public JsString description { get; set; }
         /// <summary>
         ///A set of substrings in the place's description that match elements in the user's input, suitable for use in highlighting those substrings. Each substring is identified by an offset and a length, expressed in unicode characters.
         /// </summary>
@@ -4173,9 +4846,9 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public LatLngBounds bounds { get; set; }
         /// <summary>
-        ///The user entered input string.
+        ///The user entered input JsString.
         /// </summary>
-        public string input { get; set; }
+        public JsString input { get; set; }
         /// <summary>
         ///Location for prediction biasing. Predictions will be biased towards the given location and radius. Alternatively, bounds can be used.
         /// </summary>
@@ -4199,7 +4872,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///A term to be matched against all available fields, including but not limited to name, type, and address, as well as customer reviews and other third-party content.
         /// </summary>
-        public string keyword { get; set; }
+        public JsString keyword { get; set; }
         /// <summary>
         ///The center of the area used to bias results when searching for Places.
         /// </summary>
@@ -4207,7 +4880,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Restricts results to Places that include this text in the name.
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
         /// <summary>
         ///The radius of the area used to bias results when searching for Places, in meters.
         /// </summary>
@@ -4215,19 +4888,27 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Restricts the Place search results to Places with a type matching at least one of the specified types in this array. Valid types are given here.
         /// </summary>
-        public JsArray<string> types { get; set; }
+        public JsArray<JsString> types { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.places.RankBy")]
     class RankBy
     {
+        /// <summary>
+        ///Ranks place results by distance from the location.
+        /// </summary>
+        public static object DISTANCE { get; set; }
+        /// <summary>
+        ///Ranks place results by their prominence.
+        /// </summary>
+        public static object PROMINENCE { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.places.SearchBox")]
     class SearchBox
     {
         /// <summary>
         ///Creates a new instance of SearchBox that attaches to the specified input text field with the given options.
         /// </summary>
-        public SearchBox(HTMLInputElement inputField, SearchBoxOptions opts = null) { }
+        public SearchBox(HtmlInputElement el, SearchBoxOptions opts = null) { }
         /// <summary>
         ///Returns the bounds to which query predictions are biased.
         /// </summary>
@@ -4263,7 +4944,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The request's query term. e.g. the name of a place ('Eiffel Tower'), a category followed by the name of a location ('pizza in New York'), or the name of a place followed by a location disambiguator ('Starbucks in Sydney').
         /// </summary>
-        public string query { get; set; }
+        public JsString query { get; set; }
         /// <summary>
         ///The radius of the area used to bias results when searching for Places, in meters.
         /// </summary>
@@ -4271,9 +4952,9 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Restricts the Place search results to Places with a type matching at least one of the specified types in this array. Valid types are given here.
         /// </summary>
-        public JsArray<string> types { get; set; }
+        public JsArray<JsString> types { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.drawing.DrawingManager")]
     class DrawingManager
     {
         /// <summary>
@@ -4389,11 +5070,31 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public OverlayType type { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.drawing.OverlayType")]
     class OverlayType
     {
+        /// <summary>
+        ///Specifies that the DrawingManager creates circles, and that the overlay given in the overlaycomplete event is a circle.
+        /// </summary>
+        public static object CIRCLE { get; set; }
+        /// <summary>
+        ///Specifies that the DrawingManager creates markers, and that the overlay given in the overlaycomplete event is a marker.
+        /// </summary>
+        public static object MARKER { get; set; }
+        /// <summary>
+        ///Specifies that the DrawingManager creates polygons, and that the overlay given in the overlaycomplete event is a polygon.
+        /// </summary>
+        public static object POLYGON { get; set; }
+        /// <summary>
+        ///Specifies that the DrawingManager creates polylines, and that the overlay given in the overlaycomplete event is a polyline.
+        /// </summary>
+        public static object POLYLINE { get; set; }
+        /// <summary>
+        ///Specifies that the DrawingManager creates rectangles, and that the overlay given in the overlaycomplete event is a rectangle.
+        /// </summary>
+        public static object RECTANGLE { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.weather.CloudLayer")]
     class CloudLayer
     {
         /// <summary>
@@ -4409,7 +5110,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public void setMap(Map map) { }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.weather.WeatherLayer")]
     class WeatherLayer
     {
         /// <summary>
@@ -4461,17 +5162,45 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public WindSpeedUnit windSpeedUnits { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.weather.TemperatureUnit")]
     class TemperatureUnit
     {
+        /// <summary>
+        ///Specifies that temperatures should be displayed in degrees Celsius.
+        /// </summary>
+        public static object CELSIUS { get; set; }
+        /// <summary>
+        ///Specifies that temperatures should be displayed in degrees Fahrenheit.
+        /// </summary>
+        public static object FAHRENHEIT { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.weather.WindSpeedUnit")]
     class WindSpeedUnit
     {
+        /// <summary>
+        ///Specifies that wind speeds should be displayed in kilometers per hour.
+        /// </summary>
+        public static object KILOMETERS_PER_HOUR { get; set; }
+        /// <summary>
+        ///Specifies that wind speeds should be displayed in meters per second.
+        /// </summary>
+        public static object METERS_PER_SECOND { get; set; }
+        /// <summary>
+        ///Specifies that wind speeds should be displayed in miles per hour.
+        /// </summary>
+        public static object MILES_PER_HOUR { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.weather.LabelColor")]
     class LabelColor
     {
+        /// <summary>
+        ///Weather labels will be displayed as black text with a white border.
+        /// </summary>
+        public static object BLACK { get; set; }
+        /// <summary>
+        ///Weather labels will be displayed as white text with a black border.
+        /// </summary>
+        public static object WHITE { get; set; }
     }
     [JsType(JsMode.Json)]
     class WeatherMouseEvent
@@ -4483,7 +5212,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Pre-rendered HTML content to display within a feature's InfoWindow when clicked.
         /// </summary>
-        public string infoWindowHtml { get; set; }
+        public JsString infoWindowHtml { get; set; }
         /// <summary>
         ///The position at which to anchor an info window on the clicked feature.
         /// </summary>
@@ -4507,7 +5236,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The location name of this feature, e.g. "San Francisco, California".
         /// </summary>
-        public string location { get; set; }
+        public JsString location { get; set; }
         /// <summary>
         ///The temperature units being used.
         /// </summary>
@@ -4523,11 +5252,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The current day of the week in long form, e.g. "Monday".
         /// </summary>
-        public string day { get; set; }
+        public JsString day { get; set; }
         /// <summary>
         ///A description of the conditions, e.g. "Partly Cloudy".
         /// </summary>
-        public string description { get; set; }
+        public JsString description { get; set; }
         /// <summary>
         ///The highest temperature reached during the day.
         /// </summary>
@@ -4543,7 +5272,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The current day of the week in short form, e.g. "M".
         /// </summary>
-        public string shortDay { get; set; }
+        public JsString shortDay { get; set; }
         /// <summary>
         ///The current temperature, in the specified temperature units.
         /// </summary>
@@ -4551,7 +5280,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The current wind direction.
         /// </summary>
-        public string windDirection { get; set; }
+        public JsString windDirection { get; set; }
         /// <summary>
         ///The current wind speed, in the specified wind speed units.
         /// </summary>
@@ -4563,11 +5292,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The day of the week in long form, e.g. "Monday".
         /// </summary>
-        public string day { get; set; }
+        public JsString day { get; set; }
         /// <summary>
         ///A description of the conditions, e.g. "Partly Cloudy".
         /// </summary>
-        public string description { get; set; }
+        public JsString description { get; set; }
         /// <summary>
         ///The highest temperature reached during the day.
         /// </summary>
@@ -4579,9 +5308,9 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The day of the week in short form, e.g. "M".
         /// </summary>
-        public string shortDay { get; set; }
+        public JsString shortDay { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.visualization.MapsEngineLayer")]
     class MapsEngineLayer
     {
         /// <summary>
@@ -4591,11 +5320,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Returns the ID of the Maps Engine layer being displayed, if set.
         /// </summary>
-        public string getLayerId() { return null; }
+        public JsString getLayerId() { return null; }
         /// <summary>
         ///Returns the key of the layer to be displayed.
         /// </summary>
-        public string getLayerKey() { return null; }
+        public JsString getLayerKey() { return null; }
         /// <summary>
         ///Returns the map on which this layer is displayed.
         /// </summary>
@@ -4603,7 +5332,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Returns the ID of the Maps Engine map to which the layer belongs.
         /// </summary>
-        public string getMapId() { return null; }
+        public JsString getMapId() { return null; }
         /// <summary>
         ///Returns properties of the Maps Engine layer, which are available once the layer has loaded.
         /// </summary>
@@ -4615,11 +5344,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Sets the ID of a single Maps Engine layer to display. Changing this value will cause the layer to be redrawn.
         /// </summary>
-        public void setLayerId(string layerId) { }
+        public void setLayerId(JsString layerId) { }
         /// <summary>
         ///Sets the key of the layer to be displayed. Maps Engine layer keys are only unique within a single map, and can be changed by map owners. Changing this value will cause the layer to be redrawn.
         /// </summary>
-        public void setLayerKey(string layerKey) { }
+        public void setLayerKey(JsString layerKey) { }
         /// <summary>
         ///Renders the layer on the specified map. If map is set to null, the layer will be removed.
         /// </summary>
@@ -4627,7 +5356,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Sets the ID of the Maps Engine map that contains the layer with the given layerKey. Changing this value will cause the layer to be redrawn.
         /// </summary>
-        public void setMapId(string mapId) { }
+        public void setMapId(JsString mapId) { }
         public void setOptions(MapsEngineLayerOptions options) { }
         /// <summary>
         ///This event is fired when a feature in the layer is clicked.
@@ -4652,11 +5381,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The ID of a single Maps Engine layer to display.
         /// </summary>
-        public string layerId { get; set; }
+        public JsString layerId { get; set; }
         /// <summary>
         ///The key of the layer to display. Maps Engine layer keys are only unique within a single map, and can be changed by map owners.
         /// </summary>
-        public string layerKey { get; set; }
+        public JsString layerKey { get; set; }
         /// <summary>
         ///The map on which to display the layer.
         /// </summary>
@@ -4664,7 +5393,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The ID of the Maps Engine map that contains the layer with the given layerKey.
         /// </summary>
-        public string mapId { get; set; }
+        public JsString mapId { get; set; }
         /// <summary>
         ///Suppress the rendering of info windows when layer features are clicked.
         /// </summary>
@@ -4676,7 +5405,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The name of the layer.
         /// </summary>
-        public string name { get; set; }
+        public JsString name { get; set; }
     }
     [JsType(JsMode.Json)]
     class MapsEngineMouseEvent
@@ -4684,11 +5413,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The feature ID, guaranteed to be unique within the layer.
         /// </summary>
-        public string featureId { get; set; }
+        public JsString featureId { get; set; }
         /// <summary>
         ///Pre-rendered HTML content, as placed in the infowindow by the default UI.
         /// </summary>
-        public string infoWindowHtml { get; set; }
+        public JsString infoWindowHtml { get; set; }
         /// <summary>
         ///The position at which to anchor an infowindow on the clicked feature.
         /// </summary>
@@ -4701,8 +5430,20 @@ namespace SharpKit.Google.Maps
     [JsType(JsMode.Json)]
     class MapsEngineStatus
     {
+        /// <summary>
+        ///The requested layer is not a valid layer.
+        /// </summary>
+        public static object INVALID_LAYER { get; set; }
+        /// <summary>
+        ///The layer loaded successfully.
+        /// </summary>
+        public static object OK { get; set; }
+        /// <summary>
+        ///The layer failed to load for an unknown reason.
+        /// </summary>
+        public static object UNKNOWN_ERROR { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.visualization.HeatmapLayer")]
     class HeatmapLayer
     {
         /// <summary>
@@ -4729,7 +5470,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The data points to display. Required.
         /// </summary>
-        public MVCJsArray<LatLng> data { get; set; }
+        public MVCArray<LatLng> data { get; set; }
         /// <summary>
         ///Specifies whether heatmaps dissipate on zoom. By default, the radius of influence of a data point is specified by the radius option only. When dissipating is disabled, the radius option is intepreted as a radius at zoom level 0.
         /// </summary>
@@ -4737,7 +5478,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The color gradient of the heatmap, specified as an array of CSS color strings. All CSS3 colors are supported except for extended named colors.
         /// </summary>
-        public JsArray<string> gradient { get; set; }
+        public JsArray<JsString> gradient { get; set; }
         /// <summary>
         ///The map on which to display the layer.
         /// </summary>
@@ -4767,7 +5508,7 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsNumber weight { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Prototype, Name = "google.maps.visualization.DemographicsLayer")]
     class DemographicsLayer
     {
         /// <summary>
@@ -4822,7 +5563,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Suppress the rendering of info windows when layer features are clicked.
         /// </summary>
-        public string suppressInfoWindows { get; set; }
+        public JsString suppressInfoWindows { get; set; }
     }
     [JsType(JsMode.Json)]
     class DemographicsQuery
@@ -4830,11 +5571,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The data set to display.
         /// </summary>
-        public string from { get; set; }
+        public JsString from { get; set; }
         /// <summary>
         ///Expression to define the regions to show.
         /// </summary>
-        public string where { get; set; }
+        public JsString where { get; set; }
     }
     [JsType(JsMode.Json)]
     class DemographicsStyle
@@ -4846,7 +5587,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Expression that defines the regions to which this style rule applies.
         /// </summary>
-        public string where { get; set; }
+        public JsString where { get; set; }
     }
     [JsType(JsMode.Json)]
     class DemographicsPolygonOptions
@@ -4854,7 +5595,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The fill color, defined by a six-digit hexadecimal number in #RRGGBB format (e.g. #00AAFF).
         /// </summary>
-        public string fillColor { get; set; }
+        public JsString fillColor { get; set; }
         /// <summary>
         ///Advanced styling for fillColor.
         /// </summary>
@@ -4870,7 +5611,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The fill color, defined by a six-digit hexadecimal number in #RRGGBB format (e.g. #00AAFF).
         /// </summary>
-        public string strokeColor { get; set; }
+        public JsString strokeColor { get; set; }
         /// <summary>
         ///Advanced styling for strokeColor.
         /// </summary>
@@ -4894,11 +5635,11 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///The expression used to determine the value that determines how to style a region.
         /// </summary>
-        public string expression { get; set; }
+        public JsString expression { get; set; }
         /// <summary>
         ///The sequence of colors that are mapped to the range of values for selected regions.
         /// </summary>
-        public JsArray<string> gradient { get; set; }
+        public JsArray<JsString> gradient { get; set; }
         /// <summary>
         ///The maximum of the range of expression values across which the gradient of colors is mapped.
         /// </summary>

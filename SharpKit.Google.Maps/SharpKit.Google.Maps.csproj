@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ex.cs" />
     <Compile Include="google-maps-v3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
