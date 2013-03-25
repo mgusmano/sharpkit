@@ -5,30 +5,30 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{61C832E1-A9BE-4D41-909D-6AC39786690B}</ProjectGuid>
+    <ProjectGuid>{4484C7D5-4656-4BDA-9BCC-6C325E526A44}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharpKit.Google.ApiGenerator</RootNamespace>
-    <AssemblyName>SharpKit.Google.ApiGenerator</AssemblyName>
+    <RootNamespace>SharpKit.Google.Maps</RootNamespace>
+    <AssemblyName>SharpKit.Google.Maps</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <TargetFrameworkVersion Condition="'$(Configuration)' == 'v3.5'">v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(Configuration)' == 'v4.0'">v4.0</TargetFrameworkVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -40,26 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GoogleMapsParser.cs" />
+    <Compile Include="ex.cs" />
+    <Compile Include="google-maps-v3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GoogleMapsParser.js" />
-    <Content Include="Maps.htm" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\SharpKit.Html\SharpKit.Html.csproj">
+    <ProjectReference Include="..\SharpKit.Html\SharpKit.Html.csproj">
       <Project>{F1B6A826-60C3-4038-AABF-BD7C8380CC2F}</Project>
       <Name>SharpKit.Html</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
+    <ProjectReference Include="..\SharpKit.JavaScript\SharpKit.JavaScript.csproj">
       <Project>{5A90FAC8-67DA-4823-B114-91F5A26B2FE9}</Project>
       <Name>SharpKit.JavaScript</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SharpKit.jQuery\SharpKit.jQuery.csproj">
-      <Project>{872605DE-E8EC-4D3D-8CEE-A62449A8DAEB}</Project>
-      <Name>SharpKit.jQuery</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SharpKit.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

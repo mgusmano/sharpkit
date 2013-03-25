@@ -1,7 +1,6 @@
 ﻿using System;
 using SharpKit.JavaScript;
 using SharpKit.Html;
-using SharpKit.jQuery;
 using SharpKit.Html.filesystem;
 [assembly: JsNamespace(Namespace = "SharpKit.Google.Maps", JsNamespace = "google.maps")]
 namespace SharpKit.Google.Maps
@@ -2937,7 +2936,7 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///This event is fired when the close button is clicked.
         /// </summary>
-        public JsAction<Event> closeclick { get; set; }
+        public JsAction<DOMEvent> closeclick { get; set; }
         /// <summary>
         ///This event is fired when the panorama's links change. The links change asynchronously following a pano id change.
         /// </summary>

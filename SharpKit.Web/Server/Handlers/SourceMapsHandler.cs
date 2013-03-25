@@ -35,39 +35,41 @@ namespace SharpKit.Web.Server.Handlers
 
         public void ProcessRequest(HttpContext context)
         {
-            var path1 = context.Request.AppRelativeCurrentExecutionFilePath;
-            var x1 = path1.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            x1.RemoveAt(x1.Count - 1);
-            path1 = String.Join("/", x1.ToArray()) + "/";
-            if (Mappings != null)
-            {
-                foreach (var pair in Mappings.OrderByDescending(t => t.Key))
-                {
-                    if (path1.StartsWith(pair.Key))
-                    {
-                        path1 = path1.Replace(pair.Key, pair.Value);
-                        break;
-                    }
-                }
-            }
-            string filename;
-            var path2 = context.Request.Url.Query.Substring(1);
-            if (path1.Contains("\\"))
-            {
-                filename = path1 + path2.Replace("/", "\\");
-            }
-            else
-            {
-                //var x1 = path1.Split(new char[]{'/'}, StringSplitOptions.RemoveEmptyEntries).ToList();
-                // var x2 = path2.Split(new char[]{'/'}, StringSplitOptions.RemoveEmptyEntries);
-                //x1.RemoveAt(x1.Count - 1);
-                var f = path1 + path2;
-                //x1.AddRange(x2);
-                //var f = String.Join("/", x1.ToArray());
-                //var f = "~/" + context.Request.PathInfo;//.QueryString["f"];
+            
+            var filename = context.Request.PathInfo.Substring(1);//.Request.AppRelativeCurrentExecutionFilePath;
 
-                filename = context.Server.MapPath(f);
-            }
+            //var x1 = path1.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            //x1.RemoveAt(x1.Count - 1);
+            //path1 = String.Join("/", x1.ToArray()) + "/";
+            //if (Mappings != null)
+            //{
+            //    foreach (var pair in Mappings.OrderByDescending(t => t.Key))
+            //    {
+            //        if (path1.StartsWith(pair.Key))
+            //        {
+            //            path1 = path1.Replace(pair.Key, pair.Value);
+            //            break;
+            //        }
+            //    }
+            //}
+            //string filename;
+            //var path2 = context.Request.Url.Query.Substring(1);
+            //if (path1.Contains("\\"))
+            //{
+            //    filename = path1 + path2.Replace("/", "\\");
+            //}
+            //else
+            //{
+            //    //var x1 = path1.Split(new char[]{'/'}, StringSplitOptions.RemoveEmptyEntries).ToList();
+            //    // var x2 = path2.Split(new char[]{'/'}, StringSplitOptions.RemoveEmptyEntries);
+            //    //x1.RemoveAt(x1.Count - 1);
+            //    var f = path1 + path2;
+            //    //x1.AddRange(x2);
+            //    //var f = String.Join("/", x1.ToArray());
+            //    //var f = "~/" + context.Request.PathInfo;//.QueryString["f"];
+
+            //    filename = context.Server.MapPath(f);
+            //}
             context.Response.ContentType = "text/plain";
             if (Path.GetExtension(filename) != ".cs")
                 throw new Exception("Only cs files are allowed in SourceMapsHandler");

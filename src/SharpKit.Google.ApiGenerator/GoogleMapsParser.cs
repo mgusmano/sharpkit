@@ -25,6 +25,7 @@ namespace SharpKit.Google.ApiGenerator
             }
             Writer.WriteLine(@"using System;
 using SharpKit.JavaScript;
+using SharpKit.Html;
 
 namespace GreenRide.Website.GoogleMaps
 {");
