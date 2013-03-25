@@ -23,11 +23,12 @@ namespace SharpKit.Google.ApiGenerator
                 var ce = ParseClass(ch);
                 Assembly.Classes.Add(ce);
             }
+            FixAssembly();
             Writer.WriteLine(@"using System;
 using SharpKit.JavaScript;
 using SharpKit.Html;
 
-namespace GreenRide.Website.GoogleMaps
+namespace SharpKit.Google.Maps
 {");
 
             GenerateCode();
@@ -38,6 +39,60 @@ namespace GreenRide.Website.GoogleMaps
             Writer.WriteLine("}");
 
         }
+
+        private void FixAssembly()
+        {
+            foreach (var ce in Assembly.Classes)
+            {
+                foreach (var me in ce.Members)
+                {
+                    FixType(me.Type);
+                    if (me is Method)
+                    {
+                        var me2 = (Method)me;
+                        foreach (var prm in me2.Parameters)
+                        {
+                            FixType(prm.Type);
+                        }
+                    }
+                }
+            }
+        }
+        static void FixType(Class ce)
+        {
+            if (ce.Name.Contains("|"))
+                ce.Name = "object";
+            ce.Name = ce.Name
+                .replace("*", "object")
+                .replace("number", "JsNumber")
+                .replace("boolean", "bool")
+                .replace("number", "JsNumber")
+                .replace("Array.", "JsArray")
+                .replace("Object.", "JsObject")
+                .replace("MVCArray.", "MVCArray")
+                .replace("MVCJsArray.", "MVCArray");
+
+            if (ce.Name == "None")
+                ce.Name = "void";
+            //if (ce.Name.Contains("*"))
+            //    ce.Name = ce.Name.replace("*", "object");
+            //if (ce.Name.Contains("|"))
+            //    ce.Name = "object";
+            //if (ce.Name == "number")
+            //    ce.Name = "JsNumber";
+            //if (ce.Name == "*")
+            //    ce.Name = "object";
+            //if (ce.Name == "boolean")
+            //    ce.Name = "bool";
+
+            //if (ce.Name.Contains("Array."))
+            //    ce.Name = ce.Name
+            //if (ce.Name == "number")
+            //    ce.Name = "JsNumber";
+            //if (ce.Name.StartsWith("Object."))
+            //    ce.Name = ce.Name.replace("Object\\.", "JsObject<") + ">";
+        }
+
 
         private string GetDefaultValueCode(Class ce)
         {
@@ -66,13 +121,13 @@ namespace GreenRide.Website.GoogleMaps
                         if (me2.IsConstructor || me2.Type == null || me2.Type.Name == "void")
                             Writer.WriteLine("{}");
                         else
-                            Writer.WriteLine("{return "+GetDefaultValueCode(me2.Type)+";}");
+                            Writer.WriteLine("{return " + GetDefaultValueCode(me2.Type) + ";}");
                     }
                     else if (me is Property)
                     {
                         var pe = me.As<Property>();
                         WriteDescription(pe);
-                        Writer.WriteLine("public " + me.Type.Name + " " + me.Name + "{get; set;}");
+                        Writer.WriteLine("public " + (pe.IsStatic ? "static " : "") + me.Type.Name + " " + me.Name + "{get; set;}");
                     }
                 }
                 Writer.EndBlock();
@@ -99,17 +154,18 @@ namespace GreenRide.Website.GoogleMaps
 
         private static Class ParseClass(HtmlElement ch)
         {
-            var name = ch.ToJQuery().text();
-            var isClass = name.Contains("class");
-            var isJson = name.Contains("object specification");
-            name = name.RemoveLast("class").RemoveLast("object specification").RemoveWhitespace();
-            var tokens = name.split('.');
-            name = tokens[tokens.length - 1];
-            var ce = new Class { Name = name, Members = new JsArray<Member>() };
+            var fullName = ch.ToJQuery().text();
+            var isClass = fullName.Contains("class");
+            var isJson = fullName.Contains("object specification");
+            fullName = fullName.RemoveLast("class").RemoveLast("object specification").RemoveWhitespace();
+            var tokens = fullName.split('.');
+            var name = tokens[tokens.length - 1];
+            tokens.splice(tokens.length - 1, 1);
+            var ce = new Class { Name = name, Members = new JsArray<Member>(), Namespace = tokens.join(".") };
             if (isJson)
                 ce.Attributes.Add(new Attribute { Code = "[JsType(JsMode.Json)]" });
             else
-                ce.Attributes.Add(new Attribute { Code = "[JsType(JsMode.Prototype)]" });
+                ce.Attributes.Add(new Attribute { Code = "[JsType(JsMode.Prototype, Name=\"" + ce.Namespace + "." + ce.Name + "\")]" });
             var tables = ch.ToJQuery().nextUntil("h2").filter("table");
             foreach (var tbl in tables.As<JsArray<HtmlTableElement>>())
             {
@@ -128,6 +184,11 @@ namespace GreenRide.Website.GoogleMaps
                     foreach (var me in ParseProperties(tbl))
                         ce.Members.Add(me);
                 }
+                else if (tbl.summary.Contains("Constant"))
+                {
+                    foreach (var me in ParseConstants(tbl))
+                        ce.Members.Add(me);
+                }
                 else if (tbl.summary.Contains("Event"))
                 {
                     foreach (var me in ParseEvents(tbl))
@@ -136,44 +197,41 @@ namespace GreenRide.Website.GoogleMaps
 
             }
 
-            foreach (var me in ce.Members)
-            {
-                FixType(me.Type);
-                if (me is Method)
-                {
-                    var me2 = (Method)me;
-                    foreach (var prm in me2.Parameters)
-                    {
-                        FixType(prm.Type);
-                    }
-                }
-            }
             return ce;
         }
 
-        static void FixType(Class ce)
-        {
-            if (ce.Name.Contains("|"))
-                ce.Name = "object";
-            if (ce.Name == "number")
-                ce.Name = "JsNumber";
-            if (ce.Name == "*")
-                ce.Name = "object";
-            if (ce.Name == "boolean")
-                ce.Name = "bool";
-            if (ce.Name == "None")
-                ce.Name = "void";
-            if (ce.Name.Contains("Array."))
-                ce.Name = ce.Name.replace(new JsRegExp("Array\\.", "g"), "JsArray");
-        }
 
-        private static JsArray<Property> ParseProperties(HtmlTableElement tbl)
+        private static JsArray<Property> ParseConstants(HtmlTableElement tbl)
         {
             var list = new JsArray<Property>();
             var trs = tbl.ToJQuery().find("tbody > tr");
             foreach (var tr in trs)
             {
-                var cells = tr.ToJQuery().find("td");
+                var cells = tr.ToJQuery().children("td");
+                var name = cells[0].ToJQuery().text().RemoveWhitespace();
+                var type = "object";
+                var desc = cells[1].ToJQuery().text();
+
+                var me = new Property
+                {
+                    Name = name,
+                    Type = new Class { Name = type },
+                    Description = desc,
+                    IsStatic = true,
+                };
+
+                list.push(me);
+            }
+            return list;
+        }
+
+        private static JsArray<Property> ParseProperties(HtmlTableElement tbl)
+        {
+            var list = new JsArray<Property>();
+            var trs = tbl.ToJQuery().find("> tbody > tr");
+            foreach (var tr in trs)
+            {
+                var cells = tr.ToJQuery().children("td");
                 var sig = cells[0].ToJQuery().text().RemoveWhitespace();
                 var type = cells[1].ToJQuery().text().RemoveWhitespace();
                 var desc = cells[2].ToJQuery().text();
@@ -194,10 +252,10 @@ namespace GreenRide.Website.GoogleMaps
         private static JsArray<Property> ParseEvents(HtmlTableElement tbl)
         {
             var list = new JsArray<Property>();
-            var trs = tbl.ToJQuery().find("tbody > tr");
+            var trs = tbl.ToJQuery().find("> tbody > tr");
             foreach (var tr in trs)
             {
-                var cells = tr.ToJQuery().find("td");
+                var cells = tr.ToJQuery().children("td");
                 var sig = cells[0].ToJQuery().text().RemoveWhitespace();
                 var type = cells[1].ToJQuery().text().RemoveWhitespace();
                 var desc = cells[2].ToJQuery().text();
@@ -222,10 +280,10 @@ namespace GreenRide.Website.GoogleMaps
         private static JsArray<Method> ParseMethods(HtmlTableElement tbl, bool isCtor)
         {
             var list = new JsArray<Method>();
-            var trs = tbl.ToJQuery().find("tbody > tr");
+            var trs = tbl.ToJQuery().find("> tbody > tr");
             foreach (var tr in trs)
             {
-                var cells = tr.ToJQuery().find("td");
+                var cells = tr.ToJQuery().children("td");
                 var sig = cells[0].ToJQuery().text().RemoveWhitespace();
                 JsString type;
                 JsString desc;
@@ -322,6 +380,10 @@ namespace GreenRide.Website.GoogleMaps
         {
             return s.indexOf(find) >= 0;
         }
+        public static bool StartsWith(this JsString s, JsString find)
+        {
+            return s.indexOf(find) == 0;
+        }
         public static bool EndsWith(this JsString s, JsString find)
         {
             return s.lastIndexOf(find) == s.length - find.length;
@@ -394,6 +456,7 @@ namespace GreenRide.Website.GoogleMaps
     class Property : Member
     {
 
+        public bool IsStatic { get; set; }
     }
 
     [JsType(JsMode.Prototype, Filename = "GoogleMapsParser.js", NativeCasts = true)]
@@ -407,6 +470,8 @@ namespace GreenRide.Website.GoogleMaps
     class Class : Member
     {
         public JsArray<Member> Members { get; set; }
+
+        public JsString Namespace { get; set; }
     }
 
 }

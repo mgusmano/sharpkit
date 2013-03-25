@@ -41,28 +41,29 @@ if (typeof ($CreateAnonymousDelegate) == 'undefined') {
         return delegate;
     }
 }
-if (typeof(GreenRide) == "undefined")
-    var GreenRide = {};
-if (typeof(GreenRide.Website) == "undefined")
-    GreenRide.Website = {};
-if (typeof(GreenRide.Website.GoogleMaps) == "undefined")
-    GreenRide.Website.GoogleMaps = {};
-GreenRide.Website.GoogleMaps.GoogleMapsParser = function ()
+if (typeof(SharpKit) == "undefined")
+    var SharpKit = {};
+if (typeof(SharpKit.Google) == "undefined")
+    SharpKit.Google = {};
+if (typeof(SharpKit.Google.ApiGenerator) == "undefined")
+    SharpKit.Google.ApiGenerator = {};
+SharpKit.Google.ApiGenerator.GoogleMapsParser = function ()
 {
     this.Writer = null;
     this.Assembly = null;
 };
-GreenRide.Website.GoogleMaps.GoogleMapsParser.prototype.OnLoad = function ()
+SharpKit.Google.ApiGenerator.GoogleMapsParser.prototype.OnLoad = function ()
 {
-    this.Assembly = new GreenRide.Website.GoogleMaps.Assembly();
-    this.Writer = new GreenRide.Website.GoogleMaps.CodeWriter();
+    this.Assembly = new SharpKit.Google.ApiGenerator.Assembly();
+    this.Writer = new SharpKit.Google.ApiGenerator.CodeWriter();
     var body = $(document.body);
-    for (var $i3 = 0, $t3 = body.children("h2"), $l3 = $t3.length, ch = $t3[$i3]; $i3 < $l3; $i3++, ch = $t3[$i3])
+    for (var $i2 = 0, $t2 = body.children("h2"), $l2 = $t2.length, ch = $t2[$i2]; $i2 < $l2; $i2++, ch = $t2[$i2])
     {
-        var ce = GreenRide.Website.GoogleMaps.GoogleMapsParser.ParseClass(ch);
+        var ce = SharpKit.Google.ApiGenerator.GoogleMapsParser.ParseClass(ch);
         this.Assembly.Classes.push(ce);
     }
-    this.Writer.WriteLine("using System;\r\nusing SharpKit.JavaScript;\r\n\r\nnamespace GreenRide.Website.GoogleMaps\r\n{");
+    this.FixAssembly();
+    this.Writer.WriteLine("using System;\r\nusing SharpKit.JavaScript;\r\nusing SharpKit.Html;\r\n\r\nnamespace SharpKit.Google.Maps\r\n{");
     this.GenerateCode();
     var code = this.Writer.toString();
     var pre = $("#Output");
@@ -70,7 +71,36 @@ GreenRide.Website.GoogleMaps.GoogleMapsParser.prototype.OnLoad = function ()
     body[0].insertBefore(pre[0], body[0].firstChild);
     this.Writer.WriteLine("}");
 };
-GreenRide.Website.GoogleMaps.GoogleMapsParser.prototype.GetDefaultValueCode = function (ce)
+SharpKit.Google.ApiGenerator.GoogleMapsParser.prototype.FixAssembly = function ()
+{
+    for (var $i3 = 0, $t3 = this.Assembly.Classes, $l3 = $t3.length, ce = $t3[$i3]; $i3 < $l3; $i3++, ce = $t3[$i3])
+    {
+        for (var $i4 = 0, $t4 = ce.Members, $l4 = $t4.length, me = $t4[$i4]; $i4 < $l4; $i4++, me = $t4[$i4])
+        {
+            SharpKit.Google.ApiGenerator.GoogleMapsParser.FixType(me.Type);
+            if (me instanceof SharpKit.Google.ApiGenerator.Method)
+            {
+                var me2 = me instanceof SharpKit.Google.ApiGenerator.Method || me == null ? me : (function ()
+                {
+                    throw new Error("InvalidCastException");
+                }());
+                for (var $i5 = 0, $t5 = me2.Parameters, $l5 = $t5.length, prm = $t5[$i5]; $i5 < $l5; $i5++, prm = $t5[$i5])
+                {
+                    SharpKit.Google.ApiGenerator.GoogleMapsParser.FixType(prm.Type);
+                }
+            }
+        }
+    }
+};
+SharpKit.Google.ApiGenerator.GoogleMapsParser.FixType = function (ce)
+{
+    if (SharpKit.Google.ApiGenerator.Extensions.Contains(ce.Name, "|"))
+        ce.Name = "object";
+    ce.Name = ce.Name.replace("*", "object").replace("number", "JsNumber").replace("boolean", "bool").replace("number", "JsNumber").replace("Array.", "JsArray").replace("Object.", "JsObject").replace("MVCArray.", "MVCArray").replace("MVCJsArray.", "MVCArray");
+    if (ce.Name == "None")
+        ce.Name = "void";
+};
+SharpKit.Google.ApiGenerator.GoogleMapsParser.prototype.GetDefaultValueCode = function (ce)
 {
     if (ce == null || ce.Name == "void")
         return "";
@@ -78,21 +108,21 @@ GreenRide.Website.GoogleMaps.GoogleMapsParser.prototype.GetDefaultValueCode = fu
         return "false";
     return "null";
 };
-GreenRide.Website.GoogleMaps.GoogleMapsParser.prototype.GenerateCode = function ()
+SharpKit.Google.ApiGenerator.GoogleMapsParser.prototype.GenerateCode = function ()
 {
-    for (var $i4 = 0, $t4 = this.Assembly.Classes, $l4 = $t4.length, ce = $t4[$i4]; $i4 < $l4; $i4++, ce = $t4[$i4])
+    for (var $i6 = 0, $t6 = this.Assembly.Classes, $l6 = $t6.length, ce = $t6[$i6]; $i6 < $l6; $i6++, ce = $t6[$i6])
     {
         this.WriteAttributes(ce);
         this.Writer.WriteLine("class " + ce.Name);
         this.Writer.BeginBlock();
-        for (var $i5 = 0, $t5 = ce.Members, $l5 = $t5.length, me = $t5[$i5]; $i5 < $l5; $i5++, me = $t5[$i5])
+        for (var $i7 = 0, $t7 = ce.Members, $l7 = $t7.length, me = $t7[$i7]; $i7 < $l7; $i7++, me = $t7[$i7])
         {
-            if (me instanceof GreenRide.Website.GoogleMaps.Method)
+            if (me instanceof SharpKit.Google.ApiGenerator.Method)
             {
                 var me2 = me;
                 this.WriteDescription(me);
                 this.Writer.Write("public " + me.Type.Name + " " + me.Name + "(");
-                this.Writer.Write(GreenRide.Website.GoogleMaps.Extensions.JsSelect(me2.Parameters, $CreateAnonymousDelegate(this, function (t)
+                this.Writer.Write(SharpKit.Google.ApiGenerator.Extensions.JsSelect(me2.Parameters, $CreateAnonymousDelegate(this, function (t)
                 {
                     return t.Type.Name + " " + t.Name + (t.IsOptional ? ("=" + this.GetDefaultValueCode(t.Type)) : "");
                 })).join(", "));
@@ -102,185 +132,190 @@ GreenRide.Website.GoogleMaps.GoogleMapsParser.prototype.GenerateCode = function 
                 else
                     this.Writer.WriteLine("{return " + this.GetDefaultValueCode(me2.Type) + ";}");
             }
-            else if (me instanceof GreenRide.Website.GoogleMaps.Property)
+            else if (me instanceof SharpKit.Google.ApiGenerator.Property)
             {
                 var pe = me;
                 this.WriteDescription(pe);
-                this.Writer.WriteLine("public " + me.Type.Name + " " + me.Name + "{get; set;}");
+                this.Writer.WriteLine("public " + (pe.IsStatic ? "static " : "") + me.Type.Name + " " + me.Name + "{get; set;}");
             }
         }
         this.Writer.EndBlock();
     }
 };
-GreenRide.Website.GoogleMaps.GoogleMapsParser.prototype.WriteAttributes = function (ce)
+SharpKit.Google.ApiGenerator.GoogleMapsParser.prototype.WriteAttributes = function (ce)
 {
-    for (var $i6 = 0, $t6 = ce.Attributes, $l6 = $t6.length, att = $t6[$i6]; $i6 < $l6; $i6++, att = $t6[$i6])
+    for (var $i8 = 0, $t8 = ce.Attributes, $l8 = $t8.length, att = $t8[$i8]; $i8 < $l8; $i8++, att = $t8[$i8])
         this.Writer.WriteLine(att.Code);
 };
-GreenRide.Website.GoogleMaps.GoogleMapsParser.prototype.WriteDescription = function (me)
+SharpKit.Google.ApiGenerator.GoogleMapsParser.prototype.WriteDescription = function (me)
 {
     if (me.Description == null || me.Description.length == 0)
         return;
     this.Writer.WriteLine("/// <summary>");
-    for (var $i7 = 0, $t7 = me.Description.split("\n"), $l7 = $t7.length, line = $t7[$i7]; $i7 < $l7; $i7++, line = $t7[$i7])
+    for (var $i9 = 0, $t9 = me.Description.split("\n"), $l9 = $t9.length, line = $t9[$i9]; $i9 < $l9; $i9++, line = $t9[$i9])
     {
         this.Writer.WriteLine("///" + line);
     }
     this.Writer.WriteLine("/// </summary>");
 };
-GreenRide.Website.GoogleMaps.GoogleMapsParser.ParseClass = function (ch)
+SharpKit.Google.ApiGenerator.GoogleMapsParser.ParseClass = function (ch)
 {
-    var name = $(ch).text();
-    var isClass = GreenRide.Website.GoogleMaps.Extensions.Contains(name, "class");
-    var isJson = GreenRide.Website.GoogleMaps.Extensions.Contains(name, "object specification");
-    name = GreenRide.Website.GoogleMaps.Extensions.RemoveWhitespace(GreenRide.Website.GoogleMaps.Extensions.RemoveLast(GreenRide.Website.GoogleMaps.Extensions.RemoveLast(name, "class"), "object specification"));
-    var tokens = name.split(".");
-    name = tokens[tokens.length - 1];
+    var fullName = $(ch).text();
+    var isClass = SharpKit.Google.ApiGenerator.Extensions.Contains(fullName, "class");
+    var isJson = SharpKit.Google.ApiGenerator.Extensions.Contains(fullName, "object specification");
+    fullName = SharpKit.Google.ApiGenerator.Extensions.RemoveWhitespace(SharpKit.Google.ApiGenerator.Extensions.RemoveLast(SharpKit.Google.ApiGenerator.Extensions.RemoveLast(fullName, "class"), "object specification"));
+    var tokens = fullName.split(".");
+    var name = tokens[tokens.length - 1];
+    tokens.splice(tokens.length - 1, 1);
     var ce = (function ()
     {
-        var $v2 = new GreenRide.Website.GoogleMaps.Class();
-        $v2.Name = name;
-        $v2.Members =  [];
-        return $v2;
+        var $v1 = new SharpKit.Google.ApiGenerator.Class();
+        $v1.Name = name;
+        $v1.Members =  [];
+        $v1.Namespace = tokens.join(".");
+        return $v1;
     }).call(this);
     if (isJson)
         ce.Attributes.push((function ()
         {
-            var $v3 = new GreenRide.Website.GoogleMaps.Attribute();
-            $v3.Code = "[JsType(JsMode.Json)]";
-            return $v3;
+            var $v2 = new SharpKit.Google.ApiGenerator.Attribute();
+            $v2.Code = "[JsType(JsMode.Json)]";
+            return $v2;
         }).call(this));
     else
         ce.Attributes.push((function ()
         {
-            var $v4 = new GreenRide.Website.GoogleMaps.Attribute();
-            $v4.Code = "[JsType(JsMode.Prototype)]";
-            return $v4;
+            var $v3 = new SharpKit.Google.ApiGenerator.Attribute();
+            $v3.Code = "[JsType(JsMode.Prototype, Name=\"" + ce.Namespace + "." + ce.Name + "\")]";
+            return $v3;
         }).call(this));
     var tables = $(ch).nextUntil("h2").filter("table");
-    for (var $i8 = 0, $l8 = tables.length, tbl = tables[$i8]; $i8 < $l8; $i8++, tbl = tables[$i8])
+    for (var $i10 = 0, $l10 = tables.length, tbl = tables[$i10]; $i10 < $l10; $i10++, tbl = tables[$i10])
     {
-        if (GreenRide.Website.GoogleMaps.Extensions.Contains(tbl.summary, "Constructor"))
+        if (SharpKit.Google.ApiGenerator.Extensions.Contains(tbl.summary, "Constructor"))
         {
-            for (var $i9 = 0, $t9 = GreenRide.Website.GoogleMaps.GoogleMapsParser.ParseMethods(tbl, true), $l9 = $t9.length, me = $t9[$i9]; $i9 < $l9; $i9++, me = $t9[$i9])
+            for (var $i11 = 0, $t11 = SharpKit.Google.ApiGenerator.GoogleMapsParser.ParseMethods(tbl, true), $l11 = $t11.length, me = $t11[$i11]; $i11 < $l11; $i11++, me = $t11[$i11])
                 ce.Members.push(me);
         }
-        else if (GreenRide.Website.GoogleMaps.Extensions.Contains(tbl.summary, "Method"))
+        else if (SharpKit.Google.ApiGenerator.Extensions.Contains(tbl.summary, "Method"))
         {
-            for (var $i10 = 0, $t10 = GreenRide.Website.GoogleMaps.GoogleMapsParser.ParseMethods(tbl, false), $l10 = $t10.length, me = $t10[$i10]; $i10 < $l10; $i10++, me = $t10[$i10])
+            for (var $i12 = 0, $t12 = SharpKit.Google.ApiGenerator.GoogleMapsParser.ParseMethods(tbl, false), $l12 = $t12.length, me = $t12[$i12]; $i12 < $l12; $i12++, me = $t12[$i12])
                 ce.Members.push(me);
         }
-        else if (GreenRide.Website.GoogleMaps.Extensions.Contains(tbl.summary, "Prop"))
+        else if (SharpKit.Google.ApiGenerator.Extensions.Contains(tbl.summary, "Prop"))
         {
-            for (var $i11 = 0, $t11 = GreenRide.Website.GoogleMaps.GoogleMapsParser.ParseProperties(tbl), $l11 = $t11.length, me = $t11[$i11]; $i11 < $l11; $i11++, me = $t11[$i11])
+            for (var $i13 = 0, $t13 = SharpKit.Google.ApiGenerator.GoogleMapsParser.ParseProperties(tbl), $l13 = $t13.length, me = $t13[$i13]; $i13 < $l13; $i13++, me = $t13[$i13])
                 ce.Members.push(me);
         }
-        else if (GreenRide.Website.GoogleMaps.Extensions.Contains(tbl.summary, "Event"))
+        else if (SharpKit.Google.ApiGenerator.Extensions.Contains(tbl.summary, "Constant"))
         {
-            for (var $i12 = 0, $t12 = GreenRide.Website.GoogleMaps.GoogleMapsParser.ParseEvents(tbl), $l12 = $t12.length, me = $t12[$i12]; $i12 < $l12; $i12++, me = $t12[$i12])
+            for (var $i14 = 0, $t14 = SharpKit.Google.ApiGenerator.GoogleMapsParser.ParseConstants(tbl), $l14 = $t14.length, me = $t14[$i14]; $i14 < $l14; $i14++, me = $t14[$i14])
                 ce.Members.push(me);
         }
-    }
-    for (var $i13 = 0, $t13 = ce.Members, $l13 = $t13.length, me = $t13[$i13]; $i13 < $l13; $i13++, me = $t13[$i13])
-    {
-        GreenRide.Website.GoogleMaps.GoogleMapsParser.FixType(me.Type);
-        if (me instanceof GreenRide.Website.GoogleMaps.Method)
+        else if (SharpKit.Google.ApiGenerator.Extensions.Contains(tbl.summary, "Event"))
         {
-            var me2 = me instanceof GreenRide.Website.GoogleMaps.Method || me == null ? me : (function ()
-            {
-                throw new Error("InvalidCastException");
-            }());
-            for (var $i14 = 0, $t14 = me2.Parameters, $l14 = $t14.length, prm = $t14[$i14]; $i14 < $l14; $i14++, prm = $t14[$i14])
-            {
-                GreenRide.Website.GoogleMaps.GoogleMapsParser.FixType(prm.Type);
-            }
+            for (var $i15 = 0, $t15 = SharpKit.Google.ApiGenerator.GoogleMapsParser.ParseEvents(tbl), $l15 = $t15.length, me = $t15[$i15]; $i15 < $l15; $i15++, me = $t15[$i15])
+                ce.Members.push(me);
         }
     }
     return ce;
 };
-GreenRide.Website.GoogleMaps.GoogleMapsParser.FixType = function (ce)
-{
-    if (GreenRide.Website.GoogleMaps.Extensions.Contains(ce.Name, "|"))
-        ce.Name = "object";
-    if (ce.Name == "number")
-        ce.Name = "JsNumber";
-    if (ce.Name == "*")
-        ce.Name = "object";
-    if (ce.Name == "boolean")
-        ce.Name = "bool";
-    if (ce.Name == "None")
-        ce.Name = "void";
-    if (GreenRide.Website.GoogleMaps.Extensions.Contains(ce.Name, "Array."))
-        ce.Name = ce.Name.replace(new RegExp("Array\\.", "g"), "JsArray");
-};
-GreenRide.Website.GoogleMaps.GoogleMapsParser.ParseProperties = function (tbl)
-{
-    var list =  [];
-    var trs = $(tbl).find("tbody > tr");
-    for (var $i15 = 0, $l15 = trs.length, tr = trs[$i15]; $i15 < $l15; $i15++, tr = trs[$i15])
-    {
-        var cells = $(tr).find("td");
-        var sig = GreenRide.Website.GoogleMaps.Extensions.RemoveWhitespace($(cells[0]).text());
-        var type = GreenRide.Website.GoogleMaps.Extensions.RemoveWhitespace($(cells[1]).text());
-        var desc = $(cells[2]).text();
-        var name = sig;
-        var me = (function ()
-        {
-            var $v5 = new GreenRide.Website.GoogleMaps.Property();
-            $v5.Name = name;
-            $v5.Type = (function ()
-            {
-                var $v6 = new GreenRide.Website.GoogleMaps.Class();
-                $v6.Name = type;
-                return $v6;
-            }).call(this);
-            $v5.Description = desc;
-            return $v5;
-        }).call(this);
-        list.push(me);
-    }
-    return list;
-};
-GreenRide.Website.GoogleMaps.GoogleMapsParser.ParseEvents = function (tbl)
+SharpKit.Google.ApiGenerator.GoogleMapsParser.ParseConstants = function (tbl)
 {
     var list =  [];
     var trs = $(tbl).find("tbody > tr");
     for (var $i16 = 0, $l16 = trs.length, tr = trs[$i16]; $i16 < $l16; $i16++, tr = trs[$i16])
     {
-        var cells = $(tr).find("td");
-        var sig = GreenRide.Website.GoogleMaps.Extensions.RemoveWhitespace($(cells[0]).text());
-        var type = GreenRide.Website.GoogleMaps.Extensions.RemoveWhitespace($(cells[1]).text());
+        var cells = $(tr).children("td");
+        var name = SharpKit.Google.ApiGenerator.Extensions.RemoveWhitespace($(cells[0]).text());
+        var type = "object";
+        var desc = $(cells[1]).text();
+        var me = (function ()
+        {
+            var $v4 = new SharpKit.Google.ApiGenerator.Property();
+            $v4.Name = name;
+            $v4.Type = (function ()
+            {
+                var $v5 = new SharpKit.Google.ApiGenerator.Class();
+                $v5.Name = type;
+                return $v5;
+            }).call(this);
+            $v4.Description = desc;
+            $v4.IsStatic = true;
+            return $v4;
+        }).call(this);
+        list.push(me);
+    }
+    return list;
+};
+SharpKit.Google.ApiGenerator.GoogleMapsParser.ParseProperties = function (tbl)
+{
+    var list =  [];
+    var trs = $(tbl).find("> tbody > tr");
+    for (var $i17 = 0, $l17 = trs.length, tr = trs[$i17]; $i17 < $l17; $i17++, tr = trs[$i17])
+    {
+        var cells = $(tr).children("td");
+        var sig = SharpKit.Google.ApiGenerator.Extensions.RemoveWhitespace($(cells[0]).text());
+        var type = SharpKit.Google.ApiGenerator.Extensions.RemoveWhitespace($(cells[1]).text());
         var desc = $(cells[2]).text();
-        if (GreenRide.Website.GoogleMaps.Extensions.Contains(type, "None"))
+        var name = sig;
+        var me = (function ()
+        {
+            var $v6 = new SharpKit.Google.ApiGenerator.Property();
+            $v6.Name = name;
+            $v6.Type = (function ()
+            {
+                var $v7 = new SharpKit.Google.ApiGenerator.Class();
+                $v7.Name = type;
+                return $v7;
+            }).call(this);
+            $v6.Description = desc;
+            return $v6;
+        }).call(this);
+        list.push(me);
+    }
+    return list;
+};
+SharpKit.Google.ApiGenerator.GoogleMapsParser.ParseEvents = function (tbl)
+{
+    var list =  [];
+    var trs = $(tbl).find("> tbody > tr");
+    for (var $i18 = 0, $l18 = trs.length, tr = trs[$i18]; $i18 < $l18; $i18++, tr = trs[$i18])
+    {
+        var cells = $(tr).children("td");
+        var sig = SharpKit.Google.ApiGenerator.Extensions.RemoveWhitespace($(cells[0]).text());
+        var type = SharpKit.Google.ApiGenerator.Extensions.RemoveWhitespace($(cells[1]).text());
+        var desc = $(cells[2]).text();
+        if (SharpKit.Google.ApiGenerator.Extensions.Contains(type, "None"))
             type = "JsAction";
         else
             type = "JsAction<" + type + ">";
         var name = sig;
         var me = (function ()
         {
-            var $v7 = new GreenRide.Website.GoogleMaps.Property();
-            $v7.Name = name;
-            $v7.Type = (function ()
+            var $v8 = new SharpKit.Google.ApiGenerator.Property();
+            $v8.Name = name;
+            $v8.Type = (function ()
             {
-                var $v8 = new GreenRide.Website.GoogleMaps.Class();
-                $v8.Name = type;
-                return $v8;
+                var $v9 = new SharpKit.Google.ApiGenerator.Class();
+                $v9.Name = type;
+                return $v9;
             }).call(this);
-            $v7.Description = desc;
-            return $v7;
+            $v8.Description = desc;
+            return $v8;
         }).call(this);
         list.push(me);
     }
     return list;
 };
-GreenRide.Website.GoogleMaps.GoogleMapsParser.ParseMethods = function (tbl, isCtor)
+SharpKit.Google.ApiGenerator.GoogleMapsParser.ParseMethods = function (tbl, isCtor)
 {
     var list =  [];
-    var trs = $(tbl).find("tbody > tr");
-    for (var $i17 = 0, $l17 = trs.length, tr = trs[$i17]; $i17 < $l17; $i17++, tr = trs[$i17])
+    var trs = $(tbl).find("> tbody > tr");
+    for (var $i19 = 0, $l19 = trs.length, tr = trs[$i19]; $i19 < $l19; $i19++, tr = trs[$i19])
     {
-        var cells = $(tr).find("td");
-        var sig = GreenRide.Website.GoogleMaps.Extensions.RemoveWhitespace($(cells[0]).text());
+        var cells = $(tr).children("td");
+        var sig = SharpKit.Google.ApiGenerator.Extensions.RemoveWhitespace($(cells[0]).text());
         var type;
         var desc;
         if (isCtor)
@@ -290,48 +325,48 @@ GreenRide.Website.GoogleMaps.GoogleMapsParser.ParseMethods = function (tbl, isCt
         }
         else
         {
-            type = GreenRide.Website.GoogleMaps.Extensions.RemoveWhitespace($(cells[1]).text());
+            type = SharpKit.Google.ApiGenerator.Extensions.RemoveWhitespace($(cells[1]).text());
             desc = $(cells[2]).text();
         }
         var name = sig.substr(0, sig.indexOf("("));
         var me = (function ()
         {
-            var $v9 = new GreenRide.Website.GoogleMaps.Method();
-            $v9.Name = name;
-            $v9.Type = (function ()
+            var $v10 = new SharpKit.Google.ApiGenerator.Method();
+            $v10.Name = name;
+            $v10.Type = (function ()
             {
-                var $v10 = new GreenRide.Website.GoogleMaps.Class();
-                $v10.Name = type;
-                return $v10;
+                var $v11 = new SharpKit.Google.ApiGenerator.Class();
+                $v11.Name = type;
+                return $v11;
             }).call(this);
-            $v9.Description = desc;
-            $v9.IsConstructor = isCtor;
-            return $v9;
+            $v10.Description = desc;
+            $v10.IsConstructor = isCtor;
+            return $v10;
         }).call(this);
         var prms = sig.substr(sig.indexOf("(") + 1);
         prms = prms.substr(0, prms.indexOf(")"));
         if (prms.length > 0)
         {
-            if (!GreenRide.Website.GoogleMaps.Extensions.Contains(prms, "function"))
+            if (!SharpKit.Google.ApiGenerator.Extensions.Contains(prms, "function"))
             {
                 var prms2 = prms.split(",");
-                for (var $i18 = 0, $l18 = prms2.length, prm = prms2[$i18]; $i18 < $l18; $i18++, prm = prms2[$i18])
+                for (var $i20 = 0, $l20 = prms2.length, prm = prms2[$i20]; $i20 < $l20; $i20++, prm = prms2[$i20])
                 {
                     var tokens = prm.split(":");
                     var prmTypeName = (tokens[1] != null ? tokens[1] : "").trim();
                     var prmName = tokens[0].trim();
                     var prm3 = (function ()
                     {
-                        var $v11 = new GreenRide.Website.GoogleMaps.Parameter();
-                        $v11.Type = (function ()
+                        var $v12 = new SharpKit.Google.ApiGenerator.Parameter();
+                        $v12.Type = (function ()
                         {
-                            var $v12 = new GreenRide.Website.GoogleMaps.Class();
-                            $v12.Name = (prmTypeName != null ? prmTypeName : "object");
-                            return $v12;
+                            var $v13 = new SharpKit.Google.ApiGenerator.Class();
+                            $v13.Name = (prmTypeName != null ? prmTypeName : "object");
+                            return $v13;
                         }).call(this);
-                        return $v11;
+                        return $v12;
                     }).call(this);
-                    if (GreenRide.Website.GoogleMaps.Extensions.EndsWith(prmName, "?"))
+                    if (SharpKit.Google.ApiGenerator.Extensions.EndsWith(prmName, "?"))
                     {
                         prmName = prmName.substr(0, prmName.length - 1);
                         prm3.IsOptional = true;
@@ -345,68 +380,72 @@ GreenRide.Website.GoogleMaps.GoogleMapsParser.ParseMethods = function (tbl, isCt
     }
     return list;
 };
-GreenRide.Website.GoogleMaps.CodeWriter = function ()
+SharpKit.Google.ApiGenerator.CodeWriter = function ()
 {
     this.Writer = null;
     this.Writer =  [];
 };
-GreenRide.Website.GoogleMaps.CodeWriter.prototype.BeginBlock = function ()
+SharpKit.Google.ApiGenerator.CodeWriter.prototype.BeginBlock = function ()
 {
     this.WriteLine("{");
 };
-GreenRide.Website.GoogleMaps.CodeWriter.prototype.EndBlock = function ()
+SharpKit.Google.ApiGenerator.CodeWriter.prototype.EndBlock = function ()
 {
     this.WriteLine("}");
 };
-GreenRide.Website.GoogleMaps.CodeWriter.prototype.WriteLine = function (obj)
+SharpKit.Google.ApiGenerator.CodeWriter.prototype.WriteLine = function (obj)
 {
     if (obj == null)
         return;
     this.Write(obj + "\n");
 };
-GreenRide.Website.GoogleMaps.CodeWriter.prototype.toString = function ()
+SharpKit.Google.ApiGenerator.CodeWriter.prototype.toString = function ()
 {
     return this.Writer.join("");
 };
-GreenRide.Website.GoogleMaps.CodeWriter.prototype.Write = function (s)
+SharpKit.Google.ApiGenerator.CodeWriter.prototype.Write = function (s)
 {
     this.Writer.push(s);
 };
-GreenRide.Website.GoogleMaps.Extensions = function ()
+SharpKit.Google.ApiGenerator.Extensions = function ()
 {
 };
-GreenRide.Website.GoogleMaps.Extensions.Contains = function (s, find)
+SharpKit.Google.ApiGenerator.Extensions.Contains = function (s, find)
 {
     return s.indexOf(find) >= 0;
 };
-GreenRide.Website.GoogleMaps.Extensions.EndsWith = function (s, find)
+SharpKit.Google.ApiGenerator.Extensions.StartsWith = function (s, find)
+{
+    return s.indexOf(find) == 0;
+};
+SharpKit.Google.ApiGenerator.Extensions.EndsWith = function (s, find)
 {
     return s.lastIndexOf(find) == s.length - find.length;
 };
-GreenRide.Website.GoogleMaps.Extensions.JsSelect = function (list, selector)
+SharpKit.Google.ApiGenerator.Extensions.JsSelect = function (list, selector)
 {
     var list2 =  [];
-    for (var $i19 = 0, $l19 = list.length, item = list[$i19]; $i19 < $l19; $i19++, item = list[$i19])
+    for (var $i21 = 0, $l21 = list.length, item = list[$i21]; $i21 < $l21; $i21++, item = list[$i21])
         list2.push(selector(item));
     return list2;
 };
-GreenRide.Website.GoogleMaps.Extensions.RemoveWhitespace = function (s)
+SharpKit.Google.ApiGenerator.Extensions.RemoveWhitespace = function (s)
 {
     return s.replace(new RegExp("\\s", "g"), "");
 };
-GreenRide.Website.GoogleMaps.Extensions.RemoveLast = function (s, find)
+SharpKit.Google.ApiGenerator.Extensions.RemoveLast = function (s, find)
 {
     var index = s.lastIndexOf(find);
     if (index >= 0)
         return s.substring(0, index) + s.substring(index + find.length);
     return s;
 };
-GreenRide.Website.GoogleMaps.Assembly = function ()
+SharpKit.Google.ApiGenerator.Assembly = function ()
 {
     this.Classes = null;
     this.Classes =  [];
 };
-GreenRide.Website.GoogleMaps.Member = function ()
+SharpKit.Google.ApiGenerator.Member = function ()
 {
     this.Type = null;
     this.Name = null;
@@ -414,32 +453,34 @@ GreenRide.Website.GoogleMaps.Member = function ()
     this.Attributes = null;
     this.Attributes =  [];
 };
-GreenRide.Website.GoogleMaps.Attribute = function ()
+SharpKit.Google.ApiGenerator.Attribute = function ()
 {
     this.Code = null;
 };
-GreenRide.Website.GoogleMaps.Method = function ()
+SharpKit.Google.ApiGenerator.Method = function ()
 {
     this.IsConstructor = false;
     this.Parameters = null;
-    GreenRide.Website.GoogleMaps.Member.call(this);
+    SharpKit.Google.ApiGenerator.Member.call(this);
     this.Parameters =  [];
 };
-$Inherit(GreenRide.Website.GoogleMaps.Method, GreenRide.Website.GoogleMaps.Member);
-GreenRide.Website.GoogleMaps.Property = function ()
+$Inherit(SharpKit.Google.ApiGenerator.Method, SharpKit.Google.ApiGenerator.Member);
+SharpKit.Google.ApiGenerator.Property = function ()
 {
-    GreenRide.Website.GoogleMaps.Member.call(this);
+    this.IsStatic = false;
+    SharpKit.Google.ApiGenerator.Member.call(this);
 };
-$Inherit(GreenRide.Website.GoogleMaps.Property, GreenRide.Website.GoogleMaps.Member);
-GreenRide.Website.GoogleMaps.Parameter = function ()
+$Inherit(SharpKit.Google.ApiGenerator.Property, SharpKit.Google.ApiGenerator.Member);
+SharpKit.Google.ApiGenerator.Parameter = function ()
 {
     this.IsOptional = false;
-    GreenRide.Website.GoogleMaps.Member.call(this);
+    SharpKit.Google.ApiGenerator.Member.call(this);
 };
-$Inherit(GreenRide.Website.GoogleMaps.Parameter, GreenRide.Website.GoogleMaps.Member);
-GreenRide.Website.GoogleMaps.Class = function ()
+$Inherit(SharpKit.Google.ApiGenerator.Parameter, SharpKit.Google.ApiGenerator.Member);
+SharpKit.Google.ApiGenerator.Class = function ()
 {
     this.Members = null;
-    GreenRide.Website.GoogleMaps.Member.call(this);
+    this.Namespace = null;
+    SharpKit.Google.ApiGenerator.Member.call(this);
 };
-$Inherit(GreenRide.Website.GoogleMaps.Class, GreenRide.Website.GoogleMaps.Member);
+$Inherit(SharpKit.Google.ApiGenerator.Class, SharpKit.Google.ApiGenerator.Member);
