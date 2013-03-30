@@ -24,6 +24,11 @@ var CoreTests$Methods$Params =
         },
         foo: function ()
         {
+            var a = System.String.Format$$String$$Object$Array("{0} {1} {2} {3}", ["a", "b", "c", "d"]);
+            var b = System.String.Format$$String$$Object$$Object$$Object("{0} {1} {2} {3}", "a", "b", "c");
+            var c = System.String.Format$$String$$Object$$Object("{0} {1} {2} {3}", "a", "b");
+            var d = System.String.Format$$String$$Object("{0} {1} {2} {3}", "a");
+            var e = System.String.Format$$String$$Object$Array("{0} {1} {2} {3}", []);
             if (CoreTests.Methods.Params.CallMethodWithManyParams([]) != 0)
                 this.alert("params error");
             if (CoreTests.Methods.Params.CallMethodWithManyParams(["aa"]) != 1)

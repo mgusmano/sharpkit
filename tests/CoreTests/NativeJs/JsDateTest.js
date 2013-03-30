@@ -8,7 +8,7 @@ CoreTests.NativeJs.JsDateTest = function ()
 CoreTests.NativeJs.JsDateTest.prototype.foo = function ()
 {
     var x = new Date();
-    if (x instanceof Date.ctor)
+    if (x instanceof Date)
     {
     }
 };

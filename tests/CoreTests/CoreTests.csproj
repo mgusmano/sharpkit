@@ -42,6 +42,7 @@
     <Compile Include="MethodOverloads\MethodsOverloads.cs" />
     <Compile Include="GenericsInheritance\Class1.cs" />
     <Compile Include="Interfaces\Class3.cs" />
+    <Compile Include="Methods\GlobalFunctions.cs" />
     <Compile Include="Methods\Params.cs" />
     <Compile Include="NativeJs\JsDateTest.cs" />
     <Compile Include="OutRefParameters\Class4.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Properties_\Class8.cs" />
     <Compile Include="Properties_\CustomPropertyName.cs" />
     <Compile Include="Properties_\NativeProperties.cs" />
+    <Compile Include="UsingResources\UsingResources.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -85,6 +87,7 @@
     <Content Include="Inheritance\PrototypeFromGlobal.js" />
     <Content Include="Interfaces\Class3.js" />
     <Content Include="MethodOverloads\MethodsOverloads.js" />
+    <Content Include="Methods\GlobalFunctions.js" />
     <Content Include="Methods\NamedParameters.js" />
     <Content Include="Methods\Params.js" />
     <Content Include="NativeJs\JsDateTest.js" />
@@ -95,6 +98,7 @@
     <Content Include="Properties_\Class8.js" />
     <Content Include="Properties_\CustomPropertyName.js" />
     <Content Include="Properties_\NativeProperties.js" />
+    <Content Include="UsingResources\UsingResources.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildToolsPath)\SharpKit\5\SharpKit.Build.targets" />

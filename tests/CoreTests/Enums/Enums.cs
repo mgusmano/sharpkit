@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
-[assembly: JsType(JsMode.Prototype, TargetType = typeof(System.ComponentModel.RefreshProperties), Filename="~/Enums/Enums.js")]
+[assembly: JsType(JsMode.Prototype, TargetType = typeof(System.ComponentModel.RefreshProperties), Filename = "~/Enums/Enums.js")]
 namespace CoreTests.Enums
 {
     [JsType(JsMode.Prototype)]
     class Enums
     {
+        void foo()
+        {
+            var a = Enum1.a;
+            var b = Enum2.b;
+            var c = Enum3.c;
+            var d = Enum4.a;
+            var e = Enum5.b;
+            var f = Enum6.b;
+
+        }
         void Reflect()
         {
             var type = JsContext.CtorOf<Enum1>().As<JsObject>();
@@ -29,14 +39,48 @@ namespace CoreTests.Enums
     [JsType(JsMode.Prototype)]
     enum Enum1
     {
-        a=1,
-        b=2,
-        c=3,
+        a = 1,
+        b = 2,
+        c = 3,
     }
 
     [JsType(JsMode.Prototype)]
-    [JsEnum(ValuesAsNames=true)]
+    [JsEnum(ValuesAsNames = true)]
     enum Enum2
+    {
+        a,
+        b,
+        c,
+    }
+
+    [JsType(JsMode.Json)]
+    [JsEnum(ValuesAsNames = true)]
+    enum Enum3
+    {
+        a = 1,
+        b = 2,
+        c = 3,
+    }
+
+    [JsType(JsMode.Json)]
+    enum Enum4
+    {
+        a = 1,
+        b = 2,
+        c = 3,
+    }
+
+    [JsType(JsMode.Clr)]
+    [JsEnum(ValuesAsNames = true)]
+    enum Enum5
+    {
+        a = 1,
+        b = 2,
+        c = 3,
+    }
+
+    [JsType(JsMode.Clr)]
+    enum Enum6
     {
         a = 1,
         b = 2,
