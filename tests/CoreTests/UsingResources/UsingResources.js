@@ -29,6 +29,15 @@ CoreTests.UsingResources.UsingResources.prototype.Foo = function ()
     {
         $r1.Dispose();
     }
+    var $r2 = this.Moo();
+    try
+    {
+        System.Console.WriteLine();
+    }
+    finally
+    {
+        $r2.Dispose();
+    }
     var x = this.Moo(), y = this.Bar();
     try
     {

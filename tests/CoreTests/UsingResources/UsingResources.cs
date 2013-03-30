@@ -14,6 +14,8 @@ namespace CoreTests.UsingResources
             using (Moo())
             {
             }
+            using (Moo())
+                Console.WriteLine();
             using (IDisposable x = Moo(), y = Bar())
             {
             }
