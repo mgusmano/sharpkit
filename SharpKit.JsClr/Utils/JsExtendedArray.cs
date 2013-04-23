@@ -79,6 +79,11 @@ namespace SharpKit.JavaScript
 		{
 			throw new NotImplementedException();
 		}
+        [JsMethod(NativeOverloads = true)]
+        public JsExtendedArray reverse(object obj)
+        {
+            throw new NotImplementedException();
+        }
 		[JsMethod(NativeOverloads = true)]
 		public void RemoveAt(int index)
 		{

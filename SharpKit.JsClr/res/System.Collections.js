@@ -527,6 +527,10 @@ var System$Collections$Generic$List$1 =
         {
             throw $CreateException(new System.NotImplementedException.ctor$$String("JsImplList$T"), new Error());
         },
+        Reverse: function ()
+        {
+            this._list.reverse();
+        },
         Sort: function ()
         {
             this._list.sort();

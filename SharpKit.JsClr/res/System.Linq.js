@@ -546,6 +546,34 @@ var System$Linq$Enumerable =
         {
             throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
+        SelectMany$2$$IEnumerable$1$$Func$2: function (TSource, TResult, source, selector)
+        {
+            if (source == null)
+            {
+                throw $CreateException(System.Linq.Error.ArgumentNull("source"), new Error());
+            }
+            if (selector == null)
+            {
+                throw $CreateException(System.Linq.Error.ArgumentNull("selector"), new Error());
+            }
+            if (Is(source, System.Linq.Enumerable.Iterator.ctor))
+            {
+                return System.Linq.Enumerable.SelectMany$2$$IEnumerable$1$$Func$2(TSource, TResult, (Cast(source, System.Linq.Enumerable.Iterator.ctor)), selector);
+            }
+            if (Is(source, Array))
+            {
+                return new System.Linq.Enumerable.SelectManyArrayIterator.ctor(TSource, TResult, Cast(source, Array), selector);
+            }
+            if (Is(source, System.Collections.Generic.List$1.ctor))
+            {
+                return new System.Linq.Enumerable.SelectManyListIterator.ctor(TSource, TResult, Cast(source, System.Collections.Generic.List$1.ctor), selector);
+            }
+            return new System.Linq.Enumerable.SelectManyEnumerableIterator.ctor(TSource, TResult, source, selector);
+        },
+        SelectMany$2$$IEnumerable$1$$Func$3: function (TSource, TResult, source, selector)
+        {
+            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
+        },
         Skip$1: function (TSource, source, count)
         {
             if (source == null)
@@ -639,6 +667,149 @@ var System$Linq$Enumerable$Iterator =
     }
 };
 JsTypes.push(System$Linq$Enumerable$Iterator);
+var System$Linq$Enumerable$SelectManyEnumerableIterator =
+{
+    fullname: "System.Linq.Enumerable.SelectManyEnumerableIterator",
+    baseTypeName: "System.Linq.Enumerable.Iterator",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (TSource, TResult, source, selector)
+        {
+            this.TSource = TSource;
+            this.TResult = TResult;
+            this.source = null;
+            this.selector = null;
+            this.enumerator = null;
+            this.innerEnumerator = null;
+            System.Linq.Enumerable.Iterator.ctor.call(this, this.TResult);
+            this.source = source;
+            this.selector = selector;
+        },
+        Clone: function ()
+        {
+            return new System.Linq.Enumerable.SelectManyEnumerableIterator.ctor(this.TSource, this.TResult, this.source, this.selector);
+        },
+        Dispose: function ()
+        {
+            if (this.enumerator != null)
+            {
+                this.enumerator.Dispose();
+            }
+            this.enumerator = null;
+            System.Linq.Enumerable.Iterator.commonPrototype.Dispose.call(this);
+        },
+        MoveNext: function ()
+        {
+            switch (this.state)
+            {
+                case 1:
+                    this.enumerator = this.source.GetEnumerator();
+                    this.state = 2;
+                    break;
+                case 2:
+                    break;
+                default :
+                    return false;
+            }
+            while (true)
+            {
+                if (this.innerEnumerator == null)
+                {
+                    if (this.enumerator.MoveNext())
+                    {
+                        this.innerEnumerator = this.selector(this.enumerator.get_Current()).GetEnumerator();
+                    }
+                    else
+                    {
+                        this.Dispose();
+                        return false;
+                    }
+                }
+                else
+                {
+                    if (this.innerEnumerator.MoveNext())
+                    {
+                        this.current = this.innerEnumerator.get_Current();
+                        return true;
+                    }
+                    this.innerEnumerator = null;
+                }
+            }
+        },
+        Select$1: function (TResult2, selector)
+        {
+            return new System.Linq.Enumerable.WhereSelectEnumerableIterator.ctor(this.TResult, TResult2, this, null , selector);
+        },
+        Where: function (predicate)
+        {
+            return new System.Linq.Enumerable.WhereEnumerableIterator.ctor(this.TResult, this, predicate);
+        }
+    }
+};
+JsTypes.push(System$Linq$Enumerable$SelectManyEnumerableIterator);
+var System$Linq$Enumerable$SelectManyListIterator =
+{
+    fullname: "System.Linq.Enumerable.SelectManyListIterator",
+    baseTypeName: "System.Linq.Enumerable.Iterator",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (TSource, TResult, source, selector)
+        {
+            this.TSource = TSource;
+            this.TResult = TResult;
+            this.source = null;
+            this.selector = null;
+            this.index = 0;
+            this.innerEnumerator = null;
+            System.Linq.Enumerable.Iterator.ctor.call(this, this.TResult);
+            this.source = source;
+            this.selector = selector;
+        },
+        Clone: function ()
+        {
+            return new System.Linq.Enumerable.SelectManyListIterator.ctor(this.TSource, this.TResult, this.source, this.selector);
+        },
+        MoveNext: function ()
+        {
+            if (this.state == 1)
+            {
+                while (this.index < this.source.get_Count())
+                {
+                    if (this.innerEnumerator == null)
+                    {
+                        var arg = this.source.get_Item$$Int32(this.index);
+                        this.index++;
+                        var innerEnumerable = this.selector(arg);
+                        this.innerEnumerator = innerEnumerable.GetEnumerator();
+                    }
+                    var hadNext = this.innerEnumerator.MoveNext();
+                    if (!hadNext)
+                    {
+                        this.innerEnumerator = null;
+                        continue;
+                    }
+                    this.current = this.innerEnumerator.get_Current();
+                    return true;
+                }
+                this.Dispose();
+            }
+            return false;
+        },
+        Select$1: function (TResult2, selector)
+        {
+            return new System.Linq.Enumerable.WhereSelectEnumerableIterator.ctor(this.TResult, TResult2, this, null , selector);
+        },
+        Where: function (predicate)
+        {
+            return new System.Linq.Enumerable.WhereEnumerableIterator.ctor(this.TResult, this, predicate);
+        }
+    }
+};
+JsTypes.push(System$Linq$Enumerable$SelectManyListIterator);
 var System$Linq$Enumerable$WhereArrayIterator =
 {
     fullname: "System.Linq.Enumerable.WhereArrayIterator",
@@ -1183,6 +1354,67 @@ var System$Linq$Enumerable$TakeIterator =
     }
 };
 JsTypes.push(System$Linq$Enumerable$TakeIterator);
+var System$Linq$Enumerable$SelectManyArrayIterator =
+{
+    fullname: "System.Linq.Enumerable.SelectManyArrayIterator",
+    baseTypeName: "System.Linq.Enumerable.Iterator",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (TSource, TResult, source, selector)
+        {
+            this.TSource = TSource;
+            this.TResult = TResult;
+            this.source = null;
+            this.selector = null;
+            this.index = 0;
+            this.innerEnumerator = null;
+            System.Linq.Enumerable.Iterator.ctor.call(this, this.TResult);
+            this.source = source;
+            this.selector = selector;
+        },
+        Clone: function ()
+        {
+            return new System.Linq.Enumerable.SelectManyArrayIterator.ctor(this.TSource, this.TResult, this.source, this.selector);
+        },
+        MoveNext: function ()
+        {
+            if (this.state == 1)
+            {
+                while (this.index < this.source.length)
+                {
+                    if (this.innerEnumerator == null)
+                    {
+                        var arg = this.source[this.index];
+                        this.index++;
+                        var innerEnumerable = this.selector(arg);
+                        this.innerEnumerator = innerEnumerable.GetEnumerator();
+                    }
+                    var hadNext = this.innerEnumerator.MoveNext();
+                    if (!hadNext)
+                    {
+                        this.innerEnumerator = null;
+                        continue;
+                    }
+                    this.current = this.innerEnumerator.get_Current();
+                    return true;
+                }
+                this.Dispose();
+            }
+            return false;
+        },
+        Select$1: function (TResult2, selector)
+        {
+            return new System.Linq.Enumerable.WhereSelectEnumerableIterator.ctor(this.TResult, TResult2, this, null , selector);
+        },
+        Where: function (predicate)
+        {
+            return new System.Linq.Enumerable.WhereEnumerableIterator.ctor(this.TResult, this, predicate);
+        }
+    }
+};
+JsTypes.push(System$Linq$Enumerable$SelectManyArrayIterator);
 var System$Linq$Error =
 {
     fullname: "System.Linq.Error",

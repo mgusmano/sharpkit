@@ -2125,31 +2125,45 @@ namespace SharpKit.JavaScript.Private
         //  return d__;
         //}
 
-        //public static IEnumerable<TResult> SelectMany<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, IEnumerable<TResult>> selector)
-        //{
-        //  if (source == null)
-        //  {
-        //    throw Error.ArgumentNull("source");
-        //  }
-        //  if (selector == null)
-        //  {
-        //    throw Error.ArgumentNull("selector");
-        //  }
-        //  return SelectManyIterator<TSource, TResult>(source, selector);
-        //}
+        public static IEnumerable<TResult> SelectMany<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, IEnumerable<TResult>> selector)
+        {
+          if (source == null)
+          {
+            throw Error.ArgumentNull("source");
+          }
+          if (selector == null)
+          {
+            throw Error.ArgumentNull("selector");
+          }
+          if (source is Enumerable.Iterator<TSource>)
+          {
+              return ((Enumerable.Iterator<TSource>)source).SelectMany(selector);
+          }
+          if (source is TSource[])
+          {
+              return new Enumerable.SelectManyArrayIterator<TSource, TResult>((TSource[])source, selector);
+          }
+          if (source is List<TSource>)
+          {
+              return new Enumerable.SelectManyListIterator<TSource, TResult>((List<TSource>)source, selector);
+          }
+          return new Enumerable.SelectManyEnumerableIterator<TSource, TResult>(source, selector);
+        }
 
-        //public static IEnumerable<TResult> SelectMany<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, int, IEnumerable<TResult>> selector)
-        //{
-        //  if (source == null)
-        //  {
-        //    throw Error.ArgumentNull("source");
-        //  }
-        //  if (selector == null)
-        //  {
-        //    throw Error.ArgumentNull("selector");
-        //  }
-        //  return SelectManyIterator<TSource, TResult>(source, selector);
-        //}
+        public static IEnumerable<TResult> SelectMany<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, int, IEnumerable<TResult>> selector)
+        {
+          throw new NotImplementedException();
+
+          /*if (source == null)
+          {
+            throw Error.ArgumentNull("source");
+          }
+          if (selector == null)
+          {
+            throw Error.ArgumentNull("selector");
+          }
+          return SelectManyIterator<TSource, TResult>(source, selector);*/
+        }
 
         //public static IEnumerable<TResult> SelectMany<TSource, TCollection, TResult>(this IEnumerable<TSource> source, Func<TSource, IEnumerable<TCollection>> collectionSelector, Func<TSource, TCollection, TResult> resultSelector)
         //{

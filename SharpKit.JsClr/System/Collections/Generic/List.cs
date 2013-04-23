@@ -144,6 +144,11 @@ namespace SharpKit.JavaScript.Private
 		//  return TryRemove(item);
 		//}
 
+        public void Reverse()
+        {
+            _list.reverse();
+        }
+
         public void Sort()
         {
             _list.sort();
