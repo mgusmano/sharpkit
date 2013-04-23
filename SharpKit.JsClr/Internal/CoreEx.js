@@ -541,20 +541,17 @@ JsTypes.push({ fullname: "System.String", baseTypeName: "System.Object", definit
 {
 	Empty: "",
 	FormatCache: [],
-	Format: function (format, argsArray) {
-		var cache = System.String.FormatCache;
-		for (var i = 0; i < argsArray.length; i++)
-		{
-			var re = cache[i];
-			if (re == null) {
-				re = new RegExp('\\{' + (i) + '\\}', 'gm');
-				cache.push(re);
-}
-			format = format.replace(re, argsArray[i]);
-		}
-		return format;
-	},
-Format$$String$$Object$Array: function (format, argsArray){
+    Format: function (format, varargs)
+    {
+        var format = arguments[0];
+        for (var i = 1; i < arguments.length; i++)
+        {
+            var str = '{' + (i - 1) + '}';
+            format = format.split(str).join(arguments[i]);
+        }
+        return format;
+    },
+    Format$$String$$Object$Array: function (format, argsArray){
 		return System.String.Format(format, argsArray);
 	},
 	Format$$String$$Object$$Object$$Object: function (s, obj1, obj2, obj3) {
