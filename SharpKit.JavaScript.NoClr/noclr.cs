@@ -22,6 +22,7 @@ using System.Collections;
 
 [assembly: JsType(JsMode.Json, TargetTypeName = "System.Collections.Generic.Dictionary`2+KeyCollection", NativeEnumerator = true)]
 
+[assembly: JsProperty(TargetTypeName = "System.Collections.Generic.List`1", TargetProperty = "Count", NativeField = true, Name = "length")]
 
 //[assembly: JsType(JsMode.Json, TargetTypeName = "System.Collections.Generic.KeyValuePair`2", NativeEnumerator = true)]
 //[assembly: JsProperty(TargetTypeName = "System.Collections.Generic.KeyValuePair`2", TargetProperty = "Key", Name="", NativeField=true)]
