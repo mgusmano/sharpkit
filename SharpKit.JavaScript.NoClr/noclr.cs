@@ -1,6 +1,7 @@
 ﻿using SharpKit.JavaScript;
 using System.Collections.Generic;
 using System.Collections;
+using System;
 [assembly: JsType(JsMode.Prototype, TargetTypeName = "System.Collections.Generic.List`1", Name = "Array", NativeArrayEnumerator = true, NativeEnumerator = false)]
 [assembly: JsProperty(TargetTypeName = "System.Collections.Generic.List`1", TargetProperty="Item", NativeIndexer=true)]
 [assembly: JsMethod(TargetTypeName = "System.Collections.Generic.List`1", TargetMethod = "Add", Name = "push")]
@@ -22,7 +23,10 @@ using System.Collections;
 
 [assembly: JsType(JsMode.Json, TargetTypeName = "System.Collections.Generic.Dictionary`2+KeyCollection", NativeEnumerator = true)]
 
+[assembly: JsType(JsMode.Prototype, TargetType = typeof(DateTime), Name = "Date")]
+[assembly: JsMethod(TargetType = typeof(DateTime), TargetMethod="get_Now", Name = "new Date", Global=true)]
 [assembly: JsProperty(TargetTypeName = "System.Collections.Generic.List`1", TargetProperty = "Count", NativeField = true, Name = "length")]
+
 
 //[assembly: JsType(JsMode.Json, TargetTypeName = "System.Collections.Generic.KeyValuePair`2", NativeEnumerator = true)]
 //[assembly: JsProperty(TargetTypeName = "System.Collections.Generic.KeyValuePair`2", TargetProperty = "Key", Name="", NativeField=true)]
