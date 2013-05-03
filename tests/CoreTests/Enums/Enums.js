@@ -4,6 +4,11 @@ if (typeof(CoreTests.Enums) == "undefined")
     CoreTests.Enums = {};
 CoreTests.Enums.Enums = function ()
 {
+    this.Enum1 = CoreTests.Enums.Enum1.a;
+    this.Enum2 = CoreTests.Enums.Enum2.a;
+    this.Enum3 = "a";
+    this.Enum4 = 1;
+    this.Enum5 = CoreTests.Enums.Enum5.a;
 };
 CoreTests.Enums.Enums.prototype.foo = function ()
 {
@@ -13,6 +18,15 @@ CoreTests.Enums.Enums.prototype.foo = function ()
     var d = 1;
     var e = CoreTests.Enums.Enum5.b;
     var f = CoreTests.Enums.Enum6.b;
+};
+CoreTests.Enums.Enums.prototype.WithDefault = function ()
+{
+    var a = CoreTests.Enums.Enum1.a;
+    var b = CoreTests.Enums.Enum2.a;
+    var c = "a";
+    var d = 1;
+    var e = CoreTests.Enums.Enum5.a;
+    var f = CoreTests.Enums.Enum6.a;
 };
 CoreTests.Enums.Enums.prototype.Reflect = function ()
 {

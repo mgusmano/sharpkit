@@ -18,6 +18,17 @@ namespace CoreTests.Enums
             var e = Enum5.b;
             var f = Enum6.b;
 
+
+        }
+        void WithDefault()
+        {
+            var a = default(Enum1);
+            var b = default(Enum2);
+            var c = default(Enum3);
+            var d = default(Enum4);
+            var e = default(Enum5);
+            var f = default(Enum6);
+
         }
         void Reflect()
         {
@@ -34,6 +45,11 @@ namespace CoreTests.Enums
             var x = Enum1.b;
             var y = Enum2.c;
         }
+        public Enum1 Enum1 { get; set; }
+        public Enum2 Enum2 { get; set; }
+        public Enum3 Enum3 { get; set; }
+        public Enum4 Enum4 { get; set; }
+        public Enum5 Enum5 { get; set; }
     }
 
     [JsType(JsMode.Prototype)]
