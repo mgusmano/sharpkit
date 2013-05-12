@@ -3477,7 +3477,7 @@ JsTypes.push({ fullname: "System.String", baseTypeName: "System.Object", definit
             crc = ( crc >>> 8 ) ^ x; 
         } 
         return crc ^ (-1); 
-    },
+    }
 }, staticDefinition:
  {
 	Empty: "",
