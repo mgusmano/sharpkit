@@ -37,4 +37,5 @@ SharpKitWebApp5.Class2.prototype.foo = function ()
     list.push(new Int32Array(7, 8, 9));
     list.push(new Float64Array(7.7, 8.8, 9.9));
     list.push(new Float64Array(7, 8, 9));
+    var a = new Int32Array(0, 2, 4, 6, 8);
 };

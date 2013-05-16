@@ -29,6 +29,9 @@ namespace SharpKitWebApp5
             list.push(new[] { 7, 8, 9 });
             list.push(new[] { 7.7, 8.8, 9.9 });
             list.push(new[] { 7d, 8d, 9d });
+
+            int[] a = { 0, 2, 4, 6, 8 };
+
         }
     }
 }
