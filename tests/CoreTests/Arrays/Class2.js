@@ -14,8 +14,6 @@ var SharpKitWebApp5$Class2 =
         },
         foo: function ()
         {
-            var x = [];
-            x[4, 5] = 9;
         }
     }
 };
