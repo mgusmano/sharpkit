@@ -66,6 +66,7 @@
     <Compile Include="Properties_\Class8.cs" />
     <Compile Include="Properties_\CustomPropertyName.cs" />
     <Compile Include="Properties_\NativeProperties.cs" />
+    <Compile Include="Properties_\Parameterized.cs" />
     <Compile Include="UsingResources\UsingResources.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +105,7 @@
     <Content Include="Properties_\Class8.js" />
     <Content Include="Properties_\CustomPropertyName.js" />
     <Content Include="Properties_\NativeProperties.js" />
+    <Content Include="Properties_\Parameterized.js" />
     <Content Include="UsingResources\UsingResources.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
