@@ -19,7 +19,7 @@ namespace SharpKit.jQuery
         public static jQuery kendoAutoComplete(this jQuery query) { return null; }
 
         [JsMethod(ExtensionImplementedInInstance = true)]
-        public static jQuery kendoAutoComplete(this jQuery query, AutoCompleteConfiguration configuration) { return null; }
+        public static jQuery kendoAutoComplete<T>(this jQuery query, AutoCompleteConfiguration<T> configuration) { return null; }
 
 
         [JsMethod(ExtensionImplementedInInstance = true)]
@@ -33,7 +33,7 @@ namespace SharpKit.jQuery
         public static jQuery kendoComboBox(this jQuery query) { return null; }
 
         [JsMethod(ExtensionImplementedInInstance = true)]
-        public static jQuery kendoComboBox(this jQuery query, ComboBoxConfiguration configuration) { return null; }
+        public static jQuery kendoComboBox<T>(this jQuery query, ComboBoxConfiguration<T> configuration) { return null; }
 
 
         [JsMethod(ExtensionImplementedInInstance = true)]
@@ -64,7 +64,7 @@ namespace SharpKit.jQuery
         public static jQuery kendoDropDownList(this jQuery query) { return null; }
 
         [JsMethod(ExtensionImplementedInInstance = true)]
-        public static jQuery kendoDropDownList(this jQuery query, DropDownListConfiguration configuration) { return null; }
+        public static jQuery kendoDropDownList<T>(this jQuery query, DropDownListConfiguration<T> configuration) { return null; }
 
 
         [JsMethod(ExtensionImplementedInInstance = true)]
@@ -78,14 +78,14 @@ namespace SharpKit.jQuery
         public static jQuery kendoGrid(this jQuery query) { return null; }
 
         [JsMethod(ExtensionImplementedInInstance = true)]
-        public static jQuery kendoGrid(this jQuery query, GridConfiguration configuration) { return null; }
+        public static jQuery kendoGrid<T>(this jQuery query, GridConfiguration<T> configuration) { return null; }
 
 
         [JsMethod(ExtensionImplementedInInstance = true)]
         public static jQuery kendoListView(this jQuery query) { return null; }
 
         [JsMethod(ExtensionImplementedInInstance = true)]
-        public static jQuery kendoListView(this jQuery query, ListViewConfiguration configuration) { return null; }
+        public static jQuery kendoListView<T>(this jQuery query, ListViewConfiguration<T> configuration) { return null; }
 
 
         [JsMethod(ExtensionImplementedInInstance = true)]
@@ -106,7 +106,7 @@ namespace SharpKit.jQuery
         public static jQuery kendoPager(this jQuery query) { return null; }
 
         [JsMethod(ExtensionImplementedInInstance = true)]
-        public static jQuery kendoPager(this jQuery query, PagerConfiguration configuration) { return null; }
+        public static jQuery kendoPager<T>(this jQuery query, PagerConfiguration<T> configuration) { return null; }
 
 
         [JsMethod(ExtensionImplementedInInstance = true)]
@@ -194,14 +194,14 @@ namespace SharpKit.KendoUI.Web
         /// <param name="widget">The widget function.</param>
         /// <param name="register">The object where the reference to the widget is recorded.</param>
         /// <param name="prefix">The plugin function prefix, e.g. "Mobile" will register "kendoMobileFoo".</param>
-        public void plugin(Widget widget, object register, JsString prefix) { }
+        public static void plugin(Widget widget, object register, JsString prefix) { }
 
         /// <summary>
         /// Shows an overlay with a loading message, indicating that an action is in progress.
         /// </summary>
         /// <param name="container">The container that will hold the overlay</param>
         /// <param name="toggle">Whether the overlay should be shown or hidden</param>
-        public void progress(jQuery.jQuery container, bool toggle) { }
+        public static void progress(jQuery.jQuery container, bool toggle) { }
     }
 
     [JsType(JsMode.Prototype, Name = "kendo.ui.Widget", Export = false)]
@@ -430,7 +430,7 @@ namespace SharpKit.KendoUI.Web
     }
 
     [JsType(JsMode.Json)]
-    public class AutoCompleteConfiguration
+    public class AutoCompleteConfiguration<T>
     {
         /// <summary>
         /// Animations to be used for opening/closing the popup. Setting to false will turn of the animation.
@@ -447,7 +447,7 @@ namespace SharpKit.KendoUI.Web
         ///$("#autoComplete").kendoAutoComplete({ dataSource: items });
         ///</code>
         ///</example>
-        public DataSource dataSource { get; set; }
+        public DataSource<T> dataSource { get; set; }
         /// <summary>
         /// The set of data that the AutoComplete will be bound to. Either a local JavaScript object, or an instance of the Kendo UI DataSource.
         /// </summary>
@@ -1464,7 +1464,7 @@ namespace SharpKit.KendoUI.Web
     }
 
     [JsType(JsMode.Json)]
-    public class ComboBoxConfiguration
+    public class ComboBoxConfiguration<T>
     {
         /// <summary>
         /// Animations to be used for opening/closing the popup. Setting to false will turn off the animation.
@@ -1520,7 +1520,7 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public DataSource dataSource { get; set; }
+        public DataSource<T> dataSource { get; set; }
 
         /// <summary>
         /// A local JavaScript object or instance of DataSource or the data that the ComboBox will be bound to.
@@ -3313,7 +3313,7 @@ namespace SharpKit.KendoUI.Web
     }
 
     [JsType(JsMode.Json)]
-    public class DropDownListConfiguration
+    public class DropDownListConfiguration<T>
     {
         /// <summary>
         /// Animations to be used for opening/closing the popup. Setting to false will turn off the animation.
@@ -3383,7 +3383,7 @@ namespace SharpKit.KendoUI.Web
         ///});
         ///</code>
         ///</example>
-        public DataSource dataSource { get; set; }
+        public DataSource<T> dataSource { get; set; }
 
         /// <summary>
         /// Instance of DataSource or the data that the DropDownList will be bound to.
@@ -4536,7 +4536,7 @@ namespace SharpKit.KendoUI.Web
     }
 
     [JsType(JsMode.Json)]
-    public class GridConfiguration
+    public class GridConfiguration<T>
     {
 
         /// <summary>
@@ -4599,7 +4599,7 @@ namespace SharpKit.KendoUI.Web
         ///$("#autoComplete").kendoAutoComplete({ dataSource: items });
         ///</code>
         ///</example>
-        public DataSource dataSource { get; set; }
+        public DataSource<T> dataSource { get; set; }
         /// <summary>
         /// Instance of DataSource or Object with DataSource configuration.
         /// </summary>
@@ -5498,7 +5498,7 @@ namespace SharpKit.KendoUI.Web
     #region ListView
 
     [JsType(JsMode.Prototype, Name = "kendo.ui.ListView", Export = false)]
-    public class ListView
+    public class ListView<T>
     {
 
         /// <summary>
@@ -5561,7 +5561,7 @@ namespace SharpKit.KendoUI.Web
         /// listView.edit(listView.element.children().first());
         ///</code>
         ///</example>
-        public void edit(Model item) { }
+        public void edit(Model<T> item) { }
         //TODO: danel not sure. d.check
 
         /// <summary>
@@ -5604,7 +5604,7 @@ namespace SharpKit.KendoUI.Web
         /// listView.remove(listView.element.children().first());
         ///</code>
         ///</example>
-        public void remove(Model item) { }
+        public void remove(Model<T> item) { }
         //TODO: danel not sure. d.check
 
         /// <summary>
@@ -5755,7 +5755,7 @@ namespace SharpKit.KendoUI.Web
     }
 
     [JsType(JsMode.Json)]
-    public class ListViewConfiguration
+    public class ListViewConfiguration<T>
     {
 
         /// <summary>
@@ -5792,7 +5792,7 @@ namespace SharpKit.KendoUI.Web
         ///$("#autoComplete").kendoAutoComplete({ dataSource: items });
         ///</code>
         ///</example>
-        public DataSource dataSource { get; set; }
+        public DataSource<T> dataSource { get; set; }
         /// <summary>
         /// Instance of DataSource or Object with DataSource configuration.
         /// </summary>
@@ -7130,7 +7130,7 @@ namespace SharpKit.KendoUI.Web
     }
 
     [JsType(JsMode.Json)]
-    public class PagerConfiguration
+    public class PagerConfiguration<T>
     {
         /// <summary>
         /// (default: true) Indicates whether the pager refresh method will be called within its initialization.
@@ -7180,7 +7180,7 @@ namespace SharpKit.KendoUI.Web
         /// });
         ///</code>
         ///</example>
-        public DataSource dataSource { get; set; }
+        public DataSource<T> dataSource { get; set; }
 
         /// <summary>
         /// The template for selectbox with predefined page sizes.
@@ -9988,7 +9988,7 @@ namespace SharpKit.KendoUI.Web
     #region TreeView
 
     [JsType(JsMode.Prototype, Name = "kendo.ui.TreeView", Export = false)]
-    public class TreeView
+    public class TreeView<T>
     {
         /// <summary>
         /// Appends a node to a group of a TreeView. This method may also be used to reorder the nodes of a TreeView.
@@ -10041,21 +10041,21 @@ namespace SharpKit.KendoUI.Web
         /// </summary>
         /// <param name="node">The element or selector that specifies a node.</param>
         /// <returns></returns>
-        public Model dataItem(jQuery.jQuery node) { return null; }
+        public Model<T> dataItem(jQuery.jQuery node) { return null; }
         //TODO: return type?
         /// <summary>
         /// Returns the model dataItem that corresponds to a TreeView node
         /// </summary>
         /// <param name="node">The element or selector that specifies a node.</param>
         /// <returns></returns>
-        public Model dataItem(HtmlElement node) { return null; }
+        public Model<T> dataItem(HtmlElement node) { return null; }
         //TODO: return type?
         /// <summary>
         /// Returns the model dataItem that corresponds to a TreeView node
         /// </summary>
         /// <param name="node">The element or selector that specifies a node.</param>
         /// <returns></returns>
-        public Model dataItem(JsString node) { return null; }
+        public Model<T> dataItem(JsString node) { return null; }
         //TODO: return type?
 
         /// <summary>

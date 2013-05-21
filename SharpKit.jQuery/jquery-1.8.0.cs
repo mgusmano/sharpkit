@@ -634,6 +634,20 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery each(JsAction<JsNumber, HtmlElement> function) { return null; }
         /// <summary>
+        /// Invokes the jQuery $.each() function.  @return(true) from the callback to continue, false to break.
+        /// </summary>
+        /// <typeparam name="T">The element type</typeparam>
+        /// <param name="array">The array to iterate over the elements of</param>
+        /// <param name="callback"></param>
+        public static void each<T>(JsArray<T> array, JsAction<JsNumber, T> callback) {}
+        /// <summary>
+        /// Invoices the jQuery $.each() function.  @return(true) true from the callback to continue, false to break.
+        /// </summary>
+        /// <typeparam name="T">The element type</typeparam>
+        /// <param name="obj">The object to iterate over the properties of</param>
+        /// <param name="callback"></param>
+        public static void each<T>(JsObject<T> obj, JsAction<JsNumber, T> callback){}
+        /// <summary>
         /// Remove all child nodes of the set of matched elements from the DOM.
         /// </summary>
         public jQuery empty() { return null; }

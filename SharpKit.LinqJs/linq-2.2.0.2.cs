@@ -370,7 +370,7 @@ namespace SharpKit.LinqJs
         /// <summary>Determines whether all elements of a sequence satisfy a condition.</summary>
         /// <param type="Func&lt;T,bool>" name="predicate">A function to test each element for a condition.</param>
         /// <returns type="Boolean"></returns>
-        public bool All(JsFunc<object, bool> predicate) { return false; }
+        public bool All(JsFunc<T, bool> predicate) { return false; }
 
         /// <summary>Determines whether a sequence contains any elements or any element of a sequence satisfies a condition.</summary>
         /// <param name="predicate" type="Optional:Func&lt;T,bool>" optional="true">A function to test each element for a condition.</param>
@@ -548,13 +548,13 @@ namespace SharpKit.LinqJs
         /// <param name="func" type="Optional:Func&lt;TAccumulate,T,TAccumulate>" optional="true">An accumulator function to be invoked on each element.</param>
         /// <param name="resultSelector" type="Optional:Func&lt;TAccumulate,TResult>" optional="true">A function to transform the final accumulator value into the result value.</param>
         /// <returns type="TResult"></returns>
-        public object Aggregate<TAccumulate, TResult>(JsFunc<T, T, T> func_or_seed, JsFunc<TAccumulate, T, TAccumulate> func, JsFunc<TAccumulate, TResult> resultSelector) { return null; }
-        //TODO: check + return type (?)
+        public TResult Aggregate<TAccumulate, TResult>(JsFunc<T, T, T> func_or_seed, JsFunc<TAccumulate, T, TAccumulate> func, JsFunc<TAccumulate, TResult> resultSelector) { return default(TResult); }
+        //TODO: check
         /// <summary>Applies an accumulator function over a sequence.</summary>
         /// <param name="func_or_seed" type="Func&lt;T,T,T>_or_TAccumulate">Func is an accumulator function to be invoked on each element. Seed is the initial accumulator value.</param>
         /// <returns type="TResult"></returns>
-        public object Aggregate(JsFunc<T, T, T> func_or_seed) { return null; }
-        //TODO: check + return type (?)
+        public T Aggregate(JsFunc<T, T, T> func_or_seed) { return default(T); }
+        //TODO: check
 
         /// <summary>Computes the average of a sequence.</summary>
         /// <param name="selector" type="Optional:Func&lt;T,Number>" optional="true">A transform function to apply to each element.</param>
@@ -591,20 +591,18 @@ namespace SharpKit.LinqJs
         /// <summary>Returns the maximum value in a sequence by keySelector</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A compare selector of element.</param>
         /// <returns type="T"></returns>
-        public object MaxBy<TKey>(JsFunc<T, TKey> keySelector) { return null; }
-        //TODO: return type(?)
+        public T MaxBy<TKey>(JsFunc<T, TKey> keySelector) { return default(T); }
         /// <summary>Returns the maximum value in a sequence by keySelector</summary>
         /// <returns type="T"></returns>
-        public object MaxBy() { return null; }
-        //TODO: return type(?)
+        public T MaxBy() { return default(T); }
 
         /// <summary>Returns the minimum value in a sequence by keySelector</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A compare selector of element.</param>
         /// <returns type="T"></returns>
-        public object MinBy<TKey>(JsFunc<T, TKey> keySelector) { return null; }
+        public T MinBy<TKey>(JsFunc<T, TKey> keySelector) { return default(T); }
         /// <summary>Returns the minimum value in a sequence by keySelector</summary>
         /// <returns type="T"></returns>
-        public object MinBy() { return null; }
+        public T MinBy() { return default(T); }
 
         /// <summary>Computes the sum of a sequence of values.</summary>
         /// <param name="selector" type="Optional:Func&lt;T,TKey>" optional="true">A transform function to apply to each element.</param>
@@ -622,81 +620,73 @@ namespace SharpKit.LinqJs
         /// <summary>Returns the element at a specified index in a sequence.</summary>
         /// <param name="index" type="Number" integer="true">The zero-based index of the element to retrieve.</param>
         /// <returns type="T"></returns>
-        public object ElementAt(JsNumber index) { return null; }
-        //TODO: return type (?)
+        public T ElementAt(JsNumber index) { return default(T); }
 
         /// <summary>Returns the element at a specified index in a sequence or a default value if the index is out of range.</summary>
         /// <param name="index" type="Number" integer="true">The zero-based index of the element to retrieve.</param>
         /// <param name="defaultValue" type="T">The value if the index is outside the bounds then send.</param>
         /// <returns type="T"></returns>
-        public object ElementAtOrDefault(JsNumber index, T defaultValue) { return null; }
-        //TODO: return type (?)
+        public T ElementAtOrDefault(JsNumber index, T defaultValue) { return default(T); }
 
         /// <summary>Returns the first element of a sequence.</summary>
         /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>
         /// <returns type="T"></returns>
-        public object First(JsFunc<T, bool> predicate) { return null; }
-        //TODO: return type (?)
+        public T First(JsFunc<T, bool> predicate) { return default(T); }
+
         /// <summary>Returns the first element of a sequence.</summary>
         /// <returns type="T"></returns>
-        public object First() { return null; }
-        //TODO: return type (?)
+        public T First() { return default(T); }
 
         /// <summary>Returns the first element of a sequence, or a default value.</summary>
         /// <param name="defaultValue" type="T">The value if not found then send.</param>
         /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>        
         /// <returns type="T"></returns>
-        public object FirstOrDefault(T defaultValue, JsFunc<T, bool> predicate) { return null; }
-        //TODO: return type (?)
+        public T FirstOrDefault(T defaultValue, JsFunc<T, bool> predicate) { return default(T); }
+
         /// <summary>Returns the first element of a sequence, or a default value.</summary>
         /// <param name="defaultValue" type="T">The value if not found then send.</param>
         /// <returns type="T"></returns>
-        public object FirstOrDefault(T defaultValue) { return null; }
-        //TODO: return type (?)
+        public T FirstOrDefault(T defaultValue) { return default(T); }
 
         /// <summary>Returns the last element of a sequence.</summary>
         /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>
         /// <returns type="T"></returns>
-        public object Last(JsFunc<T, bool> predicate) { return null; }
-        //TODO: return type (?)
+        public T Last(JsFunc<T, bool> predicate) { return default(T); }
+
         /// <summary>Returns the last element of a sequence.</summary>
         /// <returns type="T"></returns>
-        public object Last() { return null; }
-        //TODO: return type (?)
+        public T Last() { return default(T); }
 
         /// <summary>Returns the last element of a sequence, or a default value.</summary>
         /// <param name="defaultValue" type="T">The value if not found then send.</param>
         /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>        
         /// <returns type="T"></returns>
-        public object LastOrDefault(T defaultValue, JsFunc<T, bool> predicate) { return null; }
-        //TODO: return type (?)
+        public T LastOrDefault(T defaultValue, JsFunc<T, bool> predicate) { return default(T); }
+
         /// <summary>Returns the last element of a sequence, or a default value.</summary>
         /// <param name="defaultValue" type="T">The value if not found then send.</param>
         /// <returns type="T"></returns>
-        public object LastOrDefault(T defaultValue) { return null; }
-        //TODO: return type (?)
+        public T LastOrDefault(T defaultValue) { return default(T); }
 
         /// <summary>Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.</summary>
         /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>
         /// <returns type="T"></returns>
-        public object Single(JsFunc<T, bool> predicate) { return null; }
-        //TODO: return type (?)
+        public T Single(JsFunc<T, bool> predicate) { return default(T); }
+
         /// <summary>Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.</summary>
         /// <returns type="T"></returns>
-        public object Single() { return null; }
-        //TODO: return type (?)
+        public T Single() { return default(T); }
 
         /// <summary>Returns a single, specific element of a sequence of values, or a default value if no such element is found.</summary>
         /// <param name="defaultValue" type="T">The value if not found then send.</param>
         /// <param name="predicate" type="Optional:Func&lt;T,Boolean>">A function to test each element for a condition.</param>        
         /// <returns type="T"></returns>
-        public object SingleOrDefault(T defaultValue, JsFunc<T, bool> predicate) { return null; }
-        //TODO: return type (?)
+        public T SingleOrDefault(T defaultValue, JsFunc<T, bool> predicate) { return default(T); }
+
         /// <summary>Returns a single, specific element of a sequence of values, or a default value if no such element is found.</summary>
         /// <param name="defaultValue" type="T">The value if not found then send.</param>
         /// <returns type="T"></returns>
-        public object SingleOrDefault(T defaultValue) { return null; }
-        //TODO: return type (?)
+        public T SingleOrDefault(T defaultValue) { return default(T); }
 
         /// <summary>Bypasses a specified number of elements in a sequence and then returns the remaining elements.</summary>
         /// <param name="count" type="Number" integer="true">The number of elements to skip before returning the remaining elements.</param>
@@ -763,12 +753,12 @@ namespace SharpKit.LinqJs
         /// <param name="elementSelector" type="Optional:Func&lt;T,TElement>">A transform function to produce a result element value from each element.</param>
         /// <param name="compareSelector" type="Optional:Func&lt;TKey,TCompare>" optional="true">An equality comparer to compare values.</param>
         ///return new Lookup();
-        public object ToLookup<TKey, TElement, TCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<T, TKey, TCompare> compareSelector) { return null; }
-        //TODO: return type?
+        public Lookup<TKey, TElement> ToLookup<TKey, TElement, TCompare>(JsFunc<T, TKey> keySelector, JsFunc<T, TElement> elementSelector, JsFunc<T, TKey, TCompare> compareSelector) { return null; }
+
         /// <summary>Creates a Lookup from this sequence.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
         ///return new Lookup();
-        public object ToLookup<TKey>(JsFunc<T, TKey> keySelector) { return null; }
+        public Lookup<TKey, T> ToLookup<TKey>(JsFunc<T, TKey> keySelector) { return null; }
         //TODO: return type?
 
         /// <summary>Creates a Object from this sequence.</summary>
@@ -1038,7 +1028,22 @@ namespace SharpKit.JavaScript
         /// <param name="list">list</param>
         /// <returns type="Enumerable"></returns>
         [JsMethod(Name="From")]
-        public static SharpKit.LinqJs.Enumerable<T> ToLinqJsEnumerable<T>(this JsArray<T> list) { return null; } //TODO:
+        public static LinqJs.Enumerable<T> ToLinqJsEnumerable<T>(this JsArray<T> list) { return null; }
+
+        /// <summary>
+        /// Make Enumerable from obj.
+        /// 1. null = Enumerable.Empty().
+        /// 2. Enumerable = Enumerable.
+        /// 3. Number/Boolean = Enumerable.Repeat(obj, 1).
+        /// 4. String = to CharArray.(Ex:"abc" => "a","b","c").
+        /// 5. Object/Function = to KeyValuePair(except function) Ex:"{a:0}" => (.Key=a, .Value=0).
+        /// 6. Array or ArrayLikeObject(has length) = to Enumerable.
+        /// 7. JScript's IEnumerable = to Enumerable(using Enumerator).
+        /// </summary>
+        /// <param name="list">list</param>
+        /// <returns type="Enumerable"></returns>
+        [JsMethod(Name = "From")]
+        public static LinqJs.Enumerable<T> ToLinqJsEnumerable<T>(this IEnumerable<T> list) { return null; }
     }
 
 }

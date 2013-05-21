@@ -277,7 +277,7 @@ namespace SharpKit.KendoUI
         ///  kendo.bind($("#view"), viewModel);
         ///</script>
         /// </code></example>
-        public JsString bind(JsString element, object viewModel, object @namespace) { return null; }
+        public static JsString bind(JsString element, object viewModel, object @namespace) { return null; }
         /// <summary>
         /// Binds a HTML View to a View-Model. Model View ViewModel (MVVM) is a design pattern which helps developers separate the Model from the View.
         /// The View-Model part of MVVM is responsible for exposing the data objects from the Model in such a way that those objects are easily consumed in the View.
@@ -316,86 +316,7 @@ namespace SharpKit.KendoUI
         ///  kendo.bind($("#view"), viewModel);
         ///</script>
         /// </code></example>
-        public JsString bind(JsString element, object viewModel) { return null; }
-        /// <summary>
-        /// Binds a HTML View to a View-Model. Model View ViewModel (MVVM) is a design pattern which helps developers separate the Model from the View.
-        /// The View-Model part of MVVM is responsible for exposing the data objects from the Model in such a way that those objects are easily consumed in the View.
-        /// </summary>
-        /// <param name="element">The root element(s) from which the binding starts. Can be a valid jQuery string selector, a DOM element or a jQuery object. All child elements are traversed</param>
-        /// <param name="viewModel">The View-Model which the elements are bound to. Wraped as an instance of kendo.data.ObservableObject if not already.</param>
-        /// <param name="namespace">Optional namespace(s) too look in when instantiating Kendo UI widgets. The valid namespaces are kendo.ui, kendo.dataviz.ui and kendo.mobile.ui. The default order is kendo.ui, kendo.dataviz.ui.</param>
-        /// <returns></returns>
-        ///  <example>
-        /// usage
-        /// <code>
-        ///  &lt;!-- View -->
-        ///&lt;div id="view">
-        ///  &lt;!-- The value of the INPUT element is bound to the "firstName" field of the View-Model.
-        ///  When the value changes so will the "firstName" field and vice versa.  -->
-        ///  &lt;label>First Name:&lt;input data-bind="value: firstName" />&lt;/label>
-        ///  &lt;!-- The value of the INPUT element is bound to the "lastName" field of the View-Model.
-        ///  When the value changes so will the "lastName" field and vice versa.   -->
-        ///  &lt;label>Last Name:&lt;input data-bind="value: lastName" />&lt;/label>
-        ///  &lt;!-- The click event of the BUTTON element is bound to the "displayGreeting" method of the View-Model.
-        ///  When the user clicks the button the "displayGreeting" method will be invoked.  -->
-        ///  &lt;button data-bind="click: displayGreeting">Display Greeting&lt;/button>
-        ///&lt;/div>
-        ///&lt;script>
-        ///  // View-Model
-        ///  var viewModel = kendo.observable({
-        ///     firstName: "John",
-        ///     lastName: "Doe",
-        ///     displayGreeting: function() {
-        ///         // Get the current values of "firstName" and "lastName"
-        ///         var firstName = this.get("firstName");
-        ///         var lastName = this.get("lastName");
-        ///         alert("Hello, " + firstName + " " + lastName + "!!!");
-        ///     }
-        ///  });
-        ///  // Bind the View to the View-Model
-        ///  kendo.bind($("#view"), viewModel);
-        ///</script>
-        /// </code></example>
-        public JsString bind(jQuery.jQuery element, object viewModel, object @namespace) { return null; }
-        /// <summary>
-        /// Binds a HTML View to a View-Model. Model View ViewModel (MVVM) is a design pattern which helps developers separate the Model from the View.
-        /// The View-Model part of MVVM is responsible for exposing the data objects from the Model in such a way that those objects are easily consumed in the View.
-        /// </summary>
-        /// <param name="element">The root element(s) from which the binding starts. Can be a valid jQuery string selector, a DOM element or a jQuery object. All child elements are traversed</param>
-        /// <param name="viewModel">The View-Model which the elements are bound to. Wraped as an instance of kendo.data.ObservableObject if not already.</param>
-        /// <returns></returns>
-        ///  <example>
-        /// usage
-        /// <code>
-        ///  &lt;!-- View -->
-        ///&lt;div id="view">
-        ///  &lt;!-- The value of the INPUT element is bound to the "firstName" field of the View-Model.
-        ///  When the value changes so will the "firstName" field and vice versa.  -->
-        ///  &lt;label>First Name:&lt;input data-bind="value: firstName" />&lt;/label>
-        ///  &lt;!-- The value of the INPUT element is bound to the "lastName" field of the View-Model.
-        ///  When the value changes so will the "lastName" field and vice versa.   -->
-        ///  &lt;label>Last Name:&lt;input data-bind="value: lastName" />&lt;/label>
-        ///  &lt;!-- The click event of the BUTTON element is bound to the "displayGreeting" method of the View-Model.
-        ///  When the user clicks the button the "displayGreeting" method will be invoked.  -->
-        ///  &lt;button data-bind="click: displayGreeting">Display Greeting&lt;/button>
-        ///&lt;/div>
-        ///&lt;script>
-        ///  // View-Model
-        ///  var viewModel = kendo.observable({
-        ///     firstName: "John",
-        ///     lastName: "Doe",
-        ///     displayGreeting: function() {
-        ///         // Get the current values of "firstName" and "lastName"
-        ///         var firstName = this.get("firstName");
-        ///         var lastName = this.get("lastName");
-        ///         alert("Hello, " + firstName + " " + lastName + "!!!");
-        ///     }
-        ///  });
-        ///  // Bind the View to the View-Model
-        ///  kendo.bind($("#view"), viewModel);
-        ///</script>
-        /// </code></example>
-        public JsString bind(jQuery.jQuery element, object viewModel) { return null; }
+        public static JsString bind(JsString element, object viewModel) { return null; }
         /// <summary>
         /// Binds a HTML View to a View-Model. Model View ViewModel (MVVM) is a design pattern which helps developers separate the Model from the View.
         /// The View-Model part of MVVM is responsible for exposing the data objects from the Model in such a way that those objects are easily consumed in the View.
@@ -435,7 +356,7 @@ namespace SharpKit.KendoUI
         ///  kendo.bind($("#view"), viewModel);
         ///</script>
         /// </code></example>
-        public JsString bind(HtmlElement element, object viewModel, object @namespace) { return null; }
+        public static JsString bind(jQuery.jQuery element, object viewModel, object @namespace) { return null; }
         /// <summary>
         /// Binds a HTML View to a View-Model. Model View ViewModel (MVVM) is a design pattern which helps developers separate the Model from the View.
         /// The View-Model part of MVVM is responsible for exposing the data objects from the Model in such a way that those objects are easily consumed in the View.
@@ -474,21 +395,100 @@ namespace SharpKit.KendoUI
         ///  kendo.bind($("#view"), viewModel);
         ///</script>
         /// </code></example>
-        public JsString bind(HtmlElement element, object viewModel) { return null; }
+        public static JsString bind(jQuery.jQuery element, object viewModel) { return null; }
+        /// <summary>
+        /// Binds a HTML View to a View-Model. Model View ViewModel (MVVM) is a design pattern which helps developers separate the Model from the View.
+        /// The View-Model part of MVVM is responsible for exposing the data objects from the Model in such a way that those objects are easily consumed in the View.
+        /// </summary>
+        /// <param name="element">The root element(s) from which the binding starts. Can be a valid jQuery string selector, a DOM element or a jQuery object. All child elements are traversed</param>
+        /// <param name="viewModel">The View-Model which the elements are bound to. Wraped as an instance of kendo.data.ObservableObject if not already.</param>
+        /// <param name="namespace">Optional namespace(s) too look in when instantiating Kendo UI widgets. The valid namespaces are kendo.ui, kendo.dataviz.ui and kendo.mobile.ui. The default order is kendo.ui, kendo.dataviz.ui.</param>
+        /// <returns></returns>
+        ///  <example>
+        /// usage
+        /// <code>
+        ///  &lt;!-- View -->
+        ///&lt;div id="view">
+        ///  &lt;!-- The value of the INPUT element is bound to the "firstName" field of the View-Model.
+        ///  When the value changes so will the "firstName" field and vice versa.  -->
+        ///  &lt;label>First Name:&lt;input data-bind="value: firstName" />&lt;/label>
+        ///  &lt;!-- The value of the INPUT element is bound to the "lastName" field of the View-Model.
+        ///  When the value changes so will the "lastName" field and vice versa.   -->
+        ///  &lt;label>Last Name:&lt;input data-bind="value: lastName" />&lt;/label>
+        ///  &lt;!-- The click event of the BUTTON element is bound to the "displayGreeting" method of the View-Model.
+        ///  When the user clicks the button the "displayGreeting" method will be invoked.  -->
+        ///  &lt;button data-bind="click: displayGreeting">Display Greeting&lt;/button>
+        ///&lt;/div>
+        ///&lt;script>
+        ///  // View-Model
+        ///  var viewModel = kendo.observable({
+        ///     firstName: "John",
+        ///     lastName: "Doe",
+        ///     displayGreeting: function() {
+        ///         // Get the current values of "firstName" and "lastName"
+        ///         var firstName = this.get("firstName");
+        ///         var lastName = this.get("lastName");
+        ///         alert("Hello, " + firstName + " " + lastName + "!!!");
+        ///     }
+        ///  });
+        ///  // Bind the View to the View-Model
+        ///  kendo.bind($("#view"), viewModel);
+        ///</script>
+        /// </code></example>
+        public static JsString bind(HtmlElement element, object viewModel, object @namespace) { return null; }
+        /// <summary>
+        /// Binds a HTML View to a View-Model. Model View ViewModel (MVVM) is a design pattern which helps developers separate the Model from the View.
+        /// The View-Model part of MVVM is responsible for exposing the data objects from the Model in such a way that those objects are easily consumed in the View.
+        /// </summary>
+        /// <param name="element">The root element(s) from which the binding starts. Can be a valid jQuery string selector, a DOM element or a jQuery object. All child elements are traversed</param>
+        /// <param name="viewModel">The View-Model which the elements are bound to. Wraped as an instance of kendo.data.ObservableObject if not already.</param>
+        /// <returns></returns>
+        ///  <example>
+        /// usage
+        /// <code>
+        ///  &lt;!-- View -->
+        ///&lt;div id="view">
+        ///  &lt;!-- The value of the INPUT element is bound to the "firstName" field of the View-Model.
+        ///  When the value changes so will the "firstName" field and vice versa.  -->
+        ///  &lt;label>First Name:&lt;input data-bind="value: firstName" />&lt;/label>
+        ///  &lt;!-- The value of the INPUT element is bound to the "lastName" field of the View-Model.
+        ///  When the value changes so will the "lastName" field and vice versa.   -->
+        ///  &lt;label>Last Name:&lt;input data-bind="value: lastName" />&lt;/label>
+        ///  &lt;!-- The click event of the BUTTON element is bound to the "displayGreeting" method of the View-Model.
+        ///  When the user clicks the button the "displayGreeting" method will be invoked.  -->
+        ///  &lt;button data-bind="click: displayGreeting">Display Greeting&lt;/button>
+        ///&lt;/div>
+        ///&lt;script>
+        ///  // View-Model
+        ///  var viewModel = kendo.observable({
+        ///     firstName: "John",
+        ///     lastName: "Doe",
+        ///     displayGreeting: function() {
+        ///         // Get the current values of "firstName" and "lastName"
+        ///         var firstName = this.get("firstName");
+        ///         var lastName = this.get("lastName");
+        ///         alert("Hello, " + firstName + " " + lastName + "!!!");
+        ///     }
+        ///  });
+        ///  // Bind the View to the View-Model
+        ///  kendo.bind($("#view"), viewModel);
+        ///</script>
+        /// </code></example>
+        public static JsString bind(HtmlElement element, object viewModel) { return null; }
 
         /// <summary>
         /// Sets or gets the current culture. Uses the passed culture name to select a culture from the culture scripts that you have included and then sets the current culture.
         /// If there is no corresponding culture then the method will try to find culture which is equal to the country part of the culture name. If no culture is found the default one is used
         /// </summary>
         /// <param name="enGB"></param>
-        public void culture(JsString enGB) { }
+        public static void culture(JsString enGB) { }
 
         /// <summary>
         /// Sets or gets the current culture. Uses the passed culture name to select a culture from the culture scripts that you have included and then sets the current culture.
         /// If there is no corresponding culture then the method will try to find culture which is equal to the country part of the culture name. If no culture is found the default one is used
         /// </summary>
         /// <param name="enGB"></param>
-        public JsString culture() { return null; }
+        public static JsString culture() { return null; }
 
         //TODO: Ask Dan-elformat(JsString value, JsNumber number, ...)
         /// <summary>
@@ -514,7 +514,7 @@ namespace SharpKit.KendoUI
         /// kendo.parseDate("2000/12/22", "yyyy/MM/dd"); //Fri Dec 22 2000
         /// </code>
         /// </example>
-        public JsDate parseDate(JsString value, JsString formats, JsString culture) { return null; }
+        public static JsDate parseDate(JsString value, JsString formats, JsString culture) { return null; }
         /// <summary>
         /// Parses as a formatted string as a Date.
         /// </summary>
@@ -529,7 +529,7 @@ namespace SharpKit.KendoUI
         /// kendo.parseDate("2000/12/22", "yyyy/MM/dd"); //Fri Dec 22 2000
         /// </code>
         /// </example>
-        public JsDate parseDate(JsString value, JsArray formats, JsString culture) { return null; }
+        public static JsDate parseDate(JsString value, JsArray formats, JsString culture) { return null; }
         /// <summary>
         /// Parses as a formatted string as a Date.
         /// </summary>
@@ -543,7 +543,7 @@ namespace SharpKit.KendoUI
         /// kendo.parseDate("2000/12/22", "yyyy/MM/dd"); //Fri Dec 22 2000
         /// </code>
         /// </example>
-        public JsDate parseDate(JsString value, JsArray formats) { return null; }
+        public static JsDate parseDate(JsString value, JsArray formats) { return null; }
         /// <summary>
         /// Parses as a formatted string as a Date.
         /// </summary>
@@ -557,7 +557,7 @@ namespace SharpKit.KendoUI
         /// kendo.parseDate("2000/12/22", "yyyy/MM/dd"); //Fri Dec 22 2000
         /// </code>
         /// </example>
-        public JsDate parseDate(JsString value, JsString culture) { return null; }
+        public static JsDate parseDate(JsString value, JsString culture) { return null; }
         /// <summary>
         /// Parses as a formatted string as a Date.
         /// </summary>
@@ -570,7 +570,7 @@ namespace SharpKit.KendoUI
         /// kendo.parseDate("2000/12/22", "yyyy/MM/dd"); //Fri Dec 22 2000
         /// </code>
         /// </example>
-        public JsDate parseDate(JsString value) { return null; }
+        public static JsDate parseDate(JsString value) { return null; }
 
         /// <summary>
         /// Parses as a formatted string as a floating point number.
@@ -586,7 +586,7 @@ namespace SharpKit.KendoUI
         ///kendo.parseFloat("1.212,22 €"); //1212.22
         /// </code>
         /// </example>
-        public JsNumber parseFloat(JsString value, JsString culture) { return null; }
+        public static JsNumber parseFloat(JsString value, JsString culture) { return null; }
         /// <summary>
         /// Parses as a formatted string as a floating point number.
         /// </summary>
@@ -600,7 +600,7 @@ namespace SharpKit.KendoUI
         ///kendo.parseFloat("1.212,22 €"); //1212.22
         /// </code>
         /// </example>
-        public JsNumber parseFloat(JsString value) { return null; }
+        public static JsNumber parseFloat(JsString value) { return null; }
 
         /// <summary>
         /// Parses as a formatted string as an integer.
@@ -616,7 +616,7 @@ namespace SharpKit.KendoUI
         ///kendo.parseFloat("1.212,22 €"); //1212.22
         /// </code>
         /// </example>
-        public JsNumber parseInt(JsString value, JsString culture) { return null; }
+        public static JsNumber parseInt(JsString value, JsString culture) { return null; }
         /// <summary>
         /// Parses as a formatted string as an integer.
         /// </summary>
@@ -630,7 +630,7 @@ namespace SharpKit.KendoUI
         ///kendo.parseFloat("1.212,22 €"); //1212.22
         /// </code>
         /// </example>
-        public JsNumber parseInt(JsString value) { return null; }
+        public static JsNumber parseInt(JsString value) { return null; }
 
         /// <summary>
         /// Renders the specified 
@@ -685,7 +685,7 @@ namespace SharpKit.KendoUI
         /// Enables kinetic scrolling on touch devices
         /// </summary>
         /// <param name="element">The container element to enable scrolling for.</param>
-        public void touchScroller(JsString element) { }
+        public static void touchScroller(JsString element) { }
 
         /// <summary>
         /// Formats a Number or Date using the specified format and the current culture.
@@ -710,7 +710,7 @@ namespace SharpKit.KendoUI
         ///kendo.toString(new Date(2010, 10, 10, 22, 12), "hh:mm tt" ); // "10:12 PM"
         ///</code>
         ///</example>
-        public JsFunc<JsString> toString(JsDate value, JsString format) { return null; }
+        public static JsFunc<JsString> toString(JsDate value, JsString format) { return null; }
         /// <summary>
         /// Formats a Number or Date using the specified format and the current culture.
         /// </summary>
@@ -739,7 +739,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// A range of useful supported by the current browser capabilities and features.
         /// </summary>
-        public Support support { get; set; }
+        public static Support support { get; set; }
 
         /// <summary>
         /// Unbinds a tree of HTML elements from a View-Model.
@@ -752,7 +752,7 @@ namespace SharpKit.KendoUI
         /// kendo.unbind($("body"));
         /// </code>
         /// </example>
-        public void unbind(JsString element) { }
+        public static void unbind(JsString element) { }
         /// <summary>
         /// Unbinds a tree of HTML elements from a View-Model.
         /// </summary>
@@ -764,7 +764,7 @@ namespace SharpKit.KendoUI
         /// kendo.unbind($("body"));
         /// </code>
         /// </example>
-        public void unbind(jQuery.jQuery element) { }
+        public static void unbind(jQuery.jQuery element) { }
         /// <summary>
         /// Unbinds a tree of HTML elements from a View-Model.
         /// </summary>
@@ -776,7 +776,7 @@ namespace SharpKit.KendoUI
         /// kendo.unbind($("body"));
         /// </code>
         /// </example>
-        public void unbind(HtmlElement element) { }
+        public static void unbind(HtmlElement element) { }
 
         /// <summary>
         /// Undocumented
@@ -949,7 +949,7 @@ namespace SharpKit.KendoUI
     #region DataSource
 
     [JsType(JsMode.Prototype, Name = "kendo.data.DataSource", Export = false)]
-    public class DataSource
+    public class DataSource<T>
     {
         public DataSource() { }
 
@@ -960,7 +960,14 @@ namespace SharpKit.KendoUI
         /// </summary>
         /// <param name="model">Either a Model instance or raw object from which the Model will be created</param>
         /// <returns>The Model instance which has been added</returns>
-        public object add(object model) { return null; }
+        public object add(T objectToWrap) { return null; }
+
+        /// <summary>
+        /// Adds a new Model instance to the DataSource
+        /// </summary>
+        /// <param name="model">Either a Model instance or raw object from which the Model will be created</param>
+        /// <returns>The Model instance which has been added</returns>
+        public object add(Model<T> modelInstance) { return null; }
 
         /// <summary>
         /// Get current aggregate descriptors or applies aggregates to the data.
@@ -1005,7 +1012,7 @@ namespace SharpKit.KendoUI
         /// var order = dataSource.at(3);
         ///</code>
         ///</example>
-        public object at(JsNumber index) { return null; }
+        public T at(JsNumber index) { return default(T); }
 
         /// <summary>
         /// Cancel the changes made to the DataSource after the last sync. Any changes currently existing in the model will be discarded.
@@ -1028,7 +1035,7 @@ namespace SharpKit.KendoUI
         /// dataSource.cancelChanges();
         ///</code>
         ///</example>
-        public void cancelChanges(Model model) { }
+        public void cancelChanges(Model<T> model) { }
 
         /// <summary>
         /// Gets or sets the data of the DataSource.
@@ -1049,7 +1056,28 @@ namespace SharpKit.KendoUI
         /// dataSource.data(data);
         ///</code>
         ///</example>
-        public ObservableObject data(JsArray value) { return null; }
+        public ObservableArray<T> data() { return null; }
+
+        /// <summary>
+        /// Gets or sets the data of the DataSource.
+        /// </summary>
+        /// <param name="value">An Array of items to set as the current data of the DataSource. If omitted the current data will be returned.</param>
+        /// <returns>An ObservableArray which contains all items of the DataSource</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        /// //Getting the Data of a DataSource:
+        /// var data = dataSource.data();
+        ///for (var i = 0; i &lt; data.length; i++) {
+        ///    var dataItem = data[i];
+        ///    // use the dataItem
+        ///}
+        /// //Setting the Data of a DataSource:
+        /// var data = [ { name: "John Doe" } ];
+        /// dataSource.data(data);
+        ///</code>
+        ///</example>
+        public void data(JsArray<T> value) {}
 
         /// <summary>
         /// Fetches data using the current filter/sort/group/paging information.
@@ -1099,7 +1127,7 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public JsArray filter(object val) { return null; }
+        public void filter(object filterConfig) {}
         /// <summary>
         /// Get current filters or filter the data.
         /// </summary>
@@ -1141,21 +1169,65 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public JsArray filter(JsArray val) { return null; }
+        public void filter(JsArray val) {}
+
+        /// <summary>
+        /// Get current filters or filter the data.
+        /// </summary>
+        /// <param name="val">Supported filter operators/aliases are:
+        ///Equal To
+        ///"eq", "==", "isequalto", "equals", "equalto", "equal"
+        ///Not Equal To
+        ///"neq", "!=", "isnotequalto", "notequals", "notequalto", "notequal", "ne"
+        ///Less Then
+        ///"lt", "&lt;", "islessthan", "lessthan", "less"
+        ///Less Then or Equal To
+        ///"lte", "&lt;=", "islessthanorequalto", "lessthanequal", "le"
+        ///Greater Then
+        ///"gt", ">", "isgreaterthan", "greaterthan", "greater"
+        ///Greater Then or Equal To
+        ///"gte", ">=", "isgreaterthanorequalto", "greaterthanequal", "ge"
+        ///Starts With
+        ///"startswith"
+        ///Ends With
+        ///"endswith"
+        ///Contains
+        ///"contains", "substringof"</param>
+        /// <returns>Current filter descriptors</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///dataSource.filter({ field: "orderId", operator: "eq", value: 10428 });
+        ///dataSource.filter([
+        ///     { field: "orderId", operator: "neq", value: 42 },
+        ///     { field: "unitPrice", operator: "ge", value: 3.14 }
+        ///]);
+        /// // returns data where orderId is equal to 10248 or customerName starts with Paul
+        ///dataSource.filter({
+        ///    logic: "or",
+        ///    filters: [
+        ///      { field: "orderId", operator: "eq", value: 10248 },
+        ///      { field: "customerName", operator: "startswith", value: "Paul" }
+        ///    ]
+        ///});
+        ///</code>
+        ///</example>
+        public JsArray filter() { return null; }
+
 
         /// <summary>
         /// Retrieves a Model instance by given id.
         /// </summary>
         /// <param name="id">The id of the model to be retrieved</param>
         /// <returns>Model instance if found</returns>
-        public object get(JsNumber id) { return null; }
+        public Model<T> get(JsNumber id) { return null; }
 
         /// <summary>
         /// Retrieves a Model instance by its UID
         /// </summary>
         /// <param name="uid">The uid of the record to be retrieved</param>
         /// <returns>Model instance if found</returns>
-        public object getByUid(JsString uid) { return null; }
+        public Model<T> getByUid(JsString uid) { return null; }
 
         /// <summary>
         /// Get current group descriptors or group the data.
@@ -1191,7 +1263,30 @@ namespace SharpKit.KendoUI
         ///dataSource.insert(0, { name: "John Smith", description: "Product Description", address: "123 1st Street" });
         ///</code>
         ///</example>
-        public object insert(JsNumber index, object model) { return null; }
+        public Model<T> insert(JsNumber index, T model) { return null; }
+
+        /// <summary>
+        /// Inserts a new Model instance to the DataSource.
+        /// </summary>
+        /// <param name="index">Index at which the Model will be inserted</param>
+        /// <param name="model">Either a Model instance or raw object from which the Model will be created</param>
+        /// <returns>The Model instance which has been inserted</returns>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var model = kendo.data.Model.extend({
+        ///    id: "orderId",
+        ///    fields: {
+        ///        name: "customerName",
+        ///        description: "orderDescription",
+        ///        address: "customerAddress"
+        ///    }
+        ///});
+        /// // insert a new model item at the very front of the collection
+        ///dataSource.insert(0, { name: "John Smith", description: "Product Description", address: "123 1st Street" });
+        ///</code>
+        ///</example>
+        public Model<T> insert(JsNumber index, Model<T> model) { return null; }
 
         /// <summary>
         /// Get current page index or request a page with specified index.
@@ -1267,7 +1362,7 @@ namespace SharpKit.KendoUI
         ///dataSource.remove(itemToRemove);
         ///</code>
         ///</example>
-        public void remove(object model) { }
+        public void remove(T model) { }
 
         /// <summary>
         /// Get current sort descriptors or sorts the data.
@@ -1360,7 +1455,7 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public JsArray view() { return null; }
+        public JsArray<T> view() { return null; }
 
         /// <summary>
         /// Fires when data is changed or read from the transport.
@@ -1418,7 +1513,7 @@ namespace SharpKit.KendoUI
         ///});
         ///</code>
         ///</example>
-        public event JsAction<DataSourceRequestStartEventData> requestStart
+        public event JsAction<DataSourceRequestStartEventData<T>> requestStart
         {
             [JsMethod(Name = "bind", InsertArg0 = "\"requestStart\"")]
             add { }
@@ -1428,12 +1523,12 @@ namespace SharpKit.KendoUI
     }
 
     [JsType(JsMode.Json)]
-    public class DataSourceRequestStartEventData
+    public class DataSourceRequestStartEventData<T>
     {
         /// <summary>
         /// Reference to the dataSource object instance.
         /// </summary>
-        public DataSource sender { get; set; }
+        public DataSource<T> sender { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -2383,6 +2478,15 @@ namespace SharpKit.KendoUI
 
     #endregion
 
+    /*
+     * The Model part of the DataSource currently seems like a mess, mostly due to how a Model is both a configuration
+     * object and an instance object.  My suggestion is that Model be split into ModelDefinition and Model, where Model
+     * behaves like a regular object instance and has a constructor that wraps an object, and Model.define returns a 
+     * ModelDefinition that gets passed to DataSource.schema.model and is the superclass of HierarchicalDataSourceSchemaModelConfiguration
+     * Additionally, I think DataSource should have a type parameter that corresponds to the one on Model
+     * -- cherrydev
+     */
+
     #region HierarchicalDataSource
 
     /// <summary>
@@ -2390,11 +2494,11 @@ namespace SharpKit.KendoUI
     /// The remove and getByUid methods are overridden and work with the hierarchical data (they will act on all child datasources that have been read).
     /// </summary>
     [JsType(JsMode.Prototype, Name = "kendo.data.HierarchicalDataSource", Export = false)]
-    public class HierarchicalDataSource : DataSource
+    public class HierarchicalDataSource<T> : DataSource<T>
     {
         public HierarchicalDataSource() { }
 
-        public HierarchicalDataSource(HierarchicalDataSourceConfiguration HierarchicalDataSourceConfiguration) { }
+        public HierarchicalDataSource(HierarchicalDataSourceConfiguration<object> HierarchicalDataSourceConfiguration) { }
 
         /// <summary>
         /// Fires when data is changed. In addition to the standard change event,
@@ -2414,20 +2518,30 @@ namespace SharpKit.KendoUI
     }
 
     [JsType(JsMode.Json)]
-    public class HierarchicalDataSourceConfiguration : DataSourceConfiguration
+    public class HierarchicalDataSourceConfiguration<T> : DataSourceConfiguration
     {
-        public new HierarchicalDataSourceSchemaConfiguration schema { get; set; }
+        public new HierarchicalDataSourceSchemaConfiguration<T> schema { get; set; }
     }
 
     [JsType(JsMode.Json)]
-    public class HierarchicalDataSourceSchemaConfiguration : DataSourceSchemaConfiguration
+    public class HierarchicalDataSourceSchemaConfiguration<T> : DataSourceSchemaConfiguration
     {
-        public new HierarchicalDataSourceSchemaModelConfiguration model { get; set; }
+        public new HierarchicalDataSourceSchemaModelConfiguration<T> model { get; set; }
     }
 
+    /// <summary>
+    /// TODO: This indicates to me that the Model class should be split into a Model class that represents
+    /// an instance of a Model and a ModelDefinition class that represents the definition of a model
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     [JsType(JsMode.Json)]
-    public class HierarchicalDataSourceSchemaModelConfiguration : Model
+    public class HierarchicalDataSourceSchemaModelConfiguration<T> : Model<T>
     {
+        public HierarchicalDataSourceSchemaModelConfiguration() : base(default(T))
+        {
+            
+        } 
+
         /// <summary>
         /// Specifies whether the model might have children and might be loaded.
         /// Applicable when the rendering of a widget needs to have different states for items that have no children (e.g. the toggle button of the TreeView).
@@ -2503,13 +2617,23 @@ namespace SharpKit.KendoUI
     /// The DataSource contains instances of the Model when the schema.model setting is specified.
     /// </summary>
     [JsType(JsMode.Prototype, Name = "kendo.data.Model", Export = false)]
-    public class Model : ObservableObject
+    public class Model<T> : ObservableObject<T>
     {
+        /// <summary>
+        /// Create a new model from an existing object.
+        /// </summary>
+        /// <see cref="ObservableObject{T}"/>
+        /// <param name="objectToWrap"></param>
+        public Model(T objectToWrap)
+        {
+            
+        }
+
         /// <summary>
         /// Defines a new Model type using the provided options.
         /// </summary>
         /// <param name="options">Describes the configuration options of the new model type.</param>
-        /// <returns></returns>
+        /// <returns>The constructor of a new model type definition</returns>
         ///<example>
         ///usage
         ///<code>
@@ -2538,7 +2662,8 @@ namespace SharpKit.KendoUI
         ///}
         ///</code>
         ///</example>
-        public static Model define(ModelObjectOptions options) { return null; }
+        /// TODO: I don't know if this is actually usable, since this is supposed to return a new type
+        public static Model<TP> define<TP>(ModelObjectOptions options) { return null; }
 
         /// <summary>
         /// Determines if the specified field is editable or not.
@@ -2588,6 +2713,11 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public bool isNew() { return false; }
+
+        /// <summary>
+        /// Indicates whether the model is modified
+        /// </summary>
+        public bool dirty { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -2655,8 +2785,13 @@ namespace SharpKit.KendoUI
     /// The Node is an extended type of Model that works with hierarchical data. The HierarchicalDataSource contains only instances of Node.
     /// </summary>
     [JsType(JsMode.Prototype, Name = "kendo.data.Node")]
-    public class Node : Model
+    public class Node<T> : Model<T>
     {
+
+        private Node() : base(default(T))
+        {
+            
+        }
         //TODO: Fields
 
         /// <summary>
@@ -2694,7 +2829,7 @@ namespace SharpKit.KendoUI
     /// The ObservableArray wrap an existing Array object with change tracking capabilities. It is used by Kendo MVVM and the Kendo DataSource.
     /// </summary>
     [JsType(JsMode.Prototype, Name = "kendo.data.ObservableArray", Export = false)]
-    public class ObservableArray<T>
+    public class ObservableArray<T> : JsArray<T>
     {
         /// <summary>
         /// Attaches an event handler for the specified event.
@@ -2739,8 +2874,9 @@ namespace SharpKit.KendoUI
         ///var numbers = observable.get("numbers");
         ///console.log(numbersperson.parent() === observable); // outputs "true"
         ///</code>
+        /// <typeparam name="TP">The type of the parent</typeparam>
         ///</example>
-        public ObservableObject parent() { return null; }
+        public ObservableObject<TP> parent<TP>() { return null; }
 
         /// <summary>
         /// Removes the last item from an array and returns that item. Equivalent of Array.prototype.pop.
@@ -2756,7 +2892,7 @@ namespace SharpKit.KendoUI
         ///console.log(result.get("name")); // outputs "John Doe"
         ///</code>
         ///</example>
-        public object pop() { return null; }
+        public T pop() { return default(T); }
 
         /// <summary>
         /// Appends the given items to the array and returns the new length of the array.
@@ -2829,7 +2965,7 @@ namespace SharpKit.KendoUI
         ///console.log(firstAndSecond); // outputs [1, 2]
         ///</code>
         ///</example>
-        public JsArray slice(JsNumber begin, JsNumber end) { return null; }
+        public JsArray<T> slice(JsNumber begin, JsNumber end) { return null; }
         /// <summary>
         /// Returns a one-level deep copy of a portion of an array. Equivalent of Array.prototype.slice.
         /// The result of the slice method is not an instance of ObvservableArray. It is a regular JavaScript Array object.
@@ -2846,7 +2982,7 @@ namespace SharpKit.KendoUI
         ///console.log(firstAndSecond); // outputs [1, 2]
         ///</code>
         ///</example>
-        public JsArray slice(JsNumber begin) { return null; }
+        public JsArray<T> slice(JsNumber begin) { return null; }
 
         /// <summary>
         /// Changes an ObservableArray, by adding new items while removing old items. Equivalent of Array.prototype.splice
@@ -2858,7 +2994,7 @@ namespace SharpKit.KendoUI
         /// <param name="howMany">An integer indicating the number of items to remove. If howMany is 0, no items are removed. In this case, you should specify at least one new item.</param>
         /// <param name="items">The item(s) to append to the array.</param>
         /// <returns>An Array containing the removed items. The result of the splice method is not an instance of ObvservableArray.</returns>
-        public JsArray splice(JsNumber index, JsNumber howMany, params T[] items) { return null; }
+        public JsArray<T> splice(JsNumber index, JsNumber howMany, params T[] items) { return null; }
 
         /// <summary>
         /// Removes the first item from an ObvservableArray and returns that item. Equivalent of Array.prototype.shift.
@@ -2875,7 +3011,7 @@ namespace SharpKit.KendoUI
         ///console.log(array.length); // outputs "2"
         ///</code>
         ///</example>
-        public object shift() { return null; }
+        public T shift() { return default(T); }
 
         /// <summary>
         /// Returns a JavaScript Array which represents the contents of the ObservableArray.
@@ -3011,10 +3147,15 @@ namespace SharpKit.KendoUI
 
     #region ObservableObject
 
+    /// <summary>
+    /// The ObservableObject is a very important piece of the Kendo UI framework. It is the building block of Kendo MVVM. 
+    /// In addition· the Kendo DataSource contains instances of the ObservableObject. Inherits from Observable.
+    /// </summary>
+    /// <typeparam name="T">The type of the wrapped object</typeparam>
     [JsType(JsMode.Prototype, Name = "kendo.data.ObservableObject", Export = false)]
-    public class ObservableObject
+    public class ObservableObject<T>
     {
-        public ObservableObject(object Configurations) { }
+        public ObservableObject(T wrappedObject) { }
         public ObservableObject() { }
 
         /// <summary>
@@ -3056,6 +3197,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Returns the parent ObservableObject. If the current ObservableObject is not nested returns undefined;
         /// </summary>
+        /// <typeparam name="TP">The type of the parent wrapper</typeparam>
         /// <returns></returns>
         ///<example>
         ///usage
@@ -3066,7 +3208,7 @@ namespace SharpKit.KendoUI
         ///console.log(person.parent() === observable); // outputs "true"
         ///</code>
         ///</example>
-        public ObservableObject parent() { return null; }
+        public ObservableObject<TP> parent<TP>() { return null; }
 
         /// <summary>
         /// Sets the value of the specified field.
@@ -3138,6 +3280,16 @@ namespace SharpKit.KendoUI
         ///</code>
         ///</example>
         public object toJSON() { return null; }
+
+        /// <summary>
+        /// Returns the wrapped object as its original type (omitted call)
+        /// </summary>
+        /// <returns></returns>
+        [JsMethod(OmitCalls = true)]
+        public T unwrap()
+        {
+            return default(T);
+        }
 
         /// <summary>
         /// Raised when a field value is updated via the set method.
