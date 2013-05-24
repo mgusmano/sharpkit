@@ -564,7 +564,8 @@ JsCompiler.CompileType = function (type)
             if (currentType.ns == null || currentType.ns == "")
             {
                 var jsCtor = window[currentType.name];
-                currentType.ctor = jsCtor;
+                if (typeof(jsCtor) == "function")
+                    currentType.ctor = jsCtor;
             }
             if (currentType.ctor == null && currentType.ctors != null)
             {
