@@ -108,6 +108,7 @@
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="System\Collections\IListEnumerator.cs" />
     <Compile Include="Utils\Js.cs" />
+    <Compile Include="Utils\JsClrClientSerializer.cs" />
     <Compile Include="Utils\JsExtendedArray.cs" />
     <Compile Include="Utils\JsNamingHelper.cs" />
     <Compile Include="Utils\JsRuntime.cs" />
