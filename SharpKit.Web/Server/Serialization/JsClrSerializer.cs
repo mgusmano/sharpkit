@@ -110,9 +110,19 @@ namespace SharpKit.Web.Server.Serialization
                     {
                         if (pair.Key.StartsWith("$"))
                             continue;
-                        var field = FindField(type, pair.Key);
-                        var value2 = Deserialize(pair.Value, field.FieldType);
-                        field.SetValue(obj2, value2);
+                        var fieldOrProperty = FindFieldOrProperty(type, pair.Key);
+                        if (fieldOrProperty.MemberType == MemberTypes.Field)
+                        {
+                            var field = (FieldInfo)fieldOrProperty;
+                            var value2 = Deserialize(pair.Value, field.FieldType);
+                            field.SetValue(obj2, value2);
+                        }
+                        else
+                        {
+                            var pe = (PropertyInfo)fieldOrProperty;
+                            var value2 = Deserialize(pair.Value, pe.PropertyType);
+                            pe.SetValue(obj2, value2, null);
+                        }
                     }
                     if (listItems != null)
                     {
@@ -150,15 +160,18 @@ namespace SharpKit.Web.Server.Serialization
             return obj2;
         }
 
-        private static FieldInfo FindField(Type type, string name)
+        private static MemberInfo FindFieldOrProperty(Type type, string name)
         {
             var field = type.GetField(name, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
             if (field == null)
             {
                 if (name.StartsWith("_"))
                 {
-                    var name2 = String.Format("<{0}>k__BackingField", name.Substring(1));
-                    return FindField(type, name2);
+                    var name2 = name.Substring(1);
+                    var pe = type.GetProperty(name2, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                    if(pe==null)
+                        throw new Exception("Cannot find field " + name + ", or property "+name2+" on type " + type);
+                    return pe;
                 }
                 throw new Exception("Cannot find field " + name + " on type " + type);
             }
