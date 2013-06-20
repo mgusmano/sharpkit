@@ -49,7 +49,6 @@ namespace SharpKit.JavaScript.Compilation
         public JsType realType{get;set;}
         public JsFunction ctor{get;set;}
         public JsString _AssemblyQualifiedName { get; set; }
-
     }
 
     [JsType(JsMode.Json)]

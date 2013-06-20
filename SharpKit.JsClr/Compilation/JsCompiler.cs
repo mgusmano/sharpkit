@@ -89,16 +89,14 @@ namespace SharpKit.JavaScript.Compilation
         private static void Compile_Phase2_TmpType(JsType tmpType)
         {
             var p = tmpType.fullname;
-            JsType type = null;
-            //tmpType = tmpTypes[p].As<JsType>();
-            type = CompileType(tmpType);
-            if (type != null)//.ctor  && type.ns!=null && type.ns!=""
-                CopyMemberIfNotDefined(type, type.fullname, window); //window[type.get_FullName()] = type;//.ctor;
+            var type = CompileType(tmpType);
+            if (type != null)
+                CopyMemberIfNotDefined(type, type.fullname, window);
             if (type.ns != null)
             {
                 var ns = ResolveNamespace(type.ns);
-                if (type != null)//.ctor
-                    ns[type.name] = type; //.ctor;
+                if (type != null)
+                    ns[type.name] = type;
             }
         }
 
