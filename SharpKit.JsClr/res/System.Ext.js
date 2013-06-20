@@ -242,6 +242,107 @@ return null;
     }
 };
 JsTypes.push(SharpKit$JavaScript$Utils$Js);
+var SharpKit$JsClr$Utils$JsClrClientSerializer =
+{
+    fullname: "SharpKit.JsClr.Utils.JsClrClientSerializer",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            this.ObjInfos = null;
+            this.RefIndex = 0;
+            this.IgnoreFields = null;
+            System.Object.ctor.call(this);
+            this.ObjInfos = new System.Collections.Generic.Dictionary$2.ctor(System.Object.ctor, "SharpKit.JsClr.Utils.ObjInfo");
+            this.IgnoreFields = new Object();
+            this.IgnoreFields["_type"] = true;
+            this.IgnoreFields["_hashKey"] = true;
+        },
+        Serialize: function (obj)
+        {
+            var obj2 = this.Serialize2(obj);
+            return JSON.stringify(obj2);
+        },
+        Serialize2: function (obj)
+        {
+            if (obj === undefined)
+                return undefined;
+            if (obj === null)
+                return null;
+            var jsType = typeof(obj);
+            if (jsType == "object")
+            {
+                return this.SerializeRefOrContent(obj);
+            }
+            else if (jsType == "function")
+            {
+                return undefined;
+            }
+            else
+            {
+                return obj;
+            }
+        },
+        SerializeRefOrContent: function (obj)
+        {
+            if (!this.ObjInfos.ContainsKey(obj))
+            {
+                var info = {};
+                this.ObjInfos.Add(obj, info);
+                this.SerializeFirstRef(obj, info);
+                return info.FirstRef;
+            }
+            else
+            {
+                var info = this.ObjInfos.get_Item$$TKey(obj);
+                if (info.Ref == null)
+                {
+                    this.RefIndex++;
+                    info.Ref = {$r: this.RefIndex.toString(), $t: "ObjRef"};
+                    info.FirstRef.$k = info.Ref.$r;
+                }
+                return info.Ref;
+            }
+        },
+        SerializeFirstRef: function (obj, info)
+        {
+            var obj2 = {};
+            info.FirstRef = obj2;
+            var type = obj.GetType();
+            obj2.$t = type.get_FullName();
+            var obj3 = obj;
+            if (Is(obj, System.Collections.IList.ctor))
+            {
+                var list = obj;
+                obj2.$l =  [];
+                var $it17 = list.GetEnumerator();
+                while ($it17.MoveNext())
+                {
+                    var item = $it17.get_Current();
+                    var item2 = this.Serialize2(item);
+                    obj2.$l.push(item2);
+                }
+            }
+            else
+            {
+                for (var p in obj3)
+                {
+                    if (this.IgnoreFields[p])
+                        continue;
+                    if (!obj3.hasOwnProperty(p))
+                        continue;
+                    var value = obj3[p];
+                    obj2[p] = this.Serialize2(value);
+                }
+            }
+            return obj2;
+        }
+    }
+};
+JsTypes.push(SharpKit$JsClr$Utils$JsClrClientSerializer);
 var SharpKit$JavaScript$JsNamingHelper =
 {
     fullname: "SharpKit.JavaScript.JsNamingHelper",
@@ -276,7 +377,7 @@ var SharpKit$JavaScript$JsNamingHelper =
         },
         ConvertParametersToJsFunctionName: function (prms, sb)
         {
-            for (var $i18 = 0, $l18 = prms.length, prm = prms[$i18]; $i18 < $l18; $i18++, prm = prms[$i18])
+            for (var $i19 = 0, $l19 = prms.length, prm = prms[$i19]; $i19 < $l19; $i19++, prm = prms[$i19])
             {
                 sb.Append$$String("$$");
                 sb.Append$$String(prm.get_ParameterType().get_Name());

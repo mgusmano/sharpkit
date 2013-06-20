@@ -64,6 +64,7 @@
     <Compile Include="System\IDisposable.cs" />
     <Compile Include="System\Interfaces.cs" />
     <Compile Include="System\IO\Path.cs" />
+    <Compile Include="System\JsDateEx.cs" />
     <Compile Include="System\Linq\Enumerable.Iterator.cs" />
     <Compile Include="System\Linq\Enumerable.SelectManyEnumerableIterator.cs" />
     <Compile Include="System\Linq\Enumerable.SelectManyListIterator.cs" />

@@ -278,13 +278,6 @@ Dispose: function () {
 }
 });
 AfterCompilation(function () {
-	if (window["System.DateTime"] != null) {
-		var minDate = new Date(0);
-		minDate.setUTCFullYear(1, 0, 1);
-		var minDateTime = new System.DateTime.ctor$$Date(minDate);
-		System.DateTime.MinValue = minDateTime;
-		System.DateTime.commonPrototype.MinValue = minDateTime;
-	}
 	Function._type = System.Delegate;
 });
 JsTypes.push({ fullname: "System.Boolean", baseTypeName: "System.ValueType", definition:

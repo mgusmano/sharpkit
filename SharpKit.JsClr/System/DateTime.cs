@@ -1,369 +1,167 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Text;
 
 
 namespace SharpKit.JavaScript.Private
 {
 
-    //TODO: struct
-
-    [JsType(Name = "System.DateTime", Filename = "~/Internal/Core.js")]
-    internal class JsImplDateTime
+    [JsType(Name = "System.DateTime", Filename = "~/Internal/Core.js", OmitInheritance = true)]
+    internal class JsImplDateTime : JsDateEx
     {
-        public JsDate ToJsDate()
-        {
-            return date;
-        }
-        JsDate date;
 
-        //HACK - metaspec doesn't resolve the DateTime(year, month, day) ctor
-        [JsMethod(Code = @"
-if(arguments.length==3)
-System.DateTime.ctor$$Int32$$Int32$$Int32.apply(this, arguments);
-else if(arguments.length==6)
-System.DateTime.ctor$$Int32$$Int32$$Int32$$Int32$$Int32$$Int32.apply(this, arguments);
-else
-this.date = System.DateTime.MinValue.date;
-")]
         public JsImplDateTime()
         {
-            this.date = MinValue.date;
+            var x = MinValue;
+            JsContext.@return(x);
+        }
+        public JsImplDateTime(long ticks)
+        {
+            throw new NotSupportedException("Ticks are not available due to JavaScript number limitation");
         }
 
         public JsImplDateTime(int year, int month, int day)
         {
-            this.date = new JsDate();
-            Year = year;
-            Month = month;
-            Day = day;
+            var x = new JsDateEx();
+            x.Year = year;
+            x.Month = month;
+            x.Day = day;
+            JsContext.@return(x);
         }
 
         public JsImplDateTime(int year, int month, int day, int hour, int minute, int second)
         {
-            this.date = new JsDate();
-            Year = year;
-            Month = month;
-            Day = day;
-            Hour = hour;
-            Minute = minute;
-            Second = second;
+            var x = new JsDateEx();
+            x.Year = year;
+            x.Month = month;
+            x.Day = day;
+            x.Hour = hour;
+            x.Minute = minute;
+            x.Second = second;
+            JsContext.@return(x);
         }
-
-        JsImplDateTime(JsDate jsDate)
+        public JsImplDateTime(int year, int month, int day, int hour, int minute, int second, DateTimeKind kind)
         {
-            if (jsDate != null)
-                this.date = jsDate;
-            else
-                this.date = MinValue.date;
+            var x = new JsDateEx();
+            x._Kind = kind;
+            x.Year = year;
+            x.Month = month;
+            x.Day = day;
+            x.Hour = hour;
+            x.Minute = minute;
+            x.Second = second;
+            JsContext.@return(x);
         }
 
-        JsImplDateTime(long jsDate)
+        static JsImplDateTime()
         {
-            this.date = new JsDate(jsDate.As<int>());
+            MinValue = new JsDate(0).As<JsImplDateTime>();
+            MinValue.setUTCFullYear(1, 0, 1);
+            MaxValue = new JsDate(0).As<JsImplDateTime>();
+            MaxValue.setUTCFullYear(9999, 11, 31);
         }
 
-        public static JsImplDateTime MinValue = null;
-
+        public static JsImplDateTime MinValue;
+        public static JsImplDateTime MaxValue;
         [JsMethod(Name = "Parse$$String")]
         public static DateTime Parse(string str)
         {
-            return new DateTime(JsDate.parse(str));
+            return JsDate.parse(str).As<DateTime>();
         }
 
-        [JsMethod(Code = "return 32 - new Date(year, month-1, 32).getDate();")]
         public static int DaysInMonth(int year, int month)
         {
-            return DateTime.DaysInMonth(year, month);
+            return 32 - new JsDate(year, month - 1, 32).getDate();
         }
-
-        public int CompareTo(JsImplDateTime value)
-        {
-            return this.date.valueOf() - value.date.valueOf();
-        }
-
         public static int Compare(JsImplDateTime t1, JsImplDateTime t2)
         {
-            return t1.date.valueOf() - t2.date.valueOf();
+            return t1.valueOf() - t2.valueOf();
         }
-
-        //public JsImplDateTime Substract(JsImplDateTime dt)
-        //{
-        //  return new JsImplDateTime(new JsDate(this.date - dt;
-        //}
-        public int Year
-        {
-            get
-            {
-                return this.date.getFullYear();
-            }
-            set
-            {
-                this.date.setFullYear(value);
-            }
-
-        }
-        public int Month
-        {
-            get
-            {
-                return this.date.getMonth() + 1;
-            }
-            set
-            {
-                this.date.setMonth(value - 1);
-            }
-
-        }
-        public int Day
-        {
-            get
-            {
-                return this.date.getDate();
-            }
-            set
-            {
-                this.date.setDate(value);
-            }
-
-        }
-        public int Hour
-        {
-            get
-            {
-                return this.date.getHours();
-            }
-            set
-            {
-                this.date.setHours(value);
-            }
-        }
-        public int Minute
-        {
-            get
-            {
-                return this.date.getMinutes();
-            }
-            set
-            {
-                this.date.setMinutes(value);
-            }
-        }
-        public int Second
-        {
-            get
-            {
-                return this.date.getSeconds();
-            }
-            set
-            {
-                this.date.setSeconds(value);
-            }
-        }
-        public int Millisecond
-        {
-            get
-            {
-                return this.date.getMilliseconds();
-            }
-            set
-            {
-                this.date.setMilliseconds(value);
-            }
-        }
-
-        //TODO: JS Enums problem (DayOfWeek)
-        public int DayOfWeek
-        {
-            get
-            {
-                return this.date.getDay();
-            }
-        }
-        public override string ToString()
-        {
-            return this.date.toString();
-        }
-        public JsImplDateTime AddDays(double days)
-        {
-            return new JsImplDateTime(this.date.addDays(days.As<int>()));
-        }
-        public JsImplDateTime AddMonths(int months)
-        {
-            return new JsImplDateTime(this.date.addMonths(months));
-        }
-
-        public JsImplDateTime AddHours(int hours)
-        {
-            return new JsImplDateTime(this.date.addHours(hours));
-        }
-        public JsImplDateTime AddMilliseconds(int milliseconds)
-        {
-            return new JsImplDateTime(this.date.addMilliseconds(milliseconds));
-        }
-        public JsImplDateTime AddMinutes(int minutes)
-        {
-            return new JsImplDateTime(this.date.addMinutes(minutes));
-        }
-        public JsImplDateTime AddSeconds(int seconds)
-        {
-            return new JsImplDateTime(this.date.addSeconds(seconds));
-        }
-        public JsImplDateTime AddYears(int years)
-        {
-            return new JsImplDateTime(this.date.addYears(years));
-        }
-
-        public static JsImplDateTime Now
-        {
-            get
-            {
-                return new JsImplDateTime(new JsDate());
-            }
-        }
-        public JsImplDateTime Today
-        {
-            get
-            {
-                return new JsImplDateTime(new JsDate().removeTime());
-            }
-        }
-
-        public TimeSpan Subtract(DateTime value)
-        {
-            var diff = date.valueOf() - value.As<JsImplDateTime>().date.valueOf();
-            return new TimeSpan(diff * TimeSpan.TicksPerMillisecond);
-        }
-        // System.DateTime
-        public JsImplDateTime Subtract(TimeSpan value)
-        {
-            var newDate = new JsDate(date.valueOf());
-            newDate.setMilliseconds(date.getMilliseconds() + value.TotalMilliseconds);
-            return new JsImplDateTime(newDate);
-        }
-
-        public string ToString(string format)
-        {
-            format = format.Replace("yyyy", Year.ToString("0000"));
-            format = format.Replace("yyyy", Year.ToString("00"));
-            format = format.Replace("y", Year.ToString());
-            format = format.Replace("MM", Month.ToString("00"));
-            format = format.Replace("M", Month.ToString());
-            format = format.Replace("dd", Day.ToString("00"));
-            format = format.Replace("d", Day.ToString());
-            format = format.Replace("HH", Hour.ToString("00"));
-            format = format.Replace("H", Hour.ToString());
-            format = format.Replace("mm", Minute.ToString("00"));
-            format = format.Replace("m", Minute.ToString());
-            format = format.Replace("ss", Second.ToString("00"));
-            format = format.Replace("s", Second.ToString());
-            return format;
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (!(obj is JsImplDateTime)) return false;
-            return this.date.Equals(((JsImplDateTime)obj).date);
-        }
-
-        public override int GetHashCode()
-        {
-            return this.date.GetHashCode();
-        }
-
         public static bool operator ==(JsImplDateTime t1, JsImplDateTime t2)
         {
-            if (t1.As<object>() == t2.As<object>()) return true;
-            if (t1.As<object>() == null || t2.As<object>() == null) return false;
-            return t1.date.getTime() == t2.date.getTime();
+            return Compare(t1, t2) == 0;
         }
 
         public static bool operator !=(JsImplDateTime t1, JsImplDateTime t2)
         {
-            if (t1.As<object>() != t2.As<object>()) return true;
-            if (t1.As<object>() == null || t2.As<object>() == null) return false;
-            return t1.date.getTime() != t2.date.getTime();
+            return Compare(t1, t2) != 0;
         }
 
+        public static bool operator >(JsImplDateTime t1, JsImplDateTime t2)
+        {
+            return Compare(t1, t2) > 0;
+        }
+        public static bool operator <(JsImplDateTime t1, JsImplDateTime t2)
+        {
+            return Compare(t1, t2) < 0;
+        }
+        public static bool operator <=(JsImplDateTime t1, JsImplDateTime t2)
+        {
+            return Compare(t1, t2) <= 0;
+        }
+        public static bool operator >=(JsImplDateTime t1, JsImplDateTime t2)
+        {
+            return Compare(t1, t2) >= 0;
+        }
         public static TimeSpan operator -(JsImplDateTime t1, JsImplDateTime t2)
         {
-            return TimeSpan.FromMilliseconds(t1.date.getTime() - t2.date.getTime());
+            return TimeSpan.FromMilliseconds(t1.getTime() - t2.getTime());
         }
         public static JsImplDateTime operator -(JsImplDateTime t1, TimeSpan t2)
         {
-            return new JsImplDateTime(new JsDate((long)t1.date.getDate() - (long)t2.TotalMilliseconds));
+            return new JsDate((long)t1.getDate() - (long)t2.TotalMilliseconds).As<JsImplDateTime>();
         }
 
         public static TimeSpan operator +(JsImplDateTime t1, JsImplDateTime t2)
         {
-            return TimeSpan.FromMilliseconds(t1.date.getTime() + t2.date.getTime());
+            return TimeSpan.FromMilliseconds(t1.getTime() + t2.getTime());
         }
         public static JsImplDateTime operator +(JsImplDateTime t1, TimeSpan t2)
         {
-            return new JsImplDateTime(new JsDate((long)t1.date.getDate() + (long)t2.TotalMilliseconds));
+            return new JsDate((long)t1.getDate() + (long)t2.TotalMilliseconds).As<JsImplDateTime>();
         }
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            return obj.As<JsDate>().valueOf() == valueOf();
+        }
+
+        public override int GetHashCode()
+        {
+            return valueOf();
+        }
+
+        static int CompareJsDates(JsDate d1, JsDate d2)
+        {
+            if (d1 == d2)
+                return 0;
+            if (d1 == null)
+                return 1;
+            if (d2 == null)
+                return -1;
+            return d1.valueOf() - d2.valueOf();
+        }
+        public static JsImplDateTime Now
+        {
+            get
+            {
+                return new JsDate().As<JsImplDateTime>();
+            }
+        }
+
 
     }
 
-    [JsType(Filename = "~/Internal/Core.js")]
-    static class Extensions
+
+    [JsType(Name = "System.DateTimeKind", Filename = "~/Internal/Core.js", OmitInheritance = true)]
+    public enum DateTimeKind
     {
-
-        public static JsDate addMilliseconds(this JsDate date, int miliseconds)
-        {
-            var date2 = new JsDate(date.valueOf());
-            date2.setMilliseconds(date2.getMilliseconds() + miliseconds);
-            return date2;
-        }
-
-        public static JsDate addSeconds(this JsDate date, int seconds)
-        {
-            var date2 = new JsDate(date.valueOf());
-            date2.setSeconds(date2.getSeconds() + seconds);
-            return date2;
-        }
-
-        public static JsDate addMinutes(this JsDate date, int minutes)
-        {
-            var date2 = new JsDate(date.valueOf());
-            date2.setMinutes(date2.getMinutes() + minutes);
-            return date2;
-        }
-
-        public static JsDate addHours(this JsDate date, int hours)
-        {
-            var date2 = new JsDate(date.valueOf());
-            date2.setHours(date2.getHours() + hours);
-            return date2;
-        }
-
-        public static JsDate addDays(this JsDate date, JsNumber days)
-        {
-            var date2 = new JsDate(date.valueOf());
-            date2.setDate(date2.getDate() + days);
-            return date2;
-        }
-
-        public static JsDate addMonths(this JsDate date, JsNumber months)
-        {
-            var date2 = new JsDate(date.valueOf());
-            date2.setMonth(date2.getMonth() + months);
-            return date2;
-        }
-
-        public static JsDate addYears(this JsDate date, JsNumber years)
-        {
-            var date2 = new JsDate(date.valueOf());
-            date2.setMonth(date2.getFullYear() + years);
-            return date2;
-        }
-
-        public static JsDate removeTime(this JsDate date)
-        {
-            var date2 = new JsDate(date.getFullYear(), date.getMonth(), date.getDate());
-            return date2;
-        }
-
+        /// <summary>The time represented is not specified as either local time or Coordinated Universal Time (UTC).</summary>
+        Unspecified,
+        /// <summary>The time represented is UTC.</summary>
+        Utc,
+        /// <summary>The time represented is local time.</summary>
+        Local
     }
 }

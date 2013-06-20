@@ -223,61 +223,84 @@ JsTypes.push(System$ComponentModel$PropertyChangedEventArgs);
 var System$DateTime =
 {
     fullname: "System.DateTime",
-    baseTypeName: "System.Object",
+    baseTypeName: "Date",
     staticDefinition:
     {
         cctor: function ()
         {
             System.DateTime.MinValue = null;
+            System.DateTime.MaxValue = null;
+            System.DateTime.MinValue = new Date(0);
+            System.DateTime.MinValue.setUTCFullYear(1, 0, 1);
+            System.DateTime.MaxValue = new Date(0);
+            System.DateTime.MaxValue.setUTCFullYear(9999, 11, 31);
         },
         Parse$$String: function (str)
         {
-            return new System.DateTime.ctor$$Int64(Date.parse(str));
+            return Date.parse(str);
         },
         DaysInMonth: function (year, month)
         {
-            return 32 - new Date(year, month-1, 32).getDate();
+            return 32 - new Date(year, month - 1, 32).getDate();
         },
         Compare: function (t1, t2)
         {
-            return t1.date.valueOf() - t2.date.valueOf();
+            return t1.valueOf() - t2.valueOf();
+        },
+        op_Equality: function (t1, t2)
+        {
+            return System.DateTime.Compare(t1, t2) == 0;
+        },
+        op_Inequality: function (t1, t2)
+        {
+            return System.DateTime.Compare(t1, t2) != 0;
+        },
+        op_GreaterThan: function (t1, t2)
+        {
+            return System.DateTime.Compare(t1, t2) > 0;
+        },
+        op_LessThan: function (t1, t2)
+        {
+            return System.DateTime.Compare(t1, t2) < 0;
+        },
+        op_LessThanOrEqual: function (t1, t2)
+        {
+            return System.DateTime.Compare(t1, t2) <= 0;
+        },
+        op_GreaterThanOrEqual: function (t1, t2)
+        {
+            return System.DateTime.Compare(t1, t2) >= 0;
+        },
+        op_Subtraction$$DateTime$$DateTime: function (t1, t2)
+        {
+            return System.TimeSpan.FromMilliseconds(t1.getTime() - t2.getTime());
+        },
+        op_Subtraction$$DateTime$$TimeSpan: function (t1, t2)
+        {
+            return new Date(t1.getDate() - Cast(t2.get_TotalMilliseconds(), System.Int64.ctor));
+        },
+        op_Addition$$DateTime$$DateTime: function (t1, t2)
+        {
+            return System.TimeSpan.FromMilliseconds(t1.getTime() + t2.getTime());
+        },
+        op_Addition$$DateTime$$TimeSpan: function (t1, t2)
+        {
+            return new Date(t1.getDate() + Cast(t2.get_TotalMilliseconds(), System.Int64.ctor));
+        },
+        CompareJsDates: function (d1, d2)
+        {
+            if (d1 == d2)
+                return 0;
+            if (d1 == null)
+                return 1;
+            if (d2 == null)
+                return -1;
+            return d1.valueOf() - d2.valueOf();
         },
         Now$$: "SharpKit.JavaScript.Private.JsImplDateTime",
         get_Now: function ()
         {
-            return new System.DateTime.ctor$$Date(new Date());
-        },
-        op_Equality: function (t1, t2)
-        {
-            if (t1 == t2)
-                return true;
-            if (t1 == null || t2 == null)
-                return false;
-            return t1.date.getTime() == t2.date.getTime();
-        },
-        op_Inequality: function (t1, t2)
-        {
-            if (t1 != t2)
-                return true;
-            if (t1 == null || t2 == null)
-                return false;
-            return t1.date.getTime() != t2.date.getTime();
-        },
-        op_Subtraction$$DateTime$$DateTime: function (t1, t2)
-        {
-            return System.TimeSpan.FromMilliseconds(t1.date.getTime() - t2.date.getTime());
-        },
-        op_Subtraction$$DateTime$$TimeSpan: function (t1, t2)
-        {
-            return new System.DateTime.ctor$$Date(new Date(t1.date.getDate() - Cast(t2.get_TotalMilliseconds(), System.Int64.ctor)));
-        },
-        op_Addition$$DateTime$$DateTime: function (t1, t2)
-        {
-            return System.TimeSpan.FromMilliseconds(t1.date.getTime() + t2.date.getTime());
-        },
-        op_Addition$$DateTime$$TimeSpan: function (t1, t2)
-        {
-            return new System.DateTime.ctor$$Date(new Date(t1.date.getDate() + Cast(t2.get_TotalMilliseconds(), System.Int64.ctor)));
+            return new Date();
         }
     },
     assemblyName: "SharpKit.JsClr",
@@ -286,265 +309,64 @@ var System$DateTime =
     {
         ctor: function ()
         {
-            this.date = null;
-            System.Object.ctor.call(this);
-            this.date = System.DateTime.MinValue.date;
+            var x = System.DateTime.MinValue;
+            return x;
         },
-        ToJsDate: function ()
+        ctor$$Int64: function (ticks)
         {
-            return this.date;
+            throw $CreateException(new System.NotSupportedException.ctor$$String("Ticks are not available due to JavaScript number limitation"), new Error());
         },
         ctor$$Int32$$Int32$$Int32: function (year, month, day)
         {
-            this.date = null;
-            System.Object.ctor.call(this);
-            this.date = new Date();
-            this.set_Year(year);
-            this.set_Month(month);
-            this.set_Day(day);
+            var x = new Date();
+            x.set_Year(year);
+            x.set_Month(month);
+            x.set_Day(day);
+            return x;
         },
         ctor$$Int32$$Int32$$Int32$$Int32$$Int32$$Int32: function (year, month, day, hour, minute, second)
         {
-            this.date = null;
-            System.Object.ctor.call(this);
-            this.date = new Date();
-            this.set_Year(year);
-            this.set_Month(month);
-            this.set_Day(day);
-            this.set_Hour(hour);
-            this.set_Minute(minute);
-            this.set_Second(second);
+            var x = new Date();
+            x.set_Year(year);
+            x.set_Month(month);
+            x.set_Day(day);
+            x.set_Hour(hour);
+            x.set_Minute(minute);
+            x.set_Second(second);
+            return x;
         },
-        ctor$$Date: function (jsDate)
+        ctor$$Int32$$Int32$$Int32$$Int32$$Int32$$Int32$$DateTimeKind: function (year, month, day, hour, minute, second, kind)
         {
-            this.date = null;
-            System.Object.ctor.call(this);
-            if (jsDate != null)
-                this.date = jsDate;
-            else
-                this.date = System.DateTime.MinValue.date;
-        },
-        ctor$$Int64: function (jsDate)
-        {
-            this.date = null;
-            System.Object.ctor.call(this);
-            this.date = new Date(jsDate);
-        },
-        CompareTo: function (value)
-        {
-            return this.date.valueOf() - value.date.valueOf();
-        },
-        Year$$: "System.Int32",
-        get_Year: function ()
-        {
-            return this.date.getFullYear();
-        },
-        set_Year: function (value)
-        {
-            this.date.setFullYear(value);
-        },
-        Month$$: "System.Int32",
-        get_Month: function ()
-        {
-            return this.date.getMonth() + 1;
-        },
-        set_Month: function (value)
-        {
-            this.date.setMonth(value - 1);
-        },
-        Day$$: "System.Int32",
-        get_Day: function ()
-        {
-            return this.date.getDate();
-        },
-        set_Day: function (value)
-        {
-            this.date.setDate(value);
-        },
-        Hour$$: "System.Int32",
-        get_Hour: function ()
-        {
-            return this.date.getHours();
-        },
-        set_Hour: function (value)
-        {
-            this.date.setHours(value);
-        },
-        Minute$$: "System.Int32",
-        get_Minute: function ()
-        {
-            return this.date.getMinutes();
-        },
-        set_Minute: function (value)
-        {
-            this.date.setMinutes(value);
-        },
-        Second$$: "System.Int32",
-        get_Second: function ()
-        {
-            return this.date.getSeconds();
-        },
-        set_Second: function (value)
-        {
-            this.date.setSeconds(value);
-        },
-        Millisecond$$: "System.Int32",
-        get_Millisecond: function ()
-        {
-            return this.date.getMilliseconds();
-        },
-        set_Millisecond: function (value)
-        {
-            this.date.setMilliseconds(value);
-        },
-        DayOfWeek$$: "System.Int32",
-        get_DayOfWeek: function ()
-        {
-            return this.date.getDay();
-        },
-        toString: function ()
-        {
-            return this.date.toString();
-        },
-        AddDays: function (days)
-        {
-            return new System.DateTime.ctor$$Date(SharpKit.JavaScript.Private.Extensions.addDays(this.date, days));
-        },
-        AddMonths: function (months)
-        {
-            return new System.DateTime.ctor$$Date(SharpKit.JavaScript.Private.Extensions.addMonths(this.date, months));
-        },
-        AddHours: function (hours)
-        {
-            return new System.DateTime.ctor$$Date(SharpKit.JavaScript.Private.Extensions.addHours(this.date, hours));
-        },
-        AddMilliseconds: function (milliseconds)
-        {
-            return new System.DateTime.ctor$$Date(SharpKit.JavaScript.Private.Extensions.addMilliseconds(this.date, milliseconds));
-        },
-        AddMinutes: function (minutes)
-        {
-            return new System.DateTime.ctor$$Date(SharpKit.JavaScript.Private.Extensions.addMinutes(this.date, minutes));
-        },
-        AddSeconds: function (seconds)
-        {
-            return new System.DateTime.ctor$$Date(SharpKit.JavaScript.Private.Extensions.addSeconds(this.date, seconds));
-        },
-        AddYears: function (years)
-        {
-            return new System.DateTime.ctor$$Date(SharpKit.JavaScript.Private.Extensions.addYears(this.date, years));
-        },
-        Today$$: "SharpKit.JavaScript.Private.JsImplDateTime",
-        get_Today: function ()
-        {
-            return new System.DateTime.ctor$$Date(SharpKit.JavaScript.Private.Extensions.removeTime(new Date()));
-        },
-        Subtract$$DateTime: function (value)
-        {
-            var diff = this.date.valueOf() - value.date.valueOf();
-            return new System.TimeSpan.ctor$$Int64(diff * 10000);
-        },
-        Subtract$$TimeSpan: function (value)
-        {
-            var newDate = new Date(this.date.valueOf());
-            newDate.setMilliseconds(this.date.getMilliseconds() + value.get_TotalMilliseconds());
-            return new System.DateTime.ctor$$Date(newDate);
-        },
-        ToString$$String: function (format)
-        {
-            format = format.Replace$$String$$String("yyyy", this.get_Year().ToString$$String("0000"));
-            format = format.Replace$$String$$String("yyyy", this.get_Year().ToString$$String("00"));
-            format = format.Replace$$String$$String("y", this.get_Year().toString());
-            format = format.Replace$$String$$String("MM", this.get_Month().ToString$$String("00"));
-            format = format.Replace$$String$$String("M", this.get_Month().toString());
-            format = format.Replace$$String$$String("dd", this.get_Day().ToString$$String("00"));
-            format = format.Replace$$String$$String("d", this.get_Day().toString());
-            format = format.Replace$$String$$String("HH", this.get_Hour().ToString$$String("00"));
-            format = format.Replace$$String$$String("H", this.get_Hour().toString());
-            format = format.Replace$$String$$String("mm", this.get_Minute().ToString$$String("00"));
-            format = format.Replace$$String$$String("m", this.get_Minute().toString());
-            format = format.Replace$$String$$String("ss", this.get_Second().ToString$$String("00"));
-            format = format.Replace$$String$$String("s", this.get_Second().toString());
-            return format;
+            var x = new Date();
+            x._Kind = kind;
+            x.set_Year(year);
+            x.set_Month(month);
+            x.set_Day(day);
+            x.set_Hour(hour);
+            x.set_Minute(minute);
+            x.set_Second(second);
+            return x;
         },
         Equals$$Object: function (obj)
         {
-            if (!(Is(obj, System.DateTime.ctor)))
+            if (obj == null)
                 return false;
-            return this.date.Equals((Cast(obj, System.DateTime.ctor)).date);
+            return obj.valueOf() == this.valueOf();
         },
         GetHashCode: function ()
         {
-            return this.date.GetHashCode();
+            return this.valueOf();
         }
     }
 };
 JsTypes.push(System$DateTime);
-var SharpKit$JavaScript$Private$Extensions =
+var System$DateTimeKind =
 {
-    fullname: "SharpKit.JavaScript.Private.Extensions",
-    baseTypeName: "System.Object",
-    staticDefinition:
-    {
-        addMilliseconds: function (date, miliseconds)
-        {
-            var date2 = new Date(date.valueOf());
-            date2.setMilliseconds(date2.getMilliseconds() + miliseconds);
-            return date2;
-        },
-        addSeconds: function (date, seconds)
-        {
-            var date2 = new Date(date.valueOf());
-            date2.setSeconds(date2.getSeconds() + seconds);
-            return date2;
-        },
-        addMinutes: function (date, minutes)
-        {
-            var date2 = new Date(date.valueOf());
-            date2.setMinutes(date2.getMinutes() + minutes);
-            return date2;
-        },
-        addHours: function (date, hours)
-        {
-            var date2 = new Date(date.valueOf());
-            date2.setHours(date2.getHours() + hours);
-            return date2;
-        },
-        addDays: function (date, days)
-        {
-            var date2 = new Date(date.valueOf());
-            date2.setDate(date2.getDate() + days);
-            return date2;
-        },
-        addMonths: function (date, months)
-        {
-            var date2 = new Date(date.valueOf());
-            date2.setMonth(date2.getMonth() + months);
-            return date2;
-        },
-        addYears: function (date, years)
-        {
-            var date2 = new Date(date.valueOf());
-            date2.setMonth(date2.getFullYear() + years);
-            return date2;
-        },
-        removeTime: function (date)
-        {
-            var date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-            return date2;
-        }
-    },
-    assemblyName: "SharpKit.JsClr",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
-            System.Object.ctor.call(this);
-        }
-    }
+    fullname: "System.DateTimeKind",
+    staticDefinition: {Unspecified: "Unspecified", Utc: "Utc", Local: "Local"},
+    Kind: "Enum"
 };
-JsTypes.push(SharpKit$JavaScript$Private$Extensions);
+JsTypes.push(System$DateTimeKind);
 var System$Delegate =
 {
     fullname: "System.Delegate",
@@ -1125,6 +947,227 @@ var System$IComparable$1 = {fullname: "System.IComparable$1", baseTypeName: "Sys
 JsTypes.push(System$IComparable$1);
 var System$IEquatable$1 = {fullname: "System.IEquatable$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
 JsTypes.push(System$IEquatable$1);
+Date.prototype.CompareTo = function (value)
+{
+    return this.valueOf() - value.valueOf();
+};
+Date.prototype.get_Year = function ()
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        return this.getUTCFullYear();
+    return this.getFullYear();
+};
+Date.prototype.set_Year = function (value)
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        this.setUTCFullYear(value);
+    else
+        this.setFullYear(value);
+};
+Date.prototype.get_Month = function ()
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        return this.getUTCMonth() + 1;
+    return this.getMonth() + 1;
+};
+Date.prototype.set_Month = function (value)
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        this.setUTCMonth(value - 1);
+    else
+        this.setMonth(value - 1);
+};
+Date.prototype.get_Day = function ()
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        return this.getUTCDate();
+    return this.getDate();
+};
+Date.prototype.set_Day = function (value)
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        this.setUTCDate(value);
+    else
+        this.setDate(value);
+};
+Date.prototype.get_Hour = function ()
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        return this.getUTCHours();
+    return this.getHours();
+};
+Date.prototype.set_Hour = function (value)
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        this.setUTCHours(value);
+    else
+        this.setHours(value);
+};
+Date.prototype.get_Minute = function ()
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        return this.getUTCMinutes();
+    return this.getMinutes();
+};
+Date.prototype.set_Minute = function (value)
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        this.setUTCMinutes(value);
+    else
+        this.setMinutes(value);
+};
+Date.prototype.get_Second = function ()
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        return this.getUTCSeconds();
+    return this.getSeconds();
+};
+Date.prototype.set_Second = function (value)
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        this.setUTCSeconds(value);
+    else
+        this.setSeconds(value);
+};
+Date.prototype.get_Millisecond = function ()
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        return this.getUTCMilliseconds();
+    return this.getMilliseconds();
+};
+Date.prototype.set_Millisecond = function (value)
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        this.setUTCMilliseconds(value);
+    else
+        this.setMilliseconds(value);
+};
+Date.prototype.get_DayOfWeek = function ()
+{
+    return this.getDay();
+};
+Date.prototype.ToLocalTime = function ()
+{
+    if (this._Kind != System.DateTimeKind.Utc)
+        return this;
+    var x = this.Clone();
+    x._Kind = System.DateTimeKind.Local;
+    return x;
+};
+Date.prototype.ToUniversalTime = function ()
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        return this;
+    var x = this.Clone();
+    x._Kind = System.DateTimeKind.Utc;
+    return x;
+};
+Date.prototype.get_Today = function ()
+{
+    return new Date().RemoveTime();
+};
+Date.prototype.Subtract$$DateTime = function (value)
+{
+    var diff = this.valueOf() - value.valueOf();
+    return new System.TimeSpan.ctor$$Int64(diff * 10000);
+};
+Date.prototype.Subtract$$TimeSpan = function (value)
+{
+    var newDate = this.Clone();
+    newDate.setMilliseconds(this.getMilliseconds() + value.get_TotalMilliseconds());
+    return newDate;
+};
+Date.prototype.ToString$$String = function (format)
+{
+    format = format.Replace$$String$$String("yyyy", this.get_Year().ToString$$String("0000"));
+    format = format.Replace$$String$$String("yyyy", this.get_Year().ToString$$String("00"));
+    format = format.Replace$$String$$String("y", this.get_Year().toString());
+    format = format.Replace$$String$$String("MM", this.get_Month().ToString$$String("00"));
+    format = format.Replace$$String$$String("M", this.get_Month().toString());
+    format = format.Replace$$String$$String("dd", this.get_Day().ToString$$String("00"));
+    format = format.Replace$$String$$String("d", this.get_Day().toString());
+    format = format.Replace$$String$$String("HH", this.get_Hour().ToString$$String("00"));
+    format = format.Replace$$String$$String("H", this.get_Hour().toString());
+    format = format.Replace$$String$$String("mm", this.get_Minute().ToString$$String("00"));
+    format = format.Replace$$String$$String("m", this.get_Minute().toString());
+    format = format.Replace$$String$$String("ss", this.get_Second().ToString$$String("00"));
+    format = format.Replace$$String$$String("s", this.get_Second().toString());
+    return format;
+};
+Date.prototype.Clone = function ()
+{
+    var x = new Date(this.valueOf());
+    x._Kind = this._Kind;
+    return x;
+};
+Date.prototype.AddMilliseconds = function (miliseconds)
+{
+    var date2 = this.Clone();
+    date2.setMilliseconds(date2.getMilliseconds() + miliseconds);
+    return date2;
+};
+Date.prototype.AddSeconds = function (seconds)
+{
+    var date2 = this.Clone();
+    date2.setSeconds(date2.getSeconds() + seconds);
+    return date2;
+};
+Date.prototype.AddMinutes = function (minutes)
+{
+    var date2 = this.Clone();
+    date2.setMinutes(date2.getMinutes() + minutes);
+    return date2;
+};
+Date.prototype.AddHours = function (hours)
+{
+    var date2 = this.Clone();
+    date2.setHours(date2.getHours() + hours);
+    return date2;
+};
+Date.prototype.AddDays = function (days)
+{
+    var date2 = this.Clone();
+    date2.setDate(date2.getDate() + days);
+    return date2;
+};
+Date.prototype.AddMonths = function (months)
+{
+    var date2 = this.Clone();
+    date2.setMonth(date2.getMonth() + months);
+    return date2;
+};
+Date.prototype.AddYears = function (years)
+{
+    var date2 = this.Clone();
+    date2.setMonth(date2.getFullYear() + years);
+    return date2;
+};
+Date.prototype.RemoveTime = function ()
+{
+    var date2 = this.Clone();
+    date2.setHours(0, 0, 0, 0);
+    return date2;
+};
+Date.prototype.Equals$$Object = function (obj)
+{
+    if (obj == null)
+        return false;
+    return obj.valueOf() == this.valueOf();
+};
+Date.prototype.GetHashCode = function ()
+{
+    return this.valueOf();
+};
+Date.prototype.GetType = function ()
+{
+    return Typeof(System.DateTime.ctor);
+};
+Date.prototype.get_Kind = function ()
+{
+    if (this._Kind == null)
+        return System.DateTimeKind.Local;
+    return this._Kind;
+};
 var System$Nullable$1 =
 {
     fullname: "System.Nullable$1",
