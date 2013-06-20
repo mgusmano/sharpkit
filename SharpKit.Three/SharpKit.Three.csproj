@@ -25,6 +25,8 @@
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AxisHelper.cs" />
+    <Compile Include="BoxHelper.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="CircleGeometry.cs" />
     <Compile Include="Color.cs" />
@@ -33,10 +35,20 @@
     <Compile Include="Face3.cs" />
     <Compile Include="Face4.cs" />
     <Compile Include="GeometryUtils.cs" />
+    <Compile Include="GridHelper.cs" />
+    <Compile Include="ImageUtils.cs" />
     <Compile Include="JSONLoader.cs" />
+    <Compile Include="Line.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="MeshFaceMaterial.cs" />
+    <Compile Include="ParticleBasicMaterial.cs" />
+    <Compile Include="ParticleSystem.cs" />
+    <Compile Include="ShaderMaterial.cs" />
     <Compile Include="Shape.cs" />
+    <Compile Include="Side.cs" />
+    <Compile Include="TrackballControls.cs" />
+    <Compile Include="TypeValue.cs" />
+    <Compile Include="Uniforms.cs" />
     <Compile Include="UV.cs" />
     <Compile Include="Vector2.cs" />
     <Compile Include="CubeGeometry.cs" />

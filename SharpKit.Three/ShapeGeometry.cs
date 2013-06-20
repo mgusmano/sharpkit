@@ -14,7 +14,7 @@ namespace THREE
         public void addShape(Shape shape, ShapeGeometryOptions options){}
     }
 
-    [JsType(JsMode.Prototype, Export = false)]
+    [JsType(JsMode.Json, Export = false)]
     public struct ShapeGeometryOptions
     {
         public JsNumber curveSegments;  // number of points on the curves. NOT USED AT THE MOMENT.

@@ -5,6 +5,7 @@ using System.Linq;
 
 using SharpKit.Html;
 using SharpKit.JavaScript;
+using SharpKit.Three;
 
 namespace THREE
 {
@@ -31,6 +32,8 @@ namespace THREE
         public JsNumber alphaTest { get; set; }
         public JsNumber overdraw { get; set; }
 
+        public JsBoolean needsUpdate;
+        public Side side { get; set; }
         //methods
         //todo missing methods
 

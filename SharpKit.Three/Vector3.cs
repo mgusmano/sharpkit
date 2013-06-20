@@ -20,8 +20,7 @@ namespace THREE
         public Vector3 setZ(JsNumber z) { return null; }
         public Vector3 copy(Vector3 v) { return null; }
         public Vector3 clone() { return null; }
-        public Vector3 add(Vector3 v1, Vector3 v2) { return null; }
-        public Vector3 addSelf(Vector3 v) { return null; }
+        public Vector3 add(Vector3 v1) { return null; }
         public Vector3 addScalar(JsNumber s) { return null; }
         public Vector3 sub(Vector3 v1, Vector3 v2) { return null; }
         public Vector3 subSelf(Vector3 v) { return null; }

@@ -35,4 +35,12 @@ namespace THREE
         public JsNumber overdraw { get; set; }
 
     }
+
+    [JsType(JsMode.Json, Export = false)]
+    public class ShaderMaterialOptions : MaterialOptions
+    {
+        public string fragmentShader { get; set; }
+        public string vertexShader { get; set; }
+        public object uniforms { get; set; } //TODO:add uniform type
+    }
 }

@@ -12,5 +12,6 @@ namespace THREE
     public class MeshLambertMaterialOptions
     {
         public JsNumber color { get; set; }
+        public JsNumber emissive { get; set; }
     }
 }

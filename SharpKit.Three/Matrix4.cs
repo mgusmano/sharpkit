@@ -13,6 +13,11 @@ namespace THREE
     {
         public Matrix4(JsNumber n11, JsNumber n12, JsNumber n13, JsNumber n14, JsNumber n21, JsNumber n22, JsNumber n23, JsNumber n24, JsNumber n31, JsNumber n32, JsNumber n33, JsNumber n34, JsNumber n41, JsNumber n42, JsNumber n43, JsNumber n44 ){}
 
+        public Matrix4()
+        {
+            
+        }
+
         public JsNumber n11 { get; set; }
         public JsNumber n12 { get; set; }
         public JsNumber n13 { get; set; }
@@ -38,5 +43,9 @@ namespace THREE
         public Matrix4 multiplySelf(Matrix4 m) { return null; }
         public Matrix4 multiplyToArray(Matrix4 a, Matrix4 b, JsNumber[] r) { return null; }
 
+        public Matrix4 makeRotationFromEuler(Vector3 vector3)
+        {
+            return null;
+        }
     }
 }

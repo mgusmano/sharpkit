@@ -27,6 +27,10 @@ namespace THREE
         public JsNumber y { get; set; }
         public JsNumber width { get; set; }
         public JsNumber height { get; set; }
-        
+
+        public void rotateOnAxis(object o, double d)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
