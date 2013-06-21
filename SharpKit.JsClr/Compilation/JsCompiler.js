@@ -403,8 +403,7 @@ JsCompiler.Compile_Phase2 = function ()
 JsCompiler.Compile_Phase2_TmpType = function (tmpType)
 {
     var p = tmpType.fullname;
-    var type = null;
-    type = JsCompiler.CompileType(tmpType);
+    var type = JsCompiler.CompileType(tmpType);
     if (type != null)
         JsCompiler.CopyMemberIfNotDefined(type, type.fullname, window);
     if (type.ns != null)
