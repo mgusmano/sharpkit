@@ -86,6 +86,7 @@
     <Content Include="Constructors\Constructors.js" />
     <Content Include="CustomAttributes\Class1.js" />
     <Content Include="Default\Default.js" />
+    <Content Include="Delegates\Delegates.js" />
     <Content Include="Dynamics\Dynamics.js" />
     <Content Include="Enums\Enums.js" />
     <Content Include="Events\CustomEvents.js" />

@@ -13,7 +13,7 @@ var CoreTests$Properties_$ClrParameterizedTest =
                 var $v1 = new CoreTests.Properties_.ClrClass.ctor();
                 $v1.set_Property(5);
                 return $v1;
-            }).call(this);
+            })();
         }
     },
     assemblyName: "CoreTests",
