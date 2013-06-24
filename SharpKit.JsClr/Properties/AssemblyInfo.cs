@@ -44,7 +44,7 @@ using SharpKit.JavaScript;
 	"Internal/CoreEx.js",
 })]
 
-[assembly: JsMergedFile(Filename = "res/jsclr-4.1.0.js", Sources = new string[]
+[assembly: JsMergedFile(Filename = "res/jsclr.js", Sources = new string[]
 {
 	"res/System.js",
 	"res/System.IO.js",
@@ -57,6 +57,6 @@ using SharpKit.JavaScript;
 	"res/System.Ext.js"
 })]
 
-[assembly: JsMergedFile(Filename = "res/jsclr-4.1.0.min.js", Sources = new string[] { "res/jsclr-4.1.0.js" }, Minify = true)]
+[assembly: JsMergedFile(Filename = "res/jsclr.min.js", Sources = new string[] { "res/jsclr.js" }, Minify = true)]
 
 [assembly: JsExport(UseStrict = true)]
