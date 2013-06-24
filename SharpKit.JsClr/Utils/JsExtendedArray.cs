@@ -64,11 +64,11 @@ namespace SharpKit.JavaScript
 			throw new NotImplementedException();
 		}
 
-		[JsMethod(NativeOverloads = true)]
-		public int indexOf(object value)
-		{
-			throw new NotImplementedException();
-		}
+        //[JsMethod(NativeOverloads = true)]
+        //public int indexOf(object value)
+        //{
+        //    throw new NotImplementedException();
+        //}
 		[JsMethod(NativeOverloads = true)]
 		public void insert(int index, object value)
 		{

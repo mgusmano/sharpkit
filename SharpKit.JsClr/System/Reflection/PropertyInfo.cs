@@ -13,6 +13,16 @@ namespace SharpKit.JavaScript.Private
 	[JsType(Name = "System.Reflection.PropertyInfo", Filename = "~/res/System.Reflection.js")]
 	internal class JsImplPropertyInfo : JsImplMemberInfo
 	{
+        [JsMethod(Export=false)]
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+        [JsMethod(Export = false)]
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         // System.Reflection.PropertyInfo
         /// <summary>Indicates whether two <see cref="T:System.Reflection.PropertyInfo" /> objects are equal.</summary>
         /// <returns>true if <paramref name="left" /> is equal to <paramref name="right" />; otherwise, false.</returns>
