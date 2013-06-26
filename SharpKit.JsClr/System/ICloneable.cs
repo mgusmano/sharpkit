@@ -6,7 +6,7 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.JavaScript.Private
 {
-    [JsType(Name = "System.ICloneable")]
+    [JsType(Name = "System.DateTime", Filename = "~/Internal/Core.js")]
     public interface JsImplICloneable
     {
         object Clone();
