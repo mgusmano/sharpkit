@@ -733,9 +733,9 @@ JsTypeHelper._GetTypeWithArguments = function (typeName, throwIfNotFound)
         var type = JsTypeHelper.GetType(args[0], throwIfNotFound);
         if (type == null)
             return null;
-        var res = [];
+        var res = new Array(0);
         res.push(type);
-        var typeArgs = [];
+        var typeArgs = new Array(0);
         for (var i = 0; i < args[1].length; i++)
         {
             var typeArg = JsTypeHelper.GetType(args[1][i][0], throwIfNotFound);
@@ -6556,7 +6556,7 @@ var System$Type =
             this._JsType = jsType;
             this._Name = this._JsType.name;
             if (System.Type.EmptyTypes == null)
-                System.Type.EmptyTypes = [];
+                System.Type.EmptyTypes = new Array(0);
         },
         IsEnum$$: "System.Boolean",
         get_IsEnum: function ()
@@ -6852,7 +6852,7 @@ var System$Type =
         },
         toString: function ()
         {
-            return System.String.Format$$String$$Object$Array("{Name = " + this.get_Name() + " FullName = " + this.get_FullName() + "}", []);
+            return System.String.Format$$String$$Object$Array("{Name = " + this.get_Name() + " FullName = " + this.get_FullName() + "}", new Array(0));
         },
         MakeGenericType: function (typeArguments)
         {
@@ -7275,7 +7275,7 @@ var System$Text$StringBuilder =
             this.array = null;
             this.length = 0;
             System.Object.ctor.call(this);
-            this.array = [];
+            this.array = new Array(0);
             this.length = 0;
         },
         ctor$$String: function (s)

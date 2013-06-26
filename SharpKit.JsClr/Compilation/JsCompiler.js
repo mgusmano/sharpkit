@@ -727,9 +727,9 @@ JsTypeHelper._GetTypeWithArguments = function (typeName, throwIfNotFound)
         var type = JsTypeHelper.GetType(args[0], throwIfNotFound);
         if (type == null)
             return null;
-        var res = [];
+        var res = new Array(0);
         res.push(type);
-        var typeArgs = [];
+        var typeArgs = new Array(0);
         for (var i = 0; i < args[1].length; i++)
         {
             var typeArg = JsTypeHelper.GetType(args[1][i][0], throwIfNotFound);

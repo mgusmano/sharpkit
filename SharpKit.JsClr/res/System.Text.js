@@ -29,7 +29,7 @@ var System$Text$StringBuilder =
             this.array = null;
             this.length = 0;
             System.Object.ctor.call(this);
-            this.array = [];
+            this.array = new Array(0);
             this.length = 0;
         },
         ctor$$String: function (s)

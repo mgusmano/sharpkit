@@ -303,7 +303,7 @@ var System$Type =
             this._JsType = jsType;
             this._Name = this._JsType.name;
             if (System.Type.EmptyTypes == null)
-                System.Type.EmptyTypes = [];
+                System.Type.EmptyTypes = new Array(0);
         },
         IsEnum$$: "System.Boolean",
         get_IsEnum: function ()
@@ -599,7 +599,7 @@ var System$Type =
         },
         toString: function ()
         {
-            return System.String.Format$$String$$Object$Array("{Name = " + this.get_Name() + " FullName = " + this.get_FullName() + "}", []);
+            return System.String.Format$$String$$Object$Array("{Name = " + this.get_Name() + " FullName = " + this.get_FullName() + "}", new Array(0));
         },
         MakeGenericType: function (typeArguments)
         {
