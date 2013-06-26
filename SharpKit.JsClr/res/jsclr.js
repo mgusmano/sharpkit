@@ -1775,8 +1775,8 @@ var System$ArgumentOutOfRangeException =
     }
 };
 JsTypes.push(System$ArgumentOutOfRangeException);
-var System$DateTime = {fullname: "System.DateTime", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
-JsTypes.push(System$DateTime);
+var System$ICloneable = {fullname: "System.ICloneable", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$ICloneable);
 var System$IDisposable = {fullname: "System.IDisposable", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
 JsTypes.push(System$IDisposable);
 var System$IComparable$1 = {fullname: "System.IComparable$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
