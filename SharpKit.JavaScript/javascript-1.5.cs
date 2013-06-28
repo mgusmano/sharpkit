@@ -6,15 +6,31 @@ using System.Collections.Generic;
 using SharpKit.JavaScript;
 using System.ComponentModel;
 
+//Object
 [assembly: JsType(TargetType = typeof(object), OmitCasts = true)]
 [assembly: JsMethod(TargetType = typeof(object), TargetMethod = "ToString", Name = "toString")]
 
+
+//Numbers
+[assembly: JsType(TargetType = typeof(int), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(byte), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(short), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(double), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(float), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(uint), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(ushort), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(decimal), OmitCasts = true)]
+
+//Type
 [assembly: JsType(TargetType = typeof(Type), NativeOperatorOverloads = true)]
 
-
+//Delegate
 [assembly: JsType(TargetType = typeof(Delegate), NativeOperatorOverloads = true)]
 [assembly: JsType(TargetType = typeof(MulticastDelegate), NativeOperatorOverloads = true)]
+[assembly: JsMethod(TargetType = typeof(Delegate), TargetMethod = "Combine", Name = "$CombineDelegates", Global = true, NativeOverloads = true)]
+[assembly: JsMethod(TargetType = typeof(Delegate), TargetMethod = "Remove", Name = "$RemoveDelegate", Global = true, NativeOverloads = true)]
 
+//String
 [assembly: JsType(JsMode.Clr, TargetType = typeof(string), NativeParams = true, NativeOperatorOverloads = true)]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "Format", NativeParams = false)]
 [assembly: JsMethod(TargetType = typeof(string), TargetMethod = "ToUpper", Name = "toUpperCase")]
@@ -28,11 +44,10 @@ using System.ComponentModel;
 //[assembly: JsProperty(TargetType = typeof(string), TargetProperty = "Chars", Name = "charAt", NativeField = true)]
 [assembly: JsProperty(TargetType = typeof(string), TargetProperty = "Length", Name = "length", NativeField = true)]
 
+//Array
 [assembly: JsType(JsMode.Prototype, TargetType = typeof(Array), NativeArrayEnumerator = true, NativeEnumerator = false, Export = false)]
 //[assembly: JsMethod(TargetType = typeof(Array), TargetMethod = "get_Length", Name = "length", OmitParanthesis = true)]
 [assembly: JsProperty(TargetType = typeof(Array), TargetProperty = "Length", Name = "length", NativeField = true)]
-[assembly: JsMethod(TargetType = typeof(Delegate), TargetMethod = "Combine", Name = "$CombineDelegates", Global = true, NativeOverloads = true)]
-[assembly: JsMethod(TargetType = typeof(Delegate), TargetMethod = "Remove", Name = "$RemoveDelegate", Global = true, NativeOverloads = true)]
 
 
 namespace SharpKit.JavaScript
