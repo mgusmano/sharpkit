@@ -533,7 +533,6 @@ JsTypes.push({ fullname: "System.String", baseTypeName: "System.Object", definit
 }, staticDefinition:
 {
 	Empty: "",
-	FormatCache: [],
     Format: function (format, varargs)
     {
         var format = arguments[0];
@@ -545,16 +544,20 @@ JsTypes.push({ fullname: "System.String", baseTypeName: "System.Object", definit
         return format;
     },
     Format$$String$$Object$Array: function (format, argsArray){
-		return System.String.Format(format, argsArray);
-	},
+        for (var i = 0; i < argsArray.length; i++) {
+            var str = '{' + i + '}';
+            format = format.split(str).join(argsArray[i]);
+        }
+        return format;
+    },
 	Format$$String$$Object$$Object$$Object: function (s, obj1, obj2, obj3) {
-	    return System.String.Format(s, [obj1, obj2, obj3]);
+	    return System.String.Format$$String$$Object$Array(s, [obj1, obj2, obj3]);
 	},
 	Format$$String$$Object$$Object: function (s, obj1, obj2) {
-	    return System.String.Format(s, [obj1, obj2]);
+	    return System.String.Format$$String$$Object$Array(s, [obj1, obj2]);
 	},
 	Format$$String$$Object: function (s, obj1) {
-	    return System.String.Format(s, [obj1]);
+	    return System.String.Format$$String$$Object$Array(s, [obj1]);
 	},
 	Join$$String$$String$Array: function (separator, values) {
 		return values.join(separator);
