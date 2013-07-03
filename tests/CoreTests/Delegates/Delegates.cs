@@ -14,4 +14,21 @@ namespace CoreTests.Delegates
             Action x = foo;
         }
     }
+
+
+    public delegate string SomeDelegate();
+    [JsType(JsMode.Prototype)]
+    public class Class1
+    {
+        public Class1() { }
+
+        public static SomeDelegate DelegateProp = delegate()
+        {
+            return "test";
+        };
+        public  SomeDelegate DelegateProp2 = delegate()
+        {
+            return "test";
+        };
+    }
 }
