@@ -31,4 +31,26 @@ namespace CoreTests.Delegates
             return "test";
         };
     }
+
+
+
+    [JsType(JsMode.Clr)]
+    public class Circle<T>
+    {
+        public Circle(Func<T, T, int> func)
+        {
+        }
+    }
+
+    [JsType(JsMode.Clr)]
+    public class Boxes
+    {
+        Circle<int> circle = new Circle<int>((a, b) => a + b);
+
+        public Boxes()
+        {
+        }
+    }
+
+
 }
