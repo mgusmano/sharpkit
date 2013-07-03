@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.Testing", "SharpKi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "skt", "skt\skt.csproj", "{B0567C5D-57E9-4D3F-8E0C-CECABF1DF805}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoClrTests", "NoClrTests\NoClrTests.csproj", "{82CA561E-89B5-4D06-AAD6-6FB4E8AD949F}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -51,6 +53,16 @@ Global
 		{B0567C5D-57E9-4D3F-8E0C-CECABF1DF805}.Release|Mixed Platforms.Build.0 = Release|x86
 		{B0567C5D-57E9-4D3F-8E0C-CECABF1DF805}.Release|x86.ActiveCfg = Release|x86
 		{B0567C5D-57E9-4D3F-8E0C-CECABF1DF805}.Release|x86.Build.0 = Release|x86
+		{82CA561E-89B5-4D06-AAD6-6FB4E8AD949F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82CA561E-89B5-4D06-AAD6-6FB4E8AD949F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82CA561E-89B5-4D06-AAD6-6FB4E8AD949F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{82CA561E-89B5-4D06-AAD6-6FB4E8AD949F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{82CA561E-89B5-4D06-AAD6-6FB4E8AD949F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{82CA561E-89B5-4D06-AAD6-6FB4E8AD949F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82CA561E-89B5-4D06-AAD6-6FB4E8AD949F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82CA561E-89B5-4D06-AAD6-6FB4E8AD949F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{82CA561E-89B5-4D06-AAD6-6FB4E8AD949F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{82CA561E-89B5-4D06-AAD6-6FB4E8AD949F}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
