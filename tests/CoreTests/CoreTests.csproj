@@ -50,6 +50,7 @@
     <Compile Include="Methods\Params.cs" />
     <Compile Include="NativeJs\JsDateTest.cs" />
     <Compile Include="Numbers\Numbers.cs" />
+    <Compile Include="OperatorOverloads\OperatorOverloads.cs" />
     <Compile Include="OutRefParameters\Class4.cs" />
     <Compile Include="ForEach\Class5.cs" />
     <Compile Include="Properties_\Class6.cs" />
@@ -107,6 +108,7 @@
     <Content Include="Methods\Params.js" />
     <Content Include="NativeJs\JsDateTest.js" />
     <Content Include="Numbers\Numbers.js" />
+    <Content Include="OperatorOverloads\OperatorOverloads.js" />
     <Content Include="OutRefParameters\Class4.js" />
     <Content Include="Params\Params.js" />
     <Content Include="Properties_\Class6.js" />
