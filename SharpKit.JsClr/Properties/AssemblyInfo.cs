@@ -36,6 +36,15 @@ using SharpKit.JavaScript;
 [assembly: AssemblyVersion("4.1.0.0")]
 [assembly: AssemblyFileVersion("4.30.2000")]
 
+[assembly: JsType(TargetType = typeof(int), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(byte), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(char), OmitCasts = true)]     // Dan-el, 'char' was missing from your list you sent me, required for Guid
+[assembly: JsType(TargetType = typeof(short), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(double), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(float), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(uint), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(ushort), OmitCasts = true)]
+[assembly: JsType(TargetType = typeof(decimal), OmitCasts = true)]
 
 [assembly: JsMergedFile(Filename = "res/System.js", Sources = new string[]
 {
