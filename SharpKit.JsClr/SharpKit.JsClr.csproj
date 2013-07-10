@@ -48,6 +48,13 @@
     <Compile Include="System\Collections\Interfaces.cs" />
     <Compile Include="System\Collections\Generic\JsArrayEnumerator.cs" />
     <Compile Include="System\Collections\NotifyCollectionChangedEventArgs.cs" />
+    <Compile Include="System\Collections\ObjectModel\Collection.cs" />
+    <Compile Include="System\Collections\ObjectModel\ObservableCollection.cs" />
+    <Compile Include="System\Collections\ObjectModel\ReadOnlyCollection.cs" />
+    <Compile Include="System\Collections\ObjectModel\ReadOnlyObservableCollection.cs" />
+    <Compile Include="System\Collections\Specialized\Interfaces.cs" />
+    <Compile Include="System\Collections\Specialized\NotifyCollectionChangedEventArgs.cs" />
+    <Compile Include="System\ComponentModel\AsyncCompletedEventArgs.cs" />
     <Compile Include="System\ComponentModel\CancelEventArgs.cs" />
     <Compile Include="System\ComponentModel\ListSortDirection.cs" />
     <Compile Include="System\ComponentModel\PropertyChangedEventArgs.cs" />
@@ -61,6 +68,7 @@
     <Compile Include="System\EventArgs.cs" />
     <Compile Include="System\Exception.cs" />
     <Compile Include="System\Exceptions.cs" />
+    <Compile Include="System\Guid.cs" />
     <Compile Include="System\ICloneable.cs" />
     <Compile Include="System\IDisposable.cs" />
     <Compile Include="System\Interfaces.cs" />

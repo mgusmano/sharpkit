@@ -139,6 +139,26 @@ namespace SharpKit.JavaScript.Private
                     setMilliseconds(value);
             }
         }
+        
+        // WARNING
+        // the Ticks property currently has a resolution of 1 millisecond only!
+        public long Ticks
+        {
+            get
+            {
+                if (_Kind == DateTimeKind.Utc)
+                    return getUTCMilliseconds() * 10000;
+                return getMilliseconds() * 10000;
+            }
+            set
+            {
+                double milliseconds = value / 10000;
+                if (_Kind == DateTimeKind.Utc)
+                    setUTCMilliseconds(milliseconds);
+                else
+                    setMilliseconds(milliseconds);
+            }
+        }
 
         //TODO: JS Enums problem (DayOfWeek)
         public int DayOfWeek

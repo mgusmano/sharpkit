@@ -150,6 +150,15 @@ namespace SharpKit.JavaScript.Private
             }
         }
 
+        public static JsImplDateTime UtcNow
+        {
+            get
+            {
+#warning to be implemented correctly
+              return Now;
+            }
+        }
+
 
     }
 

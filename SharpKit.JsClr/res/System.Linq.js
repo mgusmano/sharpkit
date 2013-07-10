@@ -77,10 +77,10 @@ var System$Linq$Enumerable =
             {
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
             }
-            var $it2 = source.GetEnumerator();
-            while ($it2.MoveNext())
+            var $it5 = source.GetEnumerator();
+            while ($it5.MoveNext())
             {
-                var local = $it2.get_Current();
+                var local = $it5.get_Current();
                 if (predicate(local))
                 {
                     return local;
@@ -129,10 +129,10 @@ var System$Linq$Enumerable =
             {
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
             }
-            var $it3 = source.GetEnumerator();
-            while ($it3.MoveNext())
+            var $it6 = source.GetEnumerator();
+            while ($it6.MoveNext())
             {
-                var local = $it3.get_Current();
+                var local = $it6.get_Current();
                 if (predicate(local))
                 {
                     return local;
@@ -173,10 +173,10 @@ var System$Linq$Enumerable =
                 throw $CreateException(System.Linq.Error.ArgumentNull("source"), new Error());
             if (predicate == null)
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
-            var $it4 = source.GetEnumerator();
-            while ($it4.MoveNext())
+            var $it7 = source.GetEnumerator();
+            while ($it7.MoveNext())
             {
-                var local = $it4.get_Current();
+                var local = $it7.get_Current();
                 if (predicate(local))
                     return local;
             }
@@ -215,10 +215,10 @@ var System$Linq$Enumerable =
                 throw $CreateException(System.Linq.Error.ArgumentNull("source"), new Error());
             if (predicate == null)
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
-            var $it5 = source.GetEnumerator();
-            while ($it5.MoveNext())
+            var $it8 = source.GetEnumerator();
+            while ($it8.MoveNext())
             {
-                var local = $it5.get_Current();
+                var local = $it8.get_Current();
                 if (predicate(local))
                     return local;
             }
@@ -273,10 +273,10 @@ var System$Linq$Enumerable =
             }
             var local = Default(TSource);
             var flag = false;
-            var $it6 = source.GetEnumerator();
-            while ($it6.MoveNext())
+            var $it9 = source.GetEnumerator();
+            while ($it9.MoveNext())
             {
-                var local2 = $it6.get_Current();
+                var local2 = $it9.get_Current();
                 if (predicate(local2))
                 {
                     local = local2;
@@ -337,10 +337,10 @@ var System$Linq$Enumerable =
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
             }
             var local = Default(TSource);
-            var $it7 = source.GetEnumerator();
-            while ($it7.MoveNext())
+            var $it10 = source.GetEnumerator();
+            while ($it10.MoveNext())
             {
-                var local2 = $it7.get_Current();
+                var local2 = $it10.get_Current();
                 if (predicate(local2))
                 {
                     local = local2;
@@ -391,10 +391,10 @@ var System$Linq$Enumerable =
             var is2 = As(source, System.Collections.Generic.ICollection$1.ctor);
             if (is2 != null)
                 return is2.Contains(value);
-            var $it8 = source.GetEnumerator();
-            while ($it8.MoveNext())
+            var $it11 = source.GetEnumerator();
+            while ($it11.MoveNext())
             {
-                var local = $it8.get_Current();
+                var local = $it11.get_Current();
                 if (local == value)
                     return true;
             }
@@ -410,10 +410,10 @@ var System$Linq$Enumerable =
             {
                 throw $CreateException(System.Linq.Error.ArgumentNull("source"), new Error());
             }
-            var $it9 = source.GetEnumerator();
-            while ($it9.MoveNext())
+            var $it12 = source.GetEnumerator();
+            while ($it12.MoveNext())
             {
-                var local = $it9.get_Current();
+                var local = $it12.get_Current();
                 if (comparer.Equals$$T$$T(local, value))
                 {
                     return true;
@@ -451,10 +451,10 @@ var System$Linq$Enumerable =
             {
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
             }
-            var $it10 = source.GetEnumerator();
-            while ($it10.MoveNext())
+            var $it13 = source.GetEnumerator();
+            while ($it13.MoveNext())
             {
-                var local = $it10.get_Current();
+                var local = $it13.get_Current();
                 if (predicate(local))
                 {
                     return true;
@@ -499,10 +499,10 @@ var System$Linq$Enumerable =
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
             }
             var num = 0;
-            var $it11 = source.GetEnumerator();
-            while ($it11.MoveNext())
+            var $it14 = source.GetEnumerator();
+            while ($it14.MoveNext())
             {
-                var local = $it11.get_Current();
+                var local = $it14.get_Current();
                 if (predicate(local))
                 {
                     num++;
@@ -599,10 +599,10 @@ var System$Linq$Enumerable =
                 throw $CreateException(System.Linq.Error.ArgumentNull("source"), new Error());
             }
             var arr =  [];
-            var $it12 = source.GetEnumerator();
-            while ($it12.MoveNext())
+            var $it15 = source.GetEnumerator();
+            while ($it15.MoveNext())
             {
-                var obj = $it12.get_Current();
+                var obj = $it15.get_Current();
                 arr.push(obj);
             }
             return arr;

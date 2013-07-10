@@ -14,6 +14,8 @@ if (typeof($CreateException)=='undefined')
         return error;
     }
 }
+if (typeof(Int8Array) == "undefined")
+    var Int8Array = Array;
 if (typeof(JsTypes) == "undefined")
     var JsTypes = [];
 var System$ComponentModel$ListSortDirection =
@@ -23,6 +25,360 @@ var System$ComponentModel$ListSortDirection =
     Kind: "Enum"
 };
 JsTypes.push(System$ComponentModel$ListSortDirection);
+var System$Guid =
+{
+    fullname: "System.Guid",
+    baseTypeName: "System.ValueType",
+    staticDefinition:
+    {
+        cctor: function ()
+        {
+            System.Guid.Empty = new System.Guid.ctor();
+            System.Guid._random = new System.Random.ctor();
+        },
+        NewGuid: function ()
+        {
+            var array = new Int8Array(16);
+            for (var i = 0; i < 16; i++)
+            {
+                array[i] = System.Guid._random.Next$$Int32(256);
+            }
+            var result = new System.Guid.ctor$$Byte$Array(array);
+            result._d = ((result._d & 63) | 128);
+            result._c = ((result._c & 4095) | 16384);
+            return result;
+        },
+        AppendByte: function (builder, value)
+        {
+            builder.Append$$Char(System.Guid.ToHex(value >> 4 & 15));
+            builder.Append$$Char(System.Guid.ToHex((value & 15)));
+        },
+        AppendInt: function (builder, value)
+        {
+            builder.Append$$Char(System.Guid.ToHex(value >> 28 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 24 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 20 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 16 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 12 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 8 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 4 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value & 15));
+        },
+        AppendShort: function (builder, value)
+        {
+            builder.Append$$Char(System.Guid.ToHex(value >> 12 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 8 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 4 & 15));
+            builder.Append$$Char(System.Guid.ToHex((value & 15)));
+        },
+        CheckArray: function (o, l)
+        {
+            System.Guid.CheckNull(o);
+            System.Guid.CheckLength(o, l);
+        },
+        CheckLength: function (o, l)
+        {
+            if (o.length != l)
+            {
+                throw $CreateException(new System.ArgumentException.ctor$$String(System.String.Format$$String$$Object("Array should be exactly {0} bytes long.", l)), new Error());
+            }
+        },
+        CheckNull: function (o)
+        {
+            if (o == null)
+            {
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("Value cannot be null."), new Error());
+            }
+        },
+        Compare: function (x, y)
+        {
+            return (x >= y) ? 1 : -1;
+        },
+        CreateFormatException: function (s)
+        {
+            return new System.FormatException.ctor$$String(System.String.Format$$String$$Object("Invalid Guid format: {0}", s));
+        },
+        ToHex: function (b)
+        {
+            return ((b >= 10) ? (97 + b - 10) : (48 + b));
+        },
+        op_Equality: function (a, b)
+        {
+            return a.Equals$$Guid(b);
+        },
+        op_Inequality: function (a, b)
+        {
+            return !a.Equals$$Guid(b);
+        }
+    },
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Struct",
+    definition:
+    {
+        ctor$$Byte$Array: function (b)
+        {
+            this._i = 0;
+            this._h = 0;
+            this._k = 0;
+            this._j = 0;
+            this._g = 0;
+            this._c = 0;
+            this._b = 0;
+            this._a = 0;
+            this._f = 0;
+            this._e = 0;
+            this._d = 0;
+            System.ValueType.ctor.call(this);
+            this._a = b[0] | (b[1] << 8) | (b[2] << 16) | (b[3] << 24);
+            this._b = (b[4] | (b[5] << 8));
+            this._c = (b[6] | (b[7] << 8));
+            this._d = b[8];
+            this._e = b[9];
+            this._f = b[10];
+            this._g = b[11];
+            this._h = b[12];
+            this._i = b[13];
+            this._j = b[14];
+            this._k = b[15];
+        },
+        ctor$$UInt32$$UInt16$$UInt16$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte: function (a, b, c, d, e, f, g, h, i, j, k)
+        {
+            this._i = 0;
+            this._h = 0;
+            this._k = 0;
+            this._j = 0;
+            this._g = 0;
+            this._c = 0;
+            this._b = 0;
+            this._a = 0;
+            this._f = 0;
+            this._e = 0;
+            this._d = 0;
+            System.Guid.ctor$$Int32$$Int16$$Int16$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte.call(this, a, b, c, d, e, f, g, h, i, j, k);
+        },
+        ctor$$Int32$$Int16$$Int16$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte: function (a, b, c, d, e, f, g, h, i, j, k)
+        {
+            this._i = 0;
+            this._h = 0;
+            this._k = 0;
+            this._j = 0;
+            this._g = 0;
+            this._c = 0;
+            this._b = 0;
+            this._a = 0;
+            this._f = 0;
+            this._e = 0;
+            this._d = 0;
+            System.ValueType.ctor.call(this);
+            this._a = a;
+            this._b = b;
+            this._c = c;
+            this._d = d;
+            this._e = e;
+            this._f = f;
+            this._g = g;
+            this._h = h;
+            this._i = i;
+            this._j = j;
+            this._k = k;
+        },
+        BaseToString: function (h, p, b)
+        {
+            var stringBuilder = new System.Text.StringBuilder.ctor$$Int32(40);
+            if (p)
+            {
+                stringBuilder.Append$$Char("(");
+            }
+            else
+            {
+                if (b)
+                {
+                    stringBuilder.Append$$Char("{");
+                }
+            }
+            System.Guid.AppendInt(stringBuilder, this._a);
+            if (h)
+            {
+                stringBuilder.Append$$Char("-");
+            }
+            System.Guid.AppendShort(stringBuilder, this._b);
+            if (h)
+            {
+                stringBuilder.Append$$Char("-");
+            }
+            System.Guid.AppendShort(stringBuilder, this._c);
+            if (h)
+            {
+                stringBuilder.Append$$Char("-");
+            }
+            System.Guid.AppendByte(stringBuilder, this._d);
+            System.Guid.AppendByte(stringBuilder, this._e);
+            if (h)
+            {
+                stringBuilder.Append$$Char("-");
+            }
+            System.Guid.AppendByte(stringBuilder, this._f);
+            System.Guid.AppendByte(stringBuilder, this._g);
+            System.Guid.AppendByte(stringBuilder, this._h);
+            System.Guid.AppendByte(stringBuilder, this._i);
+            System.Guid.AppendByte(stringBuilder, this._j);
+            System.Guid.AppendByte(stringBuilder, this._k);
+            if (p)
+            {
+                stringBuilder.Append$$Char(")");
+            }
+            else
+            {
+                if (b)
+                {
+                    stringBuilder.Append$$Char("}");
+                }
+            }
+            return stringBuilder.toString();
+        },
+        CompareTo$$Guid: function (value)
+        {
+            if (this._a != value._a)
+            {
+                return System.Guid.Compare(this._a, value._a);
+            }
+            if (this._b != value._b)
+            {
+                return System.Guid.Compare(this._b, value._b);
+            }
+            if (this._c != value._c)
+            {
+                return System.Guid.Compare(this._c, value._c);
+            }
+            if (this._d != value._d)
+            {
+                return System.Guid.Compare(this._d, value._d);
+            }
+            if (this._e != value._e)
+            {
+                return System.Guid.Compare(this._e, value._e);
+            }
+            if (this._f != value._f)
+            {
+                return System.Guid.Compare(this._f, value._f);
+            }
+            if (this._g != value._g)
+            {
+                return System.Guid.Compare(this._g, value._g);
+            }
+            if (this._h != value._h)
+            {
+                return System.Guid.Compare(this._h, value._h);
+            }
+            if (this._i != value._i)
+            {
+                return System.Guid.Compare(this._i, value._i);
+            }
+            if (this._j != value._j)
+            {
+                return System.Guid.Compare(this._j, value._j);
+            }
+            if (this._k != value._k)
+            {
+                return System.Guid.Compare(this._k, value._k);
+            }
+            return 0;
+        },
+        CompareTo$$Object: function (value)
+        {
+            if (value == null)
+            {
+                return 1;
+            }
+            if (!(Is(value, System.Guid.ctor)))
+            {
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("value", "Argument of System.Guid.CompareTo should be a Guid."), new Error());
+            }
+            return this.CompareTo$$Guid(Cast(value, System.Guid.ctor));
+        },
+        Equals$$Object: function (o)
+        {
+            return Is(o, System.Guid.ctor) && this.CompareTo$$Guid(Cast(o, System.Guid.ctor)) == 0;
+        },
+        Equals$$Guid: function (g)
+        {
+            return this.CompareTo$$Guid(g) == 0;
+        },
+        GetHashCode: function ()
+        {
+            var num = this._a;
+            num ^= this._b << 16 | this._c;
+            num ^= this._d << 24;
+            num ^= this._e << 16;
+            num ^= this._f << 8;
+            num ^= this._g;
+            num ^= this._h << 24;
+            num ^= this._i << 16;
+            num ^= this._j << 8;
+            return num ^ this._k;
+        },
+        toString: function ()
+        {
+            return this.BaseToString(true, false, false);
+        },
+        ToString$$String: function (format)
+        {
+            var h = true;
+            var p = false;
+            var b = false;
+            if (format != null)
+            {
+                var a = format.ToLowerInvariant();
+                if (a == "b")
+                {
+                    b = true;
+                }
+                else
+                {
+                    if (a == "p")
+                    {
+                        p = true;
+                    }
+                    else
+                    {
+                        if (a == "n")
+                        {
+                            h = false;
+                        }
+                        else
+                        {
+                            if (a != "d" && a != System.String.Empty)
+                            {
+                                throw $CreateException(new System.FormatException.ctor$$String("Argument to Guid.ToString(string format) should be \"b\", \"B\", \"d\", \"D\", \"n\", \"N\", \"p\" or \"P\""), new Error());
+                            }
+                        }
+                    }
+                }
+            }
+            return this.BaseToString(h, p, b);
+        },
+        ToString$$String$$IFormatProvider: function (format, provider)
+        {
+            return this.ToString$$String(format);
+        },
+        ctor: function ()
+        {
+            this._i = 0;
+            this._h = 0;
+            this._k = 0;
+            this._j = 0;
+            this._g = 0;
+            this._c = 0;
+            this._b = 0;
+            this._a = 0;
+            this._f = 0;
+            this._e = 0;
+            this._d = 0;
+            System.ValueType.ctor.call(this);
+        }
+    }
+};
+JsTypes.push(System$Guid);
 var System$Math =
 {
     fullname: "System.Math",

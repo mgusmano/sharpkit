@@ -426,7 +426,7 @@ var System$Type =
                 if (baseType != null)
                 {
                     var props = baseType.GetProperties();
-                    for (var $i14 = 0, $l14 = props.length, pe = props[$i14]; $i14 < $l14; $i14++, pe = props[$i14])
+                    for (var $i17 = 0, $l17 = props.length, pe = props[$i17]; $i17 < $l17; $i17++, pe = props[$i17])
                     {
                         if (!this._PropertiesByName.hasOwnProperty(pe._Name))
                         {
@@ -489,7 +489,7 @@ var System$Type =
                 if (baseType != null)
                 {
                     var methods = baseType.GetMethods();
-                    for (var $i15 = 0, $l15 = methods.length, pe = methods[$i15]; $i15 < $l15; $i15++, pe = methods[$i15])
+                    for (var $i18 = 0, $l18 = methods.length, pe = methods[$i18]; $i18 < $l18; $i18++, pe = methods[$i18])
                     {
                         if (this._MethodsByName[pe._Name] == null)
                         {
@@ -575,7 +575,7 @@ var System$Type =
             {
                 var methodName = SharpKit.JavaScript.JsNamingHelper.JsFunctionNameToClrMethodName(memberName);
                 var methods = this.GetMethods$$String(methodName);
-                for (var $i16 = 0, $l16 = methods.length, method = methods[$i16]; $i16 < $l16; $i16++, method = methods[$i16])
+                for (var $i19 = 0, $l19 = methods.length, method = methods[$i19]; $i19 < $l19; $i19++, method = methods[$i19])
                 {
                     if (method.JsName == memberName)
                         return method;

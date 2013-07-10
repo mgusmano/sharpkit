@@ -1,5 +1,11 @@
 ﻿namespace SharpKit.JavaScript.Private
 {
+    [JsType(Name = "System.IComparable", Filename = "~/Internal/Core.js")]
+    public interface JsImplIComparable
+    {
+        int CompareTo(object obj);
+    }
+
     [JsType(Name = "System.IComparable$1", Filename = "~/Internal/Core.js")]
     public interface JsImplIComparable<T>
     {
@@ -12,9 +18,16 @@
         bool Equals(T other);
     }
 
-    [JsType(Name = "System.IComparar$1", Filename = "~/res/System.js")]
-    public interface JsImplIComparar<T>
+    [JsType(Name = "System.IComparer$1", Filename = "~/res/System.js")]
+    public interface JsImplIComparer<T>
     {
         int Compare(T x, T y);
     }
+
+    [JsType(Name = "System.IFormattable", Filename = "~/Internal/Core.js")]
+    public interface JsImplIFormattable
+    {
+      string ToString(string format, System.IFormatProvider formatProvider);
+    }
+
 }

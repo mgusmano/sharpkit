@@ -86,10 +86,10 @@ var SharpKit$Extensions2 =
         {
             var sb = new System.Text.StringBuilder.ctor();
             var first = true;
-            var $it16 = s.GetEnumerator();
-            while ($it16.MoveNext())
+            var $it19 = s.GetEnumerator();
+            while ($it19.MoveNext())
             {
-                var c = $it16.get_Current();
+                var c = $it19.get_Current();
                 if (System.Char.IsUpper$$Char(c) && !first)
                 {
                     sb.Append$$Char(" ");
@@ -318,10 +318,10 @@ var SharpKit$JsClr$Utils$JsClrClientSerializer =
             {
                 var list = obj;
                 obj2.$l =  [];
-                var $it17 = list.GetEnumerator();
-                while ($it17.MoveNext())
+                var $it20 = list.GetEnumerator();
+                while ($it20.MoveNext())
                 {
-                    var item = $it17.get_Current();
+                    var item = $it20.get_Current();
                     var item2 = this.Serialize2(item);
                     obj2.$l.push(item2);
                 }
@@ -377,7 +377,7 @@ var SharpKit$JavaScript$JsNamingHelper =
         },
         ConvertParametersToJsFunctionName: function (prms, sb)
         {
-            for (var $i19 = 0, $l19 = prms.length, prm = prms[$i19]; $i19 < $l19; $i19++, prm = prms[$i19])
+            for (var $i22 = 0, $l22 = prms.length, prm = prms[$i22]; $i22 < $l22; $i22++, prm = prms[$i22])
             {
                 sb.Append$$String("$$");
                 sb.Append$$String(prm.get_ParameterType().get_Name());

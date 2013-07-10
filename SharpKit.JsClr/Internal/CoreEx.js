@@ -89,6 +89,12 @@ JsTypes.push(
 	Equals$$Object$$Object: function (x, y) {
 		//TODO: check value types for valueOf()
 		return x == y;
+	},
+	ReferenceEquals: function (x, y) {
+		return x == y;
+	},
+	ReferenceEquals$$Object$$Object: function (x, y) {
+		return x == y;
 	}
 }
 });

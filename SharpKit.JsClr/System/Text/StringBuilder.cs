@@ -19,6 +19,13 @@ namespace SharpKit.JavaScript.Private
 
 		}
 
+		public JsImplStringBuilder(int len)
+		{
+			this.array = new string[0].As<JsExtendedArray>();
+			this.length = 0;
+
+		}
+
 		public JsImplStringBuilder(string s)
 		{
 			this.array = new string[] { s }.As<JsExtendedArray>();

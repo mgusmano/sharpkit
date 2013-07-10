@@ -16,10 +16,12 @@ if (typeof($CreateException)=='undefined')
 }
 if (typeof(JsTypes) == "undefined")
     var JsTypes = [];
-var System$Collection$Generic$IEqualityComparer = {fullname: "System.Collection.Generic.IEqualityComparer", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
-JsTypes.push(System$Collection$Generic$IEqualityComparer);
-var System$IComparar$1 = {fullname: "System.IComparar$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
-JsTypes.push(System$IComparar$1);
+var System$Collections$IEqualityComparer = {fullname: "System.Collections.IEqualityComparer", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$Collections$IEqualityComparer);
+var System$Collections$Generic$IEqualityComparer$1 = {fullname: "System.Collections.Generic.IEqualityComparer$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$Collections$Generic$IEqualityComparer$1);
+var System$IComparer$1 = {fullname: "System.IComparer$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$IComparer$1);
 var AfterCompilationFunctions =  [];
 var BeforeCompilationFunctions =  [];
 var IsCompiled = false;
@@ -970,6 +972,308 @@ var System$Collections$ICollection = {fullname: "System.Collections.ICollection"
 JsTypes.push(System$Collections$ICollection);
 var System$Collections$IList = {fullname: "System.Collections.IList", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", interfaceNames: ["System.Collections.ICollection"], Kind: "Interface"};
 JsTypes.push(System$Collections$IList);
+var System$Collections$Specialized$NotifyCollectionChangedAction =
+{
+    fullname: "System.Collections.Specialized.NotifyCollectionChangedAction",
+    staticDefinition: {Add: "Add", Remove: "Remove", Replace: "Replace", Move: "Move", Reset: "Reset"},
+    Kind: "Enum"
+};
+JsTypes.push(System$Collections$Specialized$NotifyCollectionChangedAction);
+var System$Collections$Specialized$INotifyCollectionChanged = {fullname: "System.Collections.Specialized.INotifyCollectionChanged", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$Collections$Specialized$INotifyCollectionChanged);
+var System$Collections$Specialized$NotifyCollectionChangedEventArgs =
+{
+    fullname: "System.Collections.Specialized.NotifyCollectionChangedEventArgs",
+    baseTypeName: "System.EventArgs",
+    staticDefinition:
+    {
+        cctor: function ()
+        {
+        }
+    },
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor$$NotifyCollectionChangedAction: function (action)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.EventArgs.ctor.call(this);
+            this.action = action;
+            if (action != 4)
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset action.", "action"), new Error());
+        },
+        ctor$$NotifyCollectionChangedAction$$IList: function (action, changedItems)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$IList$$Int32.call(this, action, changedItems, -1);
+        },
+        ctor$$NotifyCollectionChangedAction$$Object: function (action, changedItem)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$Object$$Int32.call(this, action, changedItem, -1);
+        },
+        ctor$$NotifyCollectionChangedAction$$IList$$IList: function (action, newItems, oldItems)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$IList$$IList$$Int32.call(this, action, newItems, oldItems, -1);
+        },
+        ctor$$NotifyCollectionChangedAction$$IList$$Int32: function (action, changedItems, startingIndex)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.EventArgs.ctor.call(this);
+            this.action = action;
+            if (action == 0 || action == 1)
+            {
+                if (changedItems == null)
+                    throw $CreateException(new System.ArgumentNullException.ctor$$String("changedItems"), new Error());
+                if (startingIndex < -1)
+                    throw $CreateException(new System.ArgumentException.ctor$$String$$String("The value of startingIndex must be -1 or greater.", "startingIndex"), new Error());
+                if (action == 0)
+                    this.InitializeAdd(changedItems, startingIndex);
+                else
+                    this.InitializeRemove(changedItems, startingIndex);
+            }
+            else if (action == 4)
+            {
+                if (changedItems != null)
+                    throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset action if changedItems is null", "changedItems"), new Error());
+                if (startingIndex != -1)
+                    throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset action if startingIndex is -1", "startingIndex"), new Error());
+            }
+            else
+            {
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset, Add, or Remove actions.", "action"), new Error());
+            }
+        },
+        ctor$$NotifyCollectionChangedAction$$Object$$Int32: function (action, changedItem, index)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.EventArgs.ctor.call(this);
+            var changedItems = [changedItem];
+            this.action = action;
+            if (action == 0)
+                this.InitializeAdd(changedItems, index);
+            else if (action == 1)
+                this.InitializeRemove(changedItems, index);
+            else if (action == 4)
+            {
+                if (changedItem != null)
+                    throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset action if changedItem is null", "changedItem"), new Error());
+                if (index != -1)
+                    throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset action if index is -1", "index"), new Error());
+            }
+            else
+            {
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset, Add, or Remove actions.", "action"), new Error());
+            }
+        },
+        ctor$$NotifyCollectionChangedAction$$Object$$Object: function (action, newItem, oldItem)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$Object$$Object$$Int32.call(this, action, newItem, oldItem, -1);
+        },
+        ctor$$NotifyCollectionChangedAction$$IList$$IList$$Int32: function (action, newItems, oldItems, startingIndex)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.EventArgs.ctor.call(this);
+            this.action = action;
+            if (action != 2)
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Replace action.", "action"), new Error());
+            if (newItems == null)
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("newItems"), new Error());
+            if (oldItems == null)
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("oldItems"), new Error());
+            this.oldItems = oldItems;
+            this.newItems = newItems;
+            this.oldIndex = startingIndex;
+            this.newIndex = startingIndex;
+        },
+        ctor$$NotifyCollectionChangedAction$$IList$$Int32$$Int32: function (action, changedItems, index, oldIndex)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.EventArgs.ctor.call(this);
+            this.action = action;
+            if (action != 3)
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Move action.", "action"), new Error());
+            if (index < -1)
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("The value of index must be -1 or greater.", "index"), new Error());
+            this.InitializeMove(changedItems, index, oldIndex);
+        },
+        ctor$$NotifyCollectionChangedAction$$Object$$Int32$$Int32: function (action, changedItem, index, oldIndex)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$IList$$Int32$$Int32.call(this, action, [changedItem], index, oldIndex);
+        },
+        ctor$$NotifyCollectionChangedAction$$Object$$Object$$Int32: function (action, newItem, oldItem, index)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.EventArgs.ctor.call(this);
+            this.action = action;
+            if (action != 2)
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Replace action.", "action"), new Error());
+            this.InitializeReplace([newItem], [oldItem], index);
+        },
+        Action$$: "System.Collections.Specialized.NotifyCollectionChangedAction",
+        get_Action: function ()
+        {
+            return this.action;
+        },
+        NewItems$$: "System.Collections.IList",
+        get_NewItems: function ()
+        {
+            return this.newItems;
+        },
+        NewStartingIndex$$: "System.Int32",
+        get_NewStartingIndex: function ()
+        {
+            return this.newIndex;
+        },
+        OldItems$$: "System.Collections.IList",
+        get_OldItems: function ()
+        {
+            return this.oldItems;
+        },
+        OldStartingIndex$$: "System.Int32",
+        get_OldStartingIndex: function ()
+        {
+            return this.oldIndex;
+        },
+        InitializeAdd: function (items, index)
+        {
+            this.newItems = new System.Collections.Generic.List$1.ctor(System.Object.ctor);
+            var $it1 = items.GetEnumerator();
+            while ($it1.MoveNext())
+            {
+                var item = $it1.get_Current();
+                this.newItems.Add(item);
+            }
+            this.newIndex = index;
+        },
+        InitializeRemove: function (items, index)
+        {
+            this.oldItems = new System.Collections.Generic.List$1.ctor(System.Object.ctor);
+            var $it2 = items.GetEnumerator();
+            while ($it2.MoveNext())
+            {
+                var item = $it2.get_Current();
+                this.oldItems.Add(item);
+            }
+            this.oldIndex = index;
+        },
+        InitializeMove: function (changedItems, newItemIndex, oldItemIndex)
+        {
+            this.InitializeAdd(changedItems, newItemIndex);
+            this.InitializeRemove(changedItems, oldItemIndex);
+        },
+        InitializeReplace: function (addedItems, removedItems, index)
+        {
+            this.InitializeAdd(addedItems, index);
+            this.InitializeRemove(removedItems, index);
+        }
+    }
+};
+JsTypes.push(System$Collections$Specialized$NotifyCollectionChangedEventArgs);
+var System$ComponentModel$AsyncCompletedEventHandler =
+{
+    fullname: "System.ComponentModel.AsyncCompletedEventHandler",
+    Kind: "Delegate",
+    definition:
+    {
+        ctor: function (obj, func)
+        {
+            System.MulticastDelegate.ctor.call(this, obj, func);
+        }
+    }
+};
+JsTypes.push(System$ComponentModel$AsyncCompletedEventHandler);
+var System$ComponentModel$AsyncCompletedEventArgs =
+{
+    fullname: "System.ComponentModel.AsyncCompletedEventArgs",
+    baseTypeName: "System.EventArgs",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (error, cancelled, userState)
+        {
+            this._error = null;
+            this._cancelled = false;
+            this._userState = null;
+            System.EventArgs.ctor.call(this);
+            this._error = error;
+            this._cancelled = cancelled;
+            this._userState = userState;
+        },
+        RaiseExceptionIfNecessary: function ()
+        {
+            if (this._error != null)
+                throw $CreateException(new System.Reflection.TargetInvocationException.ctor$$Exception(this._error), new Error());
+            else if (this._cancelled)
+                throw $CreateException(new System.InvalidOperationException.ctor$$String("The operation was cancelled"), new Error());
+        },
+        Cancelled$$: "System.Boolean",
+        get_Cancelled: function ()
+        {
+            return this._cancelled;
+        },
+        Error$$: "System.Exception",
+        get_Error: function ()
+        {
+            return this._error;
+        },
+        UserState$$: "System.Object",
+        get_UserState: function ()
+        {
+            return this._userState;
+        }
+    }
+};
+JsTypes.push(System$ComponentModel$AsyncCompletedEventArgs);
 var System$ComponentModel$CancelEventHandler =
 {
     fullname: "System.ComponentModel.CancelEventHandler",
@@ -1135,6 +1439,11 @@ var System$DateTime =
         get_Now: function ()
         {
             return new Date();
+        },
+        UtcNow$$: "SharpKit.JavaScript.Private.JsImplDateTime",
+        get_UtcNow: function ()
+        {
+            return System.DateTime.get_Now();
         }
     },
     assemblyName: "SharpKit.JsClr",
@@ -1779,10 +2088,14 @@ var System$ICloneable = {fullname: "System.ICloneable", baseTypeName: "System.Ob
 JsTypes.push(System$ICloneable);
 var System$IDisposable = {fullname: "System.IDisposable", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
 JsTypes.push(System$IDisposable);
+var System$IComparable = {fullname: "System.IComparable", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$IComparable);
 var System$IComparable$1 = {fullname: "System.IComparable$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
 JsTypes.push(System$IComparable$1);
 var System$IEquatable$1 = {fullname: "System.IEquatable$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
 JsTypes.push(System$IEquatable$1);
+var System$IFormattable = {fullname: "System.IFormattable", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$IFormattable);
 Date.prototype.CompareTo = function (value)
 {
     return this.valueOf() - value.valueOf();
@@ -1877,6 +2190,20 @@ Date.prototype.set_Millisecond = function (value)
         this.setUTCMilliseconds(value);
     else
         this.setMilliseconds(value);
+};
+Date.prototype.get_Ticks = function ()
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        return this.getUTCMilliseconds() * 10000;
+    return this.getMilliseconds() * 10000;
+};
+Date.prototype.set_Ticks = function (value)
+{
+    var milliseconds = value / 10000;
+    if (this._Kind == System.DateTimeKind.Utc)
+        this.setUTCMilliseconds(milliseconds);
+    else
+        this.setMilliseconds(milliseconds);
 };
 Date.prototype.get_DayOfWeek = function ()
 {
@@ -2925,11 +3252,40 @@ var System$Uri =
 {
     fullname: "System.Uri",
     baseTypeName: "System.Object",
+    staticDefinition:
+    {
+        op_Equality: function (u1, u2)
+        {
+            if (u1 == u2)
+            {
+                return true;
+            }
+            if (u1 == null)
+            {
+                return false;
+            }
+            if (u2 == null)
+            {
+                return false;
+            }
+            return u1._OriginalString == u2._OriginalString;
+        },
+        op_Inequality: function (u1, u2)
+        {
+            return !(System.Uri.op_Equality(u1, u2));
+        }
+    },
     assemblyName: "SharpKit.JsClr",
     Kind: "Class",
     definition:
     {
-        ctor: function (uri)
+        ctor: function ()
+        {
+            this._OriginalString = null;
+            System.Object.ctor.call(this);
+            this._OriginalString = null;
+        },
+        ctor$$String: function (uri)
         {
             this._OriginalString = null;
             System.Object.ctor.call(this);
@@ -2940,9 +3296,22 @@ var System$Uri =
         {
             return this._OriginalString;
         },
+        AbsoluteUri$$: "System.String",
+        get_AbsoluteUri: function ()
+        {
+            return this._OriginalString;
+        },
         toString: function ()
         {
             return this._OriginalString;
+        },
+        Equals$$Object: function (obj)
+        {
+            return System.Uri.op_Equality(this, Cast(obj, System.Uri.ctor));
+        },
+        GetHashCode: function ()
+        {
+            return System.Object.commonPrototype.GetHashCode.call(this);
         }
     }
 };
@@ -3072,6 +3441,12 @@ JsTypes.push(
  {
 	Equals$$Object$$Object: function (x, y) {
 		//TODO: check value types for valueOf()
+		return x == y;
+	},
+	ReferenceEquals: function (x, y) {
+		return x == y;
+	},
+	ReferenceEquals$$Object$$Object: function (x, y) {
 		return x == y;
 	}
 }
@@ -3288,6 +3663,7 @@ JsTypes.push({ fullname: "System.Int32", baseTypeName: "System.ValueType", defin
  {
 	ctor: Number,
 	toString: Number.prototype.toString //avoid toString override by compiler (toString(radix) won't work if overriden)
+
 }, staticDefinition:
  {
 	tryParse: function (s) {
@@ -3295,7 +3671,6 @@ JsTypes.push({ fullname: "System.Int32", baseTypeName: "System.ValueType", defin
 	},
 	Parse$$String: function (s) {
 		return parseInt(s);
-
 	}
 }
 });
@@ -3500,9 +3875,9 @@ JsTypes.push({ fullname: "System.String", baseTypeName: "System.Object", definit
     // The CRC32 calculation of a string seems like as good a hashcode as anything else to me. -- Yvan
     // http://noteslog.com/post/crc32-for-javascript/
     GetHashCode: function () { 
+
         var table = "00000000 77073096 EE0E612C 990951BA 076DC419 706AF48F E963A535 9E6495A3 0EDB8832 79DCB8A4 E0D5E91E 97D2D988 09B64C2B 7EB17CBD E7B82D07 90BF1D91 1DB71064 6AB020F2 F3B97148 84BE41DE 1ADAD47D 6DDDE4EB F4D4B551 83D385C7 136C9856 646BA8C0 FD62F97A 8A65C9EC 14015C4F 63066CD9 FA0F3D63 8D080DF5 3B6E20C8 4C69105E D56041E4 A2677172 3C03E4D1 4B04D447 D20D85FD A50AB56B 35B5A8FA 42B2986C DBBBC9D6 ACBCF940 32D86CE3 45DF5C75 DCD60DCF ABD13D59 26D930AC 51DE003A C8D75180 BFD06116 21B4F4B5 56B3C423 CFBA9599 B8BDA50F 2802B89E 5F058808 C60CD9B2 B10BE924 2F6F7C87 58684C11 C1611DAB B6662D3D 76DC4190 01DB7106 98D220BC EFD5102A 71B18589 06B6B51F 9FBFE4A5 E8B8D433 7807C9A2 0F00F934 9609A88E E10E9818 7F6A0DBB 086D3D2D 91646C97 E6635C01 6B6B51F4 1C6C6162 856530D8 F262004E 6C0695ED 1B01A57B 8208F4C1 F50FC457 65B0D9C6 12B7E950 8BBEB8EA FCB9887C 62DD1DDF 15DA2D49 8CD37CF3 FBD44C65 4DB26158 3AB551CE A3BC0074 D4BB30E2 4ADFA541 3DD895D7 A4D1C46D D3D6F4FB 4369E96A 346ED9FC AD678846 DA60B8D0 44042D73 33031DE5 AA0A4C5F DD0D7CC9 5005713C 270241AA BE0B1010 C90C2086 5768B525 206F85B3 B966D409 CE61E49F 5EDEF90E 29D9C998 B0D09822 C7D7A8B4 59B33D17 2EB40D81 B7BD5C3B C0BA6CAD EDB88320 9ABFB3B6 03B6E20C 74B1D29A EAD54739 9DD277AF 04DB2615 73DC1683 E3630B12 94643B84 0D6D6A3E 7A6A5AA8 E40ECF0B 9309FF9D 0A00AE27 7D079EB1 F00F9344 8708A3D2 1E01F268 6906C2FE F762575D 806567CB 196C3671 6E6B06E7 FED41B76 89D32BE0 10DA7A5A 67DD4ACC F9B9DF6F 8EBEEFF9 17B7BE43 60B08ED5 D6D6A3E8 A1D1937E 38D8C2C4 4FDFF252 D1BB67F1 A6BC5767 3FB506DD 48B2364B D80D2BDA AF0A1B4C 36034AF6 41047A60 DF60EFC3 A867DF55 316E8EEF 4669BE79 CB61B38C BC66831A 256FD2A0 5268E236 CC0C7795 BB0B4703 220216B9 5505262F C5BA3BBE B2BD0B28 2BB45A92 5CB36A04 C2D7FFA7 B5D0CF31 2CD99E8B 5BDEAE1D 9B64C2B0 EC63F226 756AA39C 026D930A 9C0906A9 EB0E363F 72076785 05005713 95BF4A82 E2B87A14 7BB12BAE 0CB61B38 92D28E9B E5D5BE0D 7CDCEFB7 0BDBDF21 86D3D2D4 F1D4E242 68DDB3F8 1FDA836E 81BE16CD F6B9265B 6FB077E1 18B74777 88085AE6 FF0F6A70 66063BCA 11010B5C 8F659EFF F862AE69 616BFFD3 166CCF45 A00AE278 D70DD2EE 4E048354 3903B3C2 A7672661 D06016F7 4969474D 3E6E77DB AED16A4A D9D65ADC 40DF0B66 37D83BF0 A9BCAE53 DEBB9EC5 47B2CF7F 30B5FFE9 BDBDF21C CABAC28A 53B39330 24B4A3A6 BAD03605 CDD70693 54DE5729 23D967BF B3667A2E C4614AB8 5D681B02 2A6F2B94 B40BBE37 C30C8EA1 5A05DF1B 2D02EF8D";     
  
-
         var str = this.toString();
         var crc = 0; 
         var n = 0; //a number between 0 and 255 

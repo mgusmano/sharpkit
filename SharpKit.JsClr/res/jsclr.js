@@ -14,12 +14,125 @@ if (typeof($CreateException)=='undefined')
         return error;
     }
 }
+function $CombineDelegates(del1,del2)
+{
+    if(del1 == null)
+        return del2;
+    if(del2 == null)
+        return del1;
+    var del=$CreateMulticastDelegateFunction();
+    del.delegates = [];
+    if(del1.isMulticastDelegate)
+    {
+        for(var i=0;i < del1.delegates.length;i++)
+            del.delegates.push(del1.delegates[i]);
+    }
+    else
+    {
+        del.delegates.push(del1);
+    }
+    if(del2.isMulticastDelegate)
+    {
+        for(var i=0;i < del2.delegates.length;i++)
+            del.delegates.push(del2.delegates[i]);
+    }
+    else
+    {
+        del.delegates.push(del2);
+    }
+    return del;
+};
+function $CreateMulticastDelegateFunction()
+{
+    var del2 = null;
+    
+    var del=function()
+    {
+        var x=undefined;
+        for(var i=0;i < del2.delegates.length;i++)
+        {
+            var del3=del2.delegates[i];
+            x = del3.apply(null,arguments);
+        }
+        return x;
+    };
+    del.isMulticastDelegate = true;
+    del2 = del;   
+    
+    return del;
+};
+function $RemoveDelegate(delOriginal,delToRemove)
+{
+    if(delToRemove == null || delOriginal == null)
+        return delOriginal;
+    if(delOriginal.isMulticastDelegate)
+    {
+        if(delToRemove.isMulticastDelegate)
+            throw new Error("Multicast to multicast delegate removal is not implemented yet");
+        var del=$CreateMulticastDelegateFunction();
+        for(var i=0;i < delOriginal.delegates.length;i++)
+        {
+            var del2=delOriginal.delegates[i];
+            if(del2 != delToRemove)
+            {
+                if(del.delegates == null)
+                    del.delegates = [];
+                del.delegates.push(del2);
+            }
+        }
+        if(del.delegates == null)
+            return null;
+        if(del.delegates.length == 1)
+            return del.delegates[0];
+        return del;
+    }
+    else
+    {
+        if(delToRemove.isMulticastDelegate)
+            throw new Error("single to multicast delegate removal is not supported");
+        if(delOriginal == delToRemove)
+            return null;
+        return delOriginal;
+    }
+};
+if (typeof($CreateDelegate)=='undefined'){
+    if(typeof($iKey)=='undefined') var $iKey = 0;
+    if(typeof($pKey)=='undefined') var $pKey = String.fromCharCode(1);
+    var $CreateDelegate = function(target, func){
+        if (target == null || func == null) 
+            return func;
+        if(func.target==target && func.func==func)
+            return func;
+        if (target.$delegateCache == null)
+            target.$delegateCache = {};
+        if (func.$key == null)
+            func.$key = $pKey + String(++$iKey);
+        var delegate;
+        if(target.$delegateCache!=null)
+            delegate = target.$delegateCache[func.$key];
+        if (delegate == null){
+            delegate = function(){
+                return func.apply(target, arguments);
+            };
+            delegate.func = func;
+            delegate.target = target;
+            delegate.isDelegate = true;
+            if(target.$delegateCache!=null)
+                target.$delegateCache[func.$key] = delegate;
+        }
+        return delegate;
+    }
+}
+if (typeof(Int8Array) == "undefined")
+    var Int8Array = Array;
 if (typeof(JsTypes) == "undefined")
     var JsTypes = [];
-var System$Collection$Generic$IEqualityComparer = {fullname: "System.Collection.Generic.IEqualityComparer", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
-JsTypes.push(System$Collection$Generic$IEqualityComparer);
-var System$IComparar$1 = {fullname: "System.IComparar$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
-JsTypes.push(System$IComparar$1);
+var System$Collections$IEqualityComparer = {fullname: "System.Collections.IEqualityComparer", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$Collections$IEqualityComparer);
+var System$Collections$Generic$IEqualityComparer$1 = {fullname: "System.Collections.Generic.IEqualityComparer$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$Collections$Generic$IEqualityComparer$1);
+var System$IComparer$1 = {fullname: "System.IComparer$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$IComparer$1);
 var AfterCompilationFunctions =  [];
 var BeforeCompilationFunctions =  [];
 var IsCompiled = false;
@@ -970,6 +1083,308 @@ var System$Collections$ICollection = {fullname: "System.Collections.ICollection"
 JsTypes.push(System$Collections$ICollection);
 var System$Collections$IList = {fullname: "System.Collections.IList", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", interfaceNames: ["System.Collections.ICollection"], Kind: "Interface"};
 JsTypes.push(System$Collections$IList);
+var System$Collections$Specialized$NotifyCollectionChangedAction =
+{
+    fullname: "System.Collections.Specialized.NotifyCollectionChangedAction",
+    staticDefinition: {Add: "Add", Remove: "Remove", Replace: "Replace", Move: "Move", Reset: "Reset"},
+    Kind: "Enum"
+};
+JsTypes.push(System$Collections$Specialized$NotifyCollectionChangedAction);
+var System$Collections$Specialized$INotifyCollectionChanged = {fullname: "System.Collections.Specialized.INotifyCollectionChanged", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$Collections$Specialized$INotifyCollectionChanged);
+var System$Collections$Specialized$NotifyCollectionChangedEventArgs =
+{
+    fullname: "System.Collections.Specialized.NotifyCollectionChangedEventArgs",
+    baseTypeName: "System.EventArgs",
+    staticDefinition:
+    {
+        cctor: function ()
+        {
+        }
+    },
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor$$NotifyCollectionChangedAction: function (action)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.EventArgs.ctor.call(this);
+            this.action = action;
+            if (action != 4)
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset action.", "action"), new Error());
+        },
+        ctor$$NotifyCollectionChangedAction$$IList: function (action, changedItems)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$IList$$Int32.call(this, action, changedItems, -1);
+        },
+        ctor$$NotifyCollectionChangedAction$$Object: function (action, changedItem)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$Object$$Int32.call(this, action, changedItem, -1);
+        },
+        ctor$$NotifyCollectionChangedAction$$IList$$IList: function (action, newItems, oldItems)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$IList$$IList$$Int32.call(this, action, newItems, oldItems, -1);
+        },
+        ctor$$NotifyCollectionChangedAction$$IList$$Int32: function (action, changedItems, startingIndex)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.EventArgs.ctor.call(this);
+            this.action = action;
+            if (action == 0 || action == 1)
+            {
+                if (changedItems == null)
+                    throw $CreateException(new System.ArgumentNullException.ctor$$String("changedItems"), new Error());
+                if (startingIndex < -1)
+                    throw $CreateException(new System.ArgumentException.ctor$$String$$String("The value of startingIndex must be -1 or greater.", "startingIndex"), new Error());
+                if (action == 0)
+                    this.InitializeAdd(changedItems, startingIndex);
+                else
+                    this.InitializeRemove(changedItems, startingIndex);
+            }
+            else if (action == 4)
+            {
+                if (changedItems != null)
+                    throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset action if changedItems is null", "changedItems"), new Error());
+                if (startingIndex != -1)
+                    throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset action if startingIndex is -1", "startingIndex"), new Error());
+            }
+            else
+            {
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset, Add, or Remove actions.", "action"), new Error());
+            }
+        },
+        ctor$$NotifyCollectionChangedAction$$Object$$Int32: function (action, changedItem, index)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.EventArgs.ctor.call(this);
+            var changedItems = [changedItem];
+            this.action = action;
+            if (action == 0)
+                this.InitializeAdd(changedItems, index);
+            else if (action == 1)
+                this.InitializeRemove(changedItems, index);
+            else if (action == 4)
+            {
+                if (changedItem != null)
+                    throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset action if changedItem is null", "changedItem"), new Error());
+                if (index != -1)
+                    throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset action if index is -1", "index"), new Error());
+            }
+            else
+            {
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Reset, Add, or Remove actions.", "action"), new Error());
+            }
+        },
+        ctor$$NotifyCollectionChangedAction$$Object$$Object: function (action, newItem, oldItem)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$Object$$Object$$Int32.call(this, action, newItem, oldItem, -1);
+        },
+        ctor$$NotifyCollectionChangedAction$$IList$$IList$$Int32: function (action, newItems, oldItems, startingIndex)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.EventArgs.ctor.call(this);
+            this.action = action;
+            if (action != 2)
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Replace action.", "action"), new Error());
+            if (newItems == null)
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("newItems"), new Error());
+            if (oldItems == null)
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("oldItems"), new Error());
+            this.oldItems = oldItems;
+            this.newItems = newItems;
+            this.oldIndex = startingIndex;
+            this.newIndex = startingIndex;
+        },
+        ctor$$NotifyCollectionChangedAction$$IList$$Int32$$Int32: function (action, changedItems, index, oldIndex)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.EventArgs.ctor.call(this);
+            this.action = action;
+            if (action != 3)
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Move action.", "action"), new Error());
+            if (index < -1)
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("The value of index must be -1 or greater.", "index"), new Error());
+            this.InitializeMove(changedItems, index, oldIndex);
+        },
+        ctor$$NotifyCollectionChangedAction$$Object$$Int32$$Int32: function (action, changedItem, index, oldIndex)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$IList$$Int32$$Int32.call(this, action, [changedItem], index, oldIndex);
+        },
+        ctor$$NotifyCollectionChangedAction$$Object$$Object$$Int32: function (action, newItem, oldItem, index)
+        {
+            this.action = 0;
+            this.oldItems = null;
+            this.newItems = null;
+            this.oldIndex = -1;
+            this.newIndex = -1;
+            System.EventArgs.ctor.call(this);
+            this.action = action;
+            if (action != 2)
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("This constructor can only be used with the Replace action.", "action"), new Error());
+            this.InitializeReplace([newItem], [oldItem], index);
+        },
+        Action$$: "System.Collections.Specialized.NotifyCollectionChangedAction",
+        get_Action: function ()
+        {
+            return this.action;
+        },
+        NewItems$$: "System.Collections.IList",
+        get_NewItems: function ()
+        {
+            return this.newItems;
+        },
+        NewStartingIndex$$: "System.Int32",
+        get_NewStartingIndex: function ()
+        {
+            return this.newIndex;
+        },
+        OldItems$$: "System.Collections.IList",
+        get_OldItems: function ()
+        {
+            return this.oldItems;
+        },
+        OldStartingIndex$$: "System.Int32",
+        get_OldStartingIndex: function ()
+        {
+            return this.oldIndex;
+        },
+        InitializeAdd: function (items, index)
+        {
+            this.newItems = new System.Collections.Generic.List$1.ctor(System.Object.ctor);
+            var $it1 = items.GetEnumerator();
+            while ($it1.MoveNext())
+            {
+                var item = $it1.get_Current();
+                this.newItems.Add(item);
+            }
+            this.newIndex = index;
+        },
+        InitializeRemove: function (items, index)
+        {
+            this.oldItems = new System.Collections.Generic.List$1.ctor(System.Object.ctor);
+            var $it2 = items.GetEnumerator();
+            while ($it2.MoveNext())
+            {
+                var item = $it2.get_Current();
+                this.oldItems.Add(item);
+            }
+            this.oldIndex = index;
+        },
+        InitializeMove: function (changedItems, newItemIndex, oldItemIndex)
+        {
+            this.InitializeAdd(changedItems, newItemIndex);
+            this.InitializeRemove(changedItems, oldItemIndex);
+        },
+        InitializeReplace: function (addedItems, removedItems, index)
+        {
+            this.InitializeAdd(addedItems, index);
+            this.InitializeRemove(removedItems, index);
+        }
+    }
+};
+JsTypes.push(System$Collections$Specialized$NotifyCollectionChangedEventArgs);
+var System$ComponentModel$AsyncCompletedEventHandler =
+{
+    fullname: "System.ComponentModel.AsyncCompletedEventHandler",
+    Kind: "Delegate",
+    definition:
+    {
+        ctor: function (obj, func)
+        {
+            System.MulticastDelegate.ctor.call(this, obj, func);
+        }
+    }
+};
+JsTypes.push(System$ComponentModel$AsyncCompletedEventHandler);
+var System$ComponentModel$AsyncCompletedEventArgs =
+{
+    fullname: "System.ComponentModel.AsyncCompletedEventArgs",
+    baseTypeName: "System.EventArgs",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (error, cancelled, userState)
+        {
+            this._error = null;
+            this._cancelled = false;
+            this._userState = null;
+            System.EventArgs.ctor.call(this);
+            this._error = error;
+            this._cancelled = cancelled;
+            this._userState = userState;
+        },
+        RaiseExceptionIfNecessary: function ()
+        {
+            if (this._error != null)
+                throw $CreateException(new System.Reflection.TargetInvocationException.ctor$$Exception(this._error), new Error());
+            else if (this._cancelled)
+                throw $CreateException(new System.InvalidOperationException.ctor$$String("The operation was cancelled"), new Error());
+        },
+        Cancelled$$: "System.Boolean",
+        get_Cancelled: function ()
+        {
+            return this._cancelled;
+        },
+        Error$$: "System.Exception",
+        get_Error: function ()
+        {
+            return this._error;
+        },
+        UserState$$: "System.Object",
+        get_UserState: function ()
+        {
+            return this._userState;
+        }
+    }
+};
+JsTypes.push(System$ComponentModel$AsyncCompletedEventArgs);
 var System$ComponentModel$CancelEventHandler =
 {
     fullname: "System.ComponentModel.CancelEventHandler",
@@ -1135,6 +1550,11 @@ var System$DateTime =
         get_Now: function ()
         {
             return new Date();
+        },
+        UtcNow$$: "SharpKit.JavaScript.Private.JsImplDateTime",
+        get_UtcNow: function ()
+        {
+            return System.DateTime.get_Now();
         }
     },
     assemblyName: "SharpKit.JsClr",
@@ -1779,10 +2199,14 @@ var System$ICloneable = {fullname: "System.ICloneable", baseTypeName: "System.Ob
 JsTypes.push(System$ICloneable);
 var System$IDisposable = {fullname: "System.IDisposable", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
 JsTypes.push(System$IDisposable);
+var System$IComparable = {fullname: "System.IComparable", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$IComparable);
 var System$IComparable$1 = {fullname: "System.IComparable$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
 JsTypes.push(System$IComparable$1);
 var System$IEquatable$1 = {fullname: "System.IEquatable$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
 JsTypes.push(System$IEquatable$1);
+var System$IFormattable = {fullname: "System.IFormattable", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
+JsTypes.push(System$IFormattable);
 Date.prototype.CompareTo = function (value)
 {
     return this.valueOf() - value.valueOf();
@@ -1877,6 +2301,20 @@ Date.prototype.set_Millisecond = function (value)
         this.setUTCMilliseconds(value);
     else
         this.setMilliseconds(value);
+};
+Date.prototype.get_Ticks = function ()
+{
+    if (this._Kind == System.DateTimeKind.Utc)
+        return this.getUTCMilliseconds() * 10000;
+    return this.getMilliseconds() * 10000;
+};
+Date.prototype.set_Ticks = function (value)
+{
+    var milliseconds = value / 10000;
+    if (this._Kind == System.DateTimeKind.Utc)
+        this.setUTCMilliseconds(milliseconds);
+    else
+        this.setMilliseconds(milliseconds);
 };
 Date.prototype.get_DayOfWeek = function ()
 {
@@ -2925,11 +3363,40 @@ var System$Uri =
 {
     fullname: "System.Uri",
     baseTypeName: "System.Object",
+    staticDefinition:
+    {
+        op_Equality: function (u1, u2)
+        {
+            if (u1 == u2)
+            {
+                return true;
+            }
+            if (u1 == null)
+            {
+                return false;
+            }
+            if (u2 == null)
+            {
+                return false;
+            }
+            return u1._OriginalString == u2._OriginalString;
+        },
+        op_Inequality: function (u1, u2)
+        {
+            return !(System.Uri.op_Equality(u1, u2));
+        }
+    },
     assemblyName: "SharpKit.JsClr",
     Kind: "Class",
     definition:
     {
-        ctor: function (uri)
+        ctor: function ()
+        {
+            this._OriginalString = null;
+            System.Object.ctor.call(this);
+            this._OriginalString = null;
+        },
+        ctor$$String: function (uri)
         {
             this._OriginalString = null;
             System.Object.ctor.call(this);
@@ -2940,9 +3407,22 @@ var System$Uri =
         {
             return this._OriginalString;
         },
+        AbsoluteUri$$: "System.String",
+        get_AbsoluteUri: function ()
+        {
+            return this._OriginalString;
+        },
         toString: function ()
         {
             return this._OriginalString;
+        },
+        Equals$$Object: function (obj)
+        {
+            return System.Uri.op_Equality(this, Cast(obj, System.Uri.ctor));
+        },
+        GetHashCode: function ()
+        {
+            return System.Object.commonPrototype.GetHashCode.call(this);
         }
     }
 };
@@ -3072,6 +3552,12 @@ JsTypes.push(
  {
 	Equals$$Object$$Object: function (x, y) {
 		//TODO: check value types for valueOf()
+		return x == y;
+	},
+	ReferenceEquals: function (x, y) {
+		return x == y;
+	},
+	ReferenceEquals$$Object$$Object: function (x, y) {
 		return x == y;
 	}
 }
@@ -3288,6 +3774,7 @@ JsTypes.push({ fullname: "System.Int32", baseTypeName: "System.ValueType", defin
  {
 	ctor: Number,
 	toString: Number.prototype.toString //avoid toString override by compiler (toString(radix) won't work if overriden)
+
 }, staticDefinition:
  {
 	tryParse: function (s) {
@@ -3295,7 +3782,6 @@ JsTypes.push({ fullname: "System.Int32", baseTypeName: "System.ValueType", defin
 	},
 	Parse$$String: function (s) {
 		return parseInt(s);
-
 	}
 }
 });
@@ -3500,9 +3986,9 @@ JsTypes.push({ fullname: "System.String", baseTypeName: "System.Object", definit
     // The CRC32 calculation of a string seems like as good a hashcode as anything else to me. -- Yvan
     // http://noteslog.com/post/crc32-for-javascript/
     GetHashCode: function () { 
+
         var table = "00000000 77073096 EE0E612C 990951BA 076DC419 706AF48F E963A535 9E6495A3 0EDB8832 79DCB8A4 E0D5E91E 97D2D988 09B64C2B 7EB17CBD E7B82D07 90BF1D91 1DB71064 6AB020F2 F3B97148 84BE41DE 1ADAD47D 6DDDE4EB F4D4B551 83D385C7 136C9856 646BA8C0 FD62F97A 8A65C9EC 14015C4F 63066CD9 FA0F3D63 8D080DF5 3B6E20C8 4C69105E D56041E4 A2677172 3C03E4D1 4B04D447 D20D85FD A50AB56B 35B5A8FA 42B2986C DBBBC9D6 ACBCF940 32D86CE3 45DF5C75 DCD60DCF ABD13D59 26D930AC 51DE003A C8D75180 BFD06116 21B4F4B5 56B3C423 CFBA9599 B8BDA50F 2802B89E 5F058808 C60CD9B2 B10BE924 2F6F7C87 58684C11 C1611DAB B6662D3D 76DC4190 01DB7106 98D220BC EFD5102A 71B18589 06B6B51F 9FBFE4A5 E8B8D433 7807C9A2 0F00F934 9609A88E E10E9818 7F6A0DBB 086D3D2D 91646C97 E6635C01 6B6B51F4 1C6C6162 856530D8 F262004E 6C0695ED 1B01A57B 8208F4C1 F50FC457 65B0D9C6 12B7E950 8BBEB8EA FCB9887C 62DD1DDF 15DA2D49 8CD37CF3 FBD44C65 4DB26158 3AB551CE A3BC0074 D4BB30E2 4ADFA541 3DD895D7 A4D1C46D D3D6F4FB 4369E96A 346ED9FC AD678846 DA60B8D0 44042D73 33031DE5 AA0A4C5F DD0D7CC9 5005713C 270241AA BE0B1010 C90C2086 5768B525 206F85B3 B966D409 CE61E49F 5EDEF90E 29D9C998 B0D09822 C7D7A8B4 59B33D17 2EB40D81 B7BD5C3B C0BA6CAD EDB88320 9ABFB3B6 03B6E20C 74B1D29A EAD54739 9DD277AF 04DB2615 73DC1683 E3630B12 94643B84 0D6D6A3E 7A6A5AA8 E40ECF0B 9309FF9D 0A00AE27 7D079EB1 F00F9344 8708A3D2 1E01F268 6906C2FE F762575D 806567CB 196C3671 6E6B06E7 FED41B76 89D32BE0 10DA7A5A 67DD4ACC F9B9DF6F 8EBEEFF9 17B7BE43 60B08ED5 D6D6A3E8 A1D1937E 38D8C2C4 4FDFF252 D1BB67F1 A6BC5767 3FB506DD 48B2364B D80D2BDA AF0A1B4C 36034AF6 41047A60 DF60EFC3 A867DF55 316E8EEF 4669BE79 CB61B38C BC66831A 256FD2A0 5268E236 CC0C7795 BB0B4703 220216B9 5505262F C5BA3BBE B2BD0B28 2BB45A92 5CB36A04 C2D7FFA7 B5D0CF31 2CD99E8B 5BDEAE1D 9B64C2B0 EC63F226 756AA39C 026D930A 9C0906A9 EB0E363F 72076785 05005713 95BF4A82 E2B87A14 7BB12BAE 0CB61B38 92D28E9B E5D5BE0D 7CDCEFB7 0BDBDF21 86D3D2D4 F1D4E242 68DDB3F8 1FDA836E 81BE16CD F6B9265B 6FB077E1 18B74777 88085AE6 FF0F6A70 66063BCA 11010B5C 8F659EFF F862AE69 616BFFD3 166CCF45 A00AE278 D70DD2EE 4E048354 3903B3C2 A7672661 D06016F7 4969474D 3E6E77DB AED16A4A D9D65ADC 40DF0B66 37D83BF0 A9BCAE53 DEBB9EC5 47B2CF7F 30B5FFE9 BDBDF21C CABAC28A 53B39330 24B4A3A6 BAD03605 CDD70693 54DE5729 23D967BF B3667A2E C4614AB8 5D681B02 2A6F2B94 B40BBE37 C30C8EA1 5A05DF1B 2D02EF8D";     
  
-
         var str = this.toString();
         var crc = 0; 
         var n = 0; //a number between 0 and 255 
@@ -4135,10 +4621,10 @@ var System$Linq$Enumerable =
             {
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
             }
-            var $it2 = source.GetEnumerator();
-            while ($it2.MoveNext())
+            var $it5 = source.GetEnumerator();
+            while ($it5.MoveNext())
             {
-                var local = $it2.get_Current();
+                var local = $it5.get_Current();
                 if (predicate(local))
                 {
                     return local;
@@ -4187,10 +4673,10 @@ var System$Linq$Enumerable =
             {
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
             }
-            var $it3 = source.GetEnumerator();
-            while ($it3.MoveNext())
+            var $it6 = source.GetEnumerator();
+            while ($it6.MoveNext())
             {
-                var local = $it3.get_Current();
+                var local = $it6.get_Current();
                 if (predicate(local))
                 {
                     return local;
@@ -4231,10 +4717,10 @@ var System$Linq$Enumerable =
                 throw $CreateException(System.Linq.Error.ArgumentNull("source"), new Error());
             if (predicate == null)
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
-            var $it4 = source.GetEnumerator();
-            while ($it4.MoveNext())
+            var $it7 = source.GetEnumerator();
+            while ($it7.MoveNext())
             {
-                var local = $it4.get_Current();
+                var local = $it7.get_Current();
                 if (predicate(local))
                     return local;
             }
@@ -4273,10 +4759,10 @@ var System$Linq$Enumerable =
                 throw $CreateException(System.Linq.Error.ArgumentNull("source"), new Error());
             if (predicate == null)
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
-            var $it5 = source.GetEnumerator();
-            while ($it5.MoveNext())
+            var $it8 = source.GetEnumerator();
+            while ($it8.MoveNext())
             {
-                var local = $it5.get_Current();
+                var local = $it8.get_Current();
                 if (predicate(local))
                     return local;
             }
@@ -4331,10 +4817,10 @@ var System$Linq$Enumerable =
             }
             var local = Default(TSource);
             var flag = false;
-            var $it6 = source.GetEnumerator();
-            while ($it6.MoveNext())
+            var $it9 = source.GetEnumerator();
+            while ($it9.MoveNext())
             {
-                var local2 = $it6.get_Current();
+                var local2 = $it9.get_Current();
                 if (predicate(local2))
                 {
                     local = local2;
@@ -4395,10 +4881,10 @@ var System$Linq$Enumerable =
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
             }
             var local = Default(TSource);
-            var $it7 = source.GetEnumerator();
-            while ($it7.MoveNext())
+            var $it10 = source.GetEnumerator();
+            while ($it10.MoveNext())
             {
-                var local2 = $it7.get_Current();
+                var local2 = $it10.get_Current();
                 if (predicate(local2))
                 {
                     local = local2;
@@ -4449,10 +4935,10 @@ var System$Linq$Enumerable =
             var is2 = As(source, System.Collections.Generic.ICollection$1.ctor);
             if (is2 != null)
                 return is2.Contains(value);
-            var $it8 = source.GetEnumerator();
-            while ($it8.MoveNext())
+            var $it11 = source.GetEnumerator();
+            while ($it11.MoveNext())
             {
-                var local = $it8.get_Current();
+                var local = $it11.get_Current();
                 if (local == value)
                     return true;
             }
@@ -4468,10 +4954,10 @@ var System$Linq$Enumerable =
             {
                 throw $CreateException(System.Linq.Error.ArgumentNull("source"), new Error());
             }
-            var $it9 = source.GetEnumerator();
-            while ($it9.MoveNext())
+            var $it12 = source.GetEnumerator();
+            while ($it12.MoveNext())
             {
-                var local = $it9.get_Current();
+                var local = $it12.get_Current();
                 if (comparer.Equals$$T$$T(local, value))
                 {
                     return true;
@@ -4509,10 +4995,10 @@ var System$Linq$Enumerable =
             {
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
             }
-            var $it10 = source.GetEnumerator();
-            while ($it10.MoveNext())
+            var $it13 = source.GetEnumerator();
+            while ($it13.MoveNext())
             {
-                var local = $it10.get_Current();
+                var local = $it13.get_Current();
                 if (predicate(local))
                 {
                     return true;
@@ -4557,10 +5043,10 @@ var System$Linq$Enumerable =
                 throw $CreateException(System.Linq.Error.ArgumentNull("predicate"), new Error());
             }
             var num = 0;
-            var $it11 = source.GetEnumerator();
-            while ($it11.MoveNext())
+            var $it14 = source.GetEnumerator();
+            while ($it14.MoveNext())
             {
-                var local = $it11.get_Current();
+                var local = $it14.get_Current();
                 if (predicate(local))
                 {
                     num++;
@@ -4657,10 +5143,10 @@ var System$Linq$Enumerable =
                 throw $CreateException(System.Linq.Error.ArgumentNull("source"), new Error());
             }
             var arr =  [];
-            var $it12 = source.GetEnumerator();
-            while ($it12.MoveNext())
+            var $it15 = source.GetEnumerator();
+            while ($it15.MoveNext())
             {
-                var obj = $it12.get_Current();
+                var obj = $it15.get_Current();
                 arr.push(obj);
             }
             return arr;
@@ -5813,7 +6299,7 @@ var System$StringComparer =
         }
     },
     assemblyName: "SharpKit.JsClr",
-    interfaceNames: ["System.Collection.Generic.IEqualityComparer"],
+    interfaceNames: ["System.Collections.Generic.IEqualityComparer$1"],
     Kind: "Class",
     definition:
     {
@@ -5962,10 +6448,10 @@ var System$Collections$Generic$List$1 =
         },
         AddRange: function (items)
         {
-            var $it1 = items.GetEnumerator();
-            while ($it1.MoveNext())
+            var $it3 = items.GetEnumerator();
+            while ($it3.MoveNext())
             {
-                var item = $it1.get_Current();
+                var item = $it3.get_Current();
                 this.Add(item);
             }
         },
@@ -6231,6 +6717,427 @@ var System$Collections$Generic$JsArrayEnumerator$1 =
     }
 };
 JsTypes.push(System$Collections$Generic$JsArrayEnumerator$1);
+var System$Collections$ObjectModel$Collection$1 =
+{
+    fullname: "System.Collections.ObjectModel.Collection$1",
+    baseTypeName: "System.Object",
+    staticDefinition:
+    {
+        ConvertItem: function (item)
+        {
+            if (System.Collections.ObjectModel.Collection$1.IsValidItem(item))
+                return Cast(item, this.T);
+            throw $CreateException(new System.ArgumentException.ctor$$String("item"), new Error());
+        },
+        CheckWritable: function (items)
+        {
+            if (items.get_IsReadOnly())
+                throw $CreateException(new System.NotSupportedException.ctor(), new Error());
+        },
+        IsSynchronized: function (items)
+        {
+            var c = As(items, System.Collections.ICollection.ctor);
+            return (c != null) ? c.get_IsSynchronized() : false;
+        },
+        IsFixedSize: function (items)
+        {
+            var l = As(items, System.Collections.IList.ctor);
+            return (l != null) ? l.get_IsFixedSize() : false;
+        },
+        IsValidItem: function (item)
+        {
+            return Is(item, this.T) || (item == null && !Typeof(this.T).get_IsValueType());
+        }
+    },
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.Generic.IList$1", "System.Collections.IList"],
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T)
+        {
+            this.T = T;
+            this.items = null;
+            this.syncRoot = null;
+            System.Object.ctor.call(this);
+            var l = new System.Collections.Generic.List$1.ctor(this.T);
+            var l2 = As(l, System.Collections.IList.ctor);
+            this.items = l;
+        },
+        ctor$$IList$1: function (T, items)
+        {
+            this.T = T;
+            this.items = null;
+            this.syncRoot = null;
+            System.Object.ctor.call(this);
+            if (items == null)
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("items"), new Error());
+            this.items = items;
+            var l = As(items, System.Collections.ICollection.ctor);
+        },
+        Add: function (item)
+        {
+            var idx = this.items.get_Count();
+            this.InsertItem(idx, item);
+        },
+        Clear: function ()
+        {
+            this.ClearItems();
+        },
+        ClearItems: function ()
+        {
+            this.items.Clear();
+        },
+        Contains: function (item)
+        {
+            return this.items.Contains(item);
+        },
+        CopyTo: function (array, index)
+        {
+            this.items.CopyTo(array, index);
+        },
+        GetEnumerator: function ()
+        {
+            return this.items.GetEnumerator();
+        },
+        IndexOf: function (item)
+        {
+            return this.items.IndexOf(item);
+        },
+        Insert: function (index, item)
+        {
+            this.InsertItem(index, item);
+        },
+        InsertItem: function (index, item)
+        {
+            this.items.Insert(index, item);
+        },
+        Items$$: "System.Collections.Generic.IList`1[[`0]]",
+        get_Items: function ()
+        {
+            return this.items;
+        },
+        Remove: function (item)
+        {
+            var idx = this.IndexOf(item);
+            if (idx == -1)
+                return false;
+            this.RemoveItem(idx);
+            return true;
+        },
+        RemoveAt: function (index)
+        {
+            this.RemoveItem(index);
+        },
+        RemoveItem: function (index)
+        {
+            this.items.RemoveAt(index);
+        },
+        Count$$: "System.Int32",
+        get_Count: function ()
+        {
+            return this.items.get_Count();
+        },
+        Item$$: "`0",
+        get_Item$$Int32: function (index)
+        {
+            return this.items.get_Item$$Int32(index);
+        },
+        set_Item$$Int32: function (index, value)
+        {
+            this.SetItem(index, value);
+        },
+        SetItem: function (index, item)
+        {
+            this.items.set_Item$$Int32(index, item);
+        }
+    }
+};
+JsTypes.push(System$Collections$ObjectModel$Collection$1);
+var System$Collections$ObjectModel$ObservableCollection$1 =
+{
+    fullname: "System.Collections.ObjectModel.ObservableCollection$1",
+    baseTypeName: "System.Collections.ObjectModel.Collection$1",
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.Specialized.INotifyCollectionChanged", "System.ComponentModel.INotifyPropertyChanged"],
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T)
+        {
+            this.T = T;
+            this.reentrant = new System.Collections.ObjectModel.ObservableCollection$1.Reentrant.ctor(this.T);
+            this.CollectionChanged = null;
+            this.PropertyChanged = null;
+            this.PropertyChanged = null;
+            System.Collections.ObjectModel.Collection$1.ctor.call(this, this.T);
+        },
+        ctor$$IEnumerable$1: function (T, collection)
+        {
+            this.T = T;
+            this.reentrant = new System.Collections.ObjectModel.ObservableCollection$1.Reentrant.ctor(this.T);
+            this.CollectionChanged = null;
+            this.PropertyChanged = null;
+            this.PropertyChanged = null;
+            System.Collections.ObjectModel.Collection$1.ctor.call(this, this.T);
+            if (collection == null)
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("collection"), new Error());
+            var $it4 = collection.GetEnumerator();
+            while ($it4.MoveNext())
+            {
+                var item = $it4.get_Current();
+                this.Add(item);
+            }
+        },
+        ctor$$List$1: function (T, list)
+        {
+            this.T = T;
+            this.reentrant = new System.Collections.ObjectModel.ObservableCollection$1.Reentrant.ctor(this.T);
+            this.CollectionChanged = null;
+            this.PropertyChanged = null;
+            this.PropertyChanged = null;
+            System.Collections.ObjectModel.Collection$1.ctor$$IList$1.call(this, this.T, list != null ? new System.Collections.Generic.List$1.ctor$$IEnumerable$1(this.T, list) : null);
+        },
+        add_CollectionChanged: function (value)
+        {
+            this.CollectionChanged = $CombineDelegates(this.CollectionChanged, value);
+        },
+        remove_CollectionChanged: function (value)
+        {
+            this.CollectionChanged = $RemoveDelegate(this.CollectionChanged, value);
+        },
+        add_PropertyChanged: function (value)
+        {
+            this.PropertyChanged = $CombineDelegates(this.PropertyChanged, value);
+        },
+        remove_PropertyChanged: function (value)
+        {
+            this.PropertyChanged = $RemoveDelegate(this.PropertyChanged, value);
+        },
+        BlockReentrancy: function ()
+        {
+            this.reentrant.Enter();
+            return this.reentrant;
+        },
+        CheckReentrancy: function ()
+        {
+            var eh = this.CollectionChanged;
+            if (this.reentrant.get_Busy() && eh != null && eh.GetInvocationList().length > 1)
+                throw $CreateException(new System.InvalidOperationException.ctor$$String("Cannot modify the collection while reentrancy is blocked."), new Error());
+        },
+        ClearItems: function ()
+        {
+            this.CheckReentrancy();
+            System.Collections.ObjectModel.Collection$1.commonPrototype.ClearItems.call(this);
+            this.OnCollectionChanged(new System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction(4));
+            this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs.ctor("Count"));
+            this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs.ctor("Item[]"));
+        },
+        InsertItem: function (index, item)
+        {
+            this.CheckReentrancy();
+            System.Collections.ObjectModel.Collection$1.commonPrototype.InsertItem.call(this, index, item);
+            this.OnCollectionChanged(new System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$Object$$Int32(0, item, index));
+            this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs.ctor("Count"));
+            this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs.ctor("Item[]"));
+        },
+        Move: function (oldIndex, newIndex)
+        {
+            this.MoveItem(oldIndex, newIndex);
+        },
+        MoveItem: function (oldIndex, newIndex)
+        {
+            this.CheckReentrancy();
+            var item = this.get_Items().get_Item$$Int32(oldIndex);
+            System.Collections.ObjectModel.Collection$1.commonPrototype.RemoveItem.call(this, oldIndex);
+            System.Collections.ObjectModel.Collection$1.commonPrototype.InsertItem.call(this, newIndex, item);
+            this.OnCollectionChanged(new System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$Object$$Int32$$Int32(3, item, newIndex, oldIndex));
+            this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs.ctor("Item[]"));
+        },
+        OnCollectionChanged: function (e)
+        {
+            var eh = this.CollectionChanged;
+            if (eh != null)
+            {
+                var $r1 = this.BlockReentrancy();
+                try
+                {
+                    eh(this, e);
+                }
+                finally
+                {
+                    $r1.Dispose();
+                }
+            }
+        },
+        OnPropertyChanged: function (e)
+        {
+            var eh = this.PropertyChanged;
+            if (eh != null)
+                eh(this, e);
+        },
+        RemoveItem: function (index)
+        {
+            this.CheckReentrancy();
+            var item = this.get_Items().get_Item$$Int32(index);
+            System.Collections.ObjectModel.Collection$1.commonPrototype.RemoveItem.call(this, index);
+            this.OnCollectionChanged(new System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$Object$$Int32(1, item, index));
+            this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs.ctor("Count"));
+            this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs.ctor("Item[]"));
+        },
+        SetItem: function (index, item)
+        {
+            this.CheckReentrancy();
+            var oldItem = this.get_Items().get_Item$$Int32(index);
+            System.Collections.ObjectModel.Collection$1.commonPrototype.SetItem.call(this, index, item);
+            this.OnCollectionChanged(new System.Collections.Specialized.NotifyCollectionChangedEventArgs.ctor$$NotifyCollectionChangedAction$$Object$$Object$$Int32(2, item, oldItem, index));
+            this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs.ctor("Item[]"));
+        }
+    }
+};
+JsTypes.push(System$Collections$ObjectModel$ObservableCollection$1);
+var System$Collections$ObjectModel$ObservableCollection$1$Reentrant =
+{
+    fullname: "System.Collections.ObjectModel.ObservableCollection$1.Reentrant",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.IDisposable"],
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T)
+        {
+            this.T = T;
+            this.count = 0;
+            System.Object.ctor.call(this);
+        },
+        Enter: function ()
+        {
+            this.count++;
+        },
+        Dispose: function ()
+        {
+            this.count--;
+        },
+        Busy$$: "System.Boolean",
+        get_Busy: function ()
+        {
+            return this.count > 0;
+        }
+    }
+};
+JsTypes.push(System$Collections$ObjectModel$ObservableCollection$1$Reentrant);
+var System$Collections$ObjectModel$ReadOnlyCollection$1 =
+{
+    fullname: "System.Collections.ObjectModel.ReadOnlyCollection$1",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.Generic.ICollection$1", "System.Collections.Generic.IList$1", "System.Collections.Generic.IEnumerable$1", "System.Collections.ICollection", "System.Collections.IEnumerable", "System.Collections.IList"],
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T, list)
+        {
+            this.T = T;
+            this.list = null;
+            System.Object.ctor.call(this);
+            if (list == null)
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("list"), new Error());
+            this.list = list;
+        },
+        Contains: function (value)
+        {
+            return this.list.Contains(value);
+        },
+        CopyTo: function (array, index)
+        {
+            this.list.CopyTo(array, index);
+        },
+        GetEnumerator: function ()
+        {
+            return this.list.GetEnumerator();
+        },
+        IndexOf: function (value)
+        {
+            return this.list.IndexOf(value);
+        },
+        Count$$: "System.Int32",
+        get_Count: function ()
+        {
+            return this.list.get_Count();
+        },
+        Items$$: "System.Collections.Generic.IList`1[[`0]]",
+        get_Items: function ()
+        {
+            return this.list;
+        },
+        Item$$: "`0",
+        get_Item$$Int32: function (index)
+        {
+            return this.list.get_Item$$Int32(index);
+        }
+    }
+};
+JsTypes.push(System$Collections$ObjectModel$ReadOnlyCollection$1);
+var System$Collections$ObjectModel$ReadOnlyObservableCollection$1 =
+{
+    fullname: "System.Collections.ObjectModel.ReadOnlyObservableCollection$1",
+    baseTypeName: "System.Collections.ObjectModel.ReadOnlyCollection$1",
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.Specialized.INotifyCollectionChanged", "System.ComponentModel.INotifyPropertyChanged"],
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T, list)
+        {
+            this.T = T;
+            this.CollectionChanged = null;
+            this.PropertyChanged = null;
+            this.CollectionChanged = null;
+            this.PropertyChanged = null;
+            System.Collections.ObjectModel.ReadOnlyCollection$1.ctor.call(this, this.T, list);
+            (list).add_PropertyChanged($CreateDelegate(this, this.SourceCollection_PropertyChanged));
+            (list).add_CollectionChanged($CreateDelegate(this, this.SourceCollection_CollectionChanged));
+        },
+        add_CollectionChanged: function (value)
+        {
+            this.CollectionChanged = $CombineDelegates(this.CollectionChanged, value);
+        },
+        remove_CollectionChanged: function (value)
+        {
+            this.CollectionChanged = $RemoveDelegate(this.CollectionChanged, value);
+        },
+        add_PropertyChanged: function (value)
+        {
+            this.PropertyChanged = $CombineDelegates(this.PropertyChanged, value);
+        },
+        remove_PropertyChanged: function (value)
+        {
+            this.PropertyChanged = $RemoveDelegate(this.PropertyChanged, value);
+        },
+        OnCollectionChanged: function (args)
+        {
+            var eh = this.CollectionChanged;
+            if (eh != null)
+                eh(this, args);
+        },
+        OnPropertyChanged: function (args)
+        {
+            var eh = this.PropertyChanged;
+            if (eh != null)
+                eh(this, args);
+        },
+        SourceCollection_CollectionChanged: function (sender, e)
+        {
+            this.OnCollectionChanged(e);
+        },
+        SourceCollection_PropertyChanged: function (sender, e)
+        {
+            this.OnPropertyChanged(e);
+        }
+    }
+};
+JsTypes.push(System$Collections$ObjectModel$ReadOnlyObservableCollection$1);
 var System$Collections$IListEnumerator$1 =
 {
     fullname: "System.Collections.IListEnumerator$1",
@@ -6684,7 +7591,7 @@ var System$Type =
                 if (baseType != null)
                 {
                     var props = baseType.GetProperties();
-                    for (var $i14 = 0, $l14 = props.length, pe = props[$i14]; $i14 < $l14; $i14++, pe = props[$i14])
+                    for (var $i17 = 0, $l17 = props.length, pe = props[$i17]; $i17 < $l17; $i17++, pe = props[$i17])
                     {
                         if (!this._PropertiesByName.hasOwnProperty(pe._Name))
                         {
@@ -6747,7 +7654,7 @@ var System$Type =
                 if (baseType != null)
                 {
                     var methods = baseType.GetMethods();
-                    for (var $i15 = 0, $l15 = methods.length, pe = methods[$i15]; $i15 < $l15; $i15++, pe = methods[$i15])
+                    for (var $i18 = 0, $l18 = methods.length, pe = methods[$i18]; $i18 < $l18; $i18++, pe = methods[$i18])
                     {
                         if (this._MethodsByName[pe._Name] == null)
                         {
@@ -6833,7 +7740,7 @@ var System$Type =
             {
                 var methodName = SharpKit.JavaScript.JsNamingHelper.JsFunctionNameToClrMethodName(memberName);
                 var methods = this.GetMethods$$String(methodName);
-                for (var $i16 = 0, $l16 = methods.length, method = methods[$i16]; $i16 < $l16; $i16++, method = methods[$i16])
+                for (var $i19 = 0, $l19 = methods.length, method = methods[$i19]; $i19 < $l19; $i19++, method = methods[$i19])
                 {
                     if (method.JsName == memberName)
                         return method;
@@ -6977,6 +7884,360 @@ var System$ComponentModel$ListSortDirection =
     Kind: "Enum"
 };
 JsTypes.push(System$ComponentModel$ListSortDirection);
+var System$Guid =
+{
+    fullname: "System.Guid",
+    baseTypeName: "System.ValueType",
+    staticDefinition:
+    {
+        cctor: function ()
+        {
+            System.Guid.Empty = new System.Guid.ctor();
+            System.Guid._random = new System.Random.ctor();
+        },
+        NewGuid: function ()
+        {
+            var array = new Int8Array(16);
+            for (var i = 0; i < 16; i++)
+            {
+                array[i] = System.Guid._random.Next$$Int32(256);
+            }
+            var result = new System.Guid.ctor$$Byte$Array(array);
+            result._d = ((result._d & 63) | 128);
+            result._c = ((result._c & 4095) | 16384);
+            return result;
+        },
+        AppendByte: function (builder, value)
+        {
+            builder.Append$$Char(System.Guid.ToHex(value >> 4 & 15));
+            builder.Append$$Char(System.Guid.ToHex((value & 15)));
+        },
+        AppendInt: function (builder, value)
+        {
+            builder.Append$$Char(System.Guid.ToHex(value >> 28 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 24 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 20 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 16 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 12 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 8 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 4 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value & 15));
+        },
+        AppendShort: function (builder, value)
+        {
+            builder.Append$$Char(System.Guid.ToHex(value >> 12 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 8 & 15));
+            builder.Append$$Char(System.Guid.ToHex(value >> 4 & 15));
+            builder.Append$$Char(System.Guid.ToHex((value & 15)));
+        },
+        CheckArray: function (o, l)
+        {
+            System.Guid.CheckNull(o);
+            System.Guid.CheckLength(o, l);
+        },
+        CheckLength: function (o, l)
+        {
+            if (o.length != l)
+            {
+                throw $CreateException(new System.ArgumentException.ctor$$String(System.String.Format$$String$$Object("Array should be exactly {0} bytes long.", l)), new Error());
+            }
+        },
+        CheckNull: function (o)
+        {
+            if (o == null)
+            {
+                throw $CreateException(new System.ArgumentNullException.ctor$$String("Value cannot be null."), new Error());
+            }
+        },
+        Compare: function (x, y)
+        {
+            return (x >= y) ? 1 : -1;
+        },
+        CreateFormatException: function (s)
+        {
+            return new System.FormatException.ctor$$String(System.String.Format$$String$$Object("Invalid Guid format: {0}", s));
+        },
+        ToHex: function (b)
+        {
+            return ((b >= 10) ? (97 + b - 10) : (48 + b));
+        },
+        op_Equality: function (a, b)
+        {
+            return a.Equals$$Guid(b);
+        },
+        op_Inequality: function (a, b)
+        {
+            return !a.Equals$$Guid(b);
+        }
+    },
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Struct",
+    definition:
+    {
+        ctor$$Byte$Array: function (b)
+        {
+            this._i = 0;
+            this._h = 0;
+            this._k = 0;
+            this._j = 0;
+            this._g = 0;
+            this._c = 0;
+            this._b = 0;
+            this._a = 0;
+            this._f = 0;
+            this._e = 0;
+            this._d = 0;
+            System.ValueType.ctor.call(this);
+            this._a = b[0] | (b[1] << 8) | (b[2] << 16) | (b[3] << 24);
+            this._b = (b[4] | (b[5] << 8));
+            this._c = (b[6] | (b[7] << 8));
+            this._d = b[8];
+            this._e = b[9];
+            this._f = b[10];
+            this._g = b[11];
+            this._h = b[12];
+            this._i = b[13];
+            this._j = b[14];
+            this._k = b[15];
+        },
+        ctor$$UInt32$$UInt16$$UInt16$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte: function (a, b, c, d, e, f, g, h, i, j, k)
+        {
+            this._i = 0;
+            this._h = 0;
+            this._k = 0;
+            this._j = 0;
+            this._g = 0;
+            this._c = 0;
+            this._b = 0;
+            this._a = 0;
+            this._f = 0;
+            this._e = 0;
+            this._d = 0;
+            System.Guid.ctor$$Int32$$Int16$$Int16$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte.call(this, a, b, c, d, e, f, g, h, i, j, k);
+        },
+        ctor$$Int32$$Int16$$Int16$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte$$Byte: function (a, b, c, d, e, f, g, h, i, j, k)
+        {
+            this._i = 0;
+            this._h = 0;
+            this._k = 0;
+            this._j = 0;
+            this._g = 0;
+            this._c = 0;
+            this._b = 0;
+            this._a = 0;
+            this._f = 0;
+            this._e = 0;
+            this._d = 0;
+            System.ValueType.ctor.call(this);
+            this._a = a;
+            this._b = b;
+            this._c = c;
+            this._d = d;
+            this._e = e;
+            this._f = f;
+            this._g = g;
+            this._h = h;
+            this._i = i;
+            this._j = j;
+            this._k = k;
+        },
+        BaseToString: function (h, p, b)
+        {
+            var stringBuilder = new System.Text.StringBuilder.ctor$$Int32(40);
+            if (p)
+            {
+                stringBuilder.Append$$Char("(");
+            }
+            else
+            {
+                if (b)
+                {
+                    stringBuilder.Append$$Char("{");
+                }
+            }
+            System.Guid.AppendInt(stringBuilder, this._a);
+            if (h)
+            {
+                stringBuilder.Append$$Char("-");
+            }
+            System.Guid.AppendShort(stringBuilder, this._b);
+            if (h)
+            {
+                stringBuilder.Append$$Char("-");
+            }
+            System.Guid.AppendShort(stringBuilder, this._c);
+            if (h)
+            {
+                stringBuilder.Append$$Char("-");
+            }
+            System.Guid.AppendByte(stringBuilder, this._d);
+            System.Guid.AppendByte(stringBuilder, this._e);
+            if (h)
+            {
+                stringBuilder.Append$$Char("-");
+            }
+            System.Guid.AppendByte(stringBuilder, this._f);
+            System.Guid.AppendByte(stringBuilder, this._g);
+            System.Guid.AppendByte(stringBuilder, this._h);
+            System.Guid.AppendByte(stringBuilder, this._i);
+            System.Guid.AppendByte(stringBuilder, this._j);
+            System.Guid.AppendByte(stringBuilder, this._k);
+            if (p)
+            {
+                stringBuilder.Append$$Char(")");
+            }
+            else
+            {
+                if (b)
+                {
+                    stringBuilder.Append$$Char("}");
+                }
+            }
+            return stringBuilder.toString();
+        },
+        CompareTo$$Guid: function (value)
+        {
+            if (this._a != value._a)
+            {
+                return System.Guid.Compare(this._a, value._a);
+            }
+            if (this._b != value._b)
+            {
+                return System.Guid.Compare(this._b, value._b);
+            }
+            if (this._c != value._c)
+            {
+                return System.Guid.Compare(this._c, value._c);
+            }
+            if (this._d != value._d)
+            {
+                return System.Guid.Compare(this._d, value._d);
+            }
+            if (this._e != value._e)
+            {
+                return System.Guid.Compare(this._e, value._e);
+            }
+            if (this._f != value._f)
+            {
+                return System.Guid.Compare(this._f, value._f);
+            }
+            if (this._g != value._g)
+            {
+                return System.Guid.Compare(this._g, value._g);
+            }
+            if (this._h != value._h)
+            {
+                return System.Guid.Compare(this._h, value._h);
+            }
+            if (this._i != value._i)
+            {
+                return System.Guid.Compare(this._i, value._i);
+            }
+            if (this._j != value._j)
+            {
+                return System.Guid.Compare(this._j, value._j);
+            }
+            if (this._k != value._k)
+            {
+                return System.Guid.Compare(this._k, value._k);
+            }
+            return 0;
+        },
+        CompareTo$$Object: function (value)
+        {
+            if (value == null)
+            {
+                return 1;
+            }
+            if (!(Is(value, System.Guid.ctor)))
+            {
+                throw $CreateException(new System.ArgumentException.ctor$$String$$String("value", "Argument of System.Guid.CompareTo should be a Guid."), new Error());
+            }
+            return this.CompareTo$$Guid(Cast(value, System.Guid.ctor));
+        },
+        Equals$$Object: function (o)
+        {
+            return Is(o, System.Guid.ctor) && this.CompareTo$$Guid(Cast(o, System.Guid.ctor)) == 0;
+        },
+        Equals$$Guid: function (g)
+        {
+            return this.CompareTo$$Guid(g) == 0;
+        },
+        GetHashCode: function ()
+        {
+            var num = this._a;
+            num ^= this._b << 16 | this._c;
+            num ^= this._d << 24;
+            num ^= this._e << 16;
+            num ^= this._f << 8;
+            num ^= this._g;
+            num ^= this._h << 24;
+            num ^= this._i << 16;
+            num ^= this._j << 8;
+            return num ^ this._k;
+        },
+        toString: function ()
+        {
+            return this.BaseToString(true, false, false);
+        },
+        ToString$$String: function (format)
+        {
+            var h = true;
+            var p = false;
+            var b = false;
+            if (format != null)
+            {
+                var a = format.ToLowerInvariant();
+                if (a == "b")
+                {
+                    b = true;
+                }
+                else
+                {
+                    if (a == "p")
+                    {
+                        p = true;
+                    }
+                    else
+                    {
+                        if (a == "n")
+                        {
+                            h = false;
+                        }
+                        else
+                        {
+                            if (a != "d" && a != System.String.Empty)
+                            {
+                                throw $CreateException(new System.FormatException.ctor$$String("Argument to Guid.ToString(string format) should be \"b\", \"B\", \"d\", \"D\", \"n\", \"N\", \"p\" or \"P\""), new Error());
+                            }
+                        }
+                    }
+                }
+            }
+            return this.BaseToString(h, p, b);
+        },
+        ToString$$String$$IFormatProvider: function (format, provider)
+        {
+            return this.ToString$$String(format);
+        },
+        ctor: function ()
+        {
+            this._i = 0;
+            this._h = 0;
+            this._k = 0;
+            this._j = 0;
+            this._g = 0;
+            this._c = 0;
+            this._b = 0;
+            this._a = 0;
+            this._f = 0;
+            this._e = 0;
+            this._d = 0;
+            System.ValueType.ctor.call(this);
+        }
+    }
+};
+JsTypes.push(System$Guid);
 var System$Math =
 {
     fullname: "System.Math",
@@ -7283,6 +8544,14 @@ var System$Text$StringBuilder =
             this.array = new Array(0);
             this.length = 0;
         },
+        ctor$$Int32: function (len)
+        {
+            this.array = null;
+            this.length = 0;
+            System.Object.ctor.call(this);
+            this.array = new Array(0);
+            this.length = 0;
+        },
         ctor$$String: function (s)
         {
             this.array = null;
@@ -7560,10 +8829,10 @@ var SharpKit$Extensions2 =
         {
             var sb = new System.Text.StringBuilder.ctor();
             var first = true;
-            var $it16 = s.GetEnumerator();
-            while ($it16.MoveNext())
+            var $it19 = s.GetEnumerator();
+            while ($it19.MoveNext())
             {
-                var c = $it16.get_Current();
+                var c = $it19.get_Current();
                 if (System.Char.IsUpper$$Char(c) && !first)
                 {
                     sb.Append$$Char(" ");
@@ -7792,10 +9061,10 @@ var SharpKit$JsClr$Utils$JsClrClientSerializer =
             {
                 var list = obj;
                 obj2.$l =  [];
-                var $it17 = list.GetEnumerator();
-                while ($it17.MoveNext())
+                var $it20 = list.GetEnumerator();
+                while ($it20.MoveNext())
                 {
-                    var item = $it17.get_Current();
+                    var item = $it20.get_Current();
                     var item2 = this.Serialize2(item);
                     obj2.$l.push(item2);
                 }
@@ -7851,7 +9120,7 @@ var SharpKit$JavaScript$JsNamingHelper =
         },
         ConvertParametersToJsFunctionName: function (prms, sb)
         {
-            for (var $i19 = 0, $l19 = prms.length, prm = prms[$i19]; $i19 < $l19; $i19++, prm = prms[$i19])
+            for (var $i22 = 0, $l22 = prms.length, prm = prms[$i22]; $i22 < $l22; $i22++, prm = prms[$i22])
             {
                 sb.Append$$String("$$");
                 sb.Append$$String(prm.get_ParameterType().get_Name());
