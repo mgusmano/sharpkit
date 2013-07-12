@@ -2199,6 +2199,53 @@ var System$ICloneable = {fullname: "System.ICloneable", baseTypeName: "System.Ob
 JsTypes.push(System$ICloneable);
 var System$IDisposable = {fullname: "System.IDisposable", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
 JsTypes.push(System$IDisposable);
+var System$Int64 =
+{
+    fullname: "System.Int64",
+    baseTypeName: "System.Object",
+    staticDefinition:
+    {
+        op_Implicit$$UInt32: function (value)
+        {
+            return new System.Int64.ctor$$Object(value);
+        },
+        op_Explicit: function (value)
+        {
+            return new System.Int64.ctor$$Object(value);
+        },
+        op_Implicit$$Int64: function (value)
+        {
+            return value._value;
+        }
+    },
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            this._value = null;
+            System.Int64.ctor$$Object.call(this, 0);
+        },
+        ctor$$Object: function (value)
+        {
+            this._value = null;
+            System.Object.ctor.call(this);
+            this._value = this.Convert(value);
+        },
+        Convert: function (value)
+        {
+            if (value == null)
+                throw $CreateException(new System.ArgumentNullException.ctor(), new Error());
+            var regex = new RegExp("^-?([0-9]+)[^0-9]");
+            var match = regex.exec(value.toString());
+            if (match == null)
+                throw $CreateException(new System.FormatException.ctor(), new Error());
+            return new Number(match[1]);
+        }
+    }
+};
+JsTypes.push(System$Int64);
 var System$IComparable = {fullname: "System.IComparable", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
 JsTypes.push(System$IComparable);
 var System$IComparable$1 = {fullname: "System.IComparable$1", baseTypeName: "System.Object", assemblyName: "SharpKit.JsClr", Kind: "Interface"};
