@@ -11,7 +11,7 @@ using System.Text;
 
 namespace SharpKit.JavaScript.Private
 {
-  [JsType(Name = "System.Guid", Filename = "~/res/System.ComponentModel.js")]
+  [JsType(Name = "System.Guid", Filename = "~/res/System.js")]
   //[Remotable]
   internal struct JSImplGuid
   //public struct JSImplGuid : IComparable, IFormattable, IComparable<JSImplGuid>, IEquatable<JSImplGuid>
