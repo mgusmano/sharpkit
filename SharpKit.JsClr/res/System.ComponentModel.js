@@ -35,6 +35,7 @@ var System$Guid =
         {
             System.Guid.Empty = new System.Guid.ctor();
             System.Guid._random = new System.Random.ctor();
+            System.Guid._hexChars = "0123456789abcdef";
         },
         NewGuid: function ()
         {
@@ -50,26 +51,26 @@ var System$Guid =
         },
         AppendByte: function (builder, value)
         {
-            builder.Append$$Char(System.Guid.ToHex(value >> 4 & 15));
-            builder.Append$$Char(System.Guid.ToHex((value & 15)));
+            builder.Append$$String(System.Guid.ToHex(value >> 4 & 15));
+            builder.Append$$String(System.Guid.ToHex((value & 15)));
         },
         AppendInt: function (builder, value)
         {
-            builder.Append$$Char(System.Guid.ToHex(value >> 28 & 15));
-            builder.Append$$Char(System.Guid.ToHex(value >> 24 & 15));
-            builder.Append$$Char(System.Guid.ToHex(value >> 20 & 15));
-            builder.Append$$Char(System.Guid.ToHex(value >> 16 & 15));
-            builder.Append$$Char(System.Guid.ToHex(value >> 12 & 15));
-            builder.Append$$Char(System.Guid.ToHex(value >> 8 & 15));
-            builder.Append$$Char(System.Guid.ToHex(value >> 4 & 15));
-            builder.Append$$Char(System.Guid.ToHex(value & 15));
+            builder.Append$$String(System.Guid.ToHex(value >> 28 & 15));
+            builder.Append$$String(System.Guid.ToHex(value >> 24 & 15));
+            builder.Append$$String(System.Guid.ToHex(value >> 20 & 15));
+            builder.Append$$String(System.Guid.ToHex(value >> 16 & 15));
+            builder.Append$$String(System.Guid.ToHex(value >> 12 & 15));
+            builder.Append$$String(System.Guid.ToHex(value >> 8 & 15));
+            builder.Append$$String(System.Guid.ToHex(value >> 4 & 15));
+            builder.Append$$String(System.Guid.ToHex(value & 15));
         },
         AppendShort: function (builder, value)
         {
-            builder.Append$$Char(System.Guid.ToHex(value >> 12 & 15));
-            builder.Append$$Char(System.Guid.ToHex(value >> 8 & 15));
-            builder.Append$$Char(System.Guid.ToHex(value >> 4 & 15));
-            builder.Append$$Char(System.Guid.ToHex((value & 15)));
+            builder.Append$$String(System.Guid.ToHex(value >> 12 & 15));
+            builder.Append$$String(System.Guid.ToHex(value >> 8 & 15));
+            builder.Append$$String(System.Guid.ToHex(value >> 4 & 15));
+            builder.Append$$String(System.Guid.ToHex((value & 15)));
         },
         CheckArray: function (o, l)
         {
@@ -100,7 +101,7 @@ var System$Guid =
         },
         ToHex: function (b)
         {
-            return ((b >= 10) ? (97 + b - 10) : (48 + b));
+            return System.Guid._hexChars.substr(b, 1);
         },
         op_Equality: function (a, b)
         {

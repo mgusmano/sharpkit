@@ -334,10 +334,17 @@ namespace SharpKit.JavaScript.Private
     }
 #endif
 
-    private static char ToHex(int b)
-    {
-      return (char)((b >= 10) ? (97 + b - 10) : (48 + b));
-    }
+  	private static string _hexChars = "0123456789abcdef";
+
+	private static string ToHex(int b)
+	{
+		return _hexChars.Substring(b, 1);
+	}
+
+	//private static char ToHex(int b)
+	//{
+	//    return (char)((b >= 10) ? (97 + b - 10) : (48 + b));
+	//}
 
 #if false
     public static bool TryParse(string input, out JSImplGuid result)
