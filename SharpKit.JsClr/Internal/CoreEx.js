@@ -100,6 +100,14 @@ JsTypes.push(
 });
 
 JsTypes.push({ fullname: "Object" });
+JsTypes.push({ fullname: "Int8Array" });
+JsTypes.push({ fullname: "Uint8Array"});
+JsTypes.push({ fullname: "Int16Array"});
+JsTypes.push({ fullname: "Uint16Array"});
+JsTypes.push({ fullname: "Int32Array"});
+JsTypes.push({ fullname: "Uint32Array"});
+JsTypes.push({ fullname: "Float32Array"});
+JsTypes.push({ fullname: "Float64Array"});
 
 JsTypes.push({ fullname: "Array", baseTypeName: "Object", definition:
 {
