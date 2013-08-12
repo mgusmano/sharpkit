@@ -2820,6 +2820,7 @@ namespace SharpKit.jQuery
         public static bool uiBackCompat;
     }
 
+    [JsType(JsMode.Json)]
     public class AnimateOptions
     {
         /// <summary>
