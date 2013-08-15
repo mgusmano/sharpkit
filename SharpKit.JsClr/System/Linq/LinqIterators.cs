@@ -275,6 +275,124 @@ namespace SharpKit.JavaScript.Private
             #endregion
 
         }
+
+        [JsType(Name = "System.Linq.Enumerable.TakeIterator", Filename = "~/res/System.Linq.js")]
+        class ConcatIterator<T> : IEnumerator<T>, IEnumerable<T>
+        {
+            public ConcatIterator(IEnumerable first, IEnumerable second)
+            {
+                this.First = first;
+                this.Second = second;
+            }
+            IEnumerable First;
+            IEnumerable Second;
+            IEnumerator FirstEnumerator;
+            IEnumerator SecondEnumerator;
+            int State;
+            bool onFirst = true;
+
+            public void Reset()
+            {
+                if (FirstEnumerator != null)
+                    this.FirstEnumerator.Reset();
+                if (SecondEnumerator != null)
+                    this.SecondEnumerator.Reset();
+                onFirst = true;
+            }
+            public T Current
+            {
+                get
+                {
+                    if (State == 1)
+                    {
+                        return FirstEnumerator.Current.As<T>();
+                    }
+                    if (State == 3)
+                    {
+                        return SecondEnumerator.Current.As<T>();
+                    }
+                    throw new InvalidOperationException();
+                }
+            }
+            
+            public bool MoveNext()
+            {
+                if (State == 0)
+                {
+                    FirstEnumerator = First.GetEnumerator();
+                    State = 1;
+                }
+                if (State == 1)
+                {
+                    if (FirstEnumerator.MoveNext())
+                    {
+                        return true;
+                    }
+                    State = 2;
+                }
+                if (State == 2)
+                {
+                    SecondEnumerator = Second.GetEnumerator();
+                    State = 3;
+                }
+                if (State == 3)
+                {
+                    if (SecondEnumerator.MoveNext())
+                    {
+                        return true;
+                    }
+                    State = 4;
+                }
+                return false;
+            }
+
+            #region IDisposable Members
+
+            public void Dispose()
+            {
+                First = null;
+                FirstEnumerator = null;
+                Second = null;
+                SecondEnumerator = null;
+            }
+
+            #endregion
+
+            #region IEnumerator Members
+
+            object System.Collections.IEnumerator.Current
+            {
+                get { throw new NotImplementedException(); }
+            }
+
+            void System.Collections.IEnumerator.Reset()
+            {
+                throw new NotImplementedException();
+            }
+
+            #endregion
+
+            #region IEnumerable<T> Members
+
+            public IEnumerator<T> GetEnumerator()
+            {
+                if (State == 0)
+                    return this;
+                return new ConcatIterator<T>(First, Second);
+            }
+
+            #endregion
+
+            #region IEnumerable Members
+
+            System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+            {
+                return GetEnumerator();
+            }
+
+            #endregion
+
+        }
     }
 
 }

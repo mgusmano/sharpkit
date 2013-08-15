@@ -809,18 +809,18 @@ namespace SharpKit.JavaScript.Private
         //  return _b;
         //}
 
-        //public static IEnumerable<TSource> Concat<TSource>(this IEnumerable<TSource> first, IEnumerable<TSource> second)
-        //{
-        //  if (first == null)
-        //  {
-        //    throw Error.ArgumentNull("first");
-        //  }
-        //  if (second == null)
-        //  {
-        //    throw Error.ArgumentNull("second");
-        //  }
-        //  return ConcatIterator<TSource>(first, second);
-        //}
+        public static IEnumerable<TSource> Concat<TSource>(this IEnumerable<TSource> first, IEnumerable<TSource> second)
+        {
+            if (first == null)
+            {
+                throw Error.ArgumentNull("first");
+            }
+            if (second == null)
+            {
+                throw Error.ArgumentNull("second");
+            }
+            return new ConcatIterator<TSource>(first, second);
+        }
 
         //private static IEnumerable<TSource> ConcatIterator<TSource>(IEnumerable<TSource> first, IEnumerable<TSource> second)
         //{
