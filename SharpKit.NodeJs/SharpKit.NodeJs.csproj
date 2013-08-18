@@ -65,10 +65,12 @@
     <Compile Include="http\Agent.cs" />
     <Compile Include="http\ClientRequest.cs" />
     <Compile Include="http\ClientResponse.cs" />
+    <Compile Include="http\IncomingMessage.cs" />
     <Compile Include="http\Server.cs" />
     <Compile Include="http\ServerRequest.cs" />
     <Compile Include="http\ServerResponse.cs" />
     <Compile Include="http\Utils.cs" />
+    <Compile Include="NodeJsContext.cs" />
     <Compile Include="Path.cs" />
     <Compile Include="queryString\Utils.cs" />
     <Compile Include="readlLine\Interface.cs" />

@@ -11,7 +11,7 @@ namespace SharpKit.NodeJs.http
     /// [EventEmitter][] with the following events:
     /// </p>
     /// </summary>
-    public partial class ServerRequest
+    public partial class ServerRequest : IncomingMessage
     {
         /// <summary>
         /// <p>Pauses request from emitting events.  Useful to throttle back an upload.
@@ -35,17 +35,27 @@ namespace SharpKit.NodeJs.http
         /// </p>
         /// </summary>
         public object setEncoding(object encoding) { return null; }
-        
+
         #region events
         /// <summary>
         /// Emitted when a piece of the message body is received. The chunk is a string if an encoding has been set with request.setEncoding(), otherwise it's a Buffer.
         /// Note that the data will be lost if there is no listener when a ServerRequest emits a 'data' event.
         /// </summary>
-        public JsAction<JsString> data { get; set; }
+        public event JsAction<JsString> data
+        {
+            [JsMethod(Name = "on", InsertArg0 = "data")]
+            add { }
+            remove { }
+        }
         /// <summary>
         /// Emitted exactly once for each request. After that, no more 'data' events will be emitted on the request.
         /// </summary>
-        public JsAction end { get; set; }
+        public event JsAction end
+        {
+            [JsMethod(Name = "on", InsertArg0 = "end")]
+            add { }
+            remove { }
+        }
         /// <summary>
         /// Indicates that the underlaying connection was terminated before response.end() was called or able to flush.
         /// Just like 'end', this event occurs only once per request, and no more 'data' events will fire afterwards.

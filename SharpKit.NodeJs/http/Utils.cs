@@ -6,20 +6,20 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.NodeJs.http
 {
-    [JsType(JsMode.Prototype, Export = false, Name = "http")]
-    public partial class Utils
+    [JsType(JsMode.Json, Export = false, Name = "http")]
+    public partial class HttpPlugin : IRequirable
     {
         /// <summary>
         /// 
         /// </summary>
         /// <returns>Returns a new web server object.</returns>
-        public object createServer() { return null; }
+        public Server createServer() { return null; }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="requestListener">The requestListener is a function which is automatically added to the 'request' event.</param>
         /// <returns>Returns a new web server object.</returns> 
-        public object createServer(JsAction<ServerRequest, ServerResponse> requestListener) { return null; }
+        public Server createServer(JsAction<ServerRequest, ServerResponse> requestListener) { return null; }
         /// <summary>
         /// Node maintains several connections per server to make HTTP requests. This function allows one to transparently issue requests.
         /// </summary>

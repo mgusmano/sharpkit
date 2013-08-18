@@ -2045,7 +2045,8 @@ namespace SharpKit.JavaScript
         public object this[JsString name] { get { return default(object); } set { } }
         IEnumerator<JsString> IEnumerable<JsString>.GetEnumerator() { return default(IEnumerator<JsString>); }
         IEnumerator IEnumerable.GetEnumerator() { return default(IEnumerator); }
-
+        [JsMethod(Name="", OmitParanthesis=true, InsertArg0="[", InsertArg1="] = ", OmitCommas=true)]
+        public void Add(JsString name, object value) { }
 
     }
     #endregion
@@ -2060,6 +2061,8 @@ namespace SharpKit.JavaScript
         public T this[JsString name] { get { return default(T); } set { } }
         IEnumerator<JsString> IEnumerable<JsString>.GetEnumerator() { return default(IEnumerator<JsString>); }
         IEnumerator IEnumerable.GetEnumerator() { return default(IEnumerator); }
+        [JsMethod(Name = "", OmitParanthesis = true, InsertArg0 = "[", InsertArg1 = "] = ", OmitCommas = true)]
+        public void Add(JsString name, T value) { }
     }
     #endregion
     #region JsObject<K, T>
@@ -2074,6 +2077,8 @@ namespace SharpKit.JavaScript
         public T this[K key] { get { return default(T); } set { } }
         IEnumerator<K> IEnumerable<K>.GetEnumerator() { return default(IEnumerator<K>); }
         IEnumerator IEnumerable.GetEnumerator() { return default(IEnumerator); }
+        [JsMethod(Name = "", OmitParanthesis = true, InsertArg0 = "[", InsertArg1 = "] = ", OmitCommas = true)]
+        public void Add(K name, T value) { }
     }
     #endregion
     #region JsRegExp
