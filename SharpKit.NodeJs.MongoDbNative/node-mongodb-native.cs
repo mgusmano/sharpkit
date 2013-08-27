@@ -30,14 +30,17 @@ namespace SharpKit.NodeJs.MongoDbNative
         public void collection(JsString name, object options, JsAction<Error, Collection<dynamic>> cb) {}
         public void collection<T>(JsString name, JsAction<Error, Collection<T>> cb) {}
         public void collection(JsString name, JsAction<Error, Collection<dynamic>> cb) {}
+        public void close() { }
     }
     [JsType(JsMode.Prototype)]
     public class Collection<T>
     {
+        public void save(T value, JsAction<Error, object> callback) { }
+        public void save(T value, object options, JsAction<Error, object> callback) { }
         public void insert(T value, JsAction<Error, JsArray<T>> callback) { }
         public Cursor<T> find(object query) { return null; }
 
-        public void findOne(object query, object options, JsAction<Error, T> callback) { }
+        //public void findOne(object query, object options, JsAction<Error, T> callback) { }
         public void findOne(object query, JsAction<Error, T> callback) { }
     }
     [JsType(JsMode.Prototype)]

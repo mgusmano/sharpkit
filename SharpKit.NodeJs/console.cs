@@ -6,9 +6,11 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.NodeJs
 {
-     [JsType(JsMode.Prototype, Export = false, Name = "console")]
-    public partial class console
+    [JsType(JsMode.Prototype, Export = false, Name = "console")]
+    public partial class Console
     {
+        [JsProperty(Name="")]
+        public static Console Current { get; private set; }
         /// <summary>
         /// Prints to stdout with newline. This function can take multiple arguments in a printf()-like way. Example:
         /// <example>
@@ -20,7 +22,7 @@ namespace SharpKit.NodeJs
         /// inspect is used on each argument. See util.format() for more information.
         /// </summary>
         /// <param name="obj"></param>
-        public static void log(params object[] obj) { }
+        public void log(params object[] obj) { }
         /// <summary>
         /// Prints to stdout with newline. This function can take multiple arguments in a printf()-like way. Example:
         /// <example>
@@ -32,7 +34,7 @@ namespace SharpKit.NodeJs
         /// inspect is used on each argument. See util.format() for more information.
         /// </summary>
         /// <param name="data"></param>       
-        public static void log(JsString data) { }
+        public void log(JsString data) { }
         /// <summary>
         /// Prints to stdout with newline. This function can take multiple arguments in a printf()-like way. Example:
         /// <example>
@@ -45,7 +47,7 @@ namespace SharpKit.NodeJs
         /// </summary>
         /// <param name="data"></param>
         /// <param name="obj"></param>
-        public static void log(JsString data, params object[] obj) { }
+        public void log(JsString data, params object[] obj) { }
         /// <summary>
         /// Same as console.log.
         /// </summary>
@@ -103,7 +105,7 @@ namespace SharpKit.NodeJs
         /// Finish timer, record output.
         /// </summary>
         /// <param name="label"></param>
-        
+
         /// <example>
         ///  Example:
         /// <code>

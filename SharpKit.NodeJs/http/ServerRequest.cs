@@ -43,7 +43,7 @@ namespace SharpKit.NodeJs.http
         /// </summary>
         public event JsAction<JsString> data
         {
-            [JsMethod(Name = "on", InsertArg0 = "data")]
+            [JsMethod(Name = "on", InsertArg0 = "\"data\"")]
             add { }
             remove { }
         }
@@ -52,7 +52,7 @@ namespace SharpKit.NodeJs.http
         /// </summary>
         public event JsAction end
         {
-            [JsMethod(Name = "on", InsertArg0 = "end")]
+            [JsMethod(Name = "on", InsertArg0 = "\"end\"")]
             add { }
             remove { }
         }
@@ -61,7 +61,14 @@ namespace SharpKit.NodeJs.http
         /// Just like 'end', this event occurs only once per request, and no more 'data' events will fire afterwards.
         /// Note: 'close' can fire after 'end', but not vice versa.
         /// </summary>
-        public JsAction close { get; set; }
+        public event JsAction close        
+        {
+            [JsMethod(Name = "on", InsertArg0 = "\"close\"")]
+            add { }
+            remove { }
+        }
+        /// <summary>
+
         #endregion
     }
     [JsType(JsMode.Json)]
