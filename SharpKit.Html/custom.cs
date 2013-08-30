@@ -343,6 +343,11 @@ public Int32Array(int length) { }
         public Window open() { return null; }
     }
 
+
+    partial class HtmlSelectElement
+    {
+        public void remove(long index) { }
+    }
     //TODO: Name="XMLHttpRequest", Name="Node"
     //
 }
