@@ -1,4 +1,4 @@
-﻿
+ 
 /*******************************************************************************************************
 
   Copyright (C) 2012 Sebastian Loncar, Web: http://loncar.de
@@ -347,6 +347,7 @@ public Int32Array(int length) { }
     partial class HtmlSelectElement
     {
         public void remove(long index) { }
+        public void remove(HtmlOptionElement option) { }
     }
     //TODO: Name="XMLHttpRequest", Name="Node"
     //
