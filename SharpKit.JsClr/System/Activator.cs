@@ -42,7 +42,9 @@ namespace SharpKit.JavaScript.Private
         }
         public static T CreateInstance<T>()
         {
-            return (T)CreateInstance(typeof(T).As<JsImplType>());
+            return CreateInstance(typeof(T).As<JsImplType>()).As<T>();
         }
+
     }
+
 }
