@@ -2141,6 +2141,11 @@ namespace SharpKit.jQuery
         /// </summary>
         public object val() { return null; }
         /// <summary>
+        /// Get the current value of the first element in the set of matched elements.
+        /// </summary>
+        [JsMethod(Name="val")]
+        public JsString valString() { return null; }
+        /// <summary>
         /// Set the value of each element in the set of matched elements.
         /// </summary>
         public jQuery val(JsString value) { return null; }

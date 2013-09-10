@@ -85,79 +85,212 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///This event is fired when the viewport bounds have changed.
         /// </summary>
-        public JsAction bounds_changed { get; set; }
+        public event JsAction bounds_changed
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"bounds_changed\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"bounds_changed\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the map center property changes.
         /// </summary>
-        public JsAction center_changed { get; set; }
+        public event JsAction center_changed
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"center_changed\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"center_changed\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the user clicks on the map (but not when they click on a marker or infowindow).
         /// </summary>
-        public JsAction<MouseEvent> click { get; set; }
+        public event JsAction<MouseEvent> click
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"click\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"click\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the user double-clicks on the map. Note that the click event will also fire, right before this one.
         /// </summary>
-        public JsAction<MouseEvent> dblclick { get; set; }
+        public event JsAction<MouseEvent> dblclick
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"dblclick\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"dblclick\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is repeatedly fired while the user drags the map.
         /// </summary>
-        public JsAction drag { get; set; }
+        public event JsAction drag
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"drag\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"drag\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the user stops dragging the map.
         /// </summary>
-        public JsAction dragend { get; set; }
+        public event JsAction dragend
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"dragend\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"dragend\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the user starts dragging the map.
         /// </summary>
-        public JsAction dragstart { get; set; }
+        public event JsAction dragstart
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"dragstart\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"dragstart\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the map heading property changes.
         /// </summary>
-        public JsAction heading_changed { get; set; }
+        public event JsAction heading_changed
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"heading_changed\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"heading_changed\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the map becomes idle after panning or zooming.
         /// </summary>
-        public JsAction idle { get; set; }
+        public event JsAction idle
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"idle\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"idle\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the mapTypeId property changes.
         /// </summary>
-        public JsAction maptypeid_changed { get; set; }
+        public event JsAction maptypeid_changed
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"maptypeid_changed\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"maptypeid_changed\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired whenever the user's mouse moves over the map container.
         /// </summary>
-        public JsAction<MouseEvent> mousemove { get; set; }
+        public event JsAction<MouseEvent> mousemove
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"mousemove\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"mousemove\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the user's mouse exits the map container.
         /// </summary>
-        public JsAction<MouseEvent> mouseout { get; set; }
+        public event JsAction<MouseEvent> mouseout
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"mouseout\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"mouseout\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the user's mouse enters the map container.
         /// </summary>
-        public JsAction<MouseEvent> mouseover { get; set; }
+        public event JsAction<MouseEvent> mouseover
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"mouseover\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"mouseover\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the projection has changed.
         /// </summary>
-        public JsAction projection_changed { get; set; }
+        public event JsAction projection_changed
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"projection_changed\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"projection_changed\"")]
+            remove { }
+        }
+
         /// <summary>
         ///Developers should trigger this event on the map when the div changes size: google.maps.event.trigger(map, 'resize') .
         /// </summary>
-        public JsAction resize { get; set; }
+        public event JsAction resize
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"resize\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"resize\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the DOM contextmenu event is fired on the map container.
         /// </summary>
-        public JsAction<MouseEvent> rightclick { get; set; }
+        public event JsAction<MouseEvent> rightclick
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"rightclick\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"rightclick\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the visible tiles have finished loading.
         /// </summary>
-        public JsAction tilesloaded { get; set; }
+        public event JsAction tilesloaded
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"tilesloaded\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"tilesloaded\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the map tilt property changes.
         /// </summary>
-        public JsAction tilt_changed { get; set; }
+        public event JsAction tilt_changed
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"tilt_changed\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"tilt_changed\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the map zoom property changes.
         /// </summary>
-        public JsAction zoom_changed { get; set; }
+        public event JsAction zoom_changed
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"zoom_changed\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"zoom_changed\"")]
+            remove { }
+        }
+
     }
     [JsType(JsMode.Json)]
     public class MapOptions
@@ -301,19 +434,19 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///This map type displays a transparent layer of major streets on satellite images.
         /// </summary>
-        public static object HYBRID { get; private set; }
+        public static MapTypeId HYBRID { get; private set; }
         /// <summary>
         ///This map type displays a normal street map.
         /// </summary>
-        public static object ROADMAP { get; private set; }
+        public static MapTypeId ROADMAP { get; private set; }
         /// <summary>
         ///This map type displays satellite images.
         /// </summary>
-        public static object SATELLITE { get; private set; }
+        public static MapTypeId SATELLITE { get; private set; }
         /// <summary>
         ///This map type displays maps with physical features such as terrain and vegetation.
         /// </summary>
-        public static object TERRAIN { get; private set; }
+        public static MapTypeId TERRAIN { get; private set; }
     }
     [JsType(JsMode.Json)]
     public class MapTypeControlOptions
@@ -433,51 +566,51 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Elements are positioned in the center of the bottom row.
         /// </summary>
-        public static object BOTTOM_CENTER { get; private set; }
+        public static JsNumber BOTTOM_CENTER { get; private set; }
         /// <summary>
         ///Elements are positioned in the bottom left and flow towards the middle. Elements are positioned to the right of the Google logo.
         /// </summary>
-        public static object BOTTOM_LEFT { get; private set; }
+        public static JsNumber BOTTOM_LEFT { get; private set; }
         /// <summary>
         ///Elements are positioned in the bottom right and flow towards the middle. Elements are positioned to the left of the copyrights.
         /// </summary>
-        public static object BOTTOM_RIGHT { get; private set; }
+        public static JsNumber BOTTOM_RIGHT { get; private set; }
         /// <summary>
         ///Elements are positioned on the left, above bottom-left elements, and flow upwards.
         /// </summary>
-        public static object LEFT_BOTTOM { get; private set; }
+        public static JsNumber LEFT_BOTTOM { get; private set; }
         /// <summary>
         ///Elements are positioned in the center of the left side.
         /// </summary>
-        public static object LEFT_CENTER { get; private set; }
+        public static JsNumber LEFT_CENTER { get; private set; }
         /// <summary>
         ///Elements are positioned on the left, below top-left elements, and flow downwards.
         /// </summary>
-        public static object LEFT_TOP { get; private set; }
+        public static JsNumber LEFT_TOP { get; private set; }
         /// <summary>
         ///Elements are positioned on the right, above bottom-right elements, and flow upwards.
         /// </summary>
-        public static object RIGHT_BOTTOM { get; private set; }
+        public static JsNumber RIGHT_BOTTOM { get; private set; }
         /// <summary>
         ///Elements are positioned in the center of the right side.
         /// </summary>
-        public static object RIGHT_CENTER { get; private set; }
+        public static JsNumber RIGHT_CENTER { get; private set; }
         /// <summary>
         ///Elements are positioned on the right, below top-right elements, and flow downwards.
         /// </summary>
-        public static object RIGHT_TOP { get; private set; }
+        public static JsNumber RIGHT_TOP { get; private set; }
         /// <summary>
         ///Elements are positioned in the center of the top row.
         /// </summary>
-        public static object TOP_CENTER { get; private set; }
+        public static JsNumber TOP_CENTER { get; private set; }
         /// <summary>
         ///Elements are positioned in the top left and flow towards the middle.
         /// </summary>
-        public static object TOP_LEFT { get; private set; }
+        public static JsNumber TOP_LEFT { get; private set; }
         /// <summary>
         ///Elements are positioned in the top right and flow towards the middle.
         /// </summary>
-        public static object TOP_RIGHT { get; private set; }
+        public static JsNumber TOP_RIGHT { get; private set; }
     }
     [JsType(JsMode.Prototype, Name = "google.maps.Marker")]
     public class Marker
@@ -1137,9 +1270,22 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public Map map { get; set; }
         /// <summary>
-        ///The ordered sequence of coordinates that designates a closed loop. Unlike polylines, a polygon may consist of one or more paths. As a result, the paths property may specify one or more arrays of LatLng coordinates. Paths are closed automatically; do not repeat the first vertex of the path as the last vertex. Simple polygons may be defined using a single array of LatLngs. More complex polygons may specify an array of arrays. Any simple arrays are converted into MVCArrays. Inserting or removing LatLngs from the MVCArray will automatically update the polygon on the map.
+        ///The ordered sequence of coordinates that designates a closed loop. Unlike polylines, a polygon may consist of one or more paths. 
+        ///As a result, the paths property may specify one or more arrays of LatLng coordinates. 
+        ///Paths are closed automatically; do not repeat the first vertex of the path as the last vertex. 
+        ///Simple polygons may be defined using a single array of LatLngs. More complex polygons may specify an array of arrays. 
+        ///Any simple arrays are converted into MVCArrays. Inserting or removing LatLngs from the MVCArray will automatically update the polygon on the map.
         /// </summary>
-        public object paths { get; set; }
+        public JsArray<LatLng> paths { get; set; }
+        /// <summary>
+        ///The ordered sequence of coordinates that designates a closed loop. Unlike polylines, a polygon may consist of one or more paths. 
+        ///As a result, the paths property may specify one or more arrays of LatLng coordinates. 
+        ///Paths are closed automatically; do not repeat the first vertex of the path as the last vertex. 
+        ///Simple polygons may be defined using a single array of LatLngs. More complex polygons may specify an array of arrays. 
+        ///Any simple arrays are converted into MVCArrays. Inserting or removing LatLngs from the MVCArray will automatically update the polygon on the map.
+        /// </summary>
+        [JsProperty(Name = "paths")]
+        public JsArray<JsArray<LatLng>> ComplexPaths { get; set; }
         /// <summary>
         ///The stroke color. All CSS3 colors are supported except for extended named colors.
         /// </summary>
@@ -1232,39 +1378,102 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///This event is fired when the rectangle's bounds are changed.
         /// </summary>
-        public JsAction bounds_changed { get; set; }
+        public event JsAction bounds_changed
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"bounds_changed\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"bounds_changed\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the DOM click event is fired on the rectangle.
         /// </summary>
-        public JsAction<MouseEvent> click { get; set; }
+        public event JsAction<MouseEvent> click
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"click\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"click\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the DOM dblclick event is fired on the rectangle.
         /// </summary>
-        public JsAction<MouseEvent> dblclick { get; set; }
+        public event JsAction<MouseEvent> dblclick
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"dblclick\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"dblclick\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the DOM mousedown event is fired on the rectangle.
         /// </summary>
-        public JsAction<MouseEvent> mousedown { get; set; }
+        public event JsAction<MouseEvent> mousedown
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"mousedown\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"mousedown\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the DOM mousemove event is fired on the rectangle.
         /// </summary>
-        public JsAction<MouseEvent> mousemove { get; set; }
+        public event JsAction<MouseEvent> mousemove
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"mousemove\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"mousemove\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired on rectangle mouseout.
         /// </summary>
-        public JsAction<MouseEvent> mouseout { get; set; }
+        public event JsAction<MouseEvent> mouseout
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"mouseout\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"mouseout\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired on rectangle mouseover.
         /// </summary>
-        public JsAction<MouseEvent> mouseover { get; set; }
+        public event JsAction<MouseEvent> mouseover
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"mouseover\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"mouseover\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the DOM mouseup event is fired on the rectangle.
         /// </summary>
-        public JsAction<MouseEvent> mouseup { get; set; }
+        public event JsAction<MouseEvent> mouseup
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"mouseup\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"mouseup\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the rectangle is right-clicked on.
         /// </summary>
-        public JsAction<MouseEvent> rightclick { get; set; }
+        public event JsAction<MouseEvent> rightclick
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"rightclick\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"rightclick\"")]
+            remove { }
+        }
+
     }
     [JsType(JsMode.Json)]
     public class RectangleOptions
@@ -3753,41 +3962,45 @@ namespace SharpKit.Google.Maps
     public class MapsEventListener
     {
     }
-    [JsType(JsMode.Prototype, Name = "google.maps.eventnamespace")]
-    public class eventnamespace
+    [JsType(JsMode.Prototype, Name = "google.maps.event")]
+    public class MapEvent
     {
         /// <summary>
         ///Cross browser event handler registration. This listener is removed by calling removeListener(handle) for the handle that is returned by this function.
         /// </summary>
-        public MapsEventListener addDomListener(Object instance, JsString eventName, JsAction handler, bool capture = false) { return null; }
+        public static MapsEventListener addDomListener(Object instance, JsString eventName, JsAction<DOMEvent> handler, bool capture = false) { return null; }
         /// <summary>
         ///Wrapper around addDomListener that removes the listener after the first event.
         /// </summary>
-        public MapsEventListener addDomListenerOnce(Object instance, JsString eventName, JsAction handler, bool capture = false) { return null; }
+        public static MapsEventListener addDomListenerOnce(Object instance, JsString eventName, JsAction handler, bool capture = false) { return null; }
         /// <summary>
         ///Adds the given listener function to the given event name for the given object instance. Returns an identifier for this listener that can be used with removeListener().
         /// </summary>
-        public MapsEventListener addListener(Object instance, JsString eventName, JsAction handler) { return null; }
+        public static MapsEventListener addListener(Object instance, JsString eventName, JsAction handler) { return null; }
+        /// <summary>
+        ///Adds the given listener function to the given event name for the given object instance. Returns an identifier for this listener that can be used with removeListener().
+        /// </summary>
+        public static MapsEventListener addListener<T>(Object instance, JsString eventName, JsAction<T> handler) { return null; }
         /// <summary>
         ///Like addListener, but the handler removes itself after handling the first event.
         /// </summary>
-        public MapsEventListener addListenerOnce(Object instance, JsString eventName, JsAction handler) { return null; }
+        public static MapsEventListener addListenerOnce(Object instance, JsString eventName, JsAction handler) { return null; }
         /// <summary>
         ///Removes all listeners for all events for the given instance.
         /// </summary>
-        public void clearInstanceListeners(Object instance) { }
+        public static void clearInstanceListeners(Object instance) { }
         /// <summary>
         ///Removes all listeners for the given event for the given instance.
         /// </summary>
-        public void clearListeners(Object instance, JsString eventName) { }
+        public static void clearListeners(Object instance, JsString eventName) { }
         /// <summary>
         ///Removes the given listener, which should have been returned by addListener above.
         /// </summary>
-        public void removeListener(MapsEventListener listener) { }
+        public static void removeListener(MapsEventListener listener) { }
         /// <summary>
         ///Triggers the given event. All arguments after eventName are passed as arguments to the listeners.
         /// </summary>
-        public void trigger(Object instance, JsString eventName, object var_args) { }
+        public static void trigger(Object instance, JsString eventName, object var_args) { }
     }
     [JsType(JsMode.Json)]
     public class MouseEvent
@@ -4984,27 +5197,68 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///This event is fired when the user has finished drawing a circle.
         /// </summary>
-        public JsAction<Circle> circlecomplete { get; set; }
+        public event JsAction<Circle> circlecomplete
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"circlecomplete\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"circlecomplete\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the user has finished drawing a marker.
         /// </summary>
-        public JsAction<Marker> markercomplete { get; set; }
+        public event JsAction<Marker> markercomplete
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"markercomplete\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"markercomplete\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the user has finished drawing an overlay of any type.
         /// </summary>
-        public JsAction<OverlayCompleteEvent> overlaycomplete { get; set; }
+        public event JsAction<OverlayCompleteEvent> overlaycomplete
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"overlaycomplete\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"overlaycomplete\"")]
+            remove { }
+        }
         /// <summary>
         ///This event is fired when the user has finished drawing a polygon.
         /// </summary>
-        public JsAction<Polygon> polygoncomplete { get; set; }
+        public event JsAction<Polygon> polygoncomplete
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"polygoncomplete\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"polygoncomplete\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the user has finished drawing a polyline.
         /// </summary>
-        public JsAction<Polyline> polylinecomplete { get; set; }
+        public event JsAction<Polyline> polylinecomplete
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"polylinecomplete\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"polylinecomplete\"")]
+            remove { }
+        }
+
         /// <summary>
         ///This event is fired when the user has finished drawing a rectangle.
         /// </summary>
-        public JsAction<Rectangle> rectanglecomplete { get; set; }
+        public event JsAction<Rectangle> rectanglecomplete
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"rectanglecomplete\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"rectanglecomplete\"")]
+            remove { }
+        }
+
     }
     [JsType(JsMode.Json)]
     public class DrawingManagerOptions
@@ -5076,23 +5330,23 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///Specifies that the DrawingManager creates circles, and that the overlay given in the overlaycomplete event is a circle.
         /// </summary>
-        public static object CIRCLE { get; private set; }
+        public static OverlayType CIRCLE { get; private set; }
         /// <summary>
         ///Specifies that the DrawingManager creates markers, and that the overlay given in the overlaycomplete event is a marker.
         /// </summary>
-        public static object MARKER { get; private set; }
+        public static OverlayType MARKER { get; private set; }
         /// <summary>
         ///Specifies that the DrawingManager creates polygons, and that the overlay given in the overlaycomplete event is a polygon.
         /// </summary>
-        public static object POLYGON { get; private set; }
+        public static OverlayType POLYGON { get; private set; }
         /// <summary>
         ///Specifies that the DrawingManager creates polylines, and that the overlay given in the overlaycomplete event is a polyline.
         /// </summary>
-        public static object POLYLINE { get; private set; }
+        public static OverlayType POLYLINE { get; private set; }
         /// <summary>
         ///Specifies that the DrawingManager creates rectangles, and that the overlay given in the overlaycomplete event is a rectangle.
         /// </summary>
-        public static object RECTANGLE { get; private set; }
+        public static OverlayType RECTANGLE { get; private set; }
     }
     [JsType(JsMode.Prototype, Name = "google.maps.weather.CloudLayer")]
     public class CloudLayer
