@@ -1,4 +1,4 @@
-﻿/*
+/*
  * -----------------------------------------------------------------------
  * AppMobi wrapper for SharpKit / v1.0 (10 September 2013)
  * Copyright 2013 by Hervé PHILIPPE / http://alchiweb.fr / alchiweb@gmail.com
@@ -81,7 +81,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if the app is currently running on a native iOS or Android device.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -101,7 +101,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if currently running in the xdk.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -121,7 +121,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if currently running on Windows device.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -141,7 +141,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if the app is currently running in appMobi app.lab (via Test Anywhere or Test on Local WiFi).
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -161,7 +161,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if the app is currently running in the Chrome browser.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -181,7 +181,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if the app is currently running as a Facebook application.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -201,7 +201,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if the app is currently running on a Barnes and Noble Nook device.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -221,7 +221,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if the app is currently running on a native phone device.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -245,7 +245,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if the app is currently running on a native tablet device.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -269,7 +269,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if the app is currently running in a web browser such as Safari.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -289,7 +289,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if the app is currently running as an Amazon application.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -309,7 +309,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if the app is running as a Google Play Store application.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -329,7 +329,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if the app is currently running as an Intel AppUp application.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -349,7 +349,7 @@ namespace SharpKit.AppMobi
         /// This property is a boolean value indicating if the app is running as a Mozilla store app.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -372,7 +372,7 @@ namespace SharpKit.AppMobi
         /// This property should be checked in <see cref="AppMobi.DeviceReady"/> event handler to see if the OAuth system is available. 
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -394,7 +394,7 @@ namespace SharpKit.AppMobi
         /// This property will indicate whether a Live Update is available for an application by returning a true or a false. It is only set following the <see cref="AppMobi.DeviceReady"/> event. A true result indicates that an update is available and has not yet been installed.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "confirm"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -420,7 +420,7 @@ namespace SharpKit.AppMobi
         /// When a Live Update is triggered in an application, this property will return the text message associated with the update.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "confirm"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -443,7 +443,7 @@ namespace SharpKit.AppMobi
         /// 
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.available);
         /// </code>
@@ -453,7 +453,7 @@ namespace SharpKit.AppMobi
         /// 
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.paymentsAvailable);
         /// </code>
@@ -466,7 +466,7 @@ namespace SharpKit.AppMobi
         /// This property holds the unique identifier for an appMobi application, which is described as a GUID.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document"
         /// public static void WriteScript()
         /// {
@@ -487,7 +487,7 @@ namespace SharpKit.AppMobi
         /// Use this property to reference files distributed with the bundle of the application itself. For example, images or sounds that are included alongside the index.html file that drives the application. The path returned by this property will reference the root directory where the index.html file is located.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document"
         /// static void AppMobi_DeviceReady(DeviceEvent evt)
         /// {
@@ -505,7 +505,7 @@ namespace SharpKit.AppMobi
         /// This property holds the current version of the HTML5 Tools JavaScript library used in the application. It can be compared to the application version stored in <see cref="Device.appmobiVersion">AppMobi.device.appmobiVersion</see>.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.jsVersion);
         /// </code>
@@ -620,7 +620,7 @@ namespace SharpKit.AppMobi
         /// </summary>
         /// <remarks>
         /// The Canvas object is a read-only object representing the Accelerated Canvas App Game Interface tag. It is typically reached through the AppMobi object this way:
-        /// <code>AppMobi.canvas</code>
+        /// <code lang="C#">AppMobi.canvas</code>
         /// In order to use the Accelerated Canvas App Game Interface, your app must be split into 2 components which will run in the 2 execution contexts which each have their own view. The HTML5 Tools component runs in the top view and should provide the portion of the user interface that the user interacts with. The Accelerated Canvas App Game Interface component runs in its own view that is beneath the first view - it does not directly receive touch events and so should not include user interaction elements. User interactions that are intended to provide input to the Accelerated Canvas App Game Interface component. It can do so via one of the bridge functions provided by the Accelerated Canvas App Game Interface (for example, a "jump" button in a game that causes a character to jump).
         /// <para>Other explication:</para>
         /// <para>The Accelerated Canvas App Game Interface plugin is designed for use with appMobi applications. In order to use Accelerated Canvas App Game Interface, your appMobi application must be split into two components which will run in two execution contexts. Each context will have its own view. The appMobi component runs in the top view and should provide the user interface that the user interacts with. The Accelerated Canvas App Game Interface component runs in its own view that is beneath the appMobi view and renders the graphics used for the application. It does not directly receive touch events and so should not include user interaction elements.</para>
@@ -1592,7 +1592,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert" or "console"
         /// public static void InitScanBarCode()
         /// {
@@ -1643,7 +1643,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void DeviceConnection()
         /// {
@@ -1670,7 +1670,7 @@ namespace SharpKit.AppMobi
         /// This event is triggered when the device is restarted following the screen being locked. The screen is locked when turns off due to power saving timeout or the user presses the power button.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// public static void InitEvent()
         /// {
         ///     AppMobi.DeviceContinue += AppMobi_DeviceContinue;
@@ -1701,7 +1701,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert" or "console"
         /// //pass a true to start capturing the back button
         /// //pass a false to stop capturing the back button
@@ -1816,7 +1816,7 @@ namespace SharpKit.AppMobi
         /// This event is triggered when the screen turns off due to power saving timeout or the user presses the power button.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// public static void InitEvent()
         /// {
         ///     AppMobi.DevicePause += AppMobi_DevicePause;
@@ -1841,7 +1841,7 @@ namespace SharpKit.AppMobi
         /// This event will fire once all AppMobi library information is loaded. Be sure to allow this event to fire before attempting any AppMobi commands. In order to load the AppMobi JavaScript library, be sure to include the following JavaScript library in your HTML file.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// public static void InitEvent()
         /// {
         ///     AppMobi.DeviceReady += AppMobi_DeviceReady;
@@ -1876,7 +1876,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void InitBlockRemotePages()
         /// {
@@ -1925,7 +1925,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void ShowRemoteSite()
         /// {
@@ -1958,7 +1958,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void GetRemote(string name, string value)
         /// {
@@ -2007,7 +2007,7 @@ namespace SharpKit.AppMobi
         /// If an application was minimized, but it never left memory, this event will fire in lieu of the <see cref="AppMobi.DeviceReady"/> command.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// public static void InitEvent()
         /// {
         ///     AppMobi.DeviceResume += AppMobi_DeviceResume;
@@ -2032,7 +2032,7 @@ namespace SharpKit.AppMobi
         /// When an application is minimized, this event will be fired as soon as possible to alert the application that it is losing the user’s focus. When the application reloads, be aware that you might see an <see cref="AppMobi.DeviceResume"/> rather than the typical <see cref="AppMobi.DeviceReady"/> event.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// public static void InitEvent()
         /// {
         ///     AppMobi.DeviceSuspend += AppMobi_DeviceSuspend;
@@ -2057,7 +2057,7 @@ namespace SharpKit.AppMobi
         /// This event fires when a Live Update has been successfully loaded in the background of an application and awaits update by the application using <see cref="Device.InstallUpdate">AppMobi.device.InstallUpdate()</see>. The event object will return two parameters. The first is updateMessage that holds the text of the message passed along with the Live Update. The second is type.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "confirm"
         /// public static void InitEvent()
         /// {
@@ -3219,7 +3219,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document"
         /// public static void GetSingleAcceleration()
         /// {
@@ -3266,7 +3266,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document"
         /// public static void WatchAcceleration()
         /// {
@@ -3313,7 +3313,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var watchId = AppMobi.accelerometer.WatchAcceleration(OnSuccess, options);
         /// // ... later on ...
         /// AppMobi.accelerometer.ClearWatch(watchId);
@@ -3418,7 +3418,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void AddContact()
         /// {
@@ -3474,7 +3474,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void ChooseContact()
         /// {
@@ -3530,7 +3530,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void EditContact(string contactId)
         /// {
@@ -3578,7 +3578,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document"
         /// public static void InitContactsReceived()
         /// {
@@ -3639,7 +3639,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document"
         /// public static void InitContactsReceived()
         /// {
@@ -3705,7 +3705,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.ContactsListRefresh += ContactsReceived;
         /// AppMobi.contacts.GetContacts();
         /// </code>
@@ -3868,7 +3868,7 @@ namespace SharpKit.AppMobi
     /// The playingtrack object provides a series of properties that contain information about media currently played by the application. Please note that this object currently only works with stations hosted by appMobi and played with the StartStation (deprecated) or <see cref="Player.StartShoutcast"/> commands. Not all properties may have values for all streams. An event is fired when the currently playing track changes.
     /// </remarks>
     /// <example>
-    /// <code>
+    /// <code lang="C#">
     /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
     /// public static void PlayerTrackChange()
     /// {
@@ -4031,7 +4031,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.player.Show();
         /// </code>
         /// </example>
@@ -4067,7 +4067,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.player.Hide();
         /// </code>
         /// </example>
@@ -4149,7 +4149,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //load the video podcast
         /// AppMobi.player.PlayPodcast("http://blip.tv/file/get/Unboomed-DanceAcrossAmerica550.mov");
         /// //load a video from the root of the local bundle
@@ -4202,8 +4202,8 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
-        /// APpMobi.player.StartStation("223020", true, true);  //KOIT San Francisco
+        /// <code lang="C#">
+        /// AppMobi.player.StartStation("223020", true, true);  //KOIT San Francisco
         /// </code>
         /// </example>
         /// <param name="netStationId">The unique NetStationID code for this station on an appMobi media server.</param>
@@ -4243,7 +4243,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // play the sound
         /// AppMobi.player.PlaySound("sounds/boing.wav");
         /// </code>
@@ -4283,7 +4283,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void LoadSound()
         /// {
@@ -4326,7 +4326,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.player.UnloadSound("sounds/boing.wav");
         /// </code>
         /// </example>
@@ -4358,7 +4358,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.player.UnloadAllSounds();
         /// </code>
         /// </example>
@@ -4404,7 +4404,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // start playing an audio file without looping
         /// AppMobi.player.StartAudio("sounds/cowbell.wav",false);
         /// </code>
@@ -4437,7 +4437,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // toggle playback of the audio 
         /// AppMobi.player.ToggleAudio();
         /// </code>
@@ -4480,7 +4480,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // stop playback of the audio 
         /// AppMobi.player.StopAudio();
         /// </code>
@@ -4519,7 +4519,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Set Audio to start at 30 seconds into the file 
         /// AppMobi.player.SetAudioCurrentTime(30);
         /// AppMobi.player.StartAudio("sounds/file1.mp3", false);
@@ -4580,7 +4580,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void WatchAudioCurrentTime()
         /// {
@@ -4623,7 +4623,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var watchId = AppMobi.player.WatchAudioCurrentTime(OnSuccess, 3000);
         /// // ...  some time later ...
         /// AppMobi.player.ClearAudioCurrentTimeWatch(watchId);
@@ -4666,7 +4666,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.player.Play();
         /// </code>
         /// </example>
@@ -4697,7 +4697,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.player.Pause();
         /// </code>
         /// </example>
@@ -4728,7 +4728,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.player.Stop();
         /// </code>
         /// </example>
@@ -4759,7 +4759,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.player.Volume(90);  //crank up the volume to 90%
         /// </code>
         /// </example>
@@ -4791,7 +4791,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.player.Rewind();  //go back 30 seconds
         /// </code>
         /// </example>
@@ -4822,7 +4822,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.player.Ffwd();  //search forward 30 seconds
         /// </code>
         /// </example>
@@ -4875,7 +4875,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.player.SetColors("#000000", "#999999", "#999999", "#ffffff");
         /// </code>
         /// </example>
@@ -4909,7 +4909,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.player.SetPosition(224, 188, 322, 228);
         /// </code>
         /// </example>
@@ -4968,7 +4968,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // EYE97 - Commercial Free Non Stop Hits of the 70's, 80's, 90's and Today
         /// AppMobi.player.StartShoutcast("http://209.9.238.10:8008/", true);
         /// </code>
@@ -5062,7 +5062,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// static void AddAnalyticsDataPoint(string eventId, string queryString)
         /// {
         ///     try
@@ -5142,7 +5142,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document" or "alert"
         /// public static void UploadPicture(string pictureFilename)
         /// {
@@ -5221,7 +5221,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document" or "alert"
         /// public static void UploadPicture(string pictureFilename)
         /// {
@@ -5357,7 +5357,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document", "undefined" or "alert"
         /// public static void InitCameraEventsListeners()
         /// {
@@ -5440,7 +5440,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document", "undefined" or "alert"
         /// public static void InitCameraEventsListeners()
         /// {
@@ -5518,7 +5518,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document", "undefined" or "alert"
         /// public static void InitCameraEventsListeners()
         /// {
@@ -5586,7 +5586,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document" or "alert"
         /// public static void RemovePicture()
         /// {
@@ -5650,7 +5650,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document" or "alert"
         /// public static void ClearPictures()
         /// {
@@ -5705,7 +5705,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document"
         /// var arrPictureList = AppMobi.camera.GetPictureList();
         /// for (var x = 0; x &lt; arrPictureList.length; x++)
@@ -5748,7 +5748,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document"
         /// var arrPictureList = AppMobi.camera.GetPictureList();
         /// for (var x = 0; x &lt; arrPictureList.length; x++)
@@ -5834,7 +5834,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var value = AppMobi.cache.GetCookie("userid");
         /// </code>
         /// </example>
@@ -5867,7 +5867,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// var cookiesArray = AppMobi.cache.GetCookieList();
         /// for (int i = 0; i &lt; cookiesArray.length; i++)
@@ -5905,7 +5905,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "prompt" or "alert"
         /// public static void SaveInfo()
         /// {
@@ -5960,7 +5960,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.cache.RemoveCookie("userid");
         /// </code>
         /// </example>
@@ -5992,7 +5992,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.cache.ClearAllCookies(); 
         /// </code>
         /// </example>
@@ -6024,7 +6024,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// var cacheArray = AppMobi.cache.GetMediaCacheList();
         /// for (int i = 0; i &lt; cacheArray.length; i++)
@@ -6061,7 +6061,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var localUrl = AppMobi.cache.GetMediaCacheLocalUrl("http://myweb.com/image/logo.gif");
         /// </code>
         /// </example>
@@ -6127,7 +6127,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void ClearMediaCache()
         /// {
@@ -6182,7 +6182,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void AddToMediaCache(string urlToCache)
         /// {
@@ -6232,7 +6232,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void AddToMediaCacheExt(string urlToCache, string uniqueId)
         /// {
@@ -6296,7 +6296,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void RemoveFromMediaCache(string urlToRemove)
         /// {
@@ -6321,7 +6321,7 @@ namespace SharpKit.AppMobi
     /// </summary>
     /// <remarks>
     /// The context object is a read-only object representing the Accelerated Canvas App Game Interface context. It is typically reached through the AppMobi object this way:
-    /// <code>var ctx = AppMobi.canvas.GetContext2d();</code>
+    /// <code lang="C#">var ctx = AppMobi.canvas.GetContext2d();</code>
     /// Not all of the commands built into the standard HTML5 canvas tag specification are built into the Accelerated Canvas App Game Interface. Furthermore, there are several commands specific to the Accelerated Canvas App Game Interface such as the present method that serve specific purposes. For a list of available and new commands, refer to: http://www2.appmobi.com/documentation/resources/pregenPages/directCanvasMatrix.html.
     /// </remarks>
     [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "CanvasRenderingContext2D")]
@@ -6411,7 +6411,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <exexample>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.fillStyle = "#0066FF";
         /// ctx.fillRect(15, 15, 70, 70);
@@ -6503,7 +6503,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// try {
         ///     ctx.html5CompatibilityMode = true;
@@ -6584,7 +6584,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// var windowHeight = ctx.height;
         /// </code>
@@ -6614,7 +6614,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// var windowWidth = ctx.width;
         /// </code>
@@ -6649,7 +6649,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.strokeStyle = "#ffffff";
         /// ctx.lineWidth = 3;
@@ -6700,7 +6700,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.lineWidth = 15;
         /// ctx.beginPath();
@@ -6747,7 +6747,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.lineWidth = 15;
         /// ctx.beginPath();
@@ -6788,7 +6788,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.lineWidth = 15;
         /// ctx.beginPath();
@@ -6835,7 +6835,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.fillRect(10, 10, 100, 100);
         /// ctx.strokeRect(150, 150, 100, 100);
@@ -6877,7 +6877,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.moveTo(40, 40);
         /// ctx.lineTo(120, 35);
@@ -6922,7 +6922,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.SetFps(15);  //15 frames per second
         /// </code>
@@ -6953,7 +6953,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// if (AppMobi.isXdk)
         /// {
@@ -6990,7 +6990,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.strokeStyle = "rgba(255,128,128,0.5)";
         /// ctx.rect(30, 30, 50, 50);
@@ -7023,7 +7023,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "setTimeout"
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.strokeStyle  = "rgba(255,128,128,0.5)";
@@ -7134,7 +7134,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// public static void DrawSprite(long positionx, long positiony, string imageUrl, long frame)
         /// {
         ///     var ctx = AppMobi.canvas.GetContext2d();
@@ -7413,7 +7413,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// public static void DrawSprite(long positionx, long positiony, string imageUrl, long frame)
         /// {
         ///     var ctx = AppMobi.canvas.GetContext2d();
@@ -7477,7 +7477,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.beginPath();
         /// ctx.moveTo(40, 40);
@@ -7526,7 +7526,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.beginPath();
         /// ctx.moveTo(40, 40);
@@ -7577,7 +7577,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.fillRect(10,10,100,100);
         /// ctx.Present();
@@ -7617,7 +7617,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.strokeStyle  = "rgba(255,0,128,0.9)";
         /// ctx.rect(30,230,200,100);
@@ -7654,7 +7654,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.strokeStyle  = "rgba(255,0,128,0.9)";
         /// ctx.rect(30,230,200,100);
@@ -7693,7 +7693,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.fillRect(10,10,100,100)
         /// ctx.strokeRect(150,150,100,100);
@@ -7735,7 +7735,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// public static void DrawSprite(long positionx, long positiony, string imageUrl, long frame)
         /// {
         ///     var ctx = AppMobi.canvas.GetContext2d();
@@ -7798,7 +7798,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.lineWidth = 15;
         /// ctx.strokeStyle = "rgba(255,0,128,0.9)";
@@ -7847,7 +7847,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.lineWidth = 15;  
         /// ctx.beginPath();  
@@ -7887,7 +7887,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //Load a sound for playing repeatedly later
         /// AppMobi.context.LoadPolySound("sounds/beep-10.wav", 8);
         /// </code>
@@ -7920,7 +7920,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //Load a sound for playing later
         /// AppMobi.context.LoadSound("sounds/can-open-1.wav");
         /// </code>
@@ -7952,7 +7952,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //Play a sound
         /// AppMobi.context.PlaySound("sounds/beep-10.wav");
         /// </code>
@@ -7984,7 +7984,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //This command will start the background music
         /// AppMobi.context.StartBackgroundSound("sounds/music_main.mp3");
         /// </code>
@@ -8016,7 +8016,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //This command will start the background music and loop it indefinitely
         /// AppMobi.context.StartBackgroundSound("sounds/music_main.mp3", true);
         /// </code>
@@ -8049,7 +8049,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //This command will stop a background sound loaded with startBackgroundSound in order to free up resources
         /// AppMobi.context.StopBackgroundSound();
         /// </code>
@@ -8080,7 +8080,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //This command will toggle a background sound loaded with startBackgroundSound on or off
         /// AppMobi.context.ToggleBackgroundSound();
         /// </code>
@@ -8111,7 +8111,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //Free up resources by unloading all sounds
         /// AppMobi.context.UnloadAllSounds();
         /// </code>
@@ -8142,7 +8142,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //Free up resources by unloading a sound
         /// AppMobi.context.UnloadSound("sounds/beep-10.wav");
         /// ctx.Present();
@@ -8201,7 +8201,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.lineWidth = 15;
         /// ctx.beginPath();  
@@ -8293,7 +8293,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.lineWidth = 15;  
         /// ctx.beginPath();  
@@ -8337,7 +8337,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// ctx.strokeStyle  = "rgba(255,0,128,0.9)";
         /// ctx.rect(30, 230, 200, 100);
@@ -8378,7 +8378,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// var sx = 0.75; // .75 horizontal shear
         /// var sy = 0; // no vertical shear
@@ -8420,7 +8420,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// var sx = 0.75; // .75 horizontal shear
         /// var sy = 0; // no vertical shear
@@ -8462,7 +8462,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// var imgStatic = new HtmlImageElement();
         /// imgStatic.addEventListener("load", delegate(DOMEvent evt)
@@ -8507,7 +8507,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// var imgStatic = new HtmlImageElement();
         /// imgStatic.addEventListener("load", delegate(DOMEvent evt)
@@ -8580,7 +8580,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// var imgStatic = new HtmlImageElement();
         /// imgStatic.addEventListener("load", delegate(DOMEvent evt)
@@ -8684,7 +8684,7 @@ namespace SharpKit.AppMobi
     /// </summary>
     /// <remarks>
     /// The Canvas object is a read-only object representing the Accelerated Canvas App Game Interface tag. It is typically reached through the AppMobi object this way:
-    /// <code>AppMobi.canvas</code>
+    /// <code lang="C#">AppMobi.canvas</code>
     /// In order to use the Accelerated Canvas App Game Interface, your app must be split into 2 components which will run in the 2 execution contexts which each have their own view. The HTML5 Tools component runs in the top view and should provide the portion of the user interface that the user interacts with. The Accelerated Canvas App Game Interface component runs in its own view that is beneath the first view - it does not directly receive touch events and so should not include user interaction elements. User interactions that are intended to provide input to the Accelerated Canvas App Game Interface component. It can do so via one of the bridge functions provided by the Accelerated Canvas App Game Interface (for example, a "jump" button in a game that causes a character to jump).
     /// <para>Other explication:</para>
     /// <para>The Accelerated Canvas App Game Interface plugin is designed for use with appMobi applications. In order to use Accelerated Canvas App Game Interface, your appMobi application must be split into two components which will run in two execution contexts. Each context will have its own view. The appMobi component runs in the top view and should provide the user interface that the user interacts with. The Accelerated Canvas App Game Interface component runs in its own view that is beneath the appMobi view and renders the graphics used for the application. It does not directly receive touch events and so should not include user interaction elements.</para>
@@ -8697,7 +8697,7 @@ namespace SharpKit.AppMobi
         /// </summary>
         /// <remarks>
         /// The context object is a read-only object representing the Accelerated Canvas App Game Interface context. It is typically reached through the AppMobi object this way:
-        /// <code>var ctx = AppMobi.canvas.GetContext2d();</code>
+        /// <code lang="C#">var ctx = AppMobi.canvas.GetContext2d();</code>
         /// Not all of the commands built into the standard HTML5 canvas tag specification are built into the Accelerated Canvas App Game Interface. Furthermore, there are several commands specific to the Accelerated Canvas App Game Interface such as the <see cref="AppMobiCanvasRenderingContext2D.Present">Present</see> method that serve specific purposes. For a list of available and new commands, refer to: http://www2.appmobi.com/documentation/resources/pregenPages/directCanvasMatrix.html.
         /// <para>Available Platforms:</para>
         /// <list type="bullet">
@@ -8744,7 +8744,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// AppMobi.canvas.Load("index.js");
         /// AppMobi.canvas.Hide();
@@ -8780,7 +8780,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var windowHeight = AppMobi.canvas.height;
         /// </code>
         /// </example>
@@ -8813,7 +8813,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var windowWidth = AppMobi.canvas.width;
         /// </code>
         /// </example>
@@ -8847,7 +8847,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext2d();
         /// </code>
         /// </example>
@@ -8856,7 +8856,7 @@ namespace SharpKit.AppMobi
         public AppMobiCanvasRenderingContext2D GetContext2d() { return default(AppMobiCanvasRenderingContext2D); }
         /// <summary>
         /// Use instead <see cref="GetContext2d"/>():
-        /// getContext("2d") is like <see cref="GetContext2d"/>() exept that the return type is already casted for <see cref="GetContext2d"/>().
+        /// getContext("2d") is like <see cref="GetContext2d"/> exept that the return type is already casted for <see cref="GetContext2d"/>.
         /// </summary>
         /// <remarks>
         /// The first argument specifies the desired API. Currently, the only API available is "2d".
@@ -8888,7 +8888,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.GetContext("2d");
         /// </code>
         /// </example>
@@ -8927,7 +8927,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var ctx = AppMobi.canvas.OrigGetContext("2d");
         /// </code>
         /// </example>
@@ -8960,7 +8960,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.canvas.Load("index.js");
         /// </code>
         /// </example>
@@ -8992,7 +8992,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// AppMobi.canvas.Load("index.js");
         /// AppMobi.canvas.Hide();
@@ -9027,7 +9027,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// AppMobi.canvas.Load("index.js");
         /// AppMobi.canvas.Hide();
@@ -9062,7 +9062,7 @@ namespace SharpKit.AppMobi
         /// </remarks>
         /// <example>
         /// In the example below, the 'jump' function would be executed in the Accelerated Canvas App Game Interface context.
-        /// <code>AppMobi.canvas.Execute("jump()");</code>
+        /// <code lang="C#">AppMobi.canvas.Execute("jump()");</code>
         /// </example>
         /// <param name="javascript">Any JavaScript calls that should be executed in the Accelerated Canvas App Game Interface context</param>
         [JsMethod(Name = "execute")]
@@ -9224,7 +9224,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.canvas.Load("index.js");
         /// AppMobi.canvas.Reset();
         /// AppMobi.canvas.Load("index2.js");
@@ -9257,7 +9257,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.canvas.SetFramesPerSecond(12);
         /// </code>
         /// </example>
@@ -9516,7 +9516,7 @@ namespace SharpKit.AppMobi
         /// The platform property returns a text string identifying the platform that appMobi is running on.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.platform);
         /// </code>
@@ -9526,7 +9526,7 @@ namespace SharpKit.AppMobi
         /// This property returns the device's current operating system version information.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.osVersion);
         /// </code>
@@ -9578,7 +9578,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.model);
         /// </code>
@@ -9600,7 +9600,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.uuid);
         /// </code>
@@ -9635,7 +9635,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //detect the initial orientation of the device
         /// if (AppMobi.device.initialOrientation == 90 || AppMobi.device.initialOrientation == -90)
         /// {
@@ -9652,7 +9652,7 @@ namespace SharpKit.AppMobi
         /// This property returns the version of the appMobi container software that the application is using.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.appmobiVersion);
         /// </code>
@@ -9663,7 +9663,7 @@ namespace SharpKit.AppMobi
         /// This property returns the version of phonegap running below the AppMobi layer.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.phonegapVersion);
         /// </code>
@@ -9699,7 +9699,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //detect the initial orientation of the device
         /// if (AppMobi.device.orientation == 90 || AppMobi.device.orientation == -90)
         /// {
@@ -9719,7 +9719,7 @@ namespace SharpKit.AppMobi
         /// This property senses the best network connection type available and returns the result (either "wifi", "cell", or "none"). If the connection is still being negotiated by the device and the best network connection type is still being determined, this property will return the value "unknown". This property is updated only when the <see cref="Device.UpdateConnection">device.UpdateConnection()</see> command is called and the <see cref="AppMobi.DeviceConnectionUpdate"/> event is triggered.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void DeviceConnection()
         /// {
@@ -9737,7 +9737,7 @@ namespace SharpKit.AppMobi
         /// 
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.width);
         /// </code>
@@ -9748,7 +9748,7 @@ namespace SharpKit.AppMobi
         /// 
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.height);
         /// </code>
@@ -9763,7 +9763,7 @@ namespace SharpKit.AppMobi
         /// 
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.available);
         /// </code>
@@ -9774,7 +9774,7 @@ namespace SharpKit.AppMobi
         /// 
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.density);
         /// </code>
@@ -9787,7 +9787,7 @@ namespace SharpKit.AppMobi
         /// This property will hold the NetStationID or ShoutcastURL of the station that is playing. Otherwise, this property only holds a null. This allows the user to know if their station is already playing at startup. This can happened if the UI is destroyed and the audio continues in the background and then the application is later brought back to the foreground.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.lastStation);
         /// </code>
@@ -9801,7 +9801,7 @@ namespace SharpKit.AppMobi
         /// This property indicates whether analytics has been enabled for this application. Functions under AppMobi.stats will not be available if this is false.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.hasAnalytics);
         /// </code>
@@ -9814,7 +9814,7 @@ namespace SharpKit.AppMobi
         /// Functions under AppMobi.cache for mediacache will not be available if this is false.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.hasCaching);
         /// </code>
@@ -9827,7 +9827,7 @@ namespace SharpKit.AppMobi
         /// Functions under AppMobi.player for station and shoutcast will not be available if this is false.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.hasStreaming);
         /// </code>
@@ -9837,7 +9837,7 @@ namespace SharpKit.AppMobi
         /// 
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.hasAdvertising);
         /// </code>
@@ -9850,7 +9850,7 @@ namespace SharpKit.AppMobi
         /// This property indicates whether pushMobi push messages have been enabled for this application. This application will not be able to use the pushMobi cloud service if this is false.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.hasPush);
         /// </code>
@@ -9860,7 +9860,7 @@ namespace SharpKit.AppMobi
         /// 
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.hasPayments);
         /// </code>
@@ -9870,7 +9870,7 @@ namespace SharpKit.AppMobi
         /// 
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.hasInAppPay);
         /// </code>
@@ -9883,7 +9883,7 @@ namespace SharpKit.AppMobi
         /// This property indicates whether the Live Update service of hostMobi has been enabled for this application. This application will not be able to use the Live Updates cloud service if this is false.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.hasUpdates);
         /// </code>
@@ -9896,7 +9896,7 @@ namespace SharpKit.AppMobi
         /// This property indicates whether the OAuth has been enabled for this application. This application will not be able to use the OAuth if this is false.
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.hasOAuth);
         /// </code>
@@ -9907,7 +9907,7 @@ namespace SharpKit.AppMobi
         /// Width for the landscape mode.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.landWith);
         /// </code>
@@ -9918,7 +9918,7 @@ namespace SharpKit.AppMobi
         /// Height for the landscape mode.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.landHeight);
         /// </code>
@@ -9929,7 +9929,7 @@ namespace SharpKit.AppMobi
         /// Width for the portrait mode.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.portWidth);
         /// </code>
@@ -9940,7 +9940,7 @@ namespace SharpKit.AppMobi
         /// Height for the portrait mode.
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.portHeight);
         /// </code>
@@ -9951,7 +9951,7 @@ namespace SharpKit.AppMobi
         /// This property returns any query string parameters passed along with a protocol handler call to start an application
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// HtmlContext.alert(AppMobi.device.queryString);
         /// </code>
@@ -9983,7 +9983,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.device.ManagePower(true, false);
         /// </code>
         /// </example>
@@ -10015,7 +10015,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.device.SetAutoRotate(false);
         /// </code>
         /// </example>
@@ -10048,7 +10048,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.device.SetRotateOrientation(DeviceOrientation.Landscape);
         /// </code>
         /// </example>
@@ -10086,7 +10086,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void DeviceConnection()
         /// {
@@ -10121,7 +10121,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void BasicAuthentication(string username, string password, string url)
         /// {
@@ -10195,7 +10195,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert" or "console"
         /// //pass a true to start capturing the back button
         /// //pass a false to stop capturing the back button
@@ -10282,7 +10282,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert" or "console"
         /// //pass a true to start capturing the back button
         /// //pass a false to stop capturing the back button
@@ -10376,7 +10376,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //Open a URL example
         /// AppMobi.device.LaunchExternal("http://www.google.com");
         /// // Email example
@@ -10422,7 +10422,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.device.ShowRemoteSite("http://www.twitter.com/", 280, 0, 50, 50);
         /// </code>
         /// </example>
@@ -10468,7 +10468,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.device.ShowRemoteSiteExt("http://www.google.com/", 280, 0, 50, 50);
         /// </code>
         /// </example>
@@ -10511,7 +10511,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// public static void OnDeviceReady(DeviceEvent evt)
         /// {
@@ -10548,7 +10548,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// public static void OnDeviceReady(DeviceEvent evt)
         /// {
@@ -10595,7 +10595,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void InitBlockRemotePages()
         /// {
@@ -10648,7 +10648,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert" or "console"
         /// public static void InitScanBarCode()
         /// {
@@ -10699,7 +10699,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var bodyText = "I am having trouble with building my app";
         /// AppMobi.device.SendEmail(bodyText, "html5tools@intel.com.com", "I Need Help", true, "", "" ); 
         /// </code>
@@ -10730,7 +10730,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var bodyText = "I am at XYZ if you want to join me";
         /// AppMobi.device.SendSms(bodyText, "7175551234");
         /// </code>
@@ -10767,7 +10767,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void GetRemoteDataWithId()
         /// {
@@ -10824,7 +10824,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void GetRemoteData()
         /// {
@@ -10886,7 +10886,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void GetRemote(string name, string value)
         /// {
@@ -10948,7 +10948,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "confirm"
         /// public static void InstallUpdate(string name, string value)
         /// {
@@ -10995,7 +10995,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.DeviceReady += new JsAction&lt;DeviceEvent&gt;(delegate(DeviceEvent evt){ AppMobi.device.HideSplashScreen(); });
         /// </code>
         /// </example>
@@ -11020,7 +11020,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.DeviceReady += new JsAction&lt;DeviceEvent&gt;(delegate(DeviceEvent evt){ AppMobi.device.HideStatusBar(); });
         /// </code>
         /// </example>
@@ -11113,7 +11113,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void AddScript()
         /// {
@@ -11143,7 +11143,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// if (AppMobi.device.platform == DevicePlatformType.Android)
         /// {
         ///     AppMobi.device.RunInstallNativeApp("Boom Town", "applab.boomtown://", "market://details?id=com.appMobi.applab.boomtown", "com.appMobi.applab.boomtown");
@@ -11169,7 +11169,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// if (AppMobi.device.platform == DevicePlatformType.iOS)
         /// {
         ///     AppMobi.device.RunInstallNativeApp("Old Lady Puzzle", "oldemo.puzzle://", "itms-apps://itunes.apple.com/us/app/old-lady-puzzle/id525537202?mt=8");
@@ -11275,7 +11275,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "undefined" or "alert"
         /// public static void GetLocation()
         /// {
@@ -11327,7 +11327,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "undefined" or "alert"
         /// public static void GetLocation()
         /// {
@@ -11380,7 +11380,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "undefined" or "alert"
         /// public static void GetLocation()
         /// {
@@ -11434,7 +11434,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// // This object holds the options for the command
         /// var options = new PositionOptions() { timeout = 10000, maximumAge = 11000, enableHighAccuracy = true };
@@ -11488,7 +11488,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// // This object holds the options for the command
         /// var options = new PositionOptions() { timeout = 10000, maximumAge = 11000, enableHighAccuracy = true };
@@ -11543,7 +11543,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// // This object holds the options for the command
         /// var options = new PositionOptions() { timeout = 10000, maximumAge = 11000, enableHighAccuracy = true };
@@ -11599,7 +11599,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// var geolocationWatchTimer = AppMobi.geolocation.watchPosition(Suc, Fail, options);
         /// AppMobi.geolocation.clearWatch(geolocationWatchTimer);
         /// </code>
@@ -11728,7 +11728,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.notification.Alert("Hammertime!", "STOP", "Can\'t Touch This");
         /// </code>
         /// </example>
@@ -11768,7 +11768,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert" or "console"
         /// public static void NotificationConfirm()
         /// {
@@ -11823,7 +11823,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.notification.Vibrate();
         /// </code>
         /// </example>
@@ -11854,7 +11854,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.notification.Beep(1);
         /// </code>
         /// </example>
@@ -11886,7 +11886,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.notification.ShowBusyIndicator();
         /// </code>
         /// </example>
@@ -11917,7 +11917,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.notification.HideBusyIndicator(); 
         /// </code>
         /// </example>
@@ -11948,7 +11948,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "@typeof", "alert" or "unescape"
         /// public static void GetNotifications()
         /// {
@@ -12007,7 +12007,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "@typeof", "alert" or "unescape"
         /// public static void GetNotifications()
         /// {
@@ -12077,7 +12077,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void AddPushUser()
         /// {
@@ -12143,7 +12143,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void AddPushUser()
         /// {
@@ -12207,7 +12207,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void EditPushUser()
         /// {
@@ -12264,7 +12264,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void DeletePushUser()
         /// {
@@ -12318,7 +12318,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void UpdateNotification()
         /// {
@@ -12371,7 +12371,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void SetPushUserAttributes()
         /// {
@@ -12432,7 +12432,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void FindPushUser()
         /// {
@@ -12489,7 +12489,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void RefreshPushNotifications()
         /// {
@@ -12536,7 +12536,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// </code>
         /// </example>
         /// <param name="user"></param>
@@ -12594,7 +12594,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void DeletePushNotifications()
         /// {
@@ -12654,7 +12654,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void SendPushNotification(string myUserId, string msg)
         /// {
@@ -12705,7 +12705,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// </code>
         /// </example>
         /// <param name="message"></param>
@@ -12748,7 +12748,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "undefined"
         /// public static void SendPushNotification(string myUserId, string msg)
         /// {
@@ -12819,7 +12819,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "setTimeout"
         /// AppMobi.notification.ShowRichPushViewer(msgObj.id, 100, 100, 350, 10);
         /// //force the rich message to close after 5 seconds
@@ -12920,7 +12920,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.display.StartAR();
         /// </code>
         /// </example>
@@ -12944,7 +12944,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.display.StopAR();
         /// </code>
         /// </example>
@@ -13053,7 +13053,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // use AppMobi viewport to allow this iPad-designed application to size down to an iPhone
         /// // or an Android handset device with a resolution lower than 1024x768.
         /// var iPortraitWidth=768;
@@ -13095,7 +13095,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// //use LockViewportWindow to guarantee that the screen is completely visible with the smaller dimension completely filled.  Size for iPad.
         /// var iPortraitWidth=768;
         /// var iPortraitHeight=1004;
@@ -13263,7 +13263,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// AppMobi.oauth.UnauthorizeService("twitter");
         /// </code>
         /// </example>
@@ -13306,7 +13306,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert"
         /// public static void GetTwitterData()
         /// {
@@ -13520,7 +13520,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert" or "console"
         /// public static void LoginFacebook()
         /// {
@@ -13577,7 +13577,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "alert" or "console"
         /// public static void LogoutFacebook()
         /// {
@@ -13675,7 +13675,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "document" or "console"
         /// public static void RequestFacebook()
         /// {
@@ -13741,7 +13741,7 @@ namespace SharpKit.AppMobi
         /// </item>
         /// </list>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// public static void ShowAppRequestDialogFacebook()
         /// {
@@ -13803,7 +13803,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "console"
         /// public static void ShowNewsFeedDialogFacebook()
         /// {
@@ -13880,7 +13880,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // This app requires multitouch events,  so enable them.
         /// AppMobi.multitouch.Enable();
         /// </code>
@@ -13914,7 +13914,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "window" or "@return"
         /// public static void PreventDefaultScroll(TouchEvent evt)
         /// {
@@ -13958,7 +13958,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "window", "@return"
         /// public static void PreventDefaultScroll(TouchEvent evt)
         /// {
@@ -14002,7 +14002,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "window" or "@return"
         /// public static void PreventDefaultScroll(TouchEvent evt)
         /// {
@@ -14046,7 +14046,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "window" or "@return"
         /// public static void PreventDefaultScroll(TouchEvent evt)
         /// {
@@ -14093,7 +14093,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "window" or "@return"
         /// public static void PreventDefaultScroll(TouchEvent evt)
         /// {
@@ -14140,7 +14140,7 @@ namespace SharpKit.AppMobi
         /// </list>
         /// </remarks>
         /// <example>
-        /// <code>
+        /// <code lang="C#">
         /// // Tips: if your class inherit from the "HtmlContext" base class, you don't need to add "HtmlContext." before "window" or "@return"
         /// public static void PreventDefaultScroll(TouchEvent evt)
         /// {
