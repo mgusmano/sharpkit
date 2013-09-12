@@ -6,9 +6,10 @@ using SharpKit.JavaScript;
 
 namespace CoreTests.Events
 {
-    [JsType(JsMode.Prototype, Export=false)]
+    [JsType(JsMode.Prototype)]
     class CustomEvents
     {
+        public event Action MyEvent2;
         public event JsAction MyEvent
         {
             [JsMethod(Name="MyEvent.add")]
@@ -16,6 +17,15 @@ namespace CoreTests.Events
             {
             }
             [JsMethod(Name = "MyEvent.remove")]
+            remove
+            {
+            }
+        }
+        public event JsAction MyEvent3
+        {
+            add
+            {
+            }
             remove
             {
             }
@@ -30,6 +40,8 @@ namespace CoreTests.Events
             var x = new CustomEvents();
             x.MyEvent += new JsAction(x_MyEvent);
             x.MyEvent -= new JsAction(x_MyEvent);
+            x.MyEvent2 += x_MyEvent;
+            x.MyEvent2 -= x_MyEvent;
         }
 
         void x_MyEvent()
