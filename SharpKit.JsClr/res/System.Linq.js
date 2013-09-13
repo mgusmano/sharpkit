@@ -586,6 +586,31 @@ var System$Linq$Enumerable =
         {
             throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
+        SelectMany$3$$IEnumerable$1$$Func$2$$Func$3: function (TSource, TCollection, TResult, source, collectionSelector, resultSelector)
+        {
+            if (source == null)
+            {
+                throw $CreateException(System.Linq.Error.ArgumentNull("source"), new Error());
+            }
+            if (collectionSelector == null)
+            {
+                throw $CreateException(System.Linq.Error.ArgumentNull("collectionSelector"), new Error());
+            }
+            if (resultSelector == null)
+            {
+                throw $CreateException(System.Linq.Error.ArgumentNull("resultSelector"), new Error());
+            }
+            return System.Linq.Enumerable.Select$2$$IEnumerable$1$$Func$2(System.Tuple$2.ctor, TResult, System.Linq.Enumerable.SelectMany$2$$IEnumerable$1$$Func$2(TSource, System.Tuple$2.ctor, source, function (t)
+            {
+                return System.Linq.Enumerable.Select$2$$IEnumerable$1$$Func$2(TCollection, System.Tuple$2.ctor, collectionSelector(t), function (x)
+                {
+                    return System.Tuple.Create$2$$T1$$T2(TSource, TCollection, t, x);
+                });
+            }), function (pair)
+            {
+                return resultSelector(pair.get_Item1(), pair.get_Item2());
+            });
+        },
         Skip$1: function (TSource, source, count)
         {
             if (source == null)

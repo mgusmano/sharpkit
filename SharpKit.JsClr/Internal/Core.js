@@ -2087,6 +2087,56 @@ var System$TimeSpan =
     }
 };
 JsTypes.push(System$TimeSpan);
+var System$Tuple =
+{
+    fullname: "System.Tuple",
+    baseTypeName: "System.Object",
+    staticDefinition:
+    {
+        Create$1$$T1: function (T1, item1)
+        {
+            return new System.Tuple$1.ctor(T1, item1);
+        },
+        Create$2$$T1$$T2: function (T1, T2, item1, item2)
+        {
+            return new System.Tuple$2.ctor(T1, T2, item1, item2);
+        },
+        Create$3$$T1$$T2$$T3: function (T1, T2, T3, item1, item2, item3)
+        {
+            return new System.Tuple$3.ctor(T1, T2, T3, item1, item2, item3);
+        },
+        Create$4$$T1$$T2$$T3$$T4: function (T1, T2, T3, T4, item1, item2, item3, item4)
+        {
+            return new System.Tuple$4.ctor(T1, T2, T3, T4, item1, item2, item3, item4);
+        },
+        Create$5$$T1$$T2$$T3$$T4$$T5: function (T1, T2, T3, T4, T5, item1, item2, item3, item4, item5)
+        {
+            return new System.Tuple$5.ctor(T1, T2, T3, T4, T5, item1, item2, item3, item4, item5);
+        },
+        Create$6$$T1$$T2$$T3$$T4$$T5$$T6: function (T1, T2, T3, T4, T5, T6, item1, item2, item3, item4, item5, item6)
+        {
+            return new System.Tuple$6.ctor(T1, T2, T3, T4, T5, T6, item1, item2, item3, item4, item5, item6);
+        },
+        Create$7$$T1$$T2$$T3$$T4$$T5$$T6$$T7: function (T1, T2, T3, T4, T5, T6, T7, item1, item2, item3, item4, item5, item6, item7)
+        {
+            return new System.Tuple$7.ctor(T1, T2, T3, T4, T5, T6, T7, item1, item2, item3, item4, item5, item6, item7);
+        },
+        Create$8$$T1$$T2$$T3$$T4$$T5$$T6$$T7$$T8: function (T1, T2, T3, T4, T5, T6, T7, T8, item1, item2, item3, item4, item5, item6, item7, item8)
+        {
+            return new System.Tuple$8.ctor(T1, T2, T3, T4, T5, T6, T7, System.Tuple$1.ctor, item1, item2, item3, item4, item5, item6, item7, new System.Tuple$1.ctor(T8, item8));
+        }
+    },
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            System.Object.ctor.call(this);
+        }
+    }
+};
+JsTypes.push(System$Tuple);
 var System$Tuple$1 =
 {
     fullname: "System.Tuple$1",

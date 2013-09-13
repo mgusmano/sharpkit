@@ -2165,22 +2165,22 @@ namespace SharpKit.JavaScript.Private
           return SelectManyIterator<TSource, TResult>(source, selector);*/
         }
 
-        //public static IEnumerable<TResult> SelectMany<TSource, TCollection, TResult>(this IEnumerable<TSource> source, Func<TSource, IEnumerable<TCollection>> collectionSelector, Func<TSource, TCollection, TResult> resultSelector)
-        //{
-        //  if (source == null)
-        //  {
-        //    throw Error.ArgumentNull("source");
-        //  }
-        //  if (collectionSelector == null)
-        //  {
-        //    throw Error.ArgumentNull("collectionSelector");
-        //  }
-        //  if (resultSelector == null)
-        //  {
-        //    throw Error.ArgumentNull("resultSelector");
-        //  }
-        //  return SelectManyIterator<TSource, TCollection, TResult>(source, collectionSelector, resultSelector);
-        //}
+        public static IEnumerable<TResult> SelectMany<TSource, TCollection, TResult>(this IEnumerable<TSource> source, Func<TSource, IEnumerable<TCollection>> collectionSelector, Func<TSource, TCollection, TResult> resultSelector)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull("source");
+            }
+            if (collectionSelector == null)
+            {
+                throw Error.ArgumentNull("collectionSelector");
+            }
+            if (resultSelector == null)
+            {
+                throw Error.ArgumentNull("resultSelector");
+            }
+            return source.SelectMany(t => collectionSelector(t).Select(x => Tuple.Create(t, x))).Select(pair => resultSelector(pair.Item1, pair.Item2));
+        }
 
         //public static IEnumerable<TResult> SelectMany<TSource, TCollection, TResult>(this IEnumerable<TSource> source, Func<TSource, int, IEnumerable<TCollection>> collectionSelector, Func<TSource, TCollection, TResult> resultSelector)
         //{
