@@ -37,14 +37,13 @@ using SharpKit.Html.geolocation;
 using System.Collections.Generic;
 
 [assembly: JsNamespace(Namespace = "SharpKit.AppMobi", JsNamespace = "AppMobi")]
-[assembly: JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
 namespace SharpKit.AppMobi
 {
     #region Global
     /// <summary>
     /// AppMobi Context
     /// </summary>
-    [JsType(GlobalObject = true, PropertiesAsFields = true)]
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, GlobalObject = true)]
     public partial class AppMobiContext
     {
         [JsProperty(Name = "AppMobiInit", NativeField = true)]
@@ -74,7 +73,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// Global variables
     /// </summary>
-    [JsType(OmitInheritance = true, Name = "AppMobi", PropertiesAsFields = true)]
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, OmitInheritance = true, Name = "AppMobi")]
     public partial class AppMobi
     {
         /// <summary>
@@ -2696,7 +2695,7 @@ namespace SharpKit.AppMobi
     #endregion
 
     #region Enum for platform type
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false)]
     [JsEnum(ValuesAsNames = true)]
     public enum DevicePlatformType
     {
@@ -2710,7 +2709,7 @@ namespace SharpKit.AppMobi
     #endregion
 
     #region Enum for connection type
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false)]
     [JsEnum(ValuesAsNames = true)]
     public enum DeviceConnectionType
     {
@@ -2726,7 +2725,7 @@ namespace SharpKit.AppMobi
     #endregion
 
     #region Enum for AppMobi events
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false)]
     [JsEnum(ValuesAsNames = true)]
     public enum AppMobiEventType
     {
@@ -2906,7 +2905,7 @@ namespace SharpKit.AppMobi
         FileUploadCancel
     }
 
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false)]
     [JsEnum(ValuesAsNames = true)]
     public enum TouchEventType
     {
@@ -2920,7 +2919,7 @@ namespace SharpKit.AppMobi
     #endregion
 
     #region Enum for Get and Post
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false)]
     [JsEnum(ValuesAsNames = true)]
     public enum AppMobiGetPost
     {
@@ -2932,7 +2931,7 @@ namespace SharpKit.AppMobi
     #endregion
 
     #region Enum for call mode for Notifications
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false)]
     [JsEnum(ValuesAsNames = true)]
     public enum CallModeNotifications
     {
@@ -3088,6 +3087,7 @@ namespace SharpKit.AppMobi
         /// </summary>
         public bool answer { get; set; }
     }
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "Event")]
     public partial class NotificationPushEvent : AppMobiEvent
     {
         /// <summary>
@@ -3117,7 +3117,6 @@ namespace SharpKit.AppMobi
     [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "Event")]
     public partial class FacebookEvent : AppMobiEvent
     {
-
         public FacebookDataEvent data { get; set; }
     }
     #endregion
@@ -3133,7 +3132,7 @@ namespace SharpKit.AppMobi
     #endregion
 
     #region Queue
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class QueueData
     {
         public bool ready { get; set; }
@@ -3148,6 +3147,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// This class contains acceleration information.
     /// </summary>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Acceleration
     {
         /// <summary>
@@ -3180,6 +3180,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// This class specifies the options for requesting acceleration data.
     /// </summary>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class AccelerationOptions
     {
         public long frequency { get; set; }
@@ -3192,6 +3193,7 @@ namespace SharpKit.AppMobi
     /// <remarks>
     /// The accelerometer is the device on a smartphone that detects movement. The accelerometer object is used to track the accelerometer on the device. Success and failure callback functions need to be defined in your Javascript. Successful data is returned as an object with the attributes ".x", ".y", and ".z". Values of accelerometer samples for each axis range from -1 to 1.
     /// </remarks>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Accelerometer
     {
         /// <summary>
@@ -3329,7 +3331,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// Contact informations
     /// </summary>
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class ContactData
     {
         public string id { get; set; }
@@ -3344,7 +3346,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// Address for contact informations
     /// </summary>
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class ContacDataAddress
     {
         public string street { get; set; }
@@ -3756,6 +3758,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// Advertising
     /// </summary>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Advertising
     {
         [JsMethod(Name = "getAd")]
@@ -3798,6 +3801,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// AudioInfo
     /// </summary>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class AudioInfo
     {
         public AudioInfo(JsNumber currentTime, JsNumber duration) { }
@@ -3810,7 +3814,7 @@ namespace SharpKit.AppMobi
         /// </summary>
         public JsNumber duration { get; set; }
     }
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class AppMobiHtmlAudioPlayer
     {
         public HtmlAudioElement player { get; set; }
@@ -3824,6 +3828,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// Audio
     /// </summary>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Audio
     {
         [JsMethod(Name = "startPlaying")]
@@ -3884,7 +3889,7 @@ namespace SharpKit.AppMobi
     /// }
     /// </code>
     /// </example>
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class PlayingTrack
     {
         /// <summary>
@@ -3996,6 +4001,7 @@ namespace SharpKit.AppMobi
     /// </item>
     /// </list>
     /// </remarks>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Player
     {
         public AudioInfo audioInfo { get; set; }
@@ -4984,6 +4990,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// 
     /// </summary>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Stats
     {
         /* deprecated: use instead AppMobi.analytics.LogPageEvent
@@ -4995,7 +5002,7 @@ namespace SharpKit.AppMobi
 
     #region Analytics
     /* deprecated
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class QueueEvent
     {
         public string date { get; set; }
@@ -5017,6 +5024,7 @@ namespace SharpKit.AppMobi
     /// <remarks>
     /// The analytics object provides access to statMobi Analytics.
     /// </remarks>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Analytics
     {
         /* deprecated
@@ -5106,6 +5114,7 @@ namespace SharpKit.AppMobi
     /// </item>
     /// </list>
     /// </remarks>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class File
     {
         /// <summary>
@@ -5275,7 +5284,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// Picture types
     /// </summary>
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false)]
     [JsEnum(ValuesAsNames = true)]
     public enum PictureType
     {
@@ -5315,6 +5324,7 @@ namespace SharpKit.AppMobi
     /// </item>
     /// </list>
     /// </remarks>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Camera
     {
         /// <summary>
@@ -5772,7 +5782,7 @@ namespace SharpKit.AppMobi
 
     #region Cache (verify property names for events)
 
-    [JsType(Mode = JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class CookieData
     {
         public string value { get; set; }
@@ -5802,6 +5812,7 @@ namespace SharpKit.AppMobi
     /// </item>
     /// </list>
     /// </remarks>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Cache
     {
         /// <summary>
@@ -9324,6 +9335,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// This class provides access to the appMobi in-app purchasing system.
     /// </summary>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Purchasing
     {
         [JsMethod(Name = "purchaseProduct")]
@@ -9335,6 +9347,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// This class provides access to the debugging console.
     /// </summary>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Debug
     {
         /// <summary>
@@ -9370,7 +9383,7 @@ namespace SharpKit.AppMobi
     public delegate void RemoteDataCallback(string data);
     public delegate void RemoteDataWithIdCallback(long uniqueId, string data);
 
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false)]
     [JsEnum(ValuesAsNames = true)]
     public enum DeviceOrientation
     {
@@ -9382,11 +9395,12 @@ namespace SharpKit.AppMobi
         Landscape = 2
     }
 
-    [JsType(Mode = JsMode.Prototype, Name = "AppMobi.Device.RemoteDataParameters")]
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, Name = "AppMobi.Device.RemoteDataParameters")]
     public partial class DeviceRemoteDataParameters : DataParametersBase
     {
     }
 
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class DeviceDataBase
     {
         /// <summary>
@@ -9435,6 +9449,7 @@ namespace SharpKit.AppMobi
         public long height { get; set; }
     }
 
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class DeviceData : DeviceDataBase
     {
         /// <summary>
@@ -9510,6 +9525,7 @@ namespace SharpKit.AppMobi
     /// </item>
     /// </list>
     /// </remarks>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Device : DeviceDataBase
     {
         /// <summary>
@@ -11222,7 +11238,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// This class contains geolocation options.
     /// </summary>
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class PositionOptions
     {
         /// <summary>
@@ -11244,7 +11260,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// Make your application aware of where it is currently located
     /// </summary>
-    [JsType(JsMode.Prototype, Name = "AppMobi.Geolocation")]
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, Name = "AppMobi.Geolocation")]
     public partial class AppMobiGeolocation : Geolocation
     {
         /// <summary>
@@ -11610,7 +11626,7 @@ namespace SharpKit.AppMobi
     #endregion
 
     #region Notification
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class NotificationData
     {
         /// <summary>
@@ -11633,7 +11649,7 @@ namespace SharpKit.AppMobi
         public string richHtml { get; set; }
         public bool isRich { get; set; }
     }
-    [JsType(JsMode.Prototype, Name = "AppMobi.Notification.PushUserAttributes")]
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, Name = "AppMobi.Notification.PushUserAttributes")]
     public partial class NotificationPushUserAttributes
     {
         public string s1 { get; set; }
@@ -11701,6 +11717,7 @@ namespace SharpKit.AppMobi
     /// </item>
     /// </list>
     /// </remarks>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Notification
     {
         /// <summary>
@@ -12832,7 +12849,7 @@ namespace SharpKit.AppMobi
     #endregion
 
     #region Display
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class Viewport
     {
         /// <summary>
@@ -12860,7 +12877,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// 
     /// </summary>
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class DisplayWindow
     {
         /// <summary>
@@ -12890,6 +12907,7 @@ namespace SharpKit.AppMobi
     /// <remarks>
     /// The display object gives the application control over aspects of the device's video display properties.
     /// </remarks>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Display
     {
         public DisplayWindow display { get; set; }
@@ -13147,6 +13165,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// 
     /// </summary>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public abstract partial class DataParametersBase
     {
         /// <summary>
@@ -13180,8 +13199,8 @@ namespace SharpKit.AppMobi
     }
     #endregion
 
-    #region OAuth and OAuthInternal
-    [JsType(Mode = JsMode.Prototype, Name = "AppMobi.OAuth.ProtectedDataParameters")]
+    #region OAuth
+    [JsType(Mode = JsMode.Prototype, Export = false, PropertiesAsFields = true, Name = "AppMobi.OAuth.ProtectedDataParameters")]
     public partial class OAuthProtectedDataParameters : DataParametersBase
     {
         /// <summary>
@@ -13214,6 +13233,7 @@ namespace SharpKit.AppMobi
     /// </item>
     /// </list>
     /// </remarks>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class OAuth
     {
         /* deprecated
@@ -13350,6 +13370,7 @@ namespace SharpKit.AppMobi
         /// <summary>
         /// 
         /// </summary>
+        [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
         public partial class OAuthInternal
         {
             public bool processing { get; set; }
@@ -13372,7 +13393,7 @@ namespace SharpKit.AppMobi
 
     #region Facebook (parameters to be completed)
 
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class FacebookDataEvent
     {
         public string path { get; set; }
@@ -13384,7 +13405,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// TODO: FBParameters classes to complete, see https://fbdevwiki.com/wiki/FB.ui
     /// </summary>
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class FacebookParametersBase
     {
         public AppMobiGetPost method { get; set; }
@@ -13394,7 +13415,7 @@ namespace SharpKit.AppMobi
         //        public string urls { get; set; }
         //        public JsNumber limit { get; set; }
     }
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class FacebookParametersAppRequest : FacebookParametersBase
     {
         public string to { get; set; }
@@ -13407,7 +13428,7 @@ namespace SharpKit.AppMobi
         Example #2 [‘app_users']
          */
     }
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class FacebookParametersSend : FacebookParametersBase
     {
         public string name { get; set; }
@@ -13417,26 +13438,26 @@ namespace SharpKit.AppMobi
         public string picture { get; set; }
         public string to { get; set; }
     }
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class FacebookParametersStreamShare : FacebookParametersBase
     {
         public string u { get; set; }
     }
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class FacebookParametersPermissionsRequest : FacebookParametersBase
     {
         public string perms { get; set; }
         public bool enable_profile_selector { get; set; }
         public JsArray<string> profile_selector_ids { get; set; }
     }
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class FacebookParametersFriends : FacebookParametersBase
     {
         public string id { get; set; }
         public string name { get; set; }
     }
 
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class FacebookParametersFeed : FacebookParametersBase
     {
         public string name { get; set; }
@@ -13482,6 +13503,7 @@ namespace SharpKit.AppMobi
     /// </item>
     /// </list>
     /// </remarks>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Facebook
     {
         public bool isSessionValid { get; set; }
@@ -13861,6 +13883,7 @@ namespace SharpKit.AppMobi
     /// <remarks>
     /// This object is mainly created to solve the problems with handling multiple simultaneous touches on an Android device. The Android operating system does not handle simultaneous touch events on the browser.
     /// </remarks>
+    [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true)]
     public partial class Multitouch
     {
         /// <summary>
@@ -14167,7 +14190,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// 
     /// </summary>
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class NativeBase64
     {
         public static string _keyStr { get; set; }
@@ -14182,7 +14205,7 @@ namespace SharpKit.AppMobi
         public static string _Utf8Decode(string str) { return (default(string)); }
     }
 
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class NativeFacebook
     {
         public bool busy { get; set; }
@@ -14214,7 +14237,7 @@ namespace SharpKit.AppMobi
         public void HandleResponse(string eventName, bool success, string responseData, object extra) { }      // TODO verify type
     }
 
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class NativeServers
     {
         /// <summary>
@@ -14259,7 +14282,7 @@ namespace SharpKit.AppMobi
         public string webservices { get; set; }
     }
 
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class Native
     {
         [JsProperty(Name = "Facebook", NativeField = true)]
@@ -14508,7 +14531,7 @@ namespace SharpKit.AppMobi
     /* DEPRECATED
 
     #region WebView
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class WebView
     {
         [JsMethod(Name = "execute")]
@@ -14521,7 +14544,7 @@ namespace SharpKit.AppMobi
     /// <summary>
     /// DirectCanvas compatibility
     /// </summary>
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class Context
     {
         /// <summary>
@@ -14548,13 +14571,13 @@ namespace SharpKit.AppMobi
     #endregion
 
     #region Helper
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class BrowserInfo
     {
         public string browser { get; set; }
         public string version { get; set; }
     }
-    [JsType(JsMode.Json)]
+    [JsType(JsMode.Json, Export = false, PropertiesAsFields = true)]
     public partial class Helper
     {
         /// <summary>
