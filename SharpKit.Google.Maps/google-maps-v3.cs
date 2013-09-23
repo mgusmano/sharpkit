@@ -4250,65 +4250,65 @@ namespace SharpKit.Google.Maps
         /// </summary>
         public JsAction<JsNumber, T> set_at { get; set; }
     }
-    [JsType(JsMode.Prototype, Name = "google.maps.geometry.encodingnamespace")]
-    public class encodingnamespace
+    [JsType(JsMode.Prototype, Name = "google.maps.geometry.encoding")]
+    public class encoding
     {
         /// <summary>
         ///Decodes an encoded path JsString into a sequence of LatLngs.
         /// </summary>
-        public JsArray<LatLng> decodePath(JsString encodedPath) { return null; }
+        public static JsArray<LatLng> decodePath(JsString encodedPath) { return null; }
         /// <summary>
         ///Encodes a sequence of LatLngs into an encoded path JsString.
         /// </summary>
-        public JsString encodePath(object path) { return null; }
+        public static JsString encodePath(object path) { return null; }
     }
-    [JsType(JsMode.Prototype, Name = "google.maps.geometry.sphericalnamespace")]
-    public class sphericalnamespace
+    [JsType(JsMode.Prototype, Name = "google.maps.geometry.spherical")]
+    public class spherical
     {
         /// <summary>
         ///Returns the area of a closed path. The computed area uses the same units as the radius. The radius defaults to the Earth's radius in meters, in which case the area is in square meters.
         /// </summary>
-        public JsNumber computeArea(object path, JsNumber radius = null) { return null; }
+        public static JsNumber computeArea(JsArray<LatLng> path, JsNumber radius = null) { return null; }
         /// <summary>
         ///Returns the distance between two LatLngs.
         /// </summary>
-        public JsNumber computeDistanceBetween(LatLng from, LatLng to, JsNumber radius = null) { return null; }
+        public static JsNumber computeDistanceBetween(LatLng from, LatLng to, JsNumber radius = null) { return null; }
         /// <summary>
         ///Returns the heading from one LatLng to another LatLng. Headings are expressed in degrees clockwise from North within the range [-180,180).
         /// </summary>
-        public JsNumber computeHeading(LatLng from, LatLng to) { return null; }
+        public static JsNumber computeHeading(LatLng from, LatLng to) { return null; }
         /// <summary>
         ///Returns the length of the given path.
         /// </summary>
-        public JsNumber computeLength(object path, JsNumber radius = null) { return null; }
+        public static JsNumber computeLength(object path, JsNumber radius = null) { return null; }
         /// <summary>
         ///Returns the LatLng resulting from moving a distance from an origin in the specified heading (expressed in degrees clockwise from north).
         /// </summary>
-        public LatLng computeOffset(LatLng from, JsNumber distance, JsNumber heading, JsNumber radius = null) { return null; }
+        public static LatLng computeOffset(LatLng from, JsNumber distance, JsNumber heading, JsNumber radius = null) { return null; }
         /// <summary>
         ///Returns the location of origin when provided with a LatLng destination, meters travelled and original heading. Headings are expressed in degrees clockwise from North. This function returns null when no solution is available.
         /// </summary>
-        public LatLng computeOffsetOrigin(LatLng to, JsNumber distance, JsNumber heading, JsNumber radius = null) { return null; }
+        public static LatLng computeOffsetOrigin(LatLng to, JsNumber distance, JsNumber heading, JsNumber radius = null) { return null; }
         /// <summary>
         ///Returns the signed area of a closed path. The signed area may be used to determine the orientation of the path. The computed area uses the same units as the radius. The radius defaults to the Earth's radius in meters, in which case the area is in square meters.
         /// </summary>
-        public JsNumber computeSignedArea(object loop, JsNumber radius = null) { return null; }
+        public static JsNumber computeSignedArea(object loop, JsNumber radius = null) { return null; }
         /// <summary>
         ///Returns the LatLng which lies the given fraction of the way between the origin LatLng and the destination LatLng.
         /// </summary>
-        public LatLng interpolate(LatLng from, LatLng to, JsNumber fraction) { return null; }
+        public static LatLng interpolate(LatLng from, LatLng to, JsNumber fraction) { return null; }
     }
-    [JsType(JsMode.Prototype, Name = "google.maps.geometry.polynamespace")]
-    public class polynamespace
+    [JsType(JsMode.Prototype, Name = "google.maps.geometry.poly")]
+    public class poly
     {
         /// <summary>
         ///Computes whether the given point lies inside the specified polygon.
         /// </summary>
-        public bool containsLocation(LatLng point, Polygon polygon) { return false; }
+        public static bool containsLocation(LatLng point, Polygon polygon) { return false; }
         /// <summary>
         ///Computes whether the given point lies on or near to a polyline, or the edge of a polygon, within a specified tolerance. Returns true when the difference between the latitude and longitude of the supplied point, and the closest point on the edge, is less than the tolerance. The tolerance defaults to 10-9 degrees.
         /// </summary>
-        public bool isLocationOnEdge(LatLng point, object poly, JsNumber tolerance = null) { return false; }
+        public static bool isLocationOnEdge(LatLng point, object poly, JsNumber tolerance = null) { return false; }
     }
     [JsType(JsMode.Prototype, Name = "google.maps.adsense.AdUnit")]
     public class AdUnit
