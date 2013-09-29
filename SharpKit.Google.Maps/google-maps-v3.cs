@@ -561,56 +561,57 @@ namespace SharpKit.Google.Maps
         public static object SMALL { get; private set; }
     }
     [JsType(JsMode.Prototype, Name = "google.maps.ControlPosition")]
-    public class ControlPosition
+    public class ControlPosition : JsNumber
     {
+        protected ControlPosition() : base(0) { }
         /// <summary>
         ///Elements are positioned in the center of the bottom row.
         /// </summary>
-        public static JsNumber BOTTOM_CENTER { get; private set; }
+        public static ControlPosition BOTTOM_CENTER { get; private set; }
         /// <summary>
         ///Elements are positioned in the bottom left and flow towards the middle. Elements are positioned to the right of the Google logo.
         /// </summary>
-        public static JsNumber BOTTOM_LEFT { get; private set; }
+        public static ControlPosition BOTTOM_LEFT { get; private set; }
         /// <summary>
         ///Elements are positioned in the bottom right and flow towards the middle. Elements are positioned to the left of the copyrights.
         /// </summary>
-        public static JsNumber BOTTOM_RIGHT { get; private set; }
+        public static ControlPosition BOTTOM_RIGHT { get; private set; }
         /// <summary>
         ///Elements are positioned on the left, above bottom-left elements, and flow upwards.
         /// </summary>
-        public static JsNumber LEFT_BOTTOM { get; private set; }
+        public static ControlPosition LEFT_BOTTOM { get; private set; }
         /// <summary>
         ///Elements are positioned in the center of the left side.
         /// </summary>
-        public static JsNumber LEFT_CENTER { get; private set; }
+        public static ControlPosition LEFT_CENTER { get; private set; }
         /// <summary>
         ///Elements are positioned on the left, below top-left elements, and flow downwards.
         /// </summary>
-        public static JsNumber LEFT_TOP { get; private set; }
+        public static ControlPosition LEFT_TOP { get; private set; }
         /// <summary>
         ///Elements are positioned on the right, above bottom-right elements, and flow upwards.
         /// </summary>
-        public static JsNumber RIGHT_BOTTOM { get; private set; }
+        public static ControlPosition RIGHT_BOTTOM { get; private set; }
         /// <summary>
         ///Elements are positioned in the center of the right side.
         /// </summary>
-        public static JsNumber RIGHT_CENTER { get; private set; }
+        public static ControlPosition RIGHT_CENTER { get; private set; }
         /// <summary>
         ///Elements are positioned on the right, below top-right elements, and flow downwards.
         /// </summary>
-        public static JsNumber RIGHT_TOP { get; private set; }
+        public static ControlPosition RIGHT_TOP { get; private set; }
         /// <summary>
         ///Elements are positioned in the center of the top row.
         /// </summary>
-        public static JsNumber TOP_CENTER { get; private set; }
+        public static ControlPosition TOP_CENTER { get; private set; }
         /// <summary>
         ///Elements are positioned in the top left and flow towards the middle.
         /// </summary>
-        public static JsNumber TOP_LEFT { get; private set; }
+        public static ControlPosition TOP_LEFT { get; private set; }
         /// <summary>
         ///Elements are positioned in the top right and flow towards the middle.
         /// </summary>
-        public static JsNumber TOP_RIGHT { get; private set; }
+        public static ControlPosition TOP_RIGHT { get; private set; }
     }
     [JsType(JsMode.Prototype, Name = "google.maps.Marker")]
     public class Marker
