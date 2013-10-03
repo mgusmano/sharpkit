@@ -1845,6 +1845,10 @@ namespace SharpKit.JavaScript
         public static JsNumber operator --(JsNumber x) { return default(JsNumber); }
         public static JsNumber operator *(JsNumber x, JsNumber y) { return default(JsNumber); }
         public static JsNumber operator /(JsNumber x, JsNumber y) { return default(JsNumber); }
+        public static JsBoolean operator >(JsNumber x, JsNumber y) { return new JsBoolean(x._Value == y._Value); }
+        public static JsBoolean operator >=(JsNumber x, JsNumber y) { return new JsBoolean(x._Value == y._Value); }
+        public static JsBoolean operator <(JsNumber x, JsNumber y) { return new JsBoolean(x._Value == y._Value); }
+        public static JsBoolean operator <=(JsNumber x, JsNumber y) { return new JsBoolean(x._Value == y._Value); }
         //[EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object obj) { return default(bool); }
         //[EditorBrowsable(EditorBrowsableState.Never)]
