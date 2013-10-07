@@ -139,7 +139,7 @@ JsTypes.push(System$Collections$IList);
 var System$Collections$Specialized$NotifyCollectionChangedAction =
 {
     fullname: "System.Collections.Specialized.NotifyCollectionChangedAction",
-    staticDefinition: {Add: "Add", Remove: "Remove", Replace: "Replace", Move: "Move", Reset: "Reset"},
+    staticDefinition: {Add: 0, Remove: 1, Replace: 2, Move: 3, Reset: 4},
     Kind: "Enum"
 };
 JsTypes.push(System$Collections$Specialized$NotifyCollectionChangedAction);
@@ -670,7 +670,7 @@ JsTypes.push(System$DateTime);
 var System$DateTimeKind =
 {
     fullname: "System.DateTimeKind",
-    staticDefinition: {Unspecified: "Unspecified", Utc: "Utc", Local: "Local"},
+    staticDefinition: {Unspecified: 0, Utc: 1, Local: 2},
     Kind: "Enum"
 };
 JsTypes.push(System$DateTimeKind);
@@ -1313,105 +1313,105 @@ Date.prototype.CompareTo = function (value)
 };
 Date.prototype.get_Year = function ()
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         return this.getUTCFullYear();
     return this.getFullYear();
 };
 Date.prototype.set_Year = function (value)
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         this.setUTCFullYear(value);
     else
         this.setFullYear(value);
 };
 Date.prototype.get_Month = function ()
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         return this.getUTCMonth() + 1;
     return this.getMonth() + 1;
 };
 Date.prototype.set_Month = function (value)
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         this.setUTCMonth(value - 1);
     else
         this.setMonth(value - 1);
 };
 Date.prototype.get_Day = function ()
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         return this.getUTCDate();
     return this.getDate();
 };
 Date.prototype.set_Day = function (value)
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         this.setUTCDate(value);
     else
         this.setDate(value);
 };
 Date.prototype.get_Hour = function ()
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         return this.getUTCHours();
     return this.getHours();
 };
 Date.prototype.set_Hour = function (value)
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         this.setUTCHours(value);
     else
         this.setHours(value);
 };
 Date.prototype.get_Minute = function ()
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         return this.getUTCMinutes();
     return this.getMinutes();
 };
 Date.prototype.set_Minute = function (value)
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         this.setUTCMinutes(value);
     else
         this.setMinutes(value);
 };
 Date.prototype.get_Second = function ()
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         return this.getUTCSeconds();
     return this.getSeconds();
 };
 Date.prototype.set_Second = function (value)
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         this.setUTCSeconds(value);
     else
         this.setSeconds(value);
 };
 Date.prototype.get_Millisecond = function ()
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         return this.getUTCMilliseconds();
     return this.getMilliseconds();
 };
 Date.prototype.set_Millisecond = function (value)
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         this.setUTCMilliseconds(value);
     else
         this.setMilliseconds(value);
 };
 Date.prototype.get_Ticks = function ()
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         return this.getUTCMilliseconds() * 10000;
     return this.getMilliseconds() * 10000;
 };
 Date.prototype.set_Ticks = function (value)
 {
     var milliseconds = value / 10000;
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         this.setUTCMilliseconds(milliseconds);
     else
         this.setMilliseconds(milliseconds);
@@ -1422,18 +1422,18 @@ Date.prototype.get_DayOfWeek = function ()
 };
 Date.prototype.ToLocalTime = function ()
 {
-    if (this._Kind != System.DateTimeKind.Utc)
+    if (this._Kind != 1)
         return this;
     var x = this.Clone();
-    x._Kind = System.DateTimeKind.Local;
+    x._Kind = 2;
     return x;
 };
 Date.prototype.ToUniversalTime = function ()
 {
-    if (this._Kind == System.DateTimeKind.Utc)
+    if (this._Kind == 1)
         return this;
     var x = this.Clone();
-    x._Kind = System.DateTimeKind.Utc;
+    x._Kind = 1;
     return x;
 };
 Date.prototype.get_Today = function ()
@@ -1539,7 +1539,7 @@ Date.prototype.GetType = function ()
 Date.prototype.get_Kind = function ()
 {
     if (this._Kind == null)
-        return System.DateTimeKind.Local;
+        return 2;
     return this._Kind;
 };
 var System$Nullable$1 =
@@ -1673,7 +1673,7 @@ JsTypes.push(System$Random);
 var System$StringSplitOptions =
 {
     fullname: "System.StringSplitOptions",
-    staticDefinition: {None: "None", RemoveEmptyEntries: "RemoveEmptyEntries"},
+    staticDefinition: {None: 0, RemoveEmptyEntries: 1},
     Kind: "Enum"
 };
 JsTypes.push(System$StringSplitOptions);
@@ -1760,7 +1760,7 @@ JsTypes.push(System$CharEnumerator);
 var System$StringComparison =
 {
     fullname: "System.StringComparison",
-    staticDefinition: {CurrentCulture: "CurrentCulture", CurrentCultureIgnoreCase: "CurrentCultureIgnoreCase", InvariantCulture: "InvariantCulture", InvariantCultureIgnoreCase: "InvariantCultureIgnoreCase", Ordinal: "Ordinal", OrdinalIgnoreCase: "OrdinalIgnoreCase"},
+    staticDefinition: {CurrentCulture: 0, CurrentCultureIgnoreCase: 1, InvariantCulture: 2, InvariantCultureIgnoreCase: 3, Ordinal: 4, OrdinalIgnoreCase: 5},
     Kind: "Enum"
 };
 JsTypes.push(System$StringComparison);

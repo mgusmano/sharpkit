@@ -19,7 +19,7 @@ if (typeof(JsTypes) == "undefined")
 var System$ComponentModel$ListSortDirection =
 {
     fullname: "System.ComponentModel.ListSortDirection",
-    staticDefinition: {Ascending: "Ascending", Descending: "Descending"},
+    staticDefinition: {Ascending: 0, Descending: 1},
     Kind: "Enum"
 };
 JsTypes.push(System$ComponentModel$ListSortDirection);
