@@ -37,4 +37,4 @@ using SharpKit.JavaScript;
 [assembly: AssemblyFileVersion("4.30.2000")]
 
 [assembly: JsNamespace(Namespace = "SharpKit.Html", JsNamespace = "")]
-[assembly: JsType(JsMode.Prototype, Name = "", Export = false, PropertiesAsFields = true, OmitCasts = true)]
+[assembly: JsType(JsMode.Prototype, Name = "", Export = false, PropertiesAsFields = true, NativeCasts = true)] // Removed OmitCasts=true and added NativeCasts=true, because 'instanceof' will not work otherwise.
