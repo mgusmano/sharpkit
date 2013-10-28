@@ -770,6 +770,11 @@ namespace SharpKit.jQuery
     public partial class DialogOptions
     {
         /// <summary>
+        /// Which element the dialog (and overlay, if modal) should be appended to.
+        /// Default:"body"
+        /// </summary>
+        public object appendTo { get; set; }
+        /// <summary>
         /// Disables (true) or enables (false) the button. Can be set when initialising (first creating) the button.
         /// Default:false
         /// </summary>
