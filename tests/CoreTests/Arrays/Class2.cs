@@ -8,6 +8,7 @@ namespace SharpKitWebApp5
         void foo()
         {
             var list = new JsArray<object>();
+            list.push(new object[7]);
             list.push(new byte[7]);
             list.push(new short[7]);
             list.push(new ushort[7]);
@@ -16,8 +17,10 @@ namespace SharpKitWebApp5
             list.push(new float[7]);
             list.push(new double[7]);
 
+            var blubb = new object[] { 7, 8, 9 };
 
-            list.push(new byte[] { 7, 8, 9 });
+            list.push(new object[] { 7, 8, 9 });
+            list.push(new byte[] { 77, 8, 9 });
             list.push(new short[] { 7, 8, 9 });
             list.push(new ushort[] { 7, 8, 9 });
             list.push(new int[] { 7, 8, 9 });
