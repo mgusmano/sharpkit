@@ -642,7 +642,7 @@ var System$Collections$Generic$List$1 =
         },
         Sort: function ()
         {
-            this._list.sort();
+            System.Array.Sort$1$$T$Array(this.T, this._list);
         },
         Sort$$Comparison$1: function (comparison)
         {

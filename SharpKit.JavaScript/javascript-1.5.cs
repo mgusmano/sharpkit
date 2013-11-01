@@ -48,6 +48,7 @@ using System.ComponentModel;
 [assembly: JsType(JsMode.Prototype, TargetType = typeof(Array), NativeArrayEnumerator = true, NativeEnumerator = false, Export = false)]
 //[assembly: JsMethod(TargetType = typeof(Array), TargetMethod = "get_Length", Name = "length", OmitParanthesis = true)]
 [assembly: JsProperty(TargetType = typeof(Array), TargetProperty = "Length", Name = "length", NativeField = true)]
+[assembly: JsMethod(TargetType = typeof(Array), TargetMethod = "Sort", NativeOverloads = false, IgnoreGenericArguments = false)]
 
 
 namespace SharpKit.JavaScript
@@ -100,7 +101,7 @@ namespace SharpKit.JavaScript
     ///<summary>
     ///The Array object provides support for creation of arrays of any data type.
     ///</summary>
-    [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator = true, NativeCasts = true, NativeOperatorOverloads=true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Array", NativeEnumerator = false, NativeArrayEnumerator = true, NativeCasts = true, NativeOperatorOverloads = true)]
     public partial class JsArray : IJsArrayEnumerable<object>
     {
         [JsMethod(JsonInitializers = true, OmitNewOperator = true, OmitParanthesis = true, Name = "", SharpKitVersion = "5+")]
@@ -494,7 +495,7 @@ namespace SharpKit.JavaScript
     }
     #endregion
     #region JsBoolean
-    [JsType(JsMode.Prototype, Name = "Boolean", Export = false, NativeCasts = true, NativeOperatorOverloads=true)]
+    [JsType(JsMode.Prototype, Name = "Boolean", Export = false, NativeCasts = true, NativeOperatorOverloads = true)]
     public partial class JsBoolean : JsObjectBase
     {
         public JsBoolean(object boolValue) { }
@@ -1033,7 +1034,7 @@ namespace SharpKit.JavaScript
     #endregion
 
     #region JsDate
-    [JsType(JsMode.Prototype, Export = false, Name = "Date", NativeCasts=true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Date", NativeCasts = true)]
     public partial class JsDate : JsObjectBase
     {
         public static JsNumber operator -(JsDate date1, JsDate date2) { return default(JsNumber); }
@@ -2049,7 +2050,7 @@ namespace SharpKit.JavaScript
         public object this[JsString name] { get { return default(object); } set { } }
         IEnumerator<JsString> IEnumerable<JsString>.GetEnumerator() { return default(IEnumerator<JsString>); }
         IEnumerator IEnumerable.GetEnumerator() { return default(IEnumerator); }
-        [JsMethod(Name="", OmitParanthesis=true, InsertArg0="[", InsertArg1="] = ", OmitCommas=true)]
+        [JsMethod(Name = "", OmitParanthesis = true, InsertArg0 = "[", InsertArg1 = "] = ", OmitCommas = true)]
         public void Add(JsString name, object value) { }
 
     }

@@ -14,6 +14,34 @@ if (typeof($CreateException)=='undefined')
         return error;
     }
 }
+if (typeof($CreateDelegate)=='undefined'){
+    if(typeof($iKey)=='undefined') var $iKey = 0;
+    if(typeof($pKey)=='undefined') var $pKey = String.fromCharCode(1);
+    var $CreateDelegate = function(target, func){
+        if (target == null || func == null) 
+            return func;
+        if(func.target==target && func.func==func)
+            return func;
+        if (target.$delegateCache == null)
+            target.$delegateCache = {};
+        if (func.$key == null)
+            func.$key = $pKey + String(++$iKey);
+        var delegate;
+        if(target.$delegateCache!=null)
+            delegate = target.$delegateCache[func.$key];
+        if (delegate == null){
+            delegate = function(){
+                return func.apply(target, arguments);
+            };
+            delegate.func = func;
+            delegate.target = target;
+            delegate.isDelegate = true;
+            if(target.$delegateCache!=null)
+                target.$delegateCache[func.$key] = delegate;
+        }
+        return delegate;
+    }
+}
 if (typeof(JsTypes) == "undefined")
     var JsTypes = [];
 var System$Activator =
@@ -62,6 +90,90 @@ var System$Activator =
     }
 };
 JsTypes.push(System$Activator);
+var System$Array =
+{
+    fullname: "System.Array",
+    baseTypeName: "System.Object",
+    staticDefinition:
+    {
+        Sort$$Array: function (array)
+        {
+            System.Array.Sort$1$$T$Array(System.Object.ctor, array);
+        },
+        Sort$1$$T$Array: function (T, array)
+        {
+            System.Array.Sort$1$$T$Array$$Comparison$1(T, array, null);
+        },
+        Sort$1$$T$Array$$Comparison$1: function (T, array, cmpFunc)
+        {
+            var needConvert = !(array instanceof Array);
+            var sortArray;
+            if (needConvert)
+            {
+                sortArray = new Array(array.length);
+                for (var i = 0; i < array.length; i++)
+                    sortArray[i] = array[i];
+            }
+            else
+                sortArray = array;
+            if (cmpFunc == null)
+            {
+                cmpFunc = $CreateDelegate(System.Collections.Generic.Comparer$1.get_Default(), System.Collections.Generic.Comparer$1.get_Default().Compare);
+            }
+            if (cmpFunc == null)
+            {
+                sortArray.sort();
+            }
+            else
+                sortArray.sort(cmpFunc);
+            if (!needConvert)
+                return;
+            for (var i = 0; i < array.length; i++)
+                array[i] = sortArray[i];
+        },
+        Sort$1$$T$Array$$IComparer$1: function (T, array, cmp)
+        {
+            System.Array.Sort$1$$T$Array$$Comparison$1(T, array, $CreateDelegate(new SharpKit.JavaScript.Private.JsComparerHelper$1.ctor(T, cmp), new SharpKit.JavaScript.Private.JsComparerHelper$1.ctor(T, cmp).Compare));
+        },
+        Sort$$Array$$IComparer: function (array, cmp)
+        {
+            System.Array.Sort$1$$T$Array$$IComparer$1(System.Object.ctor, array, cmp);
+        }
+    },
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            System.Object.ctor.call(this);
+        }
+    }
+};
+JsTypes.push(System$Array);
+var SharpKit$JavaScript$Private$JsComparerHelper$1 =
+{
+    fullname: "SharpKit.JavaScript.Private.JsComparerHelper$1",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.Generic.IComparer$1"],
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T, cmp)
+        {
+            this.T = T;
+            this.cmp = null;
+            System.Object.ctor.call(this);
+            this.cmp = cmp;
+        },
+        Compare: function (x, y)
+        {
+            return this.cmp.Compare(x, y);
+        }
+    }
+};
+JsTypes.push(SharpKit$JavaScript$Private$JsComparerHelper$1);
 var System$Attribute =
 {
     fullname: "System.Attribute",
@@ -77,6 +189,106 @@ var System$Attribute =
     }
 };
 JsTypes.push(System$Attribute);
+var System$Collections$Comparer =
+{
+    fullname: "System.Collections.Comparer",
+    baseTypeName: "System.Object",
+    staticDefinition:
+    {
+        cctor: function ()
+        {
+            System.Collections.Comparer._default = null;
+        },
+        Default$$: "SharpKit.JavaScript.Private.JsImplComparer",
+        get_Default: function ()
+        {
+            if (System.Collections.Comparer._default == null)
+                System.Collections.Comparer._default = new SharpKit.JavaScript.Private.JsImplComparer.JsImplGemericComparer.ctor();
+            return System.Collections.Comparer._default;
+        }
+    },
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.IComparer"],
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            System.Object.ctor.call(this);
+        }
+    }
+};
+JsTypes.push(System$Collections$Comparer);
+var SharpKit$JavaScript$Private$JsImplComparer$JsImplGemericComparer =
+{
+    fullname: "SharpKit.JavaScript.Private.JsImplComparer.JsImplGemericComparer",
+    baseTypeName: "System.Collections.Comparer",
+    staticDefinition:
+    {
+        cctor: function ()
+        {
+        }
+    },
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            System.Collections.Comparer.ctor.call(this);
+        },
+        Compare: function (x, y)
+        {
+            return x.CompareTo(y);
+        }
+    }
+};
+JsTypes.push(SharpKit$JavaScript$Private$JsImplComparer$JsImplGemericComparer);
+var System$Collections$Generic$Comparer$1 =
+{
+    fullname: "System.Collections.Generic.Comparer$1",
+    baseTypeName: "System.Object",
+    staticDefinition:
+    {
+        Default$$: "SharpKit.JavaScript.Private.JsImplComparer`1[[`0]]",
+        get_Default: function ()
+        {
+            return new SharpKit.JavaScript.Private.JsImplComparer.JsImplGemericComparer$1.ctor(this.T);
+        }
+    },
+    assemblyName: "SharpKit.JsClr",
+    interfaceNames: ["System.Collections.Generic.IComparer$1"],
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T)
+        {
+            this.T = T;
+            System.Object.ctor.call(this);
+        }
+    }
+};
+JsTypes.push(System$Collections$Generic$Comparer$1);
+var SharpKit$JavaScript$Private$JsImplComparer$JsImplGemericComparer$1 =
+{
+    fullname: "SharpKit.JavaScript.Private.JsImplComparer.JsImplGemericComparer$1",
+    baseTypeName: "System.Collections.Generic.Comparer$1",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (T)
+        {
+            this.T = T;
+            System.Collections.Generic.Comparer$1.ctor.call(this, this.T);
+        },
+        Compare: function (x, y)
+        {
+            return x.CompareTo(y);
+        }
+    }
+};
+JsTypes.push(SharpKit$JavaScript$Private$JsImplComparer$JsImplGemericComparer$1);
 var System$Collections$Generic$KeyNotFoundException =
 {
     fullname: "System.Collections.Generic.KeyNotFoundException",
@@ -1542,6 +1754,24 @@ Date.prototype.get_Kind = function ()
         return 2;
     return this._Kind;
 };
+Number.prototype.CompareTo$$Double = function (value)
+{
+    if (this < value)
+        return -1;
+    if (this > value)
+        return 1;
+    if (this == value)
+        return 0;
+    if (!System.Double.IsNaN(this))
+        return 1;
+    return !System.Double.IsNaN(value) ? -1 : 0;
+};
+Number.prototype.CompareTo$$Int32 = function (value)
+{
+    if (this < value)
+        return -1;
+    return this > value ? 1 : 0;
+};
 var System$Nullable$1 =
 {
     fullname: "System.Nullable$1",
@@ -2543,12 +2773,14 @@ var System$Uri =
         ctor: function ()
         {
             this._OriginalString = null;
+            this._Fragment = null;
             System.Object.ctor.call(this);
             this._OriginalString = null;
         },
         ctor$$String: function (uri)
         {
             this._OriginalString = null;
+            this._Fragment = null;
             System.Object.ctor.call(this);
             this._OriginalString = uri;
         },
@@ -2573,6 +2805,19 @@ var System$Uri =
         GetHashCode: function ()
         {
             return System.Object.commonPrototype.GetHashCode.call(this);
+        },
+        Fragment$$: "System.String",
+        get_Fragment: function ()
+        {
+            if (this._Fragment == null)
+            {
+                var idx = this._OriginalString.indexOf("#");
+                if (idx == -1)
+                    this._Fragment = "";
+                else
+                    this._Fragment = this._OriginalString.substr(idx);
+            }
+            return this._Fragment;
         }
     }
 };

@@ -151,7 +151,8 @@ namespace SharpKit.JavaScript.Private
 
         public void Sort()
         {
-            _list.sort();
+            //_list.sort();
+            Array.Sort(_list.As<T[]>());
         }
         
         public void Sort(Comparison<T> comparison)

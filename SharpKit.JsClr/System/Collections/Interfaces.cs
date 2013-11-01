@@ -38,4 +38,10 @@ namespace SharpKit.JavaScript.Private
 	internal interface JsImplIList : JsImplICollection
 	{
 	}
+
+    [JsType(Name = "System.IComparer", Filename = "~/res/System.js")]
+    public interface JsImplIComparer
+    {
+        int Compare(object x, object y);
+    }
 }
