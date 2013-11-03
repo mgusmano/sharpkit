@@ -22,7 +22,7 @@ JsTypes.push(CoreTests$Default$Default);
 var CoreTests$Default$MyEnum =
 {
     fullname: "CoreTests.Default.MyEnum",
-    staticDefinition: {A: "A", B: "B", C: "C"},
+    staticDefinition: {A: 0, B: 1, C: 2},
     Kind: "Enum"
 };
 JsTypes.push(CoreTests$Default$MyEnum);

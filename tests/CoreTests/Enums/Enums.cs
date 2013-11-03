@@ -11,28 +11,28 @@ namespace CoreTests.Enums
     {
         void foo()
         {
-            var a = Enum1.a;
-            var b = Enum2.b;
-            var c = Enum3.c;
-            var d = Enum4.a;
-            var e = Enum5.b;
-            var f = Enum6.b;
+            var proto = Enum1Proto.a;
+            var protoName = Enum2ProtoName.b;
+            var jsonName = Enum3JsonName.c;
+            var json = Enum4Json.a;
+            var clrName = Enum5ClrName.b;
+            var clr = Enum6Clr.b;
 
 
         }
         void WithDefault()
         {
-            var a = default(Enum1);
-            var b = default(Enum2);
-            var c = default(Enum3);
-            var d = default(Enum4);
-            var e = default(Enum5);
-            var f = default(Enum6);
+            var a = default(Enum1Proto);
+            var b = default(Enum2ProtoName);
+            var c = default(Enum3JsonName);
+            var d = default(Enum4Json);
+            var e = default(Enum5ClrName);
+            var f = default(Enum6Clr);
 
         }
         void Reflect()
         {
-            var type = JsContext.CtorOf<Enum1>().As<JsObject>();
+            var type = JsContext.CtorOf<Enum1Proto>().As<JsObject>();
             foreach (var name in type)
             {
                 var value = type[name];
@@ -42,18 +42,18 @@ namespace CoreTests.Enums
 
         private void alert(string p)
         {
-            var x = Enum1.b;
-            var y = Enum2.c;
+            var x = Enum1Proto.b;
+            var y = Enum2ProtoName.c;
         }
-        public Enum1 Enum1 { get; set; }
-        public Enum2 Enum2 { get; set; }
-        public Enum3 Enum3 { get; set; }
-        public Enum4 Enum4 { get; set; }
-        public Enum5 Enum5 { get; set; }
+        public Enum1Proto Enum1 { get; set; }
+        public Enum2ProtoName Enum2 { get; set; }
+        public Enum3JsonName Enum3 { get; set; }
+        public Enum4Json Enum4 { get; set; }
+        public Enum5ClrName Enum5 { get; set; }
     }
 
     [JsType(JsMode.Prototype)]
-    enum Enum1
+    enum Enum1Proto
     {
         a = 1,
         b = 2,
@@ -62,7 +62,7 @@ namespace CoreTests.Enums
 
     [JsType(JsMode.Prototype)]
     [JsEnum(ValuesAsNames = true)]
-    enum Enum2
+    enum Enum2ProtoName
     {
         a,
         b,
@@ -71,7 +71,7 @@ namespace CoreTests.Enums
 
     [JsType(JsMode.Json)]
     [JsEnum(ValuesAsNames = true)]
-    enum Enum3
+    enum Enum3JsonName
     {
         a = 1,
         b = 2,
@@ -79,7 +79,7 @@ namespace CoreTests.Enums
     }
 
     [JsType(JsMode.Json)]
-    enum Enum4
+    enum Enum4Json
     {
         a = 1,
         b = 2,
@@ -88,7 +88,7 @@ namespace CoreTests.Enums
 
     [JsType(JsMode.Clr)]
     [JsEnum(ValuesAsNames = true)]
-    enum Enum5
+    enum Enum5ClrName
     {
         a = 1,
         b = 2,
@@ -96,7 +96,7 @@ namespace CoreTests.Enums
     }
 
     [JsType(JsMode.Clr)]
-    enum Enum6
+    enum Enum6Clr
     {
         a = 1,
         b = 2,

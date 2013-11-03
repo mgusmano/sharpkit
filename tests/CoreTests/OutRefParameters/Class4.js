@@ -8,9 +8,9 @@ SharpKitWebApp5.Foo2.prototype.test = function ()
     var b;
     (function ()
     {
-        b = {Value: b};
-        var $res = this.foo1(1, b);
-        b = b.Value;
+        var $1 = {Value: b};
+        var $res = this.foo1(1, $1);
+        b = $1.Value;
         return $res;
     }).call(this);
 };
