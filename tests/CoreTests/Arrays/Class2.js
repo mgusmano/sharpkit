@@ -20,6 +20,7 @@ SharpKitWebApp5.Class2 = function ()
 SharpKitWebApp5.Class2.prototype.foo = function ()
 {
     var list =  [];
+    list.push();
     list.push(new Uint8Array(7));
     list.push(new Int16Array(7));
     list.push(new Uint16Array(7));
@@ -27,7 +28,9 @@ SharpKitWebApp5.Class2.prototype.foo = function ()
     list.push(new Uint32Array(7));
     list.push(new Float32Array(7));
     list.push(new Float64Array(7));
-    list.push(new Uint8Array([7, 8, 9]));
+    var blubb = [7, 8, 9];
+    list.push(7, 8, 9);
+    list.push(new Uint8Array([77, 8, 9]));
     list.push(new Int16Array([7, 8, 9]));
     list.push(new Uint16Array([7, 8, 9]));
     list.push(new Int32Array([7, 8, 9]));

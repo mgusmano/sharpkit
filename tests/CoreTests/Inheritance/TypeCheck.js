@@ -14,7 +14,7 @@ var CoreTests$Inheritance$TypeCheck =
         },
         test: function (obj)
         {
-            if (true)
+            if (obj instanceof HTMLElement)
             {
             }
         }
