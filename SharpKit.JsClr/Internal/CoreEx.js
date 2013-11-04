@@ -722,3 +722,83 @@ JsTypes.push({ fullname: "SharpKit.DataModel.NotifyCollectionChangedEventArgs", 
 	}
 }
 });
+
+JsTypes.push({
+	fullname: "Int32Array",
+	definition:
+    {
+    	GetEnumerator: function () {
+    		return new ArrayEnumerator.ctor(this);
+    	}
+    }
+   });
+
+JsTypes.push({
+	fullname: "Uint8Array",
+definition:
+{
+  GetEnumerator: function () {
+    return new ArrayEnumerator.ctor(this);
+  }
+}
+});
+
+JsTypes.push({
+	fullname: "Int16Array",
+definition:
+{
+  GetEnumerator: function () {
+    return new ArrayEnumerator.ctor(this);
+  }
+}
+});
+
+JsTypes.push({
+	fullname: "Uint16Array",
+definition:
+{
+  GetEnumerator: function () {
+    return new ArrayEnumerator.ctor(this);
+  }
+}
+});
+
+JsTypes.push({
+	fullname: "Int32Array",
+definition:
+{
+  GetEnumerator: function () {
+    return new ArrayEnumerator.ctor(this);
+  }
+}
+});
+
+JsTypes.push({
+	fullname: "Uint32Array",
+definition:
+{
+  GetEnumerator: function () {
+    return new ArrayEnumerator.ctor(this);
+  }
+}
+});
+
+JsTypes.push({
+	fullname: "Float32Array",
+definition:
+{
+  GetEnumerator: function () {
+    return new ArrayEnumerator.ctor(this);
+  }
+}
+});
+
+JsTypes.push({
+	fullname: "Float64Array",
+definition:
+{
+  GetEnumerator: function () {
+    return new ArrayEnumerator.ctor(this);
+  }
+}
+});
