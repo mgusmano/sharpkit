@@ -629,6 +629,7 @@
     <Compile Include="generated\xml\XSLTProcessor.cs" />
     <Compile Include="HtmlContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="custom\modules\websocket\CloseEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SharpKit.snk" />
@@ -650,6 +651,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="custom\html\" />
+    <Folder Include="custom\modules\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
