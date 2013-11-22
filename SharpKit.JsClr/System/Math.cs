@@ -140,12 +140,12 @@ namespace SharpKit.JavaScript.Private
 		}
 		public static double Log(double a, double newBase)
 		{
-			throw new NotImplementedException();
+            return JsMath.log(a) / JsMath.log(newBase);
 		}
 
 		public static double Log10(double d)
 		{
-			throw new NotImplementedException();
+            return JsMath.log(d) / JsMath.LN10;
 		}
 
         //public static byte Max(byte val1, byte val2)
