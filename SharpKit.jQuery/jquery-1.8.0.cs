@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using SharpKit.JavaScript;
 using SharpKit.Html;
 namespace SharpKit.jQuery
@@ -2607,6 +2605,12 @@ namespace SharpKit.jQuery
         /// A collection of properties that represent the presence of different browser features or bugs.
         /// </summary>
         public static JsObject support { get; set; }
+
+        /// <summary>
+        /// Gets the internal fn object.
+        /// </summary>
+        public static dynamic fn { get; private set; }
+
         public static jQueryFx fx { get; set; }
         /// <summary>
         /// There are two specific use cases for which jQuery.sub() was created. The first was for providing a painless way of overriding jQuery methods without completely destroying the original methods and another was for helping to do encapsulation and basic namespacing for jQuery plugins.
