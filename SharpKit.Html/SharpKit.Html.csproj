@@ -27,6 +27,7 @@
     <Compile Include="custom\dom\TouchEvent.cs" />
     <Compile Include="custom\dom\MouseEvent.cs" />
     <Compile Include="custom\fileapi\Blob.cs" />
+    <Compile Include="custom\html\HTMLScriptElement.cs" />
     <Compile Include="custom\modules\filesystem\ILocalFileSystem.cs" />
     <Compile Include="custom\page\Window.cs" />
     <Compile Include="custom\storage\Storage.cs" />
@@ -649,10 +650,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="custom\html\" />
-    <Folder Include="custom\modules\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
