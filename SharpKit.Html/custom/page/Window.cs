@@ -29,5 +29,15 @@ namespace SharpKit.Html
         [JsMethod(Name = "WebkitResolveLocalFileSystemURL")]
         [Obsolete("Methods with the 'webkit' prefix may be deprecated without warning.")]
         public void WebkitResolveLocalFileSystemUrl(string url, EntryCallback successCallback, ErrorCallback errorCallback = null) { }
+
+        public int setTimeout(JsAction handler, int timeout) { return default(int); }
+        public int setInterval(JsAction handler, int timeout) { return default(int); }
+        public Window open() { return null; }
+
+        [JsProperty(NativeIndexer = true)]
+        public virtual JsObject this[string index] {
+            get { return null; }
+            set { }
+        }
     }
 }

@@ -336,14 +336,6 @@ public Int32Array(int length) { }
         public object getParameter(int pname) { return null; }
     }
 
-    partial class Window
-    {
-        public int setTimeout(JsAction handler, int timeout) { return default(int); }
-        public int setInterval(JsAction handler, int timeout) { return default(int); }
-        public Window open() { return null; }
-    }
-
-
     partial class HtmlSelectElement
     {
         public void remove(long index) { }
