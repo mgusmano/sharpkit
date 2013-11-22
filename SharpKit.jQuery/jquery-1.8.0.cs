@@ -2611,6 +2611,12 @@ namespace SharpKit.jQuery
         /// </summary>
         public static dynamic fn { get; private set; }
 
+        /// <summary>
+        /// Provides a means to access the jQuery.ui object.
+        /// </summary>
+        /// <value>The ui object.</value>
+        public static dynamic ui { get; private set; }
+
         public static jQueryFx fx { get; set; }
         /// <summary>
         /// There are two specific use cases for which jQuery.sub() was created. The first was for providing a painless way of overriding jQuery methods without completely destroying the original methods and another was for helping to do encapsulation and basic namespacing for jQuery plugins.
