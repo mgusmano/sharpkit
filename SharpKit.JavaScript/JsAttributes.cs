@@ -397,6 +397,12 @@ namespace SharpKit.JavaScript
         public bool OmitSharpKitHeaderComment { get { return _OmitSharpKitHeaderComment.GetValueOrDefault(); } set { _OmitSharpKitHeaderComment = value; } } public bool? _OmitSharpKitHeaderComment;
 
         /// <summary>
+        /// Add the generation time to the sharpkit header comment.
+        /// CAUTION: This will change your file's content on every compilation. This could occur unnecessary conflics with version control software!
+        /// </summary>
+        public bool AddTimeStampInSharpKitHeaderComment { get { return _AddTimeStampInSharpKitHeaderComment.GetValueOrDefault(); } set { _AddTimeStampInSharpKitHeaderComment = value; } } public bool? _AddTimeStampInSharpKitHeaderComment;
+
+        /// <summary>
         /// Overrides all OmitCasts definitions in the assembly, and skips any code generation for casting
         /// </summary>
         public bool ForceOmitCasts { get { return _ForceOmitCasts.GetValueOrDefault(); } set { _ForceOmitCasts = value; } } public bool? _ForceOmitCasts;
