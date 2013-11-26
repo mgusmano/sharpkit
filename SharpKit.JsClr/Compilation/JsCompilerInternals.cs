@@ -27,7 +27,7 @@ namespace SharpKit.JavaScript.Compilation
         public JsType _type;
         public string _name;
         //TODO:?[Obsolete("?")]
-        public string name=null;
+        public string name = null;
     }
 
     internal class JsCompilerObject2 : JsObject
@@ -37,7 +37,7 @@ namespace SharpKit.JavaScript.Compilation
             throw new NotImplementedException();
         }
     }
-    [JsType(JsMode.Prototype, Name="function", Export=false)]
+    [JsType(JsMode.Prototype, Name = "function", Export = false)]
     class JsDelegateFunction : JsFunction
     {
         public JsFunction func { get; set; }
