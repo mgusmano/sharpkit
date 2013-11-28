@@ -83,6 +83,7 @@ namespace SharpKit.JavaScript.Compilation
                 if (ce.cctor != null)
                     ce.cctor.As<JsAction>()();
             }
+            LinkInterfaceMethods();
             JsTypes = new JsArray<JsType>();
         }
 
@@ -100,6 +101,32 @@ namespace SharpKit.JavaScript.Compilation
             }
         }
 
+        private static void LinkInterfaceMethods()
+        {
+            for (var it = 0; it < JsTypes.length; it++)
+            {
+                var jsType = JsTypes[it];
+                for (var ii = 0; ii < jsType.interfaces.length; ii++)
+                {
+                    var intType = jsType.interfaces[ii];
+
+                    foreach (var shortName in intType.definition.As<JsObject>())
+                    {
+                        var longName = intType.name + "$$" + shortName;
+                        var longMem = jsType.commonPrototype[longName];
+                        if (longMem == JsContext.undefined)
+                        {
+                            var shortMem = jsType.commonPrototype[shortName];
+                            if (shortMem != JsContext.undefined)
+                            {
+                                jsType.commonPrototype[longName] = jsType.commonPrototype[shortName];
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
 
         private static void Compile_Phase3()
         {
