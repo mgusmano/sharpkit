@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using SharpKit.JavaScript;
 
-namespace CoreTests.For
+namespace CoreTests.FieldsTest
 {
-    [JsType(JsMode.Prototype)]
+    [JsType(JsMode.Clr)]
     class FieldsTest
     {
         public string a2;
