@@ -39,6 +39,7 @@
     <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="Exceptions\Class1.cs" />
     <Compile Include="ExtensionMethods\ExtensionMethods.cs" />
+    <Compile Include="Fields\Fields.cs" />
     <Compile Include="For\Class1.cs" />
     <Compile Include="GenericMethods\GenericMethods.cs" />
     <Compile Include="Inheritance\ClrFromGlobal.cs" />
@@ -95,6 +96,7 @@
     <Content Include="Events\CustomEvents.js" />
     <Content Include="Exceptions\Class1.js" />
     <Content Include="ExtensionMethods\ExtensionMethods.js" />
+    <Content Include="Fields\Fields.js" />
     <Content Include="ForEach\Class5.js" />
     <Content Include="For\Class1.js" />
     <Content Include="GenericMethods\GenericMethods.js" />
