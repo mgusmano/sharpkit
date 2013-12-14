@@ -3570,10 +3570,6 @@ var System$Tuple =
         Create$7$$T1$$T2$$T3$$T4$$T5$$T6$$T7: function (T1, T2, T3, T4, T5, T6, T7, item1, item2, item3, item4, item5, item6, item7)
         {
             return new System.Tuple$7.ctor(T1, T2, T3, T4, T5, T6, T7, item1, item2, item3, item4, item5, item6, item7);
-        },
-        Create$8$$T1$$T2$$T3$$T4$$T5$$T6$$T7$$T8: function (T1, T2, T3, T4, T5, T6, T7, T8, item1, item2, item3, item4, item5, item6, item7, item8)
-        {
-            return new System.Tuple$8.ctor(T1, T2, T3, T4, T5, T6, T7, System.Tuple$1.ctor, item1, item2, item3, item4, item5, item6, item7, new System.Tuple$1.ctor(T8, item8));
         }
     },
     assemblyName: "SharpKit.JsClr",
