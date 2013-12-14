@@ -40,6 +40,18 @@ if (typeof($CreateDelegate)=='undefined'){
         return delegate;
     }
 }
+if (typeof($CreateAnonymousObject)=='undefined') 
+{
+    var $CreateAnonymousObject = function(json)
+    {
+        var obj = new System.Object.ctor();
+        obj.d = json;
+        for(var p in json){
+            obj['get_'+p] = new Function('return this.d.'+p+';');
+        }
+        return obj;
+    }
+}
 if (typeof(CoreTests) == "undefined")
     var CoreTests = {};
 if (typeof(CoreTests.Dynamics) == "undefined")
@@ -152,7 +164,7 @@ var CoreTests$Dynamics$Bug1 =
         send: function ()
         {
             this.send$$String("");
-            this.send$$Object( {a: "b"});
+            this.send$$Object($CreateAnonymousObject( {a: "b"}));
             var c = null;
             this.send$$Object(c);
         },
