@@ -2605,7 +2605,7 @@ namespace SharpKit.jQuery
         /// A collection of properties that represent the presence of different browser features or bugs.
         /// </summary>
         public static JsObject support { get; set; }
-
+#if NET4
         /// <summary>
         /// Gets the internal fn object.
         /// </summary>
@@ -2616,7 +2616,7 @@ namespace SharpKit.jQuery
         /// </summary>
         /// <value>The ui object.</value>
         public static dynamic ui { get; private set; }
-
+#endif
         public static jQueryFx fx { get; set; }
         /// <summary>
         /// There are two specific use cases for which jQuery.sub() was created. The first was for providing a painless way of overriding jQuery methods without completely destroying the original methods and another was for helping to do encapsulation and basic namespacing for jQuery plugins.

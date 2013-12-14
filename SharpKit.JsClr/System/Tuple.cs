@@ -106,28 +106,30 @@ namespace SharpKit.JavaScript.Private
         {
             return new Tuple<T1, T2, T3, T4, T5, T6, T7>(item1, item2, item3, item4, item5, item6, item7);
         }
-        ///// <summary>Creates a new 8-tuple, or octuple.</summary>
-        ///// <returns>An 8-tuple (octuple) whose value is (<paramref name="item1" />, <paramref name="item2" />, <paramref name="item3" />, <paramref name="item4" />, <paramref name="item5" />, <paramref name="item6" />, <paramref name="item7" />, <paramref name="item8" />). </returns>
-        ///// <param name="item1">The value of the first component of the tuple.</param>
-        ///// <param name="item2">The value of the second component of the tuple.</param>
-        ///// <param name="item3">The value of the third component of the tuple.</param>
-        ///// <param name="item4">The value of the fourth component of the tuple.</param>
-        ///// <param name="item5">The value of the fifth component of the tuple.</param>
-        ///// <param name="item6">The value of the sixth component of the tuple.</param>
-        ///// <param name="item7">The value of the seventh component of the tuple.</param>
-        ///// <param name="item8">The value of the eighth component of the tuple.</param>
-        ///// <typeparam name="T1">The type of the first component of the tuple.</typeparam>
-        ///// <typeparam name="T2">The type of the second component of the tuple.</typeparam>
-        ///// <typeparam name="T3">The type of the third component of the tuple.</typeparam>
-        ///// <typeparam name="T4">The type of the fourth component of the tuple.</typeparam>
-        ///// <typeparam name="T5">The type of the fifth component of the tuple.</typeparam>
-        ///// <typeparam name="T6">The type of the sixth component of the tuple.</typeparam>
-        ///// <typeparam name="T7">The type of the seventh component of the tuple.</typeparam>
-        ///// <typeparam name="T8">The type of the eighth component of the tuple.</typeparam>
-        //public static Tuple<T1, T2, T3, T4, T5, T6, T7, Tuple<T8>> Create<T1, T2, T3, T4, T5, T6, T7, T8>(T1 item1, T2 item2, T3 item3, T4 item4, T5 item5, T6 item6, T7 item7, T8 item8)
-        //{
-        //    return new Tuple<T1, T2, T3, T4, T5, T6, T7, Tuple<T8>>(item1, item2, item3, item4, item5, item6, item7, new Tuple<T8>(item8));
-        //}
+#if NET4
+        /// <summary>Creates a new 8-tuple, or octuple.</summary>
+        /// <returns>An 8-tuple (octuple) whose value is (<paramref name="item1" />, <paramref name="item2" />, <paramref name="item3" />, <paramref name="item4" />, <paramref name="item5" />, <paramref name="item6" />, <paramref name="item7" />, <paramref name="item8" />). </returns>
+        /// <param name="item1">The value of the first component of the tuple.</param>
+        /// <param name="item2">The value of the second component of the tuple.</param>
+        /// <param name="item3">The value of the third component of the tuple.</param>
+        /// <param name="item4">The value of the fourth component of the tuple.</param>
+        /// <param name="item5">The value of the fifth component of the tuple.</param>
+        /// <param name="item6">The value of the sixth component of the tuple.</param>
+        /// <param name="item7">The value of the seventh component of the tuple.</param>
+        /// <param name="item8">The value of the eighth component of the tuple.</param>
+        /// <typeparam name="T1">The type of the first component of the tuple.</typeparam>
+        /// <typeparam name="T2">The type of the second component of the tuple.</typeparam>
+        /// <typeparam name="T3">The type of the third component of the tuple.</typeparam>
+        /// <typeparam name="T4">The type of the fourth component of the tuple.</typeparam>
+        /// <typeparam name="T5">The type of the fifth component of the tuple.</typeparam>
+        /// <typeparam name="T6">The type of the sixth component of the tuple.</typeparam>
+        /// <typeparam name="T7">The type of the seventh component of the tuple.</typeparam>
+        /// <typeparam name="T8">The type of the eighth component of the tuple.</typeparam>
+        public static Tuple<T1, T2, T3, T4, T5, T6, T7, Tuple<T8>> Create<T1, T2, T3, T4, T5, T6, T7, T8>(T1 item1, T2 item2, T3 item3, T4 item4, T5 item5, T6 item6, T7 item7, T8 item8)
+        {
+            return new Tuple<T1, T2, T3, T4, T5, T6, T7, Tuple<T8>>(item1, item2, item3, item4, item5, item6, item7, new Tuple<T8>(item8));
+        }
+#endif
     }
 
     [JsType(Name = "System.Tuple$1", Filename = "~/Internal/Core.js")]

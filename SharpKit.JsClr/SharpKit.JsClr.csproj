@@ -23,6 +23,12 @@
     <AssemblyOriginatorKeyFile>SharpKit.snk</AssemblyOriginatorKeyFile>
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'v3.5'">
+    <DefineConstants>NET3_5</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'v4.0'">
+    <DefineConstants>NET4</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
