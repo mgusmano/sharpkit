@@ -33,6 +33,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AnonymousObjects\AnonymousObjects.cs" />
+    <Compile Include="AnonymousObjects\ClrAnonymousObjects.cs" />
+    <Compile Include="AnonymousObjects\WithLinq.cs" />
     <Compile Include="CustomAttributes\Class1.cs" />
     <Compile Include="Arrays\Class2.cs" />
     <Compile Include="Default\Default.cs" />
@@ -42,9 +44,11 @@
     <Compile Include="Fields\Fields.cs" />
     <Compile Include="For\Class1.cs" />
     <Compile Include="GenericMethods\GenericMethods.cs" />
+    <Compile Include="Indexers\Indexers.cs" />
     <Compile Include="Inheritance\ClrFromGlobal.cs" />
     <Compile Include="Inheritance\PrototypeFromGlobal.cs" />
     <Compile Include="Inheritance\TypeCheck.cs" />
+    <Compile Include="LinqQueries\LinqQueries.cs" />
     <Compile Include="MethodOverloads\MethodsOverloads.cs" />
     <Compile Include="GenericsInheritance\Class1.cs" />
     <Compile Include="Interfaces\Class3.cs" />
@@ -85,6 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AnonymousObjects\AnonymousObjects.js" />
+    <Content Include="AnonymousObjects\ClrAnonymousObjects.js" />
+    <Content Include="AnonymousObjects\WithLinq.js" />
     <Content Include="Arrays\Class2.js" />
     <Content Include="Constants\Constants.js" />
     <Content Include="Constructors\Constructors.js" />
@@ -102,6 +108,7 @@
     <Content Include="GenericMethods\GenericMethods.js" />
     <Content Include="GenericsInheritance\Class1.js" />
     <Content Include="GenericsInheritance\GenericsInheritance.js" />
+    <Content Include="Indexers\Indexers.js" />
     <Content Include="Inheritance\ClrFromGlobal.js" />
     <Content Include="Inheritance\PrototypeFromGlobal.js" />
     <Content Include="Inheritance\TypeCheck.js" />
