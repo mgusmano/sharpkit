@@ -2135,10 +2135,10 @@ namespace SharpKit.JavaScript.Private
           {
             throw Error.ArgumentNull("selector");
           }
-          if (source is Enumerable.Iterator<TSource>)
+          /*if (source is Enumerable.Iterator<TSource>)
           {
               return ((Enumerable.Iterator<TSource>)source).SelectMany(selector);
-          }
+          }*/
           if (source is TSource[])
           {
               return new Enumerable.SelectManyArrayIterator<TSource, TResult>((TSource[])source, selector);
