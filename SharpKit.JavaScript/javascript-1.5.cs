@@ -2041,7 +2041,7 @@ namespace SharpKit.JavaScript
         public static new bool ReferenceEquals(object objA, object objB) { return object.ReferenceEquals(objA, objB); }
         #endregion
     }
-    [JsType(JsMode.Prototype, Export = false, Name = "Object", NativeEnumerator = true, NativeCasts = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Object", NativeEnumerator = true, NativeCasts = true, NativeOperatorOverloads = true)]
     public partial class JsObject : JsObjectBase, IEnumerable<JsString>
     {
         public JsObject() { }
@@ -2056,7 +2056,7 @@ namespace SharpKit.JavaScript
     }
     #endregion
     #region JsObject<T>
-    [JsType(JsMode.Prototype, Export = false, Name = "Object", NativeEnumerator = true, NativeCasts = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Object", NativeEnumerator = true, NativeCasts = true, NativeOperatorOverloads = true)]
     public partial class JsObject<T> : JsObjectBase, IEnumerable<JsString>
     {
         public static implicit operator JsObject(JsObject<T> obj) { return null; }
@@ -2072,7 +2072,7 @@ namespace SharpKit.JavaScript
     #endregion
     #region JsObject<K, T>
 
-    [JsType(JsMode.Prototype, Export = false, Name = "Object", IgnoreGenericTypeArguments = true, NativeEnumerator = true, NativeCasts = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Object", IgnoreGenericTypeArguments = true, NativeEnumerator = true, NativeCasts = true, NativeOperatorOverloads = true)]
     public class JsObject<K, T> : JsObjectBase, IEnumerable<K>
     {
         public static implicit operator JsObject(JsObject<K, T> obj) { return null; }
