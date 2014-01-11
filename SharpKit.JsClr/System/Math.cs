@@ -291,31 +291,73 @@ namespace SharpKit.JavaScript.Private
 		}
 		public static int Sign(decimal value)
 		{
-			throw new NotImplementedException();
+            if (value < 0.0M)
+                return -1;
+            if (value > 0.0M)
+                return 1;
+            if (value == 0.0M)
+                return 0;
+            throw new ArgumentException("value");
 		}
 		public static int Sign(double value)
 		{
-			throw new NotImplementedException();
+			if (value < 0.0)
+                return -1;
+            if (value > 0.0)
+                return 1;
+		    if (value == 0.0)
+		        return 0;
+		    throw new ArgumentException("value");
 		}
 		public static int Sign(short value)
 		{
-			throw new NotImplementedException();
+            if (value < 0)
+                return -1;
+            if (value > 0)
+                return 1;
+            if (value == 0)
+                return 0;
+            throw new ArgumentException("value");
 		}
 		public static int Sign(int value)
 		{
-			throw new NotImplementedException();
+            if (value < 0)
+                return -1;
+            if (value > 0)
+                return 1;
+            if (value == 0)
+                return 0;
+            throw new ArgumentException("value");
 		}
 		public static int Sign(long value)
 		{
-			throw new NotImplementedException();
+            if (value < 0)
+                return -1;
+            if (value > 0)
+                return 1;
+            if (value == 0)
+                return 0;
+            throw new ArgumentException("value");
 		}
 		public static int Sign(sbyte value)
 		{
-			throw new NotImplementedException();
+            if (value < 0)
+                return -1;
+            if (value > 0)
+                return 1;
+            if (value == 0)
+                return 0;
+            throw new ArgumentException("value");
 		}
 		public static int Sign(float value)
 		{
-			throw new NotImplementedException();
+            if (value < 0.0f)
+                return -1;
+            if (value > 0.0f)
+                return 1;
+            if (value == 0.0f)
+                return 0;
+            throw new ArgumentException("value");
 		}
 
 		public static double Sin(double a)
