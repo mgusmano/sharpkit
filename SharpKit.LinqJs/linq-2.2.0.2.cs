@@ -475,21 +475,21 @@ namespace SharpKit.LinqJs
         /// <summary>Sorts the elements of a sequence in ascending order according to a key.</summary>
         /// <param name="keySelector" type="Optional:Func&lt;T,TKey>">A function to extract a key from an element.</param>
         /// return new OrderedEnumerable();
-        public object OrderBy<TKey>(JsFunc<T, TKey> keySelector) { return null; }
+        public OrderedEnumerable<T> OrderBy<TKey>(JsFunc<T, TKey> keySelector) { return null; }
         //TODO: check + return type?
         /// <summary>Sorts the elements of a sequence in ascending order according to a key.</summary>
         /// return new OrderedEnumerable();
-        public object OrderBy() { return null; }
+        public OrderedEnumerable<T> OrderBy() { return null; }
         //TODO: check + return type?
 
         /// <summary>Sorts the elements of a sequence in descending order according to a key.</summary>
         /// <param name="keySelector" type="Optional:Func&lt;T,TKey>">A function to extract a key from an element.</param>
         ///return new OrderedEnumerable();
-        public object OrderByDescending<TKey>(JsFunc<T, TKey> keySelector) { return null; }
+        public OrderedEnumerable<T> OrderByDescending<TKey>(JsFunc<T, TKey> keySelector) { return null; }
         //TODO: check + return type?
         /// <summary>Sorts the elements of a sequence in descending order according to a key.</summary>
         ///return new OrderedEnumerable();
-        public object OrderByDescending<TKey>() { return null; }
+        public OrderedEnumerable<T> OrderByDescending<TKey>() { return null; }
         //TODO: check + return type?
 
         /// <summary>Inverts the order of the elements in a sequence.</summary>
@@ -746,7 +746,7 @@ namespace SharpKit.LinqJs
 
         /// <summary>Creates an array from this sequence.</summary>
         /// <returns type="Array"></returns>
-        public JsArray ToArray() { return null; }
+        public JsArray<T> ToArray() { return null; }
 
         /// <summary>Creates a Lookup from this sequence.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
@@ -1001,13 +1001,14 @@ namespace SharpKit.LinqJs
         /// <summary>Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
         ///return Enumerable&lt;T>.Empty().OrderBy();
-        public static OrderedEnumerable<T> ThenBy<TKey>(JsFunc<T, TKey> keySelector) { return null; }
+        public OrderedEnumerable<T> ThenBy<TKey>(JsFunc<T, TKey> keySelector) { return null; }
 
         /// <summary>Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.</summary>
         /// <param name="keySelector" type="Func&lt;T,TKey>">A function to extract a key from each element.</param>
         ///return Enumerable&lt;T>.Empty().OrderBy();
-        public static OrderedEnumerable<T> ThenByDescending<TKey>(JsFunc<T, TKey> keySelector) { return null; }
+        public OrderedEnumerable<T> ThenByDescending<TKey>(JsFunc<T, TKey> keySelector) { return null; }
     }
+
 }
 
 namespace SharpKit.JavaScript
@@ -1030,20 +1031,20 @@ namespace SharpKit.JavaScript
         [JsMethod(Name="From")]
         public static LinqJs.Enumerable<T> ToLinqJsEnumerable<T>(this JsArray<T> list) { return null; }
 
-        /// <summary>
-        /// Make Enumerable from obj.
-        /// 1. null = Enumerable.Empty().
-        /// 2. Enumerable = Enumerable.
-        /// 3. Number/Boolean = Enumerable.Repeat(obj, 1).
-        /// 4. String = to CharArray.(Ex:"abc" => "a","b","c").
-        /// 5. Object/Function = to KeyValuePair(except function) Ex:"{a:0}" => (.Key=a, .Value=0).
-        /// 6. Array or ArrayLikeObject(has length) = to Enumerable.
-        /// 7. JScript's IEnumerable = to Enumerable(using Enumerator).
-        /// </summary>
-        /// <param name="list">list</param>
-        /// <returns type="Enumerable"></returns>
-        [JsMethod(Name = "From")]
-        public static LinqJs.Enumerable<T> ToLinqJsEnumerable<T>(this IEnumerable<T> list) { return null; }
+        ///// <summary>
+        ///// Make Enumerable from obj.
+        ///// 1. null = Enumerable.Empty().
+        ///// 2. Enumerable = Enumerable.
+        ///// 3. Number/Boolean = Enumerable.Repeat(obj, 1).
+        ///// 4. String = to CharArray.(Ex:"abc" => "a","b","c").
+        ///// 5. Object/Function = to KeyValuePair(except function) Ex:"{a:0}" => (.Key=a, .Value=0).
+        ///// 6. Array or ArrayLikeObject(has length) = to Enumerable.
+        ///// 7. JScript's IEnumerable = to Enumerable(using Enumerator).
+        ///// </summary>
+        ///// <param name="list">list</param>
+        ///// <returns type="Enumerable"></returns>
+        //[JsMethod(Name = "From")]
+        //public static LinqJs.Enumerable<T> ToLinqJsEnumerable<T>(this IEnumerable<T> list) { return null; }
     }
 
 }
