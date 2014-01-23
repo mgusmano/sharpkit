@@ -12,25 +12,35 @@ namespace SharpKit.JavaScript.Private
     {
         public abstract int Compare(object x, object y);
 
-        private static JsImplComparer _default;
+        private static JsImplComparer _Default;
         public static JsImplComparer Default
         {
             get
             {
-                if (_default == null) _default = new JsImplGemericComparer();
-                return _default;
+                if (_Default == null) 
+                    _Default = new DefaultComparer();
+                return _Default;
             }
         }
 
-        [JsType(JsMode.Clr, Filename = "~/Internal/Core.js")]
-        private class JsImplGemericComparer : JsImplComparer
+
+    }
+
+    [JsType(JsMode.Clr, Filename = "~/Internal/Core.js")]
+    class DefaultComparer : JsImplComparer
+    {
+        public override int Compare(object x, object y)
         {
-            public override int Compare(object x, object y)
-            {
-                return x.As<IComparable>().CompareTo(y);
-            }
+            dynamic xx = x;
+            dynamic yy = y;
+            if (xx.CompareTo)
+                return xx.CompareTo(y);
+            if (xx > yy)
+                return 1;
+            if (xx < yy)
+                return -1;
+            return 0;
         }
-
     }
 
 }

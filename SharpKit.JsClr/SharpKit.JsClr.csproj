@@ -30,6 +30,7 @@
     <DefineConstants>NET4</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="WindowsBase" />
@@ -107,8 +108,11 @@
     <Compile Include="System\Linq\Enumerable.WhereSelectListIterator.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="System\Linq\Error.cs" />
+    <Compile Include="System\Linq\IOrderedEnumerable.cs" />
     <Compile Include="System\Linq\Linq.cs" />
     <Compile Include="System\Linq\LinqIterators.cs" />
+    <Compile Include="System\Linq\OrderedEnumerable.cs" />
     <Compile Include="System\Math.cs" />
     <Compile Include="System\Nullable.cs" />
     <Compile Include="System\Object.cs" />

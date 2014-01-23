@@ -11,38 +11,14 @@ namespace SharpKit.JavaScript.Private
     {
         public abstract int Compare(T x, T y);
 
-        //private static JsObject<JsImplComparer<T>> _default = new JsObject<JsImplComparer<T>>();
-        //public static JsImplComparer<T> _default;
+        private static JsImplComparer<T> _Default;
         public static JsImplComparer<T> Default
         {
             get
             {
-                //TASK: specialized comparers?
-
-                //var typeName = typeof(T).ToString();
-                //var cmp = _default[typeName];
-                //if (cmp == JsContext.undefined) { 
-                //    //
-                //}
-
-                //if (_default == null)
-                //{
-                //    //_default=new 
-                //}
-                //return _default;
-
-                return new JsImplGemericComparer();
-                //if (_default == null) _default = new JsImplGemericComparer();
-                //return _default;
-            }
-        }
-
-        [JsType(JsMode.Clr, Filename = "~/Internal/Core.js")]
-        private class JsImplGemericComparer : JsImplComparer<T>
-        {
-            public override int Compare(T x, T y)
-            {
-                return x.As<IComparable<T>>().CompareTo(y);
+                if (_Default == null)
+                    _Default = new DefaultComparer().As<JsImplComparer<T>>();
+                return _Default;
             }
         }
 
