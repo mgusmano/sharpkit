@@ -18,7 +18,7 @@
         bool Equals(T other);
     }
 
-    [JsType(Name = "System.IComparer$1", Filename = "~/res/System.js")]
+    [JsType(Name = "System.IComparer$1", Filename = "~/Internal/Core.js")]
     public interface JsImplIComparer<T>
     {
         int Compare(T x, T y);

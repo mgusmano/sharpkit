@@ -142,7 +142,7 @@
     }
 
     /// <summary>Defines methods to support the comparison of objects for equality.</summary>
-    [JsType(Name = "System.Collections.IEqualityComparer", Filename = "~/res/System.js")]
+    [JsType(Name = "System.Collections.IEqualityComparer", Filename = "~/Internal/Core.js")]
     public interface JsImplIEqualityComparer
     {
       /// <summary>Determines whether the specified objects are equal.</summary>
@@ -159,7 +159,7 @@
 
     /// <summary>Defines methods to support the comparison of objects for equality.</summary>
     /// <typeparam name="T">The type of objects to compare.This type parameter is contravariant. That is, you can use either the type you specified or any type that is less derived. For more information about covariance and contravariance, see Covariance and Contravariance in Generics.</typeparam>
-    [JsType(Name="System.Collections.Generic.IEqualityComparer$1", Filename = "~/res/System.js")]
+    [JsType(Name = "System.Collections.Generic.IEqualityComparer$1", Filename = "~/Internal/Core.js")]
     public interface JsImplIEqualityComparer<in T>
     {
         /// <summary>Determines whether the specified objects are equal.</summary>
