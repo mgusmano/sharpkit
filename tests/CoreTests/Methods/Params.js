@@ -1,29 +1,23 @@
+
 if (typeof(JsTypes) == "undefined")
     var JsTypes = [];
-var CoreTests$Methods$Params =
-{
+var CoreTests$Methods$Params = {
     fullname: "CoreTests.Methods.Params",
     baseTypeName: "System.Object",
-    staticDefinition:
-    {
-        CallMethodWithManyParams: function (arr)
-        {
+    staticDefinition: {
+        CallMethodWithManyParams: function (arr){
             return arr.length;
         }
     },
     assemblyName: "CoreTests",
     Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
+    definition: {
+        ctor: function (){
             System.Object.ctor.call(this);
         },
-        alert: function (obj)
-        {
+        alert: function (obj){
         },
-        foo: function ()
-        {
+        foo: function (){
             var a = System.String.Format$$String$$Object$Array("{0} {1} {2} {3}", ["a", "b", "c", "d"]);
             var b = System.String.Format$$String$$Object$$Object$$Object("{0} {1} {2} {3}", "a", "b", "c");
             var c = System.String.Format$$String$$Object$$Object("{0} {1} {2} {3}", "a", "b");
@@ -43,3 +37,4 @@ var CoreTests$Methods$Params =
     }
 };
 JsTypes.push(CoreTests$Methods$Params);
+

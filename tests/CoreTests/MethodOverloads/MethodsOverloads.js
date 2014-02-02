@@ -1,53 +1,20 @@
-if (typeof($CreateDelegate)=='undefined'){
-    if(typeof($iKey)=='undefined') var $iKey = 0;
-    if(typeof($pKey)=='undefined') var $pKey = String.fromCharCode(1);
-    var $CreateDelegate = function(target, func){
-        if (target == null || func == null) 
-            return func;
-        if(func.target==target && func.func==func)
-            return func;
-        if (target.$delegateCache == null)
-            target.$delegateCache = {};
-        if (func.$key == null)
-            func.$key = $pKey + String(++$iKey);
-        var delegate;
-        if(target.$delegateCache!=null)
-            delegate = target.$delegateCache[func.$key];
-        if (delegate == null){
-            delegate = function(){
-                return func.apply(target, arguments);
-            };
-            delegate.func = func;
-            delegate.target = target;
-            delegate.isDelegate = true;
-            if(target.$delegateCache!=null)
-                target.$delegateCache[func.$key] = delegate;
-        }
-        return delegate;
-    }
-}
+;
 if (typeof(JsTypes) == "undefined")
     var JsTypes = [];
-var CoreTests$Methods$MethodOverloads =
-{
+var CoreTests$Methods$MethodOverloads = {
     fullname: "CoreTests.Methods.MethodOverloads",
     baseTypeName: "System.Object",
     assemblyName: "CoreTests",
     Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
+    definition: {
+        ctor: function (){
             System.Object.ctor.call(this);
         },
-        Init$$String: function (x)
-        {
+        Init$$String: function (x){
         },
-        Init$$Int32: function (y)
-        {
+        Init$$Int32: function (y){
         },
-        Main: function ()
-        {
+        Main: function (){
             this.Init$$Int32(7);
             this.Init$$String("sdfdsf");
             this.JsAct$$JsAction($CreateDelegate(this, this.Test));
@@ -57,44 +24,33 @@ var CoreTests$Methods$MethodOverloads =
             this.Act$$Action$1$String($CreateDelegate(this, this.TestString));
             this.Act$$Action$1$Int32($CreateDelegate(this, this.TestInt));
         },
-        Test: function ()
-        {
+        Test: function (){
         },
-        TestString: function (s)
-        {
+        TestString: function (s){
         },
-        TestInt: function (x)
-        {
+        TestInt: function (x){
         },
-        JsAct$$JsAction: function (callback)
-        {
+        JsAct$$JsAction: function (callback){
         },
-        Act$$Action: function (callback)
-        {
+        Act$$Action: function (callback){
         },
-        Act$$Action$1$String: function (callback)
-        {
+        Act$$Action$1$String: function (callback){
         },
-        Act$$Action$1$Int32: function (callback)
-        {
+        Act$$Action$1$Int32: function (callback){
         }
     }
 };
 JsTypes.push(CoreTests$Methods$MethodOverloads);
-var CoreTests$Methods$GenericConstructorCall =
-{
+var CoreTests$Methods$GenericConstructorCall = {
     fullname: "CoreTests.Methods.GenericConstructorCall",
     baseTypeName: "System.Object",
     assemblyName: "CoreTests",
     Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
+    definition: {
+        ctor: function (){
             System.Object.ctor.call(this);
         },
-        main: function ()
-        {
+        main: function (){
             var foo = new CoreTests.Methods.GenericConstructor$2.ctor$$A(System.Int32.ctor, System.String.ctor, 5);
             var bar = new CoreTests.Methods.GenericConstructor$2.ctor$$B(System.Int32.ctor, System.String.ctor, "test");
             var kv = new System.Collections.Generic.KeyValuePair$2.ctor$$TKey$$TValue(System.Int32.ctor, System.String.ctor, 5, "");
@@ -102,22 +58,18 @@ var CoreTests$Methods$GenericConstructorCall =
     }
 };
 JsTypes.push(CoreTests$Methods$GenericConstructorCall);
-var CoreTests$Methods$GenericConstructor$2 =
-{
+var CoreTests$Methods$GenericConstructor$2 = {
     fullname: "CoreTests.Methods.GenericConstructor$2",
     baseTypeName: "System.Object",
     assemblyName: "CoreTests",
     Kind: "Class",
-    definition:
-    {
-        ctor$$A: function (A, B, arg)
-        {
+    definition: {
+        ctor$$A: function (A, B, arg){
             this.A = A;
             this.B = B;
             System.Object.ctor.call(this);
         },
-        ctor$$B: function (A, B, arg)
-        {
+        ctor$$B: function (A, B, arg){
             this.A = A;
             this.B = B;
             System.Object.ctor.call(this);
@@ -125,3 +77,4 @@ var CoreTests$Methods$GenericConstructor$2 =
     }
 };
 JsTypes.push(CoreTests$Methods$GenericConstructor$2);
+

@@ -12,13 +12,12 @@ if (typeof(Float32Array) == "undefined")
     var Float32Array = Array;
 if (typeof(Float64Array) == "undefined")
     var Float64Array = Array;
+
 if (typeof(SharpKitWebApp5) == "undefined")
     var SharpKitWebApp5 = {};
-SharpKitWebApp5.Class2 = function ()
-{
+SharpKitWebApp5.Class2 = function (){
 };
-SharpKitWebApp5.Class2.prototype.foo = function ()
-{
+SharpKitWebApp5.Class2.prototype.foo = function (){
     var list =  [];
     list.push();
     list.push(new Uint8Array(7));
@@ -42,3 +41,4 @@ SharpKitWebApp5.Class2.prototype.foo = function ()
     list.push(new Float64Array([7, 8, 9]));
     var a = new Int32Array([0, 2, 4, 6, 8]);
 };
+

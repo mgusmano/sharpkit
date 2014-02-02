@@ -1,15 +1,13 @@
+
 if (typeof(JsTypes) == "undefined")
     var JsTypes = [];
-var CoreTests$FieldsTest$FieldsTest =
-{
+var CoreTests$FieldsTest$FieldsTest = {
     fullname: "CoreTests.FieldsTest.FieldsTest",
     baseTypeName: "System.Object",
     assemblyName: "CoreTests",
     Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
+    definition: {
+        ctor: function (){
             this.a2 = null;
             this.a = "aaa";
             this.b = "bbb";
@@ -25,3 +23,4 @@ var CoreTests$FieldsTest$FieldsTest =
     }
 };
 JsTypes.push(CoreTests$FieldsTest$FieldsTest);
+
