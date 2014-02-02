@@ -1,4 +1,17 @@
-;
+if (typeof($CreateAnonymousObject)=='undefined') 
+{
+    var $CreateAnonymousObject = function(json)
+    {
+        var obj = new System.Object.ctor();
+        obj.d = json;
+        for(var p in json){
+            obj['get_'+p] = new Function('return this.d.'+p+';');
+        }
+        return obj;
+    }
+}
+
+
 if (typeof(CoreTests) == "undefined")
     var CoreTests = {};
 if (typeof(CoreTests.AnonymousObjects) == "undefined")

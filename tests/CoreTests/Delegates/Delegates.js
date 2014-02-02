@@ -1,4 +1,18 @@
-;
+if (typeof ($CreateAnonymousDelegate) == 'undefined') {
+    var $CreateAnonymousDelegate = function (target, func) {
+        if (target == null || func == null)
+            return func;
+        var delegate = function () {
+            return func.apply(target, arguments);
+        };
+        delegate.func = func;
+        delegate.target = target;
+        delegate.isDelegate = true;
+        return delegate;
+    }
+}
+
+
 if (typeof(CoreTests) == "undefined")
     var CoreTests = {};
 if (typeof(CoreTests.Delegates) == "undefined")

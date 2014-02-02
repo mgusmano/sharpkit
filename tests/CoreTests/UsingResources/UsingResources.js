@@ -1,4 +1,19 @@
-;
+if (typeof($CreateException)=='undefined') 
+{
+    var $CreateException = function(ex, error) 
+    {
+        if(error==null)
+            error = new Error();
+        if(ex==null)
+            ex = new System.Exception.ctor();       
+        error.message = ex.message;
+        for (var p in ex)
+           error[p] = ex[p];
+        return error;
+    }
+}
+
+
 if (typeof(CoreTests) == "undefined")
     var CoreTests = {};
 if (typeof(CoreTests.UsingResources) == "undefined")

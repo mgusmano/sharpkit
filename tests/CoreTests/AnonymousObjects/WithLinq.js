@@ -1,4 +1,31 @@
-;;
+if (typeof ($CreateAnonymousDelegate) == 'undefined') {
+    var $CreateAnonymousDelegate = function (target, func) {
+        if (target == null || func == null)
+            return func;
+        var delegate = function () {
+            return func.apply(target, arguments);
+        };
+        delegate.func = func;
+        delegate.target = target;
+        delegate.isDelegate = true;
+        return delegate;
+    }
+}
+
+if (typeof($CreateAnonymousObject)=='undefined') 
+{
+    var $CreateAnonymousObject = function(json)
+    {
+        var obj = new System.Object.ctor();
+        obj.d = json;
+        for(var p in json){
+            obj['get_'+p] = new Function('return this.d.'+p+';');
+        }
+        return obj;
+    }
+}
+
+
 if (typeof(JsTypes) == "undefined")
     var JsTypes = [];
 var CoreTests$AnonymousObjects$TestClasses = {
