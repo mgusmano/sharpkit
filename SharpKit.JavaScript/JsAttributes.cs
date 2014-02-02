@@ -407,6 +407,17 @@ namespace SharpKit.JavaScript
         /// </summary>
         public bool ForceOmitCasts { get { return _ForceOmitCasts.GetValueOrDefault(); } set { _ForceOmitCasts = value; } } public bool? _ForceOmitCasts;
 
+        /// <summary>
+        /// Options are "JavaScript"/null (default) for default js style, or C#/CSharp for C# style
+        /// </summary>
+        public string JsCodeFormat { get; set; }
+
+        /// <summary>
+        /// Forces integers to remain as integers when casting or using binary operations, by adding (|0) to these expressions
+        /// </summary>
+        public bool ForceIntegers { get { return _ForceIntegers.GetValueOrDefault(); } set { _ForceIntegers = value; } } public bool? _ForceIntegers;
+
+
     }
     #endregion
 
