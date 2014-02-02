@@ -48,6 +48,7 @@
     <Compile Include="Inheritance\ClrFromGlobal.cs" />
     <Compile Include="Inheritance\PrototypeFromGlobal.cs" />
     <Compile Include="Inheritance\TypeCheck.cs" />
+    <Compile Include="Integers\Integers.cs" />
     <Compile Include="LinqQueries\LinqQueries.cs" />
     <Compile Include="MethodOverloads\MethodsOverloads.cs" />
     <Compile Include="GenericsInheritance\Class1.cs" />
@@ -112,6 +113,7 @@
     <Content Include="Inheritance\ClrFromGlobal.js" />
     <Content Include="Inheritance\PrototypeFromGlobal.js" />
     <Content Include="Inheritance\TypeCheck.js" />
+    <Content Include="Integers\Integers.js" />
     <Content Include="Interfaces\Class3.js" />
     <Content Include="MethodOverloads\MethodsOverloads.js" />
     <Content Include="Methods\GlobalFunctions.js" />
