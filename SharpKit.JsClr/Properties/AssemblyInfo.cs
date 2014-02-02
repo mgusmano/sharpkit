@@ -48,6 +48,7 @@ using SharpKit.JavaScript;
 
 [assembly: JsMergedFile(Filename = "res/System.js", Sources = new string[]
 {
+    //"Internal/sk.js",
 	"Compilation/JsCompiler.js",
 	"Internal/Core.js",
 	"Internal/CoreEx.js",
@@ -68,6 +69,6 @@ using SharpKit.JavaScript;
 
 [assembly: JsMergedFile(Filename = "res/jsclr.min.js", Sources = new string[] { "res/jsclr.js" }, Minify = true)]
 
-[assembly: JsExport(UseStrict = true)]
+[assembly: JsExport(UseStrict = true/*, CodeInjectionFilename = "Internal/sk.js"*/, GenerateSourceMaps=true)]
 
 [assembly: JsType(JsMode.Prototype, Export = false, TargetType = typeof(BindingFlags))]
