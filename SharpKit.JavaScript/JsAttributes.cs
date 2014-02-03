@@ -583,6 +583,13 @@ namespace SharpKit.JavaScript
         /// SharpKit version isn't in the range of the value specified
         /// </summary>
         public string SharpKitVersion { get; set; }
+        /// <summary>
+        /// Manual code expression inlining, SharpKit will parse this code, 
+        /// and replace the parameters with the real code passed to the function, 
+        /// allowing to customize the way the invocation code is generated
+        /// </summary>
+        public string InlineCodeExpression { get; set; }
+
     }
     #endregion
 
