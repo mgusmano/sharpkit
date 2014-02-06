@@ -20,7 +20,10 @@ namespace SharpKit.Web.Server.Serialization
         public TextWriter Writer { get; set; }
         Dictionary<object, string> Refs = new Dictionary<object, string>();
         int RefIndex;
-
+        /// <summary>
+        /// Acts like JSON.stringify replacer - return the property value, or replace it with a different value, or null if you want to skip serialization
+        /// </summary>
+        public Func<object, PropertyInfo, object> Replacer { get; set; }
         public string Serialize(object obj)
         {
             if (obj == null)
@@ -51,7 +54,11 @@ namespace SharpKit.Web.Server.Serialization
                     var props = type.GetProperties();
                     foreach (var pe in props)
                     {
-                        var value = pe.GetValue(obj, null);
+                        object value;
+                        if (Replacer != null)
+                            value = Replacer(obj, pe);
+                        else
+                            value = pe.GetValue(obj, null);
                         if (value == null)
                             continue;
                         var valueRef = Serialize(value);
