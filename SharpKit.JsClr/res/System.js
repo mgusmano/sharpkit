@@ -47,6 +47,7 @@ if (typeof($CreateDelegate)=='undefined'){
 if (typeof(Uint8Array) == "undefined")
     var Uint8Array = Array;
 
+
 var AfterCompilationFunctions =  [];
 var BeforeCompilationFunctions =  [];
 var IsCompiled = false;

@@ -395,7 +395,7 @@ namespace SharpKit.JavaScript.Private
         /// <returns>The result.</returns>
 		public static decimal Truncate(decimal d)
 		{
-		    return d.As<JsNumber>().toFixed().As<decimal>();
+            return d.As<JsNumber>() | 0;
 		}
 
         /// <summary>
@@ -405,7 +405,7 @@ namespace SharpKit.JavaScript.Private
         /// <returns>The result.</returns>
 		public static double Truncate(double d)
 		{
-            return d.As<JsNumber>().toFixed().As<double>();
+            return d.As<JsNumber>() | 0;
         }
 
 

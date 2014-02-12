@@ -131,6 +131,7 @@ function $RemoveDelegate(delOriginal,delToRemove)
 };
 
 
+
 var AfterCompilationFunctions =  [];
 var BeforeCompilationFunctions =  [];
 var IsCompiled = false;
