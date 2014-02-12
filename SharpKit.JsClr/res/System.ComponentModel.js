@@ -271,10 +271,10 @@ var System$Math = {
             throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
         Truncate$$Decimal: function (d){
-            return d.toFixed();
+            return d | 0;
         },
         Truncate$$Double: function (d){
-            return d.toFixed();
+            return d | 0;
         }
     },
     assemblyName: "SharpKit.JsClr",

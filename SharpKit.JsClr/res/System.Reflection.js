@@ -401,7 +401,7 @@ var System$Type = {
                 var methodName = SharpKit.JavaScript.JsNamingHelper.JsFunctionNameToClrMethodName(funcName);
                 var methods = this._MethodsByName[methodName];
                 if (methods == null){
-                    methods = new Array();
+                    methods =  [];
                     this._MethodsByName[methodName] = methods;
                 }
                 var method = new System.Reflection.MethodInfo.ctor();
@@ -430,11 +430,18 @@ var System$Type = {
                 var baseType = this.get_BaseType();
                 if (baseType != null){
                     var methods = baseType.GetMethods();
-                    for (var $i18 = 0,$l18 = methods.length,pe = methods[$i18]; $i18 < $l18; $i18++, pe = methods[$i18]){
-                        if (this._MethodsByName[pe._Name] == null){
-                            this._MethodsByName[pe._Name] = pe;
-                            this._Methods.push(pe);
+                    for (var $i18 = 0,$l18 = methods.length,me = methods[$i18]; $i18 < $l18; $i18++, me = methods[$i18]){
+                        if (this._JsType.definition != null && this._JsType.definition.hasOwnProperty(me.JsName))
+                            continue;
+                        if (this._JsType.staticDefinition != null && this._JsType.staticDefinition.hasOwnProperty(me.JsName))
+                            continue;
+                        var list = this._MethodsByName[me._Name];
+                        if (list == null){
+                            list =  [];
+                            this._MethodsByName[me._Name] = list;
                         }
+                        list.push(me);
+                        this._Methods.push(me);
                     }
                 }
             }
