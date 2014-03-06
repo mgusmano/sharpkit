@@ -1500,7 +1500,8 @@ namespace SharpKit.KendoUI
             [JsMethod(Name = "unbind", InsertArg0 = "\"error\"")]
             remove { }
         }
-        /// <summary>
+        
+        // <summary>
         /// Fires when data request is to be made.
         /// </summary>
         ///<example>
@@ -1520,6 +1521,17 @@ namespace SharpKit.KendoUI
             [JsMethod(Name = "unbind", InsertArg0 = "\"requestStart\"")]
             remove { }
         }
+
+        /// <summary>
+        /// Fired when a remote service request is finished.
+        /// </summary>
+        public event JsAction<DataSourceRequestEndEventData<T>> requestEnd
+        {
+            [JsMethod(Name = "bind", InsertArg0 = "\"requestEnd\"")]
+            add { }
+            [JsMethod(Name = "unbind", InsertArg0 = "\"requestEnd\"")]
+            remove { }
+        }
     }
 
     [JsType(JsMode.Json)]
@@ -1529,6 +1541,25 @@ namespace SharpKit.KendoUI
         /// Reference to the dataSource object instance.
         /// </summary>
         public DataSource<T> sender { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class DataSourceRequestEndEventData<T>
+    {
+        /// <summary>
+        /// Reference to the dataSource object instance.
+        /// </summary>
+        public DataSource<T> sender { get; set; }
+
+        /// <summary>
+        /// The raw remote service response.
+        /// </summary>
+        public JsObject response { get; set; }
+
+        /// <summary>
+        /// The type of the request. Set to "create", "read", "update" or "destroy".
+        /// </summary>
+        public JsString type { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -2498,13 +2529,20 @@ namespace SharpKit.KendoUI
     {
         public HierarchicalDataSource() { }
 
-        public HierarchicalDataSource(HierarchicalDataSourceConfiguration<object> HierarchicalDataSourceConfiguration) { }
+        public HierarchicalDataSource(HierarchicalDataSourceConfiguration<T> HierarchicalDataSourceConfiguration) { }
 
         /// <summary>
         /// Fires when data is changed. In addition to the standard change event,
         /// the HierarchicalDataSource includes additional data when the event has been triggered from a child DataSource.
         /// </summary>
         public new event JsAction<HierarchicalDataSourceChangeEventData> change { add { } remove { } }
+
+        /// <summary>
+        /// Returns a node from the hierarchy by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public new Node<T> get(JsNumber id) { return null; }
 
     }
 
@@ -2784,11 +2822,11 @@ namespace SharpKit.KendoUI
     /// <summary>
     /// The Node is an extended type of Model that works with hierarchical data. The HierarchicalDataSource contains only instances of Node.
     /// </summary>
-    [JsType(JsMode.Prototype, Name = "kendo.data.Node")]
+    [JsType(JsMode.Prototype, Name = "kendo.data.Node", Export = false)]
     public class Node<T> : Model<T>
     {
 
-        private Node() : base(default(T))
+        public Node(T objectToWrap) : base(objectToWrap)
         {
             
         }
@@ -2803,7 +2841,7 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Gets the current nesting level of the Node within the HierarchicalDataSource.
         /// </summary>
-        public void level() { }
+        public JsNumber level() { return null; }
 
         /// <summary>
         /// Loads the child nodes in the child datasource, supplying the id of the Node to the request.
@@ -2813,12 +2851,17 @@ namespace SharpKit.KendoUI
         /// <summary>
         /// Gets or sets the loaded flag of the Node. Setting the loaded flag to false allows reloading of child items.
         /// </summary>
-        public void loaded() { }
+        public bool loaded() { return false; }
 
         /// <summary>
         /// Gets the parent node of the Node, if any.
         /// </summary>
-        public void parentNode() { }
+        public Node<T> parentNode() { return null; }
+
+        /// <summary>
+        /// Gets the child HierarchicalDataSource for this node
+        /// </summary>
+        public HierarchicalDataSource<T> children { get; set; } 
     }
 
     #endregion
@@ -3332,6 +3375,11 @@ namespace SharpKit.KendoUI
         /// The name of the field which has changed.
         /// </summary>
         public JsString field { get; set; }
+
+        /// <summary>
+        /// Undocumented - the actual object that was changed
+        /// </summary>
+        public JsObject sender { get; set; }
     }
 
     [JsType(JsMode.Json)]

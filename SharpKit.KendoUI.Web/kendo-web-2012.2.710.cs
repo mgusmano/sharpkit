@@ -155,7 +155,7 @@ namespace SharpKit.jQuery
         public static jQuery kendoTreeView(this jQuery query) { return null; }
 
         [JsMethod(ExtensionImplementedInInstance = true)]
-        public static jQuery kendoTreeView(this jQuery query, TreeViewConfiguration configuration) { return null; }
+        public static jQuery kendoTreeView<T>(this jQuery query, TreeViewConfiguration<T> configuration) { return null; }
 
 
         [JsMethod(ExtensionImplementedInInstance = true)]
@@ -10092,7 +10092,8 @@ namespace SharpKit.KendoUI.Web
         /// treeview.enable(".k-item");
         ///</code>
         ///</example>
-        public void enable(JsString nodes, bool enable) { }
+        public void enable(JsString nodes, bool enable = true) { }
+
         /// <summary>
         /// Enables or disables nodes.
         /// </summary>
@@ -10110,12 +10111,31 @@ namespace SharpKit.KendoUI.Web
         /// treeview.enable(".k-item");
         ///</code>
         ///</example>
-        public void enable(JsString nodes) { }
+        public void enable(jQuery.jQuery nodes, bool enable = true) { }
+
+        /// <summary>
+        /// Enables or disables nodes.
+        /// </summary>
+        /// <param name="nodes">The nodes that are to be enabled/disabled.</param>
+        /// <param name="enable">(optional, default: true) Whether the nodes should be enabled or disabled.</param>
+        ///<example>
+        ///usage
+        ///<code>
+        ///var treeview = $("#treeview").data("kendoTreeView");
+        /// 
+        /// // disable the node with id="firstItem"
+        /// treeview.enable(document.getElementById("firstItem"), false);
+        /// 
+        /// // enable all nodes
+        /// treeview.enable(".k-item");
+        ///</code>
+        ///</example>
+        public void enable(Node nodes, bool enable = true) { }
 
         /// <summary>
         /// Expands nodes.
         /// </summary>
-        /// <param name="nodes">The nodes that are to be expanded..</param>
+        /// <param name="nodeSelector">The nodes that are to be expanded..</param>
         ///<example>
         ///usage
         ///<code>
@@ -10128,7 +10148,43 @@ namespace SharpKit.KendoUI.Web
         /// treeview.expand(".k-item");
         ///</code>
         ///</example>
-        public void expand(JsString nodes) { }
+        public void expand(JsString nodeSelector) { }
+
+        /// <summary>
+        /// Expands nodes.
+        /// </summary>
+        /// <param name="nodeSelector">The nodes that are to be expanded..</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// var treeview = $("#treeview").data("kendoTreeView");
+        /// 
+        /// // expands the node with id="firstItem"
+        /// treeview.expand(document.getElementById("firstItem"));
+        /// 
+        /// // expands all nodes
+        /// treeview.expand(".k-item");
+        ///</code>
+        ///</example>
+        public void expand(jQuery.jQuery nodeSelector) { }
+
+        /// <summary>
+        /// Expands nodes.
+        /// </summary>
+        /// <param name="node">The node that is to be expanded..</param>
+        ///<example>
+        ///usage
+        ///<code>
+        /// var treeview = $("#treeview").data("kendoTreeView");
+        /// 
+        /// // expands the node with id="firstItem"
+        /// treeview.expand(document.getElementById("firstItem"));
+        /// 
+        /// // expands all nodes
+        /// treeview.expand(".k-item");
+        ///</code>
+        ///</example>
+        public void expand(Node node) { }
         //TODO: one more parameter (?) e.node (Node) The collapsed node
 
         /// <summary>
@@ -10208,8 +10264,20 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// Sets the selected node of a TreeView.
         /// </summary>
-        /// <param name="node">If provided, the node of a TreeView that should be selected.</param>
-        public void select(JsString node) { }
+        /// <param name="selector">If provided, the node of a TreeView that should be selected.</param>
+        public void select(JsString selector) { }
+
+        /// <summary>
+        /// Sets the selected node of a TreeView.
+        /// </summary>
+        /// <param name="selector">If provided, the node of a TreeView that should be selected.</param>
+        public void select(jQuery.jQuery selector) { }
+
+        /// <summary>
+        /// Sets the selected node of a TreeView.
+        /// </summary>
+        /// <param name="domNode">If provided, the node of a TreeView that should be selected.</param>
+        public void select(Node domNode) { }
 
         /// <summary>
         /// Gets the text of a node in a TreeView.
@@ -10336,7 +10404,7 @@ namespace SharpKit.KendoUI.Web
     }
 
     [JsType(JsMode.Json)]
-    public class TreeViewConfiguration
+    public class TreeViewConfiguration<T>
     {
         /// <summary>
         /// A collection of visual animations used when items are expanded or collapsed through user interaction. Setting this option to false will disable all animations.
@@ -10363,9 +10431,15 @@ namespace SharpKit.KendoUI.Web
         public JsString dataImageUrlField { get; set; }
 
         /// <summary>
-        /// The data that the TreeView will be bound to.
+        /// The data that the TreeView will be bound to, as an array (that will be turned into a DataSource internally)
         /// </summary>
-        public JsArray dataSource { get; set; }
+        [JsProperty(Name="dataSource")]
+        public JsArray dataSourceArray { get; set; }
+
+        /// <summary>
+        /// The Datasource that the TreeView will be bound to
+        /// </summary>
+        public DataSource<T> dataSource { get; set; }
 
         /// <summary>
         /// (default: null) Sets the field of the data item that provides the sprite CSS class of the treeview nodes.
@@ -10459,6 +10533,7 @@ namespace SharpKit.KendoUI.Web
         public JsAction<TreeViewDragEventData> drag { get; set; }
         public JsAction<TreeViewDropEventData> drop { get; set; }
         public JsAction<TreeViewDragendEventData> dragend { get; set; }
+        public JsAction<TreeViewDataBoundEventData> dataBound { get; set; }
     }
 
     [JsType(JsMode.Json)]
@@ -10560,13 +10635,19 @@ namespace SharpKit.KendoUI.Web
     }
 
     [JsType(JsMode.Json)]
-    public class TreeViewEventData
+    public abstract class AbstractTreeViewEventData
+    {
+        public void preventDefault() { }
+    }
+
+    [JsType(JsMode.Json)]
+    public class TreeViewEventData : AbstractTreeViewEventData
     {
         public Node node { get; set; }
     }
 
     [JsType(JsMode.Json)]
-    public class TreeViewDragEventData
+    public class TreeViewDragEventData : AbstractTreeViewEventData
     {
         /// <summary>
         /// The node that is being dragged.
@@ -10589,18 +10670,28 @@ namespace SharpKit.KendoUI.Web
         public JsNumber pageY { get; set; }
 
         /// <summary>
-        /// The status that the drag clue shows.
+        /// The status that the drag clue shows. <see cref="setStatusClass" />
         /// </summary>
-        public JsString statusClass { get; set; }
+        public JsString statusClass { get; private set; }
 
         /// <summary>
         /// Allows a custom drag clue status to be set.
+        /// Pre-defined status classes are:
+        /// <list type="list">
+        /// <item>k-insert-top - Indicates that the item will be inserted on top.</item>
+        /// <item>k-insert-middle - Indicates that the item will be inserted in the middle.</item>
+        /// <item>k-insert-bottom - Indicates that the item will be inserted at the bottom.</item>
+        /// <item>k-add - Indicates that the item will be added/appended.</item>
+        /// <item>k-denied - Indicates an invalid operation. Using this class will automatically make the drop operation invalid, so there will be no need to call setValid(false) in the drop event.</item>
+        /// </list>
         /// </summary>
-        public JsAction setStatusClass { get; set; }
+        /// <param name="cssClass">The css class or classes (separated by spaces) to set on the item</param>
+        public void setStatusClass(JsString cssClass) { }
     }
 
+
     [JsType(JsMode.Json)]
-    public class TreeViewDragendEventData
+    public class TreeViewDragendEventData : AbstractTreeViewEventData
     {
         /// <summary>
         /// The node that is being dropped.
@@ -10619,7 +10710,16 @@ namespace SharpKit.KendoUI.Web
     }
 
     [JsType(JsMode.Json)]
-    public class TreeViewDragstartEventData
+    public class TreeViewDataBoundEventData : AbstractTreeViewEventData
+    {
+        /// <summary>
+        /// The node whose children have been changed. If the changes have occurred on the root level, this parameter is undefined.
+        /// </summary>
+        public jQuery.jQuery node { get; set; }
+    }
+
+    [JsType(JsMode.Json)]
+    public class TreeViewDragstartEventData : AbstractTreeViewEventData
     {
         /// <summary>
         /// The node that will be dragged.
@@ -10628,7 +10728,7 @@ namespace SharpKit.KendoUI.Web
     }
 
     [JsType(JsMode.Json)]
-    public class TreeViewDropEventData
+    public class TreeViewDropEventData : AbstractTreeViewEventData
     {
         /// <summary>
         /// The node that is being dropped.
@@ -10648,7 +10748,7 @@ namespace SharpKit.KendoUI.Web
         /// <summary>
         /// Allows the drop to be prevented.
         /// </summary>
-        public JsAction setValid { get; set; }
+        public void setValid(bool isValid) { }
 
         /// <summary>
         /// The element that the node is placed over.
@@ -10659,6 +10759,8 @@ namespace SharpKit.KendoUI.Web
         /// Shows where the source will be dropped. One of the values over, before, or after.
         /// </summary>
         public JsString dropPosition { get; set; }
+
+        
     }
 
     #endregion

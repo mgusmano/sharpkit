@@ -2453,6 +2453,24 @@ namespace SharpKit.JavaScript
         /// </summary>
         /// <returns></returns>
         public JsString slice(int start) { return null; }
+
+        /// <summary>
+        /// Performs a locale-aware string comparison
+        /// </summary>
+        /// <param name="compareString">The string to compare to</param>
+        /// <param name="locales">An optional array of BCP 47 language codes (see remarks)</param>
+        /// <param name="options">Optional options (see remarks)</param>
+        /// <returns>a negative number if the string sorts earlier than compareString,  
+        /// a positive number if it sorts afterwards, and 0 if they are the same.</returns>
+        /// <remarks>
+        /// A list of language codes can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation">here</a>.
+        /// A description of valid options can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare">here</a>.
+        /// 
+        /// </remarks>
+        /// <see cref="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation"/>
+        /// <see cref="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare" />
+        [JsMethod(OmitOptionalParameters = true)]
+        public JsNumber localeCompare(JsString compareString, JsArray<JsString> locales = null, object options = null) { return 0; }
     }
     /// <summary>
     /// A special class, when used as a method parameter, can be assigned as string, and generates the native js code inside the string
