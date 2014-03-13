@@ -279,6 +279,9 @@ namespace SharpKit.JavaScript
         /// </summary>
         public string GenericArgumentJsCode { get; set; }
 
+        public string JsonTypeFieldName { get; set; }
+
+
 
     }
     #endregion

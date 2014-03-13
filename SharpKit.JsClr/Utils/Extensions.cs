@@ -17,6 +17,17 @@ internal delegate void JsImplHtmlDomEventHandler(object e);
 namespace SharpKit
 {
 
+    [JsType(JsMode.Prototype, Name = "Array", OmitDefaultConstructor = true, NativeOverloads = false)]
+    class JsArrayExtensions<T> : JsArray<T>
+    {
+        public T this[int index]
+        {
+            get { return this.As<JsArray<T>>()[index]; }
+            set { this.As<JsArray<T>>()[index] = value; }
+        }
+    }
+
+
 	[JsType(Filename="~/res/System.Ext.js")]
 	internal static class PropertyInfoExtensions
 	{

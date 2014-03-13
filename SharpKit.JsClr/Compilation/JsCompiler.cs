@@ -4,9 +4,7 @@ using SharpKit.JavaScript.Private;
 
 namespace SharpKit.JavaScript.Compilation
 {
-
-
-
+        
 
 
     [JsType(JsMode.Prototype, Name = "JsCompiler", Filename = "JsCompiler.js")]
