@@ -109,6 +109,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="System\Linq\Error.cs" />
+    <Compile Include="System\Linq\IGrouping.cs" />
     <Compile Include="System\Linq\IOrderedEnumerable.cs" />
     <Compile Include="System\Linq\Linq.cs" />
     <Compile Include="System\Linq\LinqIterators.cs" />
