@@ -2486,13 +2486,13 @@ namespace SharpKit.jQuery
     public class UITabs
     {
         /// <summary>
-        ///  ui.tab - anchor element of the selected (clicked) tab
+        ///  ui.newTab - anchor element of the selected (clicked) tab. Selected tab and previous selected
         /// </summary>
         public HtmlElement newTab { get; set; }
         public HtmlElement oldTab { get; set; }
 
         /// <summary>
-        /// ui.panel - element, that contains the selected/clicked tab contents
+        /// ui.newPanel - element, that contains the selected/clicked tab contents and previous oldPanel
         /// </summary>
         public HtmlElement newPanel { get; set; }
         public HtmlElement oldPanel { get; set; }
