@@ -1038,6 +1038,10 @@ namespace SharpKit.JavaScript
     public partial class JsDate : JsObjectBase
     {
         public static JsNumber operator -(JsDate date1, JsDate date2) { return default(JsNumber); }
+        public static bool operator <(JsDate date1, JsDate date2) { return default(bool); }
+        public static bool operator <=(JsDate date1, JsDate date2) { return default(bool); }
+        public static bool operator >(JsDate date1, JsDate date2) { return default(bool); }
+        public static bool operator >=(JsDate date1, JsDate date2) { return default(bool); }
         public JsDate() { }
         public JsDate(long value) { }
         public JsDate(JsString value) { }
