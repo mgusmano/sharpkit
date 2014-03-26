@@ -2705,7 +2705,18 @@ namespace SharpKit.JavaScript
         /// <returns></returns>
         [JsMethod(OmitDotOperator = true, OmitParanthesis = true, Export = false, NativeOverloads = true, Name = "in", ExtensionImplementedInInstance = true)]
         public static bool @in(this string propertyName, object obj) { return false; }
+        
+        [JsMethod(InlineCodeExpression = "s in obj", Export = false)]
+        public static bool HasProperty(this object obj, string s)
+        {
+            return false;
+        }
 
+        [JsMethod(Export = false, ExtensionImplementedInInstance=true)]
+        public static bool hasOwnProperty(this object obj, string s)
+        {
+            return false;
+        }
 
         /// <summary>
         /// A C# extension for '===' operator
