@@ -740,21 +740,14 @@ JsTypes.push({ fullname: "SharpKit.DataModel.NotifyCollectionChangedEventArgs", 
 });
 
 JsTypes.push({
-	fullname: "Int32Array",
-	definition:
-    {
-    	GetEnumerator: function () {
-    		return new ArrayEnumerator.ctor(this);
-    	}
-    }
-   });
-
-JsTypes.push({
 	fullname: "Uint8Array",
 definition:
 {
   GetEnumerator: function () {
     return new ArrayEnumerator.ctor(this);
+  },
+  Clone: function() {
+    return new Uint8Array(this);
   }
 }
 });
@@ -765,6 +758,9 @@ definition:
 {
   GetEnumerator: function () {
     return new ArrayEnumerator.ctor(this);
+  },
+  Clone: function() {
+    return new Int16Array(this);
   }
 }
 });
@@ -775,16 +771,22 @@ definition:
 {
   GetEnumerator: function () {
     return new ArrayEnumerator.ctor(this);
+  },
+  Clone: function() {
+    return new Uint16Array(this);
   }
 }
 });
 
 JsTypes.push({
-	fullname: "Int32Array",
+    fullname: "Int32Array",
 definition:
 {
-  GetEnumerator: function () {
-    return new ArrayEnumerator.ctor(this);
+  GetEnumerator: function() {
+     return new ArrayEnumerator.ctor(this);
+  },
+  Clone: function() {
+    return new Int32Array(this);
   }
 }
 });
@@ -795,6 +797,9 @@ definition:
 {
   GetEnumerator: function () {
     return new ArrayEnumerator.ctor(this);
+  },
+  Clone: function() {
+    return new Uint32Array(this);
   }
 }
 });
@@ -805,6 +810,9 @@ definition:
 {
   GetEnumerator: function () {
     return new ArrayEnumerator.ctor(this);
+  },
+  Clone: function() {
+    return new Float32Array(this);
   }
 }
 });
@@ -815,6 +823,9 @@ definition:
 {
   GetEnumerator: function () {
     return new ArrayEnumerator.ctor(this);
+  },
+  Clone: function() {
+    return new Float64Array(this);
   }
 }
 });
