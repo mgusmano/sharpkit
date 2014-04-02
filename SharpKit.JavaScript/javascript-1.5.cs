@@ -771,7 +771,7 @@ namespace SharpKit.JavaScript
         [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
         public static bool delete(object obj) { return false; }
 
-        [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
+        [JsMethod(OmitParanthesis = true, NativeOverloads = true, InsertArg1="()", OmitCommas=true)]
         public static bool @new(object obj) { return false; }
         ///<summary>
         ///Returns a floating-point number converted from a JsString.
