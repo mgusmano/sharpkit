@@ -770,6 +770,9 @@ namespace SharpKit.JavaScript
         /// In all other cases, true is returned.</returns>
         [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
         public static bool delete(object obj) { return false; }
+
+        [JsMethod(OmitParanthesis = true, NativeOverloads = true)]
+        public static bool @new(object obj) { return false; }
         ///<summary>
         ///Returns a floating-point number converted from a JsString.
         ///</summary>
@@ -2691,6 +2694,11 @@ namespace SharpKit.JavaScript
         {
             return false;
         }
+        //[JsMethod(InlineCodeExpression="s in obj", Export=false)]
+        //public static bool HasProperty(this object obj, string s)
+        //{
+        //    return false;
+        //}
 
         [JsMethod(OmitDotOperator = true, OmitParanthesis = true, Export = false, NativeOverloads = true, Name = "instanceof", ExtensionImplementedInInstance = true)]
         public static bool instanceof(this object obj, JsFunction ctor)
