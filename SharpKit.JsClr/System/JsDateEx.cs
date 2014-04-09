@@ -9,8 +9,8 @@ namespace SharpKit.JavaScript.Private
     internal class JsDateEx : JsDate
     {
         [JsMethod(Export = false)]
-        public JsDateEx(JsNumber x)
-            : base(x)
+        public JsDateEx(JsNumber miliseconds)
+            : base(miliseconds)
         {
         }
 
@@ -139,7 +139,7 @@ namespace SharpKit.JavaScript.Private
                     setMilliseconds(value);
             }
         }
-        
+
         // WARNING
         // the Ticks property currently has a resolution of 1 millisecond only!
         public long Ticks

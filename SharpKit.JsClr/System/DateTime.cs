@@ -64,9 +64,9 @@ namespace SharpKit.JavaScript.Private
         public static JsImplDateTime MinValue;
         public static JsImplDateTime MaxValue;
         [JsMethod(Name = "Parse$$String")]
-        public static DateTime Parse(string str)
+        public static JsImplDateTime Parse(string str)
         {
-            return JsDate.parse(str).As<DateTime>();
+            return new JsDateEx(JsDate.parse(str)).As<JsImplDateTime>();
         }
 
         public static int DaysInMonth(int year, int month)
