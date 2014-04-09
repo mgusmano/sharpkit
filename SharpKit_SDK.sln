@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft", "Microsoft", "{AA1BD5B2-9FE3-4DA2-81E7-8D55B2792987}"
 EndProject
@@ -170,11 +170,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKit.FabricJs", "SharpK
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabricJsCodeGen", "FabricJsCodeGen\FabricJsCodeGen.csproj", "{EF37769E-3DE0-4EA9-8A49-88CEF91B9048}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MomentJs", "MomentJs\MomentJs.csproj", "{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}"
+EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -1485,6 +1483,26 @@ Global
 		{EF37769E-3DE0-4EA9-8A49-88CEF91B9048}.v4.0|Mixed Platforms.Build.0 = Release|x86
 		{EF37769E-3DE0-4EA9-8A49-88CEF91B9048}.v4.0|x86.ActiveCfg = Release|x86
 		{EF37769E-3DE0-4EA9-8A49-88CEF91B9048}.v4.0|x86.Build.0 = Release|x86
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.Release|x86.ActiveCfg = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.v3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.v3.5|Any CPU.Build.0 = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.v3.5|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.v3.5|Mixed Platforms.Build.0 = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.v3.5|x86.ActiveCfg = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.v4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.v4.0|Any CPU.Build.0 = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.v4.0|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.v4.0|Mixed Platforms.Build.0 = Release|Any CPU
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73}.v4.0|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1550,6 +1568,7 @@ Global
 		{28808C99-7747-485F-857C-65BFB456DA7A} = {75C3B1AD-131B-4335-87F5-7534006D52B8}
 		{8ABEBA77-AC55-4027-9B9B-27AB7E4DFCC8} = {75C3B1AD-131B-4335-87F5-7534006D52B8}
 		{DBD0603D-3811-4D9E-9C29-F66ADF9922C0} = {75C3B1AD-131B-4335-87F5-7534006D52B8}
+		{8B2D8B06-4FBD-429E-861C-AF01AAFF7F73} = {75C3B1AD-131B-4335-87F5-7534006D52B8}
 		{6C986D10-2188-463B-BBD2-F0BB290F6780} = {58D10FF7-C1E1-4890-A5A1-8F70EF85B7E5}
 		{E85B2A11-D0D0-4879-92D6-3D6A12CFD14B} = {D64BCC9D-7AE1-4232-98A4-24E2AFE7D7A5}
 		{78DF8556-2018-4D01-B7E7-EFF9D8840ABE} = {D64BCC9D-7AE1-4232-98A4-24E2AFE7D7A5}
@@ -1570,5 +1589,9 @@ Global
 		{4484C7D5-4656-4BDA-9BCC-6C325E526A44} = {9B16CD6B-4B9B-4F48-9F87-8E2EB58164C0}
 		{3CE153D9-94A9-4957-84F0-877C30B9EEC5} = {ACA8606D-80F0-4A5F-A867-192B25DE5865}
 		{EF37769E-3DE0-4EA9-8A49-88CEF91B9048} = {ACA8606D-80F0-4A5F-A867-192B25DE5865}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal
