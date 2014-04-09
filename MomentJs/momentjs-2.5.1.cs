@@ -6,7 +6,7 @@ namespace Moment
     // Moment.js
     // An incomplete wrapper library for SharpKit - by Daniel Allemann
     [JsType(JsMode.Prototype, Export = false, Name = "moment")]
-    public abstract class Moment
+    public class Moment
     {
 
         // constructor
