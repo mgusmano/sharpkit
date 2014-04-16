@@ -460,7 +460,7 @@ JsCompiler.CreateBaseCtor = function (type){
     return function(){this.construct(type);};
 };
 if(typeof(Node)=='undefined')
-	Node = function(){};
+	var Node = function(){};
 
 JsCompiler.ResolveNamespace = function (nsText){
     var ns = window;
@@ -3518,8 +3518,8 @@ var isMoz = document.implementation && document.implementation.createDocument;
 var isWebkit = navigator.userAgent.indexOf("WebKit") > -1; //navigator.vendor == "Apple Computer, Inc.";
 //TODO: Add all the rest, or find another way
 if (!isMoz) {
-	HTMLImageElement = null;
-	HTMLInputElement = null;
+	var HTMLImageElement = null;
+	var HTMLInputElement = null;
 }
 String.Format = function (format, varargs) {
 	return String.format.apply(String, arguments);

@@ -429,7 +429,7 @@ JsCompiler.CreateBaseCtor = function (type){
     return function(){this.construct(type);};
 };
 if(typeof(Node)=='undefined')
-	Node = function(){};
+	var Node = function(){};
 
 JsCompiler.ResolveNamespace = function (nsText){
     var ns = window;

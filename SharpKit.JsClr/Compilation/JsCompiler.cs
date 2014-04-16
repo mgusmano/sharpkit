@@ -216,7 +216,7 @@ namespace SharpKit.JavaScript.Compilation
 
 
         [JsMethod(GlobalCode = true, Code = @"if(typeof(Node)=='undefined')
-	Node = function(){};
+	var Node = function(){};
 ")]
         static void Global2()
         {
