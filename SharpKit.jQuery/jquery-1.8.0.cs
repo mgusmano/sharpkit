@@ -637,14 +637,14 @@ namespace SharpKit.jQuery
         /// <typeparam name="T">The element type</typeparam>
         /// <param name="array">The array to iterate over the elements of</param>
         /// <param name="callback"></param>
-        public static void each<T>(JsArray<T> array, JsAction<JsNumber, T> callback) {}
+        public static void each<T>(JsArray<T> array, JsAction<JsNumber, T> callback) { }
         /// <summary>
         /// Invoices the jQuery $.each() function.  @return(true) true from the callback to continue, false to break.
         /// </summary>
         /// <typeparam name="T">The element type</typeparam>
         /// <param name="obj">The object to iterate over the properties of</param>
         /// <param name="callback"></param>
-        public static void each<T>(JsObject<T> obj, JsAction<JsNumber, T> callback){}
+        public static void each<T>(JsObject<T> obj, JsAction<JsNumber, T> callback) { }
         /// <summary>
         /// Remove all child nodes of the set of matched elements from the DOM.
         /// </summary>
@@ -1949,18 +1949,32 @@ namespace SharpKit.jQuery
         /// Hide the matched elements with a sliding motion.
         /// </summary>
         public jQuery slideUp(JsNumber duration, JsString easing, JsAction callback) { return null; }
+
         /// <summary>
         /// Stop the currently-running animation on the matched elements.
         /// </summary>
         public jQuery stop() { return null; }
+
         /// <summary>
         /// Stop the currently-running animation on the matched elements.
         /// </summary>
         public jQuery stop(bool clearQueue) { return null; }
+
         /// <summary>
         /// Stop the currently-running animation on the matched elements.
         /// </summary>
         public jQuery stop(bool clearQueue, bool jumpToEnd) { return null; }
+
+        /// <summary>
+        /// Stop the currently-running animation, remove all queued animations, and complete all animations for the matched elements.
+        /// </summary>
+        public jQuery finish() { return null; }
+
+        /// <summary>
+        /// Stop the currently-running animation, remove all queued animations, and complete all animations for the matched elements.
+        /// </summary>
+        public jQuery finish(JsString queue) { return null; }
+
         /// <summary>
         /// Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -2141,7 +2155,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Get the current value of the first element in the set of matched elements.
         /// </summary>
-        [JsMethod(Name="val")]
+        [JsMethod(Name = "val")]
         public JsString valString() { return null; }
         /// <summary>
         /// Set the value of each element in the set of matched elements.
@@ -2152,7 +2166,7 @@ namespace SharpKit.jQuery
         /// </summary>
         public jQuery val(JsAction<JsNumber, HtmlElement> function) { return null; }
 
-        
+
         /// <summary>
         /// Get the current computed width for the first element in the set of matched elements.
         /// </summary>
