@@ -3,7 +3,13 @@ using SharpKit.jQuery;
 
 namespace SharpKit.SignalR
 {
-
+    [JsType(JsMode.Prototype, Export = false, Name = "$")]
+    public class SignalRContext
+    {
+        public static Connection connection(JsString s) { return null; }
+        public static Hub hubConnection(JsString s) { return null; }
+    }
+    [JsType(JsMode.Prototype, Export = false, Name = "$.connection")]
     public class Connection
     {
         /// <summary>
@@ -170,6 +176,7 @@ namespace SharpKit.SignalR
         public JsString messageId { get; set; }
     }
 
+    [JsType(JsMode.Json)]
     public class ConnectionStartSettings
     {
         /// <summary>
@@ -184,11 +191,15 @@ namespace SharpKit.SignalR
         public JsAction callback { get; set; }
     }
 
+    [JsType(JsMode.Prototype, Export = false, Name = "$.hubConnection")]
     public class Hub : Connection
     {
+        [JsMethod(OmitNewOperator = true)]
         public Hub() { }
+        [JsMethod(OmitNewOperator = true)]
         public Hub(Connection connection) { }
-        //TODO: constractor(?)
+        [JsMethod(OmitNewOperator = true)]
+        public Hub(JsString cs) { }
 
         /// <summary>
         /// The client id for the hub connection.
@@ -200,6 +211,7 @@ namespace SharpKit.SignalR
         /// </summary>
         public bool logging { get; set; }
 
+        public JsString qs { get; set; }
         //TODO: $.connection.{hubname}
     }
 }
