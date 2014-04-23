@@ -107,7 +107,7 @@ namespace SharpKit.SignalR
         ///connection.start();
         ///</code>
         ///</example>
-        public Deferred start() { return null; }
+        public Deferred<object, JsError> start() { return null; }
         //TODO: return type?
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace SharpKit.SignalR
         /// });
         ///</code>
         ///</example>
-        public void start(JsAction callback) { }
+        public Deferred<object, JsError> start(JsAction callback) { return null; }
         //TODO: return type?
 
 
@@ -134,7 +134,7 @@ namespace SharpKit.SignalR
         /// Starts the connection using the passed settings.
         /// </summary>
         /// <param name="settings"></param>
-        public void start(ConnectionStartSettings settings) { }
+        public Deferred<object, JsError> start(ConnectionStartSettings settings) { return null; }
         //TODO: return type?
 
         /// <summary>
@@ -174,6 +174,10 @@ namespace SharpKit.SignalR
         /// Gets or sets the message id for the current connection.
         /// </summary>
         public JsString messageId { get; set; }
+
+        public Hub createHubProxy(JsString s) { return null; }
+        public void on(JsString eventName, JsAction handler) { }
+
     }
 
     [JsType(JsMode.Json)]

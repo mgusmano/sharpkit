@@ -2472,10 +2472,7 @@ namespace SharpKit.JavaScript
         /// <remarks>
         /// A list of language codes can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation">here</a>.
         /// A description of valid options can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare">here</a>.
-        /// 
         /// </remarks>
-        /// <see cref="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation"/>
-        /// <see cref="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare" />
         [JsMethod(OmitOptionalParameters = true)]
         public JsNumber localeCompare(JsString compareString, JsArray<JsString> locales = null, object options = null) { return 0; }
     }

@@ -712,7 +712,13 @@ namespace SharpKit.Google.Maps
         /// <summary>
         ///This event is fired when the mouse enters the area of the marker icon.
         /// </summary>
-        public JsAction<MouseEvent> mouseover { get; set; }
+        public event JsAction<MouseEvent> mouseover
+        {
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.addListener", InsertArg0 = "\"mouseover\"")]
+            add { }
+            [JsMethod(InstanceImplementedAsExtension = true, Name = "google.maps.event.removeListener", InsertArg0 = "\"mouseover\"")]
+            remove { }
+        }
         /// <summary>
         ///This event is fired for a mouseup on the marker.
         /// </summary>
