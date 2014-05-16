@@ -711,7 +711,7 @@ var System$Linq$Enumerable$SelectManyListIterator = {
         },
         MoveNext: function (){
             if (this.state == 1){
-                while (this.index < this.source.get_Count()){
+                while (this.index < this.source.get_Count() || this.innerEnumerator != null){
                     if (this.innerEnumerator == null){
                         var arg = this.source.get_Item$$Int32(this.index);
                         this.index++;
@@ -1282,7 +1282,7 @@ var System$Linq$Enumerable$SelectManyArrayIterator = {
         },
         MoveNext: function (){
             if (this.state == 1){
-                while (this.index < this.source.length){
+                while (this.index < this.source.length || this.innerEnumerator != null){
                     if (this.innerEnumerator == null){
                         var arg = this.source[this.index];
                         this.index++;

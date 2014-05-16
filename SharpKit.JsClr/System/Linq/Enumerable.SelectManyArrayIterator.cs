@@ -27,7 +27,7 @@ namespace SharpKit.JavaScript.Private
             {
                 if (this.state == 1)
                 {
-                    while (this.index < this.source.Length)
+                    while (this.index < this.source.Length || innerEnumerator != null)
                     {
                         if (innerEnumerator == null)
                         {

@@ -1453,7 +1453,7 @@ var System$DateTime = {
             System.DateTime.MaxValue.setUTCFullYear(9999, 11, 31);
         },
         Parse$$String: function (str){
-            return Date.parse(str);
+            return new Date(Date.parse(str));
         },
         DaysInMonth: function (year, month){
             return 32 - new Date(year, month - 1, 32).getDate();
