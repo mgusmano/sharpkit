@@ -1037,7 +1037,7 @@ namespace SharpKit.JavaScript
     #endregion
 
     #region JsDate
-    [JsType(JsMode.Prototype, Export = false, Name = "Date", NativeCasts = true)]
+    [JsType(JsMode.Prototype, Export = false, Name = "Date", NativeCasts = true, NativeOperatorOverloads = true)]
     public partial class JsDate : JsObjectBase
     {
         public static JsNumber operator -(JsDate date1, JsDate date2) { return default(JsNumber); }
