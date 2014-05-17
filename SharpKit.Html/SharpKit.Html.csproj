@@ -642,7 +642,7 @@
     <Compile Include="custom\modules\indexeddb\IDBOpenDBRequest.cs" />
     <Compile Include="custom\modules\indexeddb\IDBRequest.cs" />
     <Compile Include="custom\modules\indexeddb\IDBTransaction.cs" />
-    <Compile Include="custom\modules\indexeddb\IDBObjectStoreOptions.cs" />
+    <Compile Include="custom\modules\indexeddb\ObjectStoreOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SharpKit.snk" />

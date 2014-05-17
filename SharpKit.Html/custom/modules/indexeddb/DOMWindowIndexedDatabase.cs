@@ -1,5 +1,5 @@
 using System;
-using SharpKit.Html.indexeddb.custom;
+using SharpKit.Html.indexeddb;
 
 namespace SharpKit.Html
 {
