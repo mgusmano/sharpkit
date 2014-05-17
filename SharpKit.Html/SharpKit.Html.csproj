@@ -631,6 +631,18 @@
     <Compile Include="HtmlContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="custom\modules\websocket\CloseEvent.cs" />
+    <Compile Include="custom\modules\indexeddb\DOMWindowIndexedDatabase.cs" />
+    <Compile Include="custom\modules\indexeddb\IDBCursor.cs" />
+    <Compile Include="custom\modules\indexeddb\IDBCursorWithValue.cs" />
+    <Compile Include="custom\modules\indexeddb\IDBDatabase.cs" />
+    <Compile Include="custom\modules\indexeddb\IDBFactory.cs" />
+    <Compile Include="custom\modules\indexeddb\IDBIndex.cs" />
+    <Compile Include="custom\modules\indexeddb\IDBKeyRange.cs" />
+    <Compile Include="custom\modules\indexeddb\IDBObjectStore.cs" />
+    <Compile Include="custom\modules\indexeddb\IDBOpenDBRequest.cs" />
+    <Compile Include="custom\modules\indexeddb\IDBRequest.cs" />
+    <Compile Include="custom\modules\indexeddb\IDBTransaction.cs" />
+    <Compile Include="custom\modules\indexeddb\IDBObjectStoreOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SharpKit.snk" />
@@ -659,4 +671,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Folder Include="custom\modules\indexeddb\" />
+  </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 using SharpKit.Html.filesystem;
 using SharpKit.Html.quota;
 using SharpKit.JavaScript;
+using SharpKit.Html.indexeddb;
 
 namespace SharpKit.Html
 {
