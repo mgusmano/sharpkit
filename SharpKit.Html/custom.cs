@@ -326,6 +326,7 @@ public Int32Array(int length) { }
 
         public static object parse(JsString json) { return null; }
 
+        public static T parse<T>(JsString json) { return default(T); }
     }
 
     public partial class WebGLRenderingContext
