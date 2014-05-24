@@ -655,6 +655,13 @@ namespace SharpKit.JavaScript
     [AttributeUsage(AttributeTargets.Event)]
     public partial class JsEventAttribute : Attribute
     {
+        /// <summary>
+        ///	Indicates that SharpKit compiler will generate javascript code for this field
+        /// This property is inherited and applied to all derived types. Default value is true
+        /// </summary>
+        public bool Export { get { return _Export.GetValueOrDefault(true); } set { _Export = value; } }
+        public bool? _Export;
+
         ///<summary>
         ///Causes an event to be treated as a native JavaScript function
         ///</summary>

@@ -399,7 +399,21 @@ namespace SharpKit.JavaScript
         /// Documentation from MDN.
         ///</summary>
         [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
-        public void forEach(JsAction<JsObject, JsNumber, JsArray<T>> callback) { }
+        public void forEach(JsAction<T, JsNumber, JsArray<T>> callback) { }
+        ///<summary>
+        /// Executes a provided function once per array element.
+        /// Supported in Chrome, Firefox, IE 9, Opera and Safari
+        /// Documentation from MDN.
+        ///</summary>
+        [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
+        public void forEach(JsAction<T, JsNumber> callback) { }
+        ///<summary>
+        /// Executes a provided function once per array element.
+        /// Supported in Chrome, Firefox, IE 9, Opera and Safari
+        /// Documentation from MDN.
+        ///</summary>
+        [JsMethod(NativeOverloads = true, IgnoreGenericArguments = true)]
+        public void forEach(JsAction<T> callback) { }
         ///<summary>
         ///Returns an Array object with the elements reversed.
         ///</summary>
@@ -490,6 +504,14 @@ namespace SharpKit.JavaScript
         /// <param name="item"></param>
         /// <returns> -1 if the item is not found.</returns>
         public JsNumber indexOf(T item) { return null; }
+
+        public JsArray<R> map<R>(JsFunc<T, JsNumber, JsArray<T>, R> func, object thisArg) { return null; }
+        public JsArray<R> map<R>(JsFunc<T, JsNumber, R> func, object thisArg) { return null; }
+        public JsArray<R> map<R>(JsFunc<T, R> func, object thisArg) { return null; }
+
+        public JsArray<R> map<R>(JsFunc<T, JsNumber, JsArray<T>, R> func) { return null; }
+        public JsArray<R> map<R>(JsFunc<T, JsNumber, R> func) { return null; }
+        public JsArray<R> map<R>(JsFunc<T, R> func) { return null; }
 
 
     }
@@ -2664,6 +2686,8 @@ namespace SharpKit.JavaScript
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
         /// <returns></returns>
+        [JsMethod(OmitCalls = true)]
+        public static List<T> AsList<T>(this JsArray<T> list) { return null; }
         [JsMethod(OmitCalls = true)]
         public static JsArray<T> AsJsArray<T>(this IList<T> list) { return null; }
         /// <summary>

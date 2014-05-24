@@ -12,6 +12,9 @@ namespace SharpKit.JavaScript.Private
 		{
 			return p;
 		}
-	}
+
+        public static int TickCount { get { return new JsDate().valueOf(); } }
+
+    }
 
 }
