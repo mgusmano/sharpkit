@@ -37,7 +37,7 @@ namespace SharpKit.JavaScript.Compilation
             throw new NotImplementedException();
         }
     }
-    [JsType(JsMode.Prototype, Name = "function", Export = false)]
+    [JsType(JsMode.Prototype, Name = "Function", Export = false)]
     class JsDelegateFunction : JsFunction
     {
         public JsFunction func { get; set; }

@@ -39,7 +39,7 @@ namespace SharpKit.JavaScript.Private
 	{
 	}
 
-    [JsType(Name = "System.IComparer", Filename = "~/Internal/Core.js")]
+    [JsType(Name = "System.Collections.IComparer", Filename = "~/Internal/Core.js")]
     public interface JsImplIComparer
     {
         int Compare(object x, object y);

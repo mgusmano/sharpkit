@@ -320,6 +320,13 @@ var System$Collections$Generic$IEqualityComparer$1 = {
     Kind: "Interface"
 };
 JsTypes.push(System$Collections$Generic$IEqualityComparer$1);
+var System$Collections$Generic$IComparer$1 = {
+    fullname: "System.Collections.Generic.IComparer$1",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.JsClr",
+    Kind: "Interface"
+};
+JsTypes.push(System$Collections$Generic$IComparer$1);
 var System$Comparison$1 = {
     fullname: "System.Comparison$1",
     Kind: "Delegate",
@@ -369,13 +376,13 @@ var System$Collections$IList = {
     Kind: "Interface"
 };
 JsTypes.push(System$Collections$IList);
-var System$IComparer = {
-    fullname: "System.IComparer",
+var System$Collections$IComparer = {
+    fullname: "System.Collections.IComparer",
     baseTypeName: "System.Object",
     assemblyName: "SharpKit.JsClr",
     Kind: "Interface"
 };
-JsTypes.push(System$IComparer);
+JsTypes.push(System$Collections$IComparer);
 var System$Collections$Specialized$NotifyCollectionChangedAction = {
     fullname: "System.Collections.Specialized.NotifyCollectionChangedAction",
     staticDefinition: {
@@ -1685,13 +1692,6 @@ var System$IEquatable$1 = {
     Kind: "Interface"
 };
 JsTypes.push(System$IEquatable$1);
-var System$IComparer$1 = {
-    fullname: "System.IComparer$1",
-    baseTypeName: "System.Object",
-    assemblyName: "SharpKit.JsClr",
-    Kind: "Interface"
-};
-JsTypes.push(System$IComparer$1);
 var System$IFormattable = {
     fullname: "System.IFormattable",
     baseTypeName: "System.Object",

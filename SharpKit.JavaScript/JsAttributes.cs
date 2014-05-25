@@ -420,6 +420,8 @@ namespace SharpKit.JavaScript
         /// </summary>
         public bool ForceIntegers { get { return _ForceIntegers.GetValueOrDefault(); } set { _ForceIntegers = value; } } public bool? _ForceIntegers;
 
+        public bool ExportTsHeaders { get { return _ExportTsHeaders.GetValueOrDefault(); } set { _ExportTsHeaders = value; } } public bool? _ExportTsHeaders;
+
 
     }
     #endregion

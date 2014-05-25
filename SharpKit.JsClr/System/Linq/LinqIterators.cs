@@ -276,7 +276,7 @@ namespace SharpKit.JavaScript.Private
 
         }
 
-        [JsType(Name = "System.Linq.Enumerable.TakeIterator", Filename = "~/res/System.Linq.js")]
+        [JsType(Name = "System.Linq.Enumerable.ConcatIterator", Filename = "~/res/System.Linq.js")]
         class ConcatIterator<T> : IEnumerator<T>, IEnumerable<T>
         {
             public ConcatIterator(IEnumerable first, IEnumerable second)

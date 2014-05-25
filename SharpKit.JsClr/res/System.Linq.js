@@ -404,7 +404,7 @@ var System$Linq$Enumerable = {
             if (second == null){
                 throw $CreateException(System.Linq.Error.ArgumentNull("second"), new Error());
             }
-            return new System.Linq.Enumerable.TakeIterator.ctor(TSource, first, second);
+            return new System.Linq.Enumerable.ConcatIterator.ctor(TSource, first, second);
         },
         Count$1$$IEnumerable$1: function (TSource, source){
             if (source == null){
@@ -1187,8 +1187,8 @@ var System$Linq$Enumerable$TakeIterator = {
     }
 };
 JsTypes.push(System$Linq$Enumerable$TakeIterator);
-var System$Linq$Enumerable$TakeIterator = {
-    fullname: "System.Linq.Enumerable.TakeIterator",
+var System$Linq$Enumerable$ConcatIterator = {
+    fullname: "System.Linq.Enumerable.ConcatIterator",
     baseTypeName: "System.Object",
     assemblyName: "SharpKit.JsClr",
     interfaceNames: ["System.Collections.Generic.IEnumerator$1", "System.Collections.Generic.IEnumerable$1"],
@@ -1255,11 +1255,11 @@ var System$Linq$Enumerable$TakeIterator = {
         GetEnumerator: function (){
             if (this.State == 0)
                 return this;
-            return new System.Linq.Enumerable.TakeIterator.ctor(this.T, this.First, this.Second);
+            return new System.Linq.Enumerable.ConcatIterator.ctor(this.T, this.First, this.Second);
         }
     }
 };
-JsTypes.push(System$Linq$Enumerable$TakeIterator);
+JsTypes.push(System$Linq$Enumerable$ConcatIterator);
 var System$Linq$Enumerable$SelectManyArrayIterator = {
     fullname: "System.Linq.Enumerable.SelectManyArrayIterator",
     baseTypeName: "System.Linq.Enumerable.Iterator",

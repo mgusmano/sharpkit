@@ -215,4 +215,12 @@
             return obj.As<JsString>().toLowerCase().As<int>();
         }
     }
+
+
+    [JsType(Name = "System.Collections.Generic.IComparer$1", Filename = "~/Internal/Core.js")]
+    public interface JsImplIComparer<T>
+    {
+        int Compare(T x, T y);
+    }
+
 }
