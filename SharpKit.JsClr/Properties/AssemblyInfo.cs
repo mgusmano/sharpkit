@@ -69,7 +69,7 @@ using SharpKit.JavaScript;
 
 [assembly: JsMergedFile(Filename = "res/jsclr.min.js", Sources = new string[] { "res/jsclr.js" }, Minify = true)]
 
-[assembly: JsExport(UseStrict = true/*, CodeInjectionFilename = "Internal/sk.js"*/, GenerateSourceMaps=true, ExportTsHeaders =true)]
+[assembly: JsExport(UseStrict = true/*, CodeInjectionFilename = "Internal/sk.js", GenerateSourceMaps=true, ExportTsHeaders =true */)]
 //[assembly: JsExport(UseStrict = true)]
 
 [assembly: JsType(JsMode.Prototype, Export = false, TargetType = typeof(BindingFlags))]

@@ -19,6 +19,19 @@ namespace SharpKit.JavaScript.Private
         {
         }
 
+        [JsMethod(Export = false)]
+        public JsDateEx(JsString value) { }
+        [JsMethod(Export = false)]
+        public JsDateEx(int year, int month, int date) { }
+        [JsMethod(Export = false)]
+        public JsDateEx(int year, int month, int date, int hours) { }
+        [JsMethod(Export = false)]
+        public JsDateEx(int year, int month, int date, int hours, int minutes) { }
+        [JsMethod(Export = false)]
+        public JsDateEx(int year, int month, int date, int hours, int minutes, int seconds) { }
+        [JsMethod(Export = false)]
+        public JsDateEx(int year, int month, int date, int hours, int minutes, int seconds, int ms) { }
+
         public int CompareTo(JsDateEx value)
         {
             return valueOf() - value.valueOf();
@@ -186,7 +199,7 @@ namespace SharpKit.JavaScript.Private
             return x;
         }
 
-        public JsDateEx Today
+        public static JsDateEx Today
         {
             get
             {
@@ -230,10 +243,15 @@ namespace SharpKit.JavaScript.Private
             x._Kind = _Kind;
             return x;
         }
+        JsDateEx Clone2(JsNumber totalMs)
+        {
+            var x = new JsDateEx(totalMs);
+            x._Kind = _Kind;
+            return x;
+        }
         public JsDateEx AddMilliseconds(int miliseconds)
         {
-            var date2 = Clone();
-            date2.setMilliseconds(date2.getMilliseconds() + miliseconds);
+            var date2 = Clone2(valueOf()+miliseconds);
             return date2;
         }
 

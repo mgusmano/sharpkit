@@ -31,13 +31,7 @@ namespace SharpKit.JavaScript.Private
 
         public JsImplDateTime(int year, int month, int day, int hour, int minute, int second)
         {
-            var x = new JsDateEx();
-            x.Year = year;
-            x.Month = month;
-            x.Day = day;
-            x.Hour = hour;
-            x.Minute = minute;
-            x.Second = second;
+            var x = new JsDateEx(year, month - 1, day, hour, minute, second, 0);
             JsContext.@return(x);
         }
         public JsImplDateTime(int year, int month, int day, int hour, int minute, int second, DateTimeKind kind)
@@ -50,6 +44,7 @@ namespace SharpKit.JavaScript.Private
             x.Hour = hour;
             x.Minute = minute;
             x.Second = second;
+            x.Millisecond = 0;
             JsContext.@return(x);
         }
 
@@ -105,7 +100,7 @@ namespace SharpKit.JavaScript.Private
         }
         public static TimeSpan operator -(JsImplDateTime t1, JsImplDateTime t2)
         {
-            return TimeSpan.FromMilliseconds(t1.getTime() - t2.getTime());
+            return new TimeSpan((t1.getTime() - t2.getTime())*10000);
         }
         public static JsImplDateTime operator -(JsImplDateTime t1, TimeSpan t2)
         {
@@ -114,7 +109,7 @@ namespace SharpKit.JavaScript.Private
 
         public static TimeSpan operator +(JsImplDateTime t1, JsImplDateTime t2)
         {
-            return TimeSpan.FromMilliseconds(t1.getTime() + t2.getTime());
+            return new TimeSpan((t1.getTime() + t2.getTime()) * 10000);
         }
         public static JsImplDateTime operator +(JsImplDateTime t1, TimeSpan t2)
         {
@@ -156,6 +151,13 @@ namespace SharpKit.JavaScript.Private
             {
 #warning to be implemented correctly
               return Now;
+            }
+        }
+        public new static JsImplDateTime Today
+        {
+            get
+            {
+                return JsDateEx.Today.As<JsImplDateTime>();
             }
         }
 
