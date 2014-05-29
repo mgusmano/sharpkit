@@ -222,7 +222,7 @@ namespace SharpKit.JavaScript.Private
         public string ToString(string format)
         {
             format = format.Replace("yyyy", Year.ToString("0000"));
-            format = format.Replace("yyyy", Year.ToString("00"));
+            format = format.Replace("yy", Year.ToString("00"));
             format = format.Replace("y", Year.ToString());
             format = format.Replace("MM", Month.ToString("00"));
             format = format.Replace("M", Month.ToString());

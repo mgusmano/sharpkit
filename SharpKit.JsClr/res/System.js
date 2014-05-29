@@ -2538,7 +2538,7 @@ Date.prototype.Subtract$$TimeSpan = function (value){
 };
 Date.prototype.ToString$$String = function (format){
     format = format.Replace$$String$$String("yyyy", this.get_Year().ToString$$String("0000"));
-    format = format.Replace$$String$$String("yyyy", this.get_Year().ToString$$String("00"));
+    format = format.Replace$$String$$String("yy", this.get_Year().ToString$$String("00"));
     format = format.Replace$$String$$String("y", this.get_Year().toString());
     format = format.Replace$$String$$String("MM", this.get_Month().ToString$$String("00"));
     format = format.Replace$$String$$String("M", this.get_Month().toString());
