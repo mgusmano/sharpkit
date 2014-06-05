@@ -1422,7 +1422,7 @@ namespace SharpKit.JavaScript
         ///<param name="ms">An integer from 0 to 999 that specifies the milliseconds.</param>
         ///<returns>The number of milliseconds between midnight, January 1, 1970 UTC and the supplied date. This return value can be used in the setTime method and in the Date object constructor. If the value of an argument is greater than its range, or is a negative number, other stored values are modified accordingly. For example, if you specify 150 seconds, JScript redefines that number as two minutes and 30 seconds.</returns>
         [JsMethod(NativeOverloads = true)]
-        public static JsString UTC(JsNumber year, JsNumber month, JsNumber day, JsNumber hours, JsNumber minutes, JsNumber seconds, JsNumber ms) { return default(JsString); }
+        public static JsNumber UTC(JsNumber year, JsNumber month, JsNumber day, JsNumber hours, JsNumber minutes, JsNumber seconds, JsNumber ms) { return null; }
         ///<summary>
         ///Returns the primitive value of the specified object.
         ///</summary>

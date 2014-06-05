@@ -153,6 +153,18 @@ namespace SharpKit.JavaScript.Private
             }
         }
 
+        //public long Epoch
+        //{
+        //    get
+        //    {
+        //        return valueOf();
+        //        if (_Kind == DateTimeKind.Utc)
+        //            return valueOf();
+        //        //return JsDate.UTC(getUTCFullYear(), getUTCMonth(), getUTCDate(), getUTCHours(), getUTCMinutes(), getUTCSeconds(), getUTCMilliseconds());
+        //        return JsDate.UTC(getFullYear(), getMonth(), getDate(), getHours(), getMinutes(), getSeconds(), getMilliseconds());
+        //    }
+        //}
+
         // WARNING
         // the Ticks property currently has a resolution of 1 millisecond only!
         public long Ticks
@@ -251,14 +263,15 @@ namespace SharpKit.JavaScript.Private
         }
         public JsDateEx AddMilliseconds(int miliseconds)
         {
-            var date2 = Clone2(valueOf()+miliseconds);
+            var date2 = Clone2(valueOf() + miliseconds);
             return date2;
         }
 
         public JsDateEx AddSeconds(int seconds)
         {
-            var date2 = Clone();
-            date2.setSeconds(date2.getSeconds() + seconds);
+            var ms = valueOf() + (seconds * 1000);
+            var date2 = Clone2(ms.As<JsNumber>());
+            //date2.setSeconds(date2.getSeconds() + seconds);
             return date2;
         }
 

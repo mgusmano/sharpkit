@@ -1489,16 +1489,16 @@ var System$DateTime = {
             return System.DateTime.Compare(t1, t2) >= 0;
         },
         op_Subtraction$$DateTime$$DateTime: function (t1, t2){
-            return new System.TimeSpan.ctor$$Int64((t1.getTime() - t2.getTime()) * 10000);
+            return System.TimeSpan.FromMilliseconds(t1.valueOf() - t2.valueOf());
         },
         op_Subtraction$$DateTime$$TimeSpan: function (t1, t2){
-            return new Date(t1.getDate() - Cast(t2.get_TotalMilliseconds(), System.Int64.ctor));
+            return new Date(t1.valueOf() - Cast(t2.get_TotalMilliseconds(), System.Int64.ctor));
         },
         op_Addition$$DateTime$$DateTime: function (t1, t2){
-            return new System.TimeSpan.ctor$$Int64((t1.getTime() + t2.getTime()) * 10000);
+            return System.TimeSpan.FromMilliseconds(t1.valueOf() + t2.valueOf());
         },
         op_Addition$$DateTime$$TimeSpan: function (t1, t2){
-            return new Date(t1.getDate() + Cast(t2.get_TotalMilliseconds(), System.Int64.ctor));
+            return new Date(t1.valueOf() + Cast(t2.get_TotalMilliseconds(), System.Int64.ctor));
         },
         CompareJsDates: function (d1, d2){
             if (d1 == d2)
@@ -1540,19 +1540,18 @@ var System$DateTime = {
             return x;
         },
         ctor$$Int32$$Int32$$Int32$$Int32$$Int32$$Int32: function (year, month, day, hour, minute, second){
-            var x = new Date(year, month - 1, day, hour, minute, second, 0);
+            var x = new Date(year, month - 1, day, hour, minute, second);
             return x;
         },
         ctor$$Int32$$Int32$$Int32$$Int32$$Int32$$Int32$$DateTimeKind: function (year, month, day, hour, minute, second, kind){
-            var x = new Date();
+            var x;
+            if (kind == 1){
+                x = new Date(Date.UTC(year, month - 1, day, hour, minute, second));
+            }
+            else {
+                x = new Date(year, month - 1, day, hour, minute, second);
+            }
             x._Kind = kind;
-            x.set_Year(year);
-            x.set_Month(month);
-            x.set_Day(day);
-            x.set_Hour(hour);
-            x.set_Minute(minute);
-            x.set_Second(second);
-            x.set_Millisecond(0);
             return x;
         },
         Equals$$Object: function (obj){
@@ -2567,8 +2566,8 @@ Date.prototype.AddMilliseconds = function (miliseconds){
     return date2;
 };
 Date.prototype.AddSeconds = function (seconds){
-    var date2 = this.Clone();
-    date2.setSeconds(date2.getSeconds() + seconds);
+    var ms = this.valueOf() + (seconds * 1000);
+    var date2 = this.Clone2(ms);
     return date2;
 };
 Date.prototype.AddMinutes = function (minutes){
@@ -2918,10 +2917,10 @@ var System$TimeSpan = {
             System.TimeSpan.MinValue = new System.TimeSpan.ctor$$Int64(-9223372036854775808);
         },
         Compare: function (t1, t2){
-            if (t1._ticks > t2._ticks){
+            if (t1.get__ticks() > t2.get__ticks()){
                 return 1;
             }
-            if (t1._ticks < t2._ticks){
+            if (t1.get__ticks() < t2.get__ticks()){
                 return -1;
             }
             return 0;
@@ -2930,7 +2929,7 @@ var System$TimeSpan = {
             return System.TimeSpan.Interval(value, 86400000);
         },
         Equals$$TimeSpan$$TimeSpan: function (t1, t2){
-            return t1._ticks == t2._ticks;
+            return t1.get__ticks() == t2.get__ticks();
         },
         FromHours: function (value){
             return System.TimeSpan.Interval(value, 3600000);
@@ -2947,7 +2946,9 @@ var System$TimeSpan = {
             return new System.TimeSpan.ctor$$Int64((num2 * 10000));
         },
         FromMilliseconds: function (value){
-            return System.TimeSpan.Interval(value, 1);
+            var ts = new System.TimeSpan.ctor();
+            ts._TotalMilliseconds = value;
+            return ts;
         },
         FromMinutes: function (value){
             return System.TimeSpan.Interval(value, 60000);
@@ -2965,11 +2966,18 @@ var System$TimeSpan = {
             }
             return num * 10000000;
         },
+        TimeToMs: function (hour, minute, second){
+            var num = hour * 3600 + minute * 60 + second;
+            if (num > 922337203685 || num < -922337203685){
+                throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String$$String(null, "Overflow_TimeSpanTooLong"), new Error());
+            }
+            return num * 1000;
+        },
         op_UnaryNegation: function (t){
-            if (t._ticks == System.TimeSpan.MinValue._ticks){
+            if (t.get__ticks() == System.TimeSpan.MinValue.get__ticks()){
                 throw $CreateException(new System.OverflowException.ctor$$String("Overflow_NegateTwosCompNum"), new Error());
             }
-            return new System.TimeSpan.ctor$$Int64(-t._ticks);
+            return new System.TimeSpan.ctor$$Int64(-t.get__ticks());
         },
         op_Subtraction: function (t1, t2){
             return t1.Subtract(t2);
@@ -2981,111 +2989,105 @@ var System$TimeSpan = {
             return t1.Add(t2);
         },
         op_Equality: function (t1, t2){
-            return t1._ticks == t2._ticks;
+            return t1.get__ticks() == t2.get__ticks();
         },
         op_Inequality: function (t1, t2){
-            return t1._ticks != t2._ticks;
+            return t1.get__ticks() != t2.get__ticks();
         },
         op_LessThan: function (t1, t2){
-            return t1._ticks < t2._ticks;
+            return t1.get__ticks() < t2.get__ticks();
         },
         op_LessThanOrEqual: function (t1, t2){
-            return t1._ticks <= t2._ticks;
+            return t1.get__ticks() <= t2.get__ticks();
         },
         op_GreaterThan: function (t1, t2){
-            return t1._ticks > t2._ticks;
+            return t1.get__ticks() > t2.get__ticks();
         },
         op_GreaterThanOrEqual: function (t1, t2){
-            return t1._ticks >= t2._ticks;
+            return t1.get__ticks() >= t2.get__ticks();
         }
     },
     assemblyName: "SharpKit.JsClr",
     Kind: "Class",
     definition: {
         ctor: function (){
-            this._ticks = 0;
+            this._TotalMilliseconds = 0;
             System.Object.ctor.call(this);
         },
         Ticks$$: "System.Int64",
         get_Ticks: function (){
-            return this._ticks;
+            return (this._TotalMilliseconds * 10000);
+        },
+        _ticks$$: "System.Int64",
+        get__ticks: function (){
+            return (this._TotalMilliseconds * 10000);
         },
         Days$$: "System.Int32",
         get_Days: function (){
-            return (this._ticks / 864000000000);
+            return (this.get__ticks() / 864000000000);
         },
         Hours$$: "System.Int32",
         get_Hours: function (){
-            return (this._ticks / 36000000000 % 24);
+            return (this.get__ticks() / 36000000000 % 24);
         },
         Milliseconds$$: "System.Int32",
         get_Milliseconds: function (){
-            return (this._ticks / 10000 % 1000);
+            return (this.get__ticks() / 10000 % 1000);
         },
         Minutes$$: "System.Int32",
         get_Minutes: function (){
-            return (this._ticks / 600000000 % 60);
+            return (this.get__ticks() / 600000000 % 60);
         },
         Seconds$$: "System.Int32",
         get_Seconds: function (){
-            return (this._ticks / 10000000 % 60);
+            return (this.get__ticks() / 10000000 % 60);
         },
         TotalDays$$: "System.Double",
         get_TotalDays: function (){
-            return this._ticks * 1.15740740740741E-12;
+            return this.get__ticks() / 86400000;
         },
         TotalHours$$: "System.Double",
         get_TotalHours: function (){
-            return this._ticks * 2.77777777777778E-11;
+            return this._TotalMilliseconds / 3600000;
         },
         TotalMilliseconds$$: "System.Double",
         get_TotalMilliseconds: function (){
-            var num = this._ticks * 0.0001;
-            if (num > 922337203685477){
-                return 922337203685477;
-            }
-            if (num < -922337203685477){
-                return -922337203685477;
-            }
-            return num;
+            return this._TotalMilliseconds;
         },
         TotalMinutes$$: "System.Double",
         get_TotalMinutes: function (){
-            return this._ticks / 10000 / 1000 / 60;
+            return this._TotalMilliseconds / 60000;
         },
         TotalSeconds$$: "System.Double",
         get_TotalSeconds: function (){
-            return this._ticks * 1E-07;
+            return this._TotalMilliseconds / 1000;
         },
         ctor$$Int64: function (ticks){
-            this._ticks = 0;
+            this._TotalMilliseconds = 0;
             System.Object.ctor.call(this);
-            this._ticks = ticks;
+            this._TotalMilliseconds = ticks / 10000;
         },
         ctor$$Int32$$Int32$$Int32: function (hours, minutes, seconds){
-            this._ticks = 0;
+            this._TotalMilliseconds = 0;
             System.Object.ctor.call(this);
-            this._ticks = System.TimeSpan.TimeToTicks(hours, minutes, seconds);
+            this._TotalMilliseconds = System.TimeSpan.TimeToMs(hours, minutes, seconds);
         },
         ctor$$Int32$$Int32$$Int32$$Int32: function (days, hours, minutes, seconds){
-            this._ticks = 0;
+            this._TotalMilliseconds = 0;
             System.TimeSpan.ctor$$Int32$$Int32$$Int32$$Int32$$Int32.call(this, days, hours, minutes, seconds, 0);
         },
         ctor$$Int32$$Int32$$Int32$$Int32$$Int32: function (days, hours, minutes, seconds, milliseconds){
-            this._ticks = 0;
+            this._TotalMilliseconds = 0;
             System.Object.ctor.call(this);
             var num = (days * 3600 * 24 + hours * 3600 + minutes * 60 + seconds) * 1000 + milliseconds;
             if (num > 922337203685477 || num < -922337203685477){
                 throw $CreateException(new System.ArgumentOutOfRangeException.ctor$$String$$String(null, "Overflow_TimeSpanTooLong"), new Error());
             }
-            this._ticks = num * 10000;
+            this._TotalMilliseconds = num;
         },
         Add: function (ts){
-            var num = this._ticks + ts._ticks;
-            if (this._ticks >> 63 == ts._ticks >> 63 && this._ticks >> 63 != num >> 63){
-                throw $CreateException(new System.OverflowException.ctor$$String("Overflow_TimeSpanTooLong"), new Error());
-            }
-            return new System.TimeSpan.ctor$$Int64(num);
+            var num = this._TotalMilliseconds + ts._TotalMilliseconds;
+            return System.TimeSpan.FromMilliseconds(num);
         },
         CompareTo$$Object: function (value){
             if (value == null){
@@ -3094,21 +3096,21 @@ var System$TimeSpan = {
             if (!(Is(value, System.TimeSpan.ctor))){
                 throw $CreateException(new System.ArgumentException.ctor$$String("Arg_MustBeTimeSpan"), new Error());
             }
-            var ticks = (Cast(value, System.TimeSpan.ctor))._ticks;
-            if (this._ticks > ticks){
+            var ticks = (Cast(value, System.TimeSpan.ctor)).get__ticks();
+            if (this.get__ticks() > ticks){
                 return 1;
             }
-            if (this._ticks < ticks){
+            if (this.get__ticks() < ticks){
                 return -1;
             }
             return 0;
         },
         CompareTo$$TimeSpan: function (value){
-            var ticks = value._ticks;
-            if (this._ticks > ticks){
+            var ticks = value.get__ticks();
+            if (this.get__ticks() > ticks){
                 return 1;
             }
-            if (this._ticks < ticks){
+            if (this.get__ticks() < ticks){
                 return -1;
             }
             return 0;
@@ -3117,26 +3119,26 @@ var System$TimeSpan = {
             if (this.get_Ticks() == System.TimeSpan.MinValue.get_Ticks()){
                 throw $CreateException(new System.OverflowException.ctor$$String("Overflow_Duration"), new Error());
             }
-            return new System.TimeSpan.ctor$$Int64((this._ticks >= 0) ? this._ticks : (-this._ticks));
+            return new System.TimeSpan.ctor$$Int64((this.get__ticks() >= 0) ? this.get__ticks() : (-this.get__ticks()));
         },
         Equals$$Object: function (value){
-            return Is(value, System.TimeSpan.ctor) && this._ticks == (Cast(value, System.TimeSpan.ctor))._ticks;
+            return Is(value, System.TimeSpan.ctor) && this.get__ticks() == (Cast(value, System.TimeSpan.ctor)).get__ticks();
         },
         Equals$$TimeSpan: function (obj){
-            return this._ticks == obj._ticks;
+            return this.get__ticks() == obj.get__ticks();
         },
         GetHashCode: function (){
-            return (this._ticks ^ (this._ticks >> 32));
+            return (this.get__ticks() ^ (this.get__ticks() >> 32));
         },
         Negate: function (){
             if (this.get_Ticks() == System.TimeSpan.MinValue.get_Ticks()){
                 throw $CreateException(new System.OverflowException.ctor$$String("Overflow_NegateTwosCompNum"), new Error());
             }
-            return new System.TimeSpan.ctor$$Int64(-this._ticks);
+            return new System.TimeSpan.ctor$$Int64(-this.get__ticks());
         },
         Subtract: function (ts){
-            var num = this._ticks - ts._ticks;
-            if (this._ticks >> 63 != ts._ticks >> 63 && this._ticks >> 63 != num >> 63){
+            var num = this.get__ticks() - ts.get__ticks();
+            if (this.get__ticks() >> 63 != ts.get__ticks() >> 63 && this.get__ticks() >> 63 != num >> 63){
                 throw $CreateException(new System.OverflowException.ctor$$String("Overflow_TimeSpanTooLong"), new Error());
             }
             return new System.TimeSpan.ctor$$Int64(num);

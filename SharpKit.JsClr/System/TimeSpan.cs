@@ -25,12 +25,19 @@
         public static readonly JsImplTimeSpan Zero = new JsImplTimeSpan(0L);
         public static readonly JsImplTimeSpan MaxValue = new JsImplTimeSpan(9223372036854775807L);
         public static readonly JsImplTimeSpan MinValue = new JsImplTimeSpan(-9223372036854775808L);
-        internal long _ticks;
+        internal double _TotalMilliseconds;
         public long Ticks
         {
             get
             {
-                return _ticks;
+                return (_TotalMilliseconds * 10000).As<long>();
+            }
+        }
+        public long _ticks
+        {
+            get
+            {
+                return (_TotalMilliseconds * 10000).As<long>();
             }
         }
         public int Days
@@ -72,56 +79,49 @@
         {
             get
             {
-                return _ticks * 1.1574074074074074E-12;
+                return _ticks / MillisPerDay;// 1.1574074074074074E-12;
             }
         }
         public double TotalHours
         {
             get
             {
-                return _ticks * 2.7777777777777777E-11;
+                return _TotalMilliseconds / MillisPerHour;// *2.7777777777777777E-11;
             }
         }
         public double TotalMilliseconds
         {
             get
             {
-                double num = _ticks * 0.0001;
-                if (num > 922337203685477.0)
-                {
-                    return 922337203685477.0;
-                }
-                if (num < -922337203685477.0)
-                {
-                    return -922337203685477.0;
-                }
-                return num;
+                return _TotalMilliseconds;
             }
         }
         public double TotalMinutes
         {
             get
             {
-                return _ticks / TicksPerMillisecond.As<double>() / 1000D / 60D; //* 1.6666666666666667E-09;
+                return _TotalMilliseconds / MillisPerMinute;// _ticks / TicksPerMillisecond.As<double>() / 1000D / 60D; //* 1.6666666666666667E-09;
             }
         }
         public double TotalSeconds
         {
             get
             {
-                return _ticks * 1E-07;
+                return _TotalMilliseconds / MillisPerSecond;// 1000;// _ticks * 1E-07;
             }
         }
 
-				public JsImplTimeSpan() {
-				}
-				public JsImplTimeSpan(long ticks)
+        public JsImplTimeSpan()
         {
-            _ticks = ticks;
         }
+        public JsImplTimeSpan(long ticks)
+        {
+            _TotalMilliseconds = ticks / 10000;
+        }
+        
         public JsImplTimeSpan(int hours, int minutes, int seconds)
         {
-            _ticks = TimeToTicks(hours, minutes, seconds);
+            _TotalMilliseconds = TimeToMs(hours, minutes, seconds);
         }
         public JsImplTimeSpan(int days, int hours, int minutes, int seconds) : this(days, hours, minutes, seconds, 0)
         {
@@ -134,16 +134,16 @@
             {
                 throw new System.ArgumentOutOfRangeException(null, "Overflow_TimeSpanTooLong");
             }
-            _ticks = num * 10000L;
+            _TotalMilliseconds = num;// *10000L;
         }
         public JsImplTimeSpan Add(JsImplTimeSpan ts)
         {
-            long num = _ticks + ts._ticks;
-            if (_ticks >> 63 == ts._ticks >> 63 && _ticks >> 63 != num >> 63)
-            {
-                throw new System.OverflowException("Overflow_TimeSpanTooLong");
-            }
-            return new JsImplTimeSpan(num);
+            var num = _TotalMilliseconds + ts._TotalMilliseconds;
+            //if (_ticks >> 63 == ts._ticks >> 63 && _ticks >> 63 != num >> 63)
+            //{
+            //    throw new System.OverflowException("Overflow_TimeSpanTooLong");
+            //}
+            return JsImplTimeSpan.FromMilliseconds(num);
         }
         public static int Compare(JsImplTimeSpan t1, JsImplTimeSpan t2)
         {
@@ -239,7 +239,9 @@
         }
         public static JsImplTimeSpan FromMilliseconds(double value)
         {
-            return JsImplTimeSpan.Interval(value, 1);
+            var ts = new JsImplTimeSpan();
+            ts._TotalMilliseconds = value;
+            return ts;
         }
         public static JsImplTimeSpan FromMinutes(double value)
         {
@@ -279,8 +281,17 @@
             }
             return num * 10000000L;
         }
+        internal static long TimeToMs(int hour, int minute, int second)
+        {
+            var num = hour * 3600L + minute * 60L + second;
+            if (num > 922337203685L || num < -922337203685L)
+            {
+                throw new System.ArgumentOutOfRangeException(null, "Overflow_TimeSpanTooLong");
+            }
+            return num * 1000L;
+        }
         #region TODO: Parse
-        
+
         //public static JsImplTimeSpan Parse(string s)
         //{
         //    return TimeSpanParse.Parse(s, null);

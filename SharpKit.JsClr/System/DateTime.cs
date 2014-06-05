@@ -31,20 +31,21 @@ namespace SharpKit.JavaScript.Private
 
         public JsImplDateTime(int year, int month, int day, int hour, int minute, int second)
         {
-            var x = new JsDateEx(year, month - 1, day, hour, minute, second, 0);
+            var x = new JsDateEx(year, month - 1, day, hour, minute, second);
             JsContext.@return(x);
         }
         public JsImplDateTime(int year, int month, int day, int hour, int minute, int second, DateTimeKind kind)
         {
-            var x = new JsDateEx();
+            JsDateEx x;
+            if (kind == DateTimeKind.Utc)
+            {
+                x = new JsDateEx(JsDate.UTC(year, month - 1, day, hour, minute, second));
+            }
+            else
+            {
+                x = new JsDateEx(year, month - 1, day, hour, minute, second);
+            }
             x._Kind = kind;
-            x.Year = year;
-            x.Month = month;
-            x.Day = day;
-            x.Hour = hour;
-            x.Minute = minute;
-            x.Second = second;
-            x.Millisecond = 0;
             JsContext.@return(x);
         }
 
@@ -100,20 +101,20 @@ namespace SharpKit.JavaScript.Private
         }
         public static TimeSpan operator -(JsImplDateTime t1, JsImplDateTime t2)
         {
-            return new TimeSpan((t1.getTime() - t2.getTime())*10000);
+            return TimeSpan.FromMilliseconds(t1.valueOf() - t2.valueOf());
         }
         public static JsImplDateTime operator -(JsImplDateTime t1, TimeSpan t2)
         {
-            return new JsDate((long)t1.getDate() - (long)t2.TotalMilliseconds).As<JsImplDateTime>();
+            return new JsDate((long)t1.valueOf() - (long)t2.TotalMilliseconds).As<JsImplDateTime>();
         }
 
         public static TimeSpan operator +(JsImplDateTime t1, JsImplDateTime t2)
         {
-            return new TimeSpan((t1.getTime() + t2.getTime()) * 10000);
+            return TimeSpan.FromMilliseconds(t1.valueOf() + t2.valueOf());
         }
         public static JsImplDateTime operator +(JsImplDateTime t1, TimeSpan t2)
         {
-            return new JsDate((long)t1.getDate() + (long)t2.TotalMilliseconds).As<JsImplDateTime>();
+            return new JsDate((long)t1.valueOf() + (long)t2.TotalMilliseconds).As<JsImplDateTime>();
         }
         public override bool Equals(object obj)
         {
