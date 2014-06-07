@@ -40,5 +40,10 @@ namespace SharpKit.Html
             get { return null; }
             set { }
         }
+
+        public Performance performance { get; private set; }
+
+
+        
     }
 }
