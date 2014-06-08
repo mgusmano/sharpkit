@@ -6,9 +6,9 @@ namespace SharpKit.Html.indexeddb
     using SharpKit.JavaScript;
 
     [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "IDBRequest")]
-    public partial class IDBRequest<R>
+    public partial class IDBRequest<Result>
     {
-        public  R result { get; set; }
+        public  Result result { get; set; }
 
         public  DOMError error { get; set; }
 

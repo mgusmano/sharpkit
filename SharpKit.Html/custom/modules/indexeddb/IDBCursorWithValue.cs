@@ -6,9 +6,9 @@ namespace SharpKit.Html.indexeddb
     using SharpKit.JavaScript;
 
     [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "IDBCursorWithValue")]
-    public partial class IDBCursorWithValue<K,V> : IDBCursor<K>
+    public partial class IDBCursorWithValue<Key,Value> : IDBCursor<Key>
     {
-        public  V value { get; set; }
+        public  Value value { get; set; }
     }
 
 }

@@ -6,7 +6,7 @@ namespace SharpKit.Html.indexeddb
     using SharpKit.JavaScript;
 
     [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "IDBIndex")]
-    public partial class IDBIndex<K,V>
+    public partial class IDBIndex<IndexKey,Value>
     {
         public  JsString name { get; set; }
 
@@ -18,29 +18,29 @@ namespace SharpKit.Html.indexeddb
 
         public  bool multiEntry { get; set; }
 
-        public  IDBRequest<IDBCursorWithValue<K,V>> openCursor()
+        public  IDBRequest<IDBCursorWithValue<IndexKey,Value>> openCursor()
         {
-            return default(IDBRequest<IDBCursorWithValue<K,V>>);
+            return default(IDBRequest<IDBCursorWithValue<IndexKey,Value>>);
         }
 
-        public  IDBRequest<IDBCursorWithValue<K,V>> openCursor(IDBKeyRange<K> range)
+        public  IDBRequest<IDBCursorWithValue<IndexKey,Value>> openCursor(IDBKeyRange<IndexKey> range)
         {
-            return default(IDBRequest<IDBCursorWithValue<K,V>>);
+            return default(IDBRequest<IDBCursorWithValue<IndexKey,Value>>);
         }
 
-        public  IDBRequest<IDBCursorWithValue<K,V>> openCursor(IDBKeyRange<K> range, string direction)
+        public  IDBRequest<IDBCursorWithValue<IndexKey,Value>> openCursor(IDBKeyRange<IndexKey> range, string direction)
         {
-            return default(IDBRequest<IDBCursorWithValue<K,V>>);
+            return default(IDBRequest<IDBCursorWithValue<IndexKey,Value>>);
         }
 
-        public  IDBRequest<IDBCursorWithValue<K,V>> openCursor(K key)
+        public  IDBRequest<IDBCursorWithValue<IndexKey,Value>> openCursor(IndexKey key)
         {
-            return default(IDBRequest<IDBCursorWithValue<K,V>>);
+            return default(IDBRequest<IDBCursorWithValue<IndexKey,Value>>);
         }
 
-        public  IDBRequest<IDBCursorWithValue<K,V>> openCursor(K key, string direction)
+        public  IDBRequest<IDBCursorWithValue<IndexKey,Value>> openCursor(IndexKey key, string direction)
         {
-            return default(IDBRequest<IDBCursorWithValue<K,V>>);
+            return default(IDBRequest<IDBCursorWithValue<IndexKey,Value>>);
         }
 
         public  IDBRequest openKeyCursor()
@@ -48,42 +48,42 @@ namespace SharpKit.Html.indexeddb
             return default(IDBRequest);
         }
 
-        public  IDBRequest openKeyCursor(IDBKeyRange<K> range)
+        public  IDBRequest openKeyCursor(IDBKeyRange<IndexKey> range)
         {
             return default(IDBRequest);
         }
 
-        public  IDBRequest openKeyCursor(IDBKeyRange<K> range, string direction)
+        public  IDBRequest openKeyCursor(IDBKeyRange<IndexKey> range, string direction)
         {
             return default(IDBRequest);
         }
 
-        public  IDBRequest openKeyCursor(K key)
+        public  IDBRequest openKeyCursor(IndexKey key)
         {
             return default(IDBRequest);
         }
 
-        public  IDBRequest openKeyCursor(K key, string direction)
+        public  IDBRequest openKeyCursor(IndexKey key, string direction)
         {
             return default(IDBRequest);
         }
 
-        public  IDBRequest get(IDBKeyRange<K> key)
+        public  IDBRequest get(IDBKeyRange<IndexKey> key)
         {
             return default(IDBRequest);
         }
 
-        public  IDBRequest<V> get(K key)
+        public  IDBRequest<Value> get(IndexKey key)
         {
-            return default(IDBRequest<V>);
+            return default(IDBRequest<Value>);
         }
 
-        public  IDBRequest getKey(IDBKeyRange<K> key)
+        public  IDBRequest getKey(IDBKeyRange<IndexKey> key)
         {
             return default(IDBRequest);
         }
 
-        public  IDBRequest getKey(K key)
+        public  IDBRequest getKey(IndexKey key)
         {
             return default(IDBRequest);
         }
@@ -93,12 +93,12 @@ namespace SharpKit.Html.indexeddb
             return default(IDBRequest);
         }
 
-        public  IDBRequest count(IDBKeyRange<K> range)
+        public  IDBRequest count(IDBKeyRange<IndexKey> range)
         {
             return default(IDBRequest);
         }
 
-        public  IDBRequest count(K key)
+        public  IDBRequest count(IndexKey key)
         {
             return default(IDBRequest);
         }

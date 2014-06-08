@@ -8,14 +8,14 @@ namespace SharpKit.Html.indexeddb
     [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "IDBDatabase")]
     public partial class IDBDatabase
     {
-        public  IDBObjectStore<K,V> createObjectStore<K,V>(string name)
+        public  IDBObjectStore<Key,Value> createObjectStore<Key,Value>(string name)
         {
-            return default(IDBObjectStore<K,V>);
+            return default(IDBObjectStore<Key,Value>);
         }
 
-        public  IDBObjectStore<K,V> createObjectStore<K,V>(string name, ObjectStoreOptions options)
+        public  IDBObjectStore<Key,Value> createObjectStore<Key,Value>(string name, ObjectStoreOptions options)
         {
-            return default(IDBObjectStore<K,V>);
+            return default(IDBObjectStore<Key,Value>);
         }
 
         public  IDBTransaction transaction(JsArray<string> storeNames, string mode)

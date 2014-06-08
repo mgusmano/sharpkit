@@ -12,9 +12,9 @@ namespace SharpKit.Html.indexeddb
         public const string READ_WRITE = "readwrite";
         public const string VERSION_CHANGE = "versionchange";
 
-        public  IDBObjectStore<K,V> objectStore<K,V>(string name)
+        public  IDBObjectStore<Key,Value> objectStore<Key,Value>(string name)
         {
-            return default(IDBObjectStore<K,V>);
+            return default(IDBObjectStore<Key,Value>);
         }
     }
 }

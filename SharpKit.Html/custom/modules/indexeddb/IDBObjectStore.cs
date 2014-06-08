@@ -6,7 +6,7 @@ namespace SharpKit.Html.indexeddb
     using SharpKit.JavaScript;
 
     [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "IDBObjectStore")]
-    public partial class IDBObjectStore<K,V>
+    public partial class IDBObjectStore<Key,Value>
     {
         public  JsString name { get; set; }
 
@@ -18,12 +18,12 @@ namespace SharpKit.Html.indexeddb
 
         public  bool autoIncrement { get; set; }
 
-        public  IDBRequest put(V value)
+        public  IDBRequest put(Value value)
         {
             return default(IDBRequest);
         }
 
-        public  IDBRequest put(V value, K key)
+        public  IDBRequest put(Value value, Key key)
         {
             return default(IDBRequest);
         }
@@ -33,17 +33,17 @@ namespace SharpKit.Html.indexeddb
             return default(IDBRequest);
         }
 
-        public  IDBRequest add(object value, K key)
+        public  IDBRequest add(object value, Key key)
         {
             return default(IDBRequest);
         }
 
-        public  IDBRequest delete(IDBKeyRange<K> keyRange)
+        public  IDBRequest delete(IDBKeyRange<Key> keyRange)
         {
             return default(IDBRequest);
         }
 
-        public  IDBRequest delete(K key)
+        public  IDBRequest delete(Key key)
         {
             return default(IDBRequest);
         }
@@ -53,39 +53,39 @@ namespace SharpKit.Html.indexeddb
             return default(IDBRequest);
         }
 
-        public  IDBRequest get(IDBKeyRange<K> key)
+        public  IDBRequest get(IDBKeyRange<Key> key)
         {
             return default(IDBRequest);
         }
 
-        public  IDBRequest get(K key)
+        public  IDBRequest<Value> get(Key key)
         {
-            return default(IDBRequest);
+            return default(IDBRequest<Value>);
         }
 
-        public  IDBRequest<IDBCursorWithValue<K,V>> openCursor()
+        public  IDBRequest<IDBCursorWithValue<Key,Value>> openCursor()
         {
-            return default(IDBRequest<IDBCursorWithValue<K,V>>);
+            return default(IDBRequest<IDBCursorWithValue<Key,Value>>);
         }
 
-        public  IDBRequest<IDBCursorWithValue<K,V>> openCursor(IDBKeyRange<K> range)
+        public  IDBRequest<IDBCursorWithValue<Key,Value>> openCursor(IDBKeyRange<Key> range)
         {
-            return default(IDBRequest<IDBCursorWithValue<K,V>>);
+            return default(IDBRequest<IDBCursorWithValue<Key,Value>>);
         }
 
-        public  IDBRequest<IDBCursorWithValue<K,V>> openCursor(IDBKeyRange<K> range, string direction)
+        public  IDBRequest<IDBCursorWithValue<Key,Value>> openCursor(IDBKeyRange<Key> range, string direction)
         {
-            return default(IDBRequest<IDBCursorWithValue<K,V>>);
+            return default(IDBRequest<IDBCursorWithValue<Key,Value>>);
         }
 
-        public  IDBRequest<IDBCursorWithValue<K,V>> openCursor(K key)
+        public  IDBRequest<IDBCursorWithValue<Key,Value>> openCursor(Key key)
         {
-            return default(IDBRequest<IDBCursorWithValue<K,V>>);
+            return default(IDBRequest<IDBCursorWithValue<Key,Value>>);
         }
 
-        public  IDBRequest<IDBCursorWithValue<K,V>> openCursor(K key, string direction)
+        public  IDBRequest<IDBCursorWithValue<Key,Value>> openCursor(Key key, string direction)
         {
-            return default(IDBRequest<IDBCursorWithValue<K,V>>);
+            return default(IDBRequest<IDBCursorWithValue<Key,Value>>);
         }
 
         public  IDBIndex createIndex(string name, JsString keyPath)
@@ -108,29 +108,29 @@ namespace SharpKit.Html.indexeddb
             return default(IDBIndex);
         }
 
-        public  IDBIndex<I,V> createIndex<I>(string name, JsString keyPath)
+        public  IDBIndex<Index,Value> createIndex<Index>(string name, JsString keyPath)
         {
-            return default(IDBIndex<I,V>);
+            return default(IDBIndex<Index,Value>);
         }
 
-        public  IDBIndex<I,V> createIndex<I>(string name, JsString keyPath, object options)
+        public  IDBIndex<Index,Value> createIndex<Index>(string name, JsString keyPath, object options)
         {
-            return default(IDBIndex<I,V>);
+            return default(IDBIndex<Index,Value>);
         }
 
-        public  IDBIndex<I,V> createIndex<I>(string name, string keyPath)
+        public  IDBIndex<Index,Value> createIndex<Index>(string name, string keyPath)
         {
-            return default(IDBIndex<I,V>);
+            return default(IDBIndex<Index,Value>);
         }
 
-        public  IDBIndex<I,V> createIndex<I>(string name, string keyPath, object options)
+        public  IDBIndex<Index,Value> createIndex<Index>(string name, string keyPath, object options)
         {
-            return default(IDBIndex<I,V>);
+            return default(IDBIndex<Index,Value>);
         }
 
-        public  IDBIndex<I,V> index<I>(string name)
+        public  IDBIndex<Index,Value> index<Index>(string name)
         {
-            return default(IDBIndex<I,V>);
+            return default(IDBIndex<Index,Value>);
         }
 
         public  void deleteIndex(string name)
@@ -142,12 +142,12 @@ namespace SharpKit.Html.indexeddb
             return default(IDBRequest);
         }
 
-        public  IDBRequest count(IDBKeyRange<K> range)
+        public  IDBRequest count(IDBKeyRange<Key> range)
         {
             return default(IDBRequest);
         }
 
-        public  IDBRequest count(K key)
+        public  IDBRequest count(Key key)
         {
             return default(IDBRequest);
         }

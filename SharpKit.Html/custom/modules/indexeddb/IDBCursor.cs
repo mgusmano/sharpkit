@@ -6,13 +6,13 @@ namespace SharpKit.Html.indexeddb
     using SharpKit.JavaScript;
 
     [JsType(JsMode.Prototype, Export = false, PropertiesAsFields = true, NativeCasts = true, Name = "IDBCursor")]
-    public partial class IDBCursor<K>
+    public partial class IDBCursor<Key>
     {
         public  JsString direction { get; set; }
 
-        public  K key { get; set; }
+        public  Key key { get; set; }
 
-        public  K primaryKey { get; set; }
+        public  Key primaryKey { get; set; }
 
         public  IDBAny source { get; set; }
 
@@ -29,7 +29,7 @@ namespace SharpKit.Html.indexeddb
         {
         }
 
-        public  void @continue(K key)
+        public  void @continue(Key key)
         {
         }
 
