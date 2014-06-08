@@ -1540,6 +1540,11 @@ namespace SharpKit.JavaScript
         ///<param name="numdate">A numeric value equal to the day of the month.</param>
         [JsMethod(NativeOverloads = true)]
         public void setFullYear(JsNumber numYear, JsNumber numMonth, JsNumber numdate) { }
+        /// <summary>
+        /// Return the date in ISO 8601 format.
+        /// </summary>
+        [JsMethod(NativeOverloads = true)]
+        public JsString toISOString() { return default(JsString); }
     }
 
     #endregion
