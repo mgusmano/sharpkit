@@ -1334,7 +1334,11 @@ namespace SharpKit.Raphael
         /// </code>
         /// </example>
         /// 
-        public void path(string pathString) { }
+        public Element path(string pathString)
+        {
+            return null;
+        }
+
         //TODO: not done!!!! 
 
         /// <summary>
