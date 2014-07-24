@@ -1274,7 +1274,7 @@ namespace SharpKit.jQuery
         /// <summary>
         /// Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.
         /// </summary>
-        public jQuery map(JsFunc<HtmlElement, HtmlElement, object> callback) { return null; }
+        public jQuery map(JsFunc<JsNumber, Element, object> callback) { return null; }
         /// <summary>
         /// Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
         /// </summary>
@@ -2429,30 +2429,48 @@ namespace SharpKit.jQuery
         /// Check to see if a DOM node is within an XML document (or is an XML document).
         /// </summary>
         public static bool isXMLDoc(HtmlElement node) { return false; }
+
         /// <summary>
         /// Convert an array-like object into a true JavaScript array.
         /// </summary>
         public static JsArray makeArray(object obj) { return null; }
+
         /// <summary>
-        /// Translate all items in an array or array-like object to another array of items.
+        /// Translate all items in an array or array-like object to another array of items. (1.0)
         /// </summary>
-        public static JsArray map(JsArray array, JsFunc<object, JsNumber, object> callback) { return null; }
+        /// <param name="array">The Array to translate.</param>
+        /// <param name="callback">The function to process each item against. The first argument to the function is the array item, the second argument is the index in array The function can return any value. A returned array will be flattened into the resulting array. Within the function, this refers to the global (window) object.</param>
+        /// <returns>JsArray.</returns>
+        public static JsArray map(JsArray array, JsFunc<object, JsNumber, JsObject> callback) { return null; }
+
         /// <summary>
-        /// Translate all items in an array or array-like object to another array of items.
+        /// Translate all items in an array or array-like object to another array of items. (1.6)
         /// </summary>
-        public static JsArray map(JsArray array, JsFunc<object, object> callback) { return null; }
+        /// <param name="array">The Object to translate.</param>
+        /// <param name="callback">The function to process each item against. The first argument to the function is the value; the second argument is the key of the object property. The function can return any value to add to the array. A returned array will be flattened into the resulting array. Within the function, this refers to the global (window) object.</param>
+        /// <returns>JsArray.</returns>
+        public static JsArray map(JsObject array, JsFunc<object, JsString, JsObject> callback) { return null; }
 
         /// <summary>
         /// Translate all items in an array or array-like object to another array of items.
         /// </summary>
+        /// <typeparam name="T">Type of objects in supplied array.</typeparam>
+        /// <typeparam name="R">Type of objects in returned array.</typeparam>
+        /// <param name="array">The Array to translate.</param>
+        /// <param name="callback">The function to process each item against. The first argument to the function is the array item, the second argument is the index in array The function can return any value. A returned array will be flattened into the resulting array. Within the function, this refers to the global (window) object.</param>
+        /// <returns>JsArray&lt;R&gt;.</returns>
         public static JsArray<R> map<T, R>(JsArray<T> array, JsFunc<T, JsNumber, R> callback) { return null; }
 
         /// <summary>
         /// Translate all items in an array or array-like object to another array of items.
         /// </summary>
+        /// <typeparam name="T">Type of objects in supplied array.</typeparam>
+        /// <typeparam name="R">Type of objects in returned array.</typeparam>
+        /// <param name="array">The Array to translate.</param>
+        /// <param name="callback">The function to process each item against. The first argument to the function is the array item, the second argument is the index in array The function can return any value. A returned array will be flattened into the resulting array. Within the function, this refers to the global (window) object.</param>
+        /// <returns>JsArray&lt;R&gt;.</returns>
         public static JsArray<R> map<T, R>(JsArray<T> array, JsFunc<T, R> callback) { return null; }
 
-        //TODO: not full. http://api.jquery.com/jQuery.map/
         /// <summary>
         /// Merge the contents of two arrays together into the first array.
         /// </summary>
